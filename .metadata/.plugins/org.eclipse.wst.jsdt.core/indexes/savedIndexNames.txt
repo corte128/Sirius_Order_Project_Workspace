@@ -1,0 +1,2 @@
+INDEX VERSION 1.2+C:\Users\IEUser\IBM\rationalsdp\Staples_Project_Workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2054188280.index
