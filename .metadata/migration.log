@@ -1,0 +1,5 @@
+
+*** Migration startup - September 8, 2017 11:33:18 AM CDT
+First migrator: com.ibm.ws.ast.st.migration.internal.migrator.ServerToolsMetadataMigratior
+Migrating workspace metadata
+OK     migrator ID: com.ibm.ws.ast.st.migration.internal.migrator.ServerToolsMetadataMigratior
