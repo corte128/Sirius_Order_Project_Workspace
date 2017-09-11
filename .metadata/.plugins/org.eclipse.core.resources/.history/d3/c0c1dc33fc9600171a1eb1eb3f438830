@@ -1,0 +1,13 @@
+package com.sirius.employeews.jaxws;
+
+import javax.jws.*;
+
+@WebService(name = "Employee", targetNamespace = "http://ace.sirius.com/profile/wsdl")
+public interface Employee {
+	@WebMethod(action = "getEmployeeById")
+	@WebResult(name = "getEmployeeByIdReturn", targetNamespace = "http://ace.sirius.com/profile/wsdl")
+	@RequestWrapper(localName = "getEmployeeById", targetNamespace = "http://ace.sirius.com/profile/wsdl", className = "com.sirius.ace.jaxws.GetEmployeeById")
+	@ResponseWrapper(localName = "getEmployeeByIdResponse", targetNamespace = "http://ace.sirius.com/profile/wsdl", className = "com.sirius.ace.jaxws.GetEmployeeByIdResponse")
+	public Employee getEmployeeById(
+			@WebParam(name = "id", targetNamespace = "http://ace.sirius.com/profile/wsdl") int id);
+}

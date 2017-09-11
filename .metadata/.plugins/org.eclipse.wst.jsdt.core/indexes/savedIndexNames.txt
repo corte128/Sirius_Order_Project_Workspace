@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INDEX VERSION 1.2+C:\Users\IEUser\IBM\rationalsdp\Sirius_Order_Project_Workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
 2527564326.index
 2805583220.index
@@ -6,3 +7,10 @@ INDEX VERSION 1.2+C:\Users\IEUser\IBM\rationalsdp\Sirius_Order_Project_Workspace
 1316003477.index
 2054188280.index
 2435324872.index
+=======
+INDEX VERSION 1.2+C:\Users\IEUser\Desktop\Sirius_Order_Project_Workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2054188280.index
+1690704143.index
+894412097.index
+1316003477.index
+>>>>>>> 42cb50a0fe81bf1c116fdc25340bd40520eeca09

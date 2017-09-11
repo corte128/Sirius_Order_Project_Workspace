@@ -1,0 +1,7 @@
+package com.sirius.employeews.jaxws;
+
+import javax.jws.WebService;
+
+public class JaxwsEmployeeImpl {
+
+}
