@@ -1,0 +1,7 @@
+1505147491531	Rename package 'com.sirius.employeews.db'
+1505147502676	Rename package 'com.sirius.employeews.jaxws'
+1505147528889	Rename package 'com.sirius.employeews.beans'
+1505148016598	Rename type 'EmployeeServiceDAO'
+1505148025930	Rename type 'EmployeeServiceDAOImpl'
+1505148061632	Rename type 'Employee'
+1505148074434	Rename type 'JaxwsEmployeeImpl'

@@ -1,0 +1,5 @@
+package com.sirius.employeews.jaxws;
+
+public class JaxwsEmployeeImpl {
+
+}
