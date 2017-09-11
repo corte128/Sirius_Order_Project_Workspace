@@ -1,5 +1,0 @@
-package com.sirius.employeews.jaxws;
-
-public interface Employee {
-
-}

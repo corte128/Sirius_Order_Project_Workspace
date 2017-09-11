@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Delete resource &apos;LoginWS&apos;" deleteContents="false" description="Delete resource &apos;LoginWS&apos;" element1="/LoginWS" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1505147370483"/>
-</session>
