@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+!SESSION 2017-09-08 12:22:01.184 -----------------------------------------------
+=======
+<<<<<<< HEAD
 !SESSION 2017-09-08 12:19:16.086 -----------------------------------------------
 =======
 !SESSION 2017-09-11 08:52:12.312 -----------------------------------------------
 >>>>>>> 42cb50a0fe81bf1c116fdc25340bd40520eeca09
+>>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
 eclipse.buildId=unknown
 java.fullversion=JRE 1.7.0 IBM J9 2.6 Windows 7 x86-32 20120322_106209 (JIT enabled, AOT enabled)
 J9VM - R26_Java726_SR1_20120322_1720_B106209
@@ -12,6 +16,14 @@ J9CL - 20120322_106209
 BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
 Framework arguments:  -product com.ibm.rational.rad.product.v85.ide
 Command-line arguments:  -os win32 -ws win32 -arch x86 -product com.ibm.rational.rad.product.v85.ide
+<<<<<<< HEAD
+
+This is a continuation of log file C:\Users\IEUser\IBM\rationalsdp\Sirius_Order_Project_Workspace\.metadata\.bak_0.log
+Created Time: 2017-09-11 08:33:05.481
+
+!ENTRY org.eclipse.equinox.ds 4 0 2017-09-11 08:33:05.481
+!MESSAGE [SCR] Exception while activating instance com.ibm.support.feedback.ui.internal.UIFeedback@54675f49 of component Support UI Feedback Service  
+=======
 <<<<<<< HEAD
 
 This is a continuation of log file C:\Users\IEUser\IBM\rationalsdp\Sirius_Order_Project_Workspace\.metadata\.bak_0.log
@@ -26,6 +38,7 @@ Created Time: 2017-09-11 08:55:20.932
 
 !ENTRY org.eclipse.equinox.ds 4 0 2017-09-11 08:55:20.932
 !MESSAGE [SCR] Exception while activating instance com.ibm.support.feedback.ui.internal.UIFeedback@f8248ba9 of component Support UI Feedback Service  
+>>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
 !STACK 0
 java.lang.reflect.InvocationTargetException
 	at sun.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)
@@ -84,6 +97,18 @@ java.lang.reflect.InvocationTargetException
 	at org.eclipse.wst.validation.internal.ValManager.accept(Unknown Source)
 	at org.eclipse.wst.validation.internal.ValManager.validate(Unknown Source)
 	at org.eclipse.wst.validation.internal.ValBuilderJob$Visitor.visit(Unknown Source)
+<<<<<<< HEAD
+	at org.eclipse.core.internal.events.ResourceDelta.accept(Unknown Source)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(Unknown Source)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(Unknown Source)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(Unknown Source)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(Unknown Source)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(Unknown Source)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(Unknown Source)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(Unknown Source)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(Unknown Source)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.deltaBuild(Unknown Source)
+=======
 	at org.eclipse.core.internal.resources.Resource$2.visit(Unknown Source)
 	at org.eclipse.core.internal.resources.Resource$1.visitElement(Unknown Source)
 	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(Unknown Source)
@@ -99,6 +124,7 @@ java.lang.reflect.InvocationTargetException
 	at org.eclipse.core.internal.resources.Resource.accept(Unknown Source)
 	at org.eclipse.core.internal.resources.Resource.accept(Unknown Source)
 	at org.eclipse.wst.validation.internal.ValBuilderJob.fullBuild(Unknown Source)
+>>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
 	at org.eclipse.wst.validation.internal.ValBuilderJob.run(Unknown Source)
 	at org.eclipse.wst.validation.internal.ValBuilderJob.runInWorkspace(Unknown Source)
 	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(Unknown Source)
@@ -109,7 +135,11 @@ Caused by: java.lang.NullPointerException
 	at com.ibm.support.feedback.core.internal.config.FeedbackConfig.initialize(Unknown Source)
 	at com.ibm.support.feedback.core.internal.config.FeedbackConfigHandler.getConfiguration(Unknown Source)
 	at com.ibm.support.feedback.ui.internal.UIFeedback.activate(Unknown Source)
+<<<<<<< HEAD
+	... 70 more
+=======
 	... 75 more
+>>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
 Root exception:
 java.lang.NullPointerException
 	at com.ibm.support.feedback.core.internal.servers.ServerAdapter.isIBMInternalUser(Unknown Source)
@@ -173,6 +203,18 @@ java.lang.NullPointerException
 	at org.eclipse.wst.validation.internal.ValManager.accept(Unknown Source)
 	at org.eclipse.wst.validation.internal.ValManager.validate(Unknown Source)
 	at org.eclipse.wst.validation.internal.ValBuilderJob$Visitor.visit(Unknown Source)
+<<<<<<< HEAD
+	at org.eclipse.core.internal.events.ResourceDelta.accept(Unknown Source)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(Unknown Source)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(Unknown Source)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(Unknown Source)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(Unknown Source)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(Unknown Source)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(Unknown Source)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(Unknown Source)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(Unknown Source)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.deltaBuild(Unknown Source)
+=======
 	at org.eclipse.core.internal.resources.Resource$2.visit(Unknown Source)
 	at org.eclipse.core.internal.resources.Resource$1.visitElement(Unknown Source)
 	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(Unknown Source)
@@ -188,14 +230,20 @@ java.lang.NullPointerException
 	at org.eclipse.core.internal.resources.Resource.accept(Unknown Source)
 	at org.eclipse.core.internal.resources.Resource.accept(Unknown Source)
 	at org.eclipse.wst.validation.internal.ValBuilderJob.fullBuild(Unknown Source)
+>>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
 	at org.eclipse.wst.validation.internal.ValBuilderJob.run(Unknown Source)
 	at org.eclipse.wst.validation.internal.ValBuilderJob.runInWorkspace(Unknown Source)
 	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(Unknown Source)
 	at org.eclipse.core.internal.jobs.Worker.run(Unknown Source)
 
+<<<<<<< HEAD
+!ENTRY org.eclipse.equinox.ds 4 0 2017-09-11 08:33:06.245
+!MESSAGE [SCR] Exception while activating instance com.ibm.support.feedback.ui.internal.UIFeedback@d01454e6 of component Support UI Feedback Service  
+=======
 !ENTRY org.eclipse.equinox.ds 4 0 2017-09-11 08:57:48.850
 !MESSAGE [SCR] Exception while activating instance com.ibm.support.feedback.ui.internal.UIFeedback@bfb7775b of component Support UI Feedback Service  
 >>>>>>> 42cb50a0fe81bf1c116fdc25340bd40520eeca09
+>>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
 !STACK 0
 java.lang.reflect.InvocationTargetException
 	at sun.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)
@@ -269,6 +317,14 @@ java.lang.reflect.InvocationTargetException
 	at org.eclipse.ui.internal.WorkbenchPage.openEditor(Unknown Source)
 	at org.eclipse.ui.internal.WorkbenchPage.openEditor(Unknown Source)
 	at org.eclipse.ui.internal.WorkbenchPage.openEditor(Unknown Source)
+<<<<<<< HEAD
+	at org.eclipse.ui.ide.IDE.openEditor(Unknown Source)
+	at org.eclipse.ui.ide.IDE.openEditor(Unknown Source)
+	at org.eclipse.jdt.internal.ui.wizards.NewElementWizard$1.run(Unknown Source)
+	at org.eclipse.swt.widgets.RunnableLock.run(Unknown Source)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Unknown Source)
+=======
 	at org.eclipse.jdt.internal.ui.javaeditor.EditorUtility.openInEditor(Unknown Source)
 	at org.eclipse.jdt.internal.ui.javaeditor.EditorUtility.openInEditor(Unknown Source)
 	at org.eclipse.jdt.ui.actions.OpenAction.run(Unknown Source)
@@ -293,6 +349,7 @@ java.lang.reflect.InvocationTargetException
 	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
+>>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
 	at org.eclipse.ui.internal.Workbench.runEventLoop(Unknown Source)
 	at org.eclipse.ui.internal.Workbench.runUI(Unknown Source)
@@ -321,7 +378,11 @@ Caused by: java.lang.NullPointerException
 	at com.ibm.support.feedback.core.internal.config.FeedbackConfig.initialize(Unknown Source)
 	at com.ibm.support.feedback.core.internal.config.FeedbackConfigHandler.getConfiguration(Unknown Source)
 	at com.ibm.support.feedback.ui.internal.UIFeedback.activate(Unknown Source)
+<<<<<<< HEAD
+	... 99 more
+=======
 	... 117 more
+>>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
 Root exception:
 java.lang.NullPointerException
 	at com.ibm.support.feedback.core.internal.servers.ServerAdapter.isIBMInternalUser(Unknown Source)
@@ -400,6 +461,14 @@ java.lang.NullPointerException
 	at org.eclipse.ui.internal.WorkbenchPage.openEditor(Unknown Source)
 	at org.eclipse.ui.internal.WorkbenchPage.openEditor(Unknown Source)
 	at org.eclipse.ui.internal.WorkbenchPage.openEditor(Unknown Source)
+<<<<<<< HEAD
+	at org.eclipse.ui.ide.IDE.openEditor(Unknown Source)
+	at org.eclipse.ui.ide.IDE.openEditor(Unknown Source)
+	at org.eclipse.jdt.internal.ui.wizards.NewElementWizard$1.run(Unknown Source)
+	at org.eclipse.swt.widgets.RunnableLock.run(Unknown Source)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Unknown Source)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Unknown Source)
+=======
 	at org.eclipse.jdt.internal.ui.javaeditor.EditorUtility.openInEditor(Unknown Source)
 	at org.eclipse.jdt.internal.ui.javaeditor.EditorUtility.openInEditor(Unknown Source)
 	at org.eclipse.jdt.ui.actions.OpenAction.run(Unknown Source)
@@ -424,6 +493,7 @@ java.lang.NullPointerException
 	at org.eclipse.swt.widgets.EventTable.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Widget.sendEvent(Unknown Source)
 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Unknown Source)
+>>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
 	at org.eclipse.swt.widgets.Display.readAndDispatch(Unknown Source)
 	at org.eclipse.ui.internal.Workbench.runEventLoop(Unknown Source)
 	at org.eclipse.ui.internal.Workbench.runUI(Unknown Source)
@@ -447,6 +517,10 @@ java.lang.NullPointerException
 	at org.eclipse.equinox.launcher.Main.run(Unknown Source)
 	at org.eclipse.equinox.launcher.Main.main(Unknown Source)
 
+<<<<<<< HEAD
+!ENTRY org.eclipse.equinox.ds 4 0 2017-09-11 08:34:30.893
+!MESSAGE [SCR] Exception while activating instance com.ibm.support.feedback.ui.internal.UIFeedback@d88df6e4 of component Support UI Feedback Service  
+=======
 <<<<<<< HEAD
 !ENTRY org.eclipse.equinox.ds 4 0 2017-09-08 12:21:40.121
 !MESSAGE [SCR] Exception while activating instance com.ibm.support.feedback.ui.internal.UIFeedback@989c4822 of component Support UI Feedback Service  
@@ -578,6 +652,7 @@ java.lang.NullPointerException
 !ENTRY org.eclipse.equinox.ds 4 0 2017-09-11 09:10:12.065
 !MESSAGE [SCR] Exception while activating instance com.ibm.support.feedback.ui.internal.UIFeedback@501de1fc of component Support UI Feedback Service  
 >>>>>>> 42cb50a0fe81bf1c116fdc25340bd40520eeca09
+>>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
 !STACK 0
 java.lang.reflect.InvocationTargetException
 	at sun.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)
@@ -597,6 +672,42 @@ java.lang.reflect.InvocationTargetException
 	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEventPrivileged(Unknown Source)
 	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEvent(Unknown Source)
 <<<<<<< HEAD
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.register(Unknown Source)
+	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.registerService(Unknown Source)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.registerService(Unknown Source)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.registerService(Unknown Source)
+	at com.ibm.etools.annotations.ui.Activator.start(Unknown Source)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Unknown Source)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(Unknown Source)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(Unknown Source)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(Unknown Source)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(Unknown Source)
+	at org.eclipse.osgi.framework.util.SecureAction.start(Unknown Source)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(Unknown Source)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(Unknown Source)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(Unknown Source)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(Unknown Source)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(Unknown Source)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(Unknown Source)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(Unknown Source)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(Unknown Source)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.loader.BundleLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(Unknown Source)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(Unknown Source)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(Unknown Source)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(Unknown Source)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(Unknown Source)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(Unknown Source)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverDescriptor.createTextHover(Unknown Source)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.checkTextHovers(Unknown Source)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(Unknown Source)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(Unknown Source)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(Unknown Source)
+=======
+<<<<<<< HEAD
 	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.setProperties(Unknown Source)
 	at org.eclipse.equinox.internal.app.EclipseAppHandle.setAppStatus(Unknown Source)
 	at org.eclipse.equinox.internal.app.EclipseAppHandle.setInternalResult(Unknown Source)
@@ -613,13 +724,14 @@ java.lang.reflect.InvocationTargetException
 	at org.eclipse.equinox.launcher.Main.basicRun(Unknown Source)
 	at org.eclipse.equinox.launcher.Main.run(Unknown Source)
 	at org.eclipse.equinox.launcher.Main.main(Unknown Source)
+>>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
 Caused by: java.lang.NullPointerException
 	at com.ibm.support.feedback.core.internal.servers.ServerAdapter.isIBMInternalUser(Unknown Source)
 	at com.ibm.support.feedback.core.internal.servers.FTPAdapter.isValid(Unknown Source)
 	at com.ibm.support.feedback.core.internal.config.FeedbackConfig.initialize(Unknown Source)
 	at com.ibm.support.feedback.core.internal.config.FeedbackConfigHandler.getConfiguration(Unknown Source)
 	at com.ibm.support.feedback.ui.internal.UIFeedback.activate(Unknown Source)
-	... 32 more
+	... 50 more
 Root exception:
 java.lang.NullPointerException
 	at com.ibm.support.feedback.core.internal.servers.ServerAdapter.isIBMInternalUser(Unknown Source)
@@ -643,6 +755,8 @@ java.lang.NullPointerException
 	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(Unknown Source)
 	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEventPrivileged(Unknown Source)
 	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEvent(Unknown Source)
+<<<<<<< HEAD
+=======
 	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.setProperties(Unknown Source)
 	at org.eclipse.equinox.internal.app.EclipseAppHandle.setAppStatus(Unknown Source)
 	at org.eclipse.equinox.internal.app.EclipseAppHandle.setInternalResult(Unknown Source)
@@ -13042,6 +13156,7 @@ java.lang.NullPointerException
 	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(Unknown Source)
 	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEventPrivileged(Unknown Source)
 	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.publishServiceEvent(Unknown Source)
+>>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
 	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistrationImpl.register(Unknown Source)
 	at org.eclipse.osgi.internal.serviceregistry.ServiceRegistry.registerService(Unknown Source)
 	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.registerService(Unknown Source)
@@ -13076,6 +13191,8 @@ java.lang.NullPointerException
 	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(Unknown Source)
 	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(Unknown Source)
 	at org.eclipse.jface.text.TextViewerHoverManager$4.run(Unknown Source)
+<<<<<<< HEAD
+=======
 
 !ENTRY org.eclipse.jdt.core 4 4 2017-09-11 09:00:59.624
 !MESSAGE File not found: '/SiriusOrderAdminService/src/com/sirius/service/admin/SuperAdminInterface.java'
@@ -13159,3 +13276,4 @@ HandlerActivation(commandId=org.eclipse.jdt.ui.edit.text.java.search.write.acces
 	handler=LegacyHandlerWrapper(ActionHandler(action=org.eclipse.jdt.ui.actions.FindReadReferencesInWorkingSetAction@f504f967)),
 	expression=LegacyHandlerSubmission(Shell {Web - LoginWS/src/com/sirius/loginws/db/EmployeeServiceDAO.java - Rational® Application Developer for WebSphere® Software},null,PartSite(id=org.eclipse.jdt.ui.CompilationUnitEditor,pluginId=org.eclipse.jdt.ui,registeredName=Java Editor,hashCode=1177693866)),sourcePriority=67113984)
 >>>>>>> 42cb50a0fe81bf1c116fdc25340bd40520eeca09
+>>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7

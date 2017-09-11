@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+#Mon Sep 11 08:33:05 CDT 2017
+=======
+<<<<<<< HEAD
 #Mon Sep 11 08:51:03 CDT 2017
 =======
 #Mon Sep 11 08:57:48 CDT 2017
 >>>>>>> 42cb50a0fe81bf1c116fdc25340bd40520eeca09
+>>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
 UIActivities.com.ibm.wtp.j2ee.base=true
 eclipse.preferences.version=1
 UIActivities.com.ibm.wtp.ejb.development=true
