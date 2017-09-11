@@ -1,0 +1,70 @@
+package com.sirius.order.back.db;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.sirius.order.back.beans.EmployeeBean;
+
+public class DBLogic {
+
+	public void add(){
+		
+	}
+	
+	public List<EmployeeBean> getAllEmployeesWhoLikedProduct(Connection conn){
+	    List<EmployeeBean> employees = new ArrayList<EmployeeBean>();
+		try {
+			
+//			SAXXMLParser sxmlp = new SAXXMLParser();
+//			sxmlp.creation(conn);
+			
+			Statement statement = conn.createStatement();
+		    String sql = "SELECT * FROM Employee_tbl";
+		    ResultSet rs = statement.executeQuery(sql);
+			while (rs.next()) {
+				// Retrieve by column name
+				int id = rs.getInt("id_pk");
+				int age = rs.getInt("age");
+				String first = rs.getString("firstname");
+				String last = rs.getString("lastname");
+				String role = rs.getString("role");
+				String phone = rs.getString("phone");
+				String email = rs.getString("email");
+				byte[] image = rs.getBytes("photo");
+				
+				if(image != null){
+					EmployeeBean emp = new EmployeeBean();
+					emp.setId(id);
+					emp.setAge(age);
+					emp.setFirstName(first);
+					emp.setLastName(last);
+					emp.setRole(role);
+					emp.setPhone(phone);
+					emp.setEmail(email);
+					emp.setPhoto(image);
+					employees.add(emp);
+					System.out.println(emp);
+				}
+
+			}
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+		return employees;
+	}
+	
+	public List<EmployeeBean> getAllProductsEmployeeLiked(){
+		return null;
+		
+	}
+	
+	public void removeFromEmployeeWishlist(){
+		
+	}
+	
+	
+}

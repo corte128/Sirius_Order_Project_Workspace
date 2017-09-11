@@ -1,8 +1,0 @@
-open command prompt in admin mode
-navigate to C:\Program Files\MySQL\MySQL Server 5.7\bin
-
-execute the following command
-
-mysql -p -u[username] [databasename] < [filename.ext]
-
-input password when prompted
