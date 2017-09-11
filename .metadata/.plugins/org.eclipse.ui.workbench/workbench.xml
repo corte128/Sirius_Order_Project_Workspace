@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="34" version="2.0">
+<workbench progressCount="76" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="1024" x="54" y="-30">
 <fastViewData fastViewLocation="1024"/>
@@ -8,12 +8,12 @@
 </perspectiveBar>
 <coolbarLayout locked="0">
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="132" y="22"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="284" y="22"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
 <coolItem id="com.rational.clearcase.ActionSet" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="159" y="22"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="129" y="22"/>
 <coolItem id="org.eclipse.jst.j2ee.J2eeMainActionSet" itemType="typeToolBarContribution" x="111" y="22"/>
-<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="86" y="22"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="76" y="22"/>
 <coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="107" y="22"/>
 <coolItem id="org.eclipse.wst.server.ui.internal.webbrowser.actionSet" itemType="typeToolBarContribution" x="38" y="22"/>
 <coolItem id="org.eclipse.wst.server.ui.new.actionSet" itemType="typeToolBarContribution" x="38" y="22"/>
@@ -24,12 +24,12 @@
 <coolItem id="com.ibm.etools.webtools.webperspective.project.wizard.toolbar" itemType="typeToolBarContribution" x="61" y="22"/>
 <coolItem id="com.ibm.etools.references.ui.debugTrimToolbarContributionToolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="230" y="22"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
-<coolItem id="com.ibm.support.feedback.errorreports.ui.crashReportToolbar" itemType="typeToolBarContribution" x="169" y="22"/>
-<coolItem id="com.ibm.cic.licensing.common.ui.controlContribution" itemType="typeToolBarContribution" x="184" y="22"/>
+<coolItem id="com.ibm.support.feedback.errorreports.ui.crashReportToolbar" itemType="typeToolBarContribution" x="129" y="22"/>
+<coolItem id="com.ibm.cic.licensing.common.ui.controlContribution" itemType="typeToolBarContribution" x="141" y="22"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
 <page aggregateWorkingSetId="Aggregate for window 1504884865854" focus="true" label="Workspace - Web">
@@ -39,13 +39,18 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EmployeeBean.java" partName="EmployeeBean.java" path="C:/Users/IEUser/IBM/rationalsdp/Staples_Project_Workspace/SiriusOrderService/src/com/sirius/order/automation/beans/EmployeeBean.java" title="EmployeeBean.java" tooltip="SiriusOrderService/src/com/sirius/order/automation/beans/EmployeeBean.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SiriusOrderService/src/com/sirius/order/automation/beans/EmployeeBean.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EmployeeBean.java" partName="EmployeeBean.java" path="C:/Users/IEUser/IBM/rationalsdp/Sirius_Order_Project_Workspace/SiriusOrderClient/src/com/sirius/order/client/beans/EmployeeBean.java" title="EmployeeBean.java" tooltip="SiriusOrderClient/src/com/sirius/order/client/beans/EmployeeBean.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SiriusOrderClient/src/com/sirius/order/client/beans/EmployeeBean.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="76" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EmployeeBean.java" partName="EmployeeBean.java" path="C:/Users/IEUser/IBM/rationalsdp/Sirius_Order_Project_Workspace/SiriusOrderService/src/com/sirius/order/back/beans/EmployeeBean.java" title="EmployeeBean.java" tooltip="SiriusOrderService/src/com/sirius/order/back/beans/EmployeeBean.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SiriusOrderService/src/com/sirius/order/back/beans/EmployeeBean.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="74" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -61,15 +66,12 @@
 <visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
 </viewState>
 </view>
-<view id="org.eclipse.ui.internal.introview" partName="Welcome">
-<viewState>
-<presentation currentPage="my_home_page" restore="true"/>
-<standbyPart/>
-</viewState>
-</view>
 <view id="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" partName="Data Source Explorer"/>
-<view id="org.eclipse.gef.ui.palette_view" partName="Palette"/>
+<view id="com.ibm.etools.common.migration.view.MigrationValidationResultsView" partName="Migration Results">
+<viewState/>
+</view>
 <view id="com.ibm.ccl.ws.finder.ui.view.services" partName="Services"/>
+<view id="org.eclipse.gef.ui.palette_view" partName="Palette"/>
 <view id="com.ibm.etools.ui.navigator.SDExplorer" partName="Enterprise Explorer">
 <viewState CommonNavigator.LINKING_ENABLED="1" currentWorkingSetName="Aggregate:SCA Projects:OSGi Bundle Projects:OSGi Fragment Bundle Projects:OSGi Application Projects:OSGi Composite Bundle Projects:EAR Projects:Application Client Projects:EJB Projects:Connector Projects:Web Projects:JPA Projects:Utility Projects:Web Fragment Projects:Uncategorized Projects:Modern Batch Projects:" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
 </view>
@@ -182,35 +184,25 @@
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.eclipse.ui.internal.introview"/>
 <fastViewBars/>
-<layout>
-<mainWindow>
-<info folder="true" part="topLeft">
-<folder activePageID="com.ibm.etools.ui.navigator.SDExplorer" appearance="2" expanded="2">
-<page content="com.ibm.etools.ui.navigator.SDExplorer" label="Enterprise Explorer"/>
+<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="topLeft">&#x0A;<folder activePageID="com.ibm.etools.ui.navigator.SDExplorer" appearance="2" expanded="2">&#x0A;<page content="com.ibm.etools.ui.navigator.SDExplorer" label="Enterprise Explorer"/>
 <page content="com.ibm.ccl.ws.finder.ui.view.services" label="Services"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.PackagesView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 <part id="1"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@5730c61b" ratio="0.749497" ratioLeft="745" ratioRight="249" relationship="2" relative="topLeft">
-<folder activePageID="org.eclipse.ui.internal.introview" appearance="2" expanded="1">
-<page content="org.eclipse.ui.internal.introview" label="Welcome"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@5730c61b" ratio="0.749497" ratioLeft="745" ratioRight="249" relationship="2" relative="topLeft">&#x0A;<folder activePageID="org.eclipse.ui.internal.introview" appearance="2" expanded="1">&#x0A;<page content="org.eclipse.ui.internal.introview" label="Welcome"/>
 <page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
 <info part="com.ibm.xtools.reqpro.ui.internal.views.explorer.RequirementExplorer" ratio="0.24949698" ratioLeft="248" ratioRight="746" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottomRight" ratio="0.7" ratioLeft="434" ratioRight="186" relationship="4" relative="com.ibm.xtools.reqpro.ui.internal.views.explorer.RequirementExplorer">
-<folder activePageID="org.eclipse.wst.server.ui.ServersView" appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.AllMarkersView" label="Markers"/>
+<info folder="true" part="bottomRight" ratio="0.7" ratioLeft="434" ratioRight="186" relationship="4" relative="com.ibm.xtools.reqpro.ui.internal.views.explorer.RequirementExplorer">&#x0A;<folder activePageID="org.eclipse.wst.server.ui.ServersView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.AllMarkersView" label="Markers"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
 <page content="org.eclipse.wst.server.ui.ServersView" label="Servers"/>
 <page content="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" label="Data Source Explorer"/>
@@ -222,8 +214,7 @@
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
 <page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
@@ -233,11 +224,8 @@
 </folder>
 </info>
 <info part="com.ibm.ccl.linkability.ui.internal.views.linkclipboard.LinkClipboardView" ratio="0.5" ratioLeft="373" ratioRight="373" relationship="2" relative="bottomRight"/>
-<info folder="true" part="topRight" ratio="0.6997319" ratioLeft="522" ratioRight="224" relationship="2" relative="com.ibm.xtools.reqpro.ui.internal.views.explorer.RequirementExplorer">
-<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
+<info folder="true" part="topRight" ratio="0.6997319" ratioLeft="522" ratioRight="224" relationship="2" relative="com.ibm.xtools.reqpro.ui.internal.views.explorer.RequirementExplorer">&#x0A;<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
 </presentation>
 </folder>
 </info>
@@ -252,7 +240,6 @@
 <alwaysOnActionSet id="com.ibm.rational.welcome.core.webResourcesActionSet"/>
 <alwaysOnActionSet id="com.ibm.cic.licensing.common.ui.actionSet"/>
 <alwaysOnActionSet id="com.ibm.etools.miniwelcome.miniWelcomeActionSet"/>
-<alwaysOnActionSet id="com.ibm.process.actionSet"/>
 <alwaysOnActionSet id="com.ibm.rational.llc.ui.actionSet"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
 <alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
@@ -264,12 +251,12 @@
 <alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
 <alwaysOnActionSet id="com.ibm.ast.ws.gsc.launch"/>
 <alwaysOnActionSet id="org.eclipse.wst.server.ui.new.actionSet"/>
-<alwaysOnActionSet id="com.rational.clearcase.ActionSet"/>
 <alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
 <alwaysOnActionSet id="org.eclipse.wst.web.ui.wizardsActionSet"/>
 <alwaysOnActionSet id="org.eclipse.wst.server.ui.internal.webbrowser.actionSet"/>
 <alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
 <alwaysOnActionSet id="org.eclipse.wst.ws.explorer.explorer"/>
+<alwaysOnActionSet id="com.ibm.cic.licensing.common.ui.toolbar.actionSet"/>
 <show_view_action id="com.ibm.etools.qev.view.QEVView"/>
 <show_view_action id="com.ibm.iwt.ui.thumbnailView"/>
 <show_view_action id="org.eclipse.ui.views.TaskList"/>
@@ -308,6 +295,7 @@
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.eclipse.wst.common.snippets.internal.ui.SnippetsView"/>
 <view id="org.eclipse.gef.ui.palette_view"/>
+<view id="com.ibm.etools.common.migration.view.MigrationValidationResultsView"/>
 <view id="org.eclipse.ui.views.ProblemView"/>
 <view id="org.eclipse.wst.server.ui.ServersView"/>
 <view id="org.eclipse.ui.views.PropertySheet"/>
@@ -336,16 +324,18 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.25" ratioLeft="478" ratioRight="1434" relationship="2" relative="topLeft"/>
+<info part="org.eclipse.ui.editorss" ratio="0.3012161" ratioLeft="322" ratioRight="747" relationship="2" relative="topLeft"/>
 <info folder="true" part="topRight" ratio="0.79986054" ratioLeft="1147" ratioRight="287" relationship="2" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<folder activePageID="com.ibm.etools.common.migration.view.MigrationValidationResultsView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.wst.common.snippets.internal.ui.SnippetsView" label="Snippets"/>
 <page content="org.eclipse.gef.ui.palette_view" label="Palette"/>
+<page content="com.ibm.etools.common.migration.view.MigrationValidationResultsView" label="Migration Results"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
+<part id="3"/>
 </presentation>
 </folder>
 </info>
@@ -392,6 +382,10 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/StaplesOrderService/src/com/sirius/order/service/beans/EmployeeBean.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/StaplesOrderService/src/com/sirius/order/automation/beans/EmployeeBean.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusOrderService/src/com/sirius/order/automation/beans/EmployeeBean.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusOrderClient/src/com/sirius/order/client/beans/EmployeeBean.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusOrderBackend/src/com/sirius/order/back/beans/EmployeeBean.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusOrderServer/src/com/sirius/order/back/beans/EmployeeBean.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusOrderService/src/com/sirius/order/back/beans/EmployeeBean.java"/>
 </editors>
 <item historyLabel="EmployeeBean.java" index="0">
 <position info="not_deleted" x="0" y="0"/>
@@ -399,8 +393,20 @@
 <item historyLabel="EmployeeBean.java" index="1">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item active="true" historyLabel="EmployeeBean.java" index="2">
+<item historyLabel="EmployeeBean.java" index="2">
 <position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="EmployeeBean.java" index="3">
+<position info="not_deleted" x="76" y="0"/>
+</item>
+<item historyLabel="EmployeeBean.java" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="EmployeeBean.java" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="EmployeeBean.java" index="6">
+<position info="not_deleted" x="74" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -419,6 +425,12 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EmployeeBean.java" tooltip="SiriusOrderBackend/src/com/sirius/order/back/beans/EmployeeBean.java">
+<persistable path="/SiriusOrderBackend/src/com/sirius/order/back/beans/EmployeeBean.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EmployeeBean.java" tooltip="SiriusOrderClient/src/com/sirius/order/client/beans/EmployeeBean.java">
+<persistable path="/SiriusOrderClient/src/com/sirius/order/client/beans/EmployeeBean.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EmployeeBean.java" tooltip="StaplesOrderService/src/com/sirius/order/service/beans/EmployeeBean.java">
 <persistable path="/StaplesOrderService/src/com/sirius/order/service/beans/EmployeeBean.java"/>
 </file>
