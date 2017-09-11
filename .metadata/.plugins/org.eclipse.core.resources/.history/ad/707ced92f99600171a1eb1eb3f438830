@@ -1,0 +1,10 @@
+package com.sirius.order.client.beans;
+
+public class EmployeeBean {
+	int id;
+	String name;
+	char[] password;
+	int location;
+	int numberOfLikes;
+	byte[] picture;
+}

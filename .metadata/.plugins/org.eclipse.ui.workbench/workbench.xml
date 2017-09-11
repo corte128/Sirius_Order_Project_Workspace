@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <workbench progressCount="46" version="2.0">
+=======
+<<<<<<< HEAD
+<workbench progressCount="76" version="2.0">
+=======
+<workbench progressCount="49" version="2.0">
+>>>>>>> 42cb50a0fe81bf1c116fdc25340bd40520eeca09
+>>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="1024" x="54" y="-30">
 <fastViewData fastViewLocation="1024"/>
@@ -8,7 +16,11 @@
 </perspectiveBar>
 <coolbarLayout locked="0">
 <coolItem id="group.file" itemType="typeGroupMarker"/>
+<<<<<<< HEAD
 <coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="122" y="22"/>
+=======
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="284" y="22"/>
+>>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
 <coolItem id="additions" itemType="typeGroupMarker"/>
 <coolItem id="com.rational.clearcase.ActionSet" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="129" y="22"/>
@@ -37,10 +49,35 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
+<<<<<<< HEAD
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 </editorArea>
+=======
+<<<<<<< HEAD
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EmployeeBean.java" partName="EmployeeBean.java" path="C:/Users/IEUser/IBM/rationalsdp/Sirius_Order_Project_Workspace/SiriusOrderClient/src/com/sirius/order/client/beans/EmployeeBean.java" title="EmployeeBean.java" tooltip="SiriusOrderClient/src/com/sirius/order/client/beans/EmployeeBean.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SiriusOrderClient/src/com/sirius/order/client/beans/EmployeeBean.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="76" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EmployeeBean.java" partName="EmployeeBean.java" path="C:/Users/IEUser/IBM/rationalsdp/Sirius_Order_Project_Workspace/SiriusOrderService/src/com/sirius/order/back/beans/EmployeeBean.java" title="EmployeeBean.java" tooltip="SiriusOrderService/src/com/sirius/order/back/beans/EmployeeBean.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SiriusOrderService/src/com/sirius/order/back/beans/EmployeeBean.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="74" selectionTopPixel="0"/>
+</editor>
+=======
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+</editorArea>
+>>>>>>> 42cb50a0fe81bf1c116fdc25340bd40520eeca09
+>>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
 </editors>
 <views>
 <view id="org.eclipse.wst.common.snippets.internal.ui.SnippetsView" partName="Snippets"/>
@@ -56,6 +93,15 @@
 </viewState>
 </view>
 <view id="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" partName="Data Source Explorer"/>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<view id="com.ibm.etools.common.migration.view.MigrationValidationResultsView" partName="Migration Results">
+<viewState/>
+</view>
+=======
+>>>>>>> 42cb50a0fe81bf1c116fdc25340bd40520eeca09
+>>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
 <view id="com.ibm.ccl.ws.finder.ui.view.services" partName="Services"/>
 <view id="org.eclipse.gef.ui.palette_view" partName="Palette"/>
 <view id="com.ibm.etools.ui.navigator.SDExplorer" partName="Enterprise Explorer">
@@ -281,6 +327,7 @@
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.eclipse.wst.common.snippets.internal.ui.SnippetsView"/>
 <view id="org.eclipse.gef.ui.palette_view"/>
+<view id="com.ibm.etools.common.migration.view.MigrationValidationResultsView"/>
 <view id="org.eclipse.ui.views.ProblemView"/>
 <view id="org.eclipse.wst.server.ui.ServersView"/>
 <view id="org.eclipse.ui.views.PropertySheet"/>
@@ -309,16 +356,18 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.25" ratioLeft="478" ratioRight="1434" relationship="2" relative="topLeft"/>
+<info part="org.eclipse.ui.editorss" ratio="0.3012161" ratioLeft="322" ratioRight="747" relationship="2" relative="topLeft"/>
 <info folder="true" part="topRight" ratio="0.79986054" ratioLeft="1147" ratioRight="287" relationship="2" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<folder activePageID="com.ibm.etools.common.migration.view.MigrationValidationResultsView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.wst.common.snippets.internal.ui.SnippetsView" label="Snippets"/>
 <page content="org.eclipse.gef.ui.palette_view" label="Palette"/>
+<page content="com.ibm.etools.common.migration.view.MigrationValidationResultsView" label="Migration Results"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
+<part id="3"/>
 </presentation>
 </folder>
 </info>
@@ -360,7 +409,46 @@
 </perspective>
 </perspectives>
 <workingSets/>
+<<<<<<< HEAD
 <navigationHistory/>
+=======
+<<<<<<< HEAD
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/StaplesOrderService/src/com/sirius/order/service/beans/EmployeeBean.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/StaplesOrderService/src/com/sirius/order/automation/beans/EmployeeBean.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusOrderService/src/com/sirius/order/automation/beans/EmployeeBean.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusOrderClient/src/com/sirius/order/client/beans/EmployeeBean.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusOrderBackend/src/com/sirius/order/back/beans/EmployeeBean.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusOrderServer/src/com/sirius/order/back/beans/EmployeeBean.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusOrderService/src/com/sirius/order/back/beans/EmployeeBean.java"/>
+</editors>
+<item historyLabel="EmployeeBean.java" index="0">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="EmployeeBean.java" index="1">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="EmployeeBean.java" index="2">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="EmployeeBean.java" index="3">
+<position info="not_deleted" x="76" y="0"/>
+</item>
+<item historyLabel="EmployeeBean.java" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="EmployeeBean.java" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="EmployeeBean.java" index="6">
+<position info="not_deleted" x="74" y="0"/>
+</item>
+</navigationHistory>
+=======
+<navigationHistory/>
+>>>>>>> 42cb50a0fe81bf1c116fdc25340bd40520eeca09
+>>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
@@ -377,6 +465,12 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EmployeeBean.java" tooltip="SiriusOrderBackend/src/com/sirius/order/back/beans/EmployeeBean.java">
+<persistable path="/SiriusOrderBackend/src/com/sirius/order/back/beans/EmployeeBean.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EmployeeBean.java" tooltip="SiriusOrderClient/src/com/sirius/order/client/beans/EmployeeBean.java">
+<persistable path="/SiriusOrderClient/src/com/sirius/order/client/beans/EmployeeBean.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EmployeeBean.java" tooltip="StaplesOrderService/src/com/sirius/order/service/beans/EmployeeBean.java">
 <persistable path="/StaplesOrderService/src/com/sirius/order/service/beans/EmployeeBean.java"/>
 </file>

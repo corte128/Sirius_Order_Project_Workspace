@@ -1,0 +1,5 @@
+package com.sirius.employeews.db;
+
+public abstract class DBConnection {
+
+}

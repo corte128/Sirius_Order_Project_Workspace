@@ -1,0 +1,38 @@
+package com.sirius.employeews.jaxws;
+
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebResult;
+import javax.jws.WebService;
+import javax.xml.ws.RequestWrapper;
+import javax.xml.ws.ResponseWrapper;
+
+@WebService(name = "Employee", targetNamespace = "http://ace.sirius.com/profile/wsdl")
+public interface Employee {
+	
+	@WebMethod(action = "getEmployeeById")
+	@WebResult(name = "getEmployeeByIdReturn", targetNamespace = "http://ace.sirius.com/profile/wsdl")
+	@RequestWrapper(localName = "getEmployeeById", targetNamespace = "http://ace.sirius.com/profile/wsdl", className = "com.sirius.ace.jaxws.GetEmployeeById")
+	@ResponseWrapper(localName = "getEmployeeByIdResponse", targetNamespace = "http://ace.sirius.com/profile/wsdl", className = "com.sirius.ace.jaxws.GetEmployeeByIdResponse")
+	public Employee getEmployeeById(
+			@WebParam(name = "id", targetNamespace = "http://ace.sirius.com/profile/wsdl") int id);
+	
+	@WebMethod(action = "deleteEmployeeProfile")
+	@WebResult(name = "deleteEmployeeProfileReturn", targetNamespace = "http://ace.sirius.com/profile/wsdl")
+	@RequestWrapper(localName = "deleteEmployeeProfile", targetNamespace = "http://ace.sirius.com/profile/wsdl", className = "com.sirius.ace.jaxws.DeleteEmployeeProfile")
+	@ResponseWrapper(localName = "deleteEmployeeProfileResponse", targetNamespace = "http://ace.sirius.com/profile/wsdl", className = "com.sirius.ace.jaxws.DeleteEmployeeProfileResponse")
+	public boolean deleteEmployeeProfile(
+			@WebParam(name = "id", targetNamespace = "http://ace.sirius.com/profile/wsdl") int id);
+	
+	@WebMethod(action = "addEmployee")
+	@WebResult(name = "addEmployeeReturn", targetNamespace = "http://ace.sirius.com/profile/wsdl")
+	@RequestWrapper(localName = "addEmployee", targetNamespace = "http://ace.sirius.com/profile/wsdl", className = "com.sirius.ace.jaxws.AddEmployee")
+	@ResponseWrapper(localName = "addEmployeeResponse", targetNamespace = "http://ace.sirius.com/profile/wsdl", className = "com.sirius.ace.jaxws.AddEmployeeResponse")
+	public boolean addEmployee(
+			@WebParam(name = "id", targetNamespace = "http://ace.sirius.com/profile/wsdl") int id,
+			@WebParam(name = "name", targetNamespace = "http://ace.sirius.com/profile/wsdl") String name,
+			@WebParam(name = "password", targetNamespace = "http://ace.sirius.com/profile/wsdl") String password,
+			@WebParam(name = "role", targetNamespace = "http://ace.sirius.com/profile/wsdl") String role,
+			@WebParam(name = "email", targetNamespace = "http://ace.sirius.com/profile/wsdl") String email,
+			@WebParam(name = "picture", targetNamespace = "http://ace.sirius.com/profile/wsdl") byte[] picture;
+}

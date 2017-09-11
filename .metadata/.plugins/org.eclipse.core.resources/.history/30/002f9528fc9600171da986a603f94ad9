@@ -1,0 +1,19 @@
+package com.sirius.service.superadmin;
+
+import javax.jws.WebMethod;
+import javax.jws.WebResult;
+import javax.jws.WebService;
+import javax.xml.ws.RequestWrapper;
+import javax.xml.ws.ResponseWrapper;
+
+@WebService(name="SuperAdmin", targetNamespace = "http://superadmin.service.sirius.com/admin/wsdl")
+public interface SuperAdminInterface {
+
+	@WebMethod(action = "SetBudget")
+	@WebResult(name = "SetBudgetReturn", targetNamespace = "http://superadmin.service.sirius.com/profile/wsdl")
+	@RequestWrapper(localName = "SetBudget", targetNamespace = "http://superadmin.service.sirius.com/profile/wsdl", className = "com.sirius.service.superadmin.SetBudget")
+	@ResponseWrapper(localName = "SetBudgetResponse", targetNamespace = "http://superadmin.service.sirius.com/profile/wsdl", className = "com.sirius.service.superadmin.SetBudgetResponse")
+	public void setBudget(
+			
+			);
+}

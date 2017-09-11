@@ -1,0 +1,47 @@
+package com.sirius.employeews.db;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class EmployeeServiceDAOImpl {
+	
+	private Connection conn = null;
+	
+	public EmployeeServiceDAOImpl(Connection c){
+		conn = c;
+	}
+	
+	public void addEmployee(int id, String name, char[] password,
+			String role, String email, byte[] picture, int location) throws SQLException{
+		try {
+			System.out.println("#####################Adding employee########################");
+			conn = DBConnection.getConnection();
+			String sqlQuery = "INSERT INTO Employee_tbl "+
+			"(ID, Name, Role, Email, Picture, Password, Location) " +
+			"VALUES (?, ?, ?, ?, ?, ?, ?)";
+			PreparedStatement statement = conn.prepareStatement(sqlQuery);
+			statement.setInt(1, id);
+			statement.setString(4, lastname);
+			statement.setString(5, role);
+			statement.setInt(6, age);
+			statement.setString(7, phone);
+			statement.setString(8, email);
+			statement.setBytes(9, photo);
+			statement.setString(10, password);
+			statement.executeUpdate();
+			conn.commit();
+			DBConnection.closeStatement(statement);
+		} catch (NamingException e1) {
+			logger.log(Level.FINE, "Error addEmployee() " +e1);
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			logger.log(Level.FINE, "Error addEmployee() " +e1);
+			e1.printStackTrace();
+		} 
+	}
+	
+	public void closeConnection(){
+		DBConnection.closeConnection(conn);
+	}
+}

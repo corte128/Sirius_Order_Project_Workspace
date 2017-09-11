@@ -1,0 +1,21 @@
+package com.sirius.employeews.jaxws;
+
+import javax.jws.WebService;
+
+@WebService(endpointInterface = "com.sirius.employeews.jaxws.Employee", portName = "profile", targetNamespace = "http://ace.sirius.com/profile/wsdl", serviceName = "JaxwsProfile")
+public class JaxwsEmployeeImpl implements Employee{
+
+	@Override
+	public Employee getEmployeeByEmail(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean addEmployee(int id, String name, char[] password,
+			String role, String email, byte[] picture) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}
