@@ -13,10 +13,11 @@ CREATE TABLE product_type_tbl (
 
 CREATE TABLE product_tbl (
     product_id_pk SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'PK: Product ID',
+    product_name VARCHAR(255) COMMENT 'product name',
     product_type_id_fk SMALLINT UNSIGNED NOT NULL COMMENT 'FK: Product type ID',
-    product_price SMALLINT UNSIGNED NOT NULL COMMENT 'Product price',
+    product_price DECIMAL UNSIGNED NOT NULL COMMENT 'Product price',
     product_details TEXT COMMENT 'Product details',
-    product_image LONGBLOB COMMENT 'Image data of the product',
+    product_image VARCHAR(100) COMMENT 'Image data of the product',
     audit_id_fk SMALLINT UNSIGNED NOT NULL COMMENT 'FK: Audit ID',
     PRIMARY KEY (product_id_pk),
     FOREIGN KEY (product_type_id_fk)
@@ -61,7 +62,6 @@ CREATE TABLE employee_tbl (
     employee_picture LONGBLOB COMMENT 'Image data of the employee',
     location_id_fk SMALLINT UNSIGNED NOT NULL COMMENT 'FK: location',
     employee_type_id_fk SMALLINT UNSIGNED NOT NULL COMMENT 'the employee type id',
-    employee_number_of_likes SMALLINT UNSIGNED NOT NULL COMMENT 'number of employee likes',
     is_employee BOOLEAN NOT NULL COMMENT 'determines if the employee is active or not',
     audit_id_fk SMALLINT UNSIGNED NOT NULL COMMENT 'FK: Audit ID',
     PRIMARY KEY (employee_id_pk),
@@ -74,11 +74,9 @@ CREATE TABLE employee_tbl (
 );
 
 CREATE TABLE likes_tbl (
-    likes_id_pk SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'PK: Likes ID',
     employee_id_fk SMALLINT UNSIGNED NOT NULL COMMENT 'FK: employee ID',
     product_id_fk SMALLINT UNSIGNED NOT NULL COMMENT 'FK: product ID',
     audit_id_fk SMALLINT UNSIGNED NOT NULL COMMENT 'FK: Audit ID',
-    PRIMARY KEY (likes_id_pk),
     FOREIGN KEY (employee_id_fk)
         REFERENCES employee_tbl (employee_id_pk),
     FOREIGN KEY (product_id_fk)
