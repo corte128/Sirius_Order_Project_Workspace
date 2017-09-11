@@ -6,3 +6,5 @@
 1504889569259	Delete resource 'SiriusOrderServiceEAR'
 1504889604762	Rename resource 'SiriusOrderServer'
 1504889618170	Rename resource 'SiriusOrderBackendEAR'
+1504891355831	Delete resource 'SiriusOrderServer'
+1504891401325	Delete resource 'SiriusOrderBackendEAR'
