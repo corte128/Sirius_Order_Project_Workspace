@@ -4,6 +4,7 @@
 	<comment></comment>
 	<projects>
 		<project>SiriusOrderAdminService</project>
+		<project>SiriusOrderAttendanceService</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
