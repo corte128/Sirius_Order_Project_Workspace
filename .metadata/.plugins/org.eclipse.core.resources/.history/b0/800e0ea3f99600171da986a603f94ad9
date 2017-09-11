@@ -1,8 +1,0 @@
-package com.sirius.service.admin;
-
-import javax.jws.WebService;
-
-@WebService(name="Admin", targetNamespace = "http://admin.service.sirius.com/admin/wsdl")
-public class SuperAdminInterface {
-
-}
