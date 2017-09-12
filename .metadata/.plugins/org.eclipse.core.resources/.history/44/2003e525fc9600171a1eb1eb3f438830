@@ -1,8 +1,0 @@
-package com.sirius.employeews.jaxws;
-
-import javax.jws.WebService;
-
-@WebService(name = "Employee", targetNamespace = "http://ace.sirius.com/profile/wsdl")
-public interface Employee {
-
-}

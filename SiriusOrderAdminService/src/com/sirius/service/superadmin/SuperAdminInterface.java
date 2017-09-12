@@ -9,14 +9,12 @@ import javax.jws.WebService;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 
-import com.sirius.service.bean.LocationBean;
-
 /**
  * SuperAdmin interface
  * 
  * @author Scout Martinelli
  */
-@WebService(name="SuperAdmin", targetNamespace = "http://superadmin.service.sirius.com/admin/wsdl")
+@WebService(name="SuperAdmin", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 public interface SuperAdminInterface {
 
 	/**
@@ -28,7 +26,7 @@ public interface SuperAdminInterface {
 	@WebResult(name = "SetBudgetByLocationReturn", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 	@RequestWrapper(localName = "SetBudgetByLocation", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.SetBudgetByLocation")
 	@ResponseWrapper(localName = "SetBudgetByLocationResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.SetBudgetByLocationResponse")
-	public void setBudgetByLocation(
+	public boolean setBudgetByLocation(
 			@WebParam(name="budget", targetNamespace = "http://superadmin.service.sirius.com/profile/wsdl")
 			BigDecimal budget,
 			@WebParam(name="locationId", targetNamespace = "http://superadmin.service.sirius.com/profile/wsdl")
@@ -58,9 +56,11 @@ public interface SuperAdminInterface {
 	@WebResult(name = "AddLocationReturn", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 	@RequestWrapper(localName = "AddLocation", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.AddLocation")
 	@ResponseWrapper(localName = "AddLocationResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.AddLocation")
-	public void addLocation(
-			@WebParam(name="locationId", targetNamespace = "http://superadmin.service.sirius.com/profile/wsdl")
-			LocationBean location
+	public boolean addLocation(
+			@WebParam(name="city", targetNamespace = "http://superadmin.service.sirius.com/profile/wsdl")
+			String city,
+			@WebParam(name="state", targetNamespace = "http://superadmin.service.sirius.com/profile/wsdl")
+			String state
 			);	
 
 	/**
@@ -72,7 +72,7 @@ public interface SuperAdminInterface {
 	@WebResult(name = "AssignAdminReturn", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 	@RequestWrapper(localName = "AssignAdmin", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.AssignAdmin")
 	@ResponseWrapper(localName = "AssignAdminResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.AssignAdmin")
-	public void assignAdmin(
+	public boolean assignAdmin(
 			@WebParam(name="locationId", targetNamespace = "http://superadmin.service.sirius.com/profile/wsdl")
 			int locationId,
 			@WebParam(name="adminId", targetNamespace = "http://superadmin.service.sirius.com/profile/wsdl")

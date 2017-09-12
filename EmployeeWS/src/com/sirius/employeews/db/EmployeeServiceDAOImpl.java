@@ -1,6 +1,5 @@
 package com.sirius.employeews.db;
 
-import java.io.CharArrayReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,7 +22,7 @@ public class EmployeeServiceDAOImpl {
 		conn = c;
 	}
 	
-	public void addEmployee(int id, String name, char[] password,
+	public void addEmployee(int id, String name, String password,
 			String role, String email, byte[] picture, int location) throws SQLException{
 		try {
 			System.out.println("#####################Adding employee########################");
@@ -37,7 +36,7 @@ public class EmployeeServiceDAOImpl {
 			statement.setString(3, role);
 			statement.setString(4, email);
 			statement.setBytes(5, picture);
-			statement.setCharacterStream(6, new CharArrayReader(password));
+			statement.setString(6, password);
 			statement.setInt(7, location);
 			statement.executeUpdate();
 			conn.commit();
@@ -64,7 +63,7 @@ public class EmployeeServiceDAOImpl {
 				emp.setName(rs.getString("Name"));
 				emp.setId(rs.getInt("ID"));
 				emp.setRole(rs.getString("Role"));
-				//emp.setPassword(rs.getString("Password"));
+				emp.setPassword(rs.getString("Password"));
 				emp.setEmail(rs.getString("Email"));
 				emp.setPicture(rs.getBytes("Picture"));
 			}
@@ -80,7 +79,7 @@ public class EmployeeServiceDAOImpl {
 		return emp;
 	}
 	
-	public boolean updateEmployee(int id, boolean isValid) throws SQLException {
+	public boolean updateEmployee(int id, int isValid) throws SQLException {
 		
 		try {
 			conn = DBConnection.getConnection();
@@ -89,7 +88,7 @@ public class EmployeeServiceDAOImpl {
 			}
 			String sqlQuery = "UPDATE Employee_tbl SET Valid = (?) WHERE ID=(?)";
 			PreparedStatement statement = conn.prepareStatement(sqlQuery);
-			statement.setBoolean(1, isValid);
+			statement.setInt(1, isValid);
 			statement.setInt(2, id);
 			statement.executeUpdate();
 			conn.commit();
