@@ -35,7 +35,6 @@ public class DBConnection {
 			ctx = new InitialContext();
 			dataSource = (DataSource) ctx.lookup("jdbc/OfficeApplicationDS");
 			conn = dataSource.getConnection();
-			System.out.println("##############OPENED CONNECTION#######################");
 		} catch (NamingException e) {
 			
 			throw e;
@@ -53,7 +52,6 @@ public class DBConnection {
 			try {
 				conn.close();
 				conn = null;
-				System.out.println("##############CONNECTION CLOSED#######################");
 			} catch (SQLException e) {
 				
 				e.printStackTrace();
