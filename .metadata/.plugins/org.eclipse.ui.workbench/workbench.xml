@@ -1,26 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<workbench progressCount="46" version="2.0">
-=======
-<<<<<<< HEAD
-<workbench progressCount="76" version="2.0">
-=======
-<workbench progressCount="49" version="2.0">
->>>>>>> 42cb50a0fe81bf1c116fdc25340bd40520eeca09
->>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
+<workbench progressCount="74" version="2.0">
 <workbenchAdvisor/>
-<window height="768" maximized="true" width="1024" x="54" y="-30">
+<window height="500" maximized="true" width="816" x="216" y="-19">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
 </perspectiveBar>
 <coolbarLayout locked="0">
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<<<<<<< HEAD
 <coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="122" y="22"/>
-=======
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="284" y="22"/>
->>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
 <coolItem id="additions" itemType="typeGroupMarker"/>
 <coolItem id="com.rational.clearcase.ActionSet" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="129" y="22"/>
@@ -38,10 +26,11 @@
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.browser.editor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
-<coolItem id="com.ibm.support.feedback.errorreports.ui.crashReportToolbar" itemType="typeToolBarContribution" x="129" y="22"/>
-<coolItem id="com.ibm.cic.licensing.common.ui.controlContribution" itemType="typeToolBarContribution" x="141" y="22"/>
+<coolItem id="com.ibm.support.feedback.errorreports.ui.crashReportToolbar" itemType="typeToolBarContribution" x="149" y="22"/>
+<coolItem id="com.ibm.cic.licensing.common.ui.controlContribution" itemType="typeToolBarContribution" x="163" y="22"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
 <page aggregateWorkingSetId="Aggregate for window 1504884865854" focus="true" label="Workspace - Web">
@@ -49,39 +38,42 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<<<<<<< HEAD
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
-</folder>
-</info>
-</editorArea>
-=======
-<<<<<<< HEAD
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EmployeeBean.java" partName="EmployeeBean.java" path="C:/Users/IEUser/IBM/rationalsdp/Sirius_Order_Project_Workspace/SiriusOrderClient/src/com/sirius/order/client/beans/EmployeeBean.java" title="EmployeeBean.java" tooltip="SiriusOrderClient/src/com/sirius/order/client/beans/EmployeeBean.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SiriusOrderClient/src/com/sirius/order/client/beans/EmployeeBean.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="76" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LoginServiceDAO.java" partName="LoginServiceDAO.java" path="C:/Users/IEUser/IBM/rationalsdp/Sirius_Order_Project_Workspace/LoginWS/src/com/sirius/loginws/db/LoginServiceDAO.java" title="LoginServiceDAO.java" tooltip="LoginWS/src/com/sirius/loginws/db/LoginServiceDAO.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/LoginWS/src/com/sirius/loginws/db/LoginServiceDAO.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="410" selectionTopPixel="300"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EmployeeBean.java" partName="EmployeeBean.java" path="C:/Users/IEUser/IBM/rationalsdp/Sirius_Order_Project_Workspace/SiriusOrderService/src/com/sirius/order/back/beans/EmployeeBean.java" title="EmployeeBean.java" tooltip="SiriusOrderService/src/com/sirius/order/back/beans/EmployeeBean.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SiriusOrderService/src/com/sirius/order/back/beans/EmployeeBean.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="74" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Wishlist.java" partName="Wishlist.java" path="C:/Users/IEUser/IBM/rationalsdp/Sirius_Order_Project_Workspace/SiriusWishlistWS/src/com/sirius/wishlist/jaxws/Wishlist.java" title="Wishlist.java" tooltip="SiriusWishlistWS/src/com/sirius/wishlist/jaxws/Wishlist.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SiriusWishlistWS/src/com/sirius/wishlist/jaxws/Wishlist.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="425" selectionTopPixel="376"/>
 </editor>
-=======
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
-</folder>
-</info>
-</editorArea>
->>>>>>> 42cb50a0fe81bf1c116fdc25340bd40520eeca09
->>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JaxwsWishlistImpl.java" partName="JaxwsWishlistImpl.java" path="C:/Users/IEUser/IBM/rationalsdp/Sirius_Order_Project_Workspace/SiriusWishlistWS/src/com/sirius/wishlist/jaxws/JaxwsWishlistImpl.java" title="JaxwsWishlistImpl.java" tooltip="SiriusWishlistWS/src/com/sirius/wishlist/jaxws/JaxwsWishlistImpl.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SiriusWishlistWS/src/com/sirius/wishlist/jaxws/JaxwsWishlistImpl.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="442" selectionTopPixel="80"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WishlistServiceDAO.java" partName="WishlistServiceDAO.java" path="C:/Users/IEUser/IBM/rationalsdp/Sirius_Order_Project_Workspace/SiriusWishlistWS/src/com/sirius/wishlist/db/WishlistServiceDAO.java" title="WishlistServiceDAO.java" tooltip="SiriusWishlistWS/src/com/sirius/wishlist/db/WishlistServiceDAO.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SiriusWishlistWS/src/com/sirius/wishlist/db/WishlistServiceDAO.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="639" selectionTopPixel="240"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WishlistServiceDAOImpl.java" partName="WishlistServiceDAOImpl.java" path="C:/Users/IEUser/IBM/rationalsdp/Sirius_Order_Project_Workspace/SiriusWishlistWS/src/com/sirius/wishlist/db/WishlistServiceDAOImpl.java" title="WishlistServiceDAOImpl.java" tooltip="SiriusWishlistWS/src/com/sirius/wishlist/db/WishlistServiceDAOImpl.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SiriusWishlistWS/src/com/sirius/wishlist/db/WishlistServiceDAOImpl.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2609" selectionTopPixel="976"/>
+</editor>
 </editors>
 <views>
 <view id="org.eclipse.wst.common.snippets.internal.ui.SnippetsView" partName="Snippets"/>
-<view id="org.eclipse.ui.views.PropertySheet" partName="Properties"/>
+<view id="org.eclipse.ui.views.PropertySheet" partName="Properties">
+<viewState/>
+</view>
 <view id="org.eclipse.ui.views.AllMarkersView" partName="Markers">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.allSeverityField" categoryGroup="org.eclipse.ui.ide.type" markerContentGenerator="org.eclipse.ui.ide.allMarkersGenerator" partName="Markers">
 <columnWidths org.eclipse.ui.ide.allSeverityField="500" org.eclipse.ui.ide.locationField="104" org.eclipse.ui.ide.markerType="154" org.eclipse.ui.ide.pathField="204" org.eclipse.ui.ide.resourceField="154"/>
@@ -93,15 +85,6 @@
 </viewState>
 </view>
 <view id="org.eclipse.datatools.connectivity.DataSourceExplorerNavigator" partName="Data Source Explorer"/>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<view id="com.ibm.etools.common.migration.view.MigrationValidationResultsView" partName="Migration Results">
-<viewState/>
-</view>
-=======
->>>>>>> 42cb50a0fe81bf1c116fdc25340bd40520eeca09
->>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
 <view id="com.ibm.ccl.ws.finder.ui.view.services" partName="Services"/>
 <view id="org.eclipse.gef.ui.palette_view" partName="Palette"/>
 <view id="com.ibm.etools.ui.navigator.SDExplorer" partName="Enterprise Explorer">
@@ -112,9 +95,14 @@
 </view>
 <view id="com.ibm.etools.annotations.ui.views.AnnotationView" partName="Annotations"/>
 <view id="com.ibm.etools.webtools.pagedataview.PageDataView" partName="Page Data"/>
+<view id="com.ibm.etools.qev.view.QEVView" partName="Quick Edit"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<columnWidths org.eclipse.ui.ide.locationField="104" org.eclipse.ui.ide.markerType="154" org.eclipse.ui.ide.pathField="204" org.eclipse.ui.ide.resourceField="154" org.eclipse.ui.ide.severityAndDescriptionField="500"/>
+<expanded>
+<category IMemento.internal.id="Errors (100 of 116 items)"/>
+<category IMemento.internal.id="Errors"/>
+</expanded>
+<columnWidths org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0" org.eclipse.ui.ide.severityAndDescriptionField="0"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
@@ -122,8 +110,9 @@
 <visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
 </viewState>
 </view>
-<view id="com.ibm.etools.qev.view.QEVView" partName="Quick Edit"/>
-<view id="org.eclipse.ui.console.ConsoleView" partName="Console"/>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
 <view id="com.ibm.etools.webedit.css.styleoutline" partName="Styles">
 <viewState/>
 </view>
@@ -327,15 +316,14 @@
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.eclipse.wst.common.snippets.internal.ui.SnippetsView"/>
 <view id="org.eclipse.gef.ui.palette_view"/>
-<view id="com.ibm.etools.common.migration.view.MigrationValidationResultsView"/>
+<view id="com.ibm.etools.webedit.css.styleoutline"/>
+<view id="com.ibm.etools.webtools.pagedataview.PageDataView"/>
+<view id="com.ibm.ccl.ws.finder.ui.view.services"/>
 <view id="org.eclipse.ui.views.ProblemView"/>
 <view id="org.eclipse.wst.server.ui.ServersView"/>
 <view id="org.eclipse.ui.views.PropertySheet"/>
 <view id="com.ibm.etools.qev.view.QEVView"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
-<view id="com.ibm.etools.webedit.css.styleoutline"/>
-<view id="com.ibm.etools.webtools.pagedataview.PageDataView"/>
-<view id="com.ibm.ccl.ws.finder.ui.view.services"/>
 <fastViewBars/>
 <layout>
 <mainWindow>
@@ -356,32 +344,35 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.3012161" ratioLeft="322" ratioRight="747" relationship="2" relative="topLeft"/>
+<info part="org.eclipse.ui.editorss" ratio="0.16081718" ratioLeft="307" ratioRight="1602" relationship="2" relative="topLeft"/>
 <info folder="true" part="topRight" ratio="0.79986054" ratioLeft="1147" ratioRight="287" relationship="2" relative="org.eclipse.ui.editorss">
-<folder activePageID="com.ibm.etools.common.migration.view.MigrationValidationResultsView" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.wst.common.snippets.internal.ui.SnippetsView" label="Snippets"/>
 <page content="org.eclipse.gef.ui.palette_view" label="Palette"/>
-<page content="com.ibm.etools.common.migration.view.MigrationValidationResultsView" label="Migration Results"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
-<part id="3"/>
 </presentation>
 </folder>
 </info>
 <info folder="true" part="bottom" ratio="0.69902915" ratioLeft="648" ratioRight="279" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@acd9056a" ratio="0.645" ratioLeft="516" ratioRight="284" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.wst.server.ui.ServersView" label="Servers"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
 <page content="com.ibm.etools.qev.view.QEVView" label="Quick Edit"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
-<page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
-<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
-<page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
-<page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
@@ -391,7 +382,7 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@a879f749" ratio="0.6494067" ratioLeft="602" ratioRight="325" relationship="4" relative="topLeft">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@a879f749" ratio="0.79390246" ratioLeft="651" ratioRight="169" relationship="4" relative="topLeft">
 <folder activePageID="com.ibm.etools.webedit.css.styleoutline" appearance="2" expanded="2">
 <page content="com.ibm.etools.webedit.css.styleoutline" label="Styles"/>
 <page content="com.ibm.etools.webtools.pagedataview.PageDataView" label="Page Data"/>
@@ -409,46 +400,170 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<<<<<<< HEAD
-<navigationHistory/>
-=======
-<<<<<<< HEAD
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/StaplesOrderService/src/com/sirius/order/service/beans/EmployeeBean.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/StaplesOrderService/src/com/sirius/order/automation/beans/EmployeeBean.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusOrderService/src/com/sirius/order/automation/beans/EmployeeBean.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusOrderClient/src/com/sirius/order/client/beans/EmployeeBean.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusOrderBackend/src/com/sirius/order/back/beans/EmployeeBean.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusOrderServer/src/com/sirius/order/back/beans/EmployeeBean.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusOrderService/src/com/sirius/order/back/beans/EmployeeBean.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusWishlistService/src/com/sirius/wishlist/db/WishlistServiceDAO.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusWishlistService/src/com/sirius/wishlist/db/WishlistServiceDAOImpl.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/LoginWS/src/com/sirius/loginws/db/LoginServiceDAO.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusWishlistService/src/com/sirius/wishlist/jaxws/Wishlist.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusWishlistService/src/com/sirius/wishlist/jaxws/JaxwsWishlistImpl.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/LoginWS/src/com/sirius/loginws/jaxws/Login.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusWishlistWS/src/com/sirius/wishlist/jaxws/Wishlist.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusWishlistWS/src/com/sirius/wishlist/jaxws/JaxwsWishlistImpl.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusWishlistWS/src/com/sirius/wishlist/db/WishlistServiceDAO.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SiriusWishlistWS/src/com/sirius/wishlist/db/WishlistServiceDAOImpl.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/LoginWS/src/com/sirius/loginws/jaxws/JaxwsLoginImpl.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/LoginWS/src/com/sirius/loginws/db/LoginServiceDAOImpl.java"/>
 </editors>
-<item historyLabel="EmployeeBean.java" index="0">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="LoginServiceDAO.java" index="2">
+<position info="not_deleted" x="1367" y="0"/>
 </item>
-<item historyLabel="EmployeeBean.java" index="1">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="WishlistServiceDAO.java" index="0">
+<position/>
 </item>
-<item historyLabel="EmployeeBean.java" index="2">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="LoginServiceDAO.java" index="2">
+<position info="not_deleted" x="410" y="0"/>
 </item>
-<item historyLabel="EmployeeBean.java" index="3">
-<position info="not_deleted" x="76" y="0"/>
+<item historyLabel="WishlistServiceDAO.java" index="0">
+<position/>
 </item>
-<item historyLabel="EmployeeBean.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="WishlistServiceDAOImpl.java" index="1">
+<position info="not_deleted" x="2006" y="0"/>
 </item>
-<item historyLabel="EmployeeBean.java" index="5">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="WishlistServiceDAO.java" index="0">
+<position/>
 </item>
-<item active="true" historyLabel="EmployeeBean.java" index="6">
-<position info="not_deleted" x="74" y="0"/>
+<item historyLabel="WishlistServiceDAOImpl.java" index="1">
+<position info="not_deleted" x="512" y="31"/>
+</item>
+<item historyLabel="WishlistServiceDAO.java" index="0">
+<position info="not_deleted" x="291" y="0"/>
+</item>
+<item historyLabel="WishlistServiceDAOImpl.java" index="1">
+<position info="not_deleted" x="512" y="31"/>
+</item>
+<item historyLabel="LoginServiceDAO.java" index="2">
+<position info="not_deleted" x="410" y="0"/>
+</item>
+<item historyLabel="Wishlist.java" index="3">
+<position info="not_deleted" x="2290" y="0"/>
+</item>
+<item historyLabel="JaxwsWishlistImpl.java" index="4">
+<position info="not_deleted" x="93" y="0"/>
+</item>
+<item historyLabel="Wishlist.java" index="3">
+<position info="not_deleted" x="2290" y="0"/>
+</item>
+<item historyLabel="Login.java" index="5">
+<position info="not_deleted" x="423" y="1812"/>
+</item>
+<item historyLabel="Wishlist.java" index="3">
+<position info="not_deleted" x="396" y="0"/>
+</item>
+<item historyLabel="Login.java" index="5">
+<position info="not_deleted" x="1055" y="0"/>
+</item>
+<item historyLabel="JaxwsWishlistImpl.java" index="4">
+<position info="not_deleted" x="93" y="0"/>
+</item>
+<item historyLabel="Wishlist.java" index="3">
+<position info="not_deleted" x="396" y="0"/>
+</item>
+<item historyLabel="Login.java" index="5">
+<position info="not_deleted" x="309" y="88"/>
+</item>
+<item historyLabel="JaxwsWishlistImpl.java" index="4">
+<position info="not_deleted" x="38" y="0"/>
+</item>
+<item historyLabel="Wishlist.java" index="3">
+<position info="not_deleted" x="399" y="0"/>
+</item>
+<item historyLabel="Login.java" index="5">
+<position info="not_deleted" x="35" y="193"/>
+</item>
+<item historyLabel="Wishlist.java" index="3">
+<position info="not_deleted" x="423" y="14"/>
+</item>
+<item historyLabel="WishlistServiceDAO.java" index="0">
+<position info="not_deleted" x="306" y="14"/>
+</item>
+<item historyLabel="WishlistServiceDAOImpl.java" index="1">
+<position info="not_deleted" x="522" y="0"/>
+</item>
+<item historyLabel="Wishlist.java" index="3">
+<position info="not_deleted" x="423" y="14"/>
+</item>
+<item historyLabel="Wishlist.java" index="6">
+<position info="not_deleted" x="1137" y="0"/>
+</item>
+<item historyLabel="JaxwsWishlistImpl.java" index="7">
+<position info="not_deleted" x="114" y="0"/>
+</item>
+<item historyLabel="WishlistServiceDAO.java" index="8">
+<position info="not_deleted" x="306" y="14"/>
+</item>
+<item historyLabel="WishlistServiceDAOImpl.java" index="9">
+<position info="not_deleted" x="522" y="0"/>
+</item>
+<item historyLabel="JaxwsWishlistImpl.java" index="7">
+<position info="not_deleted" x="114" y="0"/>
+</item>
+<item historyLabel="WishlistServiceDAO.java" index="8">
+<position info="not_deleted" x="702" y="72"/>
+</item>
+<item historyLabel="Wishlist.java" index="6">
+<position info="not_deleted" x="2029" y="0"/>
+</item>
+<item historyLabel="WishlistServiceDAOImpl.java" index="9">
+<position info="not_deleted" x="1946" y="71"/>
+</item>
+<item historyLabel="Wishlist.java" index="6">
+<position info="not_deleted" x="3607" y="0"/>
+</item>
+<item historyLabel="WishlistServiceDAO.java" index="8">
+<position info="not_deleted" x="1177" y="73"/>
+</item>
+<item historyLabel="Wishlist.java" index="6">
+<position info="not_deleted" x="425" y="0"/>
+</item>
+<item historyLabel="JaxwsWishlistImpl.java" index="7">
+<position info="not_deleted" x="283" y="0"/>
+</item>
+<item historyLabel="JaxwsLoginImpl.java" index="10"/>
+<item historyLabel="JaxwsWishlistImpl.java" index="7">
+<position info="not_deleted" x="442" y="0"/>
+</item>
+<item historyLabel="WishlistServiceDAO.java" index="8">
+<position info="not_deleted" x="1177" y="73"/>
+</item>
+<item historyLabel="Wishlist.java" index="6">
+<position info="not_deleted" x="425" y="0"/>
+</item>
+<item historyLabel="JaxwsWishlistImpl.java" index="7">
+<position info="not_deleted" x="442" y="0"/>
+</item>
+<item historyLabel="WishlistServiceDAOImpl.java" index="9">
+<position info="not_deleted" x="1946" y="71"/>
+</item>
+<item historyLabel="WishlistServiceDAO.java" index="8">
+<position info="not_deleted" x="639" y="0"/>
+</item>
+<item historyLabel="WishlistServiceDAOImpl.java" index="9">
+<position info="not_deleted" x="2609" y="0"/>
+</item>
+<item historyLabel="Login.java" index="5">
+<position info="not_deleted" x="35" y="193"/>
+</item>
+<item historyLabel="WishlistServiceDAOImpl.java" index="9">
+<position info="not_deleted" x="2609" y="0"/>
+</item>
+<item historyLabel="LoginServiceDAOImpl.java" index="11">
+<position info="not_deleted" x="1753" y="0"/>
+</item>
+<item active="true" historyLabel="WishlistServiceDAOImpl.java" index="9">
+<position info="not_deleted" x="2609" y="0"/>
 </item>
 </navigationHistory>
-=======
-<navigationHistory/>
->>>>>>> 42cb50a0fe81bf1c116fdc25340bd40520eeca09
->>>>>>> 14faea7769aa09ca6233e23b6b232a05ac3889d7
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
@@ -465,14 +580,44 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EmployeeBean.java" tooltip="SiriusOrderBackend/src/com/sirius/order/back/beans/EmployeeBean.java">
-<persistable path="/SiriusOrderBackend/src/com/sirius/order/back/beans/EmployeeBean.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WishlistServiceDAOImpl.java" tooltip="SiriusWishlistService/src/com/sirius/wishlist/db/WishlistServiceDAOImpl.java">
+<persistable path="/SiriusWishlistService/src/com/sirius/wishlist/db/WishlistServiceDAOImpl.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EmployeeBean.java" tooltip="SiriusOrderClient/src/com/sirius/order/client/beans/EmployeeBean.java">
-<persistable path="/SiriusOrderClient/src/com/sirius/order/client/beans/EmployeeBean.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="WishlistServiceDAO.java" tooltip="SiriusWishlistService/src/com/sirius/wishlist/db/WishlistServiceDAO.java">
+<persistable path="/SiriusWishlistService/src/com/sirius/wishlist/db/WishlistServiceDAO.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EmployeeBean.java" tooltip="StaplesOrderService/src/com/sirius/order/service/beans/EmployeeBean.java">
-<persistable path="/StaplesOrderService/src/com/sirius/order/service/beans/EmployeeBean.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LoginServiceDAOImpl.java" tooltip="LoginWS/src/com/sirius/loginws/db/LoginServiceDAOImpl.java">
+<persistable path="/LoginWS/src/com/sirius/loginws/db/LoginServiceDAOImpl.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ProductBean.java" tooltip="SiriusWishlistService/src/com/sirius/wishlist/beans/ProductBean.java">
+<persistable path="/SiriusWishlistService/src/com/sirius/wishlist/beans/ProductBean.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JaxwsLoginImpl.java" tooltip="LoginWS/src/com/sirius/loginws/jaxws/JaxwsLoginImpl.java">
+<persistable path="/LoginWS/src/com/sirius/loginws/jaxws/JaxwsLoginImpl.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JaxwsWishlistImpl.java" tooltip="SiriusWishlistService/src/com/sirius/wishlist/jaxws/JaxwsWishlistImpl.java">
+<persistable path="/SiriusWishlistService/src/com/sirius/wishlist/jaxws/JaxwsWishlistImpl.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Wishlist.java" tooltip="SiriusWishlistService/src/com/sirius/wishlist/jaxws/Wishlist.java">
+<persistable path="/SiriusWishlistService/src/com/sirius/wishlist/jaxws/Wishlist.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Login.java" tooltip="LoginWS/src/com/sirius/loginws/jaxws/Login.java">
+<persistable path="/LoginWS/src/com/sirius/loginws/jaxws/Login.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LoginServiceDAO.java" tooltip="LoginWS/src/com/sirius/loginws/db/LoginServiceDAO.java">
+<persistable path="/LoginWS/src/com/sirius/loginws/db/LoginServiceDAO.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DBConnection.java" tooltip="SiriusWishlistService/src/com/sirius/wishlist/db/DBConnection.java">
+<persistable path="/SiriusWishlistService/src/com/sirius/wishlist/db/DBConnection.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DBLogic.java" tooltip="SiriusWishlistService/src/com/sirius/order/back/db/DBLogic.java">
+<persistable path="/SiriusWishlistService/src/com/sirius/order/back/db/DBLogic.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ProfileHandler.java" tooltip="SiriusOrderAdminService/src/com/sirius/service/superadmin/ProfileHandler.java">
+<persistable path="/SiriusOrderAdminService/src/com/sirius/service/superadmin/ProfileHandler.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EmployeeBean.java" tooltip="SiriusOrderService/src/com/sirius/order/back/beans/EmployeeBean.java">
+<persistable path="/SiriusOrderService/src/com/sirius/order/back/beans/EmployeeBean.java"/>
 </file>
 </mruList>
 </workbench>
