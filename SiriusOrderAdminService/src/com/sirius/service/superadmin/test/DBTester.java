@@ -1,7 +1,5 @@
 package com.sirius.service.superadmin.test;
 
-import java.math.BigDecimal;
-
 import com.sirius.service.superadmin.SuperAdminImplementation;
 
 public class DBTester {
