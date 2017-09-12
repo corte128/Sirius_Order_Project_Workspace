@@ -39,7 +39,7 @@ public class EmployeeServiceDAO {
 		impl.closeConnection();
 	}
 	
-	public void updateEmployee(int id, boolean isValid) throws SQLException{
+	public void updateEmployee(int id, int isValid) throws SQLException{
 		Connection conn = null;
 		try {
 			conn = DBConnection.getConnection();
