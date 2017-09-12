@@ -1,4 +1,4 @@
-package com.sirius.order.back.beans;
+package com.sirius.wishlistws.beans;
 
 import java.math.BigDecimal;
 
