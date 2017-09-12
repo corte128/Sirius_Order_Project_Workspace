@@ -5,5 +5,9 @@
             <dependent-object>Module_1505137708171</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="SiriusOrderAttendanceService.war" deploy-path="/" handle="module:/resource/SiriusOrderAttendanceService/SiriusOrderAttendanceService">
+            <dependent-object>Module_1505160640725</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>
