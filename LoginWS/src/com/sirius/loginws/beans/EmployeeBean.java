@@ -7,7 +7,7 @@ public class EmployeeBean {
 	String name;
 	String password;
 	String email;
-	String role;
+	int role;
 	int location;
 	int numberOfLikes;
 	byte[] picture;
@@ -37,10 +37,10 @@ public class EmployeeBean {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getRole() {
+	public int getRole() {
 		return role;
 	}
-	public void setRole(String role) {
+	public void setRole(int role) {
 		this.role = role;
 	}
 	public int getLocation() {

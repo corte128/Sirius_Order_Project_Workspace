@@ -1,7 +1,5 @@
 package com.sirius.service.bean;
 
-import com.sirius.loginws.enums.EmployeeStatus;
-
 public class EmployeeBean {
 	int id;
 	String name;
@@ -11,7 +9,7 @@ public class EmployeeBean {
 	int location;
 	int numberOfLikes;
 	byte[] picture;
-	EmployeeStatus isValid;
+	int isValid;
 	
 	public int getId() {
 		return id;
@@ -61,10 +59,10 @@ public class EmployeeBean {
 	public void setPicture(byte[] picture) {
 		this.picture = picture;
 	}
-	public EmployeeStatus isValid() {
+	public int isValid() {
 		return isValid;
 	}
-	public void setValid(EmployeeStatus isValid) {
+	public void setValid(int isValid) {
 		this.isValid = isValid;
 	}
 	

@@ -1,17 +1,15 @@
 package com.sirius.employeews.beans;
 
-import com.sirius.employeews.enums.EmployeeStatus;
-
 public class EmployeeBean {
 	int id;
 	String name;
 	String password;
 	String email;
-	String role;
+	int role;
 	int location;
 	int numberOfLikes;
 	byte[] picture;
-	EmployeeStatus isValid;
+	int isValid;
 	
 	public int getId() {
 		return id;
@@ -37,10 +35,10 @@ public class EmployeeBean {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getRole() {
+	public int getRole() {
 		return role;
 	}
-	public void setRole(String role) {
+	public void setRole(int role) {
 		this.role = role;
 	}
 	public int getLocation() {
@@ -61,10 +59,10 @@ public class EmployeeBean {
 	public void setPicture(byte[] picture) {
 		this.picture = picture;
 	}
-	public EmployeeStatus isValid() {
+	public int isValid() {
 		return isValid;
 	}
-	public void setValid(EmployeeStatus isValid) {
+	public void setValid(int isValid) {
 		this.isValid = isValid;
 	}
 	

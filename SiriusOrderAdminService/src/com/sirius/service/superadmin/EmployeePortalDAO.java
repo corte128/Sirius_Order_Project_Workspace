@@ -7,8 +7,8 @@ import java.util.logging.Logger;
 
 import javax.naming.NamingException;
 
-import com.sirius.back.beans.EmployeeBean;
-import com.sirius.back.database.DBConnection;
+import com.sirius.service.bean.EmployeeBean;
+import com.sirius.service.db.DBConnection;
 
 public class EmployeePortalDAO {
 	private static final Logger logger = Logger.getLogger(ProfileHandler.class.getName());
