@@ -37,7 +37,7 @@ public class DBConnection {
 	 * @throws SQLException
 	 */
 	public static Connection getConnection() throws NamingException,
-			SQLException {
+			SQLException, Exception {
 		Context ctx = null;
 		DataSource dataSource = null;
 		Connection conn = null;
@@ -50,6 +50,8 @@ public class DBConnection {
 		} catch (NamingException e) {
 			throw e;
 		} catch (SQLException e) {
+			throw e;
+		} catch (Exception e){
 			throw e;
 		}
 

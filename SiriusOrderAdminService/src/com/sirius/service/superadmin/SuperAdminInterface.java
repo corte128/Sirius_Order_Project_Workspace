@@ -14,7 +14,7 @@ import javax.xml.ws.ResponseWrapper;
  * 
  * @author Scout Martinelli
  */
-@WebService(name="SuperAdmin", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
+@WebService(name="SuperAdminService", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 public interface SuperAdminInterface {
 
 	/**
@@ -27,9 +27,9 @@ public interface SuperAdminInterface {
 	@RequestWrapper(localName = "SetBudgetByLocation", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.SetBudgetByLocation")
 	@ResponseWrapper(localName = "SetBudgetByLocationResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.SetBudgetByLocationResponse")
 	public boolean setBudgetByLocation(
-			@WebParam(name="budget", targetNamespace = "http://superadmin.service.sirius.com/profile/wsdl")
+			@WebParam(name="budget", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 			BigDecimal budget,
-			@WebParam(name="locationId", targetNamespace = "http://superadmin.service.sirius.com/profile/wsdl")
+			@WebParam(name="locationId", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 			int locationId
 			);
 	
@@ -43,7 +43,7 @@ public interface SuperAdminInterface {
 	@RequestWrapper(localName = "GetBudgetByLocation", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.GetBudgetByLocation")
 	@ResponseWrapper(localName = "GetBudgetByLocationResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.GetBudgetByLocationResponse")
 	public BigDecimal getBudgetByLocation(
-			@WebParam(name="locationId", targetNamespace = "http://superadmin.service.sirius.com/profile/wsdl")
+			@WebParam(name="locationId", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 			int locationId
 			);
 	
@@ -55,11 +55,11 @@ public interface SuperAdminInterface {
 	@WebMethod(action = "AddLocation")
 	@WebResult(name = "AddLocationReturn", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 	@RequestWrapper(localName = "AddLocation", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.AddLocation")
-	@ResponseWrapper(localName = "AddLocationResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.AddLocation")
+	@ResponseWrapper(localName = "AddLocationResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.AddLocationResponse")
 	public boolean addLocation(
-			@WebParam(name="city", targetNamespace = "http://superadmin.service.sirius.com/profile/wsdl")
+			@WebParam(name="city", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 			String city,
-			@WebParam(name="state", targetNamespace = "http://superadmin.service.sirius.com/profile/wsdl")
+			@WebParam(name="state", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 			String state
 			);	
 
@@ -71,11 +71,11 @@ public interface SuperAdminInterface {
 	@WebMethod(action = "AssignAdmin")
 	@WebResult(name = "AssignAdminReturn", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 	@RequestWrapper(localName = "AssignAdmin", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.AssignAdmin")
-	@ResponseWrapper(localName = "AssignAdminResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.AssignAdmin")
+	@ResponseWrapper(localName = "AssignAdminResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.AssignAdminResponse")
 	public boolean assignAdmin(
-			@WebParam(name="locationId", targetNamespace = "http://superadmin.service.sirius.com/profile/wsdl")
+			@WebParam(name="locationId", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 			int locationId,
-			@WebParam(name="adminId", targetNamespace = "http://superadmin.service.sirius.com/profile/wsdl")
+			@WebParam(name="adminId", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 			int adminId
 			);
 }

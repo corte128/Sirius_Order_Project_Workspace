@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 import javax.jws.WebService;
 
 @WebService(endpointInterface="com.sirius.service.superadmin.SuperAdminInterface",
-portName="profile", targetNamespace ="http://services.back.sirius.com/profile/wsdl",
-serviceName="ProfileService")
+portName="superadmin", targetNamespace ="http://superadmin.service.sirius.com/superadmin/wsdl",
+serviceName="SuperAdminService")
 public class SuperAdminImplementation implements SuperAdminInterface {
 
 	@Override
@@ -28,5 +28,4 @@ public class SuperAdminImplementation implements SuperAdminInterface {
 	public boolean assignAdmin(int locationId, int adminId) {
 		return SuperAdminDAO.assignAdmin(locationId, adminId);
 	}
-
 }
