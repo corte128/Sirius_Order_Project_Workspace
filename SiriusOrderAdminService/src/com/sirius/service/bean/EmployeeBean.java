@@ -1,4 +1,4 @@
-package com.sirius.loginws.beans;
+package com.sirius.service.bean;
 
 import com.sirius.loginws.enums.EmployeeStatus;
 

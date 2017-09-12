@@ -19,7 +19,7 @@ public class DBConnection {
 	 * <resource-ref>
 		<description />
 
-		<res-ref-name>jdbc/EmployeeDS</res-ref-name>
+		<res-ref-name>jdbc/OfficeApplicationDS</res-ref-name>
 		<res-type>javax.sql.DataSource</res-type>
 		<res-auth>Container</res-auth>
 		<res-sharing-scope>Shareable</res-sharing-scope>
@@ -33,7 +33,7 @@ public class DBConnection {
 		Connection conn = null;
 		try {
 			ctx = new InitialContext();
-			dataSource = (DataSource) ctx.lookup("jdbc/AppCenterDS");
+			dataSource = (DataSource) ctx.lookup("jdbc/OfficeApplicationDS");
 			conn = dataSource.getConnection();
 			System.out.println("##############OPENED CONNECTION#######################");
 		} catch (NamingException e) {
