@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>SiriusOrderAdminServiceEAR</name>
+	<name>SiriusOrderAttendanceServiceEAR</name>
 	<comment></comment>
 	<projects>
-		<project>SiriusOrderAdminService</project>
 		<project>SiriusOrderAttendanceService</project>
 	</projects>
 	<buildSpec>
