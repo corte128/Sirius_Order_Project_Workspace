@@ -1,0 +1,60 @@
+body{
+margin:0px;
+padding:0px;
+}
+
+header {
+	background-color: #5F6060;
+	color: white;
+}
+
+p {
+    display: block;
+    -webkit-margin-before: 5px;
+    -webkit-margin-after: 5px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+
+.headerContainer {
+	height: 125px;
+	display: flex;
+	padding:0;
+	margin-right:15px;
+}
+
+.headerLeft {
+	height: 100%;
+	flex: 1;
+	padding-top: 12px;
+	padding-left: 10px;
+	
+}
+
+.headerLeft img {
+	width: 100px;
+	height: 100px;
+}
+
+.headerCenter {
+	height: 100%;
+	flex: 3;
+	text-align: center;
+	font-size: 32pt;
+	padding-top: 30px;
+}
+
+.headerRight {
+	height: 100%;
+	flex: 1;
+	text-align: right;
+	font-size: 18pt;
+}
+
+.headerRight a {
+	color: white;
+}
+
+
+
