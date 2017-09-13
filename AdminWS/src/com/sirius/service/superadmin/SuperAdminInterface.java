@@ -51,6 +51,7 @@ public interface SuperAdminInterface {
 	 * Gets the budget for a certain location
 	 * @param budget
 	 * @param locationId
+	 * @param creatorId
 	 */
 	@WebMethod(action = "AddLocation")
 	@WebResult(name = "AddLocationReturn", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
@@ -60,13 +61,16 @@ public interface SuperAdminInterface {
 			@WebParam(name="city", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 			String city,
 			@WebParam(name="state", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
-			String state
+			String state,
+			@WebParam(name="creatorId", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
+			int creatorId
 			);	
 
 	/**
 	 * Assigns the admin to a location
 	 * @param locationId
 	 * @param adminId
+	 * @param updaterId
 	 */
 	@WebMethod(action = "AssignAdmin")
 	@WebResult(name = "AssignAdminReturn", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
@@ -76,6 +80,8 @@ public interface SuperAdminInterface {
 			@WebParam(name="locationId", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 			int locationId,
 			@WebParam(name="adminId", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
-			int adminId
+			int adminId,
+			@WebParam(name="updaterId", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
+			int updaterId
 			);
 }

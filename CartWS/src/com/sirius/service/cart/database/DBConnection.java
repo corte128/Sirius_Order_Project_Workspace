@@ -1,4 +1,4 @@
-package com.sirius.service.superadmin.database;
+package com.sirius.service.cart.database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -48,13 +48,10 @@ public class DBConnection {
 			logger.log(Level.FINE,
 					"##############OPENED CONNECTION#######################");
 		} catch (NamingException e) {
-			e.printStackTrace();
 			throw e;
 		} catch (SQLException e) {
-			e.printStackTrace();
 			throw e;
 		} catch (Exception e){
-			e.printStackTrace();
 			throw e;
 		}
 

@@ -22,12 +22,12 @@ public class SuperAdminImplementation implements SuperAdminInterface {
 	}
 
 	@Override
-	public boolean addLocation(String city, String state) {
-		 return SuperAdminDAO.addLocation(city, state);
+	public boolean addLocation(String city, String state, int creatorId) {
+		 return SuperAdminDAO.addLocation(city, state, creatorId);
 	}
 
 	@Override
-	public boolean assignAdmin(int locationId, int adminId) {
-		return SuperAdminDAO.assignAdmin(locationId, adminId);
+	public boolean assignAdmin(int locationId, int adminId, int updateId) {
+		return SuperAdminDAO.assignAdmin(locationId, adminId, updateId);
 	}
 }

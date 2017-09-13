@@ -79,7 +79,7 @@ public class SuperAdminDAO {
 	 * @param state
 	 * @return boolean
 	 */
-	public static boolean addLocation(String city, String state) {
+	public static boolean addLocation(String city, String state, int creatorId) {
 		Connection conn = null;
 		boolean completed = false;
 		
@@ -88,7 +88,7 @@ public class SuperAdminDAO {
 			conn.setAutoCommit(false);
 			
 			int stateId = SuperAdminDAOImplementation.getStateId(state, conn);
-			completed = SuperAdminDAOImplementation.addLocation(city, stateId, conn);
+			completed = SuperAdminDAOImplementation.addLocation(city, stateId, creatorId, conn);
 			
 			conn.commit();
 			completed = true;
@@ -135,12 +135,12 @@ public class SuperAdminDAO {
 	 * @param adminId
 	 * @return boolean
 	 */
-	public static boolean assignAdmin(int locationId, int adminId) {
+	public static boolean assignAdmin(int locationId, int adminId, int updaterId) {
 		Connection conn = null;
 		boolean completed = false;
 		try{
 			conn = DBConnection.getConnection();
-			completed = SuperAdminDAOImplementation.assignAdmin(locationId, adminId, conn);
+			completed = SuperAdminDAOImplementation.assignAdmin(locationId, adminId, updaterId, conn);
 		} catch(NamingException e){
 			logger.log(Level.SEVERE,"Naming Exception Found: Incorrect naming", e);
 		} catch (SQLException e) {
