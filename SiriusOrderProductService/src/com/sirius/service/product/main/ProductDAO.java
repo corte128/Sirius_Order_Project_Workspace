@@ -1,4 +1,4 @@
-package com.sirius.product.service.main;
+package com.sirius.service.product.main;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 import javax.naming.NamingException;
 
-import com.sirius.product.service.beans.ProductBean;
+import com.sirius.service.product.beans.ProductBean;
 
 public class ProductDAO
 {

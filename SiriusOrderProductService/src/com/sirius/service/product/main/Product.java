@@ -1,4 +1,4 @@
-package com.sirius.product.service.main;
+package com.sirius.service.product.main;
 
 
 import javax.jws.WebMethod;
@@ -8,7 +8,7 @@ import javax.jws.WebService;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 
-import com.sirius.product.service.beans.ProductBean;
+import com.sirius.service.product.beans.ProductBean;
 
 /**
  * Product interface

@@ -1,4 +1,4 @@
-package com.sirius.product.service.main;
+package com.sirius.service.product.main;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

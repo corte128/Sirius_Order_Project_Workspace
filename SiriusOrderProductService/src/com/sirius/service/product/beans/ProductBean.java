@@ -1,4 +1,4 @@
-package com.sirius.product.service.beans;
+package com.sirius.service.product.beans;
 
 import java.math.BigDecimal;
 
