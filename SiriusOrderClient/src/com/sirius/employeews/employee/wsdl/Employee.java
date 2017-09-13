@@ -83,7 +83,7 @@ public interface Employee {
         @WebParam(name = "id", targetNamespace = "http://employeews.sirius.com/employee/wsdl")
         int id,
         @WebParam(name = "isValid", targetNamespace = "http://employeews.sirius.com/employee/wsdl")
-        int isValid,
+        String isValid,
         @WebParam(name = "updaterId", targetNamespace = "http://employeews.sirius.com/employee/wsdl")
         int updaterId);
 

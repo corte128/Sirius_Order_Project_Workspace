@@ -28,13 +28,13 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _AddEmployeePicture_QNAME = new QName("http://employeews.sirius.com/employee/wsdl", "picture");
     private final static QName _UpdateEmployee_QNAME = new QName("http://employeews.sirius.com/employee/wsdl", "updateEmployee");
     private final static QName _GetEmployeeByEmailResponse_QNAME = new QName("http://employeews.sirius.com/employee/wsdl", "getEmployeeByEmailResponse");
     private final static QName _AddEmployeeResponse_QNAME = new QName("http://employeews.sirius.com/employee/wsdl", "addEmployeeResponse");
     private final static QName _GetEmployeeByEmail_QNAME = new QName("http://employeews.sirius.com/employee/wsdl", "getEmployeeByEmail");
     private final static QName _AddEmployee_QNAME = new QName("http://employeews.sirius.com/employee/wsdl", "addEmployee");
     private final static QName _UpdateEmployeeResponse_QNAME = new QName("http://employeews.sirius.com/employee/wsdl", "updateEmployeeResponse");
+    private final static QName _AddEmployeePicture_QNAME = new QName("http://employeews.sirius.com/employee/wsdl", "picture");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.sirius.employeews.employee.wsdl
@@ -100,15 +100,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link byte[]}{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://employeews.sirius.com/employee/wsdl", name = "picture", scope = AddEmployee.class)
-    public JAXBElement<byte[]> createAddEmployeePicture(byte[] value) {
-        return new JAXBElement<byte[]>(_AddEmployeePicture_QNAME, byte[].class, AddEmployee.class, ((byte[]) value));
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link UpdateEmployee }{@code >}}
      * 
      */
@@ -160,6 +151,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://employeews.sirius.com/employee/wsdl", name = "updateEmployeeResponse")
     public JAXBElement<UpdateEmployeeResponse> createUpdateEmployeeResponse(UpdateEmployeeResponse value) {
         return new JAXBElement<UpdateEmployeeResponse>(_UpdateEmployeeResponse_QNAME, UpdateEmployeeResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link byte[]}{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://employeews.sirius.com/employee/wsdl", name = "picture", scope = AddEmployee.class)
+    public JAXBElement<byte[]> createAddEmployeePicture(byte[] value) {
+        return new JAXBElement<byte[]>(_AddEmployeePicture_QNAME, byte[].class, AddEmployee.class, ((byte[]) value));
     }
 
 }

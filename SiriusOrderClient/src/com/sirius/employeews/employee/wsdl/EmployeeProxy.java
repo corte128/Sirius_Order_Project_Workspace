@@ -124,7 +124,7 @@ public class EmployeeProxy{
         return _getDescriptor().getProxy().addEmployee(name,password,role,email,picture,location);
     }
 
-    public boolean updateEmployee(int id, int isValid, int updaterId) {
+    public boolean updateEmployee(int id, String isValid, int updaterId) {
         return _getDescriptor().getProxy().updateEmployee(id,isValid,updaterId);
     }
 

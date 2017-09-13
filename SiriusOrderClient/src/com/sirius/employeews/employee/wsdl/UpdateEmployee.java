@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int" form="qualified"/>
- *         &lt;element name="isValid" type="{http://www.w3.org/2001/XMLSchema}int" form="qualified"/>
+ *         &lt;element name="isValid" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0" form="qualified"/>
  *         &lt;element name="updaterId" type="{http://www.w3.org/2001/XMLSchema}int" form="qualified"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -40,7 +40,7 @@ import javax.xml.bind.annotation.XmlType;
 public class UpdateEmployee {
 
     protected int id;
-    protected int isValid;
+    protected String isValid;
     protected int updaterId;
 
     /**
@@ -62,16 +62,24 @@ public class UpdateEmployee {
     /**
      * Gets the value of the isValid property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getIsValid() {
+    public String getIsValid() {
         return isValid;
     }
 
     /**
      * Sets the value of the isValid property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setIsValid(int value) {
+    public void setIsValid(String value) {
         this.isValid = value;
     }
 

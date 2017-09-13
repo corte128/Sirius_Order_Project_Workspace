@@ -1,0 +1,107 @@
+[
+    {
+        "name": "Lipton\u00ae Single Serve Tea Bags, Regular, 100 Tea Bag/Box",
+        "image": "https://www.staples-3p.com/s7/is/image/Staples/s0361463_sc7?$splssku$",
+        "price": "$6.99",
+        "details": "\nRegular caffeinated tea\nLipton\u00ae single-serve orange pekoe tea bags are premium-blended\n100 individually wrapped tea bags per box\n",
+        "type": "Breakroom"
+    },
+    {
+        "name": "Twinings English Breakfast Tea K-Cup Pods, 24/BX",
+        "image": "https://www.staples-3p.com/s7/is/image/Staples/s1014556_sc7?$splssku$",
+        "price": "$12.99",
+        "details": "\nEnglish Breakfast black tea K-Cup pods\n24 pods per box\nFine black tea expertly selected from Kenya, Indonesia, Assam, Malawi and China\n",
+        "type": "Breakroom"
+    },
+    {
+        "name": "Bigelow\u00ae Green Tea, Regular, 28 Tea Bags/Box",
+        "image": "https://www.staples-3p.com/s7/is/image/Staples/s0949106_sc7?$splssku$",
+        "price": "$7.49",
+        "details": "\nRegular caffeinated tea\nGreen tea - A fragrant, light, and mellow brew reputed to have many healthy properties\n28 tea bags per box\n",
+        "type": "Breakroom"
+    },
+    {
+        "name": "Snapple\u00ae Diet Peach Iced Tea, 20 oz. Bottles, 24/Pack",
+        "image": "https://www.staples-3p.com/s7/is/image/Staples/s0426977_sc7?$splssku$",
+        "price": "$37.99",
+        "details": "\nDiet Peach, 20 oz. plastic bottles\n24 bottles per pack\nMade with green and black tea leaves\n",
+        "type": "Breakroom"
+    },
+    {
+        "name": "Twinings Green Tea K-Cup Pods, 24/BX",
+        "image": "https://www.staples-3p.com/s7/is/image/Staples/s1014555_sc7?$splssku$",
+        "price": "$12.99",
+        "details": "\nGreen tea K-Cup pods\n24 pods per box\nPure Green Tea with a fresh taste, smooth flavor and enticing aroma\n",
+        "type": "Breakroom"
+    },
+    {
+        "name": "Bigelow\u00ae Herbal Tea Variety Pack Gift Box, Regular, 64 Tea Bags/Box",
+        "image": "https://www.staples-3p.com/s7/is/image/Staples/s0949098_sc7?$splssku$",
+        "price": "$14.79",
+        "details": "\nRegular caffeinated & decaffeinated tea\nHerbal Tea\nAssortment includes: Constant Comment, Earl Grey, English Teatime, Lemon Lift, Orange & Spice, Kozy Chamomile, Mint Medley, Green Tea\n",
+        "type": "Breakroom"
+    },
+    {
+        "name": "Twinings Earl Grey Tea K-Cup Pods, 24/BX",
+        "image": "https://www.staples-3p.com/s7/is/image/Staples/s1014554_sc7?$splssku$",
+        "price": "$12.99",
+        "details": "\nEarl Grey black tea K-Cup pods\n24 pods per box\nFine black tea perfectly balanced with the distinctive flavor of bergamot, a citrus fruit\n",
+        "type": "Breakroom"
+    },
+    {
+        "name": "Swiss Miss\u00ae Hot Cocoa Mix, Regular, .73 oz., 50 Packets",
+        "image": "https://www.staples-3p.com/s7/is/image/Staples/s0543190_sc7?$splssku$",
+        "price": "$11.79",
+        "details": "\nRegular hot cocoa\n50 packets per box\n.73 oz. packets\n",
+        "type": "Breakroom"
+    },
+    {
+        "name": "Starbucks\u00ae Verismo\u2122 Milk Pods, 12/Pack",
+        "image": "https://www.staples-3p.com/s7/is/image/Staples/s0789875_sc7?$splssku$",
+        "price": "$11.95",
+        "details": "\n0.35 oz.\nMilk pods\nIngredients: Fry whole milk\n",
+        "type": "Breakroom"
+    },
+    {
+        "name": "Bigelow\u00ae Assorted Flavor Teas, Regular, 168 Tea Bags",
+        "image": "https://www.staples-3p.com/s7/is/image/Staples/s0949099_sc7?$splssku$",
+        "price": "$30.79",
+        "details": "\nRegular caffeinated tea\nAssorted varieties\n6 boxes per case, 28 tea bags per box\n",
+        "type": "Breakroom"
+    },
+    {
+        "name": "Bigelow\u00ae Green Tea Assortment Box, Regular & Decaffeinated, 64 Tea Bags/Box",
+        "image": "https://www.staples-3p.com/s7/is/image/Staples/s0949097_sc7?$splssku$",
+        "price": "$14.79",
+        "details": "\nRegular & Decaffeinated tea\nGreen Tea\nAssortment includes: Green Tea, Green Tea Decaffeinated, Green Tea with Mint, Green Tea with Peach, Constant Comment Green Tea, Green Tea with Lemon, Green Tea with Mango and Earl Grey Green Tea\n",
+        "type": "Breakroom"
+    },
+    {
+        "name": "Bigelow\u00ae Earl Grey Tea Bags, Regular, 28 Tea Bags/Box",
+        "image": "https://www.staples-3p.com/s7/is/image/Staples/s0949104_sc7?$splssku$",
+        "price": "$7.49",
+        "details": "\nRegular caffeinated tea\nEarly Grey - A black tea delicately scented, aristocratic blend flavored with natural bergamont\n28 tea bags per box\n",
+        "type": "Breakroom"
+    },
+    {
+        "name": "Nestl\u00e9\u00ae Hot Cocoa Mix, Rich Chocolate, .71 oz., 50 Packets",
+        "image": "https://www.staples-3p.com/s7/is/image/Staples/m003576006_sc7?$splssku$",
+        "price": "$13.99",
+        "details": "\nRich chocolate hot cocoa\n50 packets per box\n.71 oz. packets\n",
+        "type": "Breakroom"
+    },
+    {
+        "name": "Honest Tea\u00ae Honey Green Tea, 16.9 oz, 12/case",
+        "image": "https://www.staples-3p.com/s7/is/image/Staples/s0997991_sc7?$splssku$",
+        "price": "$24.99",
+        "details": "\nHoney green tea\n12 bottles/case\n100% organic\n",
+        "type": "Breakroom"
+    },
+    {
+        "name": "Swiss Miss\u00ae Hot Cocoa with Marshmallows, 50/Packets",
+        "image": "https://www.staples-3p.com/s7/is/image/Staples/s0554866_sc7?$splssku$",
+        "price": "$13.79",
+        "details": "\nHot chocolate with marshmallows\n50 packets per box\nSimply add hot water and mix.\n",
+        "type": "Breakroom"
+    }
+]

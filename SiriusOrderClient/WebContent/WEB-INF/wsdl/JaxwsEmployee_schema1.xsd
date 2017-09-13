@@ -33,7 +33,7 @@
   <xs:complexType name="updateEmployee">
     <xs:sequence>
       <xs:element name="id" type="xs:int" form="qualified"/>
-      <xs:element name="isValid" type="xs:int" form="qualified"/>
+      <xs:element name="isValid" type="xs:string" form="qualified" minOccurs="0"/>
       <xs:element name="updaterId" type="xs:int" form="qualified"/>
     </xs:sequence>
   </xs:complexType>
