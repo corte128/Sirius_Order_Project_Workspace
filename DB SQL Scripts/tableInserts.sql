@@ -54,13 +54,8 @@ values
 (NULL, 'Wyoming', 'WY')
 ;
 
-INSERT INTO audit_tbl (audit_id_pk,created_date, created_by)
+INSERT INTO employee_type_tbl (employee_type_id_pk, employee_type_role,created_by,created_date)
 values
-(NULL,'00/00/0000 00:00:00','root');
-
-INSERT INTO employee_type_tbl (employee_type_id_pk, employee_type_role, audit_id_fk)
-values
-(NULL,'employee',1),
-(NULL,'officeAdmin',1),
-(NULL,'superAdmin',1)
-;
+(NULL,'employee',1,'2017-09-12'),
+(NULL,'officeAdmin',1,'2017-09-12'),
+(NULL,'superAdmin',1,'2017-09-12');

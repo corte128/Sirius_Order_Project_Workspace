@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://main.service.product.sirius.com/product/wsdl" xmlns:tns="http://main.service.product.sirius.com/product/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://main.service.product.sirius.com/profile/wsdl">
+
+  <xs:import namespace="http://main.service.product.sirius.com/profile/wsdl" schemaLocation="ProductService_schema1.xsd"/>
+
+  <xs:element name="getAllProductByTypeResponse" type="tns:getAllProductByTypeResponse"/>
+
+  <xs:element name="getAllProductsByType" type="tns:getAllProductsByType"/>
+
+  <xs:element name="getProductByID" type="tns:getProductByID"/>
+
+  <xs:element name="getProductByIDResponse" type="tns:getProductByIDResponse"/>
+
+  <xs:complexType name="getProductByID">
+    <xs:sequence>
+      <xs:element ref="ns1:ID"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getProductByIDResponse">
+    <xs:sequence>
+      <xs:element name="getProductByIDReturn" type="tns:productBean" form="qualified" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="productBean">
+    <xs:sequence>
+      <xs:element name="details" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="image" type="xs:string" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="price" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="type" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllProductsByType">
+    <xs:sequence>
+      <xs:element ref="ns1:type" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllProductByTypeResponse">
+    <xs:sequence>
+      <xs:element name="getAllProductsByTypeReturn" type="tns:productBean" form="qualified" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

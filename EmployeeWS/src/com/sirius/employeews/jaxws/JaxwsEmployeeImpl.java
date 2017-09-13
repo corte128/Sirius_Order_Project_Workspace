@@ -3,37 +3,28 @@ package com.sirius.employeews.jaxws;
 import javax.jws.WebService;
 
 import com.sirius.employeews.beans.EmployeeBean;
+import com.sirius.employeews.db.EmployeeServiceDAO;
 
-@WebService(endpointInterface = "com.sirius.employeews.jaxws.Employee", portName = "employee", targetNamespace = "http://ace.sirius.com/profile/wsdl", serviceName = "JaxwsProfile")
+@WebService(endpointInterface = "com.sirius.employeews.jaxws.Employee", portName = "employee", targetNamespace = "http://employeews.sirius.com/employee/wsdl", serviceName = "JaxwsEmployee")
 public class JaxwsEmployeeImpl implements Employee{
-
+	
 	@Override
-	public EmployeeBean getEmployeeByEmail(String email) {
-		EmployeeBean emp = new EmployeeBean();
-		//TODO: db call to login table to check credentials
-		return emp;
-	}
-
-	@Override
-	public boolean addEmployee(int id, String name, String password,
-			String role, String email, byte[] picture, int location) {
-		EmployeeBean emp = new EmployeeBean();
-		emp.setId(id);
-		emp.setName(name);
-		emp.setPassword(password);
-		emp.setRole(role);
-		emp.setEmail(email);
-		emp.setPicture(picture);
-		emp.setLocation(location);
-		//TODO: db call to add employee to login table
-		//TODO: db call to add employee to employee table
-		return true;
+	public boolean updateEmployee(int id, String isValid, int updaterId) {
+		EmployeeServiceDAO dao = new EmployeeServiceDAO();
+		return dao.updateEmployee(id, isValid, updaterId);
 	}
 	
 	@Override
-	public boolean updateEmployee(int id, int isValid) {
-		//db call to update employee
-		return true;
+	public EmployeeBean getEmployeeByEmail(String email) {
+		EmployeeServiceDAO dao = new EmployeeServiceDAO();
+		return dao.getEmployeeByEmail(email);
+	}
+
+	@Override
+	public boolean addEmployee(String name, String password, int role,
+			String email, byte[] picture, int location) {
+		EmployeeServiceDAO dao = new EmployeeServiceDAO();
+		return dao.addEmployee(name, password, role, email, picture, location);
 	}
 	
 }
