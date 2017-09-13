@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://superadmin.service.sirius.com/superadmin/wsdl" xmlns:tns="http://superadmin.service.sirius.com/superadmin/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="AddLocation" type="tns:AddLocation"/>
+
+  <xs:element name="AddLocationResponse" type="tns:AddLocationResponse"/>
+
+  <xs:element name="AssignAdmin" type="tns:AssignAdmin"/>
+
+  <xs:element name="AssignAdminResponse" type="tns:AssignAdminResponse"/>
+
+  <xs:element name="GetBudgetByLocation" type="tns:GetBudgetByLocation"/>
+
+  <xs:element name="GetBudgetByLocationResponse" type="tns:GetBudgetByLocationResponse"/>
+
+  <xs:element name="SetBudgetByLocation" type="tns:SetBudgetByLocation"/>
+
+  <xs:element name="SetBudgetByLocationResponse" type="tns:SetBudgetByLocationResponse"/>
+
+  <xs:complexType name="AssignAdmin">
+    <xs:sequence>
+      <xs:element name="locationId" type="xs:int" form="qualified"/>
+      <xs:element name="adminId" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AssignAdminResponse">
+    <xs:sequence>
+      <xs:element name="AssignAdminReturn" type="xs:boolean" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SetBudgetByLocation">
+    <xs:sequence>
+      <xs:element name="budget" type="xs:decimal" form="qualified" minOccurs="0"/>
+      <xs:element name="locationId" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SetBudgetByLocationResponse">
+    <xs:sequence>
+      <xs:element name="SetBudgetByLocationReturn" type="xs:boolean" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetBudgetByLocation">
+    <xs:sequence>
+      <xs:element name="locationId" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetBudgetByLocationResponse">
+    <xs:sequence>
+      <xs:element name="GetBudgetByLocationReturn" type="xs:decimal" form="qualified" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AddLocation">
+    <xs:sequence>
+      <xs:element name="city" type="xs:string" form="qualified" minOccurs="0"/>
+      <xs:element name="state" type="xs:string" form="qualified" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AddLocationResponse">
+    <xs:sequence>
+      <xs:element name="AddLocationReturn" type="xs:boolean" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
