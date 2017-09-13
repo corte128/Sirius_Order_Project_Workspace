@@ -1,6 +1,7 @@
-package com.sirius.order.service.attendance.daoimpl;
+package com.sirius.order.service.attendance.jaxws;
 
 import com.sirius.order.service.attendance.beans.*;
+
 import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,8 +21,10 @@ public class AttendanceDAOImpl{
 		ResourceBundle.getBundle("com.sirius.order.service.attendance.properties.queries");
 		ArrayList<AttendanceRecordBean> attendanceList = new ArrayList<AttendanceRecordBean>();
 		String sqlQuery = resourceBundle.getString("ATTENDANCE_QUERY");
+		ResultSet results = null;
+		PreparedStatement statement = null;
 		try {
-			PreparedStatement statement = conn.prepareStatement(sqlQuery);
+			statement = conn.prepareStatement(sqlQuery);
 			statement.setString(1, inputName);
 			statement.setString(2, inputEmail);
 			statement.setString(3, inputCity);
@@ -29,7 +32,7 @@ public class AttendanceDAOImpl{
 			statement.setString(5, inputBeginDate);
 			statement.setString(6, inputEndDate);
 			
-			ResultSet results = statement.executeQuery();
+			 results = statement.executeQuery();
 			
 			while(results.next()){
 				AttendanceRecordBean recordBean = new AttendanceRecordBean();
@@ -46,9 +49,14 @@ public class AttendanceDAOImpl{
 				recordBean.setAttendantLocation(city + ", " + state);
 				
 				attendanceList.add(recordBean);
+				
+				
 			}
 		} catch (SQLException e) {
 			logger.log(Level.FINE, e.getMessage());
+		}finally{
+			DBConnection.closeStatement(statement);
+			DBConnection.closeResultSet(results);
 		}
 		
 		
