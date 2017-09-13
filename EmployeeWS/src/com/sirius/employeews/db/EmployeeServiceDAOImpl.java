@@ -117,15 +117,22 @@ public class EmployeeServiceDAOImpl {
 			statement.setInt(3, id);
 			statement.executeUpdate();
 			
+			if (isValid == 1){
+				String sql = "UPDATE employee_tbl SET is_employee = true WHERE employee_id_pk = (?)";
+				PreparedStatement stmt = conn.prepareStatement(sql);
+				stmt.setInt(1, id);
+				statement.executeUpdate();
+			}
+			
 			conn.commit();
 			DBConnection.closeStatement(statement);
 		} catch (NamingException e1) {
-			logger.log(Level.FINE, "Error update() " +e1);
+			logger.log(Level.FINE, "Error updateEmployee() " +e1);
 			conn.rollback();
 			e1.printStackTrace();
 			return false;
 		} catch (SQLException e1) {
-			logger.log(Level.FINE, "Error update() " +e1);
+			logger.log(Level.FINE, "Error updateEmployee() " +e1);
 			conn.rollback();
 			e1.printStackTrace();
 			return false;

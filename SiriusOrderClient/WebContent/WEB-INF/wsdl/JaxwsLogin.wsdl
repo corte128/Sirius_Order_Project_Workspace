@@ -30,7 +30,7 @@
   </binding>
   <service name="JaxwsLogin">
     <port binding="tns:loginBinding" name="login">
-      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+      <soap:address location="http://localhost:9080/LoginWS/JaxwsLogin"/>
     </port>
   </service>
 </definitions>

@@ -14,7 +14,7 @@ public interface Employee {
 	
 	@WebMethod(action = "getEmployeeByEmail")
 	@WebResult(name = "getEmployeeByEmailReturn", targetNamespace = "http://employeews.sirius.com/employee/wsdl")
-	@RequestWrapper(localName = "getEmployeeByEmail", targetNamespace = "http://employeews.sirius.com/employee/wsdl", className = "com.sirius.ace.jaxws.GetEmployeeByEmail")
+	@RequestWrapper(localName = "getEmployeeByEmail", targetNamespace = "http://employeews.sirius.com/employee/wsdl", className = "com.sirius.employeews.jaxws.GetEmployeeByEmail")
 	@ResponseWrapper(localName = "getEmployeeByEmailResponse", targetNamespace = "http://employeews.sirius.com/employee/wsdl", className = "com.sirius.employeews.jaxws.GetEmployeeByEmailResponse")
 	public EmployeeBean getEmployeeByEmail(
 			@WebParam(name = "email", targetNamespace = "http://employeews.sirius.com/employee/wsdl") String email);
