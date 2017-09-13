@@ -18,9 +18,11 @@ public class AttendanceDAOImpl{
 	
 	
 	public ArrayList<AttendanceRecordBean> getAttendanceRecords(Connection conn, String inputName, String inputEmail, String inputCity, String inputState, String inputBeginDate, String inputEndDate){
-		ResourceBundle.getBundle("com.sirius.order.service.attendance.properties.queries");
+		resourceBundle = ResourceBundle.getBundle("com.sirius.order.service.attendance.properties.queries");
 		ArrayList<AttendanceRecordBean> attendanceList = new ArrayList<AttendanceRecordBean>();
 		String sqlQuery = resourceBundle.getString("ATTENDANCE_QUERY");
+		
+		logger.log(Level.FINE, sqlQuery);
 		ResultSet results = null;
 		PreparedStatement statement = null;
 		try {
