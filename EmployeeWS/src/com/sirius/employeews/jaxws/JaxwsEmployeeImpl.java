@@ -5,7 +5,7 @@ import javax.jws.WebService;
 import com.sirius.employeews.beans.EmployeeBean;
 import com.sirius.employeews.db.EmployeeServiceDAO;
 
-@WebService(endpointInterface = "com.sirius.employeews.jaxws.Employee", portName = "employee", targetNamespace = "http://employeews.sirius.com/profile/wsdl", serviceName = "JaxwsEmployee")
+@WebService(endpointInterface = "com.sirius.employeews.jaxws.Employee", portName = "employee", targetNamespace = "http://employeews.sirius.com/employee/wsdl", serviceName = "JaxwsEmployee")
 public class JaxwsEmployeeImpl implements Employee{
 	
 	@Override
