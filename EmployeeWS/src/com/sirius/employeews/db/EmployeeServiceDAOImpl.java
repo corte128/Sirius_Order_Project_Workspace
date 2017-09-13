@@ -93,7 +93,7 @@ public class EmployeeServiceDAOImpl {
 		EmployeeBean emp = null;
 		try {
 			conn = DBConnection.getConnection();
-			String sqlQuery = "SELECT employee_id_pk FROM employee_tbl WHERE employee_email = (?)";
+			String sqlQuery = "SELECT * FROM employee_tbl WHERE employee_email = (?)";
 			PreparedStatement statement = conn.prepareStatement(sqlQuery);
 			statement.setString(1, email);
 			ResultSet rs = statement.executeQuery();
