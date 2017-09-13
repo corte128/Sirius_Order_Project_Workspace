@@ -46,8 +46,8 @@ public class SuperAdminDAOImplementation {
 
 			logger.log(Level.FINE,
 					"Setting the budget based on the paramaters: ");
-			logger.log(Level.FINE, "   BigDecimal:" + budget);
-			logger.log(Level.FINE, "   Int:" + locationId);
+			logger.log(Level.FINE, "   BigDecimal: " + budget);
+			logger.log(Level.FINE, "   Int: " + locationId);
 			// executing update statement
 			statement.executeUpdate();
 
@@ -88,7 +88,7 @@ public class SuperAdminDAOImplementation {
 
 			logger.log(Level.FINE,
 					"Getting the budget based on the paramaters: ");
-			logger.log(Level.FINE, "   Int:" + locationId);
+			logger.log(Level.FINE, "   Int: " + locationId);
 			// executing select statement
 			result = statement.executeQuery();
 
@@ -138,8 +138,9 @@ public class SuperAdminDAOImplementation {
 
 			logger.log(Level.FINE,
 					"Adding the location based on the paramaters: ");
-			logger.log(Level.FINE, "   String:" + city);
-			logger.log(Level.FINE, "   Int:" + stateId);
+			logger.log(Level.FINE, "   String: " + city);
+			logger.log(Level.FINE, "   Int: " + stateId);
+			logger.log(Level.FINE, "   Int: " + creatorId);
 			// executing select statement
 			statement.executeUpdate();
 
@@ -177,7 +178,7 @@ public class SuperAdminDAOImplementation {
 
 			logger.log(Level.FINE,
 					"Getting the stateId based on the paramaters: ");
-			logger.log(Level.FINE, "   String:" + state);
+			logger.log(Level.FINE, "   String: " + state);
 			// executing select statement
 			result = statement.executeQuery();
 
@@ -225,8 +226,9 @@ public class SuperAdminDAOImplementation {
 
 			logger.log(Level.FINE,
 					"Updating the admin based on the paramaters: ");
-			logger.log(Level.FINE, "   Int:" + locationId);
-			logger.log(Level.FINE, "   Int:" + adminId);
+			logger.log(Level.FINE, "   Int: " + locationId);
+			logger.log(Level.FINE, "   Int: " + adminId);
+			logger.log(Level.FINE, "   Int: " + updaterId);
 			// executing select statement
 			statement.executeUpdate();
 

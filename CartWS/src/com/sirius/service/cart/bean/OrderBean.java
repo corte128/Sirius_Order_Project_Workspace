@@ -7,6 +7,7 @@ public class OrderBean {
 	private String orderName = "";
 	private int productId = 0;
 	private BigDecimal totalPrice = null;
+	private int quantity = 0;
 	
 	// ID ---------------------------------------
 	public int getId() {
@@ -40,5 +41,12 @@ public class OrderBean {
 		this.totalPrice = totalPrice;
 	}
 	
+	// Quantity --------------------------------
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 	
 }
