@@ -4,6 +4,6 @@
     <portQnameBindings xmi:id="PortQnameBinding_1505234641570" portQnameNamespaceLink="http://loginws.sirius.com/login/wsdl" portQnameLocalNameLink="login"/>
   </serviceRefs>
   <serviceRefs xmi:id="ServiceRef_1505311157117" serviceRefLink="service/JaxwsEmployee">
-    <portQnameBindings xmi:id="PortQnameBinding_1505311157117" portQnameNamespaceLink="http://employeews.sirius.com/employee/wsdl" portQnameLocalNameLink="employee"/>
+    <portQnameBindings xmi:id="PortQnameBinding_1505311157117" portQnameNamespaceLink="http://employeews.sirius.com/employee/wsdl" portQnameLocalNameLink="employee" overriddenEndpointURI="http://localhost:9080/EmployeeWS/JaxwsEmployee"/>
   </serviceRefs>
 </com.ibm.etools.webservice.wscbnd:ClientBinding>
