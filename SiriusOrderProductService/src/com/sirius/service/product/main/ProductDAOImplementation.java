@@ -1,4 +1,4 @@
-package com.sirius.product.service.main;
+package com.sirius.service.product.main;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
-import com.sirius.product.service.beans.ProductBean;
+import com.sirius.service.product.beans.ProductBean;
 
 public class ProductDAOImplementation 
 {

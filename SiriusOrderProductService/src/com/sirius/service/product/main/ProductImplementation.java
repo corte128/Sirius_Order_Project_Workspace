@@ -1,10 +1,10 @@
-package com.sirius.product.service.main;
+package com.sirius.service.product.main;
 
 import javax.jws.WebService;
 
-import com.sirius.product.service.beans.ProductBean;
+import com.sirius.service.product.beans.ProductBean;
 
-@WebService(endpointInterface="com.sirius.product.service.main.Product",
+@WebService(endpointInterface="com.sirius.service.product.main.Product",
 portName="product", targetNamespace ="http://main.service.product.sirius.com/product/wsdl",
 wsdlLocation="WEB-INF/wsdl/ProductService.wsdl", serviceName="ProductService")
 public class ProductImplementation implements Product
