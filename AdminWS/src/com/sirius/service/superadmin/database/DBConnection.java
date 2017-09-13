@@ -48,10 +48,13 @@ public class DBConnection {
 			logger.log(Level.FINE,
 					"##############OPENED CONNECTION#######################");
 		} catch (NamingException e) {
+			e.printStackTrace();
 			throw e;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			throw e;
 		} catch (Exception e){
+			e.printStackTrace();
 			throw e;
 		}
 

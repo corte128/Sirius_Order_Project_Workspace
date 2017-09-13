@@ -37,6 +37,6 @@ public interface Employee {
 	@ResponseWrapper(localName = "updateEmployeeResponse", targetNamespace = "http://employeews.sirius.com/employee/wsdl", className = "com.sirius.employeews.jaxws.UpdateEmployeeResponse")
 	public boolean updateEmployee(
 			@WebParam(name = "id", targetNamespace = "http://employeews.sirius.com/employee/wsdl") int id,
-			@WebParam(name = "isValid", targetNamespace = "http://employeews.sirius.com/employee/wsdl") int isValid,
+			@WebParam(name = "isValid", targetNamespace = "http://employeews.sirius.com/employee/wsdl") String isValid,
 			@WebParam(name = "updaterId", targetNamespace = "http://employeews.sirius.com/employee/wsdl") int updaterId);
 }

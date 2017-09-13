@@ -93,7 +93,7 @@ public class EmployeeServiceDAOImpl {
 		EmployeeBean emp = null;
 		try {
 			conn = DBConnection.getConnection();
-			String sqlQuery = "SELECT employee_id_pk FROM employee_tbl WHERE employee_email = (?)";
+			String sqlQuery = "SELECT * FROM employee_tbl WHERE employee_email = (?)";
 			PreparedStatement statement = conn.prepareStatement(sqlQuery);
 			statement.setString(1, email);
 			ResultSet rs = statement.executeQuery();
@@ -120,29 +120,28 @@ public class EmployeeServiceDAOImpl {
 		return emp;
 	}
 	
-	public boolean updateEmployee(int id, int isValid, int updaterId) throws SQLException {
+	public boolean updateEmployee(int id, String isValid, int updaterId) throws SQLException {
 		
 		try {
 			conn = DBConnection.getConnection();
 			if (id == 0) {
 				return false;
 			}
-			String sqlQuery = "UPDATE login_tbl SET is_valid = (?), updated_by = (?), updated_date = (SELECT CURDATE()) WHERE username_pk = (?)";
+			String sqlQuery = "UPDATE login_tbl SET is_valid = (?), updated_by = (?), updated_date = (SELECT CURDATE()) WHERE employee_id_fk = (?)";
 			PreparedStatement statement = conn.prepareStatement(sqlQuery);
-			statement.setInt(1, isValid);
+			statement.setString(1, isValid);
 			statement.setInt(2, updaterId);
 			statement.setInt(3, id);
 			statement.executeUpdate();
-			
-			if (isValid == 1){
+			if (isValid.equals("accepted")){
 				String sql = "UPDATE employee_tbl SET is_employee = true WHERE employee_id_pk = (?)";
 				PreparedStatement stmt = conn.prepareStatement(sql);
 				stmt.setInt(1, id);
 				statement.executeUpdate();
+				conn.commit();
 			}
-			
-			conn.commit();
 			DBConnection.closeStatement(statement);
+			return true;
 		} catch (NamingException e1) {
 			logger.log(Level.FINE, "Error updateEmployee() " +e1);
 			conn.rollback();
@@ -154,7 +153,6 @@ public class EmployeeServiceDAOImpl {
 			e1.printStackTrace();
 			return false;
 		}
-		return true;
 	}
 	
 	public void closeConnection(){

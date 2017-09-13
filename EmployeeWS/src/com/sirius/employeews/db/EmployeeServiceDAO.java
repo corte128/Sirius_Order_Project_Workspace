@@ -66,7 +66,7 @@ public class EmployeeServiceDAO {
 		}
 	}
 	
-	public boolean updateEmployee(int id, int isValid, int updaterId) {
+	public boolean updateEmployee(int id, String isValid, int updaterId) {
 		logger.log(Level.FINE, "Updating Employee");
 		Connection conn = null;
 		boolean result = false;
