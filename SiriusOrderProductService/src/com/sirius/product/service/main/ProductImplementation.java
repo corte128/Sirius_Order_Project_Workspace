@@ -6,7 +6,7 @@ import com.sirius.product.service.beans.ProductBean;
 
 @WebService(endpointInterface="com.sirius.product.service.main.Product",
 portName="product", targetNamespace ="http://main.service.product.sirius.com/product/wsdl",
-serviceName="ProductService")
+wsdlLocation="WEB-INF/wsdl/ProductService.wsdl", serviceName="ProductService")
 public class ProductImplementation implements Product
 {
 	public ProductBean getProductByID(int ID)
