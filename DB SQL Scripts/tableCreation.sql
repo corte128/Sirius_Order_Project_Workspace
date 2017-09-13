@@ -7,8 +7,8 @@ CREATE TABLE product_type_tbl (
     product_type_name VARCHAR(255) NOT NULL COMMENT 'Name of the product',
     created_by SMALLINT UNSIGNED NOT NULL COMMENT 'creator id',
     created_date DATE NOT NULL COMMENT 'created date',
-    updated_by SMALLINT UNSIGNED NOT NULL COMMENT 'updater id',
-    updated_date DATE NOT NULL COMMENT 'updated date',
+    updated_by SMALLINT UNSIGNED COMMENT 'updater id',
+    updated_date DATE COMMENT 'updated date',
     PRIMARY KEY (product_type_id_pk)
 );
 
@@ -16,12 +16,12 @@ CREATE TABLE product_tbl (
     product_id_pk SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'PK: Product ID',
     product_name VARCHAR(255) COMMENT 'product name',
     product_type_id_fk SMALLINT UNSIGNED NOT NULL COMMENT 'FK: Product type ID',
-    product_price DECIMAL UNSIGNED NOT NULL COMMENT 'Product price',
+    product_price DECIMAL(8 , 2 ) UNSIGNED NOT NULL COMMENT 'Product price',
     product_details TEXT COMMENT 'Product details',
     product_image VARCHAR(100) COMMENT 'Image data of the product',
     created_by SMALLINT UNSIGNED NOT NULL COMMENT 'creator id',
-    created_date DATE  COMMENT 'created date',
-    updated_by SMALLINT UNSIGNED NOT NULL COMMENT 'updater id',
+    created_date DATE NOT NULL COMMENT 'created date',
+    updated_by SMALLINT UNSIGNED COMMENT 'updater id',
     updated_date DATE COMMENT 'updated date',
     PRIMARY KEY (product_id_pk),
     FOREIGN KEY (product_type_id_fk)
@@ -83,8 +83,8 @@ CREATE TABLE likes_tbl (
     product_id_fk SMALLINT UNSIGNED NOT NULL COMMENT 'FK: product ID',
     created_by SMALLINT UNSIGNED NOT NULL COMMENT 'creator id',
     created_date DATE NOT NULL COMMENT 'created date',
-    updated_by SMALLINT UNSIGNED NOT NULL COMMENT 'updater id',
-    updated_date DATE NOT NULL COMMENT 'updated date',
+    updated_by SMALLINT UNSIGNED COMMENT 'updater id',
+    updated_date DATE COMMENT 'updated date',
     FOREIGN KEY (employee_id_fk)
         REFERENCES employee_tbl (employee_id_pk),
     FOREIGN KEY (product_id_fk)
@@ -154,8 +154,8 @@ CREATE TABLE order_tbl (
     total_price SMALLINT UNSIGNED NOT NULL COMMENT 'total price of the order',
     created_by SMALLINT UNSIGNED NOT NULL COMMENT 'creator id',
     created_date DATE NOT NULL COMMENT 'created date',
-    updated_by SMALLINT UNSIGNED NOT NULL COMMENT 'updater id',
-    updated_date DATE NOT NULL COMMENT 'updated date',
+    updated_by SMALLINT UNSIGNED COMMENT 'updater id',
+    updated_date DATE COMMENT 'updated date',
     PRIMARY KEY (order_id_pk),
     FOREIGN KEY (product_id_fk)
         REFERENCES product_tbl (product_id_pk)
@@ -165,13 +165,13 @@ CREATE TABLE budget_tbl (
     budget_id_pk SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'PK: Budget ID',
     order_id_fk SMALLINT UNSIGNED NOT NULL COMMENT 'order tied to the budget given',
     budget_date DATE NOT NULL COMMENT 'date the budget was made',
-    budget_allotted SMALLINT UNSIGNED NOT NULL COMMENT 'budget that was used',
-    budget_recommended SMALLINT UNSIGNED NOT NULL COMMENT 'budget that was recommended',
+    budget_allotted DECIMAL(8 , 2 ) UNSIGNED NOT NULL COMMENT 'budget that was used',
+    budget_recommended DECIMAL(8 , 2 ) UNSIGNED NOT NULL COMMENT 'budget that was recommended',
     location_id_fk SMALLINT UNSIGNED NOT NULL COMMENT 'location of where the budget is',
     created_by SMALLINT UNSIGNED NOT NULL COMMENT 'creator id',
     created_date DATE NOT NULL COMMENT 'created date',
-    updated_by SMALLINT UNSIGNED NOT NULL COMMENT 'updater id',
-    updated_date DATE NOT NULL COMMENT 'updated date',
+    updated_by SMALLINT UNSIGNED COMMENT 'updater id',
+    updated_date DATE COMMENT 'updated date',
     PRIMARY KEY (budget_id_pk),
     FOREIGN KEY (location_id_fk)
         REFERENCES location_tbl (location_id_pk),
