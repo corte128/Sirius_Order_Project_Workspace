@@ -70,7 +70,7 @@
   </binding>
   <service name="JaxwsEmployee">
     <port name="employee" binding="tns:employeeBinding">
-      <soap:address location="http://localhost:9080/EmployeeWS/JaxwsEmployee"/>
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
     </port>
   </service>
 </definitions>
