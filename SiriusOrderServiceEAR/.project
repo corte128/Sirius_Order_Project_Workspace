@@ -3,7 +3,6 @@
 	<name>SiriusOrderServiceEAR</name>
 	<comment></comment>
 	<projects>
-		<project>SiriusOrderService</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
