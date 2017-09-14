@@ -1,7 +1,10 @@
 package com.sirius.service.cart;
 
+import java.util.List;
+
 import javax.jws.WebService;
 
+import com.sirius.service.cart.bean.BudgetBean;
 import com.sirius.service.cart.bean.OrderBean;
 import com.sirius.service.cart.database.CartDAO;
 
@@ -9,34 +12,30 @@ import com.sirius.service.cart.database.CartDAO;
 portName="cart", targetNamespace ="http://superadmin.service.sirius.com/superadmin/wsdl",
 serviceName="CartService")
 public class CartImplementation implements CartInterface {
-
+	
 	@Override
-	public boolean addProductToCart(OrderBean order, int createdBy) {
-		CartDAO.addProductToCart(order, createdBy);
-		return false;
+	public boolean addProductToCart(OrderBean order, BudgetBean budget, int createdBy) {
+		return CartDAO.addProductToCart(order, budget, createdBy);
 	}
 
 	@Override
-	public OrderBean[] getAllProductsInCart(String orderName) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<OrderBean> getAllProductsInCart(int locationId) {
+		return CartDAO.getAllProductsInCart(locationId);
 	}
 
 	@Override
-	public boolean updateProductQuantity(String orderName, int quantity) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean updateProductQuantityInCart(int locationId, int quantity,
+			int productId, int updatedBy) {
+		return CartDAO.updateProductQuantity(locationId, productId, quantity, updatedBy);
 	}
 
 	@Override
-	public boolean removeProductFromCart(String orderName, int productId) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean removeProductFromCart(int orderId) {
+		return CartDAO.removeProductFromCart(orderId);
 	}
 
 	@Override
-	public boolean saveCart() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean saveOrder(String orderName, int locationId, int createdBy) {
+		return CartDAO.saveOrder(orderName, locationId, createdBy);
 	}
 }
