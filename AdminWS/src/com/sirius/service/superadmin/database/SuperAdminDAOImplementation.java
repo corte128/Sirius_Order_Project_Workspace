@@ -46,8 +46,8 @@ public class SuperAdminDAOImplementation {
 
 			logger.log(Level.FINE,
 					"Setting the budget based on the paramaters: ");
-			logger.log(Level.FINE, "   BigDecimal:" + budget);
-			logger.log(Level.FINE, "   Int:" + locationId);
+			logger.log(Level.FINE, "   BigDecimal: " + budget);
+			logger.log(Level.FINE, "   Int: " + locationId);
 			// executing update statement
 			statement.executeUpdate();
 
@@ -88,7 +88,7 @@ public class SuperAdminDAOImplementation {
 
 			logger.log(Level.FINE,
 					"Getting the budget based on the paramaters: ");
-			logger.log(Level.FINE, "   Int:" + locationId);
+			logger.log(Level.FINE, "   Int: " + locationId);
 			// executing select statement
 			result = statement.executeQuery();
 
@@ -119,7 +119,7 @@ public class SuperAdminDAOImplementation {
 	 * @throws NamingException
 	 * @throws SQLException
 	 */
-	public static boolean addLocation(String city, int stateId, Connection conn)
+	public static boolean addLocation(String city, int stateId, int creatorId, Connection conn)
 			throws NamingException, SQLException {
 		PreparedStatement statement = null;
 		boolean completed = false;
@@ -134,11 +134,13 @@ public class SuperAdminDAOImplementation {
 			statement.setString(1,city);
 			statement.setInt(2,stateId);
 			statement.setInt(3,0);
+			statement.setInt(4,creatorId);
 
 			logger.log(Level.FINE,
 					"Adding the location based on the paramaters: ");
-			logger.log(Level.FINE, "   String:" + city);
-			logger.log(Level.FINE, "   Int:" + stateId);
+			logger.log(Level.FINE, "   String: " + city);
+			logger.log(Level.FINE, "   Int: " + stateId);
+			logger.log(Level.FINE, "   Int: " + creatorId);
 			// executing select statement
 			statement.executeUpdate();
 
@@ -176,7 +178,7 @@ public class SuperAdminDAOImplementation {
 
 			logger.log(Level.FINE,
 					"Getting the stateId based on the paramaters: ");
-			logger.log(Level.FINE, "   String:" + state);
+			logger.log(Level.FINE, "   String: " + state);
 			// executing select statement
 			result = statement.executeQuery();
 
@@ -207,7 +209,7 @@ public class SuperAdminDAOImplementation {
 	 * @throws NamingException
 	 * @throws SQLException
 	 */
-	public static boolean assignAdmin(int locationId, int adminId, Connection conn) throws NamingException, SQLException{
+	public static boolean assignAdmin(int locationId, int adminId, int updaterId, Connection conn) throws NamingException, SQLException{
 		PreparedStatement statement = null;
 		boolean completed = false;
 
@@ -220,11 +222,13 @@ public class SuperAdminDAOImplementation {
 			statement = conn.prepareStatement(employeeQuery);
 			statement.setInt(1,locationId);
 			statement.setInt(2,adminId);
+			statement.setInt(3,updaterId);
 
 			logger.log(Level.FINE,
 					"Updating the admin based on the paramaters: ");
-			logger.log(Level.FINE, "   Int:" + locationId);
-			logger.log(Level.FINE, "   Int:" + adminId);
+			logger.log(Level.FINE, "   Int: " + locationId);
+			logger.log(Level.FINE, "   Int: " + adminId);
+			logger.log(Level.FINE, "   Int: " + updaterId);
 			// executing select statement
 			statement.executeUpdate();
 

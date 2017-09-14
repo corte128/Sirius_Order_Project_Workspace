@@ -10,41 +10,39 @@ import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 
 import com.sirius.wishlistws.beans.EmployeeBean;
+import com.sirius.wishlistws.beans.ProductBean;
 
-@WebService(name = "Employee", targetNamespace = "http://ace.sirius.com/profile/wsdl")
+@WebService(name = "Wishlist", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl")
 public interface Wishlist {
 	
 	@WebMethod(action = "addToLikeTable")
-	@WebResult(name = "addToLikeTableReturn", targetNamespace = "http://ace.sirius.com/profile/wsdl")
-	@RequestWrapper(localName = "addToLikeTable", targetNamespace = "http://ace.sirius.com/profile/wsdl", className = "com.sirius.ace.jaxws.addToLikeTable")
-	@ResponseWrapper(localName = "addToLikeTableResponse", targetNamespace = "http://ace.sirius.com/profile/wsdl", className = "com.sirius.ace.jaxws.addToLikeTableResponse")
+	@WebResult(name = "addToLikeTableReturn", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl")
+	@RequestWrapper(localName = "addToLikeTable", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl", className = "com.sirius.wishlistws.jaxws.addToLikeTable")
+	@ResponseWrapper(localName = "addToLikeTableResponse", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl", className = "com.sirius.wishlistws.jaxws.addToLikeTableResponse")
 	public void addToLikeTable(
-			@WebParam(name = "employee_id", targetNamespace = "http://ace.sirius.com/profile/wsdl") int employee_id,
-			@WebParam(name = "product_id", targetNamespace = "http://ace.sirius.com/profile/wsdl") int product_id);
+			@WebParam(name = "employee_id", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl") int employee_id,
+			@WebParam(name = "product_id", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl") int product_id);
 	
-//	public List<EmployeeBean> getAllEmployeesWhoLikedProduct(int product_id)
 	@WebMethod(action = "getAllEmployeesWhoLikedProduct")
-	@WebResult(name = "getAllEmployeesWhoLikedProductReturn", targetNamespace = "http://ace.sirius.com/profile/wsdl")
-	@RequestWrapper(localName = "getAllEmployeesWhoLikedProduct", targetNamespace = "http://ace.sirius.com/profile/wsdl", className = "com.sirius.ace.jaxws.getAllEmployeesWhoLikedProduct")
-	@ResponseWrapper(localName = "getAllEmployeesWhoLikedProductResponse", targetNamespace = "http://ace.sirius.com/profile/wsdl", className = "com.sirius.ace.jaxws.getAllEmployeesWhoLikedProductResponse")
+	@WebResult(name = "getAllEmployeesWhoLikedProductReturn", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl")
+	@RequestWrapper(localName = "getAllEmployeesWhoLikedProduct", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl", className = "com.sirius.wishlistws.jaxws.getAllEmployeesWhoLikedProduct")
+	@ResponseWrapper(localName = "getAllEmployeesWhoLikedProductResponse", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl", className = "com.sirius.wishlistws.jaxws.getAllEmployeesWhoLikedProductResponse")
 	public List<EmployeeBean> getAllEmployeesWhoLikedProduct(
-			@WebParam(name = "product_id", targetNamespace = "http://ace.sirius.com/profile/wsdl") int product_id);
+			@WebParam(name = "product_id", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl") int product_id);
 	
-	//	public List<ProductBean> getAllProductsEmployeeLiked(int employee_id){
 	@WebMethod(action = "getAllProductsEmployeeLiked")
-	@WebResult(name = "getAllProductsEmployeeLikedReturn", targetNamespace = "http://ace.sirius.com/profile/wsdl")
-	@RequestWrapper(localName = "getAllProductsEmployeeLiked", targetNamespace = "http://ace.sirius.com/profile/wsdl", className = "com.sirius.ace.jaxws.getAllProductsEmployeeLiked")
-	@ResponseWrapper(localName = "getAllProductsEmployeeLikedResponse", targetNamespace = "http://ace.sirius.com/profile/wsdl", className = "com.sirius.ace.jaxws.getAllProductsEmployeeLikedResponse")
-	public void getAllProductsEmployeeLiked(
-			@WebParam(name = "employee_id", targetNamespace = "http://ace.sirius.com/profile/wsdl") int employee_id);
+	@WebResult(name = "getAllProductsEmployeeLikedReturn", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl")
+	@RequestWrapper(localName = "getAllProductsEmployeeLiked", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl", className = "com.sirius.wishlistws.jaxws.getAllProductsEmployeeLiked")
+	@ResponseWrapper(localName = "getAllProductsEmployeeLikedResponse", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl", className = "com.sirius.wishlistws.jaxws.getAllProductsEmployeeLikedResponse")
+	public List<ProductBean> getAllProductsEmployeeLiked(
+			@WebParam(name = "employee_id", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl") int employee_id);
 	
-	//	public void removeFromEmployeeWishlist(int employee_id, int product_id){
 	@WebMethod(action = "removeFromEmployeeWishlist")
-	@WebResult(name = "removeFromEmployeeWishlistReturn", targetNamespace = "http://ace.sirius.com/profile/wsdl")
-	@RequestWrapper(localName = "removeFromEmployeeWishlist", targetNamespace = "http://ace.sirius.com/profile/wsdl", className = "com.sirius.ace.jaxws.removeFromEmployeeWishlist")
-	@ResponseWrapper(localName = "removeFromEmployeeWishlistResponse", targetNamespace = "http://ace.sirius.com/profile/wsdl", className = "com.sirius.ace.jaxws.removeFromEmployeeWishlistResponse")
-	public void getAllProductsEmployeeLiked(
-			@WebParam(name = "employee_id", targetNamespace = "http://ace.sirius.com/profile/wsdl") int employee_id,
-			@WebParam(name = "product_id", targetNamespace = "http://ace.sirius.com/profile/wsdl") int product_id);
+	@WebResult(name = "removeFromEmployeeWishlistReturn", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl")
+	@RequestWrapper(localName = "removeFromEmployeeWishlist", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl", className = "com.sirius.wishlistws.jaxws.removeFromEmployeeWishlist")
+	@ResponseWrapper(localName = "removeFromEmployeeWishlistResponse", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl", className = "com.sirius.wishlistws.jaxws.removeFromEmployeeWishlistResponse")
+	public void removeFromEmployeeWishlist(
+			@WebParam(name = "employee_id", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl") int employee_id,
+			@WebParam(name = "product_id", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl") int product_id);
 	
 }

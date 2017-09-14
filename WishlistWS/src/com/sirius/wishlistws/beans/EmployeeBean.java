@@ -1,7 +1,13 @@
 package com.sirius.wishlistws.beans;
 
-public class EmployeeBean {
+import java.io.Serializable;
 
+public class EmployeeBean implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String email;
 	private String name;

@@ -9,7 +9,7 @@ import com.sirius.employeews.db.EmployeeServiceDAO;
 public class JaxwsEmployeeImpl implements Employee{
 	
 	@Override
-	public boolean updateEmployee(int id, int isValid, int updaterId) {
+	public boolean updateEmployee(int id, String isValid, int updaterId) {
 		EmployeeServiceDAO dao = new EmployeeServiceDAO();
 		return dao.updateEmployee(id, isValid, updaterId);
 	}
