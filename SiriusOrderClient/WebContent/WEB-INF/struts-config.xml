@@ -3,6 +3,7 @@
 <struts-config>
 	
 	<form-beans>
+		<form-bean name="LoginForm" type="com.sirius.order.client.form.LoginForm"/>
 	</form-beans>
 	
 	<global-exceptions>
@@ -12,6 +13,10 @@
 	</global-forwards>
 	
 	<action-mappings>
+		<action input="./jsps/login.jsp" name="LoginForm" path="/Login" scope="session" type="com.sirius.order.client.action.LoginAction">
+            <forward name="success" path="./jsps/login.jsp" />
+            <forward name="failure" path="./jsps/login.jsp" />
+        </action>
 	</action-mappings>
 	
 	<message-resources parameter="localdomain.ie8win7.siriusorderclient.resources.ApplicationResources"/>

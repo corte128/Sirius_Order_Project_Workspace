@@ -64,7 +64,7 @@ public interface CartInterface {
 	@WebMethod(action = "UpdateProductQuantityInCart")
 	@WebResult(name = "UpdateProductQuantityInCartReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
 	@RequestWrapper(localName = "UpdateProductQuantityInCart", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.UpdateProductQuantityInCart")
-	@ResponseWrapper(localName = "UpdateProductQuantityInCartResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.UpdateProductQuantityInCart")
+	@ResponseWrapper(localName = "UpdateProductQuantityInCartResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.UpdateProductQuantityInCartResponse")
 	public boolean updateProductQuantityInCart(
 			@WebParam(name="locationId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
 			int locationId,

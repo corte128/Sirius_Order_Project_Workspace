@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://cart.service.sirius.com/cart/wsdl" xmlns:tns="http://cart.service.sirius.com/cart/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="AddProductToCart" type="tns:AddProductToCart"/>
+
+  <xs:element name="AddProductToCartResponse" type="tns:AddProductToCartResponse"/>
+
+  <xs:element name="GetAllProductsInCart" type="tns:GetAllProductsInCart"/>
+
+  <xs:element name="GetAllProductsInCartResponse" type="tns:GetAllProductsInCartResponse"/>
+
+  <xs:element name="RemoveProductFromCart" type="tns:RemoveProductFromCart"/>
+
+  <xs:element name="RemoveProductFromCartResponse" type="tns:RemoveProductFromCartResponse"/>
+
+  <xs:element name="SaveOrder" type="tns:SaveOrder"/>
+
+  <xs:element name="SaveOrderResponse" type="tns:SaveOrderResponse"/>
+
+  <xs:element name="UpdateProductQuantityInCart" type="tns:UpdateProductQuantityInCart"/>
+
+  <xs:element name="UpdateProductQuantityInCartResponse" type="tns:UpdateProductQuantityInCartResponse"/>
+
+  <xs:complexType name="SaveOrder">
+    <xs:sequence>
+      <xs:element name="orderName" type="xs:string" form="qualified" minOccurs="0"/>
+      <xs:element name="locationId" type="xs:int" form="qualified"/>
+      <xs:element name="createdBy" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SaveOrderResponse">
+    <xs:sequence>
+      <xs:element name="SaveOrderReturn" type="xs:boolean" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RemoveProductFromCart">
+    <xs:sequence>
+      <xs:element name="orderId" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RemoveProductFromCartResponse">
+    <xs:sequence>
+      <xs:element name="RemoveProductFromCartReturn" type="xs:boolean" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetAllProductsInCart">
+    <xs:sequence>
+      <xs:element name="locationId" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetAllProductsInCartResponse">
+    <xs:sequence>
+      <xs:element name="GetAllProductsInCartReturn" type="tns:orderBean" form="qualified" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="orderBean">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="orderName" type="xs:string" minOccurs="0"/>
+      <xs:element name="productId" type="xs:int"/>
+      <xs:element name="quantity" type="xs:int"/>
+      <xs:element name="totalPrice" type="xs:decimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UpdateProductQuantityInCart">
+    <xs:sequence>
+      <xs:element name="locationId" type="xs:int" form="qualified"/>
+      <xs:element name="quantity" type="xs:int" form="qualified"/>
+      <xs:element name="productId" type="xs:int" form="qualified"/>
+      <xs:element name="updatedBy" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UpdateProductQuantityInCartResponse">
+    <xs:sequence>
+      <xs:element name="UpdateProductQuantityInCartReturn" type="xs:boolean" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AddProductToCart">
+    <xs:sequence>
+      <xs:element name="order" type="tns:orderBean" form="qualified" minOccurs="0"/>
+      <xs:element name="budget" type="tns:budgetBean" form="qualified" minOccurs="0"/>
+      <xs:element name="createdBy" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="budgetBean">
+    <xs:sequence>
+      <xs:element name="budgetAllotted" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="budgetDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="budgetRecommended" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="locationId" type="xs:int"/>
+      <xs:element name="orderId" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AddProductToCartResponse">
+    <xs:sequence>
+      <xs:element name="AddProductToCartReturn" type="xs:boolean" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

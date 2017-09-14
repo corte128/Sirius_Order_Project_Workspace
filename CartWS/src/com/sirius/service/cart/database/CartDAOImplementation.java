@@ -126,7 +126,7 @@ public class CartDAOImplementation {
 			statement = conn.prepareStatement(budgetQuery);
 			statement.setInt(1, budget.getLocationId());
 			statement.setInt(2, budget.getOrderId());
-			statement.setDate(3, budget.getBudgetDate());
+			statement.setDate(3, (java.sql.Date) budget.getBudgetDate());
 			statement.setBigDecimal(4, budget.getBudgetAllotted());
 			statement.setBigDecimal(5, budget.getBudgetRecommended());
 			statement.setInt(6, createdBy);
