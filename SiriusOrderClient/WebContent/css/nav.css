@@ -3,12 +3,11 @@
 .nav-icon-image-container
 {
 	position: relative;
-	left: calc(100% - 60px);
+	left: calc(100% - 50px);
 	display: inline-block;
 	cursor: pointer;
 	margin: 5px 0px;
 }
-
 .nav-icon-image-shadow
 {
 	box-shadow: 0px 0px 10px #888888;
@@ -26,34 +25,88 @@
 }
 .nav-icon-image
 {
-	width: 60px;
-	height: 60px;
+	width: 50px;
+	height: 50px;
 }
 #navAdminSubModal
 {
 	position: absolute;
+	padding: 30px 0px 30px 30px;
 	left: calc(100% - 273px);
 	bottom: calc(100% - 365px);
+	display: none;
 }
 #navAdminSubModalImage
 {
-	width: 200px;
-	height: 150px;
-	opacity: 50%;
+	width: 180px;
+	height: 160px;
+	opacity: 0.5;
 	z-index: 2;
 }
 #adminNavSubModalTextContainer
 {
 	position: absolute;
-	padding-left: 5px;
-	color: grey;
+	padding-left: 7px;
 	font-style: italic;
 	font-weight: bold;
 	font-family: serif;
 	font-size: 15px;
+	opacity: 1;
 	z-index: 3;
 }
 .admin-nav-sub-modal-text-container
 {
-	margin-top: 25px;
+	margin-top: 27px;
+}
+
+#navReportsSubModal
+{
+	position: absolute;
+	padding: 30px 0px 30px 30px;
+	left: calc(100% - 273px);
+	bottom: calc(100% - 250px);
+	display: none;
+}
+#navReportsSubModalImage
+{
+	width: 180px;
+	height: 80px;
+	opacity: 0.5;
+	z-index: 2;
+}
+#reportsNavSubModalTextContainer
+{
+	position: absolute;
+	padding-left: 7px;
+	font-style: italic;
+	font-weight: bold;
+	font-family: serif;
+	font-size: 15px;
+	opacity: 1;
+	z-index: 3;
+}
+.reports-nav-sub-modal-text-container
+{
+	margin-top: 15px;
+}
+
+.nav-sub-modal-text-link:link 
+{
+    color: grey;
+    text-decoration: none;
+}
+.nav-sub-modal-text-link:visited 
+{
+    color: grey;
+    text-decoration: none;
+}
+.nav-sub-modal-text-link:hover 
+{
+    color: grey;
+    text-decoration: none;
+}
+.nav-sub-modal-text-link:active 
+{
+    color: grey;
+    text-decoration: none;
 }
