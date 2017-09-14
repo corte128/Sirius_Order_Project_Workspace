@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://adminws.sirius.com/officeAdmin/wsdl" xmlns:tns="http://adminws.sirius.com/officeAdmin/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="addHoliday" type="tns:addHoliday"/>
+
+  <xs:element name="addHolidayResponse" type="tns:addHolidayResponse"/>
+
+  <xs:element name="addVisitors" type="tns:addVisitors"/>
+
+  <xs:element name="addVisitorsResponse" type="tns:addVisitorsResponse"/>
+
+  <xs:element name="deleteHoliday" type="tns:deleteHoliday"/>
+
+  <xs:element name="deleteHolidayResponse" type="tns:deleteHolidayResponse"/>
+
+  <xs:element name="getAllHolidays" type="tns:getAllHolidays"/>
+
+  <xs:element name="getAllHolidaysResponse" type="tns:getAllHolidaysResponse"/>
+
+  <xs:complexType name="getAllHolidays">
+    <xs:sequence>
+      <xs:element name="locationID" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllHolidaysResponse">
+    <xs:sequence>
+      <xs:element name="getAllHolidaysReturn" type="tns:holiday" form="qualified" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="holiday">
+    <xs:sequence>
+      <xs:element name="date" type="xs:string" minOccurs="0"/>
+      <xs:element name="dayOfWeek" type="xs:int"/>
+      <xs:element name="holidayName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addVisitors">
+    <xs:sequence>
+      <xs:element name="startDate" type="xs:string" form="qualified" minOccurs="0"/>
+      <xs:element name="endDate" type="xs:string" form="qualified" minOccurs="0"/>
+      <xs:element name="count" type="xs:int" form="qualified"/>
+      <xs:element name="comment" type="xs:string" form="qualified" minOccurs="0"/>
+      <xs:element name="userID" type="xs:int" form="qualified"/>
+      <xs:element name="locationID" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addVisitorsResponse">
+    <xs:sequence>
+      <xs:element name="addVisitorsReturn" type="xs:boolean" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addHoliday">
+    <xs:sequence>
+      <xs:element name="holidayName" type="xs:string" form="qualified" minOccurs="0"/>
+      <xs:element name="date" type="xs:string" form="qualified" minOccurs="0"/>
+      <xs:element name="userID" type="xs:int" form="qualified"/>
+      <xs:element name="locationID" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addHolidayResponse">
+    <xs:sequence>
+      <xs:element name="addHolidayReturn" type="xs:boolean" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deleteHoliday">
+    <xs:sequence>
+      <xs:element name="holidayID" type="xs:int" form="qualified"/>
+      <xs:element name="userID" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deleteHolidayResponse">
+    <xs:sequence>
+      <xs:element name="deleteHolidayReturn" type="xs:boolean" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
