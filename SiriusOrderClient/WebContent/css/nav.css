@@ -1,0 +1,59 @@
+@CHARSET "ISO-8859-1";
+
+.nav-icon-image-container
+{
+	position: relative;
+	left: calc(100% - 60px);
+	display: inline-block;
+	cursor: pointer;
+	margin: 5px 0px;
+}
+
+.nav-icon-image-shadow
+{
+	box-shadow: 0px 0px 10px #888888;
+}
+
+#navIconLinks
+{
+}
+
+#navIconLinksList
+{
+	list-style: none;
+	margin: 0;
+	padding-right: 5px;
+}
+.nav-icon-image
+{
+	width: 60px;
+	height: 60px;
+}
+#navAdminSubModal
+{
+	position: absolute;
+	left: calc(100% - 273px);
+	bottom: calc(100% - 365px);
+}
+#navAdminSubModalImage
+{
+	width: 200px;
+	height: 150px;
+	opacity: 50%;
+	z-index: 2;
+}
+#adminNavSubModalTextContainer
+{
+	position: absolute;
+	padding-left: 5px;
+	color: grey;
+	font-style: italic;
+	font-weight: bold;
+	font-family: serif;
+	font-size: 15px;
+	z-index: 3;
+}
+.admin-nav-sub-modal-text-container
+{
+	margin-top: 25px;
+}
