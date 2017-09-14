@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://searchws.sirius.com/search/wsdl" xmlns:tns="http://searchws.sirius.com/search/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="budgetSearch" type="tns:budgetSearch"/>
+
+  <xs:element name="budgetSearchResponse" type="tns:budgetSearchResponse"/>
+
+  <xs:complexType name="budgetSearch">
+    <xs:sequence>
+      <xs:element name="location" type="xs:int" form="qualified"/>
+      <xs:element name="from" type="xs:dateTime" form="qualified" minOccurs="0"/>
+      <xs:element name="to" type="xs:dateTime" form="qualified" minOccurs="0"/>
+      <xs:element name="report" type="xs:string" form="qualified" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="budgetSearchResponse">
+    <xs:sequence>
+      <xs:element name="budgetSearchReturn" type="tns:actualvBudgetBean" form="qualified" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="actualvBudgetBean">
+    <xs:sequence>
+      <xs:element name="actual" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="budget" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="time" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

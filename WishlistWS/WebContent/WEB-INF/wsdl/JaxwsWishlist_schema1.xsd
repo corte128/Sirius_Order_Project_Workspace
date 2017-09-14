@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://wishlistws.sirius.com/wishlist/wsdl" xmlns:tns="http://wishlistws.sirius.com/wishlist/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="addToLikeTable" type="tns:addToLikeTable"/>
+
+  <xs:element name="addToLikeTableResponse" type="tns:addToLikeTableResponse"/>
+
+  <xs:element name="getAllEmployeesWhoLikedProduct" type="tns:getAllEmployeesWhoLikedProduct"/>
+
+  <xs:element name="getAllEmployeesWhoLikedProductResponse" type="tns:getAllEmployeesWhoLikedProductResponse"/>
+
+  <xs:element name="getAllProductsEmployeeLiked" type="tns:getAllProductsEmployeeLiked"/>
+
+  <xs:element name="getAllProductsEmployeeLikedResponse" type="tns:getAllProductsEmployeeLikedResponse"/>
+
+  <xs:element name="removeFromEmployeeWishlist" type="tns:removeFromEmployeeWishlist"/>
+
+  <xs:element name="removeFromEmployeeWishlistResponse" type="tns:removeFromEmployeeWishlistResponse"/>
+
+  <xs:complexType name="addToLikeTable">
+    <xs:sequence>
+      <xs:element name="employee_id" type="xs:int" form="qualified"/>
+      <xs:element name="product_id" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="addToLikeTableResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllProductsEmployeeLiked">
+    <xs:sequence>
+      <xs:element name="employee_id" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllProductsEmployeeLikedResponse">
+    <xs:sequence>
+      <xs:element name="getAllProductsEmployeeLikedReturn" type="tns:productBean" form="qualified" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="productBean">
+    <xs:sequence>
+      <xs:element name="details" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="price" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="type" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="removeFromEmployeeWishlist">
+    <xs:sequence>
+      <xs:element name="employee_id" type="xs:int" form="qualified"/>
+      <xs:element name="product_id" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="removeFromEmployeeWishlistResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllEmployeesWhoLikedProduct">
+    <xs:sequence>
+      <xs:element name="product_id" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllEmployeesWhoLikedProductResponse">
+    <xs:sequence>
+      <xs:element name="getAllEmployeesWhoLikedProductReturn" type="tns:employeeBean" form="qualified" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="employeeBean">
+    <xs:sequence>
+      <xs:element name="email" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="imageBytes" type="xs:base64Binary" minOccurs="0"/>
+      <xs:element name="likes" type="xs:int"/>
+      <xs:element name="location" type="xs:int"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="password" type="xs:unsignedShort" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="role" type="xs:string" minOccurs="0"/>
+      <xs:element name="valid" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
