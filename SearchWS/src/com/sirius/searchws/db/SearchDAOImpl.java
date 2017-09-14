@@ -10,6 +10,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 import com.sirius.searchws.beans.ActualvBudgetBean;
 import com.sirius.searchws.beans.BudgetObject;
@@ -17,21 +18,22 @@ import com.sirius.searchws.beans.BudgetObject;
 public class SearchDAOImpl {
 
 	private Connection conn = null;
-	
+	private static final ResourceBundle queries = ResourceBundle.getBundle("com.sirius.searchws.properties.queries");
 	public SearchDAOImpl(Connection conn){
 		conn = this.conn;
 	}
 	
 	public List<ActualvBudgetBean> budgetSearch(int location_id, Date fromDate, Date toDate, String reportType){
 //		String sql="INSERT INTO likes_tbl (employee_id_fk, product_id_fk) VALUES (?,?)";
-		String sql = "SELECT budget_date, budget_allotted, budget_recommended FROM budget_tbl WHERE budget_date BETWEEN(" + fromDate + ", " + toDate + ")";
+		String sql = queries.getString("SEARCH_WITHIN_TIMEFRAME");
+		//String sql = "SELECT location_id_fk, budget_date, budget_allotted, budget_recommended FROM budget_tbl WHERE budget_date BETWEEN(? AND ?) AND location_id_fk=?";
 //		WHERE created_at BETWEEN('2011-12-01', date_add('2011-12-01', INTERVAL 7 DAY));
 		List<BudgetObject> budgetObjects = new ArrayList<BudgetObject>();
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setInt(1, location_id);
-			statement.setDate(2, (java.sql.Date) fromDate);
-			statement.setDate(3, (java.sql.Date) toDate);
+			statement.setDate(1, (java.sql.Date) fromDate);
+			statement.setDate(2, (java.sql.Date) toDate);
+			statement.setInt(3, location_id);
 			statement.executeUpdate();
 		    ResultSet rs = statement.executeQuery(sql);
 		    BudgetObject object = null;
@@ -44,6 +46,8 @@ public class SearchDAOImpl {
 		    	object.setDate(rs.getDate("budget_date"));
 		    	budgetObjects.add(object);
 		    }
+			DBConnection.closeStatement(statement);
+			DBConnection.closeResultSet(rs);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
