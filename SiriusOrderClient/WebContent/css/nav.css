@@ -33,8 +33,8 @@
 {
 	position: absolute;
 	padding: 30px 0px 30px 30px;
-	left: calc(100% - 273px);
-	bottom: calc(100% - 365px);
+	left: calc(100% - 265px);
+	bottom: calc(100% - 355px);
 	display: none;
 }
 #navAdminSubModalImage
@@ -64,8 +64,8 @@
 {
 	position: absolute;
 	padding: 30px 0px 30px 30px;
-	left: calc(100% - 273px);
-	bottom: calc(100% - 250px);
+	left: calc(100% - 265px);
+	bottom: calc(100% - 240px);
 	display: none;
 }
 #navReportsSubModalImage
