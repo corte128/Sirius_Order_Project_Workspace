@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -28,6 +29,10 @@ public class WishlistServiceDAOImpl {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, employee_id);
 			statement.setInt(2, product_id);
+			statement.setInt(3, employee_id);
+			statement.setDate(4, new java.sql.Date((new Date()).getTime()));
+			//change the true to take in value from server to check if it exists after which it becomes false
+			statement.setBoolean(5, true);
 			statement.executeUpdate();
 			DBConnection.closeStatement(statement);
 		} catch (SQLException e) {
