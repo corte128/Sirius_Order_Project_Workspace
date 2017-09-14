@@ -3,7 +3,6 @@
 	<name>AdminWSEAR</name>
 	<comment></comment>
 	<projects>
-		<project>AdminWS</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
