@@ -21,10 +21,10 @@
 				style="display:none" 
 				id="navIconLinksSidebar"
 			>
-				<button id="responsiveNavClose"
-					class="glyphicon glyphicon-arrow-left" 
+				<div id="responsiveNavClose"
+					class="glyphicon glyphicon-remove" 
 					onclick="closeSidebar()"
-				></button>
+				></div>
 				
 				<ul id="navSidebarIconLinksList">
 					<li>

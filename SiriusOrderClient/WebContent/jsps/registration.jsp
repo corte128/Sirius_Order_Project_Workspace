@@ -2,10 +2,15 @@
 	contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
-<title>registration</title>
+<fmt:setBundle basename="com.sirius.order.client.properties.common"/>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
+<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/registration.css">
+<title>registration</title>
 </head>
 <body>
 
