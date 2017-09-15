@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="message" type="xs:string"/>
+
+  <xs:element name="subject" type="xs:string"/>
+
+  <xs:element name="toAddress" type="xs:string"/>
+</xs:schema>
+
