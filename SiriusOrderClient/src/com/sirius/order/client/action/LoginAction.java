@@ -15,12 +15,14 @@ import com.sirius.loginws.login.wsdl.LoginClientDAO;
 import com.sirius.order.client.form.LoginForm;
 
 public class LoginAction extends org.apache.struts.action.Action {
+	
 	private final static String SUCCESS = "success";
     private final static String FAILURE = "failure";
 
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+    	response.setContentType("text/html");
         LoginForm loginForm = (LoginForm) form;
         HttpSession session = null;
         int employeeID = 0;
