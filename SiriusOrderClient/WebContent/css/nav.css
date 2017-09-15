@@ -1,5 +1,9 @@
 @CHARSET "ISO-8859-1";
 
+p
+{
+	margin: 0;
+}
 .nav-icon-image-container
 {
 	position: relative;
