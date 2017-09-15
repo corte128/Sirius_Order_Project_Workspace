@@ -14,7 +14,7 @@ public class ProductDAOImplementation
 	private static final Logger logger = Logger
 			.getLogger(ProductDAOImplementation.class.getName());
 	private static final ResourceBundle queries = ResourceBundle
-			.getBundle("com.sirius.product.service.properties.queries");
+			.getBundle("com.sirius.service.product.properties.queries");
 	
 	/**
 	 * Gets a product by ID
