@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xs:schema version="1.0" targetNamespace="http://main.service.product.sirius.com/product/wsdl" xmlns:tns="http://main.service.product.sirius.com/product/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://main.service.product.sirius.com/profile/wsdl">
-
-  <xs:import namespace="http://main.service.product.sirius.com/profile/wsdl" schemaLocation="ProductService_schema1.xsd"/>
+<xs:schema version="1.0" targetNamespace="http://main.service.product.sirius.com/product/wsdl" xmlns:tns="http://main.service.product.sirius.com/product/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
   <xs:element name="getAllProductByTypeResponse" type="tns:getAllProductByTypeResponse"/>
 
@@ -13,7 +11,7 @@
 
   <xs:complexType name="getProductByID">
     <xs:sequence>
-      <xs:element ref="ns1:ID"/>
+      <xs:element name="ID" type="xs:int" form="qualified"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -36,7 +34,7 @@
 
   <xs:complexType name="getAllProductsByType">
     <xs:sequence>
-      <xs:element ref="ns1:type" minOccurs="0"/>
+      <xs:element name="type" type="xs:string" form="qualified" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 

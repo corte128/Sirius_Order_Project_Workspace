@@ -11,13 +11,7 @@
 	<div class="headerContainer">
 		<c:set var="now" value="<%= new java.util.Date()%>" />
 
-		<div class="headerLeft">
-			
-		</div>
-
-		<div class="headerCenter">
-			
-		</div>
+		
 		<div class="headerRight">
 			<div class="headerRightLinks">
 
@@ -42,6 +36,12 @@
 								key="HEADER_LOGOUT" />
 						</a>
 				</c:if>
+				<c:if test="${sessionScope.activeUserType == 2}">
+				<div class="headerRightActions">
+					
+				</div>
+				</c:if>
+				
 			</div>
 			<div class="headerRightTime">
 				

@@ -10,6 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/login.css">
+<meta name="viewport" content="width=device-width" />
 <title><fmt:message key="LOGIN_TITLE" /></title>
 </head>
 <body>
@@ -20,21 +21,23 @@
 		<div id="login-form">
 			<div id="login-labels">
 				<br />
-				<label class="input_label"><fmt:message key="LOGIN_EMAIL_LABEL" /></label>
+				<label class="input-label"><fmt:message key="LOGIN_EMAIL_LABEL" /></label>
 				<br />
-				<label class="input_label"><fmt:message key="LOGIN_PASSWORD_LABEL" /></label>
-				<html:errors  />
+				<label class="input-label"><fmt:message key="LOGIN_PASSWORD_LABEL" /></label>
 			</div>
 			
 			<div id="login-inputs-container">
 				<div id="login-inputs">
-					<div id="login_title"><fmt:message key="LOGIN_TITLE" /></div>
+					<div id="login-title"><fmt:message key="LOGIN_TITLE" /></div>
 					<html:form action="/Login">
-						<html:text name="LoginForm" property="email" />
-						<br/>
-						<html:password name="LoginForm" property="password" />
-						<br/>
-						<html:submit value="Login" />
+						<input id="input-field" required type="email" name="email" placeholder="User Email" />
+						<br />
+						<input id="input-field" required type="password" name="password" placeholder="Password" />
+						<br />
+						<html:submit styleId="login-button" value="Login" />
+						<div id="errors">
+							<html:errors  />
+						</div>
 					</html:form>
 				</div>
 			</div>
