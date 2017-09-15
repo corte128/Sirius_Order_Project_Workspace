@@ -39,6 +39,7 @@ public class LoginAction extends org.apache.struts.action.Action {
 				session.setAttribute("activeUserName", emp.getName());
 				session.setAttribute("activeEmployeeId", employeeID);
 				
+				
 
 				//System.out.println("---------------SUCCESS------------");
 				return mapping.findForward(SUCCESS);
