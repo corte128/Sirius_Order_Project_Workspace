@@ -3,10 +3,7 @@
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/.apt_generated"/>
-        <dependent-module archiveName="DBConnection.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/SiriusOrderAttendanceService/WebContent/WEB-INF/lib/DBConnection.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <property name="java-output-path" value="/AttendanceWS/WebContent/WEB-INF/classes"/>
         <property name="context-root" value="AttendanceWS"/>
+        <property name="java-output-path" value="/AttendanceWS/WebContent/WEB-INF/classes"/>
     </wb-module>
 </project-modules>

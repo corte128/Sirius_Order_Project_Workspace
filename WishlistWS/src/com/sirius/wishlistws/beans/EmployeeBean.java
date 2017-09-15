@@ -1,6 +1,7 @@
 package com.sirius.wishlistws.beans;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 public class EmployeeBean implements Serializable{
 	
@@ -73,5 +74,13 @@ public class EmployeeBean implements Serializable{
 		this.isValid = isValid;
 	}
 	
+	@Override
+	public String toString() {
+		return "EmployeeBean [id=" + id + ", email=" + email + ", name=" + name
+				+ ", password=" + Arrays.toString(password) + ", imageBytes="
+				+ Arrays.toString(imageBytes) + ", location=" + location
+				+ ", role=" + role + ", likes=" + likes + ", isValid="
+				+ isValid + "]";
+	}
 	
 }
