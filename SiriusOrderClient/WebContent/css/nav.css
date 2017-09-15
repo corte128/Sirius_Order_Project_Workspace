@@ -24,7 +24,7 @@
 	margin: 0;
 	padding-right: 5px;
 }
-@media(max-width: 768px) 
+@media(max-width: 769px) 
 {
 	#navIconLinksList
 	{
@@ -42,7 +42,7 @@
 	position: absolute;
 	padding: 30px 0px 30px 30px;
 	left: calc(100% - 265px);
-	bottom: calc(100% - 355px);
+	bottom: calc(100% - 340px);
 	display: none;
 }
 #navAdminSubModalImage
@@ -73,7 +73,7 @@
 	position: absolute;
 	padding: 30px 0px 30px 30px;
 	left: calc(100% - 265px);
-	bottom: calc(100% - 241px);
+	bottom: calc(100% - 230px);
 	display: none;
 }
 #navReportsSubModalImage
@@ -121,7 +121,7 @@
 }
 
 /*sidebar styles*/
-@media(min-width: 768px) 
+@media(min-width: 769px) 
 {
 	#navIconSidebarContainer
 	{
@@ -137,11 +137,12 @@
 	top: 10px;
 	z-index: 5;
 	cursor: pointer;
-	color: white;}
+	color: white;
+}
 .nav-sidebar-icon-image-container
 {
 	position: relative;
-	left: calc(30% - 30px);
+	left: calc(50% - 30px);
 	display: inline-block;
 	cursor: pointer;
 	margin: 10% 0px;
@@ -161,17 +162,75 @@
 {
 	position: fixed;
 	height: 100%;
-	width: 30%;
-	left: 70%;
+	width: 25%;
+	left: 75%;
+	overflow: auto;
 	//top: 0px;
 	background-color: #5F6060;
+}
+#responsiveNavCloseContainer
+{
+	background-color: red;
 }
 #responsiveNavClose
 {
 	color: white;
-	font-size: 20px;
+	font-size: 30px;
 	position: relative;
-	left: calc(100% - 25px);
-	padding-top: 5px;
+	left: calc(50% - 15px);
 	cursor: pointer;
+}
+.register-nav-sidebar-sub-text-container
+{
+	font-size: 2vw;
+	text-align: center;
+	margin: 15% 0 15% 0;
+}
+.admin-nav-sidebar-sub-text-container
+{
+	font-size: 2vw;
+	text-align: center;
+	margin: 15% 0 15% 0;
+}
+.nav-sidebar-sub-list
+{
+	padding: 0;
+}
+.nav-sidebar-sub-text-link:link 
+{
+    color: white;
+    text-decoration: none;
+}
+.nav-sidebar-sub-text-link:visited 
+{
+    color: white;
+    text-decoration: none;
+}
+.nav-sidebar-sub-text-link:hover 
+{
+    color: white;
+    text-decoration: none;
+}
+.nav-sidebar-sub-text-link:active 
+{
+    color: white;
+    text-decoration: none;
+}
+.responsive-nav-animate-right
+{
+  animation: animateright 0.2s;
+}
+@keyframes animateright 
+{
+  from 
+  {
+    left: 100%;
+    opacity: 0;
+  }
+
+  to 
+  {
+    left: 75%;
+    opacity: 1;
+  }
 }
