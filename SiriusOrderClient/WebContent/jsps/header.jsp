@@ -11,13 +11,7 @@
 	<div class="headerContainer">
 		<c:set var="now" value="<%= new java.util.Date()%>" />
 
-		<div class="headerLeft">
-			
-		</div>
-
-		<div class="headerCenter">
-			
-		</div>
+		
 		<div class="headerRight">
 			<div class="headerRightLinks">
 
