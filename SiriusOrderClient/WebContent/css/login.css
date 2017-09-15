@@ -18,3 +18,6 @@ aside {
 #login-inputs{
 	width: 200px;
 }
+#errors {
+	color: red;
+}

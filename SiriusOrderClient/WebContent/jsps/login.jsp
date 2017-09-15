@@ -23,6 +23,7 @@
 				<label class="input_label"><fmt:message key="LOGIN_EMAIL_LABEL" /></label>
 				<br />
 				<label class="input_label"><fmt:message key="LOGIN_PASSWORD_LABEL" /></label>
+				<html:errors  />
 			</div>
 			
 			<div id="login-inputs-container">
