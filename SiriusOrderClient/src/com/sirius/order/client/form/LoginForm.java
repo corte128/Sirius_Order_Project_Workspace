@@ -1,6 +1,13 @@
 package com.sirius.order.client.form;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+
+import com.sirius.loginws.login.wsdl.LoginClientDAO;
 
 public class LoginForm extends ActionForm{
 	
@@ -13,6 +20,18 @@ public class LoginForm extends ActionForm{
 	
 	public LoginForm(){
 		super();
+	}
+	
+	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
+	    ActionErrors errors = new ActionErrors();
+	    int employeeID = 0;
+	    LoginClientDAO dao = new LoginClientDAO();
+		employeeID = dao.getEmployeeByCredentials(email, password);
+	    // FIRSTNAME ERRORS
+	    if (employeeID == 0) {
+	        errors.add("password", new ActionMessage("login.credentials.invalid"));
+	    }
+	    return errors;
 	}
 	
 	public String getPassword() {

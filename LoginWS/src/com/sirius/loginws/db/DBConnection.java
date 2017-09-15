@@ -25,7 +25,7 @@ public class DBConnection {
 		<res-sharing-scope>Shareable</res-sharing-scope>
 	</resource-ref>
 	 */
-
+  
 	public static Connection getConnection() throws NamingException,
 			SQLException {
 		Context ctx = null;

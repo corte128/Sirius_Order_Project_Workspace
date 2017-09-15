@@ -3,6 +3,7 @@
 	<name>LoginWSEAR</name>
 	<comment></comment>
 	<projects>
+		<project>LoginWS</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
