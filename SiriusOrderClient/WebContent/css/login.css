@@ -1,23 +1,103 @@
-#login-content {
-	display: flex;
+#login-button{
+	background-color: #5F6060;
+	color: lightgrey;
+	border: none;
+	padding: 5px;
+	width: 50px;
 }
-#login-form {
-	flex: 9;
-	display: flex;
-	margin-top: 20px;
+@media only screen and (max-width: 767px) {
+	::-webkit-input-placeholder {
+	   text-align: center;
+	}
+	
+	:-moz-placeholder { /* Firefox 18- */
+	   text-align: center;  
+	}
+	
+	::-moz-placeholder {  /* Firefox 19+ */
+	   text-align: center;  
+	}
+	
+	:-ms-input-placeholder {  
+	   text-align: center; 
+	}
+	#login-content{
+		display: flex;
+	}
+	#login-form{
+		margin: auto;
+		margin-top: 30px;
+	}
+	aside {
+		display: none;
+	}
+	#login-labels {
+		display: none;
+	}
+	#login-inputs-container {
+		width: 100%;
+	}
+	#login-inputs {
+		text-align: center;
+	}
+	#login-title {
+		font-size: 1.5em;
+		padding-bottom: 20px;
+	}
+	#input-field {
+		margin-bottom: 20px;
+		border: none;
+		border-bottom: grey 1px solid;
+	}
 }
-aside {
-	flex: 1;
-}
-#login-labels{
-	flex: 4;
-}
-#login-inputs-container{
-	flex: 4;
-}
-#login-inputs{
-	width: 200px;
-}
-#errors {
-	color: red;
+@media only screen and (min-width: 768px){
+	::-webkit-input-placeholder {
+	   color: transparent;
+	}
+	
+	:-moz-placeholder { /* Firefox 18- */
+	   color: transparent;
+	}
+	
+	::-moz-placeholder {  /* Firefox 19+ */
+	   color: transparent;
+	}
+	
+	:-ms-input-placeholder {  
+	   color: transparent;
+	}
+	#login-content {
+		display: flex;
+	}
+	#login-form {
+		flex: 9;
+		display: flex;
+		margin-top: 50px;
+	}
+	aside {
+		display: block;
+		flex: 1;
+	}
+	#login-labels{
+		display: block;
+		flex: 2;
+		padding-left: 20%;
+	}
+	#login-inputs-container{
+		flex: 5;
+	}
+	#login-inputs{
+		width: 200px;
+	}
+	#input-field {
+		border: none;
+		border: black 1px solid;
+		margin-bottom: 5px;
+	}
+	#input-label {
+		margin-bottom: 5px;
+	}
+	#login-button {
+		float: right;
+	}
 }
