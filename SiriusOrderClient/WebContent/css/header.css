@@ -3,6 +3,10 @@ body {
 	padding: 0px;
 }
 
+
+
+
+
 header {
 	background-color: #5F6060;
 	color: white;
@@ -16,28 +20,19 @@ header {
 	height: 50px;
 	display: flex;
 	padding: 0;
-	margin-right: 15px;
+	margin-right: 25px;
 }
 
 .headerRight {
 	height: 100%;
-	position: absolute;
-	right: 50px;
+	width:100%;
+	text-align: right;
 	flex: 1;
-	/* text-align: right; */
 	font-size: 14pt;
 }
 
-/*
-@media(max-width: 768px) 
-{
-	.headerRight 
-	{
-		padding-right: 36px;
-		font-size: 16px;
-	}
-}
-*/
+
+
 table.headerNavTable {
 	margin:auto;
 }
@@ -45,4 +40,17 @@ table.headerNavTable {
 .headerRight a {
 	color: white;
 	padding-right: 20px;
+	
+}
+
+@media(max-width: 768px) 
+{
+	.headerRight 
+	{
+	
+		margin:auto;
+		text-align: center;
+		margin-right: 0;
+		margin-left:60px;
+	}
 }

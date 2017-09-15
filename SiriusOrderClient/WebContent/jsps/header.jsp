@@ -21,7 +21,7 @@
 					<html:link href="jsps/login.jsp">
 						<fmt:message key="HEADER_LOGIN" />
 					</html:link>
-					<span>|</span>
+					
 					<html:link href="jsps/register.jsp">
 						<fmt:message key="HEADER_REGISTER" />
 					</html:link>
