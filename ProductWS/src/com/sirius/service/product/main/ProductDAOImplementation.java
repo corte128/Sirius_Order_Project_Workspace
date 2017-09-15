@@ -14,7 +14,7 @@ public class ProductDAOImplementation
 	private static final Logger logger = Logger
 			.getLogger(ProductDAOImplementation.class.getName());
 	private static final ResourceBundle queries = ResourceBundle
-			.getBundle("com.sirius.product.service.properties.queries");
+			.getBundle("com.sirius.service.product.properties.queries");
 	
 	/**
 	 * Gets a product by ID
@@ -75,6 +75,124 @@ public class ProductDAOImplementation
 			statement = conn.prepareStatement(query);
 			
 			statement.setString(1, type);
+			
+			productData = statement.executeQuery();
+			
+			
+			if(productData.first())
+			{
+				do
+				{
+					ProductBean product = new ProductBean();
+					
+					product.setId(productData.getInt("product_id_pk"));
+					product.setName(productData.getString("product_name"));
+					product.setType(productData.getString("product_type_name"));
+					product.setPrice(productData.getBigDecimal("product_price"));
+					product.setDetails(productData.getString("product_details"));
+					product.setImage(productData.getString("product_image"));
+					
+					productList.add(product);
+				}
+				while(productData.next());
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			DBConnection.closePreparedStatement(statement);
+			DBConnection.closeResultSet(productData);
+		}
+		return productList.toArray(new ProductBean[productList.size()]);
+	}
+	
+	/**
+	 * Gets all products by name
+	 * @param name
+	 * @param conn
+	 */
+	public static ProductBean[] getAllProductsByName(String name, Connection conn)
+	{
+		String query = null;
+		PreparedStatement statement = null;
+		ResultSet productData = null;
+		ArrayList<ProductBean> productList = new ArrayList<ProductBean>();
+		try
+		{
+			query = queries.getString("GET_PRODUCTS_BY_NAME_QUERY");
+			statement = conn.prepareStatement(query);
+			
+			statement.setString(1, name);
+			
+			productData = statement.executeQuery();
+			
+			
+			if(productData.first())
+			{
+				do
+				{
+					ProductBean product = new ProductBean();
+					
+					product.setId(productData.getInt("product_id_pk"));
+					product.setName(productData.getString("product_name"));
+					product.setType(productData.getString("product_type_name"));
+					product.setPrice(productData.getBigDecimal("product_price"));
+					product.setDetails(productData.getString("product_details"));
+					product.setImage(productData.getString("product_image"));
+					
+					productList.add(product);
+				}
+				while(productData.next());
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			DBConnection.closePreparedStatement(statement);
+			DBConnection.closeResultSet(productData);
+		}
+		return productList.toArray(new ProductBean[productList.size()]);
+	}
+	
+	/**
+	 * Gets all products by name
+	 * @param name
+	 * @param conn
+	 */
+	public static ProductBean[] getAllProductsByNameAndType(String name, String type, Connection conn)
+	{
+		String query = null;
+		PreparedStatement statement = null;
+		ResultSet productData = null;
+		ArrayList<ProductBean> productList = new ArrayList<ProductBean>();
+		try
+		{
+			query = queries.getString("GET_PRODUCTS_BY_NAME_AND_TYPE_QUERY");
+			statement = conn.prepareStatement(query);
+			
+			if(name == null)
+			{
+				statement.setString(1, "%");
+			}
+			else
+			{
+				statement.setString(1, "%" + name + "%");
+			}
+			
+			if(type == null)
+			{
+				statement.setString(2, "%");
+			}
+			else
+			{
+				statement.setString(2, "%" + type + "%");
+			}
 			
 			productData = statement.executeQuery();
 			

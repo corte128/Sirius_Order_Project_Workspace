@@ -3,6 +3,7 @@
 	<name>CartWSEAR</name>
 	<comment></comment>
 	<projects>
+		<project>CartWS</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
