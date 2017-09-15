@@ -36,6 +36,12 @@
 								key="HEADER_LOGOUT" />
 						</a>
 				</c:if>
+				<c:if test="${sessionScope.activeUserType == 2}">
+				<div class="headerRightActions">
+					
+				</div>
+				</c:if>
+				
 			</div>
 			<div class="headerRightTime">
 				
