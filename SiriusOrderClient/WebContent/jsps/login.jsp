@@ -10,7 +10,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/login.css">
-<script src="/SiriusOrderClient/js/login.js"></script>
 <meta name="viewport" content="width=device-width" />
 <title><fmt:message key="LOGIN_TITLE" /></title>
 </head>
@@ -36,7 +35,9 @@
 						<input id="input-field" required type="password" name="password" placeholder="Password" />
 						<br />
 						<html:submit styleId="login-button" value="Login" />
-						<html:errors  />
+						<div id="errors">
+							<html:errors  />
+						</div>
 					</html:form>
 				</div>
 			</div>
