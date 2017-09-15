@@ -29,7 +29,7 @@ public interface Product
 	@ResponseWrapper(localName = "getProductByIDResponse", targetNamespace = "http://main.service.product.sirius.com/product/wsdl", 
 		className = "com.sirius.product.service.main.GetProductByIDResponse")
 	public ProductBean getProductByID(
-			@WebParam(name="ID", targetNamespace = "http://main.service.product.sirius.com/profile/wsdl")
+			@WebParam(name="ID", targetNamespace = "http://main.service.product.sirius.com/product/wsdl")
 			int ID
 			);
 	
@@ -44,7 +44,7 @@ public interface Product
 	@ResponseWrapper(localName = "getAllProductByTypeResponse", targetNamespace = "http://main.service.product.sirius.com/product/wsdl", 
 		className = "com.sirius.product.service.main.GetAllProductsByTypeResponse")
 	public ProductBean[] getAllProductsByType(
-			@WebParam(name="type", targetNamespace = "http://main.service.product.sirius.com/profile/wsdl")
+			@WebParam(name="type", targetNamespace = "http://main.service.product.sirius.com/product/wsdl")
 			String type
 			);
 }

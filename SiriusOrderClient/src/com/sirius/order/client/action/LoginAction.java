@@ -15,12 +15,14 @@ import com.sirius.loginws.login.wsdl.LoginClientDAO;
 import com.sirius.order.client.form.LoginForm;
 
 public class LoginAction extends org.apache.struts.action.Action {
+	
 	private final static String SUCCESS = "success";
     private final static String FAILURE = "failure";
 
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+    	response.setContentType("text/html");
         LoginForm loginForm = (LoginForm) form;
         HttpSession session = null;
         int employeeID = 0;
@@ -34,8 +36,10 @@ public class LoginAction extends org.apache.struts.action.Action {
 				session = request.getSession();
 				EmployeeClientDAO edao = new EmployeeClientDAO();
 				emp = edao.getEmployeeByEmail(email);
-				session.setAttribute("userName", emp.getName());
-				session.setAttribute("employeeID", employeeID);
+				session.setAttribute("activeUserName", emp.getName());
+				session.setAttribute("activeEmployeeId", employeeID);
+				session.setAttribute("activeUserType", emp.getRole());
+
 				//System.out.println("---------------SUCCESS------------");
 				return mapping.findForward(SUCCESS);
 			} else {

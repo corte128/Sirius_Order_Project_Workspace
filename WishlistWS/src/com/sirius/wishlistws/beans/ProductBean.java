@@ -39,5 +39,10 @@ public class ProductBean {
 		this.details = details;
 	}
 	
+	@Override
+	public String toString() {
+		return "ProductBean [id=" + id + ", name=" + name + ", type=" + type
+				+ ", price=" + price + ", details=" + details + "]";
+	}
 	
 }
