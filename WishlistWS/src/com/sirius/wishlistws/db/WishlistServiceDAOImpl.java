@@ -17,7 +17,7 @@ public class WishlistServiceDAOImpl {
 	private static final ResourceBundle queries = ResourceBundle.getBundle("com.sirius.wishlistws.properties.queries");
 
 	public WishlistServiceDAOImpl(Connection conn){
-		conn = this.conn;
+		this.conn = conn;
 	}
 	
 	public void addToLikeTable(int employee_id, int product_id){

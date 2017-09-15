@@ -20,7 +20,7 @@ public class SearchDAOImpl {
 	private Connection conn = null;
 	private static final ResourceBundle queries = ResourceBundle.getBundle("com.sirius.searchws.properties.queries");
 	public SearchDAOImpl(Connection conn){
-		conn = this.conn;
+		this.conn = conn;
 	}
 	
 	public List<ActualvBudgetBean> budgetSearch(int location_id, Date fromDate, Date toDate, String reportType){

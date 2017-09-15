@@ -33,7 +33,7 @@ public class DBConnection {
 		Connection conn = null;
 		try {
 			ctx = new InitialContext();
-			dataSource = (DataSource) ctx.lookup("jdbc/AppCenterDS");
+			dataSource = (DataSource) ctx.lookup("jdbc/OfficeApplicationDS");
 			conn = dataSource.getConnection();
 			System.out.println("##############OPENED CONNECTION#######################");
 		} catch (NamingException e) {
