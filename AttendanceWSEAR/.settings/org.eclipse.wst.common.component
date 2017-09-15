@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="AttendanceWSEAR">
         <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
+<<<<<<< HEAD
         <dependent-module archiveName="AttendanceWS.war" deploy-path="/" handle="module:/resource/AttendanceWS/AttendanceWS">
             <dependent-object>Module_1505485424957</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
+=======
+>>>>>>> 06829b41b5d94b3bcd2f5910131d71d434430e2b
     </wb-module>
 </project-modules>

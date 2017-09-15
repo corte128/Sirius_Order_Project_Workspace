@@ -1,0 +1,23 @@
+#login-content {
+	display: flex;
+}
+#login-form {
+	flex: 9;
+	display: flex;
+	margin-top: 20px;
+}
+aside {
+	flex: 1;
+}
+#login-labels{
+	flex: 4;
+}
+#login-inputs-container{
+	flex: 4;
+}
+#login-inputs{
+	width: 200px;
+}
+#errors {
+	color: red;
+}

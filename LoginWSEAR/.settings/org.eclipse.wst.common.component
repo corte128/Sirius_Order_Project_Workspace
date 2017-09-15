@@ -2,7 +2,7 @@
     <wb-module deploy-name="LoginWSEAR">
         <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
         <dependent-module archiveName="LoginWS.war" deploy-path="/" handle="module:/resource/LoginWS/LoginWS">
-            <dependent-object>Module_1505147436822</dependent-object>
+            <dependent-object>Module_1505484933719</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>
