@@ -1,0 +1,11 @@
+@CHARSET "ISO-8859-1";
+
+select {
+	background-color: #605C68;
+	color: #CACACA;
+	width: 115px;
+}
+
+.search{
+	display: inline;
+}

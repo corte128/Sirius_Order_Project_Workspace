@@ -6,6 +6,8 @@
 <head>
 <title>productSearch</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
+<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/productSearch.css">
 </head>
 <body>
 <header>
@@ -13,15 +15,17 @@
 </header>
 	<div>
 		<div>
-			<html:form action="/Login">
+			<html:form action="/Login" styleClass="search">
 				<html:select styleClass="categorySelect" property="email">
 					<option value="all">All</option>
 					<option value="ink_and_toner">Ink & Toner</option>
 					<option value="breakroom">Breakroom</option>
 					<option value="office_supplies">Office Supplies</option>
 				</html:select>
+				<input type="text" class="search"></input>
+				<input type="button" class="search" value="Search"/>
 			</html:form>
-			<input type="text"></input>
+
 		</div>
 		<div>
 			<img src="pic_mountain.jpg" alt="name of item" style="width:250px;height:200px;"></img>
