@@ -121,6 +121,13 @@
 }
 
 /*sidebar styles*/
+@media(min-width: 768px) 
+{
+	#navIconSidebarContainer
+	{
+		display: none;
+	}
+}
 #responsiveNavHamburgerButton
 {
 	font-weight: bold;
@@ -130,14 +137,14 @@
 	top: 10px;
 	z-index: 5;
 	cursor: pointer;
-}
+	color: white;}
 .nav-sidebar-icon-image-container
 {
 	position: relative;
-	left: calc(50% - 30px);
+	left: calc(30% - 30px);
 	display: inline-block;
 	cursor: pointer;
-	margin: 5% 0px;
+	margin: 10% 0px;
 }
 .nav-sidebar-icon-image
 {
@@ -149,4 +156,22 @@
 	list-style: none;
 	margin: 0;
 	padding: 0;
+}
+.responsive-nav-sidebar
+{
+	position: fixed;
+	height: 100%;
+	width: 30%;
+	left: 70%;
+	//top: 0px;
+	background-color: #5F6060;
+}
+#responsiveNavClose
+{
+	color: white;
+	font-size: 20px;
+	position: relative;
+	left: calc(100% - 25px);
+	padding-top: 5px;
+	cursor: pointer;
 }
