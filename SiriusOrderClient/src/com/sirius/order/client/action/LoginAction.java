@@ -37,7 +37,8 @@ public class LoginAction extends org.apache.struts.action.Action {
 				EmployeeClientDAO edao = new EmployeeClientDAO();
 				emp = edao.getEmployeeByEmail(email);
 				session.setAttribute("activeUserName", emp.getName());
-				session.setAttribute("activeEmployeeId", employeeID);
+				session.setAttribute("activeUserLocation", emp.getLocation());
+				session.setAttribute("activeUserID", employeeID);
 				session.setAttribute("activeUserType", emp.getRole());
 
 				//System.out.println("---------------SUCCESS------------");
