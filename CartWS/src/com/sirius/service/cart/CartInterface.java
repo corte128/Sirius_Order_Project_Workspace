@@ -88,13 +88,18 @@ public interface CartInterface {
 	@ResponseWrapper(localName = "RemoveProductFromCartResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.RemoveProductFromCartResponse")
 	public boolean removeProductFromCart(
 			@WebParam(name="orderId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
-			int orderId
+			int orderId,
+			@WebParam(name="updatedBy", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+			int updatedBy
 			);
 	
 	/**
-	 * saves the order
+	 * Saves the order based on the ordername
 	 * @param orderName
-	 * @return
+	 * @param budget
+	 * @param locationId
+	 * @param createdBy
+	 * @return boolean
 	 */
 	@WebMethod(action = "SaveOrder")
 	@WebResult(name = "SaveOrderReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
@@ -103,11 +108,28 @@ public interface CartInterface {
 	public boolean saveOrder(
 			@WebParam(name="orderName", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
 			String orderName,
+			@WebParam(name="budget", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+			BudgetBean budget,
 			@WebParam(name="locationId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
 			int locationId,
 			@WebParam(name="createdBy", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
 			int createdBy
 			);
 	
-
+	/**
+	 * Get the order based on the order name 
+	 * @param orderName
+	 * @param locationId
+	 * @return List<OrderBean>
+	 */
+	@WebMethod(action = "GetOrderByOrderName")
+	@WebResult(name = "GetOrderByOrderNameReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+	@RequestWrapper(localName = "GetOrderByOrderName", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetOrderByOrderName")
+	@ResponseWrapper(localName = "GetOrderByOrderNameResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetOrderByOrderNameResponse")
+	public List<OrderBean> getOrderByOrderName(
+			@WebParam(name="orderName", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+			String orderName,
+			@WebParam(name="locationId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+			int locationId
+			);
 }

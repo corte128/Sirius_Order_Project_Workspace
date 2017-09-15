@@ -34,7 +34,7 @@ public class CartDAOImplementation {
 		boolean completed = false;
 		order.setOrderName("cart");
 
-		String orderQuery = queries.getString("ADD_PRODUCT_TO_CART");
+		String orderQuery = queries.getString("ADD_PRODUCT_TO_ORDER");
 
 		try {
 			logger.log(Level.FINE, "Preparing to execute order query: ");
@@ -89,12 +89,12 @@ public class CartDAOImplementation {
 			
 			// sifting through the result set and populating the order id
 			if(result.next()){
-				id = result.getInt("order_id_pk");
+				id = result.getInt("id");
 			}
 
 			logger.log(Level.FINE,"order id acquired");
 		} finally {
-			if (statement != null) {
+			if (statement != null){
 				DBConnection.closePreparedStatement(statement);
 			}
 			if(result != null){
@@ -118,7 +118,7 @@ public class CartDAOImplementation {
 		boolean completed = false;
 
 		String budgetQuery = queries.getString("ADD_ORDER_TO_BUDGET");
-
+		java.sql.Date dateObj = new java.sql.Date(budget.getBudgetDate().getTime());
 		try {
 			logger.log(Level.FINE, "Preparing to execute budget query: ");
 			logger.log(Level.FINE, "   " + budgetQuery);
@@ -126,7 +126,7 @@ public class CartDAOImplementation {
 			statement = conn.prepareStatement(budgetQuery);
 			statement.setInt(1, budget.getLocationId());
 			statement.setInt(2, budget.getOrderId());
-			statement.setDate(3, (java.sql.Date) budget.getBudgetDate());
+			statement.setDate(3, dateObj);
 			statement.setBigDecimal(4, budget.getBudgetAllotted());
 			statement.setBigDecimal(5, budget.getBudgetRecommended());
 			statement.setInt(6, createdBy);
@@ -270,7 +270,7 @@ public class CartDAOImplementation {
 		sbObj.append(queries.getString("UPDATE_PRODUCT_QUANTITY"));
 		//dynamically creating query for execution
 		for(Integer id : ids){
-			sbObj.append("OR order_id_pk = "+id);
+			sbObj.append(" OR order_id_pk = "+id);
 		}
 		
 		try {
@@ -301,14 +301,13 @@ public class CartDAOImplementation {
 		return completed;
 	}
 
-	
 	/**
 	 * removes the product from the cart
 	 * @param orderId
 	 * @return boolean
 	 * @throws SQLException 
 	 */
-	public static boolean removeProductFromCart(int orderId, Connection conn) throws SQLException {
+	public static boolean removeProductFromCart(int orderId, int updatedBy, Connection conn) throws SQLException {
 		PreparedStatement statement = null;
 		boolean completed = false;
 		
@@ -320,7 +319,9 @@ public class CartDAOImplementation {
 			
 			// setting budget to the table
 			statement = conn.prepareStatement(orderQuery);
-			statement.setInt(1, orderId);
+			statement.setInt(1,updatedBy);
+			statement.setInt(2,orderId);
+			
 
 			logger.log(Level.FINE,
 					"Setting the is_valid based on the paramaters: ");
@@ -340,8 +341,6 @@ public class CartDAOImplementation {
 		return completed;
 	}
 
-
-	
 	/**
 	 * Gets all the orders that are in the cart based on location
 	 * @param locationId
@@ -429,6 +428,156 @@ public class CartDAOImplementation {
 				statement.executeUpdate();
 	
 				logger.log(Level.FINE, "Product added to order complete");
+				// setting completion
+				completed = true;
+			} finally {
+				if (statement != null) {
+					DBConnection.closePreparedStatement(statement);
+				}
+			}
+		}
+		return completed;
+	}
+
+	/**
+	 * removes the orders by the order name
+	 * @param orderName
+	 * @param updatedBy
+	 * @param conn
+	 * @return boolean
+	 * @throws SQLException
+	 */
+	public static boolean removeOrdersByOrderName(String orderName, int updatedBy,
+			Connection conn) throws SQLException {
+		PreparedStatement statement = null;
+		boolean completed = false;
+		
+		String orderQuery = queries.getString("REMOVE_PRODUCT_FROM_CART_BY_ORDER_NAME");
+		
+		try {
+			logger.log(Level.FINE, "Preparing to execute quantity query: ");
+			logger.log(Level.FINE, "   " + orderQuery);
+			
+			// setting budget to the table
+			statement = conn.prepareStatement(orderQuery);
+			statement.setInt(1,updatedBy);
+			statement.setString(2,orderName);
+			
+			logger.log(Level.FINE,
+					"Setting the is_valid based on the paramaters: ");
+			logger.log(Level.FINE, "   String: " + orderName);
+
+			// executing creation statement
+			statement.executeUpdate();
+
+			logger.log(Level.FINE, "order updated complete");
+			// setting completion
+			completed = true;
+		} finally {
+			if (statement != null) {
+				DBConnection.closePreparedStatement(statement);
+			}
+		}
+		return completed;
+		
+	}
+
+	/**
+	 * gets all the orders based on the location and the orderName (works only for saved orders)
+	 * @param orderName
+	 * @param locationId
+	 * @param conn
+	 * @return List<OrderBean>
+	 * @throws SQLException
+	 */
+	public static List<OrderBean> getOrderByOrderName(String orderName, int locationId,
+			Connection conn) throws SQLException {
+		PreparedStatement statement = null;
+		List<OrderBean> orders = new ArrayList<OrderBean>();
+		ResultSet results = null;
+		String orderQuery = queries.getString("GET_ORDER_BY_ORDER_NAME");
+
+		try {
+			logger.log(Level.FINE, "Preparing to execute order query: ");
+			logger.log(Level.FINE, "   " + orderQuery);
+			// setting budget to the table
+			statement = conn.prepareStatement(orderQuery);
+			statement.setInt(1, locationId);
+			statement.setString(2, orderName);
+
+			logger.log(Level.FINE,
+					"Setting the order based on the paramaters: ");
+			logger.log(Level.FINE, "   int: " + locationId);
+			logger.log(Level.FINE, "   String: " + orderName);
+
+			// executing creation statement
+			results = statement.executeQuery();
+			
+			// sifting through the result set and populating the orders
+			while(results.next()){
+				OrderBean order = new OrderBean();
+				
+				order.setId(results.getInt("order_id_pk"));
+				order.setOrderName(results.getString("order_name"));
+				order.setProductId(results.getInt("product_id_fk"));
+				order.setTotalPrice(results.getBigDecimal("total_price"));
+				order.setQuantity(results.getInt("quantity"));
+				orders.add(order);
+				logger.log(Level.FINE,"acquired order #: " + order.getId());
+			}
+
+			logger.log(Level.FINE,"products acquired");
+		} finally {
+			if (statement != null) {
+				DBConnection.closePreparedStatement(statement);
+			}
+			if (results != null){
+				DBConnection.closeResultSet(results);
+			}
+		}
+		
+		return orders;
+	}
+
+	/**
+	 * adds multiple budget records based on the recently posted order
+	 * @param conn
+	 * @param budget
+	 * @param latestRecord
+	 * @param size
+	 * @param createdBy
+	 * @return boolean
+	 * @throws SQLException
+	 */
+	public static boolean addMultipleOrdersToBudget(Connection conn,
+			BudgetBean budget, int latestRecord, int size, int createdBy) throws SQLException {
+		PreparedStatement statement = null;
+		boolean completed = false;
+
+		String budgetQuery = queries.getString("ADD_ORDER_TO_BUDGET");
+		java.sql.Date dateObj = new java.sql.Date(budget.getBudgetDate().getTime());
+		for(int index = latestRecord; index>(latestRecord-size); index--){
+			try {
+				logger.log(Level.FINE, "Preparing to execute budget query: ");
+				logger.log(Level.FINE, "   " + budgetQuery);
+				// setting budget to the table
+				statement = conn.prepareStatement(budgetQuery);
+				statement.setInt(1, budget.getLocationId());
+				statement.setInt(2, index);
+				statement.setDate(3, dateObj);
+				statement.setBigDecimal(4, budget.getBudgetAllotted());
+				statement.setBigDecimal(5, budget.getBudgetRecommended());
+				statement.setInt(6, createdBy);
+				
+	
+				logger.log(Level.FINE,
+						"Setting the budget based on the paramaters: ");
+				logger.log(Level.FINE, "   BudgetBean: " + budget);
+				logger.log(Level.FINE, "   Int: " + createdBy);
+				// executing creation statement
+				statement.executeUpdate();
+	
+				logger.log(Level.FINE, "Product added to budget complete");
 				// setting completion
 				completed = true;
 			} finally {

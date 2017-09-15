@@ -174,20 +174,19 @@ public class CartDAO {
 		return completed;
 	}
 
-	
 	/**
 	 * removes the product from the cart
 	 * @param orderId
 	 * @return boolean
 	 */
-	public static boolean removeProductFromCart(int orderId) {
+	public static boolean removeProductFromCart(int orderId, int updatedBy) {
 		Connection conn = null;
 		boolean completed = false;
 		
 		try{
 			conn = DBConnection.getConnection();
 			//remove the product
-			completed = CartDAOImplementation.removeProductFromCart(orderId,conn);
+			completed = CartDAOImplementation.removeProductFromCart(orderId, updatedBy, conn);
 		} catch(NamingException e){
 			logger.log(Level.SEVERE,"Naming Exception Found: Incorrect naming", e);
 		} catch (SQLException e) {
@@ -207,26 +206,38 @@ public class CartDAO {
 		return completed;
 	}
 
-
 	/**
-	 * save cart
+	 * Saves the cart to an order
+	 * @param budget
 	 * @param orderName
+	 * @param locationId
+	 * @param createdBy
 	 * @return boolean
 	 */
-	public static boolean saveOrder(String orderName, int locationId, int createdBy) {
+	public static boolean saveOrder(String orderName, BudgetBean budget, int locationId, int createdBy) {
 		Connection conn = null;
 		List<OrderBean> orders = new ArrayList<OrderBean>();
+		int latestRecord = 0;
 		boolean completed = false;
+		boolean removed = false;
+		boolean budgetCompleted = false;
 		
 		try{
 			conn = DBConnection.getConnection();
 			conn.setAutoCommit(false);
 			
-			//getting ids for all the valid orders where the quantity can be changed
+			//getting all the valid orders where the quantity can be changed
 			orders = CartDAOImplementation.getOrdersInCartByLocation(locationId,conn);
+			//removing previous order if it exists
+			removed = CartDAOImplementation.removeOrdersByOrderName(orderName,createdBy,conn);
 			//updating the product quantity
 			completed = CartDAOImplementation.saveOrder(orders, orderName, createdBy, conn);
-		
+			//getting the max id for the valid order
+			latestRecord = CartDAOImplementation.getRecentOrderId(conn);
+			//setting budget
+			budgetCompleted = CartDAOImplementation.addMultipleOrdersToBudget(conn,budget,latestRecord,orders.size(),createdBy);
+			
+			
 			conn.commit();
 		} catch(NamingException e){
 			try {
@@ -262,7 +273,46 @@ public class CartDAO {
 			}
 		}
 		
+		if(removed)
+			logger.log(Level.FINE,"UPDATE previous order");
+		
+		if(budgetCompleted)
+			logger.log(Level.FINE,"Budget NOT completed");
+		
 		return completed;
+	}
+	
+	/**
+	 * Gets all of the orders based on the location and orderName
+	 * @param orderName
+	 * @param locationId
+	 * @param createdBy
+	 * @return List<OrderBean>
+	 */
+	public static List<OrderBean> getOrderByOrderName(String orderName, int locationId) {
+		Connection conn = null;
+		List<OrderBean> orders = new ArrayList<OrderBean>();
+		
+		try{
+			conn = DBConnection.getConnection();
+			orders = CartDAOImplementation.getOrderByOrderName(orderName,locationId, conn);
+		} catch(NamingException e){
+			logger.log(Level.SEVERE,"Naming Exception Found: Incorrect naming", e);
+		} catch (SQLException e) {
+			logger.log(Level.SEVERE,"SQL Exception Found: Incorrect properties", e);
+		} catch (Exception e){
+			logger.log(Level.SEVERE,"Exception Found ", e);
+		} finally{
+			if (conn != null){
+				try {
+					DBConnection.closeConnection(conn);
+				} catch (SQLException e) {
+					logger.log(Level.SEVERE,"SQL Exception ", e);
+				}
+			}
+		}
+		
+		return orders;
 	}
 
 }

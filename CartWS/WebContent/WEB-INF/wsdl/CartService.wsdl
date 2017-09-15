@@ -36,6 +36,12 @@
   <message name="saveOrderResponse">
     <part name="parameters" element="tns:SaveOrderResponse"/>
   </message>
+  <message name="getOrderByOrderName">
+    <part name="parameters" element="tns:GetOrderByOrderName"/>
+  </message>
+  <message name="getOrderByOrderNameResponse">
+    <part name="parameters" element="tns:GetOrderByOrderNameResponse"/>
+  </message>
   <portType name="CartService">
     <operation name="addProductToCart">
       <input wsam:Action="AddProductToCart" message="tns:addProductToCart"/>
@@ -56,6 +62,10 @@
     <operation name="saveOrder">
       <input wsam:Action="SaveOrder" message="tns:saveOrder"/>
       <output wsam:Action="http://cart.service.sirius.com/cart/wsdl/CartService/saveOrderResponse" message="tns:saveOrderResponse"/>
+    </operation>
+    <operation name="getOrderByOrderName">
+      <input wsam:Action="GetOrderByOrderName" message="tns:getOrderByOrderName"/>
+      <output wsam:Action="http://cart.service.sirius.com/cart/wsdl/CartService/getOrderByOrderNameResponse" message="tns:getOrderByOrderNameResponse"/>
     </operation>
   </portType>
   <binding name="cartBinding" type="tns:CartService">
@@ -98,6 +108,15 @@
     </operation>
     <operation name="saveOrder">
       <soap:operation soapAction="SaveOrder"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getOrderByOrderName">
+      <soap:operation soapAction="GetOrderByOrderName"/>
       <input>
         <soap:body use="literal"/>
       </input>

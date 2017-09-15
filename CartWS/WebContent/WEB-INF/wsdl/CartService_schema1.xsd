@@ -9,6 +9,10 @@
 
   <xs:element name="GetAllProductsInCartResponse" type="tns:GetAllProductsInCartResponse"/>
 
+  <xs:element name="GetOrderByOrderName" type="tns:GetOrderByOrderName"/>
+
+  <xs:element name="GetOrderByOrderNameResponse" type="tns:GetOrderByOrderNameResponse"/>
+
   <xs:element name="RemoveProductFromCart" type="tns:RemoveProductFromCart"/>
 
   <xs:element name="RemoveProductFromCartResponse" type="tns:RemoveProductFromCartResponse"/>
@@ -24,8 +28,20 @@
   <xs:complexType name="SaveOrder">
     <xs:sequence>
       <xs:element name="orderName" type="xs:string" form="qualified" minOccurs="0"/>
+      <xs:element name="budget" type="tns:budgetBean" form="qualified" minOccurs="0"/>
       <xs:element name="locationId" type="xs:int" form="qualified"/>
       <xs:element name="createdBy" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="budgetBean">
+    <xs:sequence>
+      <xs:element name="budgetAllotted" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="budgetDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="budgetRecommended" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="locationId" type="xs:int"/>
+      <xs:element name="orderId" type="xs:int"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -38,6 +54,7 @@
   <xs:complexType name="RemoveProductFromCart">
     <xs:sequence>
       <xs:element name="orderId" type="xs:int" form="qualified"/>
+      <xs:element name="updatedBy" type="xs:int" form="qualified"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -92,20 +109,22 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="budgetBean">
-    <xs:sequence>
-      <xs:element name="budgetAllotted" type="xs:decimal" minOccurs="0"/>
-      <xs:element name="budgetDate" type="xs:dateTime" minOccurs="0"/>
-      <xs:element name="budgetRecommended" type="xs:decimal" minOccurs="0"/>
-      <xs:element name="id" type="xs:int"/>
-      <xs:element name="locationId" type="xs:int"/>
-      <xs:element name="orderId" type="xs:int"/>
-    </xs:sequence>
-  </xs:complexType>
-
   <xs:complexType name="AddProductToCartResponse">
     <xs:sequence>
       <xs:element name="AddProductToCartReturn" type="xs:boolean" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetOrderByOrderName">
+    <xs:sequence>
+      <xs:element name="orderName" type="xs:string" form="qualified" minOccurs="0"/>
+      <xs:element name="locationId" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetOrderByOrderNameResponse">
+    <xs:sequence>
+      <xs:element name="GetOrderByOrderNameReturn" type="tns:orderBean" form="qualified" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

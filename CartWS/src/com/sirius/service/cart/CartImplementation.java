@@ -30,12 +30,17 @@ public class CartImplementation implements CartInterface {
 	}
 
 	@Override
-	public boolean removeProductFromCart(int orderId) {
-		return CartDAO.removeProductFromCart(orderId);
+	public boolean removeProductFromCart(int orderId, int updatedBy) {
+		return CartDAO.removeProductFromCart(orderId, updatedBy);
 	}
 
 	@Override
-	public boolean saveOrder(String orderName, int locationId, int createdBy) {
-		return CartDAO.saveOrder(orderName, locationId, createdBy);
+	public boolean saveOrder(String orderName, BudgetBean budget, int locationId, int createdBy) {
+		return CartDAO.saveOrder(orderName, budget, locationId, createdBy);
+	}
+
+	@Override
+	public List<OrderBean> getOrderByOrderName(String orderName, int locationId) {
+		return CartDAO.getOrderByOrderName(orderName, locationId);
 	}
 }
