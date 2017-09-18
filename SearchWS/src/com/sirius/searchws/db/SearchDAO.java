@@ -14,7 +14,7 @@ import com.sirius.searchws.beans.ActualvBudgetBean;
 public class SearchDAO {
 
 
-	public List<ActualvBudgetBean> search(int location_id, Date fromDate, Date toDate, String reportType){
+	public List<ActualvBudgetBean> budgetSearch(int location_id, Date fromDate, Date toDate, String reportType){
 		Connection conn = null;
 		try {
 			conn = DBConnection.getConnection();

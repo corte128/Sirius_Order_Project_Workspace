@@ -22,6 +22,10 @@
             <forward name="success" path="./jsps/login.jsp" />
             <forward name="failure" path="./jsps/registration.jsp" />
         </action>
+        <action path="/Welcome" type="com.sirius.order.client.action.WelcomeAction">
+            <forward name="success" path="./jsps/productSearch.jsp" />
+            <forward name="failure" path="./jsps/login.jsp" />
+        </action>
 	</action-mappings>
 	
 	<message-resources parameter="localdomain.ie8win7.siriusorderclient.resources.ApplicationResources"/>

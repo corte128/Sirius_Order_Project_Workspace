@@ -39,9 +39,9 @@
 	<servlet>
 		<description>
 		</description>
-		<display-name>AttendanceServlet</display-name>
-		<servlet-name>AttendanceServlet</servlet-name>
-		<servlet-class>com.sirius.order.client.servlets.AttendanceServlet</servlet-class>
+		<display-name>BudgetServlet</display-name>
+		<servlet-name>BudgetServlet</servlet-name>
+		<servlet-class>com.sirius.order.client.servlets.BudgetServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<description>
@@ -50,6 +50,13 @@
 		<servlet-name>RegistrationServlet</servlet-name>
 		<servlet-class>com.sirius.order.client.servlets.RegistrationServlet</servlet-class>
 	</servlet>
+	<servlet>
+        <description>
+        </description>
+        <display-name>AttendanceServlet</display-name>
+        <servlet-name>AttendanceServlet</servlet-name>
+        <servlet-class>com.sirius.order.client.servlets.AttendanceServlet</servlet-class>
+    </servlet>
 	<servlet-mapping>
 		<servlet-name>action</servlet-name>
 		<url-pattern>*.do</url-pattern>
@@ -65,29 +72,34 @@
 		/QueryServlet</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>AttendanceServlet</servlet-name>
+		<servlet-name>BudgetServlet</servlet-name>
 		<url-pattern>
-		/AttendanceServlet</url-pattern>
+		/BudgetServlet</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>RegistrationServlet</servlet-name>
 		<url-pattern>
 		/RegistrationServlet</url-pattern>
 	</servlet-mapping>
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-		<welcome-file>default.jsp</welcome-file>
-		<welcome-file>welcome.jsp</welcome-file>
-	</welcome-file-list>
-	<resource-ref>
-		<description />
-		<res-ref-name>jdbc/OfficeApplicationDS</res-ref-name>
-		<res-type>javax.sql.DataSource</res-type>
-		<res-auth>Container</res-auth>
-		<res-sharing-scope>Shareable</res-sharing-scope>
-	</resource-ref>
+	<servlet-mapping>
+        <servlet-name>AttendanceServlet</servlet-name>
+        <url-pattern>
+        /AttendanceServlet</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+        <welcome-file>welcome.jsp</welcome-file>
+    </welcome-file-list>
+    <resource-ref>
+        <description />
+        <res-ref-name>jdbc/OfficeApplicationDS</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+        <res-sharing-scope>Shareable</res-sharing-scope>
+    </resource-ref>
 </web-app>

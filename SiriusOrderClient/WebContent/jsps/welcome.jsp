@@ -2,12 +2,12 @@
 	contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
 <title>welcome</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
-<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <link rel="stylesheet" type="text/css"
 	href="/SiriusOrderClient/css/welcome.css">
 <link rel="stylesheet" type="text/css"
@@ -20,16 +20,20 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<fmt:setBundle basename="com.sirius.order.client.properties.common"/>
+	<%-- HEADER --%>
 	<header>
 		<%@ include file="header.jsp"%>
 	</header>
+	
+	<%-- CAROUSEL --%>
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<!-- Indicators -->
-		<ol class="carousel-indicators">
+		<%--<ol class="carousel-indicators">
 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 			<li data-target="#myCarousel" data-slide-to="1"></li>
 			<li data-target="#myCarousel" data-slide-to="2"></li>
-		</ol>
+		</ol> --%>
 
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner">
@@ -54,7 +58,28 @@
 			class="glyphicon glyphicon-chevron-right"></span> <span
 			class="sr-only">Next</span> </a>
 	</div>
-	<div class=""></div>
+	
+	<%-- OFFICE OPTIONS --%>
+	<div class="supply-category-card-container">
+		<html:link page="/Welcome.do?type=3" styleClass="supply-category-card">
+			<div class="supply-category-card-title"> <fmt:message key="WELCOME_INK_AND_TONER" /> </div>
+			<div class="supply-category-card-picture">
+				<img src="/SiriusOrderClient/assets/ink_and_toner.png"/>
+			</div>
+		</html:link>
+		<html:link page="/Welcome.do?type=1" styleClass="supply-category-card">
+			<div class="supply-category-card-title"> <fmt:message key="WELCOME_BREAKROOM" /></div>
+			<div class="supply-category-card-picture">
+				<img src="/SiriusOrderClient/assets/breakroom.png"/>
+			</div>
+		</html:link>
+		<html:link page="/Welcome.do?type=2" styleClass="supply-category-card">
+			<div class="supply-category-card-title"> <fmt:message key="WELCOME_OFFICE_SUPPLIES" /></div>
+			<div class="supply-category-card-picture">
+				<img src="/SiriusOrderClient/assets/office_supplies.png"/>
+			</div>
+		</html:link>
+	</div>
 
 </body>
 </html>

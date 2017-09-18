@@ -38,7 +38,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class GetAllProductByTypeResponse {
 
-    @XmlElement(namespace = "http://main.service.product.sirius.com/product/wsdl", nillable = true)
+    @XmlElement(nillable = true)
     protected List<ProductBean> getAllProductsByTypeReturn;
 
     /**

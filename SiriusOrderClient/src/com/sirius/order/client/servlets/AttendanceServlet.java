@@ -24,6 +24,22 @@ public class AttendanceServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String name=request.getParameter("name");
+		String email = request.getParameter("email");
+		String location = request.getParameter("location");
+		String view = request.getParameter("view");
+		String startDate = request.getParameter("endDate");
+		String endDate = request.getParameter("endDate");
+		String range = request.getParameter("range");
+		
+		String[] locationArray = location.split(", ");
+		String state = locationArray[0];
+		String city = locationArray[1];
+		
+		name = '%'+name+'%';
+		email = '%'+email+'%';
+		state = '%'+state+'%';
+		city = '%'+city+'%';
 		
 	}
 
