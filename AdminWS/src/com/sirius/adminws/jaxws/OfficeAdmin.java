@@ -9,6 +9,7 @@ import javax.jws.WebService;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 
+import com.sirius.adminws.beans.EmployeeBean;
 import com.sirius.adminws.beans.Holiday;
 
 @WebService(name = "OfficeAdmin", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl")
@@ -49,5 +50,12 @@ public interface OfficeAdmin {
 	@RequestWrapper(localName = "getAllHolidays", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl", className = "com.sirius.adminws.jaxws.GetAllHolidays")
 	@ResponseWrapper(localName = "getAllHolidaysResponse", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl", className = "com.sirius.adminws.jaxws.GetAllHolidaysResponse")
 	public List<Holiday> getAllHolidays(
+			@WebParam(name = "locationID", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl") int locationID);
+	
+	@WebMethod(action = "getUnapprovedEmployees")
+	@WebResult(name = "getUnapprovedEmployeesReturn", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl")
+	@RequestWrapper(localName = "getUnapprovedEmployees", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl", className = "com.sirius.adminws.jaxws.GetUnapprovedEmployees")
+	@ResponseWrapper(localName = "getUnapprovedEmployeesResponse", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl", className = "com.sirius.adminws.jaxws.GetUnapprovedEmployeesResponse")
+	public List<EmployeeBean> getUnapprovedEmployees(
 			@WebParam(name = "locationID", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl") int locationID);
 }

@@ -36,7 +36,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class GetProductByID {
 
-    @XmlElement(name = "ID", namespace = "http://main.service.product.sirius.com/product/wsdl")
+    @XmlElement(name = "ID")
     protected int id;
 
     /**

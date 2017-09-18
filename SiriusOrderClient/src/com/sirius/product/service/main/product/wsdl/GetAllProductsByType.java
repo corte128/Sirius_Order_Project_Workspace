@@ -7,7 +7,6 @@ package com.sirius.product.service.main.product.wsdl;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -36,7 +35,6 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class GetAllProductsByType {
 
-    @XmlElement(namespace = "http://main.service.product.sirius.com/product/wsdl")
     protected String type;
 
     /**
