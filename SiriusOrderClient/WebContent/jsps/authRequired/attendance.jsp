@@ -24,7 +24,7 @@
         <option value="display">Display</option>
         <option value="PDF">PDF</option>
       </select>
-
+		
       <input type="date" name="startDate" />
       <input type="date" name="endDate" />
 

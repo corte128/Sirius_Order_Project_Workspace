@@ -2,10 +2,10 @@
  * 
  */
 
-var app = angular.module('app', [ 'ngTouch', 'ui.grid' ]);
+var app = angular.module('attendanceTable', [ 'ngTouch', 'ui.grid' ]);
 
 app.controller(
-				'AllEmployeesCtrl',
+				'AttendanceCtrl',
 				[
 						'$scope',
 						'$http',
@@ -33,7 +33,7 @@ app.controller(
 							};
 
 							$http
-									.get("/AceRadTutorial/AllEmployeesServlet")
+									.get("/SiriusOrderClient/AttendanceServlet")
 									.then(
 											function(response) {
 
