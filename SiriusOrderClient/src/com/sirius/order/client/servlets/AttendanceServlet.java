@@ -24,7 +24,11 @@ public class AttendanceServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String name=request.getParameter("name");
+		String email = request.getParameter("email");
 		
+		name = '%'+name+'%';
+		email = '%'+email+'%';
 	}
 
 	/**
