@@ -27,22 +27,18 @@ public class OfficeAdminServiceDAOImpl {
 	public boolean addVisitors(String startDate, String endDate, int count, 
 			String comment, int userID, int locationID){
 		logger.log(Level.FINE, "Adding Visitors...");
-		//get date strings into format: year month day
-		String[] mdy = startDate.split("/");
-		String newStart = mdy[2] + "-" + mdy[0] + "-" + mdy[1];
-		String[] mdy2 = startDate.split("/");
-		String newEnd = mdy2[2] + "-" + mdy2[0] + "-" + mdy2[1];
 		//insert into visitor table
-		String sql = "INSERT INTO visitor_tbl (start_date, end_date, number_of_visitors, comments, created_by, created_date, locationID)" + 
-		" Values (?, ?, ?, ?, ?, (SELECT CURDATE()), ?)";
+		String sql = "INSERT INTO visitor_tbl (start_date, end_date, number_of_visitors, comments, created_by, created_date, location_id_fk, is_valid)" + 
+		" Values (?, ?, ?, ?, ?, (SELECT CURDATE()), ?, ?)";
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setString(1, newStart);
-			stmt.setString(2, newEnd);
+			stmt.setString(1, startDate);
+			stmt.setString(2, endDate);
 			stmt.setInt(3, count);
 			stmt.setString(4, comment);
 			stmt.setInt(5, userID);
 			stmt.setInt(6, locationID);
+			stmt.setInt(7, 1);
 			stmt.executeUpdate();
 			DBConnection.closePreparedStatement(stmt);
 		} catch (SQLException e) {
@@ -55,15 +51,12 @@ public class OfficeAdminServiceDAOImpl {
 	
 	public boolean addHoliday(String holidayName, String holidayDate, int userID, int locationID){
 		logger.log(Level.FINE, "Adding Holiday...");
-		//get date string into format: year month day
-		String[] mdy = holidayDate.split("/");
-		String newDate = mdy[2] + "-" + mdy[0] + "-" + mdy[1];
 		//insert into holiday table
 		String sql = "INSERT INTO holiday_tbl (holiday_date, holiday_name, created_by, created_date, location_id_fk, is_valid)"+
 		" VALUES (?, ?, ?, (SELECT CURDATE()), ?, true)";
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setString(1, newDate);
+			stmt.setString(1, holidayDate);
 			stmt.setString(2, holidayName);
 			stmt.setInt(3, userID);
 			stmt.setInt(4, locationID);
