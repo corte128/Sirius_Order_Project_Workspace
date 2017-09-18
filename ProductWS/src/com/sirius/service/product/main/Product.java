@@ -73,7 +73,7 @@ public interface Product
 	@RequestWrapper(localName = "getAllProductsByNameAndType", targetNamespace = "http://main.service.product.sirius.com/product/wsdl", 
 		className = "com.sirius.service.product.main.GetAllProductsByNameAndType")
 	@ResponseWrapper(localName = "getAllProductsByNameAndTypeResponse", targetNamespace = "http://main.service.product.sirius.com/product/wsdl", 
-		className = "com.sirius.service.product.main.GetAllProductsByNameAndType")
+		className = "com.sirius.service.product.main.GetAllProductsByNameAndTypeResponse")
 	public ProductBean[] getAllProductsByNameAndType(
 			@WebParam(name="name", targetNamespace = "http://main.service.product.sirius.com/product/wsdl")
 			String name,

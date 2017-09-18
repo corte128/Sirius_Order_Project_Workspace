@@ -30,7 +30,11 @@ public class ObjectFactory {
 
     private final static QName _GetProductByID_QNAME = new QName("http://main.service.product.sirius.com/product/wsdl", "getProductByID");
     private final static QName _GetProductByIDResponse_QNAME = new QName("http://main.service.product.sirius.com/product/wsdl", "getProductByIDResponse");
+    private final static QName _GetAllProductsByNameResponse_QNAME = new QName("http://main.service.product.sirius.com/product/wsdl", "getAllProductsByNameResponse");
+    private final static QName _GetAllProductsByNameAndType_QNAME = new QName("http://main.service.product.sirius.com/product/wsdl", "getAllProductsByNameAndType");
     private final static QName _GetAllProductsByType_QNAME = new QName("http://main.service.product.sirius.com/product/wsdl", "getAllProductsByType");
+    private final static QName _GetAllProductsByName_QNAME = new QName("http://main.service.product.sirius.com/product/wsdl", "getAllProductsByName");
+    private final static QName _GetAllProductsByNameAndTypeResponse_QNAME = new QName("http://main.service.product.sirius.com/product/wsdl", "getAllProductsByNameAndTypeResponse");
     private final static QName _GetAllProductByTypeResponse_QNAME = new QName("http://main.service.product.sirius.com/product/wsdl", "getAllProductByTypeResponse");
 
     /**
@@ -46,6 +50,38 @@ public class ObjectFactory {
      */
     public GetAllProductsByType createGetAllProductsByType() {
         return new GetAllProductsByType();
+    }
+
+    /**
+     * Create an instance of {@link GetAllProductsByNameAndType }
+     * 
+     */
+    public GetAllProductsByNameAndType createGetAllProductsByNameAndType() {
+        return new GetAllProductsByNameAndType();
+    }
+
+    /**
+     * Create an instance of {@link GetAllProductsByNameAndTypeResponse }
+     * 
+     */
+    public GetAllProductsByNameAndTypeResponse createGetAllProductsByNameAndTypeResponse() {
+        return new GetAllProductsByNameAndTypeResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetAllProductsByName }
+     * 
+     */
+    public GetAllProductsByName createGetAllProductsByName() {
+        return new GetAllProductsByName();
+    }
+
+    /**
+     * Create an instance of {@link GetAllProductsByNameResponse }
+     * 
+     */
+    public GetAllProductsByNameResponse createGetAllProductsByNameResponse() {
+        return new GetAllProductsByNameResponse();
     }
 
     /**
@@ -99,12 +135,48 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllProductsByNameResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://main.service.product.sirius.com/product/wsdl", name = "getAllProductsByNameResponse")
+    public JAXBElement<GetAllProductsByNameResponse> createGetAllProductsByNameResponse(GetAllProductsByNameResponse value) {
+        return new JAXBElement<GetAllProductsByNameResponse>(_GetAllProductsByNameResponse_QNAME, GetAllProductsByNameResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllProductsByNameAndType }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://main.service.product.sirius.com/product/wsdl", name = "getAllProductsByNameAndType")
+    public JAXBElement<GetAllProductsByNameAndType> createGetAllProductsByNameAndType(GetAllProductsByNameAndType value) {
+        return new JAXBElement<GetAllProductsByNameAndType>(_GetAllProductsByNameAndType_QNAME, GetAllProductsByNameAndType.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetAllProductsByType }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://main.service.product.sirius.com/product/wsdl", name = "getAllProductsByType")
     public JAXBElement<GetAllProductsByType> createGetAllProductsByType(GetAllProductsByType value) {
         return new JAXBElement<GetAllProductsByType>(_GetAllProductsByType_QNAME, GetAllProductsByType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllProductsByName }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://main.service.product.sirius.com/product/wsdl", name = "getAllProductsByName")
+    public JAXBElement<GetAllProductsByName> createGetAllProductsByName(GetAllProductsByName value) {
+        return new JAXBElement<GetAllProductsByName>(_GetAllProductsByName_QNAME, GetAllProductsByName.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllProductsByNameAndTypeResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://main.service.product.sirius.com/product/wsdl", name = "getAllProductsByNameAndTypeResponse")
+    public JAXBElement<GetAllProductsByNameAndTypeResponse> createGetAllProductsByNameAndTypeResponse(GetAllProductsByNameAndTypeResponse value) {
+        return new JAXBElement<GetAllProductsByNameAndTypeResponse>(_GetAllProductsByNameAndTypeResponse_QNAME, GetAllProductsByNameAndTypeResponse.class, null, value);
     }
 
     /**

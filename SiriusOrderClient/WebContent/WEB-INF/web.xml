@@ -32,6 +32,13 @@
 	<servlet>
 		<description>
 		</description>
+		<display-name>ProductSearchServlet</display-name>
+		<servlet-name>ProductSearchServlet</servlet-name>
+		<servlet-class>com.sirius.order.client.servlets.ProductSearchServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
 		<display-name>QueryServlet</display-name>
 		<servlet-name>QueryServlet</servlet-name>
 		<servlet-class>com.sirius.order.client.servlets.QueryServlet</servlet-class>
@@ -51,6 +58,11 @@
 		<servlet-name>LogoutServlet</servlet-name>
 		<url-pattern>
 		/LogoutServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ProductSearchServlet</servlet-name>
+		<url-pattern>
+		/ProductSearchServlet</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>QueryServlet</servlet-name>

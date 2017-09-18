@@ -7,21 +7,20 @@ package com.sirius.product.service.main.product.wsdl;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for getProductByID complex type.
+ * <p>Java class for getAllProductsByName complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="getProductByID">
+ * &lt;complexType name="getAllProductsByName">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="ID" type="{http://www.w3.org/2001/XMLSchema}int" form="qualified"/>
+ *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0" form="qualified"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,28 +30,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getProductByID", propOrder = {
-    "id"
+@XmlType(name = "getAllProductsByName", propOrder = {
+    "name"
 })
-public class GetProductByID {
+public class GetAllProductsByName {
 
-    @XmlElement(name = "ID")
-    protected int id;
+    protected String name;
 
     /**
-     * Gets the value of the id property.
+     * Gets the value of the name property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getID() {
-        return id;
+    public String getName() {
+        return name;
     }
 
     /**
-     * Sets the value of the id property.
+     * Sets the value of the name property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setID(int value) {
-        this.id = value;
+    public void setName(String value) {
+        this.name = value;
     }
 
 }

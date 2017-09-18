@@ -9,3 +9,11 @@ select {
 .search{
 	display: inline;
 }
+
+.searchContainer{
+	margin-left: 20%;
+}
+
+.searchBar{
+	width: 40%;
+}

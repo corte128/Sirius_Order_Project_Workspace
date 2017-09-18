@@ -8,6 +8,7 @@ package com.sirius.product.service.main.product.wsdl;
 import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -46,11 +47,17 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class ProductBean {
 
+    @XmlElement(namespace = "")
     protected String details;
+    @XmlElement(namespace = "")
     protected int id;
+    @XmlElement(namespace = "")
     protected String image;
+    @XmlElement(namespace = "")
     protected String name;
+    @XmlElement(namespace = "")
     protected BigDecimal price;
+    @XmlElement(namespace = "")
     protected String type;
 
     /**

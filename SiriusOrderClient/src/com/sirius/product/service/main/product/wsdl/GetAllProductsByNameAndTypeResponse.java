@@ -14,16 +14,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for getAllProductByTypeResponse complex type.
+ * <p>Java class for getAllProductsByNameAndTypeResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="getAllProductByTypeResponse">
+ * &lt;complexType name="getAllProductsByNameAndTypeResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="getAllProductsByTypeReturn" type="{http://main.service.product.sirius.com/product/wsdl}productBean" maxOccurs="unbounded" minOccurs="0" form="qualified"/>
+ *         &lt;element name="getAllProductsByNameAndTypeReturn" type="{http://main.service.product.sirius.com/product/wsdl}productBean" maxOccurs="unbounded" minOccurs="0" form="qualified"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -33,27 +33,27 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getAllProductByTypeResponse", propOrder = {
-    "getAllProductsByTypeReturn"
+@XmlType(name = "getAllProductsByNameAndTypeResponse", propOrder = {
+    "getAllProductsByNameAndTypeReturn"
 })
-public class GetAllProductByTypeResponse {
+public class GetAllProductsByNameAndTypeResponse {
 
     @XmlElement(nillable = true)
-    protected List<ProductBean> getAllProductsByTypeReturn;
+    protected List<ProductBean> getAllProductsByNameAndTypeReturn;
 
     /**
-     * Gets the value of the getAllProductsByTypeReturn property.
+     * Gets the value of the getAllProductsByNameAndTypeReturn property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the getAllProductsByTypeReturn property.
+     * This is why there is not a <CODE>set</CODE> method for the getAllProductsByNameAndTypeReturn property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getGetAllProductsByTypeReturn().add(newItem);
+     *    getGetAllProductsByNameAndTypeReturn().add(newItem);
      * </pre>
      * 
      * 
@@ -63,11 +63,11 @@ public class GetAllProductByTypeResponse {
      * 
      * 
      */
-    public List<ProductBean> getGetAllProductsByTypeReturn() {
-        if (getAllProductsByTypeReturn == null) {
-            getAllProductsByTypeReturn = new ArrayList<ProductBean>();
+    public List<ProductBean> getGetAllProductsByNameAndTypeReturn() {
+        if (getAllProductsByNameAndTypeReturn == null) {
+            getAllProductsByNameAndTypeReturn = new ArrayList<ProductBean>();
         }
-        return this.getAllProductsByTypeReturn;
+        return this.getAllProductsByNameAndTypeReturn;
     }
 
 }
