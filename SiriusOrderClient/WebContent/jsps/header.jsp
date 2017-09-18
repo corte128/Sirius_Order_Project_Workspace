@@ -58,9 +58,6 @@
 			</div>
 
 		</div>
-<<<<<<< HEAD
-	</div>
-=======
 	</div>
 
->>>>>>> 18e547fb64dffb80d3e1cfbf01974df0bd035dfc
+
