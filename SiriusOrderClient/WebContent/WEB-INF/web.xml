@@ -36,6 +36,13 @@
 		<servlet-name>QueryServlet</servlet-name>
 		<servlet-class>com.sirius.order.client.servlets.QueryServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>AttendanceServlet</display-name>
+		<servlet-name>AttendanceServlet</servlet-name>
+		<servlet-class>com.sirius.order.client.servlets.AttendanceServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>action</servlet-name>
 		<url-pattern>*.do</url-pattern>
@@ -49,6 +56,11 @@
 		<servlet-name>QueryServlet</servlet-name>
 		<url-pattern>
 		/QueryServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AttendanceServlet</servlet-name>
+		<url-pattern>
+		/AttendanceServlet</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
