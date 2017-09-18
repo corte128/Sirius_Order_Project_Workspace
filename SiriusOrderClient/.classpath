@@ -18,12 +18,12 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Users/IEUser/Desktop/Sirius_Order_Project_Workspace/SiriusOrderClient/WebContent/WEB-INF/lib/commons-codec-1.10.jar"/>
-	<classpathentry kind="lib" path="C:/Users/IEUser/Desktop/Sirius_Order_Project_Workspace/SiriusOrderClient/WebContent/WEB-INF/lib/commons-io-2.5.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javax.json-1.0.4.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-io-2.5.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-codec-1.10.jar"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>
