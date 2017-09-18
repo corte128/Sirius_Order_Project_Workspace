@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>ProductWSEAR</name>
+	<name>SiriusOrderAdminServiceEAR</name>
 	<comment></comment>
 	<projects>
-		<project>ProductWS</project>
+		<project>SiriusOrderAdminService</project>
+		<project>SiriusOrderAttendanceService</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
