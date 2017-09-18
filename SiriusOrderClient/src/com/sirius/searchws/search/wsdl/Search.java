@@ -5,22 +5,11 @@
 
 package com.sirius.searchws.search.wsdl;
 
-<<<<<<< HEAD
-=======
 import java.util.List;
->>>>>>> 18e547fb64dffb80d3e1cfbf01974df0bd035dfc
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
-<<<<<<< HEAD
-import javax.jws.soap.SOAPBinding;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.ws.Action;
-
-@WebService(name = "Search", targetNamespace = "http://searchws.sirius.com/search/wsdl")
-@SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
-=======
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.ws.Action;
@@ -28,7 +17,6 @@ import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 
 @WebService(name = "Search", targetNamespace = "http://searchws.sirius.com/search/wsdl")
->>>>>>> 18e547fb64dffb80d3e1cfbf01974df0bd035dfc
 @XmlSeeAlso({
     ObjectFactory.class
 })
@@ -37,18 +25,6 @@ public interface Search {
 
     /**
      * 
-<<<<<<< HEAD
-     * @param parameters
-     * @return
-     *     returns com.sirius.searchws.search.wsdl.BudgetSearchResponse
-     */
-    @WebMethod(action = "budgetSearch")
-    @WebResult(name = "budgetSearchResponse", targetNamespace = "http://searchws.sirius.com/search/wsdl", partName = "parameters")
-    @Action(input = "budgetSearch", output = "http://searchws.sirius.com/search/wsdl/Search/searchResponse")
-    public BudgetSearchResponse search(
-        @WebParam(name = "budgetSearch", targetNamespace = "http://searchws.sirius.com/search/wsdl", partName = "parameters")
-        BudgetSearch parameters);
-=======
      * @param report
      * @param location
      * @param from
@@ -70,6 +46,5 @@ public interface Search {
         XMLGregorianCalendar to,
         @WebParam(name = "report", targetNamespace = "http://searchws.sirius.com/search/wsdl")
         String report);
->>>>>>> 18e547fb64dffb80d3e1cfbf01974df0bd035dfc
 
 }
