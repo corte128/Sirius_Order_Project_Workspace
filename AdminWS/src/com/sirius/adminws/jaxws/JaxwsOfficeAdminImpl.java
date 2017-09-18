@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.jws.WebService;
 
+import com.sirius.adminws.beans.EmployeeBean;
 import com.sirius.adminws.beans.Holiday;
 import com.sirius.adminws.db.OfficeAdminServiceDAO;
 
@@ -33,6 +34,12 @@ public class JaxwsOfficeAdminImpl implements OfficeAdmin {
 	public List<Holiday> getAllHolidays(int locationID) {
 		OfficeAdminServiceDAO dao = new OfficeAdminServiceDAO();
 		return dao.getAllHolidays(locationID);
+	}
+
+	@Override
+	public List<EmployeeBean> getUnapprovedEmployees(int locationID) {
+		OfficeAdminServiceDAO dao = new OfficeAdminServiceDAO();
+		return dao.getUnapprovedEmployees(locationID);
 	}
 
 }

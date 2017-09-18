@@ -12,10 +12,10 @@ import com.sirius.searchws.db.SearchDAO;
 public class JaxwsSearchImpl implements Search{
 
 	@Override
-	public List<ActualvBudgetBean> search(int location_id, Date fromDate,
+	public List<ActualvBudgetBean> budgetSearch(int location_id, Date fromDate,
 			Date toDate, String reportType) {
 		SearchDAO dao = new SearchDAO();
-		return dao.search(location_id, fromDate, toDate, reportType);
+		return dao.budgetSearch(location_id, fromDate, toDate, reportType);
 	}
 
 }

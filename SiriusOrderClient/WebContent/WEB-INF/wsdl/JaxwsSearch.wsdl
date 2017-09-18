@@ -4,6 +4,7 @@
       <xsd:import namespace="http://searchws.sirius.com/search/wsdl" schemaLocation="JaxwsSearch_schema1.xsd"/>
     </xsd:schema>
   </types>
+<<<<<<< HEAD
   <message name="search">
     <part element="tns:budgetSearch" name="parameters"/>
   </message>
@@ -14,11 +15,27 @@
     <operation name="search">
       <input message="tns:search" wsam:Action="budgetSearch"/>
       <output message="tns:searchResponse" wsam:Action="http://searchws.sirius.com/search/wsdl/Search/searchResponse"/>
+=======
+  <message name="budgetSearch">
+    <part element="tns:budgetSearch" name="parameters"/>
+  </message>
+  <message name="budgetSearchResponse">
+    <part element="tns:budgetSearchResponse" name="parameters"/>
+  </message>
+  <portType name="Search">
+    <operation name="budgetSearch">
+      <input message="tns:budgetSearch" wsam:Action="budgetSearch"/>
+      <output message="tns:budgetSearchResponse" wsam:Action="http://searchws.sirius.com/search/wsdl/Search/budgetSearchResponse"/>
+>>>>>>> 18e547fb64dffb80d3e1cfbf01974df0bd035dfc
     </operation>
   </portType>
   <binding name="searchBinding" type="tns:Search">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<<<<<<< HEAD
     <operation name="search">
+=======
+    <operation name="budgetSearch">
+>>>>>>> 18e547fb64dffb80d3e1cfbf01974df0bd035dfc
       <soap:operation soapAction="budgetSearch"/>
       <input>
         <soap:body use="literal"/>
@@ -30,7 +47,11 @@
   </binding>
   <service name="JaxwsSearch">
     <port binding="tns:searchBinding" name="search">
+<<<<<<< HEAD
       <soap:address location="http://localhost:9080/Search/JaxwsSearch"/>
+=======
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+>>>>>>> 18e547fb64dffb80d3e1cfbf01974df0bd035dfc
     </port>
   </service>
 </definitions>

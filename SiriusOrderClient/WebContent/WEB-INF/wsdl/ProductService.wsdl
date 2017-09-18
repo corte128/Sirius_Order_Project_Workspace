@@ -16,6 +16,18 @@
   <message name="getAllProductsByTypeResponse">
     <part element="tns:getAllProductByTypeResponse" name="parameters"/>
   </message>
+  <message name="getAllProductsByName">
+    <part element="tns:getAllProductsByName" name="parameters"/>
+  </message>
+  <message name="getAllProductsByNameResponse">
+    <part element="tns:getAllProductsByNameResponse" name="parameters"/>
+  </message>
+  <message name="getAllProductsByNameAndType">
+    <part element="tns:getAllProductsByNameAndType" name="parameters"/>
+  </message>
+  <message name="getAllProductsByNameAndTypeResponse">
+    <part element="tns:getAllProductsByNameAndTypeResponse" name="parameters"/>
+  </message>
   <portType name="Product">
     <operation name="getProductByID">
       <input message="tns:getProductByID" wsam:Action="getProductByID"/>
@@ -24,6 +36,14 @@
     <operation name="getAllProductsByType">
       <input message="tns:getAllProductsByType" wsam:Action="getAllProductsByType"/>
       <output message="tns:getAllProductsByTypeResponse" wsam:Action="http://main.service.product.sirius.com/product/wsdl/Product/getAllProductsByTypeResponse"/>
+    </operation>
+    <operation name="getAllProductsByName">
+      <input message="tns:getAllProductsByName" wsam:Action="getAllProductsByName"/>
+      <output message="tns:getAllProductsByNameResponse" wsam:Action="http://main.service.product.sirius.com/product/wsdl/Product/getAllProductsByNameResponse"/>
+    </operation>
+    <operation name="getAllProductsByNameAndType">
+      <input message="tns:getAllProductsByNameAndType" wsam:Action="getAllProductsByNameAndType"/>
+      <output message="tns:getAllProductsByNameAndTypeResponse" wsam:Action="http://main.service.product.sirius.com/product/wsdl/Product/getAllProductsByNameAndTypeResponse"/>
     </operation>
   </portType>
   <binding name="productBinding" type="tns:Product">
@@ -39,6 +59,24 @@
     </operation>
     <operation name="getAllProductsByType">
       <soap:operation soapAction="getAllProductsByType"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getAllProductsByName">
+      <soap:operation soapAction="getAllProductsByName"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getAllProductsByNameAndType">
+      <soap:operation soapAction="getAllProductsByNameAndType"/>
       <input>
         <soap:body use="literal"/>
       </input>

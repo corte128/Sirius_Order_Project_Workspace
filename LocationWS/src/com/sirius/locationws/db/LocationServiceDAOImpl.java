@@ -6,15 +6,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
+//import java.util.logging.Logger;
 
 import com.sirius.locationws.beans.LocationBean;
 
 
 public class LocationServiceDAOImpl {
 	
-	private static final Logger logger = Logger.getLogger(LocationServiceDAOImpl.class
-			.getName());
+//	private static final Logger logger = Logger.getLogger(LocationServiceDAOImpl.class
+//			.getName());
 	Connection conn = null;
 	
 	public LocationServiceDAOImpl(Connection conn){
@@ -25,7 +25,7 @@ public class LocationServiceDAOImpl {
 		ArrayList<LocationBean> locations = new ArrayList<LocationBean>();
 		try {
 			System.out.println("Getting Locations");
-			String sql = "SELECT * FROM location_tbl";
+			String sql = "SELECT * FROM location_tbl JOIN state_tbl ON state_id_fk = state_id_pk";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()){
@@ -33,7 +33,7 @@ public class LocationServiceDAOImpl {
 				l.setId(rs.getInt("location_id_pk"));
 				l.setNumberOfEmployees(rs.getInt("number_of_employees"));
 				l.setCity(rs.getString("location_city"));
-				l.setState(rs.getInt("state_id_fk"));
+				l.setState(rs.getString("state_abbr"));
 				locations.add(l);
 			}
 		} catch (SQLException e) {
