@@ -36,6 +36,13 @@
 		<servlet-name>QueryServlet</servlet-name>
 		<servlet-class>com.sirius.order.client.servlets.QueryServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>BudgetServlet</display-name>
+		<servlet-name>BudgetServlet</servlet-name>
+		<servlet-class>com.sirius.order.client.servlets.BudgetServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>action</servlet-name>
 		<url-pattern>*.do</url-pattern>
@@ -50,6 +57,11 @@
 		<url-pattern>
 		/QueryServlet</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BudgetServlet</servlet-name>
+		<url-pattern>
+		/BudgetServlet</url-pattern>
+	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>
@@ -57,7 +69,6 @@
 		<welcome-file>default.html</welcome-file>
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
-		<welcome-file>welcome.jsp</welcome-file>
 	</welcome-file-list>
 	<resource-ref>
 		<description />
