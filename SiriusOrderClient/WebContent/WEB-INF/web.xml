@@ -29,6 +29,13 @@
 		<servlet-name>LogoutServlet</servlet-name>
 		<servlet-class>com.sirius.order.client.servlets.LogoutServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>QueryServlet</display-name>
+		<servlet-name>QueryServlet</servlet-name>
+		<servlet-class>com.sirius.order.client.servlets.QueryServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>action</servlet-name>
 		<url-pattern>*.do</url-pattern>
@@ -37,6 +44,11 @@
 		<servlet-name>LogoutServlet</servlet-name>
 		<url-pattern>
 		/LogoutServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>QueryServlet</servlet-name>
+		<url-pattern>
+		/QueryServlet</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

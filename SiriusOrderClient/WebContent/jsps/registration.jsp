@@ -10,9 +10,54 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/registration.css">
-<title>registration</title>
+<title><fmt:message key="REGISTRATION_TITLE" /></title>
 </head>
 <body>
-
+	<header>
+		<%@ include file="header.jsp" %>
+	</header>
+	<div id="registration-content">
+		<div id="registration-form">
+			<div id="registration-labels">
+				<br />
+				<label class="registration-label"><fmt:message key="REGISTRATION_NAME_LABEL" /></label>
+				<br />
+				<label class="registration-label"><fmt:message key="REGISTRATION_EMAIL_LABEL" /></label>
+				<br />
+				<label class="registration-label"><fmt:message key="REGISTRATION_LOCATION_LABEL" /></label>
+				<br />
+				<label class="registration-label"><fmt:message key="REGISTRATION_PASSWORD_LABEL" /></label>
+				<br />
+				<label class="registration-label"><fmt:message key="REGISTRATION_CONFIRM_PASSWORD_LABEL" /></label>
+				<br />
+				<label class="registration-label"><fmt:message key="REGISTRATION_PROFILE_PIC_LABEL" /></label>
+			</div>
+			<div id="registration-inputs-container">
+				<div id="registration-inputs">
+					<div id="registration-title"><fmt:message key="REGISTRATION_TITLE" /></div>
+					<html:form action="/Registration">
+						<input class="registration-field" required type="text" name="name" placeholder=<fmt:message key="REGISTRATION_NAME_LABEL" /> />
+						<br />
+						<input class="registration-field" required type="email" name="email" placeholder=<fmt:message key="REGISTRATION_EMAIL_LABEL" /> />
+						<br />
+						
+						<br />
+						<input class="registration-field" required type="password" name="password" placeholder=<fmt:message key="REGISTRATION_PASSWORD_LABEL" /> />
+						<br />
+						<input class="registration-field" required type="text" name="confirm_password" placeholder=<fmt:message key="REGISTRATION_CONFIRM_PASSWORD_LABEL" /> />
+						<br />
+						
+						<html:submit styleId="registration-button" value="Registration" />
+						<div id="errors">
+							<html:errors  />
+						</div>
+					</html:form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<aside>
+		<%@ include file="nav.jsp" %>
+	</aside>
 </body>
 </html>

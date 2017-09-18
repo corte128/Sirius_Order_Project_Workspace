@@ -4,6 +4,7 @@
 	
 	<form-beans>
 		<form-bean name="LoginForm" type="com.sirius.order.client.form.LoginForm"/>
+		<form-bean name="RegistrationForm" type="com.sirius.order.client.form.RegistrationForm"/>
 	</form-beans>
 	
 	<global-exceptions>
@@ -16,6 +17,10 @@
 		<action input="./jsps/login.jsp" name="LoginForm" path="/Login" scope="session" type="com.sirius.order.client.action.LoginAction">
             <forward name="success" path="./jsps/login.jsp" />
             <forward name="failure" path="./jsps/login.jsp" />
+        </action>
+        <action input="./jsps/login.jsp" name="RegistrationForm" path="/Registration" scope="session" type="com.sirius.order.client.action.RegistrationAction">
+            <forward name="success" path="./jsps/login.jsp" />
+            <forward name="failure" path="./jsps/registration.jsp" />
         </action>
 	</action-mappings>
 	
