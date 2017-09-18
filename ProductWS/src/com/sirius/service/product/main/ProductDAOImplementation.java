@@ -125,7 +125,7 @@ public class ProductDAOImplementation
 			query = queries.getString("GET_PRODUCTS_BY_NAME_QUERY");
 			statement = conn.prepareStatement(query);
 			
-			statement.setString(1, name);
+			statement.setString(1, '%'+name+'%');
 			
 			productData = statement.executeQuery();
 			

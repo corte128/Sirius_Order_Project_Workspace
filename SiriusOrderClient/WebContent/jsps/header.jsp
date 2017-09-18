@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css"
 	href="/SiriusOrderClient/css/header.css">
 
-<header>
+
 	<div class="headerContainer">
 		<c:set var="now" value="<%= new java.util.Date()%>" />
 
@@ -58,5 +58,9 @@
 			</div>
 
 		</div>
+<<<<<<< HEAD
 	</div>
-</header>
+=======
+	</div>
+
+>>>>>>> 18e547fb64dffb80d3e1cfbf01974df0bd035dfc

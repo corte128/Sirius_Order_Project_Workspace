@@ -74,7 +74,7 @@
 										</a>
 									</div>
 									<div class="register-nav-sidebar-sub-text-container">
-										<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/jsps/budgetVsActual.jsp">
+										<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/jsps/budgetReport.jsp">
 											Budget Vs Actual
 										</a>
 									</div>

@@ -6,21 +6,21 @@
       <xsd:import namespace="http://searchws.sirius.com/search/wsdl" schemaLocation="JaxwsSearch_schema1.xsd"/>
     </xsd:schema>
   </types>
-  <message name="search">
+  <message name="budgetSearch">
     <part name="parameters" element="tns:budgetSearch"/>
   </message>
-  <message name="searchResponse">
+  <message name="budgetSearchResponse">
     <part name="parameters" element="tns:budgetSearchResponse"/>
   </message>
   <portType name="Search">
-    <operation name="search">
-      <input wsam:Action="budgetSearch" message="tns:search"/>
-      <output wsam:Action="http://searchws.sirius.com/search/wsdl/Search/searchResponse" message="tns:searchResponse"/>
+    <operation name="budgetSearch">
+      <input wsam:Action="budgetSearch" message="tns:budgetSearch"/>
+      <output wsam:Action="http://searchws.sirius.com/search/wsdl/Search/budgetSearchResponse" message="tns:budgetSearchResponse"/>
     </operation>
   </portType>
   <binding name="searchBinding" type="tns:Search">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-    <operation name="search">
+    <operation name="budgetSearch">
       <soap:operation soapAction="budgetSearch"/>
       <input>
         <soap:body use="literal"/>
@@ -32,7 +32,7 @@
   </binding>
   <service name="JaxwsSearch">
     <port name="search" binding="tns:searchBinding">
-      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+      <soap:address location="http://localhost:9080/Search/JaxwsSearch"/>
     </port>
   </service>
 </definitions>

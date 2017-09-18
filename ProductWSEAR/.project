@@ -3,6 +3,7 @@
 	<name>ProductWSEAR</name>
 	<comment></comment>
 	<projects>
+		<project>ProductWS</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
