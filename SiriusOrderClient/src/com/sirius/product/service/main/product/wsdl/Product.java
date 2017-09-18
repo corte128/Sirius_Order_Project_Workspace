@@ -52,4 +52,37 @@ public interface Product {
         @WebParam(name = "type", targetNamespace = "http://main.service.product.sirius.com/product/wsdl")
         String type);
 
+    /**
+     * 
+     * @param name
+     * @return
+     *     returns java.util.List<com.sirius.product.service.main.product.wsdl.ProductBean>
+     */
+    @WebMethod(action = "getAllProductsByName")
+    @WebResult(name = "getAllProductsByNameReturn", targetNamespace = "http://main.service.product.sirius.com/product/wsdl")
+    @RequestWrapper(localName = "getAllProductsByName", targetNamespace = "http://main.service.product.sirius.com/product/wsdl", className = "com.sirius.product.service.main.product.wsdl.GetAllProductsByName")
+    @ResponseWrapper(localName = "getAllProductsByNameResponse", targetNamespace = "http://main.service.product.sirius.com/product/wsdl", className = "com.sirius.product.service.main.product.wsdl.GetAllProductsByNameResponse")
+    @Action(input = "getAllProductsByName", output = "http://main.service.product.sirius.com/product/wsdl/Product/getAllProductsByNameResponse")
+    public List<ProductBean> getAllProductsByName(
+        @WebParam(name = "name", targetNamespace = "http://main.service.product.sirius.com/product/wsdl")
+        String name);
+
+    /**
+     * 
+     * @param type
+     * @param name
+     * @return
+     *     returns java.util.List<com.sirius.product.service.main.product.wsdl.ProductBean>
+     */
+    @WebMethod(action = "getAllProductsByNameAndType")
+    @WebResult(name = "getAllProductsByNameAndTypeReturn", targetNamespace = "http://main.service.product.sirius.com/product/wsdl")
+    @RequestWrapper(localName = "getAllProductsByNameAndType", targetNamespace = "http://main.service.product.sirius.com/product/wsdl", className = "com.sirius.product.service.main.product.wsdl.GetAllProductsByNameAndType")
+    @ResponseWrapper(localName = "getAllProductsByNameAndTypeResponse", targetNamespace = "http://main.service.product.sirius.com/product/wsdl", className = "com.sirius.product.service.main.product.wsdl.GetAllProductsByNameAndTypeResponse")
+    @Action(input = "getAllProductsByNameAndType", output = "http://main.service.product.sirius.com/product/wsdl/Product/getAllProductsByNameAndTypeResponse")
+    public List<ProductBean> getAllProductsByNameAndType(
+        @WebParam(name = "name", targetNamespace = "http://main.service.product.sirius.com/product/wsdl")
+        String name,
+        @WebParam(name = "type", targetNamespace = "http://main.service.product.sirius.com/product/wsdl")
+        String type);
+
 }
