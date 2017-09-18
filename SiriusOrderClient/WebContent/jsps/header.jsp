@@ -5,47 +5,58 @@
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <fmt:setBundle basename="com.sirius.order.client.properties.common" />
 <%@ page import="java.util.Date"%>
-<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/header.css">
+<link rel="stylesheet" type="text/css"
+	href="/SiriusOrderClient/css/header.css">
 
 <header>
 	<div class="headerContainer">
 		<c:set var="now" value="<%= new java.util.Date()%>" />
 
-		
+
 		<div class="headerRight">
 			<div class="headerRightLinks">
 
 
 				<c:if test="${sessionScope.activeUserName == null}">
-					<html:link
-						href="http://www.login.com/">
+					<html:link href="/SiriusOrderClient/jsps/login.jsp">
 						<fmt:message key="HEADER_LOGIN" />
 					</html:link>
-					<span>|</span>
-					<html:link href="https://www.register.com/">
+					<html:link href="/SiriusOrderClient/jsps/registration.jsp">
 						<fmt:message key="HEADER_REGISTER" />
 					</html:link>
 				</c:if>
 				<c:if test="${sessionScope.activeUserName != null}">
-					<p>
+					<p id="welcomeMessage">
 						<fmt:message key="HEADER_WELCOME" />
 						${sessionScope.activeUserName}
 					</p>
-					<p>
-						<a href="/SiriusOrderClient/LogoutServlet"><fmt:message
-								key="HEADER_LOGOUT" />
-						</a>
+
 				</c:if>
-				<c:if test="${sessionScope.activeUserType == 2}">
-				<div class="headerRightActions">
-					
-				</div>
-				</c:if>
-				
+				<table class="headerNavTable">
+					<tr>
+						<c:if test="${sessionScope.activeUserType == '2'}">
+							<td class="headerLink"><html:link
+									href="https://www.google.com/alerts">
+									<fmt:message key="HEADER_ALERTS" />
+								</html:link>
+						</c:if>
+						<c:if test="${sessionScope.activeUserType == '3'}">
+							<td class="headerLink"><html:link href="http://admin.com/">
+									<fmt:message key="HEADER_ADMIN" />
+								</html:link>
+							</td>
+						</c:if>
+						<c:if test="${sessionScope.activeUserName != null}">
+							<td class="headerLink"><a
+								href="/SiriusOrderClient/LogoutServlet"><fmt:message
+										key="HEADER_LOGOUT" /> </a>
+							</td>
+						</c:if>
+					</tr>
+				</table>
+
 			</div>
-			<div class="headerRightTime">
-				
-			</div>
+
 		</div>
 	</div>
 </header>

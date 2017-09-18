@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 
 import javax.naming.NamingException;
 
+import com.sirius.adminws.beans.EmployeeBean;
 import com.sirius.adminws.beans.Holiday;
 import com.sirius.service.superadmin.database.DBConnection;
 
@@ -117,15 +118,37 @@ public class OfficeAdminServiceDAO {
 			holidays = impl.getAllHolidays(locationID);
 			impl.closeConnection();
 		} catch (NamingException e) {
-			logger.log(Level.FINE, "Naming Error in deleteHoliday(): "+e);
+			logger.log(Level.FINE, "Naming Error in getAllHolidays(): "+e);
 			e.printStackTrace();
 		} catch (SQLException e) {
-			logger.log(Level.FINE, "SQL Error in deleteHoliday(): "+e);
+			logger.log(Level.FINE, "SQL Error in getAllHolidays(): "+e);
 			e.printStackTrace();
 		} catch (Exception e) {
-			logger.log(Level.FINE, "Error in deleteHoliday(): "+e);
+			logger.log(Level.FINE, "Error in getAllHolidays(): "+e);
 			e.printStackTrace();
 		}
 		return holidays;
+	}
+	
+	public List<EmployeeBean> getUnapprovedEmployees(int locationID){
+		logger.log(Level.FINE, "Getting Unapproved Employees for location: " + locationID);
+		Connection conn = null;
+		List<EmployeeBean> emps = null;
+		try {
+			conn = DBConnection.getConnection();
+			OfficeAdminServiceDAOImpl impl = new OfficeAdminServiceDAOImpl(conn);
+			emps = impl.getUnapprovedEmployees(locationID);
+			impl.closeConnection();
+		} catch (NamingException e) {
+			logger.log(Level.FINE, "Naming Error in getUnapprovedEmployees(): "+e);
+			e.printStackTrace();
+		} catch (SQLException e) {
+			logger.log(Level.FINE, "SQL Error in getUnapprovedEmployees(): "+e);
+			e.printStackTrace();
+		} catch (Exception e) {
+			logger.log(Level.FINE, "Error in getUnapprovedEmployees(): "+e);
+			e.printStackTrace();
+		}
+		return emps;
 	}
 }

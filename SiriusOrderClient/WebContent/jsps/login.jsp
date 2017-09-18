@@ -15,7 +15,7 @@
 </head>
 <body>
 	<header>
-		<jsp:include page="header.jsp" flush="true" />
+		<%@ include file="header.jsp" %>
 	</header>
 	<div id="login-content">	
 		<div id="login-form">
@@ -30,9 +30,9 @@
 				<div id="login-inputs">
 					<div id="login-title"><fmt:message key="LOGIN_TITLE" /></div>
 					<html:form action="/Login">
-						<input id="input-field" required type="email" name="email" placeholder="User Email" />
+						<input id="input-field" required type="email" name="email" placeholder=<fmt:message key="LOGIN_EMAIL_LABEL" /> />
 						<br />
-						<input id="input-field" required type="password" name="password" placeholder="Password" />
+						<input id="input-field" required type="password" name="password" placeholder=<fmt:message key="LOGIN_PASSWORD_LABEL" /> />
 						<br />
 						<html:submit styleId="login-button" value="Login" />
 						<div id="errors">
@@ -43,7 +43,7 @@
 			</div>
 		</div>
 		<aside>
-			<jsp:include page="nav.jsp" flush="true" />
+			<%@ include file="nav.jsp" %>
 		</aside>
 	</div>
 </body>

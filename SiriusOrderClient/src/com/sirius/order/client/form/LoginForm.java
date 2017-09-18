@@ -27,7 +27,7 @@ public class LoginForm extends ActionForm{
 	    int employeeID = 0;
 	    LoginClientDAO dao = new LoginClientDAO();
 		employeeID = dao.getEmployeeByCredentials(email, password);
-	    // FIRSTNAME ERRORS
+	    // CREDENTIALS ERROR
 	    if (employeeID == 0) {
 	        errors.add("password", new ActionMessage("login.credentials.invalid"));
 	    }
