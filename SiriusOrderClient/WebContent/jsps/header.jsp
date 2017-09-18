@@ -18,11 +18,10 @@
 
 
 				<c:if test="${sessionScope.activeUserName == null}">
-					<html:link href="jsps/login.jsp">
+					<html:link href="/SiriusOrderClient/jsps/login.jsp">
 						<fmt:message key="HEADER_LOGIN" />
 					</html:link>
-					<span>|</span>
-					<html:link href="jsps/register.jsp">
+					<html:link href="/SiriusOrderClient/jsps/registration.jsp">
 						<fmt:message key="HEADER_REGISTER" />
 					</html:link>
 				</c:if>

@@ -34,15 +34,15 @@
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner">
 			<div class="item active">
-				<img src="la.jpg" alt="Los Angeles" style="width: 100%;">
+				<img src="/SiriusOrderClient/assets/la.jpg" alt="Los Angeles" style="width: 100%;">
 			</div>
 
 			<div class="item">
-				<img src="chicago.jpg" alt="Chicago" style="width: 100%;">
+				<img src="/SiriusOrderClient/assets/chicago.jpg" alt="Chicago" style="width: 100%;">
 			</div>
 
 			<div class="item">
-				<img src="ny.jpg" alt="New york" style="width: 100%;">
+				<img src="/SiriusOrderClient/assets/ny.jpg" alt="New york" style="width: 100%;">
 			</div>
 		</div>
 
