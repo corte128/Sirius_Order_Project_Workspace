@@ -12,7 +12,7 @@ app.controller('AssignEmployeesCtrl', ['$scope', '$http', '$q',  function ($scop
 		data.addColumn('string', 'Element');
 		data.addColumn('number', 'Percentage');
 		
-		$http.get("/ACEWeb/ValidationServlet?query=allDevelopers")
+		$http.get("/ACEWeb/BudgetServlet?action=searchBudget&")
 	   	.then(function(response) 
 	   	{
 	   		data.addRows(response.data);
