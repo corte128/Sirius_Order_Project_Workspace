@@ -11,12 +11,11 @@ import javax.xml.ws.BindingProvider;
 import javax.xml.ws.Dispatch;
 import javax.xml.ws.Service;
 import javax.xml.ws.soap.SOAPBinding;
-<<<<<<< HEAD
+
 import javax.xml.ws.Action;
-=======
 import java.util.List;
+
 import javax.xml.datatype.XMLGregorianCalendar;
->>>>>>> 18e547fb64dffb80d3e1cfbf01974df0bd035dfc
 
 public class SearchProxy{
 
@@ -121,13 +120,8 @@ public class SearchProxy{
         return _descriptor;
     }
 
-<<<<<<< HEAD
-    public BudgetSearchResponse search(BudgetSearch parameters) {
-        return _getDescriptor().getProxy().search(parameters);
-=======
     public List<ActualvBudgetBean> budgetSearch(int location, XMLGregorianCalendar from, XMLGregorianCalendar to, String report) {
         return _getDescriptor().getProxy().budgetSearch(location,from,to,report);
->>>>>>> 18e547fb64dffb80d3e1cfbf01974df0bd035dfc
     }
 
 }
