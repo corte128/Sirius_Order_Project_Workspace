@@ -57,6 +57,13 @@
         <servlet-name>AttendanceServlet</servlet-name>
         <servlet-class>com.sirius.order.client.servlets.AttendanceServlet</servlet-class>
     </servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>SuperAdminServlet</display-name>
+		<servlet-name>SuperAdminServlet</servlet-name>
+		<servlet-class>com.sirius.order.client.servlets.SuperAdminServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>action</servlet-name>
 		<url-pattern>*.do</url-pattern>
@@ -86,7 +93,7 @@
         <url-pattern>
         /AttendanceServlet</url-pattern>
     </servlet-mapping>
-    <!-- 
+    <!--
     <servlet-mapping>
     	<servlet-name>SuperAdminServlet</servlet-name>
     	<url-pattern>
