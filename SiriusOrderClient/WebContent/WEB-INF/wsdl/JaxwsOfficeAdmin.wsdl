@@ -28,6 +28,12 @@
   <message name="getAllHolidaysResponse">
     <part element="tns:getAllHolidaysResponse" name="parameters"/>
   </message>
+  <message name="getUnapprovedEmployees">
+    <part element="tns:getUnapprovedEmployees" name="parameters"/>
+  </message>
+  <message name="getUnapprovedEmployeesResponse">
+    <part element="tns:getUnapprovedEmployeesResponse" name="parameters"/>
+  </message>
   <portType name="OfficeAdmin">
     <operation name="addVisitors">
       <input message="tns:addVisitors" wsam:Action="addVisitors"/>
@@ -44,6 +50,10 @@
     <operation name="getAllHolidays">
       <input message="tns:getAllHolidays" wsam:Action="getAllHolidays"/>
       <output message="tns:getAllHolidaysResponse" wsam:Action="http://adminws.sirius.com/officeAdmin/wsdl/OfficeAdmin/getAllHolidaysResponse"/>
+    </operation>
+    <operation name="getUnapprovedEmployees">
+      <input message="tns:getUnapprovedEmployees" wsam:Action="getUnapprovedEmployees"/>
+      <output message="tns:getUnapprovedEmployeesResponse" wsam:Action="http://adminws.sirius.com/officeAdmin/wsdl/OfficeAdmin/getUnapprovedEmployeesResponse"/>
     </operation>
   </portType>
   <binding name="officeAdminBinding" type="tns:OfficeAdmin">
@@ -77,6 +87,15 @@
     </operation>
     <operation name="getAllHolidays">
       <soap:operation soapAction="getAllHolidays"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getUnapprovedEmployees">
+      <soap:operation soapAction="getUnapprovedEmployees"/>
       <input>
         <soap:body use="literal"/>
       </input>

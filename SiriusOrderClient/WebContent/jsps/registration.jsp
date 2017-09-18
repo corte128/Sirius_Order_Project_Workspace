@@ -35,18 +35,22 @@
 			<div id="registration-inputs-container">
 				<div id="registration-inputs">
 					<div id="registration-title"><fmt:message key="REGISTRATION_TITLE" /></div>
-					<html:form action="/Registration">
+					<html:form action="/Registration" enctype="multipart/form-data">
 						<input class="registration-field" required type="text" name="name" placeholder=<fmt:message key="REGISTRATION_NAME_LABEL" /> />
 						<br />
 						<input class="registration-field" required type="email" name="email" placeholder=<fmt:message key="REGISTRATION_EMAIL_LABEL" /> />
 						<br />
-						
+						<select name="location">
+							<c:forEach var="loc" items="${sessionScope.locations}">
+								<option value="${loc.getId()}">${loc.getCity()}, ${loc.getState()}</option>
+							</c:forEach>
+						</select>
 						<br />
 						<input class="registration-field" required type="password" name="password" placeholder=<fmt:message key="REGISTRATION_PASSWORD_LABEL" /> />
 						<br />
-						<input class="registration-field" required type="text" name="confirm_password" placeholder=<fmt:message key="REGISTRATION_CONFIRM_PASSWORD_LABEL" /> />
+						<input class="registration-field" required type="password" name="confirm_password" placeholder=<fmt:message key="REGISTRATION_CONFIRM_PASSWORD_LABEL" /> />
 						<br />
-						
+						<html:file name="RegistrationForm" property="photo" />
 						<html:submit styleId="registration-button" value="Registration" />
 						<div id="errors">
 							<html:errors  />

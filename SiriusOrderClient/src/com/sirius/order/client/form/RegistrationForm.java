@@ -27,7 +27,7 @@ public class RegistrationForm extends ActionForm{
 	
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
 	    ActionErrors errors = new ActionErrors();
-	    if (!name.matches("[A-z]+")){
+	    if (!name.matches("[a-zA-Z\\s]+")){
 	    	errors.add("name", new ActionMessage("registration.name.invalid"));
 	    }
 	    if (!password.equals(confirm_password)){

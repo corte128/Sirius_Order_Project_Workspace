@@ -13,15 +13,15 @@ import com.sirius.locationws.location.wsdl.LocationBean;
 import com.sirius.locationws.location.wsdl.LocationClientDAO;
 
 /**
- * Servlet implementation class QueryServlet
+ * Servlet implementation class RegistrationServlet
  */
-public class QueryServlet extends HttpServlet {
+public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public QueryServlet() {
+    public RegistrationServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,16 +30,12 @@ public class QueryServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-//		HttpSession session = request.getSession();
-//		if (request.getParameter("query") != null){
-//			String query = request.getParameter("query");
-//			if(query.equals("getLocations")){
-//				LocationClientDAO dao = new LocationClientDAO();
-//				List<LocationBean> locations = dao.getLocations();
-//				session.setAttribute("locations", locations);
-//			}
-//		}
+		// getting all locations for registration page select field
+		HttpSession session = request.getSession();
+		LocationClientDAO dao = new LocationClientDAO();
+		List<LocationBean> locations = dao.getLocations();
+		session.setAttribute("locations", locations);
+		response.sendRedirect("jsps/registration.jsp");
 	}
 
 	/**
