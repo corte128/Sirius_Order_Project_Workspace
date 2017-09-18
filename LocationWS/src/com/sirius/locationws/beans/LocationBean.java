@@ -3,7 +3,7 @@ package com.sirius.locationws.beans;
 public class LocationBean {
 	int id;
 	String city;
-	int state;
+	String state;
 	int numberOfEmployees;
 	
 	public int getId() {
@@ -18,10 +18,10 @@ public class LocationBean {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public int getState() {
+	public String getState() {
 		return state;
 	}
-	public void setState(int state) {
+	public void setState(String state) {
 		this.state = state;
 	}
 	public int getNumberOfEmployees() {

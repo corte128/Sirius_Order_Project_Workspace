@@ -6,9 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.sirius.adminws.beans.EmployeeBean;
 import com.sirius.adminws.beans.Holiday;
 import com.sirius.service.superadmin.database.DBConnection;
 
@@ -123,6 +125,31 @@ public class OfficeAdminServiceDAOImpl {
 			e.printStackTrace();
 		}
 		return holidays;
+	}
+	
+	public List<EmployeeBean> getUnapprovedEmployees(int locationID){
+		logger.log(Level.FINE, "Getting Unapproved Employees...");
+		String sql = "SELECT * FROM employee_tbl JOIN login_tbl ON"+ 
+		" employee_id_pk = employee_id_fk WHERE location_id_fk = (?) AND is_valid = (?)";
+		ArrayList<EmployeeBean> emps = new ArrayList<EmployeeBean>();
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, locationID);
+			stmt.setString(2, "pending");
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()){
+				EmployeeBean e = new EmployeeBean();
+				e.setEmail(rs.getString("employee_email"));
+				e.setName(rs.getString("employee_name"));
+				e.setId(rs.getInt("employee_id_pk"));
+			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closePreparedStatement(stmt);
+		} catch (SQLException e) {
+			logger.log(Level.FINE, "SQL Error in getAllHolidays(): "+e);
+			e.printStackTrace();
+		}
+		return emps;
 	}
 	
 	public void closeConnection(){
