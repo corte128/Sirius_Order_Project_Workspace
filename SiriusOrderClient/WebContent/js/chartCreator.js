@@ -2,10 +2,10 @@
  * 
  */
 google.load("visualization", "1", { packages: ["table", "corechart"] });
-var app = angular.module('chartApp');
+var app = angular.module('chartApp', []);
 app.controller('BudgetChartCtrl', ['$scope', '$http',  function ($scope, $http) 
 {
-	function generateChart() 
+	$scope.generateChart = function()
 	{
 		var locationId = document.getElementById("budgetSearchLocationInput").value;
 		var reportType = document.getElementById("budgetSearchReportTypeInput").value;
