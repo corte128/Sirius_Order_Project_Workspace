@@ -7,21 +7,20 @@ package com.sirius.service.superadmin.superadmin.wsdl;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for AssignAdminResponse complex type.
+ * <p>Java class for assignAdminResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="AssignAdminResponse">
+ * &lt;complexType name="assignAdminResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="AssignAdminReturn" type="{http://www.w3.org/2001/XMLSchema}boolean" form="qualified"/>
+ *         &lt;element name="assignAdminReturn" type="{http://www.w3.org/2001/XMLSchema}boolean" form="qualified"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,12 +30,11 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AssignAdminResponse", propOrder = {
+@XmlType(name = "assignAdminResponse", propOrder = {
     "assignAdminReturn"
 })
 public class AssignAdminResponse {
 
-    @XmlElement(name = "AssignAdminReturn")
     protected boolean assignAdminReturn;
 
     /**

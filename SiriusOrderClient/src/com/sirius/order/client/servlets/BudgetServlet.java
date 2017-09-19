@@ -2,6 +2,7 @@ package com.sirius.order.client.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.List;
 
 import javax.json.Json;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sirius.searchws.search.wsdl.ActualvBudgetBean;
+import com.sirius.searchws.search.wsdl.SearchClientDAO;
 
 /**
  * Servlet implementation class BudgetServlet
@@ -40,8 +42,8 @@ public class BudgetServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
 		if(request.getParameter("action").equals("searchBudget"))
 		{
 			getBudgetSearchJSON(request, response);
@@ -57,14 +59,18 @@ public class BudgetServlet extends HttpServlet {
 	 */
 	private void getBudgetSearchJSON(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		List<ActualvBudgetBean> budgetReports = null;
+		int locationId = Integer.parseInt(request.getParameter("locationId"));
+		String reportType = request.getParameter("reportType");
+		Date fromDate = new Date(request.getParameter("fromDate"));
+		Date toDate = new Date(request.getParameter("toDate"));
+		
+		List<ActualvBudgetBean> budgetReports = SearchClientDAO.budgetSearch(locationId, fromDate, toDate, reportType);
 		JsonArrayBuilder builder = Json.createArrayBuilder();
 		for(ActualvBudgetBean budgetReport : budgetReports)
 		{
-			builder.add(Json.createObjectBuilder()
-							.add("Time", budgetReport.getTime())
-							.add("Actual", budgetReport.getActual())
-							.add("Budget", budgetReport.getBudget()));
+			builder.add(Json.createArrayBuilder().add(budgetReport.getTime())
+				.add(budgetReport.getActual())
+				.add(budgetReport.getBudget()));
 		}
 		JsonArray output = builder.build();
 		

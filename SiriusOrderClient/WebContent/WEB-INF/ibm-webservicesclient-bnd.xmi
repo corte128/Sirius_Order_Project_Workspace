@@ -20,5 +20,6 @@
   </serviceRefs>
   <serviceRefs xmi:id="ServiceRef_1505762487944" serviceRefLink="service/SuperAdminService">
     <portQnameBindings xmi:id="PortQnameBinding_1505762487944" portQnameNamespaceLink="http://superadmin.service.sirius.com/superadmin/wsdl" portQnameLocalNameLink="superadmin"/>
+
   </serviceRefs>
 </com.ibm.etools.webservice.wscbnd:ClientBinding>

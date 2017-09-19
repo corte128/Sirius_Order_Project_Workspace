@@ -106,27 +106,51 @@ if (returnp3mtemp == null) {
     %>
     <TABLE CLASS="tableform">
 <TR>
-<TD COLSPAN="4" VALIGN="TOP" ALIGN="LEFT" CLASS="headingcol">returnp:</TD>
+<TD COLSPAN="3" VALIGN="TOP" ALIGN="LEFT" CLASS="headingcol">returnp:</TD>
 <TR>
 <TD CLASS="spacercol">&nbsp;</TD>
-<TD COLSPAN="3" VALIGN="TOP" ALIGN="LEFT" CLASS="headingcol">proxy:</TD>
+<TD COLSPAN="2" VALIGN="TOP" ALIGN="LEFT" CLASS="headingcol">proxy:</TD>
 <TR>
 <TD CLASS="spacercol">&nbsp;</TD>
-<TD COLSPAN="3" VALIGN="TOP" ALIGN="LEFT" CLASS="headingcol">dispatch:</TD>
+<TD CLASS="spacercol">&nbsp;</TD>
+<TD COLSPAN="1" VALIGN="TOP" ALIGN="LEFT" CLASS="headingcol">offices:</TD>
 <TD>
 <%
 if(returnp3mtemp != null){
-javax.xml.ws.Dispatch typedispatch13 = returnp3mtemp.getDispatch();
-if(typedispatch13 != null){
-        if(typedispatch13!= null){
-        String tempdispatch13 = typedispatch13.toString();
+com.sirius.service.superadmin.superadmin.wsdl.SuperAdmin tebece0=returnp3mtemp.getProxy();
+if(tebece0 != null){
+java.util.List typeoffices7 = tebece0.getOffices();
+if(typeoffices7 != null){
+        String tempResultoffices7 = com.ibm.ccl.ws.jaxws.gstc.util.Introspector.visit(typeoffices7);
         %>
-        <%=tempdispatch13%>
+        <%= tempResultoffices7 %>
+        <%
+}
+else{
+        %>
+        <%= typeoffices7%>
+        <%
+}
+}}
+%>
+</TD>
+<TR>
+<TD CLASS="spacercol">&nbsp;</TD>
+<TD COLSPAN="2" VALIGN="TOP" ALIGN="LEFT" CLASS="headingcol">dispatch:</TD>
+<TD>
+<%
+if(returnp3mtemp != null){
+javax.xml.ws.Dispatch typedispatch9 = returnp3mtemp.getDispatch();
+if(typedispatch9 != null){
+        if(typedispatch9!= null){
+        String tempdispatch9 = typedispatch9.toString();
+        %>
+        <%=tempdispatch9%>
         <%
         }}
 else{
         %>
-        <%= typedispatch13%>
+        <%= typedispatch9%>
         <%
 }
 }
@@ -134,20 +158,20 @@ else{
 </TD>
 <TR>
 <TD CLASS="spacercol">&nbsp;</TD>
-<TD COLSPAN="3" VALIGN="TOP" ALIGN="LEFT" CLASS="headingcol">endpoint:</TD>
+<TD COLSPAN="2" VALIGN="TOP" ALIGN="LEFT" CLASS="headingcol">endpoint:</TD>
 <TD>
 <%
 if(returnp3mtemp != null){
-java.lang.String typeendpoint15 = returnp3mtemp.getEndpoint();
-if(typeendpoint15 != null){
-        String tempResultendpoint15 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typeendpoint15));
+java.lang.String typeendpoint11 = returnp3mtemp.getEndpoint();
+if(typeendpoint11 != null){
+        String tempResultendpoint11 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typeendpoint11));
         %>
-        <%= tempResultendpoint15 %>
+        <%= tempResultendpoint11 %>
         <%
 }
 else{
         %>
-        <%= typeendpoint15%>
+        <%= typeendpoint11%>
         <%
 }
 }
@@ -161,9 +185,9 @@ else{
 <%
 }
 break;
-case 19:
+case 15:
     gotMethod = true;
-    com.sirius.service.superadmin.superadmin.wsdl.SetBudgetByLocationResponse returnp20mtemp = null;
+    boolean returnp16mtemp = false;
     if (methodKey != null) {
         javax.xml.ws.Response resp = com.ibm.ccl.ws.jaxws.gstc.util.AsyncUtils.getResponse(session, methodKey);
         if (resp != null) {
@@ -174,8 +198,8 @@ case 19:
                 Object o = resp.get();
                 if (o instanceof javax.xml.transform.Source)
                     sourceOut = (javax.xml.transform.Source) o;
-                else if (o instanceof com.sirius.service.superadmin.superadmin.wsdl.SetBudgetByLocationResponse)
-                    returnp20mtemp = (com.sirius.service.superadmin.superadmin.wsdl.SetBudgetByLocationResponse) o;
+                else if (o instanceof java.lang.Boolean)
+                    returnp16mtemp = ((java.lang.Boolean) o).booleanValue();
             }
         }
     }
@@ -194,30 +218,21 @@ case 19:
             break;
         }
     } else {
-        %>
-        <jsp:useBean id="com1sirius1service1superadmin1superadmin1wsdl1SetBudgetByLocation_0id" scope="session" class="com.sirius.service.superadmin.superadmin.wsdl.SetBudgetByLocation" />
-        <%
-        String parameters24null = request.getParameter("parameters24null");
-        if (parameters24null != null)
-            com1sirius1service1superadmin1superadmin1wsdl1SetBudgetByLocation_0id = null;
+        String budget_0id=  request.getParameter("budget18");
+        String budget18null = request.getParameter("budget18null");
+        java.math.BigDecimal budget_0idTemp;
+        if (budget18null != null)
+            budget_0idTemp = null;
         else {
-        String budget_1id=  request.getParameter("budget26");
-        String budget26null = request.getParameter("budget26null");
-        java.math.BigDecimal budget_1idTemp;
-        if (budget26null != null)
-            budget_1idTemp = null;
-        else {
-         budget_1idTemp  = new java.math.BigDecimal(budget_1id);
+         budget_0idTemp  = new java.math.BigDecimal(budget_0id);
         }
-        String locationId_3id=  request.getParameter("locationId28");
-        int locationId_3idTemp  = Integer.parseInt(locationId_3id);
-        com1sirius1service1superadmin1superadmin1wsdl1SetBudgetByLocation_0id.setBudget(budget_1idTemp);
-        com1sirius1service1superadmin1superadmin1wsdl1SetBudgetByLocation_0id.setLocationId(locationId_3idTemp);
-        }
+
+        String locationId_2id=  request.getParameter("locationId20");
+        int locationId_2idTemp  = Integer.parseInt(locationId_2id);
 
         if (!async) {
         try {
-            returnp20mtemp = sampleSuperadminProxyid.setBudgetByLocation(com1sirius1service1superadmin1superadmin1wsdl1SetBudgetByLocation_0id);
+            returnp16mtemp = sampleSuperadminProxyid.setBudgetByLocation(budget_0idTemp,locationId_2idTemp);
             }catch(Exception exc){
                 %>
                 Exception: <%= org.eclipse.jst.ws.util.JspUtils.markup(exc.toString()) %>
@@ -237,40 +252,18 @@ if (sourceOut != null) {
 <%
 }
 else {
-if (returnp20mtemp == null) {
-%>
-    null
-<%
-} else {
-    %>
-    <TABLE CLASS="tableform">
-<TR>
-<TD COLSPAN="2" VALIGN="TOP" ALIGN="LEFT" CLASS="headingcol">returnp:</TD>
-<TR>
-<TD CLASS="spacercol">&nbsp;</TD>
-<TD COLSPAN="1" VALIGN="TOP" ALIGN="LEFT" CLASS="headingcol">setBudgetByLocationReturn:</TD>
-<TD>
-<%
-if(returnp20mtemp != null){
-boolean typesetBudgetByLocationReturn22 = returnp20mtemp.isSetBudgetByLocationReturn();
-        String tempResultsetBudgetByLocationReturn22 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typesetBudgetByLocationReturn22));
+        String tempResultreturnp16 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(returnp16mtemp));
         %>
-        <%= tempResultsetBudgetByLocationReturn22 %>
+        <%= tempResultreturnp16 %>
         <%
-}
-%>
-</TD>
-    </TABLE>
-    <%
-}
 %>
 <HR/><BR/>
 <%
 }
 break;
-case 30:
+case 22:
     gotMethod = true;
-    com.sirius.service.superadmin.superadmin.wsdl.GetBudgetByLocationResponse returnp31mtemp = null;
+    java.math.BigDecimal returnp23mtemp = null;
     if (methodKey != null) {
         javax.xml.ws.Response resp = com.ibm.ccl.ws.jaxws.gstc.util.AsyncUtils.getResponse(session, methodKey);
         if (resp != null) {
@@ -281,8 +274,8 @@ case 30:
                 Object o = resp.get();
                 if (o instanceof javax.xml.transform.Source)
                     sourceOut = (javax.xml.transform.Source) o;
-                else if (o instanceof com.sirius.service.superadmin.superadmin.wsdl.GetBudgetByLocationResponse)
-                    returnp31mtemp = (com.sirius.service.superadmin.superadmin.wsdl.GetBudgetByLocationResponse) o;
+                else if (o instanceof java.math.BigDecimal)
+                    returnp23mtemp = (java.math.BigDecimal) o;
             }
         }
     }
@@ -301,21 +294,12 @@ case 30:
             break;
         }
     } else {
-        %>
-        <jsp:useBean id="com1sirius1service1superadmin1superadmin1wsdl1GetBudgetByLocation_5id" scope="session" class="com.sirius.service.superadmin.superadmin.wsdl.GetBudgetByLocation" />
-        <%
-        String parameters35null = request.getParameter("parameters35null");
-        if (parameters35null != null)
-            com1sirius1service1superadmin1superadmin1wsdl1GetBudgetByLocation_5id = null;
-        else {
-        String locationId_6id=  request.getParameter("locationId37");
-        int locationId_6idTemp  = Integer.parseInt(locationId_6id);
-        com1sirius1service1superadmin1superadmin1wsdl1GetBudgetByLocation_5id.setLocationId(locationId_6idTemp);
-        }
+        String locationId_4id=  request.getParameter("locationId25");
+        int locationId_4idTemp  = Integer.parseInt(locationId_4id);
 
         if (!async) {
         try {
-            returnp31mtemp = sampleSuperadminProxyid.getBudgetByLocation(com1sirius1service1superadmin1superadmin1wsdl1GetBudgetByLocation_5id);
+            returnp23mtemp = sampleSuperadminProxyid.getBudgetByLocation(locationId_4idTemp);
             }catch(Exception exc){
                 %>
                 Exception: <%= org.eclipse.jst.ws.util.JspUtils.markup(exc.toString()) %>
@@ -335,47 +319,24 @@ if (sourceOut != null) {
 <%
 }
 else {
-if (returnp31mtemp == null) {
+if (returnp23mtemp == null) {
 %>
     null
 <%
 } else {
-    %>
-    <TABLE CLASS="tableform">
-<TR>
-<TD COLSPAN="2" VALIGN="TOP" ALIGN="LEFT" CLASS="headingcol">returnp:</TD>
-<TR>
-<TD CLASS="spacercol">&nbsp;</TD>
-<TD COLSPAN="1" VALIGN="TOP" ALIGN="LEFT" CLASS="headingcol">getBudgetByLocationReturn:</TD>
-<TD>
-<%
-if(returnp31mtemp != null){
-java.math.BigDecimal typegetBudgetByLocationReturn33 = returnp31mtemp.getGetBudgetByLocationReturn();
-if(typegetBudgetByLocationReturn33 != null){
-        String tempResultgetBudgetByLocationReturn33 = org.eclipse.jst.ws.util.JspUtils.markup(typegetBudgetByLocationReturn33.toString());
+        String tempResultreturnp23 = org.eclipse.jst.ws.util.JspUtils.markup(returnp23mtemp.toString());
         %>
-        <%= tempResultgetBudgetByLocationReturn33 %>
+        <%= tempResultreturnp23 %>
         <%
-}
-else{
-        %>
-        <%= typegetBudgetByLocationReturn33%>
-        <%
-}
-}
-%>
-</TD>
-    </TABLE>
-    <%
 }
 %>
 <HR/><BR/>
 <%
 }
 break;
-case 39:
+case 27:
     gotMethod = true;
-    com.sirius.service.superadmin.superadmin.wsdl.AddLocationResponse returnp40mtemp = null;
+    boolean returnp28mtemp = false;
     if (methodKey != null) {
         javax.xml.ws.Response resp = com.ibm.ccl.ws.jaxws.gstc.util.AsyncUtils.getResponse(session, methodKey);
         if (resp != null) {
@@ -386,8 +347,8 @@ case 39:
                 Object o = resp.get();
                 if (o instanceof javax.xml.transform.Source)
                     sourceOut = (javax.xml.transform.Source) o;
-                else if (o instanceof com.sirius.service.superadmin.superadmin.wsdl.AddLocationResponse)
-                    returnp40mtemp = (com.sirius.service.superadmin.superadmin.wsdl.AddLocationResponse) o;
+                else if (o instanceof java.lang.Boolean)
+                    returnp28mtemp = ((java.lang.Boolean) o).booleanValue();
             }
         }
     }
@@ -406,39 +367,30 @@ case 39:
             break;
         }
     } else {
-        %>
-        <jsp:useBean id="com1sirius1service1superadmin1superadmin1wsdl1AddLocation_8id" scope="session" class="com.sirius.service.superadmin.superadmin.wsdl.AddLocation" />
-        <%
-        String parameters44null = request.getParameter("parameters44null");
-        if (parameters44null != null)
-            com1sirius1service1superadmin1superadmin1wsdl1AddLocation_8id = null;
+        String city_6id=  request.getParameter("city30");
+        String city30null = request.getParameter("city30null");
+        java.lang.String city_6idTemp;
+        if (city30null != null)
+            city_6idTemp = null;
         else {
-        String city_9id=  request.getParameter("city46");
-        String city46null = request.getParameter("city46null");
-        java.lang.String city_9idTemp;
-        if (city46null != null)
-            city_9idTemp = null;
+         city_6idTemp  = city_6id;
+        }
+
+        String state_8id=  request.getParameter("state32");
+        String state32null = request.getParameter("state32null");
+        java.lang.String state_8idTemp;
+        if (state32null != null)
+            state_8idTemp = null;
         else {
-         city_9idTemp  = city_9id;
+         state_8idTemp  = state_8id;
         }
-        String state_11id=  request.getParameter("state48");
-        String state48null = request.getParameter("state48null");
-        java.lang.String state_11idTemp;
-        if (state48null != null)
-            state_11idTemp = null;
-        else {
-         state_11idTemp  = state_11id;
-        }
-        String createrId_13id=  request.getParameter("createrId50");
-        int createrId_13idTemp  = Integer.parseInt(createrId_13id);
-        com1sirius1service1superadmin1superadmin1wsdl1AddLocation_8id.setCity(city_9idTemp);
-        com1sirius1service1superadmin1superadmin1wsdl1AddLocation_8id.setState(state_11idTemp);
-        com1sirius1service1superadmin1superadmin1wsdl1AddLocation_8id.setCreaterId(createrId_13idTemp);
-        }
+
+        String creatorId_10id=  request.getParameter("creatorId34");
+        int creatorId_10idTemp  = Integer.parseInt(creatorId_10id);
 
         if (!async) {
         try {
-            returnp40mtemp = sampleSuperadminProxyid.addLocation(com1sirius1service1superadmin1superadmin1wsdl1AddLocation_8id);
+            returnp28mtemp = sampleSuperadminProxyid.addLocation(city_6idTemp,state_8idTemp,creatorId_10idTemp);
             }catch(Exception exc){
                 %>
                 Exception: <%= org.eclipse.jst.ws.util.JspUtils.markup(exc.toString()) %>
@@ -458,40 +410,18 @@ if (sourceOut != null) {
 <%
 }
 else {
-if (returnp40mtemp == null) {
-%>
-    null
-<%
-} else {
-    %>
-    <TABLE CLASS="tableform">
-<TR>
-<TD COLSPAN="2" VALIGN="TOP" ALIGN="LEFT" CLASS="headingcol">returnp:</TD>
-<TR>
-<TD CLASS="spacercol">&nbsp;</TD>
-<TD COLSPAN="1" VALIGN="TOP" ALIGN="LEFT" CLASS="headingcol">addLocationReturn:</TD>
-<TD>
-<%
-if(returnp40mtemp != null){
-boolean typeaddLocationReturn42 = returnp40mtemp.isAddLocationReturn();
-        String tempResultaddLocationReturn42 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typeaddLocationReturn42));
+        String tempResultreturnp28 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(returnp28mtemp));
         %>
-        <%= tempResultaddLocationReturn42 %>
+        <%= tempResultreturnp28 %>
         <%
-}
-%>
-</TD>
-    </TABLE>
-    <%
-}
 %>
 <HR/><BR/>
 <%
 }
 break;
-case 52:
+case 36:
     gotMethod = true;
-    com.sirius.service.superadmin.superadmin.wsdl.AssignAdminResponse returnp53mtemp = null;
+    boolean returnp37mtemp = false;
     if (methodKey != null) {
         javax.xml.ws.Response resp = com.ibm.ccl.ws.jaxws.gstc.util.AsyncUtils.getResponse(session, methodKey);
         if (resp != null) {
@@ -502,8 +432,8 @@ case 52:
                 Object o = resp.get();
                 if (o instanceof javax.xml.transform.Source)
                     sourceOut = (javax.xml.transform.Source) o;
-                else if (o instanceof com.sirius.service.superadmin.superadmin.wsdl.AssignAdminResponse)
-                    returnp53mtemp = (com.sirius.service.superadmin.superadmin.wsdl.AssignAdminResponse) o;
+                else if (o instanceof java.lang.Boolean)
+                    returnp37mtemp = ((java.lang.Boolean) o).booleanValue();
             }
         }
     }
@@ -522,27 +452,18 @@ case 52:
             break;
         }
     } else {
-        %>
-        <jsp:useBean id="com1sirius1service1superadmin1superadmin1wsdl1AssignAdmin_15id" scope="session" class="com.sirius.service.superadmin.superadmin.wsdl.AssignAdmin" />
-        <%
-        String parameters57null = request.getParameter("parameters57null");
-        if (parameters57null != null)
-            com1sirius1service1superadmin1superadmin1wsdl1AssignAdmin_15id = null;
-        else {
-        String locationId_16id=  request.getParameter("locationId59");
-        int locationId_16idTemp  = Integer.parseInt(locationId_16id);
-        String adminId_18id=  request.getParameter("adminId61");
-        int adminId_18idTemp  = Integer.parseInt(adminId_18id);
-        String updaterId_20id=  request.getParameter("updaterId63");
-        int updaterId_20idTemp  = Integer.parseInt(updaterId_20id);
-        com1sirius1service1superadmin1superadmin1wsdl1AssignAdmin_15id.setLocationId(locationId_16idTemp);
-        com1sirius1service1superadmin1superadmin1wsdl1AssignAdmin_15id.setAdminId(adminId_18idTemp);
-        com1sirius1service1superadmin1superadmin1wsdl1AssignAdmin_15id.setUpdaterId(updaterId_20idTemp);
-        }
+        String locationId_12id=  request.getParameter("locationId39");
+        int locationId_12idTemp  = Integer.parseInt(locationId_12id);
+
+        String adminId_14id=  request.getParameter("adminId41");
+        int adminId_14idTemp  = Integer.parseInt(adminId_14id);
+
+        String updaterId_16id=  request.getParameter("updaterId43");
+        int updaterId_16idTemp  = Integer.parseInt(updaterId_16id);
 
         if (!async) {
         try {
-            returnp53mtemp = sampleSuperadminProxyid.assignAdmin(com1sirius1service1superadmin1superadmin1wsdl1AssignAdmin_15id);
+            returnp37mtemp = sampleSuperadminProxyid.assignAdmin(locationId_12idTemp,adminId_14idTemp,updaterId_16idTemp);
             }catch(Exception exc){
                 %>
                 Exception: <%= org.eclipse.jst.ws.util.JspUtils.markup(exc.toString()) %>
@@ -562,31 +483,79 @@ if (sourceOut != null) {
 <%
 }
 else {
-if (returnp53mtemp == null) {
+        String tempResultreturnp37 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(returnp37mtemp));
+        %>
+        <%= tempResultreturnp37 %>
+        <%
+%>
+<HR/><BR/>
+<%
+}
+break;
+case 45:
+    gotMethod = true;
+    java.util.List returnp46mtemp = null;
+    if (methodKey != null) {
+        javax.xml.ws.Response resp = com.ibm.ccl.ws.jaxws.gstc.util.AsyncUtils.getResponse(session, methodKey);
+        if (resp != null) {
+            isDone = resp.isDone();
+            if (!isDone)
+                break;
+            if (resp.get() != null) {
+                Object o = resp.get();
+                if (o instanceof javax.xml.transform.Source)
+                    sourceOut = (javax.xml.transform.Source) o;
+                else if (o instanceof java.util.List)
+                    returnp46mtemp = (java.util.List) o;
+            }
+        }
+    }
+    else if (bypass) {
+        javax.xml.ws.Dispatch dispatch = sampleSuperadminProxyid._getDescriptor().getDispatch();
+
+        if (request.getParameter("__use_soapaction__") != null)
+            com.ibm.ccl.ws.jaxws.gstc.util.DispatchUtils.useSoapAction(dispatch, request.getParameter("__soapaction__"));
+        else
+            com.ibm.ccl.ws.jaxws.gstc.util.DispatchUtils.clearSoapAction(dispatch);
+
+        if (!async)
+            sourceOut = (javax.xml.transform.Source) dispatch.invoke(sourceIn);
+        else {
+            // async code omitted
+            break;
+        }
+    } else {
+        if (!async) {
+        try {
+            returnp46mtemp = sampleSuperadminProxyid.getOffices();
+            }catch(Exception exc){
+                %>
+                Exception: <%= org.eclipse.jst.ws.util.JspUtils.markup(exc.toString()) %>
+                Message: <%= org.eclipse.jst.ws.util.JspUtils.markup(exc.getMessage()) %>
+                <%
+break;
+            }
+        }
+        else {
+            // async code omitted
+            break;
+        }
+    }
+if (sourceOut != null) {
+%>
+    <TEXTAREA ROWS="8" COLs="45"><%= org.eclipse.jst.ws.util.JspUtils.markup(com.ibm.ccl.ws.jaxws.gstc.util.SourceUtils.transform(sourceOut)) %></TEXTAREA>
+<%
+}
+else {
+if (returnp46mtemp == null) {
 %>
     null
 <%
 } else {
-    %>
-    <TABLE CLASS="tableform">
-<TR>
-<TD COLSPAN="2" VALIGN="TOP" ALIGN="LEFT" CLASS="headingcol">returnp:</TD>
-<TR>
-<TD CLASS="spacercol">&nbsp;</TD>
-<TD COLSPAN="1" VALIGN="TOP" ALIGN="LEFT" CLASS="headingcol">assignAdminReturn:</TD>
-<TD>
-<%
-if(returnp53mtemp != null){
-boolean typeassignAdminReturn55 = returnp53mtemp.isAssignAdminReturn();
-        String tempResultassignAdminReturn55 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typeassignAdminReturn55));
+        String tempResultreturnp46 = com.ibm.ccl.ws.jaxws.gstc.util.Introspector.visit(returnp46mtemp);
         %>
-        <%= tempResultassignAdminReturn55 %>
+        <%= tempResultreturnp46 %>
         <%
-}
-%>
-</TD>
-    </TABLE>
-    <%
 }
 %>
 <HR/><BR/>

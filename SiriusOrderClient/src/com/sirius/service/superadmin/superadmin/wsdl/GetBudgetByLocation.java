@@ -11,12 +11,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for GetBudgetByLocation complex type.
+ * <p>Java class for getBudgetByLocation complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="GetBudgetByLocation">
+ * &lt;complexType name="getBudgetByLocation">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "GetBudgetByLocation", propOrder = {
+@XmlType(name = "getBudgetByLocation", propOrder = {
     "locationId"
 })
 public class GetBudgetByLocation {

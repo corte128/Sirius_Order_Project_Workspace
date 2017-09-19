@@ -64,7 +64,7 @@ valid = false;
 </FORM>
 <%
 break;
-case 19:
+case 15:
 valid = false;
 %>
 <FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
@@ -82,19 +82,16 @@ valid = false;
 <TABLE CLASS="tableform">
 <TR><TD ALIGN="LEFT" CLASS="headingcol">null?</TD></TR>
 <TR>
-<TD ALIGN="left" CLASS="nullcol"><input type="checkbox" name="parameters24null" value="parameters24null"></TD>
-<TD COLSPAN="2" ALIGN="LEFT" CLASS="headingcol">parameters:</TD>
-<TR>
-<TD ALIGN="left" CLASS="nullcol"><input type="checkbox" name="budget26null" value="budget26null"></TD>
-<TD CLASS="spacercol"></TD>
+<TD ALIGN="left" CLASS="nullcol"><input type="checkbox" name="budget18null" value="budget18null"></TD>
 <TD COLSPAN="1" ALIGN="LEFT" CLASS="headingcol">budget:</TD>
-<TD ALIGN="left"><INPUT value="0" TYPE="TEXT" NAME="budget26" SIZE=20></TD>
+<TD ALIGN="left"><INPUT value="0" TYPE="TEXT" NAME="budget18" SIZE=20></TD>
 </TR>
+</TABLE>
+<TABLE CLASS="tableform">
 <TR>
 <TD ALIGN="left" CLASS="nullcol"></TD>
-<TD CLASS="spacercol"></TD>
 <TD COLSPAN="1" ALIGN="LEFT" CLASS="headingcol">locationId:</TD>
-<TD ALIGN="left"><INPUT value="0" TYPE="TEXT" NAME="locationId28" SIZE=20></TD>
+<TD ALIGN="left"><INPUT value="0" TYPE="TEXT" NAME="locationId20" SIZE=20></TD>
 </TR>
 </TABLE>
 <% } %>
@@ -104,7 +101,36 @@ valid = false;
 </FORM>
 <%
 break;
-case 30:
+case 22:
+valid = false;
+%>
+<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
+<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=method%>">
+<% if (bypass) { %>
+<INPUT TYPE="checkbox" ID="__use_soapaction__" NAME="__use_soapaction__" onclick="triggerSoapAction();"/>
+<label for="__use_soapaction__">Use SOAPAction HTTP header</label>
+<BR/>
+<INPUT TYPE="text" ID="__soapaction__" NAME="__soapaction__" SIZE="70" DISABLED/>
+<BR/>
+<BR/>
+<TEXTAREA NAME="__rawxml__" ROWS="8" COLs="45"><%= ENVELOPE_TEMPLATE %></TEXTAREA>
+<BR/>
+<% } else { %>
+<TABLE CLASS="tableform">
+<TR>
+<TD ALIGN="left" CLASS="nullcol"></TD>
+<TD COLSPAN="1" ALIGN="LEFT" CLASS="headingcol">locationId:</TD>
+<TD ALIGN="left"><INPUT value="0" TYPE="TEXT" NAME="locationId25" SIZE=20></TD>
+</TR>
+</TABLE>
+<% } %>
+<BR/>
+<INPUT TYPE="SUBMIT" VALUE="Invoke">
+<INPUT TYPE="RESET" VALUE="Clear">
+</FORM>
+<%
+break;
+case 27:
 valid = false;
 %>
 <FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
@@ -122,59 +148,24 @@ valid = false;
 <TABLE CLASS="tableform">
 <TR><TD ALIGN="LEFT" CLASS="headingcol">null?</TD></TR>
 <TR>
-<TD ALIGN="left" CLASS="nullcol"><input type="checkbox" name="parameters35null" value="parameters35null"></TD>
-<TD COLSPAN="2" ALIGN="LEFT" CLASS="headingcol">parameters:</TD>
-<TR>
-<TD ALIGN="left" CLASS="nullcol"></TD>
-<TD CLASS="spacercol"></TD>
-<TD COLSPAN="1" ALIGN="LEFT" CLASS="headingcol">locationId:</TD>
-<TD ALIGN="left"><INPUT value="0" TYPE="TEXT" NAME="locationId37" SIZE=20></TD>
-</TR>
-</TABLE>
-<% } %>
-<BR/>
-<INPUT TYPE="SUBMIT" VALUE="Invoke">
-<INPUT TYPE="RESET" VALUE="Clear">
-</FORM>
-<%
-break;
-case 39:
-valid = false;
-%>
-<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
-<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=method%>">
-<% if (bypass) { %>
-<INPUT TYPE="checkbox" ID="__use_soapaction__" NAME="__use_soapaction__" onclick="triggerSoapAction();"/>
-<label for="__use_soapaction__">Use SOAPAction HTTP header</label>
-<BR/>
-<INPUT TYPE="text" ID="__soapaction__" NAME="__soapaction__" SIZE="70" DISABLED/>
-<BR/>
-<BR/>
-<TEXTAREA NAME="__rawxml__" ROWS="8" COLs="45"><%= ENVELOPE_TEMPLATE %></TEXTAREA>
-<BR/>
-<% } else { %>
-<TABLE CLASS="tableform">
-<TR><TD ALIGN="LEFT" CLASS="headingcol">null?</TD></TR>
-<TR>
-<TD ALIGN="left" CLASS="nullcol"><input type="checkbox" name="parameters44null" value="parameters44null"></TD>
-<TD COLSPAN="2" ALIGN="LEFT" CLASS="headingcol">parameters:</TD>
-<TR>
-<TD ALIGN="left" CLASS="nullcol"><input type="checkbox" name="city46null" value="city46null"></TD>
-<TD CLASS="spacercol"></TD>
+<TD ALIGN="left" CLASS="nullcol"><input type="checkbox" name="city30null" value="city30null"></TD>
 <TD COLSPAN="1" ALIGN="LEFT" CLASS="headingcol">city:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="city46" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="city30" SIZE=20></TD>
 </TR>
+</TABLE>
+<TABLE CLASS="tableform">
+<TR><TD ALIGN="LEFT" CLASS="headingcol">null?</TD></TR>
 <TR>
-<TD ALIGN="left" CLASS="nullcol"><input type="checkbox" name="state48null" value="state48null"></TD>
-<TD CLASS="spacercol"></TD>
+<TD ALIGN="left" CLASS="nullcol"><input type="checkbox" name="state32null" value="state32null"></TD>
 <TD COLSPAN="1" ALIGN="LEFT" CLASS="headingcol">state:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="state48" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="state32" SIZE=20></TD>
 </TR>
+</TABLE>
+<TABLE CLASS="tableform">
 <TR>
 <TD ALIGN="left" CLASS="nullcol"></TD>
-<TD CLASS="spacercol"></TD>
-<TD COLSPAN="1" ALIGN="LEFT" CLASS="headingcol">createrId:</TD>
-<TD ALIGN="left"><INPUT value="0" TYPE="TEXT" NAME="createrId50" SIZE=20></TD>
+<TD COLSPAN="1" ALIGN="LEFT" CLASS="headingcol">creatorId:</TD>
+<TD ALIGN="left"><INPUT value="0" TYPE="TEXT" NAME="creatorId34" SIZE=20></TD>
 </TR>
 </TABLE>
 <% } %>
@@ -184,7 +175,7 @@ valid = false;
 </FORM>
 <%
 break;
-case 52:
+case 36:
 valid = false;
 %>
 <FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
@@ -200,30 +191,40 @@ valid = false;
 <BR/>
 <% } else { %>
 <TABLE CLASS="tableform">
-<TR><TD ALIGN="LEFT" CLASS="headingcol">null?</TD></TR>
-<TR>
-<TD ALIGN="left" CLASS="nullcol"><input type="checkbox" name="parameters57null" value="parameters57null"></TD>
-<TD COLSPAN="2" ALIGN="LEFT" CLASS="headingcol">parameters:</TD>
 <TR>
 <TD ALIGN="left" CLASS="nullcol"></TD>
-<TD CLASS="spacercol"></TD>
 <TD COLSPAN="1" ALIGN="LEFT" CLASS="headingcol">locationId:</TD>
-<TD ALIGN="left"><INPUT value="0" TYPE="TEXT" NAME="locationId59" SIZE=20></TD>
+<TD ALIGN="left"><INPUT value="0" TYPE="TEXT" NAME="locationId39" SIZE=20></TD>
 </TR>
+</TABLE>
+<TABLE CLASS="tableform">
 <TR>
 <TD ALIGN="left" CLASS="nullcol"></TD>
-<TD CLASS="spacercol"></TD>
 <TD COLSPAN="1" ALIGN="LEFT" CLASS="headingcol">adminId:</TD>
-<TD ALIGN="left"><INPUT value="0" TYPE="TEXT" NAME="adminId61" SIZE=20></TD>
+<TD ALIGN="left"><INPUT value="0" TYPE="TEXT" NAME="adminId41" SIZE=20></TD>
 </TR>
+</TABLE>
+<TABLE CLASS="tableform">
 <TR>
 <TD ALIGN="left" CLASS="nullcol"></TD>
-<TD CLASS="spacercol"></TD>
 <TD COLSPAN="1" ALIGN="LEFT" CLASS="headingcol">updaterId:</TD>
-<TD ALIGN="left"><INPUT value="0" TYPE="TEXT" NAME="updaterId63" SIZE=20></TD>
+<TD ALIGN="left"><INPUT value="0" TYPE="TEXT" NAME="updaterId43" SIZE=20></TD>
 </TR>
 </TABLE>
 <% } %>
+<BR/>
+<INPUT TYPE="SUBMIT" VALUE="Invoke">
+<INPUT TYPE="RESET" VALUE="Clear">
+</FORM>
+<%
+break;
+case 45:
+valid = false;
+%>
+<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
+<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=method%>">
+[This method takes no parameters]
+<BR/>
 <BR/>
 <INPUT TYPE="SUBMIT" VALUE="Invoke">
 <INPUT TYPE="RESET" VALUE="Clear">
