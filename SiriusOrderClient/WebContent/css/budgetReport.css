@@ -1,18 +1,27 @@
 @CHARSET "ISO-8859-1";
+
 #budgetSearchBoxAndNavContainer
 {
 	display: flex;
 }
 #budgetSearchBoxContainer
 {
-	flex: 11;
+	flex: 11.5;
 	margin: 5px;
 	border: 1px black solid;
 	padding: 8% 5% 0 5%;
+	position: relative;
 }
 #budgetNavContainer
 {
-	flex: 1;
+	flex: 0;
+}
+@media(min-width: 769px) 
+{
+	#budgetNavContainer
+	{
+		flex: 0.5;
+	}
 }
 .budget-search-box-label-container
 {
@@ -21,4 +30,26 @@
 	font-family: serif;
 	font-size: 15px;
 	color: grey;
+}
+#budgetReportGenerateReportButton
+{
+	width: 140px;
+	background-color: #5F6060;
+	color: lightgrey;
+	font-size: 11px;
+	padding: 8px 18px 8px 18px;
+	cursor: pointer;
+	border: none;
+}
+@media(min-width: 769px) 
+{
+	#budgetReportGenerateReportButton
+	{
+		display: inline-block;
+		position: absolute;
+		text-align: center;
+		left: calc(100% - 160px);
+		top: calc(100% - 44px);
+		
+	}
 }

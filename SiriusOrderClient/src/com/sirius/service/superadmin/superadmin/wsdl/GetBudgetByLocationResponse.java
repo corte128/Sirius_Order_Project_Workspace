@@ -8,21 +8,20 @@ package com.sirius.service.superadmin.superadmin.wsdl;
 import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for GetBudgetByLocationResponse complex type.
+ * <p>Java class for getBudgetByLocationResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="GetBudgetByLocationResponse">
+ * &lt;complexType name="getBudgetByLocationResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="GetBudgetByLocationReturn" type="{http://www.w3.org/2001/XMLSchema}decimal" minOccurs="0" form="qualified"/>
+ *         &lt;element name="getBudgetByLocationReturn" type="{http://www.w3.org/2001/XMLSchema}decimal" minOccurs="0" form="qualified"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -32,12 +31,11 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "GetBudgetByLocationResponse", propOrder = {
+@XmlType(name = "getBudgetByLocationResponse", propOrder = {
     "getBudgetByLocationReturn"
 })
 public class GetBudgetByLocationResponse {
 
-    @XmlElement(name = "GetBudgetByLocationReturn")
     protected BigDecimal getBudgetByLocationReturn;
 
     /**

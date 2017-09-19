@@ -7,21 +7,20 @@ package com.sirius.service.superadmin.superadmin.wsdl;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for AddLocationResponse complex type.
+ * <p>Java class for addLocationResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="AddLocationResponse">
+ * &lt;complexType name="addLocationResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="AddLocationReturn" type="{http://www.w3.org/2001/XMLSchema}boolean" form="qualified"/>
+ *         &lt;element name="addLocationReturn" type="{http://www.w3.org/2001/XMLSchema}boolean" form="qualified"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,12 +30,11 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AddLocationResponse", propOrder = {
+@XmlType(name = "addLocationResponse", propOrder = {
     "addLocationReturn"
 })
 public class AddLocationResponse {
 
-    @XmlElement(name = "AddLocationReturn")
     protected boolean addLocationReturn;
 
     /**

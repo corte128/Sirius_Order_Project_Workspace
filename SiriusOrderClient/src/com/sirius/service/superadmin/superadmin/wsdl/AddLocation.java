@@ -11,18 +11,18 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for AddLocation complex type.
+ * <p>Java class for addLocation complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="AddLocation">
+ * &lt;complexType name="addLocation">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="city" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0" form="qualified"/>
  *         &lt;element name="state" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0" form="qualified"/>
- *         &lt;element name="createrId" type="{http://www.w3.org/2001/XMLSchema}int" form="qualified"/>
+ *         &lt;element name="creatorId" type="{http://www.w3.org/2001/XMLSchema}int" form="qualified"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -32,16 +32,16 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AddLocation", propOrder = {
+@XmlType(name = "addLocation", propOrder = {
     "city",
     "state",
-    "createrId"
+    "creatorId"
 })
 public class AddLocation {
 
     protected String city;
     protected String state;
-    protected int createrId;
+    protected int creatorId;
 
     /**
      * Gets the value of the city property.
@@ -92,19 +92,19 @@ public class AddLocation {
     }
 
     /**
-     * Gets the value of the createrId property.
+     * Gets the value of the creatorId property.
      * 
      */
-    public int getCreaterId() {
-        return createrId;
+    public int getCreatorId() {
+        return creatorId;
     }
 
     /**
-     * Sets the value of the createrId property.
+     * Sets the value of the creatorId property.
      * 
      */
-    public void setCreaterId(int value) {
-        this.createrId = value;
+    public void setCreatorId(int value) {
+        this.creatorId = value;
     }
 
 }
