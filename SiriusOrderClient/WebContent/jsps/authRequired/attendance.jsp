@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <title>Search for attendance records</title>
-<link rel="stylesheet" type="text/css" href="css/attendance.css">
+<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/attendance.css">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:setBundle basename="com.sirius.order.client.properties.attendance" />
@@ -36,13 +36,13 @@
 						<div class="inputFieldLabel">
 							<fmt:message key="ATTENDANCE_NAME" />
 						</div>
-						<input type="text" name="name" value="" />
+						<input type="text" name="name" value='' />
 					</div>
 					<div class="inputFieldContainer">
 						<div class="inputFieldLabel">
 							<fmt:message key="ATTENDANCE_EMAIL" />
 						</div>
-						<input type="text" name="email" />
+						<input type="text" name="email" value='' />
 					</div>
 
 					<div class="inputFieldContainer">

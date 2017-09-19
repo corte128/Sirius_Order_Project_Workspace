@@ -33,18 +33,17 @@ app.controller(
 							};
 							function getSearch(){
 								
-								var firstName = document.getElementById("firstName").value;
-								var lastName = document.getElementById("lastName").value;
+								var name = document.getElementById("name").value;
 								var email = document.getElementById("email").value;
-								var role = document.getElementById("role").value;
-								if(firstName==''){
-									firstName = "%";
-								}
-								if(lastName == ''){
-									lastName="%";
+								var location = document.getElementById("locationSelect").value;
+								if(name == ''){
+									name = "%";
 								}
 								if(email == ''){
 									email="%";
+								}
+								if(location == "location"){
+									location="%";
 								}
 
 							$http
