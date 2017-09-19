@@ -2,19 +2,25 @@
  * 
  */
 google.load("visualization", "1", { packages: ["table", "corechart"] });
-var app = angular.module('chartApp', ['ngTouch', 'ngAnimate']);
-app.controller('BudgetChartCtrl', ['$scope', '$http', '$q',  function ($scope, $http, $q) 
+var app = angular.module('chartApp');
+app.controller('BudgetChartCtrl', ['$scope', '$http',  function ($scope, $http) 
 {
 	function generateChart() 
 	{
-		
+		var locationId = document.getElementById("budgetSearchLocationInput").value;
+		var reportType = document.getElementById("budgetSearchReportTypeInput").value;
+		var fromDate = document.getElementById("budgetSearchFromDateTypeInput").value;
+		var toDate = document.getElementById("budgetSearchToDateTypeInput").value;
 		// Define the chart to be drawn.
 		var data = new google.visualization.DataTable();
 		data.addColumn('string', 'Time');
 		data.addColumn('number', 'Budget');
 		data.addColumn('number', 'Actual');
 		$http.get("/SiriusOrderClient/BudgetServlet?action=searchBudget&locationId=" +
-				)
+				locationId + "&reportType=" +
+				reportType + "&fromDate=" + 
+				fromDate + "&toDate=" + 
+				toDate)
 	   	.then(function(response) 
 	   	{
 	   		alert(response.data);

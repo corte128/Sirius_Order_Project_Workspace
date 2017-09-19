@@ -9,6 +9,14 @@
 	<head>
 		<title>budgetReport</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js"></script>
+    	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-touch.js"></script>
+    	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-animate.js"></script>
+    
 		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
 		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/budgetReport.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -17,12 +25,12 @@
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   		<script src="/SiriusOrderClient/js/chartCreator.js"></script>
 	</head>
-	<body>
+	<body ng-app="chartApp">
 		<header>
 			<%@ include file="header.jsp" %>
 		</header>
-		<main>
-			<div class="container-fluid">
+		<main ng-controller="BudgetChartCtrl">
+			<div class="container-fluid" style="padding: 0;">
 				<div id="budgetSearchBoxAndNavContainer">
 					<div id="budgetSearchBoxContainer">
 						<div class="row">
@@ -102,7 +110,7 @@
 								</select>
 							</div>
 							
-							<div id="budgetReportGenerateReportButton">
+							<div id="budgetReportGenerateReportButton" class="col-md-6 col-sm-6 col-xs-12" ng-click="generateChart()">
 								<fmt:message key="BUDGET_REPORT_GENERATE_REPORT_LABEL" />
 							</div>
 						</div>
