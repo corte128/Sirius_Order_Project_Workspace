@@ -9,7 +9,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.sirius.adminws.officeadmin.wsdl.EmployeeBean;
+import com.sirius.adminws.officeadmin.wsdl.OfficeAdminClientDAO;
 import com.sirius.loctionws.location.wsdl.LocationBean;
 import com.sirius.loctionws.location.wsdl.LocationClientDao;
 
@@ -43,6 +46,10 @@ public class NavigationServlet extends HttpServlet {
 		{
 			forwardToBudget(request, response);
 		}
+		else if(action.equals("activateUsers"))
+		{
+			forwardToActivateUsers(request, response);
+		}
 	}
 	private void forwardToAttendance(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
@@ -67,6 +74,17 @@ public class NavigationServlet extends HttpServlet {
 		 
 		request.setAttribute("locations", locationBeanList);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/budgetReport.jsp");
+		dispatcher.forward(request, response);
+	}
+	private void forwardToActivateUsers(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		System.out.println("Redirecting to ActivateUsers.jsp");
+		HttpSession session = request.getSession();
+		OfficeAdminClientDAO client = new OfficeAdminClientDAO();
+		List<EmployeeBean> employees = client.getUnapprovedEmployees((Integer) session.getAttribute("activeUserLocation"));
+		System.out.println("GETTING UNAPPROVED EMPLOYEES FOR LOCATION: " + session.getAttribute("activeUserLocation"));
+		request.setAttribute("employees", employees);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/activateUsers.jsp");
 		dispatcher.forward(request, response);
 	}
 	/**
