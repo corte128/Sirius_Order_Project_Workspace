@@ -24,10 +24,11 @@ pending[i].checked = true;
 </TABLE>
 <UL>
 <LI><A HREF="Input.jsp?method=2&methodName=_getDescriptor" TARGET="inputs">_getDescriptor()</A></LI>
-<LI><A HREF="Input.jsp?method=19&methodName=setBudgetByLocation" TARGET="inputs">setBudgetByLocation(com.sirius.service.superadmin.superadmin.wsdl.SetBudgetByLocation)</A></LI>
-<LI><A HREF="Input.jsp?method=30&methodName=getBudgetByLocation" TARGET="inputs">getBudgetByLocation(com.sirius.service.superadmin.superadmin.wsdl.GetBudgetByLocation)</A></LI>
-<LI><A HREF="Input.jsp?method=39&methodName=addLocation" TARGET="inputs">addLocation(com.sirius.service.superadmin.superadmin.wsdl.AddLocation)</A></LI>
-<LI><A HREF="Input.jsp?method=52&methodName=assignAdmin" TARGET="inputs">assignAdmin(com.sirius.service.superadmin.superadmin.wsdl.AssignAdmin)</A></LI>
+<LI><A HREF="Input.jsp?method=15&methodName=setBudgetByLocation" TARGET="inputs">setBudgetByLocation(java.math.BigDecimal,int)</A></LI>
+<LI><A HREF="Input.jsp?method=22&methodName=getBudgetByLocation" TARGET="inputs">getBudgetByLocation(int)</A></LI>
+<LI><A HREF="Input.jsp?method=27&methodName=addLocation" TARGET="inputs">addLocation(java.lang.String,java.lang.String,int)</A></LI>
+<LI><A HREF="Input.jsp?method=36&methodName=assignAdmin" TARGET="inputs">assignAdmin(int,int,int)</A></LI>
+<LI><A HREF="Input.jsp?method=45&methodName=getOffices" TARGET="inputs">getOffices()</A></LI>
 </UL>
 <%
 if (com.ibm.ccl.ws.jaxws.gstc.util.AsyncUtils.hasAsync(sampleSuperadminProxyid.getClass())) {

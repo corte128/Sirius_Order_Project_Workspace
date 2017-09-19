@@ -11,6 +11,8 @@ import javax.xml.ws.BindingProvider;
 import javax.xml.ws.Dispatch;
 import javax.xml.ws.Service;
 import javax.xml.ws.soap.SOAPBinding;
+import java.math.BigDecimal;
+import java.util.List;
 import javax.xml.ws.Action;
 
 public class SuperadminProxy{
@@ -18,8 +20,8 @@ public class SuperadminProxy{
     protected Descriptor _descriptor;
 
     public class Descriptor {
-        private com.sirius.service.superadmin.superadmin.wsdl.SuperAdminService_Service _service = null;
-        private com.sirius.service.superadmin.superadmin.wsdl.SuperAdminService _proxy = null;
+        private com.sirius.service.superadmin.superadmin.wsdl.SuperAdminService _service = null;
+        private com.sirius.service.superadmin.superadmin.wsdl.SuperAdmin _proxy = null;
         private Dispatch<Source> _dispatch = null;
         private boolean _useJNDIOnly = false;
 
@@ -28,7 +30,7 @@ public class SuperadminProxy{
         }
 
         public Descriptor(URL wsdlLocation, QName serviceName) {
-            _service = new com.sirius.service.superadmin.superadmin.wsdl.SuperAdminService_Service(wsdlLocation, serviceName);
+            _service = new com.sirius.service.superadmin.superadmin.wsdl.SuperAdminService(wsdlLocation, serviceName);
             initCommon();
         }
 
@@ -39,7 +41,7 @@ public class SuperadminProxy{
             try
             {
                 InitialContext ctx = new InitialContext();
-                _service = (com.sirius.service.superadmin.superadmin.wsdl.SuperAdminService_Service)ctx.lookup("java:comp/env/service/SuperAdminService");
+                _service = (com.sirius.service.superadmin.superadmin.wsdl.SuperAdminService)ctx.lookup("java:comp/env/service/SuperAdminService");
             }
             catch (NamingException e)
             {
@@ -50,7 +52,7 @@ public class SuperadminProxy{
             }
 
             if (_service == null && !_useJNDIOnly)
-                _service = new com.sirius.service.superadmin.superadmin.wsdl.SuperAdminService_Service();
+                _service = new com.sirius.service.superadmin.superadmin.wsdl.SuperAdminService();
             initCommon();
         }
 
@@ -58,7 +60,7 @@ public class SuperadminProxy{
             _proxy = _service.getSuperadmin();
         }
 
-        public com.sirius.service.superadmin.superadmin.wsdl.SuperAdminService getProxy() {
+        public com.sirius.service.superadmin.superadmin.wsdl.SuperAdmin getProxy() {
             return _proxy;
         }
 
@@ -116,20 +118,24 @@ public class SuperadminProxy{
         return _descriptor;
     }
 
-    public SetBudgetByLocationResponse setBudgetByLocation(SetBudgetByLocation parameters) {
-        return _getDescriptor().getProxy().setBudgetByLocation(parameters);
+    public boolean setBudgetByLocation(BigDecimal budget, int locationId) {
+        return _getDescriptor().getProxy().setBudgetByLocation(budget,locationId);
     }
 
-    public GetBudgetByLocationResponse getBudgetByLocation(GetBudgetByLocation parameters) {
-        return _getDescriptor().getProxy().getBudgetByLocation(parameters);
+    public BigDecimal getBudgetByLocation(int locationId) {
+        return _getDescriptor().getProxy().getBudgetByLocation(locationId);
     }
 
-    public AddLocationResponse addLocation(AddLocation parameters) {
-        return _getDescriptor().getProxy().addLocation(parameters);
+    public boolean addLocation(String city, String state, int creatorId) {
+        return _getDescriptor().getProxy().addLocation(city,state,creatorId);
     }
 
-    public AssignAdminResponse assignAdmin(AssignAdmin parameters) {
-        return _getDescriptor().getProxy().assignAdmin(parameters);
+    public boolean assignAdmin(int locationId, int adminId, int updaterId) {
+        return _getDescriptor().getProxy().assignAdmin(locationId,adminId,updaterId);
+    }
+
+    public List<OfficeBean> getOffices() {
+        return _getDescriptor().getProxy().getOffices();
     }
 
 }
