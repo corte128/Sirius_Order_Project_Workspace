@@ -60,15 +60,17 @@
 	<servlet>
 		<description>
 		</description>
-<<<<<<< HEAD
+
 		<display-name>NavigationServlet</display-name>
 		<servlet-name>NavigationServlet</servlet-name>
 		<servlet-class>com.sirius.order.client.servlets.NavigationServlet</servlet-class>
-=======
+	</servlet>
+	<servlet>
+		<description>
+		</description>
 		<display-name>SuperAdminServlet</display-name>
 		<servlet-name>SuperAdminServlet</servlet-name>
 		<servlet-class>com.sirius.order.client.servlets.SuperAdminServlet</servlet-class>
->>>>>>> ff4e291ed9fd2123ba11a40786314b911d1707b9
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>action</servlet-name>
@@ -99,21 +101,7 @@
         <url-pattern>
         /AttendanceServlet</url-pattern>
     </servlet-mapping>
-<<<<<<< HEAD
-	<servlet-mapping>
-		<servlet-name>NavigationServlet</servlet-name>
-		<url-pattern>
-		/NavigationServlet</url-pattern>
-	</servlet-mapping>
-=======
-    <!--
-    <servlet-mapping>
-    	<servlet-name>SuperAdminServlet</servlet-name>
-    	<url-pattern>
-    	/SuperAdminServlet</url-pattern>
-    </servlet-mapping>
-     -->
->>>>>>> ff4e291ed9fd2123ba11a40786314b911d1707b9
+
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.htm</welcome-file>
