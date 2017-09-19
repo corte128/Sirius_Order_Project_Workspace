@@ -9,7 +9,6 @@ app.controller('AttendanceCtrl', [
 		'$http',
 		'$q',
 		function($scope, $http, $q) {
-
 			$scope.gridOptions = {
 				data : [],
 				columnDefs : [ {
@@ -28,12 +27,32 @@ app.controller('AttendanceCtrl', [
 					width : 130
 				} ]
 			};
+			function getSearch() {
 
-			$http.get("/SiriusOrderClient/AttendanceServlet").then(
-					function(response) {
+				var name = document.getElementById("name").value;
+				var email = document.getElementById("email").value;
+				var location = document.getElementById("locationSelect").value;
+				if (name == '') {
+					name = "%";
+				}
+				if (email == '') {
+					email = "%";
+				}
+				if (location == "location") {
+					location = "%";
+				}
 
-						console.log(response.data);
-						$scope.gridOptions.data = response.data;
-					});
+				$http.get(
+						"/SiriusOrderClient/AttendanceServlet?query=getRecords?name="
+								+ name + "?email=" + email + "?startDate="
+								+ startDate + "?endDate=" + endDate
+								+ "?location=" + location + "?range=" + range)
+						.then(function(response) {
+
+							console.log(response.data);
+							$scope.gridOptions.data = response.data;
+						});
+			}
+			$scope.getSearch = getSearch;
 
 		} ]);

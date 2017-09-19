@@ -1,0 +1,30 @@
+@CHARSET "ISO-8859-1";
+#budgetSearchBoxAndNavContainer
+{
+	display: flex;
+}
+#budgetSearchBoxContainer
+{
+	flex: 11;
+	margin: 5px;
+	border: 1px black solid;
+	padding: 8% 5% 0 5%;
+}
+#budgetNavContainer
+{
+	flex: 1;
+}
+.budget-search-box-label-container
+{
+	font-style: italic;
+	font-weight: bold;
+	font-family: serif;
+	font-size: 15px;
+	color: grey;
+}
+#budgetReportGenerateReportButton
+{
+	display: inline-block;
+	postition: absolute;
+	background-color: #5F6060;
+}

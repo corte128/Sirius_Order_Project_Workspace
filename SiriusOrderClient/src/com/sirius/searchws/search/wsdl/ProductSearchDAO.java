@@ -1,4 +1,4 @@
-package com.sirius.order.client.servlets;
+package com.sirius.searchws.search.wsdl;
 
 import java.util.List;
 
