@@ -4,41 +4,55 @@
 
 var app = angular.module('attendanceTable', [ 'ngTouch', 'ui.grid' ]);
 
-app.controller(
-				'AttendanceCtrl',
-				[
-						'$scope',
-						'$http',
-						'$q',
-						function($scope, $http, $q) {
+app.controller('AttendanceCtrl', [
+		'$scope',
+		'$http',
+		'$q',
+		function($scope, $http, $q) {
+			$scope.gridOptions = {
+				data : [],
+				columnDefs : [ {
+					name : 'Name',
+					width : 130,
+					pinnedLeft : true
+				}, {
+					name : 'Email',
+					width : 250
+				}, {
+					name : 'Date',
+					width : 130,
+					pinnedRight : true
+				}, {
+					name : 'Location',
+					width : 130
+				} ]
+			};
+			function getSearch() {
 
-							$scope.gridOptions = {
-								data : [],
-								columnDefs : [
-										{
-											name : 'Name',
-											width : 130,
-											pinnedLeft : true
-										}, {
-											name : 'Email',
-											width : 250
-										}, {
-											name : 'Date',
-											width : 130,
-											pinnedRight : true
-										}, {
-											name : 'Location',
-											width : 130
-										} ]
-							};
+				var name = document.getElementById("name").value;
+				var email = document.getElementById("email").value;
+				var location = document.getElementById("locationSelect").value;
+				if (name == '') {
+					name = "%";
+				}
+				if (email == '') {
+					email = "%";
+				}
+				if (location == "location") {
+					location = "%";
+				}
 
-							$http
-									.get("/SiriusOrderClient/AttendanceServlet")
-									.then(
-											function(response) {
+				$http.get(
+						"/SiriusOrderClient/AttendanceServlet?query=getRecords?name="
+								+ name + "?email=" + email + "?startDate="
+								+ startDate + "?endDate=" + endDate
+								+ "?location=" + location + "?range=" + range)
+						.then(function(response) {
 
-												console.log(response.data);
-												$scope.gridOptions.data = response.data;
-											});
+							console.log(response.data);
+							$scope.gridOptions.data = response.data;
+						});
+			}
+			$scope.getSearch = getSearch;
 
-}]);
+		} ]);

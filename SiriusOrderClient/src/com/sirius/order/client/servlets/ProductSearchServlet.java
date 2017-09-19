@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.sirius.product.service.main.product.wsdl.ProductBean;
+import com.sirius.searchws.search.wsdl.ProductSearchDAO;
 
 /**
  * Servlet implementation class ProductSearchServlet

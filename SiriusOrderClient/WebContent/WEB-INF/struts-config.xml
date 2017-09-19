@@ -34,5 +34,5 @@
 	</action-mappings>
 	
 	<message-resources parameter="com.sirius.order.client.properties.common" />
-	<message-resources parameter="localdomain.ie8win7.siriusorderclient.resources.ApplicationResources"/>
+	<!-- <message-resources parameter="localdomain.ie8win7.siriusorderclient.resources.ApplicationResources"/>  -->
 </struts-config>

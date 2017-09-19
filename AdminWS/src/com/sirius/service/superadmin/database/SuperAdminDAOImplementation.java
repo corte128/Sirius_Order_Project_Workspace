@@ -5,11 +5,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.naming.NamingException;
+
+import com.sirius.adminws.beans.OfficeBean;
 
 
 public class SuperAdminDAOImplementation {
@@ -240,5 +245,65 @@ public class SuperAdminDAOImplementation {
 			}
 		}
 		return completed;
+	}
+
+	/**
+	 * gets all the offices 
+	 * @param conn
+	 * @return List<OfficeBean>
+	 * @throws SQLException
+	 */
+	public static List<OfficeBean> getOffices(Connection conn) throws SQLException {
+		PreparedStatement statement = null;
+		List<OfficeBean> offices = new ArrayList<OfficeBean>();
+		ResultSet results = null;
+		Calendar cal = Calendar.getInstance();
+		
+		//gets the Monday date of the week since that is the start of the budget for that office
+		while(cal.get(Calendar.DAY_OF_WEEK) != Calendar.MONDAY){
+			cal.add(Calendar.DATE, -1);
+		}
+		
+		//Converts to sql date object
+		java.sql.Date dateObj = new java.sql.Date(cal.getTime().getTime());
+		
+		String officeQuery = queries.getString("GET_OFFICES");
+
+		try {
+			logger.log(Level.FINE, "Preparing to execute office query: ");
+			logger.log(Level.FINE, "   " + officeQuery);
+			
+			// updating admin in the table
+			statement = conn.prepareStatement(officeQuery);
+			statement.setDate(1, dateObj);
+
+			// executing select statement
+			results = statement.executeQuery();
+
+			// forming results
+			while(results.next()){
+				OfficeBean office = new OfficeBean();
+				StringBuilder sbObj = new StringBuilder();
+				
+				sbObj.append(results.getString("location_city"));
+				sbObj.append(",");
+				sbObj.append(results.getString("state_abbr"));
+				office.setLocation(sbObj.toString());
+				office.setAdminName(results.getString("employee_name"));
+				office.setAdminEmail(results.getString("employee_email"));
+				office.setNumberOfEmployees(results.getInt("number_of_employees"));
+				office.setRecommendedBudget(results.getBigDecimal("budget_recommended"));
+				office.setAllottedBudget(results.getBigDecimal("budget_allotted"));
+				offices.add(office);
+			}
+		} finally {
+			if (statement != null) {
+				DBConnection.closePreparedStatement(statement);
+			}
+			if (results != null) {
+				DBConnection.closeResultSet(results);
+			}
+		}
+		return offices;
 	}
 }
