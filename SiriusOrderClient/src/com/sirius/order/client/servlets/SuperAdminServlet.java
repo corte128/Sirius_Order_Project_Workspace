@@ -35,9 +35,9 @@ public class SuperAdminServlet extends HttpServlet {
         	jab.add(Json.createObjectBuilder().add("Location", office.getLocation())
                     .add("Admin Name", office.getAdminName())
                     .add("Admin Email", office.getAdminEmail())
-                    .add("No. Of Employees", office.getNumberOfEmployees())
-                    .add("Recommended Budget", office.getRecommendedBudget())
-                    .add("Allotted Budget", office.getAllottedBudget()));
+                    .add("No of Employees", office.getNumberOfEmployees())
+                    .add("Recommended Budget", office.getRecommendedBudget().doubleValue())
+                    .add("Allotted Budget", office.getAllottedBudget().doubleValue()));
         }
 		
         //writing to the response

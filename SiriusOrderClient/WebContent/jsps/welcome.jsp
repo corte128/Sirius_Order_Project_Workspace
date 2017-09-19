@@ -26,6 +26,12 @@
 		<%@ include file="header.jsp"%>
 	</header>
 	
+	<%-- ASIDE --%>
+	<aside>
+		<%@ include file="nav.jsp"%>
+	</aside>
+	
+	
 	<%-- CAROUSEL --%>
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<!-- Indicators -->
@@ -62,19 +68,19 @@
 	<%-- OFFICE OPTIONS --%>
 	<div class="supply-category-card-container">
 		<html:link page="/Welcome.do?type=3" styleClass="supply-category-card">
-			<div class="supply-category-card-title"> <fmt:message key="WELCOME_INK_AND_TONER" /> </div>
+			<div class="supply-category-card-title"> <fmt:message key="WELCOME_INK_AND_TONER_LABEL" /> </div>
 			<div class="supply-category-card-picture">
 				<img src="/SiriusOrderClient/assets/ink_and_toner.png"/>
 			</div>
 		</html:link>
 		<html:link page="/Welcome.do?type=1" styleClass="supply-category-card">
-			<div class="supply-category-card-title"> <fmt:message key="WELCOME_BREAKROOM" /></div>
+			<div class="supply-category-card-title"> <fmt:message key="WELCOME_BREAKROOM_LABEL" /></div>
 			<div class="supply-category-card-picture">
 				<img src="/SiriusOrderClient/assets/breakroom.png"/>
 			</div>
 		</html:link>
 		<html:link page="/Welcome.do?type=2" styleClass="supply-category-card">
-			<div class="supply-category-card-title"> <fmt:message key="WELCOME_OFFICE_SUPPLIES" /></div>
+			<div class="supply-category-card-title"> <fmt:message key="WELCOME_OFFICE_SUPPLIES_LABEL" /></div>
 			<div class="supply-category-card-picture">
 				<img src="/SiriusOrderClient/assets/office_supplies.png"/>
 			</div>
