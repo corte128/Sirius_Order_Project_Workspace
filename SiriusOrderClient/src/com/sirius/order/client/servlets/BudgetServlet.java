@@ -2,6 +2,10 @@ package com.sirius.order.client.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.json.Json;
@@ -15,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sirius.searchws.search.wsdl.ActualvBudgetBean;
+import com.sirius.searchws.search.wsdl.SearchClientDAO;
 
 /**
  * Servlet implementation class BudgetServlet
@@ -58,8 +63,25 @@ public class BudgetServlet extends HttpServlet {
 	private void getBudgetSearchJSON(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		int locationId = Integer.parseInt(request.getParameter("locationId"));
+		String reportType = request.getParameter("reportType");
 		
-		List<ActualvBudgetBean> budgetReports = null;
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		
+		Date fromDate = null;
+		Date toDate = null;
+		try 
+		{
+			String temp = request.getParameter("toDate");
+			toDate = df.parse(request.getParameter("toDate"));
+			fromDate = df.parse(request.getParameter("fromDate"));
+			System.out.println(temp);
+		} 
+		catch (ParseException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		List<ActualvBudgetBean> budgetReports = SearchClientDAO.budgetSearch(locationId, fromDate, toDate, reportType);
 		JsonArrayBuilder builder = Json.createArrayBuilder();
 		for(ActualvBudgetBean budgetReport : budgetReports)
 		{
