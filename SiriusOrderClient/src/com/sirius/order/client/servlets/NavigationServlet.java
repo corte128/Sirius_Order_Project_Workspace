@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sirius.loctionws.location.wsdl.LocationBean;
 import com.sirius.loctionws.location.wsdl.LocationClientDao;
@@ -37,15 +38,10 @@ public class NavigationServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		 if(action.equalsIgnoreCase("attendance")){
 			 List<LocationBean> locationBeanList = locationClient.getLocations();
-			 ArrayList<String> parsedLocationList = new ArrayList<String>();
 			 
-			 for (int i=0; i<locationBeanList.size(); i++){
-				 LocationBean tempBean = new LocationBean();
-				 tempBean = locationBeanList.get(i);
-				 String parsedLocation = tempBean.getCity() + ", " + tempBean.getState();
-				 parsedLocationList.add(parsedLocation);
-			 }
-			 request.setAttribute("locationList", parsedLocationList);
+			 request.setAttribute("locationList", locationBeanList);
+			 HttpSession session =request.getSession();
+			 session.setAttribute("locations", locationBeanList);
 			 RequestDispatcher dispatcher = request.getRequestDispatcher("jsps/authRequired/attendance.jsp");
 			 dispatcher.forward(request, response);
 			 

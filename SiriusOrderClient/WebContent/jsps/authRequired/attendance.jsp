@@ -27,6 +27,14 @@
 </head>
 
 <body>
+<header>
+<%@ include file="/jsps/header.jsp" %>
+</header>
+
+<aside>
+<%@ include file="/jsps/nav.jsp" %>
+</aside>
+<fmt:setBundle basename="com.sirius.order.client.properties.attendance" />
 	<div class="attendancePageContainer" ng-controller="AttendanceCtrl">
 		<div id="attendanceSearchBox" class="searchBox">
 			<form id="attendanceSearchForm" class="attendanceForm">
@@ -36,13 +44,13 @@
 						<div class="inputFieldLabel">
 							<fmt:message key="ATTENDANCE_NAME" />
 						</div>
-						<input type="text" name="name" value='' />
+						<input id="name" type="text" name="name" value='' />
 					</div>
 					<div class="inputFieldContainer">
 						<div class="inputFieldLabel">
 							<fmt:message key="ATTENDANCE_EMAIL" />
 						</div>
-						<input type="text" name="email" value='' />
+						<input id = "email" type="text" name="email" value='' />
 					</div>
 
 					<div class="inputFieldContainer">
@@ -50,9 +58,9 @@
 							<fmt:message key="ATTENDANCE_LOCATION" />
 						</div>
 						<select id="locationSelect" name="location">
-							<option value="%">location</option>
-							<c:forEach items="${locationList}" var="location">
-								<option value="${location}">${location}</option>
+							<option value="%">select</option>
+							<c:forEach items="${locations}" var="location">
+								<option value="${location.getId()}">${location.getCity()} , ${location.getState()}</option>
 							</c:forEach>
 						</select>
 					</div>
@@ -61,7 +69,7 @@
 						<div class="inputFieldLabel">
 							<fmt:message key="ATTENDANCE_VIEW" />
 						</div>
-						<select name="view">
+						<select id = "view" name="view">
 							<option value="%">select</option>
 							<option value="display">Display</option>
 							<option value="PDF">PDF</option>
@@ -74,20 +82,21 @@
 						<div class="inputFieldLabel">
 							<fmt:message key="ATTENDANCE_FROM_DATE" />
 						</div>
-						<input type="date" name="startDate" />
+						<input id="startDate" type="date" name="startDate" pattern="\d{4}-\d{2}-\d{2}"  placeholder="yyyy-mm-dd"/>
 					</div>
 					<div class="inputFieldContainer">
 						<div class="inputFieldLabel">
 							<fmt:message key="ATTENDANCE_TO_DATE" />
 						</div>
-						<input type="date" name="endDate" />
+						<input id="endDate" type="date" name="endDate" pattern="\d{4}-\d{2}-\d{2}" placeholder="yyyy-mm-dd"/>
 					</div>
 
 					<div class="inputFieldContainer">
 						<div class="inputFieldLabel">
 							<fmt:message key="ATTENDANCE_RANGE" />
 						</div>
-						<select name="range">
+						<select id = "range" name="range">
+							<option value="%">select</option>
 							<option value="thisWeek">This Week</option>
 							<option value="lastWeek">Last Week</option>
 							<option value="lastTenDays">Last Ten Days</option>

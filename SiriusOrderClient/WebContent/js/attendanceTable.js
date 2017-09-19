@@ -36,19 +36,28 @@ app.controller(
 								var name = document.getElementById("name").value;
 								var email = document.getElementById("email").value;
 								var location = document.getElementById("locationSelect").value;
+								var startDate = document.getElementById("startDate").value;
+								var endDate = document.getElementById("endDate").value;
+								var range = document.getElementById("range").value;
 								if(name == ''){
 									name = "%";
 								}
 								if(email == ''){
 									email="%";
 								}
-								if(location == "location"){
-									location="%";
-								}
+								
+								alert("name given: " + name);
+								alert("email given: " + email);
+								alert("location given: " + location);
+								alert("startDate given: " + startDate);
+								alert("endDate given: " + endDate);
+								alert("range given: " + range);
+								
+								
 
 							$http
-									.get("/SiriusOrderClient/AttendanceServlet?query=getRecords?name="+name+"?email="+email+"?startDate="+startDate+"?endDate="+endDate+
-											"?location="+location+"?range="+range)
+									.get("/SiriusOrderClient/AttendanceServlet?action=getAttendance&name="+name+"&email="+email+"&startDate="+startDate+"&endDate="+endDate+
+											"&location="+location+"&range="+range)
 									.then(
 											function(response) {
 

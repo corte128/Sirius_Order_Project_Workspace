@@ -16,14 +16,14 @@ public class AttendanceDAO {
 			.getName());
 	
 	
- 	public ArrayList<AttendanceRecordBean> getAttendanceRecords(String inputName, String inputEmail, String inputCity, String inputState, String inputBeginDate, String inputEndDate){
+ 	public ArrayList<AttendanceRecordBean> getAttendanceRecords(String inputName, String inputEmail, String locationId, String inputBeginDate, String inputEndDate){
  		ArrayList<AttendanceRecordBean> attendanceList = new ArrayList<AttendanceRecordBean>();
  		
  		Connection conn = null;
  		
  		try {
 			conn = DBConnection.getConnection();
-			attendanceList = impl.getAttendanceRecords(conn, inputName, inputEmail, inputCity, inputState, inputBeginDate, inputEndDate);
+			attendanceList = impl.getAttendanceRecords(conn, inputName, inputEmail, locationId, inputBeginDate, inputEndDate);
 		} catch (NamingException e) {
 			logger.log(Level.FINE, "naming exception");
 			logger.log(Level.FINE, e.getMessage());

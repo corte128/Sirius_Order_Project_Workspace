@@ -21,8 +21,7 @@ public interface Attendance {
 	public ArrayList<AttendanceRecordBean> getAttendanceRecords(
 			@WebParam(name = "name", targetNamespace = "http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl") String name,
 			@WebParam(name = "email", targetNamespace = "http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl") String email,
-			@WebParam(name = "city", targetNamespace = "http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl") String city,
-			@WebParam(name = "state", targetNamespace = "http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl") String state,
+			@WebParam(name = "locationId", targetNamespace = "http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl") String locationId,
 			@WebParam(name = "beginDate", targetNamespace = "http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl") String beginDate,
 			@WebParam(name = "endDate", targetNamespace = "http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl") String endDate);
 
