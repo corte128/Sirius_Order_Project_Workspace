@@ -31,17 +31,19 @@ public class SearchDAOImpl {
 		List<BudgetObject> budgetObjects = new ArrayList<BudgetObject>();
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setDate(1, (java.sql.Date) fromDate);
-			statement.setDate(2, (java.sql.Date) toDate);
+			java.sql.Date from = new java.sql.Date((fromDate).getTime());
+			java.sql.Date to = new java.sql.Date((toDate).getTime());
+
+			statement.setDate(1, new java.sql.Date((fromDate).getTime()));
+			statement.setDate(2, new java.sql.Date((toDate).getTime()));
 			statement.setInt(3, location_id);
-			statement.executeUpdate();
-		    ResultSet rs = statement.executeQuery(sql);
+		    ResultSet rs = statement.executeQuery();
 		    BudgetObject object = null;
 		    
 		    while(rs.next()){
 		    	object = new BudgetObject();
 		    	object.setId(rs.getInt("budget_id_pk"));
-		    	object.setActual(rs.getBigDecimal("budget_alloted"));
+		    	object.setActual(rs.getBigDecimal("budget_allotted"));
 		    	object.setBudget(rs.getBigDecimal("budget_recommended"));
 		    	object.setDate(rs.getDate("budget_date"));
 		    	budgetObjects.add(object);
@@ -78,17 +80,18 @@ public class SearchDAOImpl {
     	
     	for(int incrementer = 0; incrementer < length; incrementer++){
     		BudgetObject obj = budgetObjects.get(incrementer);
+    		int temp = obj.getDate().compareTo(cal.getTime());
     		if(obj.getDate().compareTo(cal.getTime()) <= 0){
     			//add to objects list then in the else add all values together
     			objectsByTimeIncrements.add(obj);
     		}
-    		else{
+    		if(incrementer == length-1){
     			BigDecimal actual = new BigDecimal(0);
     			BigDecimal budget = new BigDecimal(0);
     			ActualvBudgetBean abBean = new ActualvBudgetBean();
     			for(int i = 0; i < objectsByTimeIncrements.size(); i++){
-    				actual.add(objectsByTimeIncrements.get(i).getActual());
-    				budget.add(objectsByTimeIncrements.get(i).getBudget());
+    				actual = actual.add(objectsByTimeIncrements.get(i).getActual());
+    				budget = budget.add(objectsByTimeIncrements.get(i).getBudget());
     			}
     			abBean.setActual(actual);
     			abBean.setBudget(budget);
