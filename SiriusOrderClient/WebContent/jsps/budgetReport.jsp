@@ -3,14 +3,18 @@
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:setBundle basename="com.sirius.order.client.properties.common"/>
 <html>
 	<head>
 		<title>budgetReport</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
+		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/budgetReport.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<header>
@@ -19,12 +23,12 @@
 		<main>
 			<div class="container-fluid">
 				<div id="budgetSearchBoxAndNavContainer">
-					<div id="budgetSearchBox">
+					<div id="budgetSearchBoxContainer">
 						<div class="row">
-							<div class="budget-search-box-label-container col-md-3">
+							<div class="budget-search-box-label-container col-md-3 col-sm-3 col-xs-6">
 								<fmt:message key="BUDGET_REPORT_REPORT_TYPE_LABEL" />
 							</div>
-							<div class="budget-search-box-input-container col-md-3">
+							<div class="budget-search-box-input-container col-md-3 col-sm-3 col-xs-6">
 								<select id="budgetSearchReportTypeInput">
 									<option value="" selected>
 										<fmt:message key="BUDGET_REPORT_SELECT_LABEL" />
@@ -39,18 +43,18 @@
 								</select>
 							</div>
 							
-							<div class="budget-search-box-label-container col-md-3">
+							<div class="budget-search-box-label-container col-md-3 col-sm-3 col-xs-6">
 								<fmt:message key="BUDGET_REPORT_FROM_DATE_LABEL" />
 							</div>
-							<div class="budget-search-box-input-container col-md-3">
+							<div class="budget-search-box-input-container col-md-3 col-sm-3 col-xs-6">
 								<input id="budgetSearchFromDateTypeInput" type="date"></input>
 							</div>
 						</div>
 						<div class="row">
-							<div class="budget-search-box-label-container col-md-3">
+							<div class="budget-search-box-label-container col-md-3 col-sm-3 col-xs-6">
 								<fmt:message key="BUDGET_REPORT_LOCATION_LABEL" />
 							</div>
-							<div class="budget-search-box-input-container col-md-3">
+							<div class="budget-search-box-input-container col-md-3 col-sm-3 col-xs-6">
 								<select id="budgetSearchLocationInput">
 									<c:choose>
 										<c:when test="${sessionScope.activeUserType} == 2">
@@ -71,18 +75,18 @@
 								</select>
 							</div>
 							
-							<div class="budget-search-box-label-container col-md-3">
+							<div class="budget-search-box-label-container col-md-3 col-sm-3 col-xs-6">
 								<fmt:message key="BUDGET_REPORT_TO_DATE_LABEL" />
 							</div>
-							<div class="budget-search-box-input-container col-md-3">
+							<div class="budget-search-box-input-container col-md-3 col-sm-3 col-xs-6">
 								<input id="budgetSearchToDateTypeInput" type="date"></input>
 							</div>
 						</div>
 						<div class="row">
-							<div class="budget-search-box-label-container col-md-3">
+							<div class="budget-search-box-label-container col-md-3 col-sm-3 col-xs-6">
 								<fmt:message key="BUDGET_REPORT_VIEW_LABEL" />
 							</div>
-							<div class="budget-search-box-input-container col-md-3">
+							<div class="budget-search-box-input-container col-md-3 col-sm-3 col-xs-6">
 								<select id="budgetSearchViewInput">
 									<option value="" selected>
 										<fmt:message key="BUDGET_REPORT_SELECT_LABEL" />
@@ -98,10 +102,12 @@
 							</div>
 						</div>
 					</div>
-					<aside>
+					<aside id="budgetNavContainer">
 						<%@ include file="nav.jsp" %>
 					</aside>
 				</div>
+			</div>
+			<div id="budgetChartContainer">
 			</div>
 		</main>
 	</body>
