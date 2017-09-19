@@ -34,4 +34,11 @@ public class BudgetObject {
 		this.date = date;
 	}
 	
+	@Override
+	public String toString() {
+		return "BudgetObject [id=" + id + ", actual=" + actual + ", budget="
+				+ budget + ", date=" + date + "]";
+	}
+	
+	
 }

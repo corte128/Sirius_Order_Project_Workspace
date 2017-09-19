@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/nav.css">
 	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--%>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="/SiriusOrderClient/js/nav.js"></script>
 	
@@ -69,12 +69,12 @@
 							<div id="reportsNavSubItemsList" class="panel-collapse collapse">
 								<ul class="nav-sidebar-sub-list">
 							      	<div class="register-nav-sidebar-sub-text-container">
-										<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/jsps/attendanceReport.jsp">
+										<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/NavigationServlet?action=attendance">
 											Attendance Report
 										</a>
 									</div>
 									<div class="register-nav-sidebar-sub-text-container">
-										<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/jsps/budgetReport.jsp">
+										<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/NavigationServlet?action=budget">
 											Budget Vs Actual
 										</a>
 									</div>
@@ -143,12 +143,12 @@
 				<div id="navReportsSubModal" onmouseover="showReportsModal()" onmouseout="closeReportsModal()">
 					<div id="reportsNavSubModalTextContainer">
 						<div class="reports-nav-sub-modal-text-container">
-							<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/jsps/attendanceReport.jsp">
+							<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/NavigationServlet?action=attendance">
 								Attendance Report
 							</a>
 						</div>
 						<div class="reports-nav-sub-modal-text-container">
-							<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/jsps/budgetVsActual.jsp">
+							<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/NavigationServlet?action=budget">
 								Budget Vs Actual
 							</a>
 						</div>

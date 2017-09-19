@@ -1,9 +1,7 @@
 <!DOCTYPE HTML><%@page language="java"
 	contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
-<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <html>
 <head>
 <title>productSearch</title>
@@ -17,7 +15,7 @@
 </header>
 	<div>
 		<div class="searchContainer">
-			<html:form action="/Login" styleClass="search">
+			<html:form action="/ProductSearch" styleClass="search">
 				<html:select styleClass="categorySelect" property="category">
 					<option value="all">All</option>
 					<option value="ink_and_toner">Ink & Toner</option>
@@ -25,16 +23,13 @@
 					<option value="office_supplies">Office Supplies</option>
 				</html:select>
 				<input type="text" class="search searchBar"></input>
-				<input type="button" class="search" value="Search"/>
-				<html:submit styleId="login-button" value="Search" />
+				<html:submit styleClass="search" value="Search" />
 			</html:form>
-			</div>
+		</div>
 			    <c:forEach var="product" items="${Products}">
 			    	<c:set var="currentProduct" value="${product}"></c:set>
 					<jsp:include page="productCard.jsp"></jsp:include>
 				</c:forEach>
-			<div>
-		</div>
 	</div>
 </body>
 </html>

@@ -31,5 +31,10 @@ public class ActualvBudgetBean implements Serializable{
 		this.budget = budget;
 	}
 	
+	@Override
+	public String toString() {
+		return "ActualvBudgetBean [time=" + time + ", actual=" + actual
+				+ ", budget=" + budget + "]";
+	}
 	
 }
