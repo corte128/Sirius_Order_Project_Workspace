@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -56,7 +58,7 @@ public class SearchDAOImpl {
 	}
 	
 	private List<ActualvBudgetBean> budgetSeparationByTime(List<BudgetObject> budgetObjects, Date fromDate, String reportType){
-		
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 	    Calendar cal = Calendar.getInstance();
     	Date startOfWeek = fromDate;
     	String startMonth = cal.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault());
@@ -93,7 +95,7 @@ public class SearchDAOImpl {
     			abBean.setActual(actual);
     			abBean.setBudget(budget);
     			if(reportType.equalsIgnoreCase("weekly")){
-	    			abBean.setTime(startOfWeek + " - " + cal.getTime());
+	    			abBean.setTime( dateFormat.format(startOfWeek) + " - " + dateFormat.format(cal.getTime()));
 	    			cal.add(Calendar.DATE, 1);
 	    			startOfWeek = cal.getTime();
 	    			cal.add(Calendar.DATE, 6);
