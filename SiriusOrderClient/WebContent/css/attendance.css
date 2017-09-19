@@ -1,0 +1,61 @@
+.searchBox {
+	margin-top: 30px;
+	margin-left: 10%;
+	border: 1px solid lightgray;
+	width: 950px;
+    margin-bottom: 20px;
+}
+
+.attendanceForm {
+	display: flex;
+	justify-content: space-around;
+	margin: 10px;
+}
+
+.inputFieldContainer {
+	width: 400px;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+
+.inputFieldLabel {
+	width: 200px;
+}
+
+.inputField {
+	width: 200px;
+}
+
+.formColumnOne {
+	width: 400px;
+	margin: auto;
+	margin-top:0px;
+}
+
+.formColumnTwo {
+	width: 400px;
+	margin: auto;
+	margin-top:0px;
+}
+
+.all-employees-grid.ng-scope {
+	margin-left: 250px;
+}
+
+.mainContentWrapper {
+	margin-left: 10%;
+}
+
+.grid {
+	width: 950px;
+}
+.submitBtn{
+	height: 50px;
+    width: 200px;
+    background-color: #5F6060 ;
+    color: lightgrey;
+}
+#submitBtn {
+    justify-content: flex-end;  
+}
