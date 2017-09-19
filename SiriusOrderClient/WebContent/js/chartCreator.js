@@ -23,12 +23,14 @@ app.controller('BudgetChartCtrl', ['$scope', '$http',  function ($scope, $http)
 				toDate)
 	   	.then(function(response) 
 	   	{
-	   		alert(response.data);
 	   		console.log(response.data);
-	   		data.addRows(response.date);
+	   		data.addRows(response.data);
 	   		// Instantiate and draw the chart.
+	   		var numRows = response.data.length;
+			var expectedHeight = numRows * 100;
 	   		var chart = new google.visualization.BarChart(document.getElementById('budgetChartContainer'));
-			chart.draw(data, {colors: ['#A7C1C3', '#B0B47A'], bar: {groupWidth: '80%'}, height: 400, width: 500});
+			chart.draw(data, {colors: ['#A7C1C3', '#B0B47A'], bar: {groupWidth: '80%'}, height: expectedHeight, width: 600});
+			
 	   	});
     };
 }]);

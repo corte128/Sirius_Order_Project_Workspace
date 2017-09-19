@@ -3,7 +3,6 @@
 	<name>SearchWSEAR</name>
 	<comment></comment>
 	<projects>
-		<project>SearchWS</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

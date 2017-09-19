@@ -118,7 +118,11 @@
 					</aside>
 				</div>
 			</div>
-			<div id="budgetChartContainer">
+			<div class="row">
+				<div id="budgetChartContainer">
+				</div>
+				<div id="budgetGridContainer">
+				</div>
 			</div>
 		</main>
 	</body>
