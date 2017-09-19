@@ -3,10 +3,14 @@ package com.sirius.service.superadmin.database;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.naming.NamingException;
+
+import com.sirius.adminws.beans.OfficeBean;
 
 
 public class SuperAdminDAO {
@@ -157,5 +161,34 @@ public class SuperAdminDAO {
 			}
 		}
 		return completed;
+	}
+
+	/**
+	 * Gets all the offices 
+	 * @return List<OfficeBean>
+	 */
+	public static List<OfficeBean> getOffices() {
+		Connection conn = null;
+		List<OfficeBean> offices = new ArrayList<OfficeBean>();
+		
+		try{
+			conn = DBConnection.getConnection();
+			offices = SuperAdminDAOImplementation.getOffices(conn);
+		} catch(NamingException e){
+			logger.log(Level.SEVERE,"Naming Exception Found: Incorrect naming", e);
+		} catch (SQLException e) {
+			logger.log(Level.SEVERE,"SQL Exception Found: Incorrect properties", e);
+		} catch (Exception e){
+			logger.log(Level.SEVERE,"Exception Found ", e);
+		} finally{
+			if (conn != null){
+				try {
+					DBConnection.closeConnection(conn);
+				} catch (SQLException e) {
+					logger.log(Level.SEVERE,"SQL Exception ", e);
+				}
+			}
+		}
+		return offices;
 	}
 }

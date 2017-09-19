@@ -1,9 +1,11 @@
 package com.sirius.service.superadmin;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.jws.WebService;
 
+import com.sirius.adminws.beans.OfficeBean;
 import com.sirius.service.superadmin.database.SuperAdminDAO;
 
 @WebService(endpointInterface="com.sirius.service.superadmin.SuperAdminInterface",
@@ -29,5 +31,10 @@ public class SuperAdminImplementation implements SuperAdminInterface {
 	@Override
 	public boolean assignAdmin(int locationId, int adminId, int updateId) {
 		return SuperAdminDAO.assignAdmin(locationId, adminId, updateId);
+	}
+
+	@Override
+	public List<OfficeBean> getOffices() {
+		return SuperAdminDAO.getOffices();
 	}
 }

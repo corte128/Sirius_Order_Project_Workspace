@@ -28,14 +28,16 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _GetBudgetByLocationResponse_QNAME = new QName("http://superadmin.service.sirius.com/superadmin/wsdl", "GetBudgetByLocationResponse");
-    private final static QName _AddLocationResponse_QNAME = new QName("http://superadmin.service.sirius.com/superadmin/wsdl", "AddLocationResponse");
-    private final static QName _GetBudgetByLocation_QNAME = new QName("http://superadmin.service.sirius.com/superadmin/wsdl", "GetBudgetByLocation");
-    private final static QName _AddLocation_QNAME = new QName("http://superadmin.service.sirius.com/superadmin/wsdl", "AddLocation");
-    private final static QName _SetBudgetByLocationResponse_QNAME = new QName("http://superadmin.service.sirius.com/superadmin/wsdl", "SetBudgetByLocationResponse");
-    private final static QName _SetBudgetByLocation_QNAME = new QName("http://superadmin.service.sirius.com/superadmin/wsdl", "SetBudgetByLocation");
-    private final static QName _AssignAdminResponse_QNAME = new QName("http://superadmin.service.sirius.com/superadmin/wsdl", "AssignAdminResponse");
-    private final static QName _AssignAdmin_QNAME = new QName("http://superadmin.service.sirius.com/superadmin/wsdl", "AssignAdmin");
+    private final static QName _GetBudgetByLocationResponse_QNAME = new QName("http://superadmin.service.sirius.com/superadmin/wsdl", "getBudgetByLocationResponse");
+    private final static QName _AddLocationResponse_QNAME = new QName("http://superadmin.service.sirius.com/superadmin/wsdl", "addLocationResponse");
+    private final static QName _GetBudgetByLocation_QNAME = new QName("http://superadmin.service.sirius.com/superadmin/wsdl", "getBudgetByLocation");
+    private final static QName _AddLocation_QNAME = new QName("http://superadmin.service.sirius.com/superadmin/wsdl", "addLocation");
+    private final static QName _SetBudgetByLocationResponse_QNAME = new QName("http://superadmin.service.sirius.com/superadmin/wsdl", "setBudgetByLocationResponse");
+    private final static QName _SetBudgetByLocation_QNAME = new QName("http://superadmin.service.sirius.com/superadmin/wsdl", "setBudgetByLocation");
+    private final static QName _GetOfficesResponse_QNAME = new QName("http://superadmin.service.sirius.com/superadmin/wsdl", "getOfficesResponse");
+    private final static QName _AssignAdminResponse_QNAME = new QName("http://superadmin.service.sirius.com/superadmin/wsdl", "assignAdminResponse");
+    private final static QName _GetOffices_QNAME = new QName("http://superadmin.service.sirius.com/superadmin/wsdl", "getOffices");
+    private final static QName _AssignAdmin_QNAME = new QName("http://superadmin.service.sirius.com/superadmin/wsdl", "assignAdmin");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.sirius.service.superadmin.superadmin.wsdl
@@ -53,11 +55,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetOffices }
+     * 
+     */
+    public GetOffices createGetOffices() {
+        return new GetOffices();
+    }
+
+    /**
      * Create an instance of {@link AssignAdminResponse }
      * 
      */
     public AssignAdminResponse createAssignAdminResponse() {
         return new AssignAdminResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetOfficesResponse }
+     * 
+     */
+    public GetOfficesResponse createGetOfficesResponse() {
+        return new GetOfficesResponse();
     }
 
     /**
@@ -109,10 +127,18 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link OfficeBean }
+     * 
+     */
+    public OfficeBean createOfficeBean() {
+        return new OfficeBean();
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetBudgetByLocationResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://superadmin.service.sirius.com/superadmin/wsdl", name = "GetBudgetByLocationResponse")
+    @XmlElementDecl(namespace = "http://superadmin.service.sirius.com/superadmin/wsdl", name = "getBudgetByLocationResponse")
     public JAXBElement<GetBudgetByLocationResponse> createGetBudgetByLocationResponse(GetBudgetByLocationResponse value) {
         return new JAXBElement<GetBudgetByLocationResponse>(_GetBudgetByLocationResponse_QNAME, GetBudgetByLocationResponse.class, null, value);
     }
@@ -121,7 +147,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link AddLocationResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://superadmin.service.sirius.com/superadmin/wsdl", name = "AddLocationResponse")
+    @XmlElementDecl(namespace = "http://superadmin.service.sirius.com/superadmin/wsdl", name = "addLocationResponse")
     public JAXBElement<AddLocationResponse> createAddLocationResponse(AddLocationResponse value) {
         return new JAXBElement<AddLocationResponse>(_AddLocationResponse_QNAME, AddLocationResponse.class, null, value);
     }
@@ -130,7 +156,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link GetBudgetByLocation }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://superadmin.service.sirius.com/superadmin/wsdl", name = "GetBudgetByLocation")
+    @XmlElementDecl(namespace = "http://superadmin.service.sirius.com/superadmin/wsdl", name = "getBudgetByLocation")
     public JAXBElement<GetBudgetByLocation> createGetBudgetByLocation(GetBudgetByLocation value) {
         return new JAXBElement<GetBudgetByLocation>(_GetBudgetByLocation_QNAME, GetBudgetByLocation.class, null, value);
     }
@@ -139,7 +165,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link AddLocation }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://superadmin.service.sirius.com/superadmin/wsdl", name = "AddLocation")
+    @XmlElementDecl(namespace = "http://superadmin.service.sirius.com/superadmin/wsdl", name = "addLocation")
     public JAXBElement<AddLocation> createAddLocation(AddLocation value) {
         return new JAXBElement<AddLocation>(_AddLocation_QNAME, AddLocation.class, null, value);
     }
@@ -148,7 +174,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link SetBudgetByLocationResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://superadmin.service.sirius.com/superadmin/wsdl", name = "SetBudgetByLocationResponse")
+    @XmlElementDecl(namespace = "http://superadmin.service.sirius.com/superadmin/wsdl", name = "setBudgetByLocationResponse")
     public JAXBElement<SetBudgetByLocationResponse> createSetBudgetByLocationResponse(SetBudgetByLocationResponse value) {
         return new JAXBElement<SetBudgetByLocationResponse>(_SetBudgetByLocationResponse_QNAME, SetBudgetByLocationResponse.class, null, value);
     }
@@ -157,25 +183,43 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link SetBudgetByLocation }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://superadmin.service.sirius.com/superadmin/wsdl", name = "SetBudgetByLocation")
+    @XmlElementDecl(namespace = "http://superadmin.service.sirius.com/superadmin/wsdl", name = "setBudgetByLocation")
     public JAXBElement<SetBudgetByLocation> createSetBudgetByLocation(SetBudgetByLocation value) {
         return new JAXBElement<SetBudgetByLocation>(_SetBudgetByLocation_QNAME, SetBudgetByLocation.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetOfficesResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://superadmin.service.sirius.com/superadmin/wsdl", name = "getOfficesResponse")
+    public JAXBElement<GetOfficesResponse> createGetOfficesResponse(GetOfficesResponse value) {
+        return new JAXBElement<GetOfficesResponse>(_GetOfficesResponse_QNAME, GetOfficesResponse.class, null, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link AssignAdminResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://superadmin.service.sirius.com/superadmin/wsdl", name = "AssignAdminResponse")
+    @XmlElementDecl(namespace = "http://superadmin.service.sirius.com/superadmin/wsdl", name = "assignAdminResponse")
     public JAXBElement<AssignAdminResponse> createAssignAdminResponse(AssignAdminResponse value) {
         return new JAXBElement<AssignAdminResponse>(_AssignAdminResponse_QNAME, AssignAdminResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetOffices }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://superadmin.service.sirius.com/superadmin/wsdl", name = "getOffices")
+    public JAXBElement<GetOffices> createGetOffices(GetOffices value) {
+        return new JAXBElement<GetOffices>(_GetOffices_QNAME, GetOffices.class, null, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link AssignAdmin }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://superadmin.service.sirius.com/superadmin/wsdl", name = "AssignAdmin")
+    @XmlElementDecl(namespace = "http://superadmin.service.sirius.com/superadmin/wsdl", name = "assignAdmin")
     public JAXBElement<AssignAdmin> createAssignAdmin(AssignAdmin value) {
         return new JAXBElement<AssignAdmin>(_AssignAdmin_QNAME, AssignAdmin.class, null, value);
     }

@@ -5,72 +5,83 @@
 
 package com.sirius.service.superadmin.superadmin.wsdl;
 
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
-import javax.jws.WebResult;
-import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.ws.Action;
+import java.net.URL;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
+import javax.xml.ws.WebEndpoint;
+import javax.xml.ws.WebServiceClient;
+import javax.xml.ws.WebServiceException;
+import javax.xml.ws.WebServiceFeature;
 
-@WebService(name = "SuperAdminService", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
-@SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
-@XmlSeeAlso({
-    ObjectFactory.class
-})
-public interface SuperAdminService {
+@WebServiceClient(name = "SuperAdminService", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", wsdlLocation = "WEB-INF/wsdl/SuperAdminService.wsdl")
+public class SuperAdminService
+    extends Service
+{
 
+    private final static URL SUPERADMINSERVICE_WSDL_LOCATION;
+    private final static WebServiceException SUPERADMINSERVICE_EXCEPTION;
+    private final static QName SUPERADMINSERVICE_QNAME = new QName("http://superadmin.service.sirius.com/superadmin/wsdl", "SuperAdminService");
 
-    /**
-     * 
-     * @param parameters
-     * @return
-     *     returns com.sirius.service.superadmin.superadmin.wsdl.SetBudgetByLocationResponse
-     */
-    @WebMethod(action = "SetBudgetByLocation")
-    @WebResult(name = "SetBudgetByLocationResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", partName = "parameters")
-    @Action(input = "SetBudgetByLocation", output = "http://superadmin.service.sirius.com/superadmin/wsdl/SuperAdminService/setBudgetByLocationResponse")
-    public SetBudgetByLocationResponse setBudgetByLocation(
-        @WebParam(name = "SetBudgetByLocation", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", partName = "parameters")
-        SetBudgetByLocation parameters);
+    static {
+            SUPERADMINSERVICE_WSDL_LOCATION = com.sirius.service.superadmin.superadmin.wsdl.SuperAdminService.class.getResource("/WEB-INF/wsdl/SuperAdminService.wsdl");
+        WebServiceException e = null;
+        if (SUPERADMINSERVICE_WSDL_LOCATION == null) {
+            e = new WebServiceException("Cannot find 'WEB-INF/wsdl/SuperAdminService.wsdl' wsdl. Place the resource correctly in the classpath.");
+        }
+        SUPERADMINSERVICE_EXCEPTION = e;
+    }
 
-    /**
-     * 
-     * @param parameters
-     * @return
-     *     returns com.sirius.service.superadmin.superadmin.wsdl.GetBudgetByLocationResponse
-     */
-    @WebMethod(action = "GetBudgetByLocation")
-    @WebResult(name = "GetBudgetByLocationResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", partName = "parameters")
-    @Action(input = "GetBudgetByLocation", output = "http://superadmin.service.sirius.com/superadmin/wsdl/SuperAdminService/getBudgetByLocationResponse")
-    public GetBudgetByLocationResponse getBudgetByLocation(
-        @WebParam(name = "GetBudgetByLocation", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", partName = "parameters")
-        GetBudgetByLocation parameters);
+    public SuperAdminService() {
+        super(__getWsdlLocation(), SUPERADMINSERVICE_QNAME);
+    }
 
-    /**
-     * 
-     * @param parameters
-     * @return
-     *     returns com.sirius.service.superadmin.superadmin.wsdl.AddLocationResponse
-     */
-    @WebMethod(action = "AddLocation")
-    @WebResult(name = "AddLocationResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", partName = "parameters")
-    @Action(input = "AddLocation", output = "http://superadmin.service.sirius.com/superadmin/wsdl/SuperAdminService/addLocationResponse")
-    public AddLocationResponse addLocation(
-        @WebParam(name = "AddLocation", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", partName = "parameters")
-        AddLocation parameters);
+    public SuperAdminService(WebServiceFeature... features) {
+        super(__getWsdlLocation(), SUPERADMINSERVICE_QNAME, features);
+    }
+
+    public SuperAdminService(URL wsdlLocation) {
+        super(wsdlLocation, SUPERADMINSERVICE_QNAME);
+    }
+
+    public SuperAdminService(URL wsdlLocation, WebServiceFeature... features) {
+        super(wsdlLocation, SUPERADMINSERVICE_QNAME, features);
+    }
+
+    public SuperAdminService(URL wsdlLocation, QName serviceName) {
+        super(wsdlLocation, serviceName);
+    }
+
+    public SuperAdminService(URL wsdlLocation, QName serviceName, WebServiceFeature... features) {
+        super(wsdlLocation, serviceName, features);
+    }
 
     /**
      * 
-     * @param parameters
      * @return
-     *     returns com.sirius.service.superadmin.superadmin.wsdl.AssignAdminResponse
+     *     returns SuperAdmin
      */
-    @WebMethod(action = "AssignAdmin")
-    @WebResult(name = "AssignAdminResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", partName = "parameters")
-    @Action(input = "AssignAdmin", output = "http://superadmin.service.sirius.com/superadmin/wsdl/SuperAdminService/assignAdminResponse")
-    public AssignAdminResponse assignAdmin(
-        @WebParam(name = "AssignAdmin", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", partName = "parameters")
-        AssignAdmin parameters);
+    @WebEndpoint(name = "superadmin")
+    public SuperAdmin getSuperadmin() {
+        return super.getPort(new QName("http://superadmin.service.sirius.com/superadmin/wsdl", "superadmin"), SuperAdmin.class);
+    }
+
+    /**
+     * 
+     * @param features
+     *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     * @return
+     *     returns SuperAdmin
+     */
+    @WebEndpoint(name = "superadmin")
+    public SuperAdmin getSuperadmin(WebServiceFeature... features) {
+        return super.getPort(new QName("http://superadmin.service.sirius.com/superadmin/wsdl", "superadmin"), SuperAdmin.class, features);
+    }
+
+    private static URL __getWsdlLocation() {
+        if (SUPERADMINSERVICE_EXCEPTION!= null) {
+            throw SUPERADMINSERVICE_EXCEPTION;
+        }
+        return SUPERADMINSERVICE_WSDL_LOCATION;
+    }
 
 }

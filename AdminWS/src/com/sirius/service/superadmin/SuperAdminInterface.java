@@ -1,6 +1,7 @@
 package com.sirius.service.superadmin;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -9,12 +10,14 @@ import javax.jws.WebService;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 
+import com.sirius.adminws.beans.OfficeBean;
+
 /**
  * SuperAdmin interface
  * 
  * @author Scout Martinelli
  */
-@WebService(name="SuperAdminService", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
+@WebService(name="SuperAdmin", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 public interface SuperAdminInterface {
 
 	/**
@@ -22,10 +25,10 @@ public interface SuperAdminInterface {
 	 * @param budget
 	 * @param locationId
 	 */
-	@WebMethod(action = "SetBudgetByLocation")
-	@WebResult(name = "SetBudgetByLocationReturn", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
-	@RequestWrapper(localName = "SetBudgetByLocation", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.SetBudgetByLocation")
-	@ResponseWrapper(localName = "SetBudgetByLocationResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.SetBudgetByLocationResponse")
+	@WebMethod(action = "setBudgetByLocation")
+	@WebResult(name = "setBudgetByLocationReturn", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
+	@RequestWrapper(localName = "setBudgetByLocation", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.back.services.setBudgetByLocation")
+	@ResponseWrapper(localName = "setBudgetByLocationResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.back.services.setBudgetByLocationResponse")
 	public boolean setBudgetByLocation(
 			@WebParam(name="budget", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 			BigDecimal budget,
@@ -38,10 +41,10 @@ public interface SuperAdminInterface {
 	 * @param budget
 	 * @param locationId
 	 */
-	@WebMethod(action = "GetBudgetByLocation")
-	@WebResult(name = "GetBudgetByLocationReturn", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
-	@RequestWrapper(localName = "GetBudgetByLocation", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.GetBudgetByLocation")
-	@ResponseWrapper(localName = "GetBudgetByLocationResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.GetBudgetByLocationResponse")
+	@WebMethod(action = "getBudgetByLocation")
+	@WebResult(name = "getBudgetByLocationReturn", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
+	@RequestWrapper(localName = "getBudgetByLocation", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.getBudgetByLocation")
+	@ResponseWrapper(localName = "getBudgetByLocationResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.getBudgetByLocationResponse")
 	public BigDecimal getBudgetByLocation(
 			@WebParam(name="locationId", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 			int locationId
@@ -53,10 +56,10 @@ public interface SuperAdminInterface {
 	 * @param locationId
 	 * @param creatorId
 	 */
-	@WebMethod(action = "AddLocation")
-	@WebResult(name = "AddLocationReturn", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
-	@RequestWrapper(localName = "AddLocation", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.AddLocation")
-	@ResponseWrapper(localName = "AddLocationResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.AddLocationResponse")
+	@WebMethod(action = "addLocation")
+	@WebResult(name = "addLocationReturn", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
+	@RequestWrapper(localName = "addLocation", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.addLocation")
+	@ResponseWrapper(localName = "addLocationResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.addLocationResponse")
 	public boolean addLocation(
 			@WebParam(name="city", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 			String city,
@@ -72,10 +75,10 @@ public interface SuperAdminInterface {
 	 * @param adminId
 	 * @param updaterId
 	 */
-	@WebMethod(action = "AssignAdmin")
-	@WebResult(name = "AssignAdminReturn", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
-	@RequestWrapper(localName = "AssignAdmin", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.AssignAdmin")
-	@ResponseWrapper(localName = "AssignAdminResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.AssignAdminResponse")
+	@WebMethod(action = "assignAdmin")
+	@WebResult(name = "assignAdminReturn", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
+	@RequestWrapper(localName = "assignAdmin", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.assignAdmin")
+	@ResponseWrapper(localName = "assignAdminResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.assignAdminResponse")
 	public boolean assignAdmin(
 			@WebParam(name="locationId", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 			int locationId,
@@ -84,4 +87,14 @@ public interface SuperAdminInterface {
 			@WebParam(name="updaterId", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
 			int updaterId
 			);
+	
+	/**
+	 * Gets all the offices for the super admin page
+	 * @return List<OfficeBean>
+	 */
+	@WebMethod(action = "getOffices")
+	@WebResult(name = "getOfficesReturn", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
+	@RequestWrapper(localName = "getOffices", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.getOffices")
+	@ResponseWrapper(localName = "getOfficesResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.getOfficesResponse")
+	public List<OfficeBean> getOffices();
 }
