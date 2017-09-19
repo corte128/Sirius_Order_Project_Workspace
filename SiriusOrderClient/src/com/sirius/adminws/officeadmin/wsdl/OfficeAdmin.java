@@ -109,4 +109,19 @@ public interface OfficeAdmin {
         @WebParam(name = "locationID", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl")
         int locationID);
 
+    /**
+     * 
+     * @param locationID
+     * @return
+     *     returns java.util.List<com.sirius.adminws.officeadmin.wsdl.EmployeeBean>
+     */
+    @WebMethod(action = "getUnapprovedEmployees")
+    @WebResult(name = "getUnapprovedEmployeesReturn", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl")
+    @RequestWrapper(localName = "getUnapprovedEmployees", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl", className = "com.sirius.adminws.officeadmin.wsdl.GetUnapprovedEmployees")
+    @ResponseWrapper(localName = "getUnapprovedEmployeesResponse", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl", className = "com.sirius.adminws.officeadmin.wsdl.GetUnapprovedEmployeesResponse")
+    @Action(input = "getUnapprovedEmployees", output = "http://adminws.sirius.com/officeAdmin/wsdl/OfficeAdmin/getUnapprovedEmployeesResponse")
+    public List<EmployeeBean> getUnapprovedEmployees(
+        @WebParam(name = "locationID", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl")
+        int locationID);
+
 }

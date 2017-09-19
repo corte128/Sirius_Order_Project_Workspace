@@ -1,4 +1,9 @@
+html body{
+	font-family: serif !important;
+}
 #login-button{
+	font-family: Arial;
+	font-weight: bold;
 	background-color: #5F6060;
 	color: lightgrey;
 	border: none;
@@ -85,6 +90,7 @@
 	#login-title {
 		font-size: 2em;
 		padding-bottom: 20px;
+		text-align: left;
 	}
 	#login-form {
 		flex: 9;

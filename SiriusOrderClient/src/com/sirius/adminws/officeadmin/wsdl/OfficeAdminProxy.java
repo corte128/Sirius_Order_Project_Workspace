@@ -133,4 +133,8 @@ public class OfficeAdminProxy{
         return _getDescriptor().getProxy().getAllHolidays(locationID);
     }
 
+    public List<EmployeeBean> getUnapprovedEmployees(int locationID) {
+        return _getDescriptor().getProxy().getUnapprovedEmployees(locationID);
+    }
+
 }

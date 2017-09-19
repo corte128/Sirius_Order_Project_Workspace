@@ -17,6 +17,10 @@
 
   <xs:element name="getAllHolidaysResponse" type="tns:getAllHolidaysResponse"/>
 
+  <xs:element name="getUnapprovedEmployees" type="tns:getUnapprovedEmployees"/>
+
+  <xs:element name="getUnapprovedEmployeesResponse" type="tns:getUnapprovedEmployeesResponse"/>
+
   <xs:complexType name="getAllHolidays">
     <xs:sequence>
       <xs:element name="locationID" type="xs:int" form="qualified"/>
@@ -79,6 +83,32 @@
   <xs:complexType name="deleteHolidayResponse">
     <xs:sequence>
       <xs:element name="deleteHolidayReturn" type="xs:boolean" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getUnapprovedEmployees">
+    <xs:sequence>
+      <xs:element name="locationID" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getUnapprovedEmployeesResponse">
+    <xs:sequence>
+      <xs:element name="getUnapprovedEmployeesReturn" type="tns:employeeBean" form="qualified" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="employeeBean">
+    <xs:sequence>
+      <xs:element name="email" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="location" type="xs:int"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="numberOfLikes" type="xs:int"/>
+      <xs:element name="password" type="xs:string" minOccurs="0"/>
+      <xs:element name="picture" type="xs:base64Binary" minOccurs="0"/>
+      <xs:element name="role" type="xs:int"/>
+      <xs:element name="valid" type="xs:int"/>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

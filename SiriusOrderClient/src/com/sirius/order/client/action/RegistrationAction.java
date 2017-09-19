@@ -1,15 +1,19 @@
 package com.sirius.order.client.action;
 
+import java.io.InputStream;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.io.IOUtils;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.upload.FormFile;
 
+import com.sirius.employeews.employee.wsdl.EmployeeClientDAO;
 import com.sirius.order.client.form.RegistrationForm;
 
 public class RegistrationAction extends org.apache.struts.action.Action{
@@ -27,21 +31,19 @@ public class RegistrationAction extends org.apache.struts.action.Action{
         	String email = registrationForm.getEmail();
         	int location = registrationForm.getLocation();
 			String password = registrationForm.getPassword();
-			String confirm_password = registrationForm.getConfirm_password();
 			FormFile photo = registrationForm.getPhoto();	
 			
-//			LoginClientDAO dao = new LoginClientDAO();
-//			employeeID = dao.getEmployeeByCredentials(email, password);
-//			if (employeeID != 0) {
-//				session = request.getSession();
-//				EmployeeClientDAO edao = new EmployeeClientDAO();
-//				emp = edao.getEmployeeByEmail(email);
-//
-//				return mapping.findForward(SUCCESS);
-//			} else {
-//				return mapping.findForward(FAILURE);
-//			}
-			return mapping.findForward(FAILURE);
+			EmployeeClientDAO dao = new EmployeeClientDAO();
+			boolean status = false;
+			InputStream is = photo.getInputStream();
+	        byte[] imageData = IOUtils.toByteArray(is);
+	        imageData = Base64.encodeBase64(imageData);
+			status = dao.addEmployee(name, password, 3, email, imageData, location);
+			if (status) {
+				return mapping.findForward(SUCCESS);
+			} else {
+				return mapping.findForward(FAILURE);
+			}
         } catch (Exception e) {
 			e.printStackTrace();
 			throw new ServletException(e);
