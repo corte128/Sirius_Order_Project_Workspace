@@ -99,6 +99,7 @@ public class OfficeAdminServiceDAOImpl {
 				if (rs.getBoolean("is_valid")){
 					Holiday newHoliday = new Holiday();
 					newHoliday.setDate(rs.getString("holiday_date"));
+					newHoliday.setId(rs.getInt("holiday_id_pk"));
 					//get holiday day of week
 					String[] date = newHoliday.getDate().split("-");
 					Calendar c = Calendar.getInstance();
