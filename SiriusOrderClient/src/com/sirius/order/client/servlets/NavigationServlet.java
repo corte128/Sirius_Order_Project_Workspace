@@ -40,17 +40,19 @@ public class NavigationServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		LocationClientDao locationClient = new LocationClientDao();
 
-		 if(action.equalsIgnoreCase("attendance")){
-			 List<LocationBean> locationBeanList = locationClient.getLocations();
-			 
-			 request.setAttribute("locationList", locationBeanList);
-			 HttpSession session =request.getSession();
-			 session.setAttribute("locations", locationBeanList);
-			 forwardToAttendance(request, response);
-			 
-		 }
+//		 if(action.equalsIgnoreCase("attendance")){
+//			 List<LocationBean> locationBeanList = locationClient.getLocations();
+//			 
+//			 request.setAttribute("locationList", locationBeanList);
+//			 HttpSession session =request.getSession();
+//			 session.setAttribute("locations", locationBeanList);
+//			 forwardToAttendance(request, response);
+//			 
+//		 }
 
-		
+		if(action.equalsIgnoreCase("attendance")){
+			forwardToAttendance(request, response);
+		}
 		else if(action.equals("budget"))
 		{
 			forwardToBudget(request, response);
@@ -73,7 +75,7 @@ public class NavigationServlet extends HttpServlet {
 			parsedLocationList.add(parsedLocation);
 		}
 		request.setAttribute("locationList", parsedLocationList);
-		RequestDispatcher dispatcher = request.getRequestDispatcher(contextPath +  "/jsps/authRequired/attendance.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/authRequired/attendance.jsp");
 		dispatcher.forward(request, response);
 	}
 	private void forwardToBudget(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
