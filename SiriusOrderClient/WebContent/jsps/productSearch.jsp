@@ -30,16 +30,8 @@
 			</html:form>
 			</div>
 			    <c:forEach var="product" items="${Products}">
-					<div>
-						<img src="${product.image}" alt="name of item" style="width:250px;height:200px;"></img>
-						<p>${product.name}</p>
-						<hr/>
-						<div>
-							<img></img> 
-							${product.price}
-							<input type="button" value="Add To Cart"/>
-						</div>
-					</div>
+			    	<c:set var="currentProduct" value="${product}"></c:set>
+					<jsp:include page="productCard.jsp"></jsp:include>
 				</c:forEach>
 			<div>
 		</div>

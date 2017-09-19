@@ -12,6 +12,10 @@
   <serviceRefs xmi:id="ServiceRef_1505500839196" serviceRefLink="service/ProductService">
     <portQnameBindings xmi:id="PortQnameBinding_1505500839196" portQnameNamespaceLink="http://main.service.product.sirius.com/product/wsdl" portQnameLocalNameLink="product"/>
   </serviceRefs>
+<<<<<<< HEAD
+  <serviceRefs xmi:id="ServiceRef_1505766770548" serviceRefLink="service/JaxwsLocation">
+    <portQnameBindings xmi:id="PortQnameBinding_1505766770548" portQnameNamespaceLink="http://locationws.sirius.com/location/wsdl" portQnameLocalNameLink="location" overriddenEndpointURI="http://localhost:9080/LocationWS/JaxwsLocation"/>
+=======
   <serviceRefs xmi:id="ServiceRef_1505745922133" serviceRefLink="service/JaxwsLocation">
     <portQnameBindings xmi:id="PortQnameBinding_1505745922133" portQnameNamespaceLink="http://locationws.sirius.com/location/wsdl" portQnameLocalNameLink="location"/>
   </serviceRefs>
@@ -20,5 +24,6 @@
   </serviceRefs>
   <serviceRefs xmi:id="ServiceRef_1505762487944" serviceRefLink="service/SuperAdminService">
     <portQnameBindings xmi:id="PortQnameBinding_1505762487944" portQnameNamespaceLink="http://superadmin.service.sirius.com/superadmin/wsdl" portQnameLocalNameLink="superadmin"/>
+>>>>>>> ff4e291ed9fd2123ba11a40786314b911d1707b9
   </serviceRefs>
 </com.ibm.etools.webservice.wscbnd:ClientBinding>

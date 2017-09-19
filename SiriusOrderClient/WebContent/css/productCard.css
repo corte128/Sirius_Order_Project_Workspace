@@ -1,0 +1,30 @@
+@CHARSET "ISO-8859-1";
+
+.productContainer{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+	width: 170px;
+	height: 200px;
+}
+
+.productImage{
+	width: 100%;
+	height: 40%;
+	padding-top: 5px;
+	padding-bottom: 2px;
+}
+
+.likesAndPrice{
+	padding: 7px 0px 2px 20px;
+}
+
+.productLabel{
+	border-bottom: solid black 1px;
+}
+
+.glyphicon{
+	color:#AF4B33
+}
+
+.addToCartBtn{
+	padding-left: 41px;
+}
