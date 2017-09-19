@@ -11,9 +11,9 @@ import com.sirius.order.service.attendance.beans.AttendanceRecordBean;
 public class JaxwsAttendanceImpl{
 	AttendanceDAO attendanceDAO = new AttendanceDAO();
 	
-	public ArrayList<AttendanceRecordBean> getAttendanceRecords(String inputName, String inputEmail, String inputCity, String inputState, String inputBeginDate, String inputEndDate){
+	public ArrayList<AttendanceRecordBean> getAttendanceRecords(String inputName, String inputEmail, String locationId, String inputBeginDate, String inputEndDate){
 		ArrayList<AttendanceRecordBean> attendanceList = new ArrayList<AttendanceRecordBean>();
-		attendanceList = attendanceDAO.getAttendanceRecords(inputName, inputEmail, inputCity, inputState, inputBeginDate, inputEndDate);
+		attendanceList = attendanceDAO.getAttendanceRecords(inputName, inputEmail, locationId, inputBeginDate, inputEndDate);
 		
 		return attendanceList;
 	}

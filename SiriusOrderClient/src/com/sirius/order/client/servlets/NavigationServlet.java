@@ -38,10 +38,19 @@ public class NavigationServlet extends HttpServlet {
 	{
 		contextPath = request.getContextPath();
 		String action = request.getParameter("action");
-		if(action.equals("attendance"))
-		{
-			forwardToAttendance(request, response);
-		}
+		LocationClientDao locationClient = new LocationClientDao();
+
+		 if(action.equalsIgnoreCase("attendance")){
+			 List<LocationBean> locationBeanList = locationClient.getLocations();
+			 
+			 request.setAttribute("locationList", locationBeanList);
+			 HttpSession session =request.getSession();
+			 session.setAttribute("locations", locationBeanList);
+			 forwardToAttendance(request, response);
+			 
+		 }
+
+		
 		else if(action.equals("budget"))
 		{
 			forwardToBudget(request, response);
@@ -75,6 +84,7 @@ public class NavigationServlet extends HttpServlet {
 		request.setAttribute("locations", locationBeanList);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/budgetReport.jsp");
 		dispatcher.forward(request, response);
+
 	}
 	private void forwardToActivateUsers(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{

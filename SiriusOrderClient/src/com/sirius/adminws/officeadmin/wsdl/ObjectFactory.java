@@ -28,16 +28,8 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _DeleteHoliday_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "deleteHoliday");
-    private final static QName _DeleteHolidayResponse_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "deleteHolidayResponse");
-    private final static QName _GetUnapprovedEmployees_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "getUnapprovedEmployees");
-    private final static QName _AddHolidayResponse_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "addHolidayResponse");
-    private final static QName _AddVisitors_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "addVisitors");
-    private final static QName _GetAllHolidays_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "getAllHolidays");
-    private final static QName _AddHoliday_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "addHoliday");
-    private final static QName _AddVisitorsResponse_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "addVisitorsResponse");
-    private final static QName _GetAllHolidaysResponse_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "getAllHolidaysResponse");
-    private final static QName _GetUnapprovedEmployeesResponse_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "getUnapprovedEmployeesResponse");
+    private final static QName _GetAttendanceRecords_QNAME = new QName("http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl", "getAttendanceRecords");
+    private final static QName _GetAttendanceResponse_QNAME = new QName("http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl", "getAttendanceResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.sirius.adminws.officeadmin.wsdl
@@ -47,189 +39,45 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetUnapprovedEmployeesResponse }
+     * Create an instance of {@link GetAttendanceResponse }
      * 
      */
-    public GetUnapprovedEmployeesResponse createGetUnapprovedEmployeesResponse() {
-        return new GetUnapprovedEmployeesResponse();
+    public GetAttendanceResponse createGetAttendanceResponse() {
+        return new GetAttendanceResponse();
     }
 
     /**
-     * Create an instance of {@link GetAllHolidays }
+     * Create an instance of {@link GetAttendanceRecords }
      * 
      */
-    public GetAllHolidays createGetAllHolidays() {
-        return new GetAllHolidays();
+    public GetAttendanceRecords createGetAttendanceRecords() {
+        return new GetAttendanceRecords();
     }
 
     /**
-     * Create an instance of {@link AddVisitors }
+     * Create an instance of {@link AttendanceRecordBean }
      * 
      */
-    public AddVisitors createAddVisitors() {
-        return new AddVisitors();
+    public AttendanceRecordBean createAttendanceRecordBean() {
+        return new AttendanceRecordBean();
     }
 
     /**
-     * Create an instance of {@link GetAllHolidaysResponse }
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAttendanceRecords }{@code >}}
      * 
      */
-    public GetAllHolidaysResponse createGetAllHolidaysResponse() {
-        return new GetAllHolidaysResponse();
+    @XmlElementDecl(namespace = "http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl", name = "getAttendanceRecords")
+    public JAXBElement<GetAttendanceRecords> createGetAttendanceRecords(GetAttendanceRecords value) {
+        return new JAXBElement<GetAttendanceRecords>(_GetAttendanceRecords_QNAME, GetAttendanceRecords.class, null, value);
     }
 
     /**
-     * Create an instance of {@link AddVisitorsResponse }
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAttendanceResponse }{@code >}}
      * 
      */
-    public AddVisitorsResponse createAddVisitorsResponse() {
-        return new AddVisitorsResponse();
-    }
-
-    /**
-     * Create an instance of {@link AddHoliday }
-     * 
-     */
-    public AddHoliday createAddHoliday() {
-        return new AddHoliday();
-    }
-
-    /**
-     * Create an instance of {@link AddHolidayResponse }
-     * 
-     */
-    public AddHolidayResponse createAddHolidayResponse() {
-        return new AddHolidayResponse();
-    }
-
-    /**
-     * Create an instance of {@link DeleteHoliday }
-     * 
-     */
-    public DeleteHoliday createDeleteHoliday() {
-        return new DeleteHoliday();
-    }
-
-    /**
-     * Create an instance of {@link DeleteHolidayResponse }
-     * 
-     */
-    public DeleteHolidayResponse createDeleteHolidayResponse() {
-        return new DeleteHolidayResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetUnapprovedEmployees }
-     * 
-     */
-    public GetUnapprovedEmployees createGetUnapprovedEmployees() {
-        return new GetUnapprovedEmployees();
-    }
-
-    /**
-     * Create an instance of {@link Holiday }
-     * 
-     */
-    public Holiday createHoliday() {
-        return new Holiday();
-    }
-
-    /**
-     * Create an instance of {@link EmployeeBean }
-     * 
-     */
-    public EmployeeBean createEmployeeBean() {
-        return new EmployeeBean();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteHoliday }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://adminws.sirius.com/officeAdmin/wsdl", name = "deleteHoliday")
-    public JAXBElement<DeleteHoliday> createDeleteHoliday(DeleteHoliday value) {
-        return new JAXBElement<DeleteHoliday>(_DeleteHoliday_QNAME, DeleteHoliday.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteHolidayResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://adminws.sirius.com/officeAdmin/wsdl", name = "deleteHolidayResponse")
-    public JAXBElement<DeleteHolidayResponse> createDeleteHolidayResponse(DeleteHolidayResponse value) {
-        return new JAXBElement<DeleteHolidayResponse>(_DeleteHolidayResponse_QNAME, DeleteHolidayResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetUnapprovedEmployees }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://adminws.sirius.com/officeAdmin/wsdl", name = "getUnapprovedEmployees")
-    public JAXBElement<GetUnapprovedEmployees> createGetUnapprovedEmployees(GetUnapprovedEmployees value) {
-        return new JAXBElement<GetUnapprovedEmployees>(_GetUnapprovedEmployees_QNAME, GetUnapprovedEmployees.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddHolidayResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://adminws.sirius.com/officeAdmin/wsdl", name = "addHolidayResponse")
-    public JAXBElement<AddHolidayResponse> createAddHolidayResponse(AddHolidayResponse value) {
-        return new JAXBElement<AddHolidayResponse>(_AddHolidayResponse_QNAME, AddHolidayResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddVisitors }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://adminws.sirius.com/officeAdmin/wsdl", name = "addVisitors")
-    public JAXBElement<AddVisitors> createAddVisitors(AddVisitors value) {
-        return new JAXBElement<AddVisitors>(_AddVisitors_QNAME, AddVisitors.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllHolidays }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://adminws.sirius.com/officeAdmin/wsdl", name = "getAllHolidays")
-    public JAXBElement<GetAllHolidays> createGetAllHolidays(GetAllHolidays value) {
-        return new JAXBElement<GetAllHolidays>(_GetAllHolidays_QNAME, GetAllHolidays.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddHoliday }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://adminws.sirius.com/officeAdmin/wsdl", name = "addHoliday")
-    public JAXBElement<AddHoliday> createAddHoliday(AddHoliday value) {
-        return new JAXBElement<AddHoliday>(_AddHoliday_QNAME, AddHoliday.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddVisitorsResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://adminws.sirius.com/officeAdmin/wsdl", name = "addVisitorsResponse")
-    public JAXBElement<AddVisitorsResponse> createAddVisitorsResponse(AddVisitorsResponse value) {
-        return new JAXBElement<AddVisitorsResponse>(_AddVisitorsResponse_QNAME, AddVisitorsResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllHolidaysResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://adminws.sirius.com/officeAdmin/wsdl", name = "getAllHolidaysResponse")
-    public JAXBElement<GetAllHolidaysResponse> createGetAllHolidaysResponse(GetAllHolidaysResponse value) {
-        return new JAXBElement<GetAllHolidaysResponse>(_GetAllHolidaysResponse_QNAME, GetAllHolidaysResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetUnapprovedEmployeesResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://adminws.sirius.com/officeAdmin/wsdl", name = "getUnapprovedEmployeesResponse")
-    public JAXBElement<GetUnapprovedEmployeesResponse> createGetUnapprovedEmployeesResponse(GetUnapprovedEmployeesResponse value) {
-        return new JAXBElement<GetUnapprovedEmployeesResponse>(_GetUnapprovedEmployeesResponse_QNAME, GetUnapprovedEmployeesResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl", name = "getAttendanceResponse")
+    public JAXBElement<GetAttendanceResponse> createGetAttendanceResponse(GetAttendanceResponse value) {
+        return new JAXBElement<GetAttendanceResponse>(_GetAttendanceResponse_QNAME, GetAttendanceResponse.class, null, value);
     }
 
 }

@@ -116,6 +116,16 @@
         <url-pattern>
         /SuperAdminServlet</url-pattern>
     </servlet-mapping>
+<<<<<<< HEAD
+	
+	<servlet-mapping>
+		<servlet-name>NavigationServlet</servlet-name>
+		<url-pattern>
+		/NavigationServlet</url-pattern>
+	</servlet-mapping>
+	
+=======
+>>>>>>> 29d7264aea285af2fb0bbc9b692dec105bb33242
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.htm</welcome-file>
