@@ -1,0 +1,9 @@
+#holidays-content{
+	display: flex;
+}
+#holidays-table{
+	flex: 9;
+}
+aside{
+	flex: 1;
+}
