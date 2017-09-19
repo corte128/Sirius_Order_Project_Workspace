@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -31,9 +33,6 @@ public class SearchDAOImpl {
 		List<BudgetObject> budgetObjects = new ArrayList<BudgetObject>();
 		try {
 			PreparedStatement statement = conn.prepareStatement(sql);
-			java.sql.Date from = new java.sql.Date((fromDate).getTime());
-			java.sql.Date to = new java.sql.Date((toDate).getTime());
-
 			statement.setDate(1, new java.sql.Date((fromDate).getTime()));
 			statement.setDate(2, new java.sql.Date((toDate).getTime()));
 			statement.setInt(3, location_id);
@@ -59,17 +58,17 @@ public class SearchDAOImpl {
 	}
 	
 	private List<ActualvBudgetBean> budgetSeparationByTime(List<BudgetObject> budgetObjects, Date fromDate, String reportType){
-		
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 	    Calendar cal = Calendar.getInstance();
     	Date startOfWeek = fromDate;
     	String startMonth = cal.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault());
     	cal.setTime(fromDate);
     	
     	//c.set(Calendar.DAY_OF_MONTH, c.getActualMaximum(Calendar.DAY_OF_MONTH));
-    	if(reportType.equals("weekly")){
+    	if(reportType.equalsIgnoreCase("weekly")){
 	    	cal.add(Calendar.DATE, 6);
     	}
-    	if(reportType.equals("monthly")){
+    	if(reportType.equalsIgnoreCase("monthly")){
 //	    	cal.add(Calendar.MONTH, 1);
 	    	cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
     	}
@@ -77,15 +76,15 @@ public class SearchDAOImpl {
     	int length = budgetObjects.size();
     	List<BudgetObject> objectsByTimeIncrements = new ArrayList<BudgetObject>();
     	List<ActualvBudgetBean> beans = new ArrayList<ActualvBudgetBean>();
-    	
-    	for(int incrementer = 0; incrementer < length; incrementer++){
+    	int incrementer = 0;
+    	while(incrementer < length){
     		BudgetObject obj = budgetObjects.get(incrementer);
-    		int temp = obj.getDate().compareTo(cal.getTime());
     		if(obj.getDate().compareTo(cal.getTime()) <= 0){
     			//add to objects list then in the else add all values together
     			objectsByTimeIncrements.add(obj);
+    			incrementer++;
     		}
-    		if(incrementer == length-1){
+    		if(incrementer == length-1 || obj.getDate().compareTo(cal.getTime()) > 0){
     			BigDecimal actual = new BigDecimal(0);
     			BigDecimal budget = new BigDecimal(0);
     			ActualvBudgetBean abBean = new ActualvBudgetBean();
@@ -95,8 +94,8 @@ public class SearchDAOImpl {
     			}
     			abBean.setActual(actual);
     			abBean.setBudget(budget);
-    			if(reportType.equals("weekly")){
-	    			abBean.setTime(startOfWeek + " - " + cal.getTime());
+    			if(reportType.equalsIgnoreCase("weekly")){
+	    			abBean.setTime( dateFormat.format(startOfWeek) + " - " + dateFormat.format(cal.getTime()));
 	    			cal.add(Calendar.DATE, 1);
 	    			startOfWeek = cal.getTime();
 	    			cal.add(Calendar.DATE, 6);
