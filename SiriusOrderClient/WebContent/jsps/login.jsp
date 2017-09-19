@@ -8,7 +8,6 @@
 <head>
 <fmt:setBundle basename="com.sirius.order.client.properties.common"/>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/login.css">
 <meta name="viewport" content="width=device-width" />
 <title><fmt:message key="LOGIN_TITLE" /></title>

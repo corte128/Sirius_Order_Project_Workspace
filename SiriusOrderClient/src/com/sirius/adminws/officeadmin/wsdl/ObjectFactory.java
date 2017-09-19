@@ -30,18 +30,28 @@ public class ObjectFactory {
 
     private final static QName _DeleteHoliday_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "deleteHoliday");
     private final static QName _DeleteHolidayResponse_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "deleteHolidayResponse");
+    private final static QName _GetUnapprovedEmployees_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "getUnapprovedEmployees");
     private final static QName _AddHolidayResponse_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "addHolidayResponse");
     private final static QName _AddVisitors_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "addVisitors");
     private final static QName _GetAllHolidays_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "getAllHolidays");
     private final static QName _AddHoliday_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "addHoliday");
     private final static QName _AddVisitorsResponse_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "addVisitorsResponse");
     private final static QName _GetAllHolidaysResponse_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "getAllHolidaysResponse");
+    private final static QName _GetUnapprovedEmployeesResponse_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "getUnapprovedEmployeesResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.sirius.adminws.officeadmin.wsdl
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link GetUnapprovedEmployeesResponse }
+     * 
+     */
+    public GetUnapprovedEmployeesResponse createGetUnapprovedEmployeesResponse() {
+        return new GetUnapprovedEmployeesResponse();
     }
 
     /**
@@ -109,11 +119,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetUnapprovedEmployees }
+     * 
+     */
+    public GetUnapprovedEmployees createGetUnapprovedEmployees() {
+        return new GetUnapprovedEmployees();
+    }
+
+    /**
      * Create an instance of {@link Holiday }
      * 
      */
     public Holiday createHoliday() {
         return new Holiday();
+    }
+
+    /**
+     * Create an instance of {@link EmployeeBean }
+     * 
+     */
+    public EmployeeBean createEmployeeBean() {
+        return new EmployeeBean();
     }
 
     /**
@@ -132,6 +158,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://adminws.sirius.com/officeAdmin/wsdl", name = "deleteHolidayResponse")
     public JAXBElement<DeleteHolidayResponse> createDeleteHolidayResponse(DeleteHolidayResponse value) {
         return new JAXBElement<DeleteHolidayResponse>(_DeleteHolidayResponse_QNAME, DeleteHolidayResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetUnapprovedEmployees }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://adminws.sirius.com/officeAdmin/wsdl", name = "getUnapprovedEmployees")
+    public JAXBElement<GetUnapprovedEmployees> createGetUnapprovedEmployees(GetUnapprovedEmployees value) {
+        return new JAXBElement<GetUnapprovedEmployees>(_GetUnapprovedEmployees_QNAME, GetUnapprovedEmployees.class, null, value);
     }
 
     /**
@@ -186,6 +221,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://adminws.sirius.com/officeAdmin/wsdl", name = "getAllHolidaysResponse")
     public JAXBElement<GetAllHolidaysResponse> createGetAllHolidaysResponse(GetAllHolidaysResponse value) {
         return new JAXBElement<GetAllHolidaysResponse>(_GetAllHolidaysResponse_QNAME, GetAllHolidaysResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetUnapprovedEmployeesResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://adminws.sirius.com/officeAdmin/wsdl", name = "getUnapprovedEmployeesResponse")
+    public JAXBElement<GetUnapprovedEmployeesResponse> createGetUnapprovedEmployeesResponse(GetUnapprovedEmployeesResponse value) {
+        return new JAXBElement<GetUnapprovedEmployeesResponse>(_GetUnapprovedEmployeesResponse_QNAME, GetUnapprovedEmployeesResponse.class, null, value);
     }
 
 }

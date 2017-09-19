@@ -30,7 +30,7 @@
   </binding>
   <service name="JaxwsSearch">
     <port binding="tns:searchBinding" name="search">
-      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+      <soap:address location="http://localhost:9080/Search/JaxwsSearch"/>
     </port>
   </service>
 </definitions>

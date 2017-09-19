@@ -1,4 +1,3 @@
-#Mon Sep 18 10:18:56 CDT 2017
 encoding//WebContent/jsps/nav.jsp=ISO-8859-1
 encoding//WebContent/jsps/header.jsp=ISO-8859-1
 encoding//WebContent/jsps/productSearch.jsp=ISO-8859-1
@@ -7,4 +6,6 @@ encoding//WebContent/jsps/productCard.jsp=ISO-8859-1
 encoding//WebContent/jsps/budgetReport.jsp=ISO-8859-1
 eclipse.preferences.version=1
 encoding//WebContent/jsps/welcome.jsp=ISO-8859-1
+encoding//WebContent/jsps/budgetReport.jsp=ISO-8859-1
+encoding//WebContent/jsps/superAdmin.jsp=ISO-8859-1
 encoding//WebContent/jsps/login.jsp=ISO-8859-1
