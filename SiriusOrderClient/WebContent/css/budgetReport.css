@@ -22,3 +22,9 @@
 	font-size: 15px;
 	color: grey;
 }
+#budgetReportGenerateReportButton
+{
+	display: inline-block;
+	postition: absolute;
+	background-color: #5F6060;
+}

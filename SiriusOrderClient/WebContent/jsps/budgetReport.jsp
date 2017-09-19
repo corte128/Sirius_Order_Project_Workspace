@@ -15,6 +15,7 @@
 	
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  		<script src="/SiriusOrderClient/js/chartCreator.js"></script>
 	</head>
 	<body>
 		<header>
@@ -99,6 +100,10 @@
 										<fmt:message key="BUDGET_REPORT_DISPLAY_LABEL" />
 									</option>
 								</select>
+							</div>
+							
+							<div id="budgetReportGenerateReportButton">
+								<fmt:message key="BUDGET_REPORT_GENERATE_REPORT_LABEL" />
 							</div>
 						</div>
 					</div>

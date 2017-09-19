@@ -40,8 +40,8 @@ public class BudgetServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
 		if(request.getParameter("action").equals("searchBudget"))
 		{
 			getBudgetSearchJSON(request, response);
@@ -57,14 +57,15 @@ public class BudgetServlet extends HttpServlet {
 	 */
 	private void getBudgetSearchJSON(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		int locationId = Integer.parseInt(request.getParameter("locationId"));
+		
 		List<ActualvBudgetBean> budgetReports = null;
 		JsonArrayBuilder builder = Json.createArrayBuilder();
 		for(ActualvBudgetBean budgetReport : budgetReports)
 		{
-			builder.add(Json.createObjectBuilder()
-							.add("Time", budgetReport.getTime())
-							.add("Actual", budgetReport.getActual())
-							.add("Budget", budgetReport.getBudget()));
+			builder.add(Json.createArrayBuilder().add(budgetReport.getTime())
+				.add(budgetReport.getActual())
+				.add(budgetReport.getBudget()));
 		}
 		JsonArray output = builder.build();
 		
