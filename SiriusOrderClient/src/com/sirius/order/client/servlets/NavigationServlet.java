@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sirius.loctionws.location.wsdl.LocationBean;
-import com.sirius.loctionws.location.wsdl.LocationClientDao;
+import com.sirius.locationws.location.wsdl.LocationBean;
+import com.sirius.locationws.location.wsdl.LocationClientDAO;
+
 
 /**
  * Servlet implementation class NavigationServlet
@@ -33,7 +34,7 @@ public class NavigationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-		LocationClientDao locationClient = new LocationClientDao();
+		LocationClientDAO locationClient = new LocationClientDAO();
 		String action = request.getParameter("action");
 		 if(action.equalsIgnoreCase("attendance")){
 			 List<LocationBean> locationBeanList = locationClient.getLocations();

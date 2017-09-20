@@ -6,7 +6,6 @@
 		<form-bean name="LoginForm" type="com.sirius.order.client.form.LoginForm"/>
 		<form-bean name="RegistrationForm" type="com.sirius.order.client.form.RegistrationForm"/>
 		<form-bean name="VisitorsForm" type="com.sirius.order.client.form.VisitorsForm"/>
-		<form-bean name="ProductSearchForm" type="com.sirius.order.client.form.ProductSearchForm"/>
 	</form-beans>
 	
 	<global-exceptions>
@@ -31,9 +30,6 @@
         <action path="/Welcome" type="com.sirius.order.client.action.WelcomeAction">
             <forward name="success" path="./jsps/productSearch.jsp" />
             <forward name="failure" path="./jsps/login.jsp" />
-        </action>
-        <action input="./jsps/productSearch.jsp" name="ProductSearchForm" path="/ProductSearch" scope="session" type="com.sirius.order.client.action.ProductSearchAction">
-            <forward name="success" path="./jsps/productSearch.jsp" />
         </action>
 	</action-mappings>
 	
