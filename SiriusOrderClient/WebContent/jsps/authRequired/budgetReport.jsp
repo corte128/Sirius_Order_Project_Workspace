@@ -13,7 +13,15 @@
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
   		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-touch.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-animate.js"></script>
+    	<script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
+    	<script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
+    	<script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
+    
+    	<script src="/ACEWeb/angular/bower_components/angular-ui-grid/ui-grid.js"></script>
+    	<link rel="stylesheet" type="text/css" href="/ACEWeb/angular/bower_components/angular-ui-grid/ui-grid.css"/>
     
 		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
 		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/budgetReport.css">
@@ -25,7 +33,7 @@
 	</head>
 	<body ng-app="chartApp">
 		<header>
-			<%@ include file="header.jsp" %>
+			<%@ include file="../header.jsp" %>
 		</header>
 		<main ng-controller="BudgetChartCtrl">
 			<div class="container-fluid" style="padding: 0;">
@@ -114,7 +122,7 @@
 						</div>
 					</div>
 					<aside id="budgetNavContainer">
-						<%@ include file="nav.jsp" %>
+						<%@ include file="../nav.jsp" %>
 					</aside>
 				</div>
 			</div>
@@ -122,6 +130,7 @@
 				<div id="budgetChartContainer">
 				</div>
 				<div id="budgetGridContainer">
+					<div id="grid1" ui-grid="gridOptions" class="grid" ui-grid-auto-resize></div>
 				</div>
 			</div>
 		</main>

@@ -13,15 +13,14 @@ import javax.servlet.http.HttpSession;
 
 import com.sirius.adminws.officeadmin.wsdl.EmployeeBean;
 import com.sirius.adminws.officeadmin.wsdl.OfficeAdminClientDAO;
-import com.sirius.loctionws.location.wsdl.LocationBean;
-import com.sirius.loctionws.location.wsdl.LocationClientDao;
+import com.sirius.locationws.location.wsdl.LocationBean;
+import com.sirius.locationws.location.wsdl.LocationClientDAO;
 
 /**
  * Servlet implementation class NavigationServlet
  */
 public class NavigationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private String contextPath = null;
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -36,19 +35,8 @@ public class NavigationServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		contextPath = request.getContextPath();
 		String action = request.getParameter("action");
-		LocationClientDao locationClient = new LocationClientDao();
-
-//		 if(action.equalsIgnoreCase("attendance")){
-//			 List<LocationBean> locationBeanList = locationClient.getLocations();
-//			 
-//			 request.setAttribute("locationList", locationBeanList);
-//			 HttpSession session =request.getSession();
-//			 session.setAttribute("locations", locationBeanList);
-//			 forwardToAttendance(request, response);
-//			 
-//		 }
+		
 
 		if(action.equalsIgnoreCase("attendance")){
 			forwardToAttendance(request, response);
@@ -64,27 +52,22 @@ public class NavigationServlet extends HttpServlet {
 	}
 	private void forwardToAttendance(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		LocationClientDao locationClient = new LocationClientDao();
+		LocationClientDAO locationClient = new LocationClientDAO();
 		List<LocationBean> locationBeanList = locationClient.getLocations();
-		ArrayList<String> parsedLocationList = new ArrayList<String>();
 		 
-		for (int i=0; i<locationBeanList.size(); i++)
-		{
-			LocationBean tempBean = locationBeanList.get(i);
-			String parsedLocation = tempBean.getCity() + ", " + tempBean.getState();
-			parsedLocationList.add(parsedLocation);
-		}
-		request.setAttribute("locationList", parsedLocationList);
+		 
+		 HttpSession session =request.getSession();
+		 session.setAttribute("locations", locationBeanList);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/authRequired/attendance.jsp");
 		dispatcher.forward(request, response);
 	}
 	private void forwardToBudget(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		LocationClientDao locationClient = new LocationClientDao();
+		LocationClientDAO locationClient = new LocationClientDAO();
 		List<LocationBean> locationBeanList = locationClient.getLocations();
 		 
 		request.setAttribute("locations", locationBeanList);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/budgetReport.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/authRequired/budgetReport.jsp");
 		dispatcher.forward(request, response);
 
 	}
