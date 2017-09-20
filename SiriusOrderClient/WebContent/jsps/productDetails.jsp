@@ -3,6 +3,9 @@
   <head>
     <link rel="stylesheet" type="text/css"
     	href="/SiriusOrderClient/css/productDetails.css">
+    	<script src="/SiriusOrderClient/js/productSearch.js"></script>
+    	
+    	
   </head>
   <body>
     <div class="productDetailsMainContianer">
@@ -22,10 +25,10 @@
             </div>
           </div>
           <div class="orderFormContainer">
-          <form action="AddToCartServlet" method="post">
+          <form method="post">
             <label for="quantityToAdd">Quantity: </label>
             <input type="number" name="quantityToAdd" value="" required pattern="^[0-9]{1,2}$" maxlength="2" class="quantityInput">
-            <button type="submit">Add to Cart</button>
+            <button type="submit" onclick="addToCart(${productId})">Add to Cart</button>
           </form>
           </div>
         </div>
