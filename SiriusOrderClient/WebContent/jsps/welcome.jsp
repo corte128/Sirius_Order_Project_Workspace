@@ -39,17 +39,17 @@
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner">
 					<div class="item active">
-						<img src="/SiriusOrderClient/assets/la.jpg" alt="Los Angeles"
+						<img src="/SiriusOrderClient/assets/border_1.png" alt="Los Angeles"
 							style="width: 100%;">
 					</div>
 
 					<div class="item">
-						<img src="/SiriusOrderClient/assets/chicago.jpg" alt="Chicago"
+						<img src="/SiriusOrderClient/assets/border_2.png"" alt="Chicago"
 							style="width: 100%;">
 					</div>
 
 					<div class="item">
-						<img src="/SiriusOrderClient/assets/ny.jpg" alt="New york"
+						<img src="/SiriusOrderClient/assets/border_3.png"" alt="New york"
 							style="width: 100%;">
 					</div>
 				</div>
