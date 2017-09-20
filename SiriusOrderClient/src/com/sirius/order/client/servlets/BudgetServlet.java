@@ -86,8 +86,8 @@ public class BudgetServlet extends HttpServlet {
 		for(ActualvBudgetBean budgetReport : budgetReports)
 		{
 			builder.add(Json.createArrayBuilder().add(budgetReport.getTime())
-				.add(budgetReport.getActual())
-				.add(budgetReport.getBudget()));
+				.add(budgetReport.getBudget())
+				.add(budgetReport.getActual()));
 		}
 		JsonArray output = builder.build();
 		
