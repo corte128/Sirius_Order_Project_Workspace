@@ -25,10 +25,11 @@ public class LoginServiceDAOImpl {
 		try{
 			logger.log(Level.FINE, "Looking for employee in database...");
 			conn = DBConnection.getConnection();
-			String sqlQuery = "SELECT employee_id_fk FROM login_tbl WHERE username_pk = (?) AND login_password = (?)";
+			String sqlQuery = "SELECT employee_id_fk FROM login_tbl WHERE username_pk = (?) AND login_password = (?) AND is_valid = (?)";
 			PreparedStatement statement = conn.prepareStatement(sqlQuery);
 			statement.setString(1, email);
 			statement.setString(2, password);
+			statement.setString(3, "accepted");
 			ResultSet rs = statement.executeQuery();
 			if(rs.next()){
 				result = rs.getInt("employee_id_fk");

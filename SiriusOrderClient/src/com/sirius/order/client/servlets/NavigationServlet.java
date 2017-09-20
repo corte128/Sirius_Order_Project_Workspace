@@ -47,17 +47,7 @@ public class NavigationServlet extends HttpServlet {
 	{
 
 		String action = request.getParameter("action");
-		LocationClientDAO locationClient = new LocationClientDAO();
 
-//		 if(action.equalsIgnoreCase("attendance")){
-//			 List<LocationBean> locationBeanList = locationClient.getLocations();
-//
-//			 request.setAttribute("locationList", locationBeanList);
-//			 HttpSession session =request.getSession();
-//			 session.setAttribute("locations", locationBeanList);
-//			 forwardToAttendance(request, response);
-//
-//		 }
 
 
 		if(action.equalsIgnoreCase("attendance")){
@@ -105,7 +95,7 @@ public class NavigationServlet extends HttpServlet {
 		List<LocationBean> locationBeanList = locationClient.getLocations();
 
 
-		 HttpSession session =request.getSession();
+		HttpSession session =request.getSession();
 		 session.setAttribute("locations", locationBeanList);
 		 RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/authRequired/attendance.jsp");
 		 dispatcher.forward(request, response);
