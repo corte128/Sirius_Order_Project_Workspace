@@ -144,7 +144,7 @@
   </binding>
   <service name="CartService">
     <port binding="tns:cartBinding" name="cart">
-      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+      <soap:address location="http://localhost:9080/CartWS/CartService"/>
     </port>
   </service>
 </definitions>

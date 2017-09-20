@@ -103,6 +103,10 @@
         <url-pattern>/AttendanceServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>NavigationServlet</servlet-name>
+        <url-pattern>/NavigationServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
     	<servlet-name>ProductSearchServlet</servlet-name>
     	<url-pattern>
     	/ProductSearchServlet</url-pattern>
