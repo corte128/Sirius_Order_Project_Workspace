@@ -1,8 +1,6 @@
 package com.sirius.order.client.servlets;
 
 import java.io.IOException;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -18,7 +16,6 @@ import com.sirius.locationws.location.wsdl.LocationBean;
 import com.sirius.locationws.location.wsdl.LocationClientDAO;
 import com.sirius.product.service.main.product.wsdl.ProductBean;
 import com.sirius.product.service.main.product.wsdl.ProductSearchDAO;
-import com.sirius.product.service.main.product.wsdl.ProductService;
 import com.sirius.service.cart.cart.wsdl.CartServiceDAO;
 import com.sirius.service.cart.cart.wsdl.OrderBean;
 
@@ -32,7 +29,7 @@ public class NavigationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * @see HttpServlet#HttpServlet()
+     * @see HttpServlet#HttpServlet() 
      */
     public NavigationServlet() {
         super();

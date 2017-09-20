@@ -1,13 +1,15 @@
 @CHARSET "ISO-8859-1";
 
-.productContainer{
+.productCard{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 	width: 170px;
 	height: 200px;
+	
+	padding-bottom: 5px;
 }
 
 .productImage{
-	width: 100%;
+	width: 50%;
 	height: 40%;
 	padding-top: 5px;
 	padding-bottom: 2px;
@@ -27,4 +29,12 @@
 
 .addToCartBtn{
 	padding-left: 41px;
+}
+
+.imageContainer{
+	padding-left: 40px;	
+}
+
+.nameLabel{
+	font-size: 1.5vh;
 }
