@@ -95,6 +95,7 @@ public class NavigationServlet extends HttpServlet {
 		OfficeAdminClientDAO client = new OfficeAdminClientDAO();
 		List<EmployeeBean> employees = client.getUnapprovedEmployees((Integer) session.getAttribute("activeUserLocation"));
 		System.out.println("GETTING UNAPPROVED EMPLOYEES FOR LOCATION: " + session.getAttribute("activeUserLocation"));
+		System.out.println(employees.size());
 		request.setAttribute("employees", employees);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/activateUsers.jsp");
 		dispatcher.forward(request, response);
