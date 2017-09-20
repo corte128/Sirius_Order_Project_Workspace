@@ -19,7 +19,7 @@
 <script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
 <script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
 <script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
-
+<script type="text/javascript" src="SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
 <script
 	src="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.js"></script>
 <link rel="stylesheet" type="text/css"
