@@ -57,8 +57,6 @@ public class AttendanceServlet extends HttpServlet {
 			String startDate = request.getParameter("startDate");
 			String endDate = request.getParameter("endDate");
 			String range = request.getParameter("range");
-
-			
 	
 			
 			
