@@ -5,7 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
-<head>
+<head> 
 <fmt:setBundle basename="com.sirius.order.client.properties.common"/>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
@@ -51,7 +51,7 @@
 						<input class="registration-field" required type="password" name="confirm_password" placeholder=<fmt:message key="REGISTRATION_CONFIRM_PASSWORD_LABEL" /> />
 						<br />
 						<html:file name="RegistrationForm" property="photo" />
-						<html:submit styleId="registration-button" value="Registration" />
+						<html:submit styleId="registration-button" value="Register" />
 						<div id="errors">
 							<html:errors  />
 						</div>

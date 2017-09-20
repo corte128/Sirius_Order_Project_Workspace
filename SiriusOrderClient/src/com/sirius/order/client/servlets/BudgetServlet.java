@@ -2,6 +2,9 @@ package com.sirius.order.client.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -61,8 +64,22 @@ public class BudgetServlet extends HttpServlet {
 	{
 		int locationId = Integer.parseInt(request.getParameter("locationId"));
 		String reportType = request.getParameter("reportType");
-		Date fromDate = new Date(request.getParameter("fromDate"));
-		Date toDate = new Date(request.getParameter("toDate"));
+		
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		
+		Date fromDate = null;
+		Date toDate = null;
+		try 
+		{
+			String temp = request.getParameter("toDate");
+			toDate = df.parse(request.getParameter("toDate"));
+			fromDate = df.parse(request.getParameter("fromDate"));
+			System.out.println(temp);
+		} 
+		catch (ParseException e) 
+		{
+			e.printStackTrace();
+		}
 		
 		List<ActualvBudgetBean> budgetReports = SearchClientDAO.budgetSearch(locationId, fromDate, toDate, reportType);
 		JsonArrayBuilder builder = Json.createArrayBuilder();

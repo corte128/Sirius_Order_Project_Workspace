@@ -39,6 +39,7 @@
 	font-size: 11px;
 	padding: 8px 18px 8px 18px;
 	cursor: pointer;
+	border: none;
 }
 @media(min-width: 769px) 
 {

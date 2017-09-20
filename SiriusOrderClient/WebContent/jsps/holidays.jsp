@@ -1,7 +1,7 @@
-<!DOCTYPE HTML><%@page language="java"
-	contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
-<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
+<!DOCTYPE HTML><%@ page language="java"
+	contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
@@ -19,7 +19,7 @@
 <script type="text/javascript" src="/SiriusOrderClient/js/jquery.appendGrid-1.7.1.js"></script>
 <script type="text/javascript" src="/SiriusOrderClient/js/holidays.js"></script>
 </head>
-<body> 
+<body>  
 	<header>
 		<%@ include file="header.jsp" %>
 	</header>
@@ -29,8 +29,7 @@
 				<table id="tblAppendGrid">
 				</table>
 		  	</form> 
-		</div> 
-		<i class="fa fa-trash" aria-hidden="true"></i>
+		</div>
 		<aside>
 			<%@ include file="nav.jsp" %>
 		</aside>

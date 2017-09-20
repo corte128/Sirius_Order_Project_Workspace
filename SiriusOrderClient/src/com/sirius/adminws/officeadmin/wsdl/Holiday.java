@@ -24,6 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="date" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="dayOfWeek" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="holidayName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,7 +37,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "holiday", propOrder = {
     "date",
     "dayOfWeek",
-    "holidayName"
+    "holidayName",
+    "id"
 })
 public class Holiday {
 
@@ -46,6 +48,8 @@ public class Holiday {
     protected int dayOfWeek;
     @XmlElement(namespace = "")
     protected String holidayName;
+    @XmlElement(namespace = "")
+    protected int id;
 
     /**
      * Gets the value of the date property.
@@ -109,6 +113,22 @@ public class Holiday {
      */
     public void setHolidayName(String value) {
         this.holidayName = value;
+    }
+
+    /**
+     * Gets the value of the id property.
+     * 
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Sets the value of the id property.
+     * 
+     */
+    public void setId(int value) {
+        this.id = value;
     }
 
 }

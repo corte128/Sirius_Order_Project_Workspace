@@ -17,7 +17,7 @@ public class AttendanceDAOImpl{
 	ResourceBundle resourceBundle = null;
 	
 	
-	public ArrayList<AttendanceRecordBean> getAttendanceRecords(Connection conn, String inputName, String inputEmail, String inputCity, String inputState, String inputBeginDate, String inputEndDate){
+	public ArrayList<AttendanceRecordBean> getAttendanceRecords(Connection conn, String inputName, String inputEmail, String locationId, String inputBeginDate, String inputEndDate){
 		resourceBundle = ResourceBundle.getBundle("com.sirius.order.service.attendance.properties.queries");
 		ArrayList<AttendanceRecordBean> attendanceList = new ArrayList<AttendanceRecordBean>();
 		String sqlQuery = resourceBundle.getString("ATTENDANCE_QUERY");
@@ -29,10 +29,9 @@ public class AttendanceDAOImpl{
 			statement = conn.prepareStatement(sqlQuery);
 			statement.setString(1, inputName);
 			statement.setString(2, inputEmail);
-			statement.setString(3, inputCity);
-			statement.setString(4, inputState);
-			statement.setString(5, inputBeginDate);
-			statement.setString(6, inputEndDate);
+			statement.setString(3, locationId);
+			statement.setString(4, inputBeginDate);
+			statement.setString(5, inputEndDate);
 			
 			 results = statement.executeQuery();
 			

@@ -50,7 +50,7 @@
 	width: 180px;
 	height: 160px;
 	opacity: 0.5;
-	z-index: 2;
+	z-index: 1000;
 }
 #adminNavSubModalTextContainer
 {
@@ -81,7 +81,7 @@
 	width: 180px;
 	height: 80px;
 	opacity: 0.5;
-	z-index: 2;
+	z-index: 1000;
 }
 #reportsNavSubModalTextContainer
 {
@@ -92,7 +92,7 @@
 	font-family: serif;
 	font-size: 15px;
 	opacity: 1;
-	z-index: 3;
+	z-index: 1000;
 }
 .reports-nav-sub-modal-text-container
 {
@@ -135,7 +135,7 @@
 	position: fixed;
 	left: calc(100% - 30px - 10px);
 	top: 10px;
-	z-index: 5;
+	z-index: 1000;
 	cursor: pointer;
 	color: white;
 }
@@ -160,6 +160,7 @@
 }
 .responsive-nav-sidebar
 {
+	z-index: 1000;
 	position: fixed;
 	height: 100%;
 	width: 40%;

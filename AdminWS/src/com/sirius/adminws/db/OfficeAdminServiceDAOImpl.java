@@ -99,6 +99,7 @@ public class OfficeAdminServiceDAOImpl {
 				if (rs.getBoolean("is_valid")){
 					Holiday newHoliday = new Holiday();
 					newHoliday.setDate(rs.getString("holiday_date"));
+					newHoliday.setId(rs.getInt("holiday_id_pk"));
 					//get holiday day of week
 					String[] date = newHoliday.getDate().split("-");
 					Calendar c = Calendar.getInstance();
@@ -130,12 +131,16 @@ public class OfficeAdminServiceDAOImpl {
 			stmt.setInt(1, locationID);
 			stmt.setString(2, "pending");
 			ResultSet rs = stmt.executeQuery();
+			int count = 0;
 			while(rs.next()){
+				count++;
 				EmployeeBean e = new EmployeeBean();
 				e.setEmail(rs.getString("employee_email"));
 				e.setName(rs.getString("employee_name"));
 				e.setId(rs.getInt("employee_id_pk"));
+				emps.add(e);
 			}
+			System.out.println("Employee Count: " + count);
 			DBConnection.closeResultSet(rs);
 			DBConnection.closePreparedStatement(stmt);
 		} catch (SQLException e) {

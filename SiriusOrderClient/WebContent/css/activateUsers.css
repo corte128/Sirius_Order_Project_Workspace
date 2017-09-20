@@ -1,0 +1,12 @@
+#users-content{
+	display: flex;
+}
+#users-form{
+	flex: 9;
+}
+aside{
+	flex: 1;
+}
+.user-email{
+	text-decoration: underline;
+}
