@@ -38,7 +38,7 @@ public class RegistrationAction extends org.apache.struts.action.Action{
 			InputStream is = photo.getInputStream();
 	        byte[] imageData = IOUtils.toByteArray(is);
 	        imageData = Base64.encodeBase64(imageData);
-			status = dao.addEmployee(name, password, 3, email, imageData, location);
+			status = dao.addEmployee(name, password, 1, email, imageData, location);
 			if (status) {
 				return mapping.findForward(SUCCESS);
 			} else {
