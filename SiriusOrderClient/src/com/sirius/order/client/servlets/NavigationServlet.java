@@ -1,6 +1,7 @@
 package com.sirius.order.client.servlets;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +22,6 @@ import com.sirius.locationws.location.wsdl.LocationClientDAO;
  */
 public class NavigationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private String contextPath = null;
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -34,9 +34,12 @@ public class NavigationServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+
+
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		contextPath = request.getContextPath();
+
 		String action = request.getParameter("action");
 		LocationClientDAO locationClient = new LocationClientDAO();
 
@@ -50,7 +53,9 @@ public class NavigationServlet extends HttpServlet {
 //			 
 //		 }
 
+
 		if(action.equalsIgnoreCase("attendance")){
+
 			forwardToAttendance(request, response);
 		}
 		else if(action.equals("budget"))
@@ -69,17 +74,12 @@ public class NavigationServlet extends HttpServlet {
 	{
 		LocationClientDAO locationClient = new LocationClientDAO();
 		List<LocationBean> locationBeanList = locationClient.getLocations();
-		ArrayList<String> parsedLocationList = new ArrayList<String>();
 		 
-		for (int i=0; i<locationBeanList.size(); i++)
-		{
-			LocationBean tempBean = locationBeanList.get(i);
-			String parsedLocation = tempBean.getCity() + ", " + tempBean.getState();
-			parsedLocationList.add(parsedLocation);
-		}
-		request.setAttribute("locationList", parsedLocationList);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/authRequired/attendance.jsp");
-		dispatcher.forward(request, response);
+		 
+		 HttpSession session =request.getSession();
+		 session.setAttribute("locations", locationBeanList);
+		 RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/authRequired/attendance.jsp");
+		 dispatcher.forward(request, response);
 	}
 	private void forwardToBudget(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
@@ -87,7 +87,7 @@ public class NavigationServlet extends HttpServlet {
 		List<LocationBean> locationBeanList = locationClient.getLocations();
 		 
 		request.setAttribute("locations", locationBeanList);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/budgetReport.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/authRequired/budgetReport.jsp");
 		dispatcher.forward(request, response);
 
 	}
@@ -98,6 +98,7 @@ public class NavigationServlet extends HttpServlet {
 		OfficeAdminClientDAO client = new OfficeAdminClientDAO();
 		List<EmployeeBean> employees = client.getUnapprovedEmployees((Integer) session.getAttribute("activeUserLocation"));
 		System.out.println("GETTING UNAPPROVED EMPLOYEES FOR LOCATION: " + session.getAttribute("activeUserLocation"));
+		System.out.println(employees.size());
 		request.setAttribute("employees", employees);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/activateUsers.jsp");
 		dispatcher.forward(request, response);

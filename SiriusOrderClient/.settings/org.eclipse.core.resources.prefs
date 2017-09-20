@@ -1,15 +1,15 @@
-<<<<<<< HEAD
-#Tue Sep 19 09:59:35 CDT 2017
-=======
->>>>>>> 83303faa39497b722db4801f6cd8ae4b8919687e
+
+encoding//WebContent/jsps/reviewCart.jsp=ISO-8859-1
 encoding//WebContent/jsps/nav.jsp=ISO-8859-1
 encoding//WebContent/jsps/header.jsp=ISO-8859-1
 encoding//WebContent/jsps/productSearch.jsp=ISO-8859-1
+encoding//WebContent/jsps/authRequired/budgetReport.jsp=ISO-8859-1
 encoding//WebContent/jsps/registration.jsp=ISO-8859-1
 encoding//WebContent/jsps/productCard.jsp=ISO-8859-1
-encoding//WebContent/jsps/budgetReport.jsp=ISO-8859-1
 eclipse.preferences.version=1
+encoding//WebContent/jsps/cartProduct.jsp=ISO-8859-1
 encoding//WebContent/jsps/welcome.jsp=ISO-8859-1
-encoding//WebContent/jsps/budgetReport.jsp=ISO-8859-1
 encoding//WebContent/jsps/superAdmin.jsp=ISO-8859-1
+=\=\=\=\=\=\=
 encoding//WebContent/jsps/login.jsp=ISO-8859-1
+=\=\=\=\=\=\=

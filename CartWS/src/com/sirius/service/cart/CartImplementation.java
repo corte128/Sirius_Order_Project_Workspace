@@ -2,6 +2,7 @@ package com.sirius.service.cart;
 
 import java.util.List;
 
+import javax.jws.WebParam;
 import javax.jws.WebService;
 
 import com.sirius.service.cart.bean.BudgetBean;
@@ -42,5 +43,11 @@ public class CartImplementation implements CartInterface {
 	@Override
 	public List<OrderBean> getOrderByOrderName(String orderName, int locationId) {
 		return CartDAO.getOrderByOrderName(orderName, locationId);
+	}
+	
+	@Override
+	public List<OrderBean> getAllProductsInCartByProductType(int locationId, String productType)
+	{
+		return CartDAO.getAllProductsInCartByProductType(locationId, productType);
 	}
 }

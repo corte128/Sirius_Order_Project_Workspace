@@ -20,11 +20,12 @@
   </serviceRefs>
   <serviceRefs xmi:id="ServiceRef_1505762487944" serviceRefLink="service/SuperAdminService">
     <portQnameBindings xmi:id="PortQnameBinding_1505762487944" portQnameNamespaceLink="http://superadmin.service.sirius.com/superadmin/wsdl" portQnameLocalNameLink="superadmin"/>
-<<<<<<< HEAD
+
   </serviceRefs>
-  <serviceRefs xmi:id="ServiceRef_1505833948163" serviceRefLink="service/JaxwsAttendance">
-    <portQnameBindings xmi:id="PortQnameBinding_1505833948163" portQnameNamespaceLink="http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl" portQnameLocalNameLink="Attendance" overriddenEndpointURI="http://localhost:9080/AttendanceWS/JaxwsAttendance"/>
-=======
->>>>>>> 29d7264aea285af2fb0bbc9b692dec105bb33242
+  <serviceRefs xmi:id="ServiceRef_1505923891761" serviceRefLink="service/JaxwsAttendance">
+    <portQnameBindings xmi:id="PortQnameBinding_1505923891761" portQnameNamespaceLink="http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl" portQnameLocalNameLink="Attendance"/>
+  </serviceRefs>
+  <serviceRefs xmi:id="ServiceRef_1505923017164" serviceRefLink="service/CartService">
+    <portQnameBindings xmi:id="PortQnameBinding_1505923017164" portQnameNamespaceLink="http://cart.service.sirius.com/cart/wsdl" portQnameLocalNameLink="cart"/>
   </serviceRefs>
 </com.ibm.etools.webservice.wscbnd:ClientBinding>

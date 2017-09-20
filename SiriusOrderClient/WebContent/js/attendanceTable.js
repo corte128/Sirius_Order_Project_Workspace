@@ -27,27 +27,7 @@ app.controller('AttendanceCtrl', [
 					width : 130
 				} ]
 			};
-			function getSearch() {
-
-							$scope.gridOptions = {
-								data : [],
-								columnDefs : [
-										{
-											name : 'Name',
-											width : 130,
-											pinnedLeft : true
-										}, {
-											name : 'Email',
-											width : 250
-										}, {
-											name : 'Date',
-											width : 130,
-											pinnedRight : true
-										}, {
-											name : 'Location',
-											width : 130
-										} ]
-							};
+			
 							function getSearch(){
 								
 								var name = document.getElementById("name").value;
@@ -63,15 +43,8 @@ app.controller('AttendanceCtrl', [
 									email="%";
 								}
 								
-								alert("name given: " + name);
-								alert("email given: " + email);
-								alert("location given: " + location);
-								alert("startDate given: " + startDate);
-								alert("endDate given: " + endDate);
-								alert("range given: " + range);
+							
 								
-								
-
 							$http
 									.get("/SiriusOrderClient/AttendanceServlet?action=getAttendance&name="+name+"&email="+email+"&startDate="+startDate+"&endDate="+endDate+
 											"&location="+location+"&range="+range)
@@ -85,4 +58,4 @@ app.controller('AttendanceCtrl', [
 			}
 			$scope.getSearch = getSearch;
 
-			}}]);
+			}]);

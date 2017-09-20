@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 import javax.naming.NamingException;
 
-import com.sirius.order.service.attendance.beans.AttendanceRecordBean;
+import com.sirius.order.service.attendance.bean.AttendanceRecordBean;
 
 public class AttendanceDAO {
 	AttendanceDAOImpl impl = new AttendanceDAOImpl();

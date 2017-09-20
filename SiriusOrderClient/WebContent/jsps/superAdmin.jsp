@@ -88,7 +88,7 @@
 									class="locations_select">
 									<c:forEach items="${locations}" var="location">
 										<option value="${location.id}">
-											<c:out value="${location.city}+,+${location.state}" />
+											<c:out value="${location.city},${location.state}" />
 										</option>
 									</c:forEach>
 									</select>

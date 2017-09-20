@@ -28,10 +28,10 @@ public interface CartInterface {
 	 * @param createdBy
 	 * @return boolean
 	 */
-	@WebMethod(action = "AddProductToCart")
-	@WebResult(name = "AddProductToCartReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
-	@RequestWrapper(localName = "AddProductToCart", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.AddProductToCart")
-	@ResponseWrapper(localName = "AddProductToCartResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.AddProductToCartResponse")
+	@WebMethod(action = "addProductToCart")
+	@WebResult(name = "addProductToCartReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+	@RequestWrapper(localName = "addProductToCart", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.AddProductToCart")
+	@ResponseWrapper(localName = "addProductToCartResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.AddProductToCartResponse")
 	public boolean addProductToCart(
 			@WebParam(name="order", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
 			OrderBean order,
@@ -46,10 +46,10 @@ public interface CartInterface {
 	 * @param orderName
 	 * @return OrderBean[]
 	 */
-	@WebMethod(action = "GetAllProductsInCart")
-	@WebResult(name = "GetAllProductsInCartReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
-	@RequestWrapper(localName = "GetAllProductsInCart", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetAllProductsInCart")
-	@ResponseWrapper(localName = "GetAllProductsInCartResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetAllProductsInCartResponse")
+	@WebMethod(action = "getAllProductsInCart")
+	@WebResult(name = "getAllProductsInCartReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+	@RequestWrapper(localName = "getAllProductsInCart", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetAllProductsInCart")
+	@ResponseWrapper(localName = "getAllProductsInCartResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetAllProductsInCartResponse")
 	public List<OrderBean> getAllProductsInCart(
 			@WebParam(name="locationId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
 			int locationId
@@ -61,10 +61,10 @@ public interface CartInterface {
 	 * @param quantity
 	 * @return boolean
 	 */
-	@WebMethod(action = "UpdateProductQuantityInCart")
-	@WebResult(name = "UpdateProductQuantityInCartReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
-	@RequestWrapper(localName = "UpdateProductQuantityInCart", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.UpdateProductQuantityInCart")
-	@ResponseWrapper(localName = "UpdateProductQuantityInCartResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.UpdateProductQuantityInCartResponse")
+	@WebMethod(action = "updateProductQuantityInCart")
+	@WebResult(name = "updateProductQuantityInCartReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+	@RequestWrapper(localName = "updateProductQuantityInCart", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.UpdateProductQuantityInCart")
+	@ResponseWrapper(localName = "updateProductQuantityInCartResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.UpdateProductQuantityInCartResponse")
 	public boolean updateProductQuantityInCart(
 			@WebParam(name="locationId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
 			int locationId,
@@ -82,10 +82,10 @@ public interface CartInterface {
 	 * @param quantity
 	 * @return boolean
 	 */
-	@WebMethod(action = "RemoveProductFromCart")
-	@WebResult(name = "RemoveProductFromCartReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
-	@RequestWrapper(localName = "RemoveProductFromCart", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.RemoveProductFromCart")
-	@ResponseWrapper(localName = "RemoveProductFromCartResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.RemoveProductFromCartResponse")
+	@WebMethod(action = "removeProductFromCart")
+	@WebResult(name = "removeProductFromCartReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+	@RequestWrapper(localName = "removeProductFromCart", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.RemoveProductFromCart")
+	@ResponseWrapper(localName = "removeProductFromCartResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.RemoveProductFromCartResponse")
 	public boolean removeProductFromCart(
 			@WebParam(name="orderId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
 			int orderId,
@@ -101,10 +101,10 @@ public interface CartInterface {
 	 * @param createdBy
 	 * @return boolean
 	 */
-	@WebMethod(action = "SaveOrder")
-	@WebResult(name = "SaveOrderReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
-	@RequestWrapper(localName = "SaveOrder", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.SaveOrder")
-	@ResponseWrapper(localName = "SaveOrderResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.SaveOrderResponse")
+	@WebMethod(action = "saveOrder")
+	@WebResult(name = "saveOrderReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+	@RequestWrapper(localName = "saveOrder", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.SaveOrder")
+	@ResponseWrapper(localName = "saveOrderResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.SaveOrderResponse")
 	public boolean saveOrder(
 			@WebParam(name="orderName", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
 			String orderName,
@@ -122,14 +122,31 @@ public interface CartInterface {
 	 * @param locationId
 	 * @return List<OrderBean>
 	 */
-	@WebMethod(action = "GetOrderByOrderName")
-	@WebResult(name = "GetOrderByOrderNameReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
-	@RequestWrapper(localName = "GetOrderByOrderName", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetOrderByOrderName")
-	@ResponseWrapper(localName = "GetOrderByOrderNameResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetOrderByOrderNameResponse")
+	@WebMethod(action = "getOrderByOrderName")
+	@WebResult(name = "getOrderByOrderNameReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+	@RequestWrapper(localName = "getOrderByOrderName", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetOrderByOrderName")
+	@ResponseWrapper(localName = "getOrderByOrderNameResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetOrderByOrderNameResponse")
 	public List<OrderBean> getOrderByOrderName(
 			@WebParam(name="orderName", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
 			String orderName,
 			@WebParam(name="locationId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
 			int locationId
+			);
+	
+	/**
+	 * gets all the products based on the given orderName
+	 * @param locationId
+	 * @param productType
+	 * @return OrderBean[]
+	 */
+	@WebMethod(action = "getAllProductsInCartByProductType")
+	@WebResult(name = "getAllProductsInCartByProductTypeReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+	@RequestWrapper(localName = "getAllProductsInCartByProductType", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetAllProductsInCartByProductType")
+	@ResponseWrapper(localName = "getAllProductsInCartByProductTypeResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetAllProductsInCartByProductTypeResponse")
+	public List<OrderBean> getAllProductsInCartByProductType(
+			@WebParam(name="locationId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+			int locationId,
+			@WebParam(name="productType", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+			String productType
 			);
 }
