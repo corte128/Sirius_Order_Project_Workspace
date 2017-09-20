@@ -44,13 +44,25 @@ app.controller('superAdminCtrl', [
 							console.log($scope.gridOptions.data);
 						});
 				
-//				$http.get("/SiriusOrderClient/SuperAdminServlet?param=location")
-//						.then(function(response) {
-//							var locations = response.data;
-//							
-//							for (var location in locations){
-//								document.getElementById("locationSelect").innerHtml = "<option>"+location+"</option>"
-//							}
-//						});
 
 		} ]);
+
+$(document).ready(function(){
+	var officeData = [];
+	
+	$.getJSON( "/SiriusOrderClient/SuperAdminServlet?action=officeAdmin", function( data ){
+		officeData = data;
+		$.typeahead({
+		    input: '.office-admin-input',
+		    order: "desc",
+		    source: {
+		    	data: officeData
+		    },
+		    callback: {
+		        onInit: function (node) {
+		            console.log('Typeahead Initiated on ' + node.selector);
+		        }
+		    }
+		});
+	});
+});
