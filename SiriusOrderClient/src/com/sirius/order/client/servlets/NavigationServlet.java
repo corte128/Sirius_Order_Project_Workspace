@@ -66,15 +66,10 @@ public class NavigationServlet extends HttpServlet {
 	{
 		LocationClientDao locationClient = new LocationClientDao();
 		List<LocationBean> locationBeanList = locationClient.getLocations();
-		ArrayList<String> parsedLocationList = new ArrayList<String>();
 		 
-		for (int i=0; i<locationBeanList.size(); i++)
-		{
-			LocationBean tempBean = locationBeanList.get(i);
-			String parsedLocation = tempBean.getCity() + ", " + tempBean.getState();
-			parsedLocationList.add(parsedLocation);
-		}
-		request.setAttribute("locationList", parsedLocationList);
+		 
+		 HttpSession session =request.getSession();
+		 session.setAttribute("locations", locationBeanList);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/authRequired/attendance.jsp");
 		dispatcher.forward(request, response);
 	}

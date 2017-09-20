@@ -1,8 +1,26 @@
+.flexContainer {
+	display: flex;
+}
+html{
+	width:100%;
+}
+
+aside {
+	flex: 1;
+}
+ng-scope{
+witdh:100vw;
+}
+.attendancePageContainer {
+	flex: 7;
+}
+
 .searchBox {
+	margin: auto;
 	margin-top: 30px;
 	border: 1px solid lightgray;
 	width: 950px;
-    margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .attendanceForm {
@@ -29,17 +47,13 @@
 .formColumnOne {
 	width: 400px;
 	margin: auto;
-	margin-top:0px;
+	margin-top: 0px;
 }
 
 .formColumnTwo {
 	width: 400px;
 	margin: auto;
-	margin-top:0px;
-}
-
-.all-employees-grid.ng-scope {
-	margin-left: 250px;
+	margin-top: 0px;
 }
 
 .mainContentWrapper {
@@ -47,14 +61,23 @@
 }
 
 .grid {
+	margin: auto;
 	width: 950px;
 }
-.submitBtn{
+
+.submitBtn {
 	height: 50px;
-    width: 200px;
-    background-color: #5F6060 ;
-    color: lightgrey;
+	width: 200px;
+	background-color: #5F6060;
+	color: lightgrey;
 }
+
 #submitBtn {
-    justify-content: flex-end;  
+	justify-content: flex-end;
+}
+
+@media ( max-width : 769px) {
+	aside {
+		width: 0px;
+	}
 }

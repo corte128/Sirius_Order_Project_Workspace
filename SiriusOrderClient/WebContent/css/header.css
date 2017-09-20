@@ -4,13 +4,12 @@ body {
 }
 
 
-
-
-
 header {
 	background-color: #5F6060;
 	color: white;
+	witdh:100vw;
 }
+
 
 #welcomeMessage {
 	margin: 0;
