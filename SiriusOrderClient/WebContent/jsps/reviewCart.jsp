@@ -12,14 +12,16 @@
 <head>
 <title>reviewCart</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 </head>
 <body>
 	<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" />
 			<div>
 			<img src="${product.getImage()}"></img>
-			<span>${product.getName()}</span>
-			<span>${product.getPrice()}</span>
-			<input onchange="calcBreakroomTotals()" type="text" value="${product.getQuantity()}"/>
+			<span>Name</span>
+			<span>$12.34</span>
+			<input onchange="calcBreakroomTotals()" type="text" value="7"/>
 			<a href="#" class="glyphicon glyphicon-trash"></a>
 		</div>
 	<c:forEach var="product" items="${breakroomProducts}">
