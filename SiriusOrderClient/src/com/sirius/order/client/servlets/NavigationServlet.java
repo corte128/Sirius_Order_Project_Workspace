@@ -37,8 +37,13 @@ public class NavigationServlet extends HttpServlet {
 	{
 		String action = request.getParameter("action");
 		
+<<<<<<< HEAD
 		if(action.equalsIgnoreCase("attendance"))
 		{
+=======
+
+		if(action.equalsIgnoreCase("attendance")){
+>>>>>>> c8f9f49f577ecee15a096adb8dd15c62ad01af15
 			forwardToAttendance(request, response);
 		}
 		else if(action.equals("budget"))
@@ -78,6 +83,7 @@ public class NavigationServlet extends HttpServlet {
 		OfficeAdminClientDAO client = new OfficeAdminClientDAO();
 		List<EmployeeBean> employees = client.getUnapprovedEmployees((Integer) session.getAttribute("activeUserLocation"));
 		System.out.println("GETTING UNAPPROVED EMPLOYEES FOR LOCATION: " + session.getAttribute("activeUserLocation"));
+		System.out.println(employees.size());
 		request.setAttribute("employees", employees);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/activateUsers.jsp");
 		dispatcher.forward(request, response);
