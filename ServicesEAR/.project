@@ -10,6 +10,7 @@
 		<project>LocationWS</project>
 		<project>AttendanceWS</project>
 		<project>AdminWS</project>
+		<project>SiriusOrderService</project>
 		<project>SearchWS</project>
 		<project>EmployeeWS</project>
 		<project>CartWS</project>
