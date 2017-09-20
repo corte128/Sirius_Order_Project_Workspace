@@ -1,5 +1,5 @@
-package com.sirius.order.service.attendance.beans;
-
+package com.sirius.order.service.attendance.bean;
+ 
 public class AttendanceRecordBean {
 
 	String attendantName = null;

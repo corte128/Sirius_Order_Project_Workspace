@@ -314,5 +314,42 @@ public class CartDAO {
 		
 		return orders;
 	}
-
+	public static List<OrderBean> getAllProductsInCartByProductType(int locationId, String productType)
+	{
+		Connection conn = null;
+		List<OrderBean> orders = new ArrayList<OrderBean>();
+		
+		try
+		{
+			conn = DBConnection.getConnection();
+			orders = CartDAOImplementation.getAllProductsInCartByProductType(locationId, productType, conn);
+		}
+		catch(NamingException e)
+		{
+			logger.log(Level.SEVERE,"Naming Exception Found: Incorrect naming", e);
+		}
+		catch(SQLException e)
+		{
+			logger.log(Level.SEVERE,"SQL Exception Found: Incorrect properties", e);
+		}
+		catch(Exception e)
+		{
+			logger.log(Level.SEVERE,"Exception Found ", e);
+		}
+		finally
+		{
+			if(conn != null)
+			{
+				try
+				{
+					DBConnection.closeConnection(conn);
+				}
+				catch(SQLException e)
+				{
+					logger.log(Level.SEVERE,"SQL Exception ", e);
+				}
+			}
+		}
+		return orders;
+	}
 }

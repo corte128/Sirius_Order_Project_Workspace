@@ -6,11 +6,8 @@
 		<form-bean name="LoginForm" type="com.sirius.order.client.form.LoginForm"/>
 		<form-bean name="RegistrationForm" type="com.sirius.order.client.form.RegistrationForm"/>
 		<form-bean name="VisitorsForm" type="com.sirius.order.client.form.VisitorsForm"/>
-<<<<<<< HEAD
-=======
 		<form-bean name="ProductSearchForm" type="com.sirius.order.client.form.ProductSearchForm"/>
 		<form-bean name="ActivateUserForm" type="com.sirius.order.client.form.ActivateUserForm"/>
->>>>>>> aaf0ada330c3c1081986a544a55c474d4f52f3e2
 	</form-beans>
 	
 	<global-exceptions>
@@ -36,15 +33,12 @@
             <forward name="success" path="./jsps/productSearch.jsp" />
             <forward name="failure" path="./jsps/login.jsp" />
         </action>
-<<<<<<< HEAD
-=======
         <action input="./jsps/productSearch.jsp" name="ProductSearchForm" path="/ProductSearch" scope="session" type="com.sirius.order.client.action.ProductSearchAction">
             <forward name="success" path="./jsps/productSearch.jsp" />
         </action>
         <action input="./jsps/activateUsers.jsp" name="ActivateUserForm" path="/ActivateUser" scope="session" type="com.sirius.order.client.action.ActivateUserAction">
             <forward name="success" path="./SiriusOrderClient/NavigationServlet?action=activateUsers" />
         </action>
->>>>>>> aaf0ada330c3c1081986a544a55c474d4f52f3e2
 	</action-mappings>
 	
 	<message-resources parameter="com.sirius.order.client.properties.common" />

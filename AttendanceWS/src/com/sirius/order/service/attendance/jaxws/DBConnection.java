@@ -18,7 +18,7 @@ public class DBConnection {
 	 * 3. Datasource name (jdbc/EmployeeDS) should match the name you have entered while configuring the MySql to Websphere
 	 * <resource-ref>
 		<description />
-
+ 
 		<res-ref-name>jdbc/OfficeApplicationDS</res-ref-name>
 		<res-type>javax.sql.DataSource</res-type>
 		<res-auth>Container</res-auth>
