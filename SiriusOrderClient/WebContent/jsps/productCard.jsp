@@ -14,21 +14,22 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="productContainer">
-		<html:link href="/servlet?id=${currentProduct.getId()}">
-			<img src="${currentProduct.getImage()}" alt="name of item" class="productImage"></img>
-		</html:link>
+	<div class="productCard">
+		<div class="imageContainer">
+			<html:link href="/SiriusOrderClient/NavigationServlet?action=productDetails&id=${currentProduct.getId()}">
+				<img src="${currentProduct.getImage()}" alt="name of item" class="productImage"></img>
+			</html:link>
+		</div>
+
 
 		<div class="productLabel">
-			<p>${currentProduct.getName()}</p>
+			<p class="nameLabel">${currentProduct.getName()}</p>
 		</div>
 		<div class="likesAndPrice">
 			<span class="glyphicon glyphicon-heart" style="color:#AF4B33"></span>
 			<span>$${currentProduct.getPrice()}</span>
 		</div>
-		<html:form action="/Login" styleClass="addToCartBtn">
-			<input type="submit" value="Add To Cart"/>
-		</html:form>
+		<input type="button" onclick="addToCart(${currentProduct.getId()})" value="Add To Cart"/>
 	</div>
 </body>
 </html>
