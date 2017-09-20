@@ -1,0 +1,83 @@
+
+.super-admin-container-nav{
+    display:flex;
+}
+
+.super-admin-container{
+  flex: 10;
+}
+
+.super-admin-nav{
+  flex: 1;
+}
+
+.super-admin-budget-table{
+
+}
+
+.super-admin-button-container{
+  display:flex;
+}
+
+.super-admin-button {
+  color: white;
+  background-color: #555;
+  border-radius: var(--border-radius);
+}
+
+.super-admin-button:hover {
+  box-shadow: inset 0 0 0 20rem var(--darken-1);
+}
+
+.btn .super-admin-button:focus {
+  color: white;
+  box-shadow: inset 0 0 0 20rem var(--darken-1);
+}
+
+.super-admin-button:active {
+  box-shadow: inset 0 0 0 20rem var(--darken-2),
+    inset 0 3px 4px 0 var(--darken-3),
+    0 0 1px var(--darken-2);
+}
+
+.super-admin-button:disabled,
+.super-admin-button.is-disabled {
+  opacity: .5;
+}
+
+.form-container{
+
+}
+
+.form-group{
+  display:flex;
+  text-align: center;
+}
+
+.form-control-label{
+  margin:auto;
+  flex: 2;
+}
+
+.form-control{
+  flex:4;
+}
+
+/* Desktop */
+@media (max-width : 1024px) {
+
+}
+
+/* Ipad */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+
+}
+
+/* Iphone 5 */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+
+}

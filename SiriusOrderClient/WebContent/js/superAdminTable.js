@@ -43,5 +43,14 @@ app.controller('superAdminCtrl', [
 							$scope.gridOptions.data = response.data;
 							console.log($scope.gridOptions.data);
 						});
+				
+//				$http.get("/SiriusOrderClient/SuperAdminServlet?param=location")
+//						.then(function(response) {
+//							var locations = response.data;
+//							
+//							for (var location in locations){
+//								document.getElementById("locationSelect").innerHtml = "<option>"+location+"</option>"
+//							}
+//						});
 
 		} ]);

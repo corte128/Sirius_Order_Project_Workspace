@@ -26,11 +26,6 @@
 		<%@ include file="header.jsp"%>
 	</header>
 	<div class="welcome-container">
-		<%-- ASIDE --%>
-		<aside>
-			<%@ include file="nav.jsp"%>
-		</aside>
-
 		<div class="welcome-content">
 			<%-- CAROUSEL --%>
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -109,6 +104,10 @@
 				</html:link>
 			</div>
 		</div>
+		<%-- ASIDE --%>
+		<aside>
+			<%@ include file="nav.jsp"%>
+		</aside>
 	</div>
 </body>
 </html>

@@ -2,7 +2,7 @@ package com.sirius.order.client.servlets;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List; 
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,8 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import com.sirius.adminws.officeadmin.wsdl.EmployeeBean;
 import com.sirius.adminws.officeadmin.wsdl.OfficeAdminClientDAO;
-import com.sirius.loctionws.location.wsdl.LocationBean;
-import com.sirius.loctionws.location.wsdl.LocationClientDao;
+import com.sirius.locationws.location.wsdl.LocationBean;
+import com.sirius.locationws.location.wsdl.LocationClientDAO;
 
 /**
  * Servlet implementation class NavigationServlet
@@ -38,7 +38,7 @@ public class NavigationServlet extends HttpServlet {
 	{
 		contextPath = request.getContextPath();
 		String action = request.getParameter("action");
-		LocationClientDao locationClient = new LocationClientDao();
+		LocationClientDAO locationClient = new LocationClientDAO();
 
 //		 if(action.equalsIgnoreCase("attendance")){
 //			 List<LocationBean> locationBeanList = locationClient.getLocations();
@@ -61,10 +61,13 @@ public class NavigationServlet extends HttpServlet {
 		{
 			forwardToActivateUsers(request, response);
 		}
+		else if(action.equals("superAdmin")){
+			forwardToSuperAdmin(request,response);
+		}
 	}
 	private void forwardToAttendance(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		LocationClientDao locationClient = new LocationClientDao();
+		LocationClientDAO locationClient = new LocationClientDAO();
 		List<LocationBean> locationBeanList = locationClient.getLocations();
 		ArrayList<String> parsedLocationList = new ArrayList<String>();
 		 
@@ -80,7 +83,7 @@ public class NavigationServlet extends HttpServlet {
 	}
 	private void forwardToBudget(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		LocationClientDao locationClient = new LocationClientDao();
+		LocationClientDAO locationClient = new LocationClientDAO();
 		List<LocationBean> locationBeanList = locationClient.getLocations();
 		 
 		request.setAttribute("locations", locationBeanList);
@@ -98,6 +101,16 @@ public class NavigationServlet extends HttpServlet {
 		request.setAttribute("employees", employees);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/activateUsers.jsp");
 		dispatcher.forward(request, response);
+	}
+	private void forwardToSuperAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		LocationClientDAO locationClient = new LocationClientDAO();
+		List<LocationBean> locationBeanList = locationClient.getLocations();
+		 
+		request.setAttribute("locations", locationBeanList);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/superAdmin.jsp");
+		dispatcher.forward(request, response);
+
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
