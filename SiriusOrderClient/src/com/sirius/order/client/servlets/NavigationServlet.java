@@ -15,6 +15,8 @@ import com.sirius.adminws.officeadmin.wsdl.EmployeeBean;
 import com.sirius.adminws.officeadmin.wsdl.OfficeAdminClientDAO;
 import com.sirius.locationws.location.wsdl.LocationBean;
 import com.sirius.locationws.location.wsdl.LocationClientDAO;
+import com.sirius.service.cart.cart.wsdl.CartServiceDAO;
+import com.sirius.service.cart.cart.wsdl.OrderBean;
 
 /**
  * Servlet implementation class NavigationServlet
@@ -94,7 +96,16 @@ public class NavigationServlet extends HttpServlet {
 	}
 	private void forwardToCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/activateUsers.jsp");
+		HttpSession session = request.getSession();
+//		int locationId = (Integer)session.getAttribute("activeUserLocation");
+		int locationId = 1;
+		List<OrderBean> breakroomProducts = CartServiceDAO.getAllProductsInCartByProductType(locationId, "Breakroom");
+		List<OrderBean> officeSuppliesProducts = CartServiceDAO.getAllProductsInCartByProductType(locationId, "Office Supplies");
+		List<OrderBean> inkAndTonerProducts = CartServiceDAO.getAllProductsInCartByProductType(locationId, "Ink & Toner");
+		request.setAttribute("breakroomProducts", breakroomProducts);
+		request.setAttribute("officeSuppliesProducts", officeSuppliesProducts);
+		request.setAttribute("inkAndTonerProducts", inkAndTonerProducts);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/authRequired/reviewCart.jsp");
 		dispatcher.forward(request, response);
 	}
 	/**
