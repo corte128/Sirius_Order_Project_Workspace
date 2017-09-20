@@ -1,7 +1,6 @@
 package com.sirius.order.client.servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List; 
 
 import javax.servlet.RequestDispatcher;
@@ -49,6 +48,10 @@ public class NavigationServlet extends HttpServlet {
 		{
 			forwardToActivateUsers(request, response);
 		}
+		else if(action.equals("registration"))
+		{
+			forwardToRegistration(request, response);
+		}
 	}
 	private void forwardToAttendance(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
@@ -73,15 +76,20 @@ public class NavigationServlet extends HttpServlet {
 	}
 	private void forwardToActivateUsers(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		System.out.println("Redirecting to ActivateUsers.jsp");
 		HttpSession session = request.getSession();
 		OfficeAdminClientDAO client = new OfficeAdminClientDAO();
 		List<EmployeeBean> employees = client.getUnapprovedEmployees((Integer) session.getAttribute("activeUserLocation"));
-		System.out.println("GETTING UNAPPROVED EMPLOYEES FOR LOCATION: " + session.getAttribute("activeUserLocation"));
-		System.out.println(employees.size());
 		request.setAttribute("employees", employees);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/activateUsers.jsp");
 		dispatcher.forward(request, response);
+	}
+	private void forwardToRegistration(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		HttpSession session = request.getSession();
+		LocationClientDAO dao = new LocationClientDAO();
+		List<LocationBean> locations = dao.getLocations();
+		session.setAttribute("locations", locations);
+		response.sendRedirect("jsps/registration.jsp");
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
