@@ -9,8 +9,7 @@
     <xs:sequence>
       <xs:element name="name" type="xs:string" form="qualified" minOccurs="0"/>
       <xs:element name="email" type="xs:string" form="qualified" minOccurs="0"/>
-      <xs:element name="city" type="xs:string" form="qualified" minOccurs="0"/>
-      <xs:element name="state" type="xs:string" form="qualified" minOccurs="0"/>
+      <xs:element name="locationId" type="xs:string" form="qualified" minOccurs="0"/>
       <xs:element name="beginDate" type="xs:string" form="qualified" minOccurs="0"/>
       <xs:element name="endDate" type="xs:string" form="qualified" minOccurs="0"/>
     </xs:sequence>

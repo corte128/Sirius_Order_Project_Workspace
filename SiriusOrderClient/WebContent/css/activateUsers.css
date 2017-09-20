@@ -1,0 +1,9 @@
+#users-content{
+	display: flex;
+}
+#users-form{
+	flex: 9;
+}
+aside{
+	flex: 1;
+}
