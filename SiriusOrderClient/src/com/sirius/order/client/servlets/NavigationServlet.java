@@ -21,7 +21,6 @@ import com.sirius.locationws.location.wsdl.LocationClientDAO;
  */
 public class NavigationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private String contextPath = null;
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -36,7 +35,6 @@ public class NavigationServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		contextPath = request.getContextPath();
 		String action = request.getParameter("action");
 		
 
@@ -69,7 +67,7 @@ public class NavigationServlet extends HttpServlet {
 		List<LocationBean> locationBeanList = locationClient.getLocations();
 		 
 		request.setAttribute("locations", locationBeanList);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/budgetReport.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/authRequired/budgetReport.jsp");
 		dispatcher.forward(request, response);
 
 	}

@@ -78,7 +78,6 @@
     	<servlet-name>ProductSearchServlet</servlet-name>
     	<servlet-class>com.sirius.order.client.servlets.ProductSearchServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>action</servlet-name>
         <url-pattern>*.do</url-pattern>
@@ -117,11 +116,6 @@
         <url-pattern>
         /SuperAdminServlet</url-pattern>
     </servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>NavigationServlet</servlet-name>
-		<url-pattern>
-		/NavigationServlet</url-pattern>
-	</servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.htm</welcome-file>
