@@ -9,10 +9,13 @@
             <dependent-object>Module_1505947753587</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
+<<<<<<< HEAD
         <dependent-module archiveName="MailWS.war" deploy-path="/" handle="module:/resource/MailWS/MailWS">
             <dependent-object>Module_1505947753588</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
+=======
+>>>>>>> 47aab4d4d839275071652553cef254ca5a0ef099
         <dependent-module archiveName="LoginWS.war" deploy-path="/" handle="module:/resource/LoginWS/LoginWS">
             <dependent-object>Module_1505947753589</dependent-object>
             <dependency-type>uses</dependency-type>

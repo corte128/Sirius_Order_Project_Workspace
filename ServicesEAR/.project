@@ -5,7 +5,6 @@
 	<projects>
 		<project>WishlistWS</project>
 		<project>ProductWS</project>
-		<project>MailWS</project>
 		<project>LoginWS</project>
 		<project>LocationWS</project>
 		<project>AttendanceWS</project>
