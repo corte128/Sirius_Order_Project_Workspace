@@ -7,3 +7,6 @@
 aside{
 	flex: 1;
 }
+.user-email{
+	text-decoration: underline;
+}

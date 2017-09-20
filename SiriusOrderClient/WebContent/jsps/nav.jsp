@@ -107,7 +107,7 @@
 									</a>
 								</div>
 								<div class="admin-nav-sidebar-sub-text-container">
-									<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/NavigationServlet?action=activateUsers.jsp">
+									<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/NavigationServlet?action=activateUsers">
 										Activate Users
 									</a>
 								</div>
@@ -181,7 +181,7 @@
 							</a>
 						</div>
 						<div class="admin-nav-sub-modal-text-container">
-							<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/NavigationServlet?action=activateUsers.jsp">
+							<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/NavigationServlet?action=activateUsers">
 								Activate Users
 							</a>
 						</div>
