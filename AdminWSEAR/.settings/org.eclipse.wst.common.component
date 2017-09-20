@@ -2,7 +2,11 @@
     <wb-module deploy-name="AdminWSEAR">
         <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
         <dependent-module archiveName="AdminWS.war" deploy-path="/" handle="module:/resource/AdminWS/AdminWS">
+<<<<<<< HEAD
+            <dependent-object>Module_1505917685581</dependent-object>
+=======
             <dependent-object>Module_1505914364556</dependent-object>
+>>>>>>> 9dcf7228d4db89322cca6a7f16758e691722e07b
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>

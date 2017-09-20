@@ -61,8 +61,8 @@ public class SearchDAOImpl {
 		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 	    Calendar cal = Calendar.getInstance();
     	Date startOfWeek = fromDate;
-    	String startMonth = cal.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault());
     	cal.setTime(fromDate);
+    	String startMonth = cal.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault());
     	
     	//c.set(Calendar.DAY_OF_MONTH, c.getActualMaximum(Calendar.DAY_OF_MONTH));
     	if(reportType.equalsIgnoreCase("weekly")){

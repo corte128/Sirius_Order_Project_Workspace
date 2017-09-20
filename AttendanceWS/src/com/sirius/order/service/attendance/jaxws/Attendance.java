@@ -1,5 +1,5 @@
 package com.sirius.order.service.attendance.jaxws;
-
+ 
 import java.util.ArrayList;
 
 import javax.jws.WebMethod;
@@ -10,7 +10,7 @@ import javax.jws.WebService;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 
-import com.sirius.order.service.attendance.beans.AttendanceRecordBean;
+import com.sirius.order.service.attendance.bean.AttendanceRecordBean;
 
 @WebService(name = "attendance", targetNamespace = "http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl")
 public interface Attendance {

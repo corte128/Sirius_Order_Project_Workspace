@@ -7,71 +7,81 @@
     </xsd:schema>
   </types>
   <message name="addProductToCart">
-    <part name="parameters" element="tns:AddProductToCart"/>
+    <part name="parameters" element="tns:addProductToCart"/>
   </message>
   <message name="addProductToCartResponse">
-    <part name="parameters" element="tns:AddProductToCartResponse"/>
+    <part name="parameters" element="tns:addProductToCartResponse"/>
   </message>
   <message name="getAllProductsInCart">
-    <part name="parameters" element="tns:GetAllProductsInCart"/>
+    <part name="parameters" element="tns:getAllProductsInCart"/>
   </message>
   <message name="getAllProductsInCartResponse">
-    <part name="parameters" element="tns:GetAllProductsInCartResponse"/>
+    <part name="parameters" element="tns:getAllProductsInCartResponse"/>
   </message>
   <message name="updateProductQuantityInCart">
-    <part name="parameters" element="tns:UpdateProductQuantityInCart"/>
+    <part name="parameters" element="tns:updateProductQuantityInCart"/>
   </message>
   <message name="updateProductQuantityInCartResponse">
-    <part name="parameters" element="tns:UpdateProductQuantityInCartResponse"/>
+    <part name="parameters" element="tns:updateProductQuantityInCartResponse"/>
   </message>
   <message name="removeProductFromCart">
-    <part name="parameters" element="tns:RemoveProductFromCart"/>
+    <part name="parameters" element="tns:removeProductFromCart"/>
   </message>
   <message name="removeProductFromCartResponse">
-    <part name="parameters" element="tns:RemoveProductFromCartResponse"/>
+    <part name="parameters" element="tns:removeProductFromCartResponse"/>
   </message>
   <message name="saveOrder">
-    <part name="parameters" element="tns:SaveOrder"/>
+    <part name="parameters" element="tns:saveOrder"/>
   </message>
   <message name="saveOrderResponse">
-    <part name="parameters" element="tns:SaveOrderResponse"/>
+    <part name="parameters" element="tns:saveOrderResponse"/>
   </message>
   <message name="getOrderByOrderName">
-    <part name="parameters" element="tns:GetOrderByOrderName"/>
+    <part name="parameters" element="tns:getOrderByOrderName"/>
   </message>
   <message name="getOrderByOrderNameResponse">
-    <part name="parameters" element="tns:GetOrderByOrderNameResponse"/>
+    <part name="parameters" element="tns:getOrderByOrderNameResponse"/>
+  </message>
+  <message name="getAllProductsInCartByProductType">
+    <part name="parameters" element="tns:getAllProductsInCartByProductType"/>
+  </message>
+  <message name="getAllProductsInCartByProductTypeResponse">
+    <part name="parameters" element="tns:getAllProductsInCartByProductTypeResponse"/>
   </message>
   <portType name="CartService">
     <operation name="addProductToCart">
-      <input wsam:Action="AddProductToCart" message="tns:addProductToCart"/>
+      <input wsam:Action="addProductToCart" message="tns:addProductToCart"/>
       <output wsam:Action="http://cart.service.sirius.com/cart/wsdl/CartService/addProductToCartResponse" message="tns:addProductToCartResponse"/>
     </operation>
     <operation name="getAllProductsInCart">
-      <input wsam:Action="GetAllProductsInCart" message="tns:getAllProductsInCart"/>
+      <input wsam:Action="getAllProductsInCart" message="tns:getAllProductsInCart"/>
       <output wsam:Action="http://cart.service.sirius.com/cart/wsdl/CartService/getAllProductsInCartResponse" message="tns:getAllProductsInCartResponse"/>
     </operation>
     <operation name="updateProductQuantityInCart">
-      <input wsam:Action="UpdateProductQuantityInCart" message="tns:updateProductQuantityInCart"/>
+      <input wsam:Action="updateProductQuantityInCart" message="tns:updateProductQuantityInCart"/>
       <output wsam:Action="http://cart.service.sirius.com/cart/wsdl/CartService/updateProductQuantityInCartResponse" message="tns:updateProductQuantityInCartResponse"/>
     </operation>
     <operation name="removeProductFromCart">
-      <input wsam:Action="RemoveProductFromCart" message="tns:removeProductFromCart"/>
+      <input wsam:Action="removeProductFromCart" message="tns:removeProductFromCart"/>
       <output wsam:Action="http://cart.service.sirius.com/cart/wsdl/CartService/removeProductFromCartResponse" message="tns:removeProductFromCartResponse"/>
     </operation>
     <operation name="saveOrder">
-      <input wsam:Action="SaveOrder" message="tns:saveOrder"/>
+      <input wsam:Action="saveOrder" message="tns:saveOrder"/>
       <output wsam:Action="http://cart.service.sirius.com/cart/wsdl/CartService/saveOrderResponse" message="tns:saveOrderResponse"/>
     </operation>
     <operation name="getOrderByOrderName">
-      <input wsam:Action="GetOrderByOrderName" message="tns:getOrderByOrderName"/>
+      <input wsam:Action="getOrderByOrderName" message="tns:getOrderByOrderName"/>
       <output wsam:Action="http://cart.service.sirius.com/cart/wsdl/CartService/getOrderByOrderNameResponse" message="tns:getOrderByOrderNameResponse"/>
+    </operation>
+    <operation name="getAllProductsInCartByProductType">
+      <input wsam:Action="getAllProductsInCartByProductType" message="tns:getAllProductsInCartByProductType"/>
+      <output wsam:Action="http://cart.service.sirius.com/cart/wsdl/CartService/getAllProductsInCartByProductTypeResponse" message="tns:getAllProductsInCartByProductTypeResponse"/>
     </operation>
   </portType>
   <binding name="cartBinding" type="tns:CartService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
     <operation name="addProductToCart">
-      <soap:operation soapAction="AddProductToCart"/>
+      <soap:operation soapAction="addProductToCart"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -80,7 +90,7 @@
       </output>
     </operation>
     <operation name="getAllProductsInCart">
-      <soap:operation soapAction="GetAllProductsInCart"/>
+      <soap:operation soapAction="getAllProductsInCart"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -89,7 +99,7 @@
       </output>
     </operation>
     <operation name="updateProductQuantityInCart">
-      <soap:operation soapAction="UpdateProductQuantityInCart"/>
+      <soap:operation soapAction="updateProductQuantityInCart"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -98,7 +108,7 @@
       </output>
     </operation>
     <operation name="removeProductFromCart">
-      <soap:operation soapAction="RemoveProductFromCart"/>
+      <soap:operation soapAction="removeProductFromCart"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -107,7 +117,7 @@
       </output>
     </operation>
     <operation name="saveOrder">
-      <soap:operation soapAction="SaveOrder"/>
+      <soap:operation soapAction="saveOrder"/>
       <input>
         <soap:body use="literal"/>
       </input>
@@ -116,7 +126,16 @@
       </output>
     </operation>
     <operation name="getOrderByOrderName">
-      <soap:operation soapAction="GetOrderByOrderName"/>
+      <soap:operation soapAction="getOrderByOrderName"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getAllProductsInCartByProductType">
+      <soap:operation soapAction="getAllProductsInCartByProductType"/>
       <input>
         <soap:body use="literal"/>
       </input>

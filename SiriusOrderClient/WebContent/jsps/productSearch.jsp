@@ -1,6 +1,7 @@
 <!DOCTYPE HTML><%@page language="java"
 	contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -8,6 +9,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/productSearch.css">
+<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/productCard.css">
+
 </head>
 <body>
 <header>
@@ -15,20 +18,21 @@
 </header>
 	<div>
 		<div class="searchContainer">
-			<html:form action="/ProductSearch" styleClass="search">
-				<html:select styleClass="categorySelect" property="category">
+			<form method="get" action="/SiriusOrderClient/ProductSearchServlet" class="search">
+				<select class="categorySelect" name="category">
 					<option value="all">All</option>
 					<option value="ink_and_toner">Ink & Toner</option>
 					<option value="breakroom">Breakroom</option>
 					<option value="office_supplies">Office Supplies</option>
-				</html:select>
-				<input type="text" class="search searchBar"></input>
-				<html:submit styleClass="search" value="Search" />
-			</html:form>
+				</select>
+				<input type="text" class="search searchBar" name="search"></input>
+				<input type="submit" class="search" value="Search"/>
+			</form>
 		</div>
 			    <c:forEach var="product" items="${Products}">
-			    	<c:set var="currentProduct" value="${product}"></c:set>
+			    <c:set var="currentProduct" value="${product}" scope="request"/>
 					<jsp:include page="productCard.jsp"></jsp:include>
+					<br />
 				</c:forEach>
 	</div>
 </body>

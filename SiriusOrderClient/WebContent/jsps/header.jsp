@@ -41,7 +41,7 @@
 							</html:link>
 					</c:if>
 					<c:if test="${sessionScope.activeUserType == '3'}">
-						<td class="headerLink"><html:link href="http://admin.com/">
+						<td class="headerLink"><html:link href="/SiriusOrderClient/NavigationServlet?action=superAdmin">
 								<fmt:message key="HEADER_ADMIN" />
 							</html:link></td>
 					</c:if>

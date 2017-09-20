@@ -9,4 +9,4 @@ public class AttendanceProxyDAO {
 		attendanceRecords = (ArrayList<AttendanceRecordBean>) proxy.getAttendanceRecords(name, email, location, beginDate, endDate);
 		return attendanceRecords;
 	}
-}
+} 

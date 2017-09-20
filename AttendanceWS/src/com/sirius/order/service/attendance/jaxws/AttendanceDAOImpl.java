@@ -1,6 +1,6 @@
 package com.sirius.order.service.attendance.jaxws;
 
-import com.sirius.order.service.attendance.beans.*;
+import com.sirius.order.service.attendance.bean.*;
 
 import java.util.ArrayList;
 import java.sql.Connection;

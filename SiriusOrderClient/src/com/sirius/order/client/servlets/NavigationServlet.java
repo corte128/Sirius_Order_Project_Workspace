@@ -1,7 +1,9 @@
 package com.sirius.order.client.servlets;
 
 import java.io.IOException;
-import java.util.List; 
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,7 +22,7 @@ import com.sirius.locationws.location.wsdl.LocationClientDAO;
  */
 public class NavigationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -32,12 +34,29 @@ public class NavigationServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+
+
+
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+
 		String action = request.getParameter("action");
-		
+		LocationClientDAO locationClient = new LocationClientDAO();
+
+//		 if(action.equalsIgnoreCase("attendance")){
+//			 List<LocationBean> locationBeanList = locationClient.getLocations();
+//
+//			 request.setAttribute("locationList", locationBeanList);
+//			 HttpSession session =request.getSession();
+//			 session.setAttribute("locations", locationBeanList);
+//			 forwardToAttendance(request, response);
+//
+//		 }
+
 
 		if(action.equalsIgnoreCase("attendance")){
+
 			forwardToAttendance(request, response);
 		}
 		else if(action.equals("budget"))
@@ -52,23 +71,30 @@ public class NavigationServlet extends HttpServlet {
 		{
 			forwardToRegistration(request, response);
 		}
+		else if(action.equals("superAdmin")){
+			forwardToSuperAdmin(request,response);
+		}
+		else if(action.equals("cart"))
+		{
+			forwardToCart(request, response);
+		}
 	}
 	private void forwardToAttendance(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		LocationClientDAO locationClient = new LocationClientDAO();
 		List<LocationBean> locationBeanList = locationClient.getLocations();
-		 
-		 
+
+
 		 HttpSession session =request.getSession();
 		 session.setAttribute("locations", locationBeanList);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/authRequired/attendance.jsp");
-		dispatcher.forward(request, response);
+		 RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/authRequired/attendance.jsp");
+		 dispatcher.forward(request, response);
 	}
 	private void forwardToBudget(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		LocationClientDAO locationClient = new LocationClientDAO();
 		List<LocationBean> locationBeanList = locationClient.getLocations();
-		 
+
 		request.setAttribute("locations", locationBeanList);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/authRequired/budgetReport.jsp");
 		dispatcher.forward(request, response);
@@ -90,6 +116,21 @@ public class NavigationServlet extends HttpServlet {
 		List<LocationBean> locations = dao.getLocations();
 		session.setAttribute("locations", locations);
 		response.sendRedirect("jsps/registration.jsp");
+	}
+	private void forwardToSuperAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		LocationClientDAO locationClient = new LocationClientDAO();
+		List<LocationBean> locationBeanList = locationClient.getLocations();
+
+		request.setAttribute("locations", locationBeanList);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/superAdmin.jsp");
+		dispatcher.forward(request, response);
+	}
+
+	private void forwardToCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/activateUsers.jsp");
+		dispatcher.forward(request, response);
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

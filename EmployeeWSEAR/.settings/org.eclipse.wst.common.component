@@ -2,8 +2,16 @@
     <wb-module deploy-name="EmployeeWSEAR">
         <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
         <dependent-module archiveName="EmployeeWS.war" deploy-path="/" handle="module:/resource/EmployeeWS/EmployeeWS">
+<<<<<<< HEAD
+            <dependent-object>Module_1505923504406</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>
+=======
             <dependent-object>Module_1505914390619</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>
 </project-modules>
+>>>>>>> 9dcf7228d4db89322cca6a7f16758e691722e07b

@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:setBundle basename="com.sirius.order.client.properties.attendance" />
- 
+<script type="text/javascript" src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
 <script
 	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
 <script
@@ -19,7 +19,7 @@
 <script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
 <script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
 <script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
-<script type="text/javascript" src="SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
+ 
 <script
 	src="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.js"></script>
 <link rel="stylesheet" type="text/css"
