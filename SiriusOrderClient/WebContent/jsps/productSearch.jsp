@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/productSearch.css">
-<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/productCard.css">
+<script type="text/javascript" src="/SiriusOrderClient/js/productSearch.js"></script>
 
 </head>
 <body>
@@ -29,11 +29,14 @@
 				<input type="submit" class="search" value="Search"/>
 			</form>
 		</div>
-			    <c:forEach var="product" items="${Products}">
-			    <c:set var="currentProduct" value="${product}" scope="request"/>
+		<div class="productContainer">
+			<c:forEach var="product" items="${Products}">
+				<c:set var="currentProduct" value="${product}" scope="request"/>
+				<div class="productContainerCard">
 					<jsp:include page="productCard.jsp"></jsp:include>
-					<br />
-				</c:forEach>
+				</div>
+			</c:forEach>
+		</div>
 	</div>
 </body>
 </html>

@@ -37,7 +37,7 @@
             <forward name="success" path="./jsps/productSearch.jsp" />
         </action>
         <action input="./jsps/activateUsers.jsp" name="ActivateUserForm" path="/ActivateUser" scope="session" type="com.sirius.order.client.action.ActivateUserAction">
-        	<forward name="success" path="./jsps/welcome.jsp" />
+        	<forward name="success" path="./jsps/activateUsers.jsp" />
         </action>
 	</action-mappings>
 	

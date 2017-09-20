@@ -10,6 +10,9 @@
 		<title><fmt:message key="BUDGET_REPORT_TITLE_LABEL" /></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		
+		<script type="text/javascript" src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  		
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
   		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   
@@ -20,15 +23,20 @@
     	<script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
     	<script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
     
-    	<script src="/ACEWeb/angular/bower_components/angular-ui-grid/ui-grid.js"></script>
-    	<link rel="stylesheet" type="text/css" href="/ACEWeb/angular/bower_components/angular-ui-grid/ui-grid.css"/>
+    	<script src="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.js"></script>
+    	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.css"/>
     
 		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
 		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/budgetReport.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	
-		<script type="text/javascript" src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		<script src="/SiriusOrderClient/angular/bower_components/ui-bootstrap-custom-2.5.0.min.js"></script>
+    	<script src="/SiriusOrderClient/angular/bower_components/ui-bootstrap-custom-tpls-2.5.0.min.js"></script>
+    	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/angular/bower_components/ui-bootstrap-custom-2.5.0-csp.css"/>
+    	
+    	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
+    	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+		
   		<script src="/SiriusOrderClient/js/chartCreator.js"></script>
 	</head>
 	<body ng-app="chartApp">
@@ -130,7 +138,23 @@
 				<div id="budgetChartContainer">
 				</div>
 				<div id="budgetGridContainer">
-					<div id="grid1" ui-grid="gridOptions" class="grid" ui-grid-auto-resize></div>
+					<!--<div id="grid1" ui-grid="gridOptions" class="grid" ui-grid-auto-resize></div>
+					-->
+					<table id="budgetGrid" class="display nowrap dataTable dtr-inline" 
+						cellspacing="0" width="100%"
+					>
+						<thead>
+				            <tr>
+				                <th> </th>
+				                <th>Actual</th>
+				                <th>Budget</th>
+				                <th>Variance</th>
+				            </tr>
+				        </thead>
+				        <tbody id="budgetGridBody">
+				        
+				        </tbody>
+					</table>
 				</div>
 			</div>
 		</main>

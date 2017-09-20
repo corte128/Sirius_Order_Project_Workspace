@@ -25,7 +25,7 @@
 			<a href="#" class="glyphicon glyphicon-trash"></a>
 		</div>
 	<c:forEach var="product" items="${breakroomProducts}">
-		<div>
+		<div class="breakroom-cart-product-container">
 			<img src="${product.getImage()}"></img>
 			<span>${product.getName()}</span>
 			<span>${product.getPrice()}</span>
@@ -35,7 +35,7 @@
 	</c:forEach>
 	<fmt:message key="REVIEW_CART_OFFICE_SUPPLIES_LABEL" />
 	<c:forEach var="product" items="${officeSuppliesProducts}">
-		<div>
+		<div class="office-supplies-cart-product-container">
 			<img src="${product.getImage()}"></img>
 			<span>${product.getName()}</span>
 			<span>${product.getPrice()}</span>
@@ -45,7 +45,7 @@
 	</c:forEach>
 	<fmt:message key="REVIEW_CART_INK_AND_TONER_LABEL" />
 	<c:forEach var="product" items="${inkAndTonerProducts}">
-		<div>
+		<div class="ink-and-toner-cart-product-container">
 			<img src="${product.getImage()}"></img>
 			<span>${product.getName()}</span>
 			<span>${product.getPrice()}</span>

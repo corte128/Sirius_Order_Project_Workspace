@@ -50,34 +50,37 @@ public class QueryServlet extends HttpServlet {
 				JsonArrayBuilder builder = Json.createArrayBuilder();
 				for(Holiday day : holidays)
 		        {
-					String[] date = day.getDate().split("-");
-					String month = "";
-					switch (Integer.parseInt(date[1])){
-					case 2: month="February";
-					case 3: month="March";
-					case 4: month="April";
-					case 5: month="May";
-					case 6: month="June";
-					case 7: month="July";
-					case 8: month="August";
-					case 9: month="September";
-					case 10: month="October";
-					case 11: month="November";
-					case 12: month="December";
-						break;
-					default: break;
-					}
 					int dow = day.getDayOfWeek();
-					String dayofweek = "";
+					String dayofweek = "Sunday";
 					switch(dow){
-					case 1: break;
+					case 0: 
+						dayofweek="Sunday";
+						break;
+					case 1: 
+						dayofweek="Monday";
+						break;
+					case 2: 
+						dayofweek="Tuesday";
+						break;
+					case 3: 
+						dayofweek="Wednesday";
+						break;
+					case 4: 
+						dayofweek="Thursday";
+						break;
+					case 5: 
+						dayofweek="Friday";
+						break;
+					case 6: 
+						dayofweek="Saturday";
+						break;
 					default: break;
 					}
 					
 		            builder.add(Json.createObjectBuilder()
 		                            .add("FederalHoliday", day.getHolidayName())
 		                            .add("Date", day.getDate())
-		                            .add("DayofWeek", dow)
+		                            .add("DayofWeek", dayofweek)
 		                            .add("ID", day.getId()));
 		        }
 		        JsonArray output = builder.build();
@@ -85,6 +88,36 @@ public class QueryServlet extends HttpServlet {
 		        JsonWriter writer = Json.createWriter(out);
 		        writer.writeArray(output);
 		        writer.close();
+			}
+			else if(query.equals("deleteHoliday")){
+				OfficeAdminClientDAO dao = new OfficeAdminClientDAO();
+				boolean status = false;
+				int responseCode;
+				status = dao.deleteHoliday(Integer.parseInt(request.getParameter("id")), (Integer) session.getAttribute("activeUserID"));
+				if (status){
+					responseCode = 1;
+				}
+				else{
+					responseCode = 0;
+				}
+				PrintWriter writer = response.getWriter();
+				writer.write(responseCode);				
+			}
+			else if(query.equals("addHoliday")){
+				OfficeAdminClientDAO dao = new OfficeAdminClientDAO();
+				boolean status = false;
+				int responseCode;
+				String name = request.getParameter("name");
+				String date = request.getParameter("date");
+				status = dao.addHoliday(name, date, (Integer) session.getAttribute("activeUserID"), (Integer) session.getAttribute("activeUserLocation"));
+				if (status){
+					responseCode = 1;
+				}
+				else{
+					responseCode = 0;
+				}
+				PrintWriter writer = response.getWriter();
+				writer.write(responseCode);				
 			}
 		}
 	}

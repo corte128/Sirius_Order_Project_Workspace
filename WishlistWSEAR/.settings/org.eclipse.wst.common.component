@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="WishlistWSEAR">
-        <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
-        <dependent-module archiveName="WishlistWS.war" deploy-path="/" handle="module:/resource/WishlistWS/WishlistWS">
-            <dependent-object>Module_1505248862213</dependent-object>
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-    </wb-module>
-</project-modules>

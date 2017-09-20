@@ -1,0 +1,17 @@
+.breadCrumbs{
+  color: lightgrey;
+  font-size: 1rem;
+}
+
+.imgAndOrderInfoContainer{
+  display: flex;
+  flex-wrap: wrap;
+}
+.productPictureContainer{
+  width: 200px;
+  height:200px;
+}
+
+.quantityInput {
+    width: 50px;
+}

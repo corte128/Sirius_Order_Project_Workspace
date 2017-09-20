@@ -1,8 +1,6 @@
 package com.sirius.order.client.servlets;
 
 import java.io.IOException;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -16,9 +14,14 @@ import com.sirius.adminws.officeadmin.wsdl.EmployeeBean;
 import com.sirius.adminws.officeadmin.wsdl.OfficeAdminClientDAO;
 import com.sirius.locationws.location.wsdl.LocationBean;
 import com.sirius.locationws.location.wsdl.LocationClientDAO;
+import com.sirius.product.service.main.product.wsdl.ProductBean;
+import com.sirius.product.service.main.product.wsdl.ProductSearchDAO;
 import com.sirius.service.cart.cart.wsdl.CartServiceDAO;
 import com.sirius.service.cart.cart.wsdl.OrderBean;
 
+
+
+   
 /**
  * Servlet implementation class NavigationServlet
  */
@@ -26,7 +29,7 @@ public class NavigationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * @see HttpServlet#HttpServlet()
+     * @see HttpServlet#HttpServlet() 
      */
     public NavigationServlet() {
         super();
@@ -79,7 +82,22 @@ public class NavigationServlet extends HttpServlet {
 		else if(action.equals("cart"))
 		{
 			forwardToCart(request, response);
+		}else if(action.equals("productDetails")){
+			forwardToProductDetails(request, response);
 		}
+	}
+	private void forwardToProductDetails(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		ProductBean product = new ProductBean();
+		String id = request.getParameter("id");
+		product = ProductSearchDAO.getProductByID(Integer.parseInt(id));
+		request.setAttribute("productDetails", product.getDetails());
+		request.setAttribute("productId", product.getId());
+		request.setAttribute("productImage", product.getImage());
+		request.setAttribute("productName", product.getName());
+		request.setAttribute("productPrice", product.getPrice());
+		request.setAttribute("productType", product.getType());
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/productDetails.jsp?id="+ product.getId());
+		 dispatcher.forward(request, response);
 	}
 	private void forwardToAttendance(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{

@@ -21,7 +21,7 @@
 				<html:link href="/SiriusOrderClient/jsps/login.jsp">
 					<fmt:message key="HEADER_LOGIN" />
 				</html:link>
-				<html:link href="/SiriusOrderClient/jsps/registration.jsp">
+				<html:link href="/SiriusOrderClient/NavigationServlet?action=registration">
 					<fmt:message key="HEADER_REGISTER" />
 				</html:link>
 			</c:if>
