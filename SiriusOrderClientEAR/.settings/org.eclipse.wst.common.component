@@ -2,11 +2,7 @@
     <wb-module deploy-name="SiriusOrderClientEAR">
         <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
         <dependent-module archiveName="SiriusOrderClient.war" deploy-path="/" handle="module:/resource/SiriusOrderClient/SiriusOrderClient">
-<<<<<<< HEAD
-            <dependent-object>Module_1505850724969</dependent-object>
-=======
-            <dependent-object>Module_1505855025495</dependent-object>
->>>>>>> aaf0ada330c3c1081986a544a55c474d4f52f3e2
+            <dependent-object>Module_1505939518433</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>
