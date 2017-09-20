@@ -1,8 +1,7 @@
 package com.sirius.order.client.servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List; 
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,16 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-<<<<<<< HEAD
-import com.sirius.locationws.location.wsdl.LocationBean;
-import com.sirius.locationws.location.wsdl.LocationClientDAO;
-
-=======
 import com.sirius.adminws.officeadmin.wsdl.EmployeeBean;
 import com.sirius.adminws.officeadmin.wsdl.OfficeAdminClientDAO;
 import com.sirius.locationws.location.wsdl.LocationBean;
 import com.sirius.locationws.location.wsdl.LocationClientDAO;
->>>>>>> aaf0ada330c3c1081986a544a55c474d4f52f3e2
+
 
 /**
  * Servlet implementation class NavigationServlet
@@ -39,24 +33,19 @@ public class NavigationServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-<<<<<<< HEAD
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		LocationClientDAO locationClient = new LocationClientDAO();
-=======
+
+
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
->>>>>>> aaf0ada330c3c1081986a544a55c474d4f52f3e2
+
 		String action = request.getParameter("action");
 		
-<<<<<<< HEAD
-		if(action.equalsIgnoreCase("attendance"))
-		{
-=======
+
+
 
 		if(action.equalsIgnoreCase("attendance")){
->>>>>>> c8f9f49f577ecee15a096adb8dd15c62ad01af15
+
 			forwardToAttendance(request, response);
 		}
 		else if(action.equals("budget"))

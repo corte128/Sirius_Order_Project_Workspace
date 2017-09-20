@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import javax.jws.WebService;
 
-import com.sirius.order.service.attendance.beans.AttendanceRecordBean;
+import com.sirius.order.service.attendance.bean.AttendanceRecordBean;
 
 @WebService(endpointInterface = "com.sirius.order.service.attendance.jaxws.Attendance", portName = "Attendance", targetNamespace = "http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl", serviceName = "JaxwsAttendance")
 

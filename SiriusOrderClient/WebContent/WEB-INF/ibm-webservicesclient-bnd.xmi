@@ -20,6 +20,10 @@
   </serviceRefs>
   <serviceRefs xmi:id="ServiceRef_1505762487944" serviceRefLink="service/SuperAdminService">
     <portQnameBindings xmi:id="PortQnameBinding_1505762487944" portQnameNamespaceLink="http://superadmin.service.sirius.com/superadmin/wsdl" portQnameLocalNameLink="superadmin"/>
+
+  </serviceRefs>
+  <serviceRefs xmi:id="ServiceRef_1505923891761" serviceRefLink="service/JaxwsAttendance">
+    <portQnameBindings xmi:id="PortQnameBinding_1505923891761" portQnameNamespaceLink="http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl" portQnameLocalNameLink="Attendance"/>
   </serviceRefs>
   <serviceRefs xmi:id="ServiceRef_1505923017164" serviceRefLink="service/CartService">
     <portQnameBindings xmi:id="PortQnameBinding_1505923017164" portQnameNamespaceLink="http://cart.service.sirius.com/cart/wsdl" portQnameLocalNameLink="cart"/>
