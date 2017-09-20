@@ -2,7 +2,7 @@
     <wb-module deploy-name="EmployeeWSEAR">
         <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
         <dependent-module archiveName="EmployeeWS.war" deploy-path="/" handle="module:/resource/EmployeeWS/EmployeeWS">
-            <dependent-object>Module_1505939585108</dependent-object>
+            <dependent-object>Module_1505936891911</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>
