@@ -15,17 +15,16 @@
 </head>
 <body>
 	<div class="productContainer">
-		<html:link href="/servlet?id=${currentProduct.id}">
-			<img src="${currentProduct.image}" alt="name of item" class="productImage"></img>
+		<html:link href="/servlet?id=${currentProduct.getId()}">
+			<img src="${currentProduct.getImage()}" alt="name of item" class="productImage"></img>
 		</html:link>
-		
-		<p>${currentProduct.name}</p>
+
 		<div class="productLabel">
-			<p>${currentProduct.name}</p>
+			<p>${currentProduct.getName()}</p>
 		</div>
 		<div class="likesAndPrice">
-			<span src="" alt="like" class="glyphicon glyphicon-heart" style="color:#AF4B33"></span>
-			<span>${currentProduct.price}</span>
+			<span class="glyphicon glyphicon-heart" style="color:#AF4B33"></span>
+			<span>$${currentProduct.getPrice()}</span>
 		</div>
 		<html:form action="/Login" styleClass="addToCartBtn">
 			<input type="submit" value="Add To Cart"/>

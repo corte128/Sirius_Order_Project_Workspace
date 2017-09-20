@@ -1,9 +1,7 @@
-package com.sirius.searchws.search.wsdl;
+package com.sirius.product.service.main.product.wsdl;
 
 import java.util.List;
 
-import com.sirius.product.service.main.product.wsdl.ProductBean;
-import com.sirius.product.service.main.product.wsdl.ProductProxy;
 
 public class ProductSearchDAO {
 
