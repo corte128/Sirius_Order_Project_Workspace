@@ -47,18 +47,20 @@ app.controller('BudgetChartCtrl', ['$scope', '$http',  function ($scope, $http)
 			var expectedHeight = numRows * 100;
 	   		var chart = new google.visualization.BarChart(document.getElementById('budgetChartContainer'));
 			chart.draw(data, {colors: ['#A7C1C3', '#B0B47A'], bar: {groupWidth: '80%'}, height: expectedHeight, width: 600});
-			
-			var timeColumn = $(td).html(response.data[0]);
-			var actualColumn = $(td).html(response.data[2]);
-			var budgetColumn = $(td).html(response.data[1]);
-			
-			var tableRow = $(tr);
-			tableRow.append(timeColumn, [actualColumn, budgetColumn]);
-			
-			$('#budgetGrid').append(tableRow);
-			$('#budgetGrid').DataTable( {
-		        "pagingType": "full_numbers"
-		    } );
+			$('#budgetGridBody').empty();
+			for(key in response.data)
+			{
+				var timeColumn = $('<td></td>').html(response.data[key][0]);
+				var actualColumn = $('<td></td>').html(response.data[key][2]);
+				var budgetColumn = $('<td></td>').html(response.data[key][1]);
+				console.log(response.data[key][1]);
+				var varianceColumn = $('<td></td>').html(response.data[key][1]-response.data[key][2]);
+				
+				var tableRow = $('<tr></tr>');
+				tableRow.append(timeColumn, [actualColumn, budgetColumn, varianceColumn]);
+				
+				$('#budgetGridBody').append(tableRow);
+			}
 	   	});
     };
 }]);
