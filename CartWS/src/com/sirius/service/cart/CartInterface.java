@@ -24,7 +24,7 @@ public interface CartInterface {
 	
 	/**
 	 * adds an order record to the table
-	 * @param orderName
+	 * @param order
 	 * @param createdBy
 	 * @return boolean
 	 */

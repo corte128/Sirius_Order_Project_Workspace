@@ -39,10 +39,19 @@ public class CartServlet extends HttpServlet {
 		//created by logged in user
 		//current budget
 		//order id
-    	int id = (Integer) request.getAttribute("id");
+    	int id = Integer.parseInt(request.getParameter("productID"));
+
+		
+		String quantity = request.getParameter("quantity");
+		if (quantity.equals("")){
+			quantity = "1";
+		}
+		int quantityInt = Integer.parseInt(quantity);
+		
+
 		OrderBean orderBean = new OrderBean();
 		orderBean.setOrderName("cart");
-		orderBean.setQuantity(1);
+		orderBean.setQuantity(quantityInt);
 		orderBean.setProductId(id);
 //		CartServiceDAO.getOrderByProduct(id);
 //		CartServiceDAO.updateProductQuantityInCart(locationId, quantity, productId, updatedBy)

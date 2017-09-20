@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>AdminWSEAR</name>
+	<name>ClientEar</name>
 	<comment></comment>
 	<projects>
-		<project>AdminWS</project>
+		<project>SiriusOrderClient</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
