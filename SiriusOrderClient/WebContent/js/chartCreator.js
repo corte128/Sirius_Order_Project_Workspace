@@ -2,9 +2,20 @@
  * 
  */
 google.load("visualization", "1", { packages: ["table", "corechart"] });
-var app = angular.module('chartApp', []);
+var app = angular.module('chartApp', ['ngTouch', 'ui.grid', 'angucomplete-alt', 'ngAnimate', 'ui.bootstrap']);
 app.controller('BudgetChartCtrl', ['$scope', '$http',  function ($scope, $http) 
 {
+	$scope.gridOptions = { data: [] 
+		,columnDefs : [
+		    { name: 'assign', width:70, cellTemplate:
+		   		'<div class="ui-grid-cell-contents"><input class="delete-employee-checkbox" name="{{row.entity.ID}}" type="checkbox"></div>'},
+			{ name:'First Name', width:130, pinnedLeft:true },
+			{ name:'Last Name', width:130, pinnedRight:true  },
+			{ name:'Age', width:70  },
+			{ name:'Role', width:150 },
+			{ name:'Phone', width:150 },
+			{ name:'Email', width:250 }]
+	};
 	$scope.generateChart = function()
 	{
 		var locationId = document.getElementById("budgetSearchLocationInput").value;

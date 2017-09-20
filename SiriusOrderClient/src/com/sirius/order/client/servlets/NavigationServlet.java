@@ -18,7 +18,6 @@ import com.sirius.loctionws.location.wsdl.LocationClientDao;
  */
 public class NavigationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private String contextPath = null;
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -33,7 +32,6 @@ public class NavigationServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		contextPath = request.getContextPath();
 		String action = request.getParameter("action");
 		if(action.equals("attendance"))
 		{
@@ -57,7 +55,7 @@ public class NavigationServlet extends HttpServlet {
 			parsedLocationList.add(parsedLocation);
 		}
 		request.setAttribute("locationList", parsedLocationList);
-		RequestDispatcher dispatcher = request.getRequestDispatcher(contextPath +  "/jsps/authRequired/attendance.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/authRequired/attendance.jsp");
 		dispatcher.forward(request, response);
 	}
 	private void forwardToBudget(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
@@ -66,7 +64,7 @@ public class NavigationServlet extends HttpServlet {
 		List<LocationBean> locationBeanList = locationClient.getLocations();
 		 
 		request.setAttribute("locations", locationBeanList);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/budgetReport.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/authRequired/budgetReport.jsp");
 		dispatcher.forward(request, response);
 	}
 	/**
