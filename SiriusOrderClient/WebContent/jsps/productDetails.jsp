@@ -10,7 +10,7 @@
   <body>
     <div class="productDetailsMainContianer">
       <div class="breadCrumbs">
-        <a href="jsps/SiriusOrderClient.jsp">welcome</a> > <a href="SiriusOrderClient/ProductSearchServlet?category=1&search=">${productType}</a> > <a href="#">${productName}</a>
+        <a href="jsps/welcome.jsp">welcome</a> > <a href="SiriusOrderClient/ProductSearchServlet?category=1&search=">${productType}</a> > <a href="#">${productName}</a>
       </div>
       <div class="imgAndOrderInfoContainer">
         <div class="productPictureContainer">
