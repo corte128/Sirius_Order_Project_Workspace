@@ -3,7 +3,6 @@
 	<name>AttendanceWSEAR</name>
 	<comment></comment>
 	<projects>
-		<project>AttendanceWS</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

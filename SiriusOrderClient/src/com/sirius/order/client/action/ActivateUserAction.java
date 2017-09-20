@@ -15,30 +15,21 @@ import com.sirius.order.client.form.ActivateUserForm;
 public class ActivateUserAction extends org.apache.struts.action.Action{
 	
 	private final static String SUCCESS = "success";
-	private boolean approve;
-	private boolean reject;
-	
-	public void setApprove(boolean approve){
-		this.approve = approve;
-	}
-	
-	public void setReject(boolean reject){
-		this.reject = reject;
-	}
-	
+
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
     	response.setContentType("text/html");
         ActivateUserForm activateForm = (ActivateUserForm) form;
+        int id = activateForm.getId();
+    	String pressed = activateForm.getPressed();
         HttpSession session = request.getSession();
         try{
-        	int id = activateForm.getId();
 			EmployeeClientDAO dao = new EmployeeClientDAO();
-			if (approve) {
+			if (pressed.equals("approved")) {
 				dao.updateEmployee(id, "accepted", (Integer) session.getAttribute("activeUserID")); 
 			} 
-			else if (reject){
+			else if (pressed.equals("rejected")){
 				dao.updateEmployee(id, "declined", (Integer) session.getAttribute("activeUserID")); 
 			}
         } catch (Exception e) {

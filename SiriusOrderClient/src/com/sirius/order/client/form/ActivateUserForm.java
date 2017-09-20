@@ -8,6 +8,7 @@ public class ActivateUserForm extends ActionForm{
 	 */
 	private static final long serialVersionUID = 7150759366496571024L;
 	int id;
+	String pressed;
 	
 	public ActivateUserForm(){
 		super();
@@ -20,4 +21,13 @@ public class ActivateUserForm extends ActionForm{
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	public String getPressed() {
+		return pressed;
+	}
+
+	public void setPressed(String pressed) {
+		this.pressed = pressed;
+	}
+	
 }

@@ -15,6 +15,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
+<script src="/SiriusOrderClient/js/activateUser.js"></script>
 </head>
 <body>
 	<header>
@@ -22,30 +23,31 @@
 	</header>
 	<div id="users-content">
 		<div id="users-form">
-			<html:form action="/ActivateUser">
-				<table class="table">
-					<thead>
-				      <tr>
-				        <th>Name</th>
-				        <th>Email</th>
-				        <th>Action</th>
-				      </tr>
-				    </thead>
-				    <tbody>
-				    	<c:forEach var="user" items="${employees}">
+			<table class="table">
+				<thead>
+			      <tr>
+			        <th>Name</th>
+			        <th>Email</th>
+			        <th>Action</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+				    <html:form action="/ActivateUser">
+				    	<input id="id" type="hidden" name="id" value="" />
+						<input id="pressed" type="hidden" name="pressed" value="" />
+						<c:forEach var="user" items="${employees}">
 							<tr>
 								<td>${user.getName()}</td>
 								<td class="user-email">${user.getEmail()}</td>
-								<input type="hidden" name="id" value=${user.getId()} />
 								<td>
-									<button type="submit" name="approve" value="Approve" class="fa fa-check" aria-hidden="true"/></button>
-									<button type="submit" name="reject" value="Reject" class="fa fa-times" aria-hidden="true"/></button>
+									<button value="${user.getId()}" type="submit" id="approve-button" onclick="approve(this)" class="fa fa-check" aria-hidden="true"/>
+									<button value="${user.getId()}" type="submit" id="reject-button" onclick="reject(this)" class="fa fa-times" aria-hidden="true"/>
 								</td>
 							</tr>
 						</c:forEach>
-				    </tbody>
-				</table>
-			</html:form>
+					</html:form>
+			    </tbody>
+			</table>
 		</div>
 		<aside>
 			<%@ include file="nav.jsp" %>
