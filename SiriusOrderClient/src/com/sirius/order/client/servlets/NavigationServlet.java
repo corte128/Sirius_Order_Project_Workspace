@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 import com.sirius.adminws.officeadmin.wsdl.EmployeeBean;
 import com.sirius.adminws.officeadmin.wsdl.OfficeAdminClientDAO;
 import com.sirius.locationws.location.wsdl.LocationBean;
@@ -34,6 +35,7 @@ public class NavigationServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+
 
 
 
@@ -69,6 +71,10 @@ public class NavigationServlet extends HttpServlet {
 		else if(action.equals("superAdmin")){
 			forwardToSuperAdmin(request,response);
 		}
+		else if(action.equals("cart"))
+		{
+			forwardToCart(request, response);
+		}
 	}
 	private void forwardToAttendance(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
@@ -93,16 +99,14 @@ public class NavigationServlet extends HttpServlet {
 	}
 	private void forwardToActivateUsers(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		System.out.println("Redirecting to ActivateUsers.jsp");
 		HttpSession session = request.getSession();
 		OfficeAdminClientDAO client = new OfficeAdminClientDAO();
 		List<EmployeeBean> employees = client.getUnapprovedEmployees((Integer) session.getAttribute("activeUserLocation"));
-		System.out.println("GETTING UNAPPROVED EMPLOYEES FOR LOCATION: " + session.getAttribute("activeUserLocation"));
-		System.out.println(employees.size());
 		request.setAttribute("employees", employees);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/activateUsers.jsp");
 		dispatcher.forward(request, response);
 	}
+
 	private void forwardToSuperAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		LocationClientDAO locationClient = new LocationClientDAO();
@@ -111,7 +115,12 @@ public class NavigationServlet extends HttpServlet {
 		request.setAttribute("locations", locationBeanList);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/superAdmin.jsp");
 		dispatcher.forward(request, response);
+	}
 
+	private void forwardToCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/activateUsers.jsp");
+		dispatcher.forward(request, response);
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
