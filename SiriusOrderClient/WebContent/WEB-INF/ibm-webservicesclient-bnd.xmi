@@ -13,7 +13,7 @@
     <portQnameBindings xmi:id="PortQnameBinding_1505500839196" portQnameNamespaceLink="http://main.service.product.sirius.com/product/wsdl" portQnameLocalNameLink="product"/>
   </serviceRefs>
   <serviceRefs xmi:id="ServiceRef_1505745922133" serviceRefLink="service/JaxwsLocation">
-    <portQnameBindings xmi:id="PortQnameBinding_1505745922133" portQnameNamespaceLink="http://locationws.sirius.com/location/wsdl" portQnameLocalNameLink="location"/>
+    <portQnameBindings xmi:id="PortQnameBinding_1505745922133" portQnameNamespaceLink="http://locationws.sirius.com/location/wsdl" portQnameLocalNameLink="location" overriddenEndpointURI="http://localhost:9080/LocationWS/JaxwsLocation"/>
   </serviceRefs>
   <serviceRefs xmi:id="ServiceRef_1505747771764" serviceRefLink="service/JaxwsSearch">
     <portQnameBindings xmi:id="PortQnameBinding_1505747771764" portQnameNamespaceLink="http://searchws.sirius.com/search/wsdl" portQnameLocalNameLink="search" overriddenEndpointURI="http://localhost:9080/SearchWS/JaxwsSearch"/>
