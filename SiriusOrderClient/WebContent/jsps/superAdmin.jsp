@@ -69,64 +69,8 @@
 				</button>
 			</div>
 		</div>
-
-		<%--ASSIGN ADMIN MODAL --%>
-		<div class="modal fade" id="assignAdminModal" tabindex="-1"
-			role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">
-							<bean:message key="SUPER_ADMIN_ASSIGN_ADMIN_LABEL" />
-						</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<form class="form-container">
-							<div class="form-group">
-								<label for="recipient-name" class="form-control-label">
-									<bean:message key="SUPER_ADMIN_LOCATION_LABEL" />: </label> 
-									<select id="locationSelect" name="locations" class="locations_select">
-										<c:forEach items="${locations}" var="location">
-											<option value="${location.id}">
-												<c:out value="${location.city},${location.state}" />
-											</option>
-										</c:forEach>
-									</select>
-								<%-- <input type="text" class="form-control" id="location"> --%>
-							</div>
-							<div class="form-group">
-								<label for="message-text" class="form-control-label"> 
-									<bean:message key="SUPER_ADMIN_NAME_LABEL" />: 
-								</label> 
-								<div class="typeahead__container">
-									<div class="typeahead__field">
-										<span class="typeahead__query"> <input
-											class="office-admin-input" name="country_v1[query]"
-											type="text" placeholder="Search" autocomplete="off">
-										</span> 
-									</div>
-								</div>
-							</div>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">
-							<bean:message key="SUPER_ADMIN_CLOSE_LABEL" />
-						</button>
-						<button type="button" class="btn super-admin_button">
-							<bean:message key="SUPER_ADMIN_ASSIGN_LABEL" />
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<%--ADD LOCATION MODAL --%>
+		
+			<%--ADD LOCATION MODAL --%>
 		<div class="modal fade" id="addLocationModal" tabindex="-1"
 			role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
@@ -141,17 +85,17 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<form class="form-container" id="addLocationForm" action="/SiriusOrderClient/SuperAdminServlet" name="addLocation" method="POST">
+						<form class="form-container" id="addLocationForm"
+							action="/SiriusOrderClient/SuperAdminServlet?action=addLocation"
+							name="addLocation" method="POST">
 							<div class="form-group">
 								<label for="recipient-name" class="form-control-label">
-									<bean:message key="SUPER_ADMIN_CITY_LABEL" />: </label> 
-									<input
+									<bean:message key="SUPER_ADMIN_CITY_LABEL" />: </label> <input
 									type="text" class="form-control" id="location" name="city">
 							</div>
 							<div class="form-group">
 								<label for="message-text" class="form-control-label"> <bean:message
-										key="SUPER_ADMIN_STATE_LABEL" />: </label> 
-								<select name="state">
+										key="SUPER_ADMIN_STATE_LABEL" />: </label> <select name="state">
 									<option value="AL">Alabama</option>
 									<option value="AK">Alaska</option>
 									<option value="AZ">Arizona</option>
@@ -205,20 +149,80 @@
 									<option value="WY">Wyoming</option>
 								</select>
 							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">
+									<bean:message key="SUPER_ADMIN_CLOSE_LABEL" />
+								</button>
+								<button form="addLocationForm" type="submit"
+									class="btn super-admin_button">
+									<bean:message key="SUPER_ADMIN_ADD_LABEL" />
+								</button>
+							</div>
 						</form>
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">
-							<bean:message key="SUPER_ADMIN_CLOSE_LABEL" />
+
+				</div>
+			</div>
+		</div>
+
+		<%--ASSIGN ADMIN MODAL --%>
+		<div class="modal fade" id="assignAdminModal" tabindex="-1"
+			role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">
+							<bean:message key="SUPER_ADMIN_ASSIGN_ADMIN_LABEL" />
+						</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
 						</button>
-						<button form="addLocationForm" type="button" class="btn super-admin_button">
-							<bean:message key="SUPER_ADMIN_ADD_LABEL" />
-						</button>
+					</div>
+					<div class="modal-body">
+						<form class="form-container" id="addLocationForm"
+							action="/SiriusOrderClient/SuperAdminServlet?action=assignAdmin"
+							name="assignAdmin" method="POST">
+							<div class="form-group">
+								<label for="recipient-name" class="form-control-label">
+									<bean:message key="SUPER_ADMIN_LOCATION_LABEL" />: </label> <select
+									id="locationSelect" name="locations" class="locations_select">
+									<c:forEach items="${locations}" var="location">
+										<option value="${location.id}">
+											<c:out value="${location.city},${location.state}" />
+										</option>
+									</c:forEach>
+								</select>
+								<%-- <input type="text" class="form-control" id="location"> --%>
+							</div>
+							<div class="form-group">
+								<label for="message-text" class="form-control-label"> <bean:message
+										key="SUPER_ADMIN_NAME_LABEL" />: </label>
+								<div class="typeahead__container">
+									<div class="typeahead__field">
+										<span class="typeahead__query"> <input
+											class="office-admin-input" name="admin"
+											type="text" placeholder="Search" autocomplete="off">
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">
+									<bean:message key="SUPER_ADMIN_CLOSE_LABEL" />
+								</button>
+								<button type="submit" class="btn super-admin_button">
+									<bean:message key="SUPER_ADMIN_ASSIGN_LABEL" />
+								</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
+
 
 		<%-- NAV BAR --%>
 		<aside class="super-admin-nav">
