@@ -19,7 +19,7 @@ witdh:100vw;
 	margin: auto;
 	margin-top: 30px;
 	border: 1px solid lightgray;
-	width: 950px;
+	width: 600px;
 	margin-bottom: 20px;
 }
 
@@ -30,28 +30,28 @@ witdh:100vw;
 }
 
 .inputFieldContainer {
-	width: 400px;
+	width: 250px;
 	display: flex;
 	justify-content: space-between;
 	margin-top: 20px;
 }
 
 .inputFieldLabel {
-	width: 200px;
+	width: 125px;
 }
 
 .inputField {
-	width: 200px;
+	width: 125px;
 }
 
 .formColumnOne {
-	width: 400px;
+	width: 250px;
 	margin: auto;
 	margin-top: 0px;
 }
 
 .formColumnTwo {
-	width: 400px;
+	width: 250px;
 	margin: auto;
 	margin-top: 0px;
 }
@@ -62,7 +62,7 @@ witdh:100vw;
 
 .grid {
 	margin: auto;
-	width: 950px;
+	width: 500px;
 }
 
 .submitBtn {
