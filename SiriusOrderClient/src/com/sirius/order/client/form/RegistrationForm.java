@@ -28,10 +28,10 @@ public class RegistrationForm extends ActionForm{
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
 	    ActionErrors errors = new ActionErrors();
 	    if (!name.matches("[a-zA-Z\\s]+")){
-	    	errors.add("name", new ActionMessage("registration.name.invalid"));
+	    	errors.add("name", new ActionMessage("REGISTRATION_NAME_INVALID"));
 	    }
 	    if (!password.equals(confirm_password)){
-	    	errors.add("password", new ActionMessage("registration.password.invalid"));
+	    	errors.add("password", new ActionMessage("REGISTRATION_PASSWORDS_INVALID"));
 	    }
 	    return errors;
 	}

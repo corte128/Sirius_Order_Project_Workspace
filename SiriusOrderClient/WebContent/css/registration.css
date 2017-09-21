@@ -1,0 +1,21 @@
+html body{
+	font-family: serif;
+}
+#registration-content{
+	display: flex;
+}
+#registration-form{
+	flex: 9;
+	display: flex;
+}
+aside{
+	display: block;
+	flex: 1;
+}
+#registration-labels{
+	flex: 2;
+	padding-left: 200px;
+}
+#registration-inputs-container{
+	flex: 4;
+}

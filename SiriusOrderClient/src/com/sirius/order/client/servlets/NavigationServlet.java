@@ -48,15 +48,6 @@ public class NavigationServlet extends HttpServlet {
 
 		String action = request.getParameter("action");
 
-//		 if(action.equalsIgnoreCase("attendance")){
-//			 List<LocationBean> locationBeanList = locationClient.getLocations();
-//
-//			 request.setAttribute("locationList", locationBeanList);
-//			 HttpSession session =request.getSession();
-//			 session.setAttribute("locations", locationBeanList);
-//			 forwardToAttendance(request, response);
-//
-//		 }
 
 
 		if(action.equalsIgnoreCase("attendance")){
