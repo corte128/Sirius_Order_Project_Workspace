@@ -8,9 +8,14 @@ app.controller('superAdminCtrl', [
 			$scope.gridOptions = {
 					data : [],
 					columnDefs : [
+//			                {
+//			            	    name : 'Location Id',
+//			            	    cellTemplate: '<div class="ui-grid-cell-contents"> <input name="locationIds" value=\'{{row.entity["Location Id"]}}\'></input></div>'
+//			                },
 							{
 								name : 'Location',
 								width : 100,
+								cellTemplate: '<div class="ui-grid-cell-contents"> <input hidden name="locationIds" value=\'{{row.entity["Location Id"]}}\'></input><div>{{row.entity.Location}}</div></div>',
 								pinnedLeft : true
 							},
 							{
@@ -27,13 +32,13 @@ app.controller('superAdminCtrl', [
 							},
 							{
 								name : 'Recommended Budget',
-								width : 100,
-								cellTemplate : '<div class="ui-grid-cell-contents"><input type="text" class="super-admin-input" value=\'{{row.entity["Recommended Budget"]}}\'/></div>'
+								width : 100
+								//cellTemplate : '<div class="ui-grid-cell-contents"><input type="text" class="super-admin-input" value=\'{{row.entity["Recommended Budget"]}}\'/></div>'
 							},
 							{
 								name : 'Allotted Budget',
 								width : 100,
-								cellTemplate : '<div class="ui-grid-cell-contents"><input type="text" class="super-admin-input" value=\'{{row.entity["Allotted Budget"]}}\'/></div>'
+								cellTemplate : '<div class="ui-grid-cell-contents"><input type="text" class="super-admin-input" name="budgetAllotted" value=\'{{row.entity["Allotted Budget"]}}\'/></div>'
 							} ]
 				};
 
@@ -52,6 +57,7 @@ $(document).ready(function(){
 	
 	$.getJSON( "/SiriusOrderClient/SuperAdminServlet?action=officeAdmin", function( data ){
 		officeData = data;
+		console.log(officeData);
 		$.typeahead({
 		    input: '.office-admin-input',
 		    order: "desc",

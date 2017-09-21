@@ -17,6 +17,8 @@ import javax.servlet.http.HttpSession;
 
 import com.sirius.adminws.officeadmin.wsdl.Holiday;
 import com.sirius.adminws.officeadmin.wsdl.OfficeAdminClientDAO;
+import com.sirius.employeews.employee.wsdl.EmployeeBean;
+import com.sirius.employeews.employee.wsdl.EmployeeClientDAO;
 import com.sirius.locationws.location.wsdl.LocationBean;
 import com.sirius.locationws.location.wsdl.LocationClientDAO;
 
@@ -118,6 +120,25 @@ public class QueryServlet extends HttpServlet {
 				}
 				PrintWriter writer = response.getWriter();
 				writer.write(responseCode);				
+			}
+			else if(query.equals("checkEmail")){
+				EmployeeClientDAO dao = new EmployeeClientDAO();
+				EmployeeBean emp = null;
+				String email = request.getParameter("email");
+				PrintWriter writer = response.getWriter();
+				if(email != null){
+					emp = dao.getEmployeeByEmail(email);
+					if (emp.getEmail() == null){
+						writer.print("false");
+					}
+					else{
+						writer.print("true");
+					}
+				}
+				else{
+					writer.print("true");
+				}
+				writer.close();
 			}
 		}
 	}

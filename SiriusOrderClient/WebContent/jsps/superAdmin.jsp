@@ -48,26 +48,31 @@
 
 		<%-- SUPER ADMIN --%>
 		<div class="super-admin-container">
-			<%-- BUDGET TABLE --%>
-			<div class="super-admin-budget-table" ng-controller="superAdminCtrl">
-				<div id="grid1" ui-grid="gridOptions" class="grid"
-					ui-grid-auto-resize></div>
-			</div>
-
-			<%-- BUTTONS --%>
-			<div class="super-admin-button-container">
-				<button type="button" class="btn super-admin-button"
-					data-toggle="modal" data-target="#assignAdminModal">
-					<bean:message key="SUPER_ADMIN_ASSIGN_ADMIN_LABEL" />
-				</button>
-				<button type="button" class="btn super-admin-button"
-					data-toggle="modal" data-target="#addLocationModal">
-					<bean:message key="SUPER_ADMIN_ADD_LOCATION_LABEL" />
-				</button>
-				<button type="button" class="btn super-admin_button">
-					<bean:message key="SUPER_ADMIN_ASSIGN_BUDGET_LABEL" />
-				</button>
-			</div>
+			<form class="form-container" id="setBudgetForm"
+							action="/SiriusOrderClient/SuperAdminServlet?action=setBudget"
+							name="setBudget" method="POST">
+		
+				<%-- BUDGET TABLE --%>
+				<div class="super-admin-budget-table" ng-controller="superAdminCtrl">
+					<div id="grid1" ui-grid="gridOptions" class="grid"
+						ui-grid-auto-resize></div>
+				</div>
+	
+				<%-- BUTTONS --%>
+				<div class="super-admin-button-container">
+					<button type="button" class="btn super-admin-button"
+						data-toggle="modal" data-target="#assignAdminModal">
+						<bean:message key="SUPER_ADMIN_ASSIGN_ADMIN_LABEL" />
+					</button>
+					<button type="button" class="btn super-admin-button"
+						data-toggle="modal" data-target="#addLocationModal">
+						<bean:message key="SUPER_ADMIN_ADD_LOCATION_LABEL" />
+					</button>
+					<button type="submit" class="btn super-admin_button">
+						<bean:message key="SUPER_ADMIN_ASSIGN_BUDGET_LABEL" />
+					</button>
+				</div>
+			</form>
 		</div>
 		
 			<%--ADD LOCATION MODAL --%>
@@ -222,7 +227,6 @@
 				</div>
 			</div>
 		</div>
-
 
 		<%-- NAV BAR --%>
 		<aside class="super-admin-nav">

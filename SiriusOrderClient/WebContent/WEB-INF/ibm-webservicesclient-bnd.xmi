@@ -10,7 +10,7 @@
     <portQnameBindings xmi:id="PortQnameBinding_1505414339254" portQnameNamespaceLink="http://adminws.sirius.com/officeAdmin/wsdl" portQnameLocalNameLink="officeAdmin" overriddenEndpointURI="http://localhost:9080/OfficeAdminWS/JaxwsOfficeAdmin"/>
   </serviceRefs>
   <serviceRefs xmi:id="ServiceRef_1505500839196" serviceRefLink="service/ProductService">
-    <portQnameBindings xmi:id="PortQnameBinding_1505500839196" portQnameNamespaceLink="http://main.service.product.sirius.com/product/wsdl" portQnameLocalNameLink="product"/>
+    <portQnameBindings xmi:id="PortQnameBinding_1505500839196" portQnameNamespaceLink="http://main.service.product.sirius.com/product/wsdl" portQnameLocalNameLink="product" overriddenEndpointURI="http://localhost:9080/ProductWS/ProductService"/>
   </serviceRefs>
   <serviceRefs xmi:id="ServiceRef_1505745922133" serviceRefLink="service/JaxwsLocation">
     <portQnameBindings xmi:id="PortQnameBinding_1505745922133" portQnameNamespaceLink="http://locationws.sirius.com/location/wsdl" portQnameLocalNameLink="location" overriddenEndpointURI="http://localhost:9080/LocationWS/JaxwsLocation"/>
@@ -19,7 +19,7 @@
     <portQnameBindings xmi:id="PortQnameBinding_1505747771764" portQnameNamespaceLink="http://searchws.sirius.com/search/wsdl" portQnameLocalNameLink="search" overriddenEndpointURI="http://localhost:9080/SearchWS/JaxwsSearch"/>
   </serviceRefs>
   <serviceRefs xmi:id="ServiceRef_1505762487944" serviceRefLink="service/SuperAdminService">
-    <portQnameBindings xmi:id="PortQnameBinding_1505762487944" portQnameNamespaceLink="http://superadmin.service.sirius.com/superadmin/wsdl" portQnameLocalNameLink="superadmin"/>
+    <portQnameBindings xmi:id="PortQnameBinding_1505762487944" portQnameNamespaceLink="http://superadmin.service.sirius.com/superadmin/wsdl" portQnameLocalNameLink="superadmin" overriddenEndpointURI="http://localhost:9080/AdminWS/SuperAdminService"/>
   </serviceRefs>
   <serviceRefs xmi:id="ServiceRef_1505923891761" serviceRefLink="service/JaxwsAttendance">
     <portQnameBindings xmi:id="PortQnameBinding_1505923891761" portQnameNamespaceLink="http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl" portQnameLocalNameLink="Attendance"/>

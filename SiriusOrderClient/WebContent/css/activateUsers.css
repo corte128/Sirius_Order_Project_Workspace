@@ -1,4 +1,5 @@
 #users-content{
+	margin-top: 20px;
 	display: flex;
 }
 #users-form{
@@ -7,6 +8,18 @@
 aside{
 	flex: 1;
 }
-.user-email{
-	text-decoration: underline;
+thead{
+	background-color: #5F6060;
+}
+tr{
+	border-bottom: solid #5F6060 1px;
+	text-align: center;
+}
+th{
+	border-left: solid lightgrey 1px;
+	color: lightgrey;
+	text-align: center !important;
+}
+button{
+	margin-right: 5px;
 }

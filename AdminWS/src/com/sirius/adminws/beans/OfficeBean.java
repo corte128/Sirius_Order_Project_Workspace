@@ -3,6 +3,7 @@ package com.sirius.adminws.beans;
 import java.math.BigDecimal;
 
 public class OfficeBean{
+	private int locationId = 0;
 	private String location = "";
 	private String adminName = "";
 	private String adminEmail = "";
@@ -10,9 +11,18 @@ public class OfficeBean{
 	private BigDecimal recommendedBudget = null;
 	private BigDecimal allottedBudget = null;
 
-	// Location ------------------------------------
+	// Location ID -----------------------------------
 	public String getLocation() {
 		return location;
+	}
+
+	public int getLocationId() {
+		return locationId;
+	}
+	
+	// Location ------------------------------------
+	public void setLocationId(int locationId) {
+		this.locationId = locationId;
 	}
 
 	public void setLocation(String location) {
