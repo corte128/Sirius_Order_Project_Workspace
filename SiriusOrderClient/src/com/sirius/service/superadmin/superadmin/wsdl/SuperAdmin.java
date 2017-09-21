@@ -110,4 +110,31 @@ public interface SuperAdmin {
     @Action(input = "getOffices", output = "http://superadmin.service.sirius.com/superadmin/wsdl/SuperAdmin/getOfficesResponse")
     public List<OfficeBean> getOffices();
 
+    /**
+     * 
+     * @param name
+     * @return
+     *     returns int
+     */
+    @WebMethod(action = "getEmployeeIdByName")
+    @WebResult(name = "getEmployeeIdByNameReturn", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
+    @RequestWrapper(localName = "getEmployeeIdByName", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.superadmin.wsdl.GetEmployeeIdByName")
+    @ResponseWrapper(localName = "getEmployeeIdByNameResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.superadmin.wsdl.GetEmployeeIdByNameResponse")
+    @Action(input = "getEmployeeIdByName", output = "http://superadmin.service.sirius.com/superadmin/wsdl/SuperAdmin/getEmployeeIdByNameResponse")
+    public int getEmployeeIdByName(
+        @WebParam(name = "name", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
+        String name);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod(action = "getOfficeAdminNames")
+    @WebResult(name = "getOfficeAdminNamesReturn", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
+    @RequestWrapper(localName = "getOfficeAdminNames", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.superadmin.wsdl.GetOfficeAdminNames")
+    @ResponseWrapper(localName = "getOfficeAdminNamesResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.superadmin.wsdl.GetOfficeAdminNamesResponse")
+    @Action(input = "getOfficeAdminNames", output = "http://superadmin.service.sirius.com/superadmin/wsdl/SuperAdmin/getOfficeAdminNamesResponse")
+    public List<String> getOfficeAdminNames();
+
 }

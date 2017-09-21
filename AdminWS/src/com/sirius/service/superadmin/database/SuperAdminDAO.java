@@ -191,4 +191,63 @@ public class SuperAdminDAO {
 		}
 		return offices;
 	}
+
+	/**
+	 * Gets the employee id based on the name 
+	 * @param name
+	 * @return int
+	 */
+	public static int getEmployeeIdByName(String name) {
+		Connection conn = null;
+		int id = 0;
+		
+		try{
+			conn = DBConnection.getConnection();
+			id = SuperAdminDAOImplementation.getEmployeeIdByName(name,conn);
+		} catch(NamingException e){
+			logger.log(Level.SEVERE,"Naming Exception Found: Incorrect naming", e);
+		} catch (SQLException e) {
+			logger.log(Level.SEVERE,"SQL Exception Found: Incorrect properties", e);
+		} catch (Exception e){
+			logger.log(Level.SEVERE,"Exception Found ", e);
+		} finally{
+			if (conn != null){
+				try {
+					DBConnection.closeConnection(conn);
+				} catch (SQLException e) {
+					logger.log(Level.SEVERE,"SQL Exception ", e);
+				}
+			}
+		}
+		return id;
+	}
+
+	/**
+	 * Gets the office admin names
+	 * @return List<String>
+	 */
+	public static List<String> getOfficeAdminNames() {
+		Connection conn = null;
+		List<String> names = new ArrayList<String>();
+		
+		try{
+			conn = DBConnection.getConnection();
+			names = SuperAdminDAOImplementation.getOfficeAdminNames(conn);
+		} catch(NamingException e){
+			logger.log(Level.SEVERE,"Naming Exception Found: Incorrect naming", e);
+		} catch (SQLException e) {
+			logger.log(Level.SEVERE,"SQL Exception Found: Incorrect properties", e);
+		} catch (Exception e){
+			logger.log(Level.SEVERE,"Exception Found ", e);
+		} finally{
+			if (conn != null){
+				try {
+					DBConnection.closeConnection(conn);
+				} catch (SQLException e) {
+					logger.log(Level.SEVERE,"SQL Exception ", e);
+				}
+			}
+		}
+		return names;
+	}
 }

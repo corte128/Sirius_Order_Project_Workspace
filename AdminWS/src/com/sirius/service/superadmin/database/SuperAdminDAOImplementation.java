@@ -226,8 +226,8 @@ public class SuperAdminDAOImplementation {
 			// updating admin in the table
 			statement = conn.prepareStatement(employeeQuery);
 			statement.setInt(1,locationId);
-			statement.setInt(2,adminId);
-			statement.setInt(3,updaterId);
+			statement.setInt(2,updaterId);
+			statement.setInt(3,adminId);
 
 			logger.log(Level.FINE,
 					"Updating the admin based on the paramaters: ");
@@ -285,6 +285,7 @@ public class SuperAdminDAOImplementation {
 				OfficeBean office = new OfficeBean();
 				StringBuilder sbObj = new StringBuilder();
 				
+				office.setLocationId(results.getInt("location_id_pk"));
 				sbObj.append(results.getString("location_city"));
 				sbObj.append(",");
 				sbObj.append(results.getString("state_abbr"));
@@ -305,5 +306,86 @@ public class SuperAdminDAOImplementation {
 			}
 		}
 		return offices;
+	}
+
+	/**
+	 * gets the employee id by name
+	 * @param name
+	 * @param conn
+	 * @return int
+	 * @throws SQLException 
+	 */
+	public static int getEmployeeIdByName(String name, Connection conn) throws SQLException {
+		PreparedStatement statement = null;
+		ResultSet results = null;
+		int id = 0;
+		
+		String officeQuery = queries.getString("GET_EMPLOYEE_ID_BY_NAME");
+
+		try {
+			logger.log(Level.FINE, "Preparing to execute office query: ");
+			logger.log(Level.FINE, "   " + officeQuery);
+			
+			// updating the employee query to have the proper parameters
+			statement = conn.prepareStatement(officeQuery);
+			statement.setString(1, name);
+			statement.setInt(2,2);		//sets to office admin type id
+
+			// executing select statement
+			results = statement.executeQuery();
+
+			// forming result
+			if(results.next()){
+				id = results.getInt("employee_id_pk");
+			}
+
+		} finally {
+			if (statement != null) {
+				DBConnection.closePreparedStatement(statement);
+			}
+			if (results != null) {
+				DBConnection.closeResultSet(results);
+			}
+		}
+		return id;
+	}
+
+	/**
+	 * gets all the office admin names
+	 * @param conn
+	 * @return List<String>
+	 * @throws SQLException
+	 */
+	public static List<String> getOfficeAdminNames(Connection conn) throws SQLException {
+		PreparedStatement statement = null;
+		ResultSet results = null;
+		List<String> officeAdmins = new ArrayList<String>();
+		
+		String officeQuery = queries.getString("GET_OFFICE_ADMIN_NAMES");
+
+		try {
+			logger.log(Level.FINE, "Preparing to execute office query: ");
+			logger.log(Level.FINE, "   " + officeQuery);
+			
+			// getting the office admins statement made
+			statement = conn.prepareStatement(officeQuery);
+
+			// executing select statement
+			results = statement.executeQuery();
+
+			// forming result
+			while(results.next()){
+				officeAdmins.add(results.getString("employee_name"));
+			}
+
+		} finally {
+			if (statement != null) {
+				DBConnection.closePreparedStatement(statement);
+			}
+			if (results != null) {
+				DBConnection.closeResultSet(results);
+			}
+		}
+		return officeAdmins;
 	}
 }
