@@ -37,4 +37,14 @@ public class SuperAdminImplementation implements SuperAdminInterface {
 	public List<OfficeBean> getOffices() {
 		return SuperAdminDAO.getOffices();
 	}
+
+	@Override
+	public int getEmployeeIdByName(String name) {
+		return SuperAdminDAO.getEmployeeIdByName(name);
+	}
+
+	@Override
+	public List<String> getOfficeAdminNames() {
+		return SuperAdminDAO.getOfficeAdminNames();
+	}
 }

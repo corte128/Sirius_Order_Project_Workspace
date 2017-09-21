@@ -138,4 +138,12 @@ public class SuperadminProxy{
         return _getDescriptor().getProxy().getOffices();
     }
 
+    public int getEmployeeIdByName(String name) {
+        return _getDescriptor().getProxy().getEmployeeIdByName(name);
+    }
+
+    public List<String> getOfficeAdminNames() {
+        return _getDescriptor().getProxy().getOfficeAdminNames();
+    }
+
 }

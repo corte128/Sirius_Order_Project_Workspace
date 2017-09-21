@@ -13,6 +13,14 @@
 
   <xs:element name="getBudgetByLocationResponse" type="tns:getBudgetByLocationResponse"/>
 
+  <xs:element name="getEmployeeIdByName" type="tns:getEmployeeIdByName"/>
+
+  <xs:element name="getEmployeeIdByNameResponse" type="tns:getEmployeeIdByNameResponse"/>
+
+  <xs:element name="getOfficeAdminNames" type="tns:getOfficeAdminNames"/>
+
+  <xs:element name="getOfficeAdminNamesResponse" type="tns:getOfficeAdminNamesResponse"/>
+
   <xs:element name="getOffices" type="tns:getOffices"/>
 
   <xs:element name="getOfficesResponse" type="tns:getOfficesResponse"/>
@@ -20,6 +28,18 @@
   <xs:element name="setBudgetByLocation" type="tns:setBudgetByLocation"/>
 
   <xs:element name="setBudgetByLocationResponse" type="tns:setBudgetByLocationResponse"/>
+
+  <xs:complexType name="getEmployeeIdByName">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" form="qualified" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getEmployeeIdByNameResponse">
+    <xs:sequence>
+      <xs:element name="getEmployeeIdByNameReturn" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
 
   <xs:complexType name="getOffices">
     <xs:sequence/>
@@ -37,6 +57,7 @@
       <xs:element name="adminName" type="xs:string" minOccurs="0"/>
       <xs:element name="allottedBudget" type="xs:decimal" minOccurs="0"/>
       <xs:element name="location" type="xs:string" minOccurs="0"/>
+      <xs:element name="locationId" type="xs:int"/>
       <xs:element name="numberOfEmployees" type="xs:int"/>
       <xs:element name="recommendedBudget" type="xs:decimal" minOccurs="0"/>
     </xs:sequence>
@@ -92,6 +113,16 @@
   <xs:complexType name="addLocationResponse">
     <xs:sequence>
       <xs:element name="addLocationReturn" type="xs:boolean" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getOfficeAdminNames">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getOfficeAdminNamesResponse">
+    <xs:sequence>
+      <xs:element name="getOfficeAdminNamesReturn" type="xs:string" form="qualified" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

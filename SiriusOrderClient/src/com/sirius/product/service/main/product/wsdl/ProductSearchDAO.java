@@ -10,9 +10,9 @@ public class ProductSearchDAO {
 		return productProxy.getProductByID(ID);
 	}
 	
-	public static List<ProductBean> getAllProductsByType(String type){
+	public static List<ProductBean> getAllProductsByType(int type){
 		ProductProxy productProxy = new ProductProxy();
-		return productProxy.getAllProductsByName(type);
+		return productProxy.getAllProductsByType(type);
 	}
 	
 	public static List<ProductBean> getAllProductsByName(String name){
@@ -20,7 +20,7 @@ public class ProductSearchDAO {
 		return productProxy.getAllProductsByName(name);
 	}
 	
-	public static List<ProductBean> getAllProductsByNameAndType(String name, String type){
+	public static List<ProductBean> getAllProductsByNameAndType(String name, int type){
 		ProductProxy productProxy = new ProductProxy();
 		return productProxy.getAllProductsByNameAndType(name, type);
 	}

@@ -63,7 +63,7 @@ public class ProductDAOImplementation
 	 * @param type
 	 * @param conn
 	 */
-	public static ProductBean[] getAllProductsByType(String type, Connection conn)
+	public static ProductBean[] getAllProductsByType(int type, Connection conn)
 	{
 		String query = null;
 		PreparedStatement statement = null;
@@ -74,7 +74,7 @@ public class ProductDAOImplementation
 			query = queries.getString("GET_PRODUCTS_BY_TYPE_QUERY");
 			statement = conn.prepareStatement(query);
 			
-			statement.setString(1, type);
+			statement.setInt(1, type);
 			
 			productData = statement.executeQuery();
 			
@@ -125,7 +125,14 @@ public class ProductDAOImplementation
 			query = queries.getString("GET_PRODUCTS_BY_NAME_QUERY");
 			statement = conn.prepareStatement(query);
 			
-			statement.setString(1, '%'+name+'%');
+			if(name == null)
+			{
+				statement.setString(1, "%");
+			}
+			else
+			{
+				statement.setString(1, "%" + name + "%");
+			}
 			
 			productData = statement.executeQuery();
 			
@@ -165,7 +172,7 @@ public class ProductDAOImplementation
 	 * @param name
 	 * @param conn
 	 */
-	public static ProductBean[] getAllProductsByNameAndType(String name, String type, Connection conn)
+	public static ProductBean[] getAllProductsByNameAndType(String name, int type, Connection conn)
 	{
 		String query = null;
 		PreparedStatement statement = null;
@@ -173,8 +180,17 @@ public class ProductDAOImplementation
 		ArrayList<ProductBean> productList = new ArrayList<ProductBean>();
 		try
 		{
-			query = queries.getString("GET_PRODUCTS_BY_NAME_AND_TYPE_QUERY");
-			statement = conn.prepareStatement(query);
+			if(type == 0)
+			{
+				query = queries.getString("GET_PRODUCTS_BY_NAME_QUERY");
+				statement = conn.prepareStatement(query);
+			}
+			else
+			{
+				query = queries.getString("GET_PRODUCTS_BY_NAME_AND_TYPE_QUERY");
+				statement = conn.prepareStatement(query);
+				statement.setInt(2, type);
+			}
 			
 			if(name == null)
 			{
@@ -183,15 +199,6 @@ public class ProductDAOImplementation
 			else
 			{
 				statement.setString(1, "%" + name + "%");
-			}
-			
-			if(type == null)
-			{
-				statement.setString(2, "%");
-			}
-			else
-			{
-				statement.setString(2, "%" + type + "%");
 			}
 			
 			productData = statement.executeQuery();

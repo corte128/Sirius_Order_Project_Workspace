@@ -26,6 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="adminName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="allottedBudget" type="{http://www.w3.org/2001/XMLSchema}decimal" minOccurs="0"/>
  *         &lt;element name="location" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="locationId" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="numberOfEmployees" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="recommendedBudget" type="{http://www.w3.org/2001/XMLSchema}decimal" minOccurs="0"/>
  *       &lt;/sequence>
@@ -42,6 +43,7 @@ import javax.xml.bind.annotation.XmlType;
     "adminName",
     "allottedBudget",
     "location",
+    "locationId",
     "numberOfEmployees",
     "recommendedBudget"
 })
@@ -55,6 +57,8 @@ public class OfficeBean {
     protected BigDecimal allottedBudget;
     @XmlElement(namespace = "")
     protected String location;
+    @XmlElement(namespace = "")
+    protected int locationId;
     @XmlElement(namespace = "")
     protected int numberOfEmployees;
     @XmlElement(namespace = "")
@@ -154,6 +158,22 @@ public class OfficeBean {
      */
     public void setLocation(String value) {
         this.location = value;
+    }
+
+    /**
+     * Gets the value of the locationId property.
+     * 
+     */
+    public int getLocationId() {
+        return locationId;
+    }
+
+    /**
+     * Sets the value of the locationId property.
+     * 
+     */
+    public void setLocationId(int value) {
+        this.locationId = value;
     }
 
     /**

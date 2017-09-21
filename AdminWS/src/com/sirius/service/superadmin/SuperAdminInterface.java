@@ -97,4 +97,28 @@ public interface SuperAdminInterface {
 	@RequestWrapper(localName = "getOffices", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.getOffices")
 	@ResponseWrapper(localName = "getOfficesResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.getOfficesResponse")
 	public List<OfficeBean> getOffices();
+	
+	/**
+	 * gets the user id by name
+	 * @param name
+	 * @return int
+	 */
+	@WebMethod(action = "getEmployeeIdByName")
+	@WebResult(name = "getEmployeeIdByNameReturn", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
+	@RequestWrapper(localName = "getEmployeeIdByName", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.getEmployeeIdByName")
+	@ResponseWrapper(localName = "getEmployeeIdByNameResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.getEmployeeIdByNameResponse")
+	public int getEmployeeIdByName(
+			@WebParam(name="name", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
+			String name
+			);
+	
+	/**
+	 * gets the user id by name
+	 * @return List<String>
+	 */
+	@WebMethod(action = "getOfficeAdminNames")
+	@WebResult(name = "getOfficeAdminNamesReturn", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl")
+	@RequestWrapper(localName = "getOfficeAdminNames", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.getOfficeAdminNames")
+	@ResponseWrapper(localName = "getOfficeAdminNamesResponse", targetNamespace = "http://superadmin.service.sirius.com/superadmin/wsdl", className = "com.sirius.service.superadmin.getOfficeAdminNamesResponse")
+	public List<String> getOfficeAdminNames();
 }
