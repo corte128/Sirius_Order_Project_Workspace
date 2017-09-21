@@ -20,10 +20,10 @@
 		<div class="searchContainer">
 			<form method="get" action="/SiriusOrderClient/ProductSearchServlet" class="search">
 				<select class="categorySelect" name="category">
-					<option value="all">All</option>
-					<option value="ink_and_toner">Ink & Toner</option>
-					<option value="breakroom">Breakroom</option>
-					<option value="office_supplies">Office Supplies</option>
+					<option value="0">All</option>
+					<option value="3">Ink & Toner</option>
+					<option value="1">Breakroom</option>
+					<option value="2">Office Supplies</option>
 				</select>
 				<input type="text" class="search searchBar" name="search"></input>
 				<input type="submit" class="search" value="Search"/>
