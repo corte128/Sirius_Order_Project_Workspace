@@ -74,6 +74,8 @@ public class NavigationServlet extends HttpServlet {
 			forwardToCart(request, response);
 		}else if(action.equals("productDetails")){
 			forwardToProductDetails(request, response);
+		}else if(action.equalsIgnoreCase("generatePDF")){
+			generatePDF(request, response);
 		}
 	}
 	private void forwardToProductDetails(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -151,6 +153,11 @@ public class NavigationServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/authRequired/reviewCart.jsp");
 		dispatcher.forward(request, response);
 	}
+	private void generatePDF(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		
+	}
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
