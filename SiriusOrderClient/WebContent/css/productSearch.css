@@ -35,3 +35,11 @@ select {
 {
 	display: flex;
 }
+#productSearchContainer
+{
+	flex: 11;
+}
+#productSearchNavContainer
+{
+	flex: 1;
+}

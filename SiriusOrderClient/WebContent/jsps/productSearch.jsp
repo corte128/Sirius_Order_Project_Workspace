@@ -7,6 +7,7 @@
 	<head>
 		<title>productSearch</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
 		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/productSearch.css">
 		<script type="text/javascript" src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
@@ -36,7 +37,7 @@
 					<c:forEach var="product" items="${Products}">
 						<c:set var="currentProduct" value="${product}" scope="request"/>
 						<div class="productContainerCard">
-							<jsp:include page="productCard.jsp"></jsp:include>
+							<%@ include file="productCard.jsp" %>
 						</div>
 					</c:forEach>
 				</div>
