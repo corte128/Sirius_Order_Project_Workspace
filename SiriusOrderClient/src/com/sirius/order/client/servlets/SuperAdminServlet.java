@@ -9,6 +9,7 @@ import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -76,19 +77,27 @@ public class SuperAdminServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
+		boolean flag = false;
 		SuperadminProxy superAdminProxyObj = new SuperadminProxy();
 		
 		if(action!=null){
 			if(action.equals("addLocation")){
 				String city = request.getParameter("city");
 				String state = request.getParameter("state");
-				Integer id = (Integer) request.getSession().getAttribute(sessionVariables.getString("activeUserID"));
+				Integer id = (Integer) request.getSession().getAttribute(sessionVariables.getString("ACTIVE_USER_ID"));
 				if(city != null && state != null)
-					superAdminProxyObj.addLocation(city, state, id);
+					flag = superAdminProxyObj.addLocation(city, state, id);
 			}
-			else if(action.equals("assignOffice")){
-				
+			else if(action.equals("assignAdmin")){
+				int locationId = Integer.parseInt(request.getParameter("locations"));
+				String admin = request.getParameter("admin");
+				Integer id = (Integer) request.getSession().getAttribute(sessionVariables.getString("ACTIVE_USER_ID"));
+				//TODO: add service to get user by 
+				if(locationId != 0 && admin != null){}
+					//superAdminProxyObj.assignAdmin(locationId, adminId, id);
 			}
 		}
+			
+		response.sendRedirect("/SiriusOrderClient/NavigationServlet?action=superAdmin");
 	}
 }
