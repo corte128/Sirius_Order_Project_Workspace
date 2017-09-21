@@ -36,7 +36,9 @@
 					<input required type="date" name="to_date" />
 					<br />
 					<html:text property="count"></html:text>
+					<br />
 					<html:textarea property="comment"></html:textarea>
+					<br />
 					<html:submit styleId="visitor-add-button" value=Add><fmt:message key="VISITORS_ADD_BUTTON" /></html:submit>
 				</html:form>
 			</div>
