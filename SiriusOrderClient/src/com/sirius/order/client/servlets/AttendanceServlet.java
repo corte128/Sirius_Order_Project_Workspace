@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.fontbox.ttf.TrueTypeFont;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -187,7 +188,7 @@ public class AttendanceServlet extends HttpServlet {
 				//set the position for the first line
 				contentStream.newLineAtOffset(25, 725);
 				//format our strings so we get a nice output
-				String formatString = "%-40s%-40s%-40s%-40s";
+				String formatString = "%-25s%-25s%-25s%s";
 				
 				// this will be our header
 				String headerTextString = String.format(formatString, "Name", "Email", "Date", "Location");
@@ -207,10 +208,14 @@ public class AttendanceServlet extends HttpServlet {
 					count++;
 					if (count==47){
 						contentStream.endText();
+						contentStream.close();
 						myPage = new PDPage();
 						mainDocument.addPage(myPage);
 						contentStream = new PDPageContentStream(mainDocument, myPage);
 						contentStream.beginText();
+						contentStream.setFont(PDType1Font.HELVETICA, 14);
+						contentStream.setLeading(14.5f);
+						contentStream.newLineAtOffset(25, 725);
 						count =0;
 					}
 				}

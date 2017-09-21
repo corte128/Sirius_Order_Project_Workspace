@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>ServicesEar</name>
+	<name>ServicesEAR</name>
 	<comment></comment>
 	<projects>
 		<project>WishlistWS</project>
+		<project>ProductWS</project>
 		<project>MailWS</project>
 		<project>LoginWS</project>
 		<project>LocationWS</project>
