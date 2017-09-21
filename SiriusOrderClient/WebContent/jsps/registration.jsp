@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/registration.css">
-<title><fmt:message key="REGISTRATION_TITLE" /></title>
+<title><fmt:message key="REGISTRATION_TITLE" /></title> 
 </head>
 <body>
 	<header>
@@ -51,6 +51,7 @@
 						<input class="registration-field" required type="password" name="confirm_password" placeholder=<fmt:message key="REGISTRATION_CONFIRM_PASSWORD_LABEL" /> />
 						<br />
 						<html:file name="RegistrationForm" property="photo" />
+						<br />
 						<html:submit styleId="registration-button" value="Register" />
 						<div id="errors">
 							<html:errors  />
@@ -59,9 +60,9 @@
 				</div>
 			</div>
 		</div>
+<%--		<aside>
+			<%@ include file="nav.jsp" %>
+		</aside> --%>
 	</div>
-	<aside>
-		<%@ include file="nav.jsp" %>
-	</aside>
 </body>
 </html>
