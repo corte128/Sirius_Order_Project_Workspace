@@ -9,24 +9,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/productSearch.css">
+<script type="text/javascript" src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
+
 <script type="text/javascript" src="/SiriusOrderClient/js/productSearch.js"></script>
 
 </head>
-<body>
+<body onload="selectedOption('${param.type}')">
 <header>
 	<jsp:include page="header.jsp"></jsp:include>
 </header>
 	<div>
 		<div class="searchContainer">
 			<form method="get" action="/SiriusOrderClient/ProductSearchServlet" class="search">
-				<select class="categorySelect" name="category">
+				<select class="categorySelect" name="category" id="category">
 					<option value="all">All</option>
-					<option value="ink_and_toner">Ink & Toner</option>
+					<option value="ink & toner">Ink & Toner</option>
 					<option value="breakroom">Breakroom</option>
-					<option value="office_supplies">Office Supplies</option>
+					<option value="office supplies">Office Supplies</option>
 				</select>
 				<input type="text" class="search searchBar" name="search"></input>
-				<input type="submit" class="search" value="Search"/>
+				<input id="productSearchButton" type="submit" class="search" value="Search"/>
 			</form>
 		</div>
 		<div class="productContainer">
