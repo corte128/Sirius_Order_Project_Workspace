@@ -29,7 +29,7 @@ public class LoginForm extends ActionForm{
 		employeeID = dao.getEmployeeByCredentials(email, password);
 	    // CREDENTIALS ERROR
 	    if (employeeID == 0) {
-	        errors.add("password", new ActionMessage("login.credentials.invalid"));
+	        errors.add("password", new ActionMessage("LOGIN_CREDENTIALS"));
 	    }
 	    return errors;
 	}

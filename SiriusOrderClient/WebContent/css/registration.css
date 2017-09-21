@@ -1,3 +1,6 @@
+html body{
+	font-family: serif;
+}
 #registration-content{
 	display: flex;
 }
