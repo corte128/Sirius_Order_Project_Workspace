@@ -45,7 +45,7 @@ public interface Product
 		className = "com.sirius.service.product.main.GetAllProductsByTypeResponse")
 	public ProductBean[] getAllProductsByType(
 			@WebParam(name="type", targetNamespace = "http://main.service.product.sirius.com/product/wsdl")
-			String type
+			int type
 			);
 	
 	/**
@@ -78,6 +78,6 @@ public interface Product
 			@WebParam(name="name", targetNamespace = "http://main.service.product.sirius.com/product/wsdl")
 			String name,
 			@WebParam(name="type", targetNamespace = "http://main.service.product.sirius.com/product/wsdl")
-			String type
+			int type
 			);
 }

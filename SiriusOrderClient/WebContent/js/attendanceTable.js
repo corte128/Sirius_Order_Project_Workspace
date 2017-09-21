@@ -36,6 +36,8 @@ app.controller('AttendanceCtrl', [
 								var startDate = document.getElementById("startDate").value;
 								var endDate = document.getElementById("endDate").value;
 								var range = document.getElementById("range").value;
+								var view = document.getElementById("view").value;
+								
 								if(name == ''){
 									name = "%";
 								}
@@ -47,7 +49,7 @@ app.controller('AttendanceCtrl', [
 								
 							$http
 									.get("/SiriusOrderClient/AttendanceServlet?action=getAttendance&name="+name+"&email="+email+"&startDate="+startDate+"&endDate="+endDate+
-											"&location="+location+"&range="+range)
+											"&location="+location+"&range="+range+"&view="+view)
 									.then(
 											function(response) {
 

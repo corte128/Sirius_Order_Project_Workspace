@@ -30,3 +30,16 @@ select {
 	flex: 1;
 	padding: 5px;
 }
+
+#productSearchAndNavContainer
+{
+	display: flex;
+}
+#productSearchContainer
+{
+	flex: 11;
+}
+#productSearchNavContainer
+{
+	flex: 1;
+}
