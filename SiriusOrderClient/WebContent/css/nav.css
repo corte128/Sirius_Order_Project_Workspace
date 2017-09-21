@@ -22,6 +22,7 @@
 {
 	list-style: none;
 	margin: 0;
+	padding-left: 0;
 	padding-right: 5px;
 }
 @media(max-width: 769px) 
@@ -49,7 +50,7 @@
 {
 	width: 180px;
 	height: 160px;
-	opacity: 0.5;
+	opacity: 0.75;
 	z-index: 1000;
 }
 #adminNavSubModalTextContainer

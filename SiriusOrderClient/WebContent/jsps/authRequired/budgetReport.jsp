@@ -19,20 +19,10 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-touch.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-animate.js"></script>
-    	<script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
-    	<script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
-    	<script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
-    
-    	<script src="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.js"></script>
-    	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.css"/>
     
 		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
 		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/budgetReport.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		
-		<script src="/SiriusOrderClient/angular/bower_components/ui-bootstrap-custom-2.5.0.min.js"></script>
-    	<script src="/SiriusOrderClient/angular/bower_components/ui-bootstrap-custom-tpls-2.5.0.min.js"></script>
-    	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/angular/bower_components/ui-bootstrap-custom-2.5.0-csp.css"/>
     	
     	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
     	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
@@ -133,28 +123,26 @@
 						<%@ include file="../nav.jsp" %>
 					</aside>
 				</div>
-			</div>
-			<div class="row">
-				<div id="budgetChartContainer">
-				</div>
-				<div id="budgetGridContainer">
-					<!--<div id="grid1" ui-grid="gridOptions" class="grid" ui-grid-auto-resize></div>
-					-->
-					<table id="budgetGrid" class="display nowrap dataTable dtr-inline" 
-						cellspacing="0" width="100%"
-					>
-						<thead>
-				            <tr>
-				                <th> </th>
-				                <th>Actual</th>
-				                <th>Budget</th>
-				                <th>Variance</th>
-				            </tr>
-				        </thead>
-				        <tbody id="budgetGridBody">
-				        
-				        </tbody>
-					</table>
+				<div class="row">
+					<div id="budgetChartContainer" class="col-md-6">
+					</div>
+					<div id="budgetGridContainer" class="col-md-6">
+						<table id="budgetGrid" class="display nowrap dataTable dtr-inline" 
+							cellspacing="0" width="100%"
+						>
+							<thead>
+					            <tr>
+					                <th> </th>
+					                <th>Actual</th>
+					                <th>Budget</th>
+					                <th>Variance</th>
+					            </tr>
+					        </thead>
+					        <tbody id="budgetGridBody">
+					        
+					        </tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</main>

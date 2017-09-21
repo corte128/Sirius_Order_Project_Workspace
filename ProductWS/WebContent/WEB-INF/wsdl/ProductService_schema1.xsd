@@ -43,7 +43,7 @@
   <xs:complexType name="getAllProductsByNameAndType">
     <xs:sequence>
       <xs:element name="name" type="xs:string" form="qualified" minOccurs="0"/>
-      <xs:element name="type" type="xs:string" form="qualified" minOccurs="0"/>
+      <xs:element name="type" type="xs:int" form="qualified"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -55,7 +55,7 @@
 
   <xs:complexType name="getAllProductsByType">
     <xs:sequence>
-      <xs:element name="type" type="xs:string" form="qualified" minOccurs="0"/>
+      <xs:element name="type" type="xs:int" form="qualified"/>
     </xs:sequence>
   </xs:complexType>
 

@@ -30,26 +30,26 @@
 			<%-- CAROUSEL --%>
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<!-- Indicators -->
-				<%--<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1"></li>
-			<li data-target="#myCarousel" data-slide-to="2"></li>
-		</ol> --%>
+				<!-- <ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
+				</ol> -->
 
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner">
 					<div class="item active">
-						<img src="/SiriusOrderClient/assets/la.jpg" alt="Los Angeles"
+						<img src="/SiriusOrderClient/assets/border_1.png" alt="Los Angeles"
 							style="width: 100%;">
 					</div>
 
 					<div class="item">
-						<img src="/SiriusOrderClient/assets/chicago.jpg" alt="Chicago"
+						<img src="/SiriusOrderClient/assets/border_2.png"" alt="Chicago"
 							style="width: 100%;">
 					</div>
 
 					<div class="item">
-						<img src="/SiriusOrderClient/assets/ny.jpg" alt="New york"
+						<img src="/SiriusOrderClient/assets/border_3.png"" alt="New york"
 							style="width: 100%;">
 					</div>
 				</div>
@@ -66,7 +66,7 @@
 
 			<%-- OFFICE OPTIONS --%>
 			<div class="supply-category-card-container">
-				<html:link page="/Welcome.do?type=ink & toner"
+				<html:link page="/Welcome.do?type=ink_and_toner"
 					styleClass="supply-category-card">
 					<div class="supply-category-card-title">
 						<fmt:message key="WELCOME_INK_AND_TONER_LABEL" />
@@ -90,7 +90,7 @@
 						<img src="/SiriusOrderClient/assets/breakroom.png" />
 					</div>
 				</html:link>
-				<html:link page="/Welcome.do?type=office supplies"
+				<html:link page="/Welcome.do?type=office_supplies"
 					styleClass="supply-category-card">
 					<div class="supply-category-card-title">
 						<fmt:message key="WELCOME_OFFICE_SUPPLIES_LABEL" />
@@ -103,7 +103,9 @@
 					</div>
 				</html:link>
 			</div>
+
 		</div>
+		
 		<%-- ASIDE --%>
 		<aside>
 			<%@ include file="nav.jsp"%>

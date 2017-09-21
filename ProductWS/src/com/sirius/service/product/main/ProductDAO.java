@@ -52,7 +52,7 @@ public class ProductDAO
 	 * Gets all products by type
 	 * @param type
 	 */
-	public static ProductBean[] getAllProductsByType(String type)
+	public static ProductBean[] getAllProductsByType(int type)
 	{
 		Connection conn = null;
 		ProductBean[] output = null;
@@ -125,7 +125,7 @@ public class ProductDAO
 	 * @param name
 	 * @param type
 	 */
-	public static ProductBean[] getAllProductsByNameAndType(String name, String type)
+	public static ProductBean[] getAllProductsByNameAndType(String name, int type)
 	{
 		Connection conn = null;
 		ProductBean[] output = null;

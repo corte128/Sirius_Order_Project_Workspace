@@ -36,7 +36,7 @@
 				<tr>
 					<c:if test="${sessionScope.activeUserType == '2'}">
 						<td class="headerLink"><html:link
-								href="https://www.google.com/alerts">
+								href="/SiriusOrderClient/NavigationServlet?action=activateUsers">
 								<fmt:message key="HEADER_ALERTS" />
 							</html:link>
 					</c:if>

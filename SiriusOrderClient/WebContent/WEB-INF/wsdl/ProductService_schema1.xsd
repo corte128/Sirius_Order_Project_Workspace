@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<xs:schema version="1.0" targetNamespace="http://main.service.product.sirius.com/product/wsdl" xmlns:tns="http://main.service.product.sirius.com/product/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?><xs:schema targetNamespace="http://main.service.product.sirius.com/product/wsdl" version="1.0" xmlns:tns="http://main.service.product.sirius.com/product/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
   <xs:element name="getAllProductByTypeResponse" type="tns:getAllProductByTypeResponse"/>
 
@@ -19,62 +18,61 @@
 
   <xs:complexType name="getProductByID">
     <xs:sequence>
-      <xs:element name="ID" type="xs:int" form="qualified"/>
+      <xs:element form="qualified" name="ID" type="xs:int"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="getProductByIDResponse">
     <xs:sequence>
-      <xs:element name="getProductByIDReturn" type="tns:productBean" form="qualified" minOccurs="0"/>
+      <xs:element form="qualified" minOccurs="0" name="getProductByIDReturn" type="tns:productBean"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="productBean">
     <xs:sequence>
-      <xs:element name="details" type="xs:string" minOccurs="0"/>
+      <xs:element minOccurs="0" name="details" type="xs:string"/>
       <xs:element name="id" type="xs:int"/>
-      <xs:element name="image" type="xs:string" minOccurs="0"/>
-      <xs:element name="name" type="xs:string" minOccurs="0"/>
-      <xs:element name="price" type="xs:decimal" minOccurs="0"/>
-      <xs:element name="type" type="xs:string" minOccurs="0"/>
+      <xs:element minOccurs="0" name="image" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="price" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="type" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="getAllProductsByNameAndType">
     <xs:sequence>
-      <xs:element name="name" type="xs:string" form="qualified" minOccurs="0"/>
-      <xs:element name="type" type="xs:string" form="qualified" minOccurs="0"/>
+      <xs:element form="qualified" minOccurs="0" name="name" type="xs:string"/>
+      <xs:element form="qualified" name="type" type="xs:int"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="getAllProductsByNameAndTypeResponse">
     <xs:sequence>
-      <xs:element name="getAllProductsByNameAndTypeReturn" type="tns:productBean" form="qualified" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element form="qualified" maxOccurs="unbounded" minOccurs="0" name="getAllProductsByNameAndTypeReturn" nillable="true" type="tns:productBean"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="getAllProductsByType">
     <xs:sequence>
-      <xs:element name="type" type="xs:string" form="qualified" minOccurs="0"/>
+      <xs:element form="qualified" name="type" type="xs:int"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="getAllProductByTypeResponse">
     <xs:sequence>
-      <xs:element name="getAllProductsByTypeReturn" type="tns:productBean" form="qualified" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element form="qualified" maxOccurs="unbounded" minOccurs="0" name="getAllProductsByTypeReturn" nillable="true" type="tns:productBean"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="getAllProductsByName">
     <xs:sequence>
-      <xs:element name="name" type="xs:string" form="qualified" minOccurs="0"/>
+      <xs:element form="qualified" minOccurs="0" name="name" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="getAllProductsByNameResponse">
     <xs:sequence>
-      <xs:element name="getAllProductsByNameReturn" type="tns:productBean" form="qualified" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element form="qualified" maxOccurs="unbounded" minOccurs="0" name="getAllProductsByNameReturn" nillable="true" type="tns:productBean"/>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
-

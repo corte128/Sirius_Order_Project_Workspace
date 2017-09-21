@@ -35,9 +35,9 @@ public class ProductSearchServlet extends HttpServlet {
 		// TODO Auto-generated method stub
         HttpSession session = request.getSession();
         String name = request.getParameter("search");
-        String category = request.getParameter("category");
+        int category = Integer.parseInt(request.getParameter("category"));
         List<ProductBean> objects = null;
-        if(category.equals("All")){
+        if(category == 0){
         	objects = ProductSearchDAO.getAllProductsByName(name);
         }
         else{
