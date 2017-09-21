@@ -133,28 +133,28 @@
 						<%@ include file="../nav.jsp" %>
 					</aside>
 				</div>
-			</div>
-			<div class="row">
-				<div id="budgetChartContainer">
-				</div>
-				<div id="budgetGridContainer">
-					<!--<div id="grid1" ui-grid="gridOptions" class="grid" ui-grid-auto-resize></div>
-					-->
-					<table id="budgetGrid" class="display nowrap dataTable dtr-inline" 
-						cellspacing="0" width="100%"
-					>
-						<thead>
-				            <tr>
-				                <th> </th>
-				                <th>Actual</th>
-				                <th>Budget</th>
-				                <th>Variance</th>
-				            </tr>
-				        </thead>
-				        <tbody id="budgetGridBody">
-				        
-				        </tbody>
-					</table>
+				<div class="row">
+					<div id="budgetChartContainer" class="col-md-6">
+					</div>
+					<div id="budgetGridContainer" class="col-md-6">
+						<!--<div id="grid1" ui-grid="gridOptions" class="grid" ui-grid-auto-resize></div>
+						-->
+						<table id="budgetGrid" class="display nowrap dataTable dtr-inline" 
+							cellspacing="0" width="100%"
+						>
+							<thead>
+					            <tr>
+					                <th> </th>
+					                <th>Actual</th>
+					                <th>Budget</th>
+					                <th>Variance</th>
+					            </tr>
+					        </thead>
+					        <tbody id="budgetGridBody">
+					        
+					        </tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</main>

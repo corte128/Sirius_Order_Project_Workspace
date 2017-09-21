@@ -41,9 +41,6 @@
 				</div>
 			</div>
 		</div>
-		<aside>
-			<%@ include file="nav.jsp" %>
-		</aside>
 	</div>
 </body>
 </html>
