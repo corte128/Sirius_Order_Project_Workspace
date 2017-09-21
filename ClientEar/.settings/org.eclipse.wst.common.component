@@ -2,7 +2,11 @@
     <wb-module deploy-name="ClientEar">
         <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
         <dependent-module archiveName="SiriusOrderClient.war" deploy-path="/" handle="module:/resource/SiriusOrderClient/SiriusOrderClient">
+<<<<<<< HEAD:SiriusOrderClientEAR/.settings/org.eclipse.wst.common.component
+            <dependent-object>Module_1505942166089</dependent-object>
+=======
             <dependent-object>Module_1505942643165</dependent-object>
+>>>>>>> 873624de6d9942b0abeb8ae2fdfd5181fb916f4d:ClientEar/.settings/org.eclipse.wst.common.component
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>

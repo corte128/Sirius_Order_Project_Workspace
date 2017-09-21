@@ -1,6 +1,7 @@
 package com.sirius.order.client.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -42,6 +43,9 @@ public class ProductSearchServlet extends HttpServlet {
         else{
             objects = ProductSearchDAO.getAllProductsByNameAndType(name, category);
         }
+        List<List<ProductBean>> lists = separateList(objects, 20);
+        //break objects down for lazy loading into separate lists
+        
 		session.setAttribute("Products", objects);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("jsps/productSearch.jsp");
 		dispatcher.forward(request, response);
@@ -52,6 +56,20 @@ public class ProductSearchServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+	}
+	
+	private List<List<ProductBean>> separateList(List<ProductBean> objects, int numOfObjects){
+		/**/
+		List<List<ProductBean>> lists = new ArrayList<List<ProductBean>>();
+		int length = objects.size();
+		for(int i = 0; i < length; i+= numOfObjects){
+			int endpoint = (i+numOfObjects);
+			if(endpoint >= length) {
+				endpoint = length;
+			}
+			lists.add(objects.subList(i, endpoint));
+		}
+		return lists;
 	}
 
 }
