@@ -20,18 +20,16 @@
 </header>
 	<div>
 		<div class="searchContainer">
-			<form method="get" action="/SiriusOrderClient/ProductSearchServlet" class="search">
-				<select class="categorySelect" name="category" id="category">
-					<option value="all">All</option>
-					<option value="ink & toner">Ink & Toner</option>
-					<option value="breakroom">Breakroom</option>
-					<option value="office supplies">Office Supplies</option>
-				</select>
-				<input type="text" class="search searchBar" name="search"></input>
-				<input id="productSearchButton" type="submit" class="search" value="Search"/>
-			</form>
+			<select class="categorySelect" name="category" id="category">
+				<option value="0">All</option>
+				<option value="3">Ink & Toner</option>
+				<option value="1">Breakroom</option>
+				<option value="2">Office Supplies</option>
+			</select>
+			<input type="text" class="search searchBar" name="search" id="search"></input>
+			<input id="productSearchButton" type="button" onclick="searchProducts()" class="search" value="Search"/>
 		</div>
-		<div class="productContainer">
+		<div id="productContainer" class="productContainer">
 			<c:forEach var="product" items="${Products}">
 				<c:set var="currentProduct" value="${product}" scope="request"/>
 				<div class="productContainerCard">

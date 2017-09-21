@@ -87,7 +87,7 @@
   </binding>
   <service name="ProductService">
     <port binding="tns:productBinding" name="product">
-      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+      <soap:address location="http://localhost:9080/ProductWS/ProductService"/>
     </port>
   </service>
 </definitions>

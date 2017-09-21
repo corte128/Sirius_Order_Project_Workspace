@@ -25,20 +25,18 @@ function addToCart(productID)
 	xhttp.send();
 }
 
-function searchProducts(search, category){
-	var url = "/SiriusOrderClient/ProductSearchServlet?query=searchProducts&category=" + search + "&search=" + category;
+function searchProducts(){
+	
+	var search = document.getElementById("search");
+	var category = document.getElementById("category");
+	alert(search.value + ", " + category.value);
+	var url = "/SiriusOrderClient/ProductSearchServlet?query=searchProducts&category=" + category.value + "&search=" +  search.value;
+	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET", url, true);
 	xhttp.onreadystatechange = function()
 	{
-//		var response = xhttp.responseText;
-//		if(response != null){
-//			console.log(response);
-//			$('#tblAppendGrid').appendGrid('load', JSON.parse(response));
-//		}
-//		else{
-//			console.log("Results are empty");
-//		}
-		//TO DO alert user
+		var response = JSON.parse(xhttp.responseText);
+		
 	};
 	xhttp.send();
 }
