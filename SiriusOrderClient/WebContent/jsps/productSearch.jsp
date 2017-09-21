@@ -15,30 +15,35 @@
 	
 	</head>
 	<body onload="selectedOption('${param.type}')">
-	<header>
-		<jsp:include page="header.jsp"></jsp:include>
-	</header>
-		<div>
-			<div class="searchContainer">
-				<form method="get" action="/SiriusOrderClient/ProductSearchServlet" class="search">
-					<select class="categorySelect" name="category">
-						<option value="0">All</option>
-						<option value="3">Ink & Toner</option>
-						<option value="1">Breakroom</option>
-						<option value="2">Office Supplies</option>
-					</select>
-					<input type="text" class="search searchBar" name="search"></input>
-					<input id="productSearchButton" type="submit" class="search" value="Search"/>
-				</form>
-			</div>
-			<div class="productContainer">
-				<c:forEach var="product" items="${Products}">
-					<c:set var="currentProduct" value="${product}" scope="request"/>
-					<div class="productContainerCard">
-						<jsp:include page="productCard.jsp"></jsp:include>
-					</div>
-				</c:forEach>
-			</div>
+		<header>
+			<jsp:include page="header.jsp"></jsp:include>
+		</header>
+		<div id="productSearchAndNavContainer">
+			<main id="productSearchContainer">
+				<div class="searchContainer">
+					<form method="get" action="/SiriusOrderClient/ProductSearchServlet" class="search">
+						<select class="categorySelect" name="category">
+							<option value="0">All</option>
+							<option value="3">Ink & Toner</option>
+							<option value="1">Breakroom</option>
+							<option value="2">Office Supplies</option>
+						</select>
+						<input type="text" class="search searchBar" name="search"></input>
+						<input id="productSearchButton" type="submit" class="search" value="Search"/>
+					</form>
+				</div>
+				<div class="productContainer">
+					<c:forEach var="product" items="${Products}">
+						<c:set var="currentProduct" value="${product}" scope="request"/>
+						<div class="productContainerCard">
+							<jsp:include page="productCard.jsp"></jsp:include>
+						</div>
+					</c:forEach>
+				</div>
+			</main>
+			<aside id="productSearchNavContainer">
+				<%@ include file="nav.jsp"%>
+			</aside>
 		</div>
 	</body>
 </html>

@@ -52,6 +52,6 @@ function vericalHandler(){
 
 function selectedOption(value){
 	alert(value);
-	$("#category").val(value + "");
+	$("#category").val(value);
 }
 
