@@ -51,6 +51,7 @@
 						<input class="registration-field" required type="password" name="confirm_password" placeholder=<fmt:message key="REGISTRATION_CONFIRM_PASSWORD_LABEL" /> />
 						<br />
 						<html:file name="RegistrationForm" property="photo" />
+						<br />
 						<html:submit styleId="registration-button" value="Register" />
 						<div id="errors">
 							<html:errors  />
@@ -59,9 +60,9 @@
 				</div>
 			</div>
 		</div>
-		<aside>
+<%--		<aside>
 			<%@ include file="nav.jsp" %>
-		</aside>
+		</aside> --%>
 	</div>
 </body>
 </html>
