@@ -14,7 +14,7 @@ public class ProductImplementation implements Product
 		return ProductDAO.getProductByID(ID);
 	}
 	
-	public ProductBean[] getAllProductsByType(String type)
+	public ProductBean[] getAllProductsByType(int type)
 	{
 		return ProductDAO.getAllProductsByType(type);
 	}
@@ -24,7 +24,7 @@ public class ProductImplementation implements Product
 		return ProductDAO.getAllProductsByName(name);
 	}
 	
-	public ProductBean[] getAllProductsByNameAndType(String name, String type)
+	public ProductBean[] getAllProductsByNameAndType(String name, int type)
 	{
 		return ProductDAO.getAllProductsByNameAndType(name, type);
 	}

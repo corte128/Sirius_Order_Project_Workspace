@@ -12,7 +12,7 @@ import javax.xml.ws.Dispatch;
 import javax.xml.ws.Service;
 import javax.xml.ws.soap.SOAPBinding;
 import java.util.List;
-
+import javax.xml.ws.Action;
 
 public class ProductProxy{
 
@@ -121,7 +121,7 @@ public class ProductProxy{
         return _getDescriptor().getProxy().getProductByID(id);
     }
 
-    public List<ProductBean> getAllProductsByType(String type) {
+    public List<ProductBean> getAllProductsByType(int type) {
         return _getDescriptor().getProxy().getAllProductsByType(type);
     }
 
@@ -129,7 +129,7 @@ public class ProductProxy{
         return _getDescriptor().getProxy().getAllProductsByName(name);
     }
 
-    public List<ProductBean> getAllProductsByNameAndType(String name, String type) {
+    public List<ProductBean> getAllProductsByNameAndType(String name, int type) {
         return _getDescriptor().getProxy().getAllProductsByNameAndType(name,type);
     }
 
