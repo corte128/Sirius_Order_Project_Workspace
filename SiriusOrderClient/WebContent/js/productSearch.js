@@ -29,7 +29,6 @@ function searchProducts(){
 	
 	var search = document.getElementById("search");
 	var category = document.getElementById("category");
-	alert(search.value + ", " + category.value);
 	var url = "/SiriusOrderClient/ProductSearchServlet?query=searchProducts&category=" + category.value + "&search=" +  search.value;
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET", url, true);
@@ -37,20 +36,21 @@ function searchProducts(){
 	{
 		var response = JSON.parse(xhttp.responseText);
 		$('#productContainer').empty();
-		var productCardContainer = document.getElementById('productContainer');
+		var productContainer = document.getElementById('productContainer');
 		
 		var bootStrap = document.createElement("link");
 		bootStrap.rel = "stylesheet";
 		bootStrap.type = "text/css";
 		bootStrap.href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
-		productCardContainer.appendChild(bootStrap);
+		productContainer.appendChild(bootStrap);
 		
 		var style = document.createElement("link");
 		style.rel = "stylesheet";
 		style.type = "text/css";
 		style.href = "/SiriusOrderClient/css/productCard.css";
-		productCardContainer.appendChild(style);
-		for(key in response){
+		productContainer.appendChild(style);
+		for(key in response)
+		{
 			var image = document.createElement("img");
 			image.src = response[key].Image;
 			image.setAttribute("class", "productImage");
@@ -89,8 +89,12 @@ function searchProducts(){
 			productCard.appendChild(nameDiv);
 			productCard.appendChild(divLikesAndPrice);
 			productCard.appendChild(addToCartBtn);
-
+			
+			var productCardContainer = document.createElement("div");
+			productCardContainer.setAttribute("class", "productContainerCard");
 			productCardContainer.appendChild(productCard);
+			
+			productContainer.appendChild(productCardContainer);
 		}
 	};
 	xhttp.send();
