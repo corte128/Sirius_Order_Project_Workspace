@@ -87,7 +87,7 @@
   </binding>
   <service name="JaxwsWishlist">
     <port binding="tns:wishlistBinding" name="wishlist">
-      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+      <soap:address location="http://localhost:9080/WishlistWS/JaxwsWishlist"/>
     </port>
   </service>
 </definitions>

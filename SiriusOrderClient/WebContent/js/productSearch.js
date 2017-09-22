@@ -44,7 +44,7 @@ function searchProducts()
 	var search = document.getElementById("search");
 	var category = document.getElementById("category");
 	
-	var url = "/SiriusOrderClient/ProductSearchServlet?query=searchProducts&category=" + category.value + "&search=" +  search.value;
+	var url = "/SiriusOrderClient/ProductSearchServlet?action=searchProducts&category=" + category.value + "&search=" +  search.value;
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET", url, true);
 	xhttp.onreadystatechange = function()
@@ -88,7 +88,7 @@ function searchProducts()
 			
 			var spanHeart = document.createElement("span");
 			spanHeart.setAttribute("class", "glyphicon glyphicon-heart clickable-like");
-			spanHeart.onclick=addToWishlist(response[key].ID);
+			spanHeart.onclick='addToWishlist(' + response[key].id + ')';
 			/*==============================*/
 			
 			var spanPrice = document.createElement("span");
