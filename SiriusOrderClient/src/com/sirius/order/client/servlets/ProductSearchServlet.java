@@ -71,15 +71,30 @@ public class ProductSearchServlet extends HttpServlet {
 		writer.close();
 		
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("jsps/productSearch.jsp");
-		dispatcher.forward(request, response);
+
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        HttpSession session = request.getSession();
+        String name = request.getParameter("search");
+        int category = Integer.parseInt(request.getParameter("category"));
+        List<ProductBean> objects = null;
+        if(category == 0){
+        	objects = ProductSearchDAO.getAllProductsByName(name);
+        }
+        else{
+            objects = ProductSearchDAO.getAllProductsByNameAndType(name, category);
+        }
+        List<List<ProductBean>> lists = separateList(objects, 20);
+        //break objects down for lazy loading into separate lists
+        		
+		request.setAttribute("Products", objects);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("jsps/productSearch.jsp");
+		dispatcher.forward(request, response);
 	}
 	
 	private List<List<ProductBean>> separateList(List<ProductBean> objects, int numOfObjects){

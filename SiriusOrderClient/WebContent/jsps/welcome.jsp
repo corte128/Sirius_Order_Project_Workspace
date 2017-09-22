@@ -44,12 +44,12 @@
 					</div>
 
 					<div class="item">
-						<img src="/SiriusOrderClient/assets/border_2.png"" alt="Chicago"
+						<img src="/SiriusOrderClient/assets/border_2.png" alt="Chicago"
 							style="width: 100%;">
 					</div>
 
 					<div class="item">
-						<img src="/SiriusOrderClient/assets/border_3.png"" alt="New york"
+						<img src="/SiriusOrderClient/assets/border_3.png" alt="New york"
 							style="width: 100%;">
 					</div>
 				</div>

@@ -4,39 +4,54 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
-<head>
-<title>productSearch</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
-<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/productSearch.css">
-<script type="text/javascript" src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
-
-<script type="text/javascript" src="/SiriusOrderClient/js/productSearch.js"></script>
-
-</head>
-<body onload="selectedOption('${param.type}')">
-<header>
-	<jsp:include page="header.jsp"></jsp:include>
-</header>
-	<div>
-		<div class="searchContainer">
-			<select class="categorySelect" name="category" id="category">
-				<option value="0">All</option>
-				<option value="3">Ink & Toner</option>
-				<option value="1">Breakroom</option>
-				<option value="2">Office Supplies</option>
-			</select>
-			<input type="text" class="search searchBar" name="search" id="search"></input>
-			<input id="productSearchButton" type="button" onclick="searchProducts()" class="search" value="Search"/>
-		</div>
-		<div id="productContainer" class="productContainer">
-			<c:forEach var="product" items="${Products}">
-				<c:set var="currentProduct" value="${product}" scope="request"/>
-				<div class="productContainerCard">
-					<jsp:include page="productCard.jsp"></jsp:include>
+	<head>
+		<title>productSearch</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
+		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/productSearch.css">
+		<script type="text/javascript" src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
+		
+		<script type="text/javascript" src="/SiriusOrderClient/js/productSearch.js"></script>
+	
+	</head>
+	<body onload="selectedOption('${param.type}')">
+		<header>
+			<jsp:include page="header.jsp"></jsp:include>
+		</header>
+		<div id="productSearchAndNavContainer">
+			<main id="productSearchContainer">
+				<div class="searchContainer">
+					<!-- <form method="post" action="/SiriusOrderClient/ProductSearchServlet" class="search">
+						<select class="categorySelect" name="category">
+							<option value="0">All</option>
+							<option value="3">Ink & Toner</option>
+							<option value="1">Breakroom</option>
+							<option value="2">Office Supplies</option>
+						</select>
+						<input type="text" class="search searchBar" name="search"></input>
+						<input id="productSearchButton" type="submit" class="search" value="Search"/>
+					</form> -->
+					<select class="categorySelect" id="category" name="category">
+						<option value="0">All</option>
+						<option value="3">Ink & Toner</option>
+						<option value="1">Breakroom</option>
+						<option value="2">Office Supplies</option>
+					</select>
+					<input type="text" class="search searchBar" id="search" name="search"></input>
+					<input id="productSearchButton" type="button" onclick="searchProducts()" class="search" value="Search"/>
 				</div>
-			</c:forEach>
+				<div id="productContainer" class="productContainer">
+					<c:forEach var="product" items="${Products}">
+						<c:set var="currentProduct" value="${product}" scope="request"/>
+						<div class="productContainerCard">
+							<%@ include file="productCard.jsp" %>
+						</div>
+					</c:forEach>
+				</div>
+			</main>
+			<aside id="productSearchNavContainer">
+				<%@ include file="nav.jsp"%>
+			</aside>
 		</div>
-	</div>
-</body>
+	</body>
 </html>
