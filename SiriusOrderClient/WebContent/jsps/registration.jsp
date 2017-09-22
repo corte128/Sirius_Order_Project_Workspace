@@ -14,7 +14,7 @@
 <title><fmt:message key="REGISTRATION_TITLE" /></title> 
 </head>
 <body>
-	<header>
+	<header> 
 		<%@ include file="header.jsp" %>
 	</header>
 	<div id="registration-content">

@@ -19,7 +19,7 @@
 	<div id="login-content">	
 		<div id="login-form">
 			<div id="login-labels">
-				<br />
+				<br /> 
 				<label class="input-label"><fmt:message key="LOGIN_EMAIL_LABEL" /></label>
 				<br />
 				<label class="input-label"><fmt:message key="LOGIN_PASSWORD_LABEL" /></label>

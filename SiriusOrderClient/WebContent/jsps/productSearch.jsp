@@ -19,7 +19,7 @@
 	<body onload="selectedOption(${param.type})">
 		<header>
 			<%@ include file="header.jsp" %>
-		</header>
+		</header> 
 		<div id="productSearchAndNavContainer">
 			<main id="productSearchContainer">
 				<div class="searchContainer">

@@ -19,7 +19,7 @@
 	<header>
 		<%@ include file="header.jsp" %>
 	</header>
-	<div id="visitors-content">
+	<div id="visitors-content"> 
 		<div id="visitors-form">
 			<div id="visitors-labels">
 				<br />
