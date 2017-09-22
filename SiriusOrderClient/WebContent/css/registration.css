@@ -1,21 +1,151 @@
 html body{
 	font-family: serif;
 }
-#registration-content{
-	display: flex;
+.error{
+	color: red;
 }
-#registration-form{
-	flex: 9;
-	display: flex;
+#email-taken-error{
+	display: none;
 }
-aside{
-	display: block;
-	flex: 1;
+#registration-title{
+	color: #5F6060;
 }
-#registration-labels{
-	flex: 2;
-	padding-left: 200px;
+.registration-label{
+	color: #5F6060;
+	font-style: italic;
 }
-#registration-inputs-container{
-	flex: 4;
+.registration-field{
+	border: grey 1px solid;
 }
+#registration-button{
+	border: none;
+	background-color: #5F6060;
+	color: lightgrey;
+}
+@media only screen and (min-width: 300px) {
+	#registration-title{
+		font-size: 1.5em;
+		padding-bottom: 20px;
+		font-style: italic;
+		text-align: center;
+		padding-top: 30px;
+	}
+	#registration-form{
+		display: flex;
+	}
+	#registration-labels{
+		padding-left: 15px;
+		flex: 3;
+	}
+	#registration-inputs-container{
+		padding-top: 5%;
+		flex: 4;
+	}
+	.registration-field{
+		margin-bottom: 5px;
+	}
+	input{
+		max-width: 150px;
+		padding-bottom: 4%;
+	}
+	.registration-label{
+		display: inline-block;
+		padding-bottom: 9%;
+	}
+	#registration-button{
+		position: absolute;
+		right: 23px;
+		padding: 3px;
+	}
+}
+@media only screen and (min-width: 768px) {
+	body{
+		font-size: 1.5em;
+	}
+	#registration-title{
+		font-size: 1.5em;
+		padding-bottom: 20px;
+		font-style: italic;
+		text-align: center;
+		padding-top: 30px;
+	}
+	#registration-form{
+		display: flex;
+	}
+	#registration-labels{
+		padding-left: 15%;
+		flex: 2;
+	}
+	#registration-inputs-container{
+		padding-top: 3%;
+		flex: 4;
+	}
+	.registration-field{
+		margin-bottom: 5px;
+	}
+	input{
+		max-width: 200px;
+		font-size: 1em;
+	}
+	.registration-label{
+		padding-top: 6%;
+		display: inline-block;
+		padding-bottom: 5%;
+	}
+	#registration-button{
+		position: absolute;
+		right: 20%;
+		padding: 10px;
+	}
+	.error{
+		font-size: .8em;
+	}
+	#photo-field{
+		max-width: 300px;
+	}
+	#location-field{
+		height: 45px;
+	}
+}
+@media only screen and (min-width: 800px) {
+	body{
+		font-size: 1em;
+	}
+	#registration-title{
+		padding-top: 40px;
+		font-size: 2em;
+	}
+	#registration-form{
+		display: flex;
+	}
+	#registration-labels{
+		flex: 2;
+		padding: 0;
+		padding-left: 275px;
+		margin-top: -20px;
+	}
+	#registration-inputs-container{
+		padding: 0;
+		flex: 4;
+	}
+	.error{
+		font-size: 1em;
+	}
+	#location-field{
+		height: auto;
+	}
+	.registration-field{
+		padding: 0;
+		margin-bottom: 5px;
+	}
+	input{
+		max-width: 200px;
+		font-size: 1em;
+	}
+	.registration-label{
+		padding-top: 0;
+		padding-bottom: 8px;
+	}
+}
+
+

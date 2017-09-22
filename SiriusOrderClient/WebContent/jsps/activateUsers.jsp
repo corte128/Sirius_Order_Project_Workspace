@@ -38,7 +38,7 @@
 						<c:forEach var="user" items="${employees}">
 							<tr>
 								<td>${user.getName()}</td>
-								<td class="user-email">${user.getEmail()}</td>
+								<td>${user.getEmail()}</td>
 								<td>
 									<button value="${user.getId()}" type="submit" id="approve-button" onclick="approve(this)" class="fa fa-check" aria-hidden="true"/>
 									<button value="${user.getId()}" type="submit" id="reject-button" onclick="reject(this)" class="fa fa-times" aria-hidden="true"/>

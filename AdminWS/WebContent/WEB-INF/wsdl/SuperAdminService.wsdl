@@ -36,6 +36,18 @@
   <message name="getOfficesResponse">
     <part name="parameters" element="tns:getOfficesResponse"/>
   </message>
+  <message name="getEmployeeIdByName">
+    <part name="parameters" element="tns:getEmployeeIdByName"/>
+  </message>
+  <message name="getEmployeeIdByNameResponse">
+    <part name="parameters" element="tns:getEmployeeIdByNameResponse"/>
+  </message>
+  <message name="getOfficeAdminNames">
+    <part name="parameters" element="tns:getOfficeAdminNames"/>
+  </message>
+  <message name="getOfficeAdminNamesResponse">
+    <part name="parameters" element="tns:getOfficeAdminNamesResponse"/>
+  </message>
   <portType name="SuperAdmin">
     <operation name="setBudgetByLocation">
       <input wsam:Action="setBudgetByLocation" message="tns:setBudgetByLocation"/>
@@ -56,6 +68,14 @@
     <operation name="getOffices">
       <input wsam:Action="getOffices" message="tns:getOffices"/>
       <output wsam:Action="http://superadmin.service.sirius.com/superadmin/wsdl/SuperAdmin/getOfficesResponse" message="tns:getOfficesResponse"/>
+    </operation>
+    <operation name="getEmployeeIdByName">
+      <input wsam:Action="getEmployeeIdByName" message="tns:getEmployeeIdByName"/>
+      <output wsam:Action="http://superadmin.service.sirius.com/superadmin/wsdl/SuperAdmin/getEmployeeIdByNameResponse" message="tns:getEmployeeIdByNameResponse"/>
+    </operation>
+    <operation name="getOfficeAdminNames">
+      <input wsam:Action="getOfficeAdminNames" message="tns:getOfficeAdminNames"/>
+      <output wsam:Action="http://superadmin.service.sirius.com/superadmin/wsdl/SuperAdmin/getOfficeAdminNamesResponse" message="tns:getOfficeAdminNamesResponse"/>
     </operation>
   </portType>
   <binding name="superadminBinding" type="tns:SuperAdmin">
@@ -105,10 +125,28 @@
         <soap:body use="literal"/>
       </output>
     </operation>
+    <operation name="getEmployeeIdByName">
+      <soap:operation soapAction="getEmployeeIdByName"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getOfficeAdminNames">
+      <soap:operation soapAction="getOfficeAdminNames"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
   </binding>
   <service name="SuperAdminService">
     <port name="superadmin" binding="tns:superadminBinding">
-      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+      <soap:address location="http://localhost:9080/AdminWS/SuperAdminService"/>
     </port>
   </service>
 </definitions>
