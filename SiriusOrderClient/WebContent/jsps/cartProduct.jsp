@@ -15,5 +15,5 @@
 		<input type="text" value="${product.getQuantity()}"/>
 		<a href="#" class="glyphicon glyphicon-trash"></a>
 	</div>
-</body>
+</body> 
 </html>

@@ -14,7 +14,7 @@
 			</a>
 		</div>
 
-
+ 
 		<div class="productLabel">
 			<p class="nameLabel">${currentProduct.getName()}</p>
 		</div>

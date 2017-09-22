@@ -22,7 +22,7 @@
               ${productPrice}
             </div>
             <div class="likesContainer">
-            </div>
+            </div> 
           </div>
           <div class="orderFormContainer">
           <form method="post">

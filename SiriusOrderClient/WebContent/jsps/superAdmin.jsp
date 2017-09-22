@@ -40,7 +40,7 @@
 </head>
 <body>
 	<%-- HEADER --%>
-	<header>
+	<header> 
 		<%@ include file="header.jsp"%>
 	</header>
 
