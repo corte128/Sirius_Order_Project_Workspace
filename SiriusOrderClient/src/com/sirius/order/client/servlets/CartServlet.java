@@ -76,6 +76,8 @@ public class CartServlet extends HttpServlet {
 		budget.setBudgetDate(calendar);
 		
 		CartServiceDAO.addProductToCart(orderBean, budget, 1);
+//		CartServiceDAO.updateProductQuantityInCart(locationId, quantity, productId, updatedBy)
+		
 	}
 
 	/**
