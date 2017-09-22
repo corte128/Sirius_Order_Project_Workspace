@@ -2,29 +2,31 @@
  * 
  */
 
-var app = angular.module('attendanceTable', [ 'ngTouch', 'ui.grid' ]);
+var app = angular.module('attendanceTable', [ 'ngTouch', 'ui.grid', 'ui.grid.pagination', 'ui.grid.autoResize']);
 
 app.controller('AttendanceCtrl', [
 		'$scope',
 		'$http',
 		function($scope, $http) {
 			$scope.gridOptions = {
-				data : []
-//				columnDefs : [ {
-//					name : 'Name',
-//					width : 150,
-//					pinnedLeft : true
-//				}, {
-//					name : 'Email',
-//					width : 150
-//				}, {
-//					name : 'Date',
-//					width : 100,
-//					pinnedRight : true
-//				}, {
-//					name : 'Location',
-//					width : 100
-//				} ]
+				data : [],
+				paginationPageSizes: [10,20],
+				paginationPageSize: 10,
+				columnDefs : [ {
+					name : 'Name',
+					width : 125,
+					pinnedLeft : true
+				}, {
+					name : 'Email',
+					width : 150
+				}, {
+					name : 'Date',
+					width : 100,
+					pinnedRight : true
+				}, {
+					name : 'Location',
+					width : 125
+				} ]
 			};
 			
 							function getSearch(){
@@ -66,4 +68,4 @@ app.controller('AttendanceCtrl', [
 			}
 			$scope.getSearch = getSearch;
 
-			}]);
+		}]);
