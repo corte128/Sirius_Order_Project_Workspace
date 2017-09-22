@@ -58,7 +58,7 @@
 									<p class="nameLabel">${currentProduct.getName()}</p>
 								</div>
 								<div class="likesAndPrice">
-									<span class="glyphicon glyphicon-heart"></span>
+									<span class="glyphicon glyphicon-heart clickable-like"></span>
 									<span>$${currentProduct.getPrice()}</span>
 								</div>
 								<input type="button" onclick="addToCart(${currentProduct.getId()})" value="Add To Cart"/>

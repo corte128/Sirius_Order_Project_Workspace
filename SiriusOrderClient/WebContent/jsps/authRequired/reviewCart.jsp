@@ -17,7 +17,7 @@
 </head>
 <body>
 	<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" />
-			<div>
+		<div>
 			<img src="${product.getImage()}"></img>
 			<span>Name</span>
 			<span>$12.34</span>

@@ -31,5 +31,22 @@ public class LocationServiceDAO {
 		}
 		return locations;
 	}
+
+	public String getLocationStringByLocationId(int locationId) {
+		logger.log(Level.FINE, "Getting location string by Id");
+		Connection conn = null;
+		String location = "";
+		try {
+			conn = DBConnection.getConnection();
+			LocationServiceDAOImpl impl = new LocationServiceDAOImpl(conn);
+			location = impl.getLocationStringByLocationId(locationId);
+			impl.closeConnection();
+		} catch (NamingException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return location;
+	}
 	
 }

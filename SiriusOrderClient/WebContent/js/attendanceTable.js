@@ -44,6 +44,13 @@ app.controller('AttendanceCtrl', [
 								if(email == ''){
 									email="%";
 								}
+								if (view == 'PDF'){
+									var downloadDiv = document.getElementById("downloadDiv");
+									downloadDiv.style.display = "block";
+								}else{
+									var downloadDiv = document.getElementById("downloadDiv");
+									downloadDiv.style.display = "none";
+								}
 								
 							
 								
