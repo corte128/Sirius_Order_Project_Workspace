@@ -1,19 +1,31 @@
 #users-content{
-	margin-top: 20px;
 	display: flex;
 }
 #users-form{
+	margin: 15px;
 	flex: 9;
 }
+@media only screen and (max-width: 768px) {
+	#users-form{
+		margin: 0;
+		margin-top: 5px;
+	}	
+}
 aside{
-	flex: 1;
+	flex: 0;
 }
 thead{
 	background-color: #5F6060;
+	font-family: Calibri;
+	font-size: 1.2em;
 }
-tr{
-	border-bottom: solid #5F6060 1px;
+.users-form-row{
+	border-bottom: solid #5F6060 2px;
 	text-align: center;
+	font-family: serif;
+}
+.users-form-row:nth-child(odd){
+	background-color: #F2F2F2;
 }
 th{
 	border-left: solid lightgrey 1px;
@@ -22,4 +34,7 @@ th{
 }
 button{
 	margin-right: 5px;
+	min-width: 45px;
+	border: none;
+	background-color: transparent;
 }
