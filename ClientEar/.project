@@ -3,7 +3,6 @@
 	<name>ClientEAR</name>
 	<comment></comment>
 	<projects>
-		<project>SiriusOrderClient</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

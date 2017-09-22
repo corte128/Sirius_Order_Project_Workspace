@@ -644,4 +644,57 @@ public class CartDAOImplementation {
 		
 		return orders;
 	}
+	
+	/**
+	 * checks if a product with the given product id is in the cart
+	 * returns true if product is in cart
+	 * @param locationId
+	 * @param productId
+	 * @return boolean
+	 */
+	public static int getProductQuantityInCartByProductId(int locationId, int productId, Connection conn) throws NamingException, SQLException
+	{
+		PreparedStatement statement = null;
+		List<OrderBean> orders = new ArrayList<OrderBean>();
+		ResultSet results = null;
+		String orderQuery = queries.getString("GET_PRODUCT_IN_CART_BY_ID");
+
+		try 
+		{
+			logger.log(Level.FINE, "Preparing to execute order query: ");
+			logger.log(Level.FINE, "   " + orderQuery);
+			// setting budget to the table
+			statement = conn.prepareStatement(orderQuery);
+			statement.setInt(1, locationId);
+			statement.setInt(2, productId);
+			
+			logger.log(Level.FINE,
+					"Setting the order based on the paramaters: ");
+			logger.log(Level.FINE, "   int: " + locationId);
+
+			// executing creation statement
+			results = statement.executeQuery();
+			
+			int output = 0;
+			// sifting through the result set and populating the orders
+			if(results.next())
+			{
+				output = results.getInt("quantity");
+			}
+			return output;
+			
+
+		}
+		finally 
+		{
+			if (statement != null) 
+			{
+				DBConnection.closePreparedStatement(statement);
+			}
+			if (results != null)
+			{
+				DBConnection.closeResultSet(results);
+			}
+		}
+	}
 }

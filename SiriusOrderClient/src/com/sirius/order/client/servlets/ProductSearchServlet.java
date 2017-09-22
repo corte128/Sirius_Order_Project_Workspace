@@ -39,39 +39,43 @@ public class ProductSearchServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-        HttpSession session = request.getSession();
-        String name = request.getParameter("search");
-        int category = Integer.parseInt(request.getParameter("category"));
-        List<ProductBean> objects = null;
-        if(category == 0){
-        	objects = ProductSearchDAO.getAllProductsByName(name);
-        }
-        else{
-            objects = ProductSearchDAO.getAllProductsByNameAndType(name, category);
-        }
-        List<List<ProductBean>> lists = separateList(objects, 20);
-        //break objects down for lazy loading into separate lists
-        		
-		request.setAttribute("Products", objects);
-		
-		
-		JsonArrayBuilder builder = Json.createArrayBuilder();
-		for (ProductBean record : objects) {
-			builder.add(Json.createObjectBuilder()
-					.add("Image", record.getImage())
-					.add("Name", record.getName())
-					.add("ID", record.getId())
-					.add("Price", record.getPrice()));
+		String action = request.getParameter("action");
+		if(action.equals("addToWishlist")){
+			int id = Integer.parseInt(request.getParameter("id"));
+			int userId = Integer.parseInt((String) request.getSession().getAttribute("activeUserID"));
+//			WishlistDAO.addToLikeTable(userId, id);
 		}
-		JsonArray output = builder.build();
+		else{
+	        String name = request.getParameter("search");
+	        int category = Integer.parseInt(request.getParameter("category"));
+	        List<ProductBean> objects = null;
+	        if(category == 0){
+	        	objects = ProductSearchDAO.getAllProductsByName(name);
+	        }
+	        else{
+	            objects = ProductSearchDAO.getAllProductsByNameAndType(name, category);
+	        }
+	        List<List<ProductBean>> lists = separateList(objects, 20);
+	        //break objects down for lazy loading into separate lists
+	        		
+			request.setAttribute("Products", objects);
+			
+			
+			JsonArrayBuilder builder = Json.createArrayBuilder();
+			for (ProductBean record : objects) {
+				builder.add(Json.createObjectBuilder()
+						.add("Image", record.getImage())
+						.add("Name", record.getName())
+						.add("ID", record.getId())
+						.add("Price", record.getPrice()));
+			}
+			JsonArray output = builder.build();
 
-		PrintWriter out = response.getWriter();
-		JsonWriter writer = Json.createWriter(out);
-		writer.writeArray(output);
-		writer.close();
-		
-		
-
+			PrintWriter out = response.getWriter();
+			JsonWriter writer = Json.createWriter(out);
+			writer.writeArray(output);
+			writer.close();
+		}
 	}
 
 	/**
