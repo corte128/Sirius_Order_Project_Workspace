@@ -4,7 +4,8 @@
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 	width: 250px;
 	height: 325px;
-
+	margin-top: 20px;
+	margin-bottom: 20px;
 	padding-bottom: 10px;
 }
 
@@ -31,7 +32,7 @@
 }
 
 .addToCartBtn{
-	padding-left: 41px;
+	margin-left:80px;
 }
 
 .imageContainer{
@@ -39,5 +40,7 @@
 }
 
 .nameLabel{
+	padding-left: 15px;
+	padding-right: 15px;
 	font-size: 1.5rem;
 }

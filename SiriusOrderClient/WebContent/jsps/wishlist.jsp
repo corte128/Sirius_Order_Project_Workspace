@@ -70,7 +70,7 @@
 							<span class="glyphicon glyphicon-heart clickable-like"
 								onclick='addToWishlist(${currentProduct.getId()})'></span> <span>$${currentProduct.getPrice()}</span>
 						</div>
-						<input type="button"
+						<input class="addToCartBtn" type="button"
 							onclick="addToCart(${currentProduct.getId()})"
 							value="Add To Cart" />
 					</div>
