@@ -66,7 +66,7 @@
 
 			<%-- OFFICE OPTIONS --%>
 			<div class="supply-category-card-container">
-				<html:link page="/Welcome.do?type=3"
+				<html:link page="/Welcome.do?type=3&action=productSearch"
 					styleClass="supply-category-card">
 					<div class="supply-category-card-title">
 						<fmt:message key="WELCOME_INK_AND_TONER_LABEL" />
@@ -78,7 +78,7 @@
 						<img src="/SiriusOrderClient/assets/ink_and_toner.png" />
 					</div>
 				</html:link>
-				<html:link page="/Welcome.do?type=1"
+				<html:link page="/Welcome.do?type=1&action=productSearch"
 					styleClass="supply-category-card">
 					<div class="supply-category-card-title">
 						<fmt:message key="WELCOME_BREAKROOM_LABEL" />
@@ -90,7 +90,7 @@
 						<img src="/SiriusOrderClient/assets/breakroom.png" />
 					</div>
 				</html:link>
-				<html:link page="/Welcome.do?type=2"
+				<html:link page="/Welcome.do?type=2&action=productSearch"
 					styleClass="supply-category-card">
 					<div class="supply-category-card-title">
 						<fmt:message key="WELCOME_OFFICE_SUPPLIES_LABEL" />
