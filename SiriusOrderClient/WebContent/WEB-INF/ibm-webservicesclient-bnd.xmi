@@ -27,12 +27,7 @@
   <serviceRefs xmi:id="ServiceRef_1505923017164" serviceRefLink="service/CartService">
     <portQnameBindings xmi:id="PortQnameBinding_1505923017164" portQnameNamespaceLink="http://cart.service.sirius.com/cart/wsdl" portQnameLocalNameLink="cart" overriddenEndpointURI="http://localhost:9080/CartWS/CartService"/>
   </serviceRefs>
-<<<<<<< HEAD
-  <serviceRefs xmi:id="ServiceRef_1506097077284" serviceRefLink="service/JaxwsWishlist">
-    <portQnameBindings xmi:id="PortQnameBinding_1506097077284" portQnameNamespaceLink="http://wishlistws.sirius.com/wishlist/wsdl" portQnameLocalNameLink="wishlist" overriddenEndpointURI="http://localhost:9080/WishlistWS/JaxwsWishlist"/>
-=======
   <serviceRefs xmi:id="ServiceRef_1506089375624" serviceRefLink="service/JaxwsWishlist">
     <portQnameBindings xmi:id="PortQnameBinding_1506089375624" portQnameNamespaceLink="http://wishlistws.sirius.com/wishlist/wsdl" portQnameLocalNameLink="wishlist"/>
->>>>>>> 8b55e82917b0ace1bf5747b6f125a106ea842fca
   </serviceRefs>
 </com.ibm.etools.webservice.wscbnd:ClientBinding>

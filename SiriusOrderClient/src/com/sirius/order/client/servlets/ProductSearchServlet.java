@@ -19,6 +19,7 @@ import javax.servlet.http.HttpSession;
 import com.sirius.attendancews.attendance.wsdl.AttendanceRecordBean;
 import com.sirius.product.service.main.product.wsdl.ProductBean;
 import com.sirius.product.service.main.product.wsdl.ProductSearchDAO;
+import com.sirius.wishlistws.wishlist.wsdl.WishlistDAO;
 
 /**
  * Servlet implementation class ProductSearchServlet
@@ -42,8 +43,8 @@ public class ProductSearchServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		if(action.equals("addToWishlist")){
 			int id = Integer.parseInt(request.getParameter("id"));
-			int userId = Integer.parseInt((String) request.getSession().getAttribute("activeUserID"));
-//			WishlistDAO.addToLikeTable(userId, id);
+			int userId = (Integer) request.getSession().getAttribute("activeUserID");
+			WishlistDAO.addToLikeTable(userId, id);
 		}
 		else{
 	        String name = request.getParameter("search");
