@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -170,7 +171,10 @@ public class AttendanceServlet extends HttpServlet {
 				PDDocument mainDocument = new PDDocument();
 				
 				mainDocument.addPage(myPage);
-				String path = "C:/pdfTestFiles/test-PDF.pdf";
+				String ctx = request.getContextPath();
+				
+				
+				String path = "C:/Users/IEUser/IBM/rationalsdp/Sirius_Order_Project_Workspace/SiriusOrderClient/WebContent/generatedPDF/test-pdf.pdf";
 				PDPageContentStream contentStream = new PDPageContentStream(mainDocument, myPage);
 				
 				//set a count to keep track of the pages we need to create

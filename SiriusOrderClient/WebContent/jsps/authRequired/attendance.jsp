@@ -58,6 +58,7 @@
 							<div class="inputFieldLabel">
 								<fmt:message key="ATTENDANCE_LOCATION" />
 							</div>
+							<c:if test = "${sessionScope.activeUserType == 3 }">
 							<select id="locationSelect" name="location">
 								<option value="%">select</option>
 								<c:forEach items="${locations}" var="location">
@@ -65,6 +66,16 @@
 										, ${location.getState()}</option>
 								</c:forEach>
 							</select>
+							</c:if>
+							
+							<c:if test = "${sessionScope.activeUserType==2 }">
+								<c:forEach items="${locations}" var="location">
+									<c:if test="${ activeUserLocation == location.getId()}">
+									<input type="text" value="${location.getCity()}, ${location.getState()}" readonly>
+									<input  id="locationSelect" type="hidden" value="${location.getId()}">
+									</c:if>
+								</c:forEach>
+							</c:if>
 						</div>
 
 						<div class="inputFieldContainer">
@@ -118,6 +129,9 @@
 					</div>
 				</form>
 
+			</div>
+			<div class="hideDownloadDiv" id="downloadDiv">
+				your pdf has been generated <a href="/SiriusOrderClient/generatedPDF/test-pdf.pdf" target="_blank">click here to download</a>
 			</div>
 			<div id="grid1" ui-grid="gridOptions" class="grid"
 				ui-grid-auto-resize></div>
