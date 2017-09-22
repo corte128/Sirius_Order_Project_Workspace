@@ -13,7 +13,7 @@ app.controller('AttendanceCtrl', [
 				data : [],
 				columnDefs : [ {
 					name : 'Name',
-					width : 100,
+					width : 150,
 					pinnedLeft : true
 				}, {
 					name : 'Email',
