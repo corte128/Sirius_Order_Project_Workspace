@@ -4,9 +4,11 @@
 function addToCart(productID)
 {
 	var xhttp = new XMLHttpRequest();
-	var quantity = getElementbyID("quantityToAdd").value;
-	if (quantity == null){
-		quantity = 1;
+	var quantityElement = document.getElementById("quantityToAdd");
+	var quantity = 1;
+	if (quantityElement != null)
+	{
+		quantity = quantityElement.value;
 	}
 	var url = "/SiriusOrderClient/CartServlet?query=addToCart&productID=" + productID +"&quantity="+quantity;
 	xhttp.open("GET", url, true);
