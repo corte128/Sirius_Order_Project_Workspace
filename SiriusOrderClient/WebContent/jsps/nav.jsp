@@ -77,7 +77,7 @@
 										<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/NavigationServlet?action=budget">
 											Budget Vs Actual
 										</a>
-									</div>
+									</div> 
 								</ul>
 							</div>
 						</li>
@@ -97,12 +97,12 @@
 						<div id="adminNavSubItemsList" class="panel-collapse collapse">
 							<ul class="nav-sidebar-sub-list">
 								<div class="admin-nav-sidebar-sub-text-container">
-									<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/jsps/visitors.jsp">
+									<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/NavigationServlet?action=visitors">
 										Add Visitors
 									</a>
 								</div>
 								<div class="admin-nav-sidebar-sub-text-container">
-									<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/jsps/holidays.jsp">
+									<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/NavigationServlet?action=holidays">
 										Add Public Holidays
 									</a>
 								</div>
@@ -171,12 +171,12 @@
 				<div id="navAdminSubModal" onmouseover="showAdminModal()" onmouseout="closeAdminModal()">
 					<div id="adminNavSubModalTextContainer">
 						<div class="admin-nav-sub-modal-text-container">
-							<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/jsps/visitors.jsp">
+							<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/NavigationServlet?action=visitors">
 								Add Visitors
 							</a>
 						</div>
 						<div class="admin-nav-sub-modal-text-container">
-							<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/jsps/holidays.jsp">
+							<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/NavigationServlet?action=holidays">
 								Add Public Holidays
 							</a>
 						</div>

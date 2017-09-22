@@ -43,16 +43,11 @@ public class NavigationServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-
-
-
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 
 		String action = request.getParameter("action");
-
-
+		HttpSession session = request.getSession();
 
 		if(action.equalsIgnoreCase("attendance"))
 		{
@@ -62,9 +57,32 @@ public class NavigationServlet extends HttpServlet {
 		{
 			forwardToBudget(request, response);
 		}
+		else if(action.equals("visitors"))
+		{
+			if(session.getAttribute("activeUserType") == null || (Integer) session.getAttribute("activeUserType") == 1){
+				response.sendRedirect("jsps/welcome.jsp");
+			}
+			else{
+				response.sendRedirect("jsps/visitors.jsp");
+			}
+		}
 		else if(action.equals("activateUsers"))
 		{
-			forwardToActivateUsers(request, response);
+			if(session.getAttribute("activeUserID") == null || (Integer) session.getAttribute("activeUserType") == 1){
+				response.sendRedirect("jsps/welcome.jsp");
+			}
+			else{
+				forwardToActivateUsers(request, response);
+			}
+		}
+		else if(action.equals("holidays"))
+		{
+			if(session.getAttribute("activeUserID") == null || (Integer) session.getAttribute("activeUserType") == 1){
+				response.sendRedirect("jsps/welcome.jsp");
+			}
+			else{
+				response.sendRedirect("jsps/holidays.jsp");
+			}
 		}
 		else if(action.equals("registration"))
 		{
