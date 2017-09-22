@@ -26,7 +26,8 @@ select {
 	height: 100%
 }
 
-.productContainerCard{
+.productContainerCard
+{
 	flex: 1;
 	padding: 5px;
 }

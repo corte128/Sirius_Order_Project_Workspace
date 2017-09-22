@@ -1,13 +1,22 @@
 /**
  * 
  */
+
+function selectedOption(value){
+	alert("something");
+	$("#category").val(value);
+}
+
 function addToCart(productID)
 {
+	alert("Product ID: " + productID);
 	var xhttp = new XMLHttpRequest();
-	var quantity = getElementbyID("quantityToAdd").value;
-	if (quantity == null){
-		quantity = 1;
-	}
+	var quantityElement = document.getElementById("quantityToAdd");
+    var quantity = 1;
+    if (quantityElement != null)
+    {
+        quantity = quantityElement.value;
+    }
 	var url = "/SiriusOrderClient/CartServlet?query=addToCart&productID=" + productID +"&quantity="+quantity;
 	xhttp.open("GET", url, true);
 	xhttp.onreadystatechange = function()
@@ -24,12 +33,17 @@ function addToCart(productID)
 	};
 	xhttp.send();
 }
+function selectedOption(value)
+{
+	alert(value);
+	$("#category").val(value);
+}
 
-function searchProducts(){
-	
+function searchProducts()
+{	
 	var search = document.getElementById("search");
 	var category = document.getElementById("category");
-	alert(search.value + ", " + category.value);
+	
 	var url = "/SiriusOrderClient/ProductSearchServlet?query=searchProducts&category=" + category.value + "&search=" +  search.value;
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET", url, true);
@@ -37,20 +51,23 @@ function searchProducts(){
 	{
 		var response = JSON.parse(xhttp.responseText);
 		$('#productContainer').empty();
-		var productCardContainer = document.getElementById('productContainer');
+		var productContainer = document.getElementById('productContainer');
 		
+		/*
 		var bootStrap = document.createElement("link");
 		bootStrap.rel = "stylesheet";
 		bootStrap.type = "text/css";
 		bootStrap.href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
-		productCardContainer.appendChild(bootStrap);
+		productContainer.appendChild(bootStrap);
 		
 		var style = document.createElement("link");
-		style.rel = "stylesheet";
+		.rel = "stylesheet";
 		style.type = "text/css";
 		style.href = "/SiriusOrderClient/css/productCard.css";
-		productCardContainer.appendChild(style);
-		for(key in response){
+		productContainer.appendChild(style);
+		*/
+		for(key in response)
+		{
 			var image = document.createElement("img");
 			image.src = response[key].Image;
 			image.setAttribute("class", "productImage");
@@ -89,22 +106,21 @@ function searchProducts(){
 			productCard.appendChild(nameDiv);
 			productCard.appendChild(divLikesAndPrice);
 			productCard.appendChild(addToCartBtn);
-
+			
+			var productCardContainer = document.createElement("div");
+			productCardContainer.setAttribute("class", "productContainerCard");
 			productCardContainer.appendChild(productCard);
+			
+			productContainer.appendChild(productCardContainer);
 		}
 	};
 	xhttp.send();
 }
 
-function vericalHandler(){
+function verticalHandler(){
 	
-	var container = document.getElementById("");
-	var contentHeight = container.offsetHeight;
+//	var container = document.getElementById("");
+//	var contentHeight = container.offsetHeight;
 	
-}
-
-function selectedOption(value){
-	alert(value);
-	$("#category").val(value);
 }
 

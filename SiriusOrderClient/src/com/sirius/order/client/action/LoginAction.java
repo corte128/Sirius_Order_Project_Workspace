@@ -29,6 +29,7 @@ public class LoginAction extends org.apache.struts.action.Action {
         EmployeeBean emp = null;
         try{
         	String email = loginForm.getEmail();
+        	
 			String password = loginForm.getPassword();
 			LoginClientDAO dao = new LoginClientDAO();
 			employeeID = dao.getEmployeeByCredentials(email, password);
@@ -40,7 +41,9 @@ public class LoginAction extends org.apache.struts.action.Action {
 				session.setAttribute("activeUserLocation", emp.getLocation());
 				session.setAttribute("activeUserID", employeeID);
 				session.setAttribute("activeUserType", emp.getRole());
-
+				session.setAttribute("activeUserEmail", emp.getEmail());
+				String picture = new String(emp.getPicture(),"UTF-8");
+				session.setAttribute("activeUserPicture", picture);
 				//System.out.println("---------------SUCCESS------------");
 				return mapping.findForward(SUCCESS);
 			} else {

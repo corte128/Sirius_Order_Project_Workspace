@@ -14,6 +14,8 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import com.sirius.product.service.main.product.wsdl.ProductBean;
+import com.sirius.product.service.main.product.wsdl.ProductSearchDAO;
 import com.sirius.service.cart.cart.wsdl.BudgetBean;
 import com.sirius.service.cart.cart.wsdl.CartServiceDAO;
 import com.sirius.service.cart.cart.wsdl.OrderBean;
@@ -48,11 +50,13 @@ public class CartServlet extends HttpServlet {
 		}
 		int quantityInt = Integer.parseInt(quantity);
 		
-
+		ProductBean bean = ProductSearchDAO.getProductByID(id);
+		
 		OrderBean orderBean = new OrderBean();
 		orderBean.setOrderName("cart");
 		orderBean.setQuantity(quantityInt);
 		orderBean.setProductId(id);
+		orderBean.setTotalPrice(bean.getPrice().multiply(new BigDecimal(quantityInt)));
 //		CartServiceDAO.getOrderByProduct(id);
 //		CartServiceDAO.updateProductQuantityInCart(locationId, quantity, productId, updatedBy)
 		BudgetBean budget = new BudgetBean();
@@ -72,6 +76,8 @@ public class CartServlet extends HttpServlet {
 		budget.setBudgetDate(calendar);
 		
 		CartServiceDAO.addProductToCart(orderBean, budget, 1);
+//		CartServiceDAO.updateProductQuantityInCart(locationId, quantity, productId, updatedBy)
+		
 	}
 
 	/**
