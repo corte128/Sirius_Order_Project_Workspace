@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -23,6 +24,8 @@ import com.sirius.wishlistws.wishlist.wsdl.WishlistDAO;
  */
 public class WishlistServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final ResourceBundle sessionVariables = ResourceBundle
+			.getBundle("com.sirius.order.client.properties.sessionVariables");
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -47,14 +50,14 @@ public class WishlistServlet extends HttpServlet {
 	        List<com.sirius.wishlistws.wishlist.wsdl.ProductBean> wsProducts = new ArrayList<com.sirius.wishlistws.wishlist.wsdl.ProductBean>();
 	        List<ProductBean> products = new ArrayList<ProductBean>();
 	        ProductProxy ppObj = new ProductProxy();
-	        int employeeId = 0;
+	        int employeeId = (Integer) request.getSession().getAttribute(sessionVariables.getString("ACTIVE_USER_ID"));
 	        wsProducts = WishlistDAO.getAllProductsEmployeeLiked(employeeId);
 	        
 	        for(com.sirius.wishlistws.wishlist.wsdl.ProductBean wlObj : wsProducts){
 	        	products.add(ppObj.getProductByID(wlObj.getId()));
 	        }
 	        
-			request.setAttribute("Products", products);
+			//request.setAttribute("Products", products);
 			
 			JsonArrayBuilder builder = Json.createArrayBuilder();
 			for (ProductBean product : products) {
