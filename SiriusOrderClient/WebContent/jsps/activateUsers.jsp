@@ -39,7 +39,7 @@
 				    	<input id="id" type="hidden" name="id" value="" />
 						<input id="pressed" type="hidden" name="pressed" value="" />
 						<c:forEach var="user" items="${employees}">
-							<tr>
+							<tr class="users-form-row">
 								<td>${user.getName()}</td>
 								<td>${user.getEmail()}</td>
 								<td>

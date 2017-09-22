@@ -30,12 +30,30 @@ public class ObjectFactory {
 
     private final static QName _GetLocations_QNAME = new QName("http://locationws.sirius.com/location/wsdl", "getLocations");
     private final static QName _GetLocationsResponse_QNAME = new QName("http://locationws.sirius.com/location/wsdl", "getLocationsResponse");
+    private final static QName _GetLocationStringByLocationId_QNAME = new QName("http://locationws.sirius.com/location/wsdl", "getLocationStringByLocationId");
+    private final static QName _GetLocationStringByLocationIdResponse_QNAME = new QName("http://locationws.sirius.com/location/wsdl", "getLocationStringByLocationIdResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.sirius.locationws.location.wsdl
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link GetLocationStringByLocationId }
+     * 
+     */
+    public GetLocationStringByLocationId createGetLocationStringByLocationId() {
+        return new GetLocationStringByLocationId();
+    }
+
+    /**
+     * Create an instance of {@link GetLocationStringByLocationIdResponse }
+     * 
+     */
+    public GetLocationStringByLocationIdResponse createGetLocationStringByLocationIdResponse() {
+        return new GetLocationStringByLocationIdResponse();
     }
 
     /**
@@ -78,6 +96,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://locationws.sirius.com/location/wsdl", name = "getLocationsResponse")
     public JAXBElement<GetLocationsResponse> createGetLocationsResponse(GetLocationsResponse value) {
         return new JAXBElement<GetLocationsResponse>(_GetLocationsResponse_QNAME, GetLocationsResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetLocationStringByLocationId }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://locationws.sirius.com/location/wsdl", name = "getLocationStringByLocationId")
+    public JAXBElement<GetLocationStringByLocationId> createGetLocationStringByLocationId(GetLocationStringByLocationId value) {
+        return new JAXBElement<GetLocationStringByLocationId>(_GetLocationStringByLocationId_QNAME, GetLocationStringByLocationId.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetLocationStringByLocationIdResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://locationws.sirius.com/location/wsdl", name = "getLocationStringByLocationIdResponse")
+    public JAXBElement<GetLocationStringByLocationIdResponse> createGetLocationStringByLocationIdResponse(GetLocationStringByLocationIdResponse value) {
+        return new JAXBElement<GetLocationStringByLocationIdResponse>(_GetLocationStringByLocationIdResponse_QNAME, GetLocationStringByLocationIdResponse.class, null, value);
     }
 
 }

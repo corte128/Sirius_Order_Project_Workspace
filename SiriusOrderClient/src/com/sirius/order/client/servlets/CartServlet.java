@@ -76,6 +76,8 @@ public class CartServlet extends HttpServlet {
 		budget.setBudgetDate(calendar);
 		
 		CartServiceDAO.addProductToCart(orderBean, budget, 1);
+//		CartServiceDAO.updateProductQuantityInCart(locationId, quantity, productId, updatedBy)
+		
 	}
 
 	/**
@@ -94,6 +96,7 @@ public class CartServlet extends HttpServlet {
 //		CartServiceDAO.getOrderByProduct(id);
 //		CartServiceDAO.updateProductQuantityInCart(locationId, quantity, productId, updatedBy)
 //		CartServiceDAO.addProductToCart(order, budget, createdBy)
+//		CartServiceDAO.isProductInCartByProductId(locationId, productId);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("jsps/productSearch.jsp");
 		dispatcher.forward(request, response);
 	}

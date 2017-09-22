@@ -87,7 +87,10 @@ function searchProducts()
 			nameDiv.appendChild(name);
 			
 			var spanHeart = document.createElement("span");
-			spanHeart.setAttribute("class", "glyphicon glyphicon-heart");
+			spanHeart.setAttribute("class", "glyphicon glyphicon-heart clickable-like");
+			spanHeart.onclick=addToWishlist(response[key].ID);
+			/*==============================*/
+			
 			var spanPrice = document.createElement("span");
 			spanPrice.innerHTML = '$' + response[key].Price;
 			var divLikesAndPrice = document.createElement("div");
@@ -122,5 +125,14 @@ function verticalHandler(){
 //	var container = document.getElementById("");
 //	var contentHeight = container.offsetHeight;
 	
+}
+
+function addToWishlist(productID){
+	//'/SiriusOrderClient/ProductSearchServlet?action=addToWishlist&id=' + response[key].ID
+	
+	var url = '/SiriusOrderClient/ProductSearchServlet?action=addToWishlist&id=' + productID;
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("GET", url, true);
+	xhttp.send();
 }
 
