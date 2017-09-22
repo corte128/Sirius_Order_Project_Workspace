@@ -2,9 +2,22 @@
 
 .wishlist-container{
   display:flex;
+  flex-wrap: wrap;
+  font-family: Serif;
+  font-size: 16px;
 }
 
 .wishlist-profile-container{
+  margin: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  width: 280px;
+  height: 300px;
+  margin-top: 7px;
+  font-style: italic;
+  padding-bottom: 5px;
+}
+
+.wishlist-product-card-container{
   margin: auto;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
   width: 280px;
