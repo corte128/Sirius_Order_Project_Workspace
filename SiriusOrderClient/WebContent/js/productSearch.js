@@ -1,15 +1,22 @@
 /**
  * 
  */
+
+function selectedOption(value){
+	alert("something");
+	$("#category").val(value);
+}
+
 function addToCart(productID)
 {
+	alert("Product ID: " + productID);
 	var xhttp = new XMLHttpRequest();
 	var quantityElement = document.getElementById("quantityToAdd");
-	var quantity = 1;
-	if (quantityElement != null)
-	{
-		quantity = quantityElement.value;
-	}
+    var quantity = 1;
+    if (quantityElement != null)
+    {
+        quantity = quantityElement.value;
+    }
 	var url = "/SiriusOrderClient/CartServlet?query=addToCart&productID=" + productID +"&quantity="+quantity;
 	xhttp.open("GET", url, true);
 	xhttp.onreadystatechange = function()
@@ -33,11 +40,9 @@ function selectedOption(value)
 }
 
 function searchProducts()
-{
-	
+{	
 	var search = document.getElementById("search");
 	var category = document.getElementById("category");
-	
 	
 	var url = "/SiriusOrderClient/ProductSearchServlet?query=searchProducts&category=" + category.value + "&search=" +  search.value;
 	var xhttp = new XMLHttpRequest();
@@ -112,11 +117,10 @@ function searchProducts()
 	xhttp.send();
 }
 
-function vericalHandler(){
+function verticalHandler(){
 	
-	var container = document.getElementById("");
-	var contentHeight = container.offsetHeight;
+//	var container = document.getElementById("");
+//	var contentHeight = container.offsetHeight;
 	
 }
-
 

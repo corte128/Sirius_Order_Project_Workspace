@@ -352,4 +352,50 @@ public class CartDAO {
 		}
 		return orders;
 	}
+	
+	/**
+	 * checks if a product with the given product id is in the cart
+	 * returns true if product is in cart
+	 * @param locationId
+	 * @param productId
+	 * @return boolean
+	 */
+	public static int getProductQuantityInCartByProductId(int locationId, int productId)
+	{
+		Connection conn = null;
+		int output = 0;
+		
+		try
+		{
+			conn = DBConnection.getConnection();
+			output = CartDAOImplementation.getProductQuantityInCartByProductId(locationId, productId, conn);
+		}
+		catch(NamingException e)
+		{
+			logger.log(Level.SEVERE,"Naming Exception Found: Incorrect naming", e);
+		}
+		catch(SQLException e)
+		{
+			logger.log(Level.SEVERE,"SQL Exception Found: Incorrect properties", e);
+		}
+		catch(Exception e)
+		{
+			logger.log(Level.SEVERE,"Exception Found ", e);
+		}
+		finally
+		{
+			if(conn != null)
+			{
+				try
+				{
+					DBConnection.closeConnection(conn);
+				}
+				catch(SQLException e)
+				{
+					logger.log(Level.SEVERE,"SQL Exception ", e);
+				}
+			}
+		}
+		return output;
+	}
 }

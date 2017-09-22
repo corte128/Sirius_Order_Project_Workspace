@@ -149,4 +149,22 @@ public interface CartInterface {
 			@WebParam(name="productType", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
 			String productType
 			);
+	
+	/**
+	 * checks if a product with the given product id is in the cart
+	 * returns true if product is in cart
+	 * @param locationId
+	 * @param productId
+	 * @return boolean
+	 */
+	@WebMethod(action = "getProductQuantityInCartByProductId")
+	@WebResult(name = "getProductQuantityInCartByProductIdReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+	@RequestWrapper(localName = "getProductQuantityInCartByProductId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetProductQuantityInCartByProductId")
+	@ResponseWrapper(localName = "getProductQuantityInCartByProductIdResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetProductQuantityInCartByProductIdResponse")
+	public int getProductQuantityInCartByProductId(
+			@WebParam(name="locationId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+			int locationId,
+			@WebParam(name="productId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+			int productID
+			);
 }

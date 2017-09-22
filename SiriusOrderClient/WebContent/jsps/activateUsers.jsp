@@ -11,11 +11,14 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/activateUsers.css">
 <link rel="stylesheet" href="/SiriusOrderClient/css/font-awesome-4.7.0/css/font-awesome.min.css">
-<title><fmt:message key="REGISTRATION_TITLE" /></title>
+<title><fmt:message key="ACTIVATE_TITLE" /></title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
 <script src="/SiriusOrderClient/js/activateUser.js"></script>
+<c:if test="${activeUserID==null}">
+	<jsp:forward page = "/jsps/welcome.jsp" />
+</c:if> 
 </head>
 <body>
 	<header>
@@ -26,9 +29,9 @@
 			<table class="table">
 				<thead>
 			      <tr>
-			        <th>Name</th>
-			        <th>Email</th>
-			        <th>Action</th>
+			        <th><fmt:message key="ACTIVATE_COLUMN_NAME" /></th>
+			        <th><fmt:message key="ACTIVATE_COLUMN_EMAIL" /></th>
+			        <th><fmt:message key="ACTIVATE_COLUMN_ACTION" /></th>
 			      </tr>
 			    </thead>
 			    <tbody>

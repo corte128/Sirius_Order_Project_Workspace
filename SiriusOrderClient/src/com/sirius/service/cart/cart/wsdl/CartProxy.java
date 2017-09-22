@@ -145,4 +145,8 @@ public class CartProxy{
         return _getDescriptor().getProxy().getAllProductsInCartByProductType(locationId,productType);
     }
 
+    public int getProductQuantityInCartByProductId(int locationId, int productId) {
+        return _getDescriptor().getProxy().getProductQuantityInCartByProductId(locationId,productId);
+    }
+
 }
