@@ -146,6 +146,11 @@ html body{
 		padding-top: 0;
 		padding-bottom: 8px;
 	}
+	#registration-button{
+		display: relative;
+		left: 55%;
+		padding: 3px;
+	}
 }
 
 

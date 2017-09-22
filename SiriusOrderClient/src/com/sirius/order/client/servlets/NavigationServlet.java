@@ -47,34 +47,61 @@ public class NavigationServlet extends HttpServlet {
 	{
 
 		String action = request.getParameter("action");
+		HttpSession session = request.getSession();
 
-
-
-		if(action.equalsIgnoreCase("attendance")){
-
+		if(action.equalsIgnoreCase("attendance"))
+		{
 			forwardToAttendance(request, response);
 		}
 		else if(action.equals("budget"))
 		{
 			forwardToBudget(request, response);
 		}
+		else if(action.equals("visitors"))
+		{
+			if(session.getAttribute("activeUserType") == null || (Integer) session.getAttribute("activeUserType") != 2){
+				response.sendRedirect("jsps/welcome.jsp");
+			}
+			else{
+				response.sendRedirect("jsps/visitors.jsp");
+			}
+		}
 		else if(action.equals("activateUsers"))
 		{
-			forwardToActivateUsers(request, response);
+			if(session.getAttribute("activeUserID")==null || (Integer) session.getAttribute("activeUserType") != 2){
+				response.sendRedirect("jsps/welcome.jsp");
+			}
+			else{
+				forwardToActivateUsers(request, response);
+			}
+		}
+		else if(action.equals("holidays"))
+		{
+			if(session.getAttribute("activeUserID")==null || (Integer) session.getAttribute("activeUserType") != 2){
+				response.sendRedirect("jsps/welcome.jsp");
+			}
+			else{
+				response.sendRedirect("jsps/holidays.jsp");
+			}
 		}
 		else if(action.equals("registration"))
 		{
 			forwardToRegistration(request, response);
 		}
-		else if(action.equals("superAdmin")){
+		else if(action.equals("superAdmin"))
+		{
 			forwardToSuperAdmin(request,response);
 		}
 		else if(action.equals("cart"))
 		{
 			forwardToCart(request, response);
-		}else if(action.equals("productDetails")){
+		}
+		else if(action.equals("productDetails"))
+		{
 			forwardToProductDetails(request, response);
-		}else if(action.equalsIgnoreCase("generatePDF")){
+		}
+		else if(action.equalsIgnoreCase("generatePDF"))
+		{
 			generatePDF(request, response);
 		}
 	}

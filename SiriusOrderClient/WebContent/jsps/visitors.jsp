@@ -13,7 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
 	<script type="text/javascript" src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
 </head>
-<body>
+<body> 
 	<header>
 		<%@ include file="header.jsp" %>
 	</header>
