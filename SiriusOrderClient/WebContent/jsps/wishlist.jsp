@@ -8,8 +8,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css"
 	href="/SiriusOrderClient/css/wishlist.css">
+	<link rel="stylesheet" type="text/css"
+	href="/SiriusOrderClient/css/productCard.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/SiriusOrderClient/js/wishlist.js"></script>
 </head>
 <body>
 	<%-- HEADER --%>
@@ -67,7 +70,7 @@
 							<span class="glyphicon glyphicon-heart clickable-like"
 								onclick='addToWishlist(${currentProduct.getId()})'></span> <span>$${currentProduct.getPrice()}</span>
 						</div>
-						<input type="button"
+						<input class="addToCartBtn" type="button"
 							onclick="addToCart(${currentProduct.getId()})"
 							value="Add To Cart" />
 					</div>
