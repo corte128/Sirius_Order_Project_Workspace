@@ -10,16 +10,35 @@
   <message name="getLocationsResponse">
     <part element="tns:getLocationsResponse" name="parameters"/>
   </message>
+  <message name="getLocationStringByLocationId">
+    <part element="tns:getLocationStringByLocationId" name="parameters"/>
+  </message>
+  <message name="getLocationStringByLocationIdResponse">
+    <part element="tns:getLocationStringByLocationIdResponse" name="parameters"/>
+  </message>
   <portType name="Location">
     <operation name="getLocations">
       <input message="tns:getLocations" wsam:Action="getLocations"/>
       <output message="tns:getLocationsResponse" wsam:Action="http://locationws.sirius.com/location/wsdl/Location/getLocationsResponse"/>
+    </operation>
+    <operation name="getLocationStringByLocationId">
+      <input message="tns:getLocationStringByLocationId" wsam:Action="getLocationStringByLocationId"/>
+      <output message="tns:getLocationStringByLocationIdResponse" wsam:Action="http://locationws.sirius.com/location/wsdl/Location/getLocationStringByLocationIdResponse"/>
     </operation>
   </portType>
   <binding name="locationBinding" type="tns:Location">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="getLocations">
       <soap:operation soapAction="getLocations"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getLocationStringByLocationId">
+      <soap:operation soapAction="getLocationStringByLocationId"/>
       <input>
         <soap:body use="literal"/>
       </input>

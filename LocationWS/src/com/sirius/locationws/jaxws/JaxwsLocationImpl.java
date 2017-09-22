@@ -16,4 +16,10 @@ public class JaxwsLocationImpl implements Location{
 		return dao.getLocations();
 	}
 
+	@Override
+	public String getLocationStringByLocationId(int locationId) {
+		LocationServiceDAO dao = new LocationServiceDAO();
+		return dao.getLocationStringByLocationId(locationId);
+	}
+
 }

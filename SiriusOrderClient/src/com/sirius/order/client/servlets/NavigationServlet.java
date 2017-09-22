@@ -2,6 +2,7 @@ package com.sirius.order.client.servlets;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,6 +15,7 @@ import com.sirius.adminws.officeadmin.wsdl.EmployeeBean;
 import com.sirius.adminws.officeadmin.wsdl.OfficeAdminClientDAO;
 import com.sirius.locationws.location.wsdl.LocationBean;
 import com.sirius.locationws.location.wsdl.LocationClientDAO;
+import com.sirius.locationws.location.wsdl.LocationProxy;
 import com.sirius.product.service.main.product.wsdl.ProductBean;
 import com.sirius.product.service.main.product.wsdl.ProductSearchDAO;
 import com.sirius.service.cart.cart.wsdl.CartServiceDAO;
@@ -26,6 +28,8 @@ import com.sirius.service.cart.cart.wsdl.OrderBean;
  * Servlet implementation class NavigationServlet
  */
 public class NavigationServlet extends HttpServlet {
+	private static final ResourceBundle sessionVariables = ResourceBundle
+			.getBundle("com.sirius.order.client.properties.sessionVariables");
 	private static final long serialVersionUID = 1L;
 
     /**
@@ -39,10 +43,6 @@ public class NavigationServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-
-
-
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 
@@ -59,7 +59,7 @@ public class NavigationServlet extends HttpServlet {
 		}
 		else if(action.equals("visitors"))
 		{
-			if(session.getAttribute("activeUserType") == null || (Integer) session.getAttribute("activeUserType") != 2){
+			if(session.getAttribute("activeUserType") == null || (Integer) session.getAttribute("activeUserType") == 1){
 				response.sendRedirect("jsps/welcome.jsp");
 			}
 			else{
@@ -68,7 +68,7 @@ public class NavigationServlet extends HttpServlet {
 		}
 		else if(action.equals("activateUsers"))
 		{
-			if(session.getAttribute("activeUserID")==null || (Integer) session.getAttribute("activeUserType") != 2){
+			if(session.getAttribute("activeUserID") == null || (Integer) session.getAttribute("activeUserType") == 1){
 				response.sendRedirect("jsps/welcome.jsp");
 			}
 			else{
@@ -77,7 +77,7 @@ public class NavigationServlet extends HttpServlet {
 		}
 		else if(action.equals("holidays"))
 		{
-			if(session.getAttribute("activeUserID")==null || (Integer) session.getAttribute("activeUserType") != 2){
+			if(session.getAttribute("activeUserID") == null || (Integer) session.getAttribute("activeUserType") == 1){
 				response.sendRedirect("jsps/welcome.jsp");
 			}
 			else{
@@ -190,8 +190,13 @@ public class NavigationServlet extends HttpServlet {
 	}
 	
 	private void forwardToWishlist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		//request.setAttribute("", o)
-		response.sendRedirect("jsps/wishlist.jsp");
+		LocationProxy lpObj = new LocationProxy();
+		int locationId = (Integer) request.getSession().getAttribute(sessionVariables.getString("ACTIVE_USER_LOCATION"));
+		String location = lpObj.getLocationStringByLocationId(locationId);
+		request.setAttribute("location", location);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/wishlist.jsp");
+		dispatcher.forward(request, response);
 	}
 	
 	private void generatePDF(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

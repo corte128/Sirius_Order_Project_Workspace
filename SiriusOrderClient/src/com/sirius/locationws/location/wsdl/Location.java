@@ -7,6 +7,7 @@ package com.sirius.locationws.location.wsdl;
 
 import java.util.List;
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
@@ -32,5 +33,20 @@ public interface Location {
     @ResponseWrapper(localName = "getLocationsResponse", targetNamespace = "http://locationws.sirius.com/location/wsdl", className = "com.sirius.locationws.location.wsdl.GetLocationsResponse")
     @Action(input = "getLocations", output = "http://locationws.sirius.com/location/wsdl/Location/getLocationsResponse")
     public List<LocationBean> getLocations();
+
+    /**
+     * 
+     * @param locationId
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(action = "getLocationStringByLocationId")
+    @WebResult(name = "getLocationStringByLocationIdReturn", targetNamespace = "http://locationws.sirius.com/location/wsdl")
+    @RequestWrapper(localName = "getLocationStringByLocationId", targetNamespace = "http://locationws.sirius.com/location/wsdl", className = "com.sirius.locationws.location.wsdl.GetLocationStringByLocationId")
+    @ResponseWrapper(localName = "getLocationStringByLocationIdResponse", targetNamespace = "http://locationws.sirius.com/location/wsdl", className = "com.sirius.locationws.location.wsdl.GetLocationStringByLocationIdResponse")
+    @Action(input = "getLocationStringByLocationId", output = "http://locationws.sirius.com/location/wsdl/Location/getLocationStringByLocationIdResponse")
+    public String getLocationStringByLocationId(
+        @WebParam(name = "locationId", targetNamespace = "http://locationws.sirius.com/location/wsdl")
+        int locationId);
 
 }
