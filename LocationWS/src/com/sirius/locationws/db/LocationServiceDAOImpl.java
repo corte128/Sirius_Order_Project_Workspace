@@ -24,7 +24,7 @@ public class LocationServiceDAOImpl {
 	public List<LocationBean> getLocations(){
 		ArrayList<LocationBean> locations = new ArrayList<LocationBean>();
 		try {
-			System.out.println("Getting Locations");
+			//System.out.println("Getting Locations");
 			String sql = "SELECT * FROM location_tbl JOIN state_tbl ON state_id_fk = state_id_pk";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
@@ -44,5 +44,25 @@ public class LocationServiceDAOImpl {
 	
 	public void closeConnection(){
 		DBConnection.closeConnection(conn);
+	}
+
+	public String getLocationStringByLocationId(int locationId) {
+		StringBuffer location = new StringBuffer();
+		try {
+			//System.out.println("Getting Locations");
+			String sql = "SELECT location_city, state_abbr FROM location_tbl JOIN state_tbl ON state_id_fk = state_id_pk WHERE location_id_pk = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, locationId);
+			
+			ResultSet rs = stmt.executeQuery();
+			if(rs.next()){
+				location.append(rs.getString("location_city"));
+				location.append(",");
+				location.append(rs.getString("state_abbr"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return location.toString();
 	}
 }

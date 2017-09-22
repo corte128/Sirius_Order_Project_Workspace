@@ -121,4 +121,8 @@ public class LocationProxy{
         return _getDescriptor().getProxy().getLocations();
     }
 
+    public String getLocationStringByLocationId(int locationId) {
+        return _getDescriptor().getProxy().getLocationStringByLocationId(locationId);
+    }
+
 }
