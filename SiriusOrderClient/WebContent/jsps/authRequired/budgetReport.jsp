@@ -6,7 +6,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:setBundle basename="com.sirius.order.client.properties.common"/>
 <html>
-	<head>
+	<head> 
 		<title><fmt:message key="BUDGET_REPORT_TITLE_LABEL" /></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		

@@ -15,7 +15,7 @@
 	<script type="text/javascript" src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
 	<script type="text/javascript" src="/SiriusOrderClient/js/jquery-ui-1.12.1.min.js"></script>
 </head>
-<body> 
+<body>  
 	<header>
 		<%@ include file="header.jsp" %>
 	</header>

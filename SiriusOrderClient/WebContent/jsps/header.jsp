@@ -35,6 +35,12 @@
 			</c:if>
 			<table class="headerNavTable">
 				<tr>
+					<td>
+						<html:link
+								href="/SiriusOrderClient/jsps/welcome.jsp"> 
+								Home
+								</html:link>
+					</td>
 					<c:if test="${sessionScope.activeUserType == '2'}">
 						<td class="headerLink"><html:link
 								href="/SiriusOrderClient/NavigationServlet?action=activateUsers">
@@ -44,7 +50,7 @@
 								<c:if test="${numAlerts!= null}">
 									${numAlerts} <fmt:message key="HEADER_ALERTS" />
 								</c:if>
-							</html:link>
+							</html:link> 
 					</c:if>
 					<c:if test="${sessionScope.activeUserType == '3'}">
 						<td class="headerLink"><html:link

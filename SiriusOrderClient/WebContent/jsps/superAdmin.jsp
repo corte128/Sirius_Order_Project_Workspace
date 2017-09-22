@@ -38,7 +38,7 @@
 	href="/SiriusOrderClient/css/superAdmin.css">
 <script src="/SiriusOrderClient/js/superAdminTable.js"></script>
 </head>
-<body>
+<body> 
 	<%-- HEADER --%>
 	<header> 
 		<%@ include file="header.jsp"%>

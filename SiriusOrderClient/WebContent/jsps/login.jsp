@@ -13,7 +13,7 @@
 <title><fmt:message key="LOGIN_TITLE" /></title>
 </head>
 <body>
-	<header>
+	<header> 
 		<%@ include file="header.jsp" %>
 	</header>
 	<div id="login-content">	

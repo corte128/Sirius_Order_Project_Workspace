@@ -106,7 +106,7 @@
 							<input id="endDate" type="date" name="endDate"
 								pattern="\d{4}-\d{2}-\d{2}" placeholder="yyyy-mm-dd" />
 						</div>
-
+ 
 						<div class="inputFieldContainer">
 							<div class="inputFieldLabel">
 								<fmt:message key="ATTENDANCE_RANGE" />
@@ -132,7 +132,8 @@
 
 			</div>
 			<div class="hideDownloadDiv" id="downloadDiv">
-				your pdf has been generated <a href="/SiriusOrderClient/generatedPDF/test-pdf.pdf" target="_blank">click here to download</a>
+				Your PDF has been generated <br/>
+				<a href="/SiriusOrderClient/generatedPDF/test-pdf.pdf" target="_blank">click here to download</a>
 			</div>
 			<div id="grid1" ui-grid="gridOptions" ui-grid-pagination  ui-grid-auto-resize class="grid"></div>
 
