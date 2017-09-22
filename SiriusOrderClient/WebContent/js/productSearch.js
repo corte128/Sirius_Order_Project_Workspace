@@ -96,7 +96,7 @@ function searchProducts(){
 	xhttp.send();
 }
 
-function vericalHandler(){
+function verticalHandler(){
 	
 	var container = document.getElementById("");
 	var contentHeight = container.offsetHeight;
@@ -104,7 +104,6 @@ function vericalHandler(){
 }
 
 function selectedOption(value){
-	alert(value);
 	$("#category").val(value);
 }
 
