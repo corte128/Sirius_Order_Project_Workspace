@@ -34,10 +34,25 @@
 			<div id="visitors-input-fields">
 				<html:form action="/Visitors">
 					<input required type="date" name="from_date" />
+					<c:if test="${errorArray.contains('VISITORS_FUTURE_DATE_ERROR')}">
+						<label id="desktop-error" class="error">
+							<fmt:message key="VISITORS_FUTURE_DATE_ERROR" />
+						</label>
+					</c:if>
 					<br />
 					<input required type="date" name="to_date" />
+					<c:if test="${errorArray.contains('VISITORS_DATE_ORDER_ERROR')}">
+						<label id="desktop-error" class="error">
+							<fmt:message key="VISITORS_DATE_ORDER_ERROR" />
+						</label>
+					</c:if>
 					<br />
 					<html:text property="count"></html:text>
+					<c:if test="${errorArray.contains('VISITORS_COUNT_ERROR')}">
+						<label id="desktop-error" class="error">
+							<fmt:message key="VISITORS_COUNT_ERROR" />
+						</label>
+					</c:if>
 					<br />
 					<html:textarea property="comment"></html:textarea>
 					<br />
