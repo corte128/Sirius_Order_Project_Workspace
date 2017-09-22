@@ -44,3 +44,6 @@ select {
 {
 	flex: 1;
 }
+
+.clickable-like{
+	cursor: pointer;
