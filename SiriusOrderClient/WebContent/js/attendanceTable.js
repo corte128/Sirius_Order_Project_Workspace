@@ -7,25 +7,24 @@ var app = angular.module('attendanceTable', [ 'ngTouch', 'ui.grid' ]);
 app.controller('AttendanceCtrl', [
 		'$scope',
 		'$http',
-		'$q',
-		function($scope, $http, $q) {
+		function($scope, $http) {
 			$scope.gridOptions = {
-				data : [],
-				columnDefs : [ {
-					name : 'Name',
-					width : 150,
-					pinnedLeft : true
-				}, {
-					name : 'Email',
-					width : 150
-				}, {
-					name : 'Date',
-					width : 100,
-					pinnedRight : true
-				}, {
-					name : 'Location',
-					width : 100
-				} ]
+				data : []
+//				columnDefs : [ {
+//					name : 'Name',
+//					width : 150,
+//					pinnedLeft : true
+//				}, {
+//					name : 'Email',
+//					width : 150
+//				}, {
+//					name : 'Date',
+//					width : 100,
+//					pinnedRight : true
+//				}, {
+//					name : 'Location',
+//					width : 100
+//				} ]
 			};
 			
 							function getSearch(){
