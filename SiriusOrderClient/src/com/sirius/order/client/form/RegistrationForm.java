@@ -1,6 +1,9 @@
 package com.sirius.order.client.form;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
@@ -27,12 +30,20 @@ public class RegistrationForm extends ActionForm{
 	
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
 	    ActionErrors errors = new ActionErrors();
+	    ArrayList<String> errorArray = new ArrayList<String>();
 	    if (!name.matches("[a-zA-Z\\s]+")){
-	    	errors.add("name", new ActionMessage("REGISTRATION_NAME_INVALID"));
+	    	errors.add("name_error", new ActionMessage("REGISTRATION_NAME_INVALID"));
+	    	errorArray.add("REGISTRATION_NAME_INVALID");
+	    }
+	    if (!email.matches("^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\\.)?[a-zA-Z]+\\.)?(siriuscom)\\.com$")){
+	    	errors.add("email", new ActionMessage("REGISTRATION_EMAIL_INVALID"));
+	    	errorArray.add("REGISTRATION_EMAIL_INVALID");
 	    }
 	    if (!password.equals(confirm_password)){
 	    	errors.add("password", new ActionMessage("REGISTRATION_PASSWORDS_INVALID"));
+	    	errorArray.add("REGISTRATION_PASSWORDS_INVALID");
 	    }
+	    request.setAttribute("errorArray", errorArray);
 	    return errors;
 	}
 

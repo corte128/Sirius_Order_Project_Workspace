@@ -117,6 +117,7 @@ public class EmployeeServiceDAOImpl {
 			logger.log(Level.FINE, "Error getEmployeeByEmail() " +e1);
 			e1.printStackTrace();
 		} 
+		System.out.println("DAO Employee: "+emp);
 		return emp;
 	}
 	
