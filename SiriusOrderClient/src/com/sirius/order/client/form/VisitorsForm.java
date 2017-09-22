@@ -32,20 +32,24 @@ public class VisitorsForm extends ActionForm{
 	    String[] from = from_date.split("-");
 	    String[] to = to_date.split("-");
 	    Calendar current_Date = Calendar.getInstance();
+	    current_Date.add(Calendar.DATE, 7);
 	    Calendar to_Date = Calendar.getInstance();
-	    to_Date.set(Integer.parseInt(to[0]), Integer.parseInt(to[1]), Integer.parseInt(to[2]));
+	    to_Date.set(Integer.parseInt(to[0]), Integer.parseInt(to[1])-1, Integer.parseInt(to[2]));
 	    Calendar from_Date = Calendar.getInstance();
-	    from_Date.set(Integer.parseInt(from[0]), Integer.parseInt(from[1]), Integer.parseInt(from[2]));
+	    from_Date.set(Integer.parseInt(from[0]), Integer.parseInt(from[1])-1, Integer.parseInt(from[2]));
 	    if(from_Date.after(to_Date)){
 	    	//error start date after end date
+	    	errors.add("date_order", new ActionMessage("VISITORS_DATE_ORDER_ERROR"));
 	    	errorArray.add("VISITORS_DATE_ORDER_ERROR");
 	    }
-	    if(from_Date.getTimeInMillis() - current_Date.getTimeInMillis() < 604800000){
+	    if(current_Date.after(from_Date)){
 	    	//date must be at least 7 days in the future
+	    	errors.add("future_order", new ActionMessage("VISITORS_FUTURE_DATE_ERROR"));
 	    	errorArray.add("VISITORS_FUTURE_DATE_ERROR");
 	    }
 	    if (count < 1){
 	    	//must have a number greater than 0
+	    	errors.add("visitor_count", new ActionMessage("VISITORS_COUNT_ERROR"));
 	    	errorArray.add("VISITORS_COUNT_ERROR");
 	    }
 	    request.setAttribute("errorArray", errorArray);
