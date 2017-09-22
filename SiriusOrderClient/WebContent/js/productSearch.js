@@ -9,11 +9,14 @@ function selectedOption(value){
 
 function addToCart(productID)
 {
+	alert("Product ID: " + productID);
 	var xhttp = new XMLHttpRequest();
-	var quantity = getElementbyID("quantityToAdd").value;
-	if (quantity == null){
-		quantity = 1;
-	}
+	var quantityElement = document.getElementById("quantityToAdd");
+    var quantity = 1;
+    if (quantityElement != null)
+    {
+        quantity = quantityElement.value;
+    }
 	var url = "/SiriusOrderClient/CartServlet?query=addToCart&productID=" + productID +"&quantity="+quantity;
 	xhttp.open("GET", url, true);
 	xhttp.onreadystatechange = function()
@@ -40,7 +43,6 @@ function searchProducts()
 {	
 	var search = document.getElementById("search");
 	var category = document.getElementById("category");
-	
 	
 	var url = "/SiriusOrderClient/ProductSearchServlet?query=searchProducts&category=" + category.value + "&search=" +  search.value;
 	var xhttp = new XMLHttpRequest();
