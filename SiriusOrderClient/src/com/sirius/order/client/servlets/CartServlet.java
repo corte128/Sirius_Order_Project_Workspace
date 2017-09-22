@@ -41,23 +41,38 @@ public class CartServlet extends HttpServlet {
 		//created by logged in user
 		//current budget
 		//order id
-    	int id = Integer.parseInt(request.getParameter("productID"));
-
-		
 		String quantity = request.getParameter("quantity");
-		if (quantity.equals("")){
-			quantity = "1";
-		}
-		int quantityInt = Integer.parseInt(quantity);
-		
-		ProductBean bean = ProductSearchDAO.getProductByID(id);
-		
+    	int productId = Integer.parseInt(request.getParameter("productID"));
 		OrderBean orderBean = new OrderBean();
 		orderBean.setOrderName("cart");
-		orderBean.setQuantity(quantityInt);
-		orderBean.setProductId(id);
-		orderBean.setTotalPrice(bean.getPrice().multiply(new BigDecimal(quantityInt)));
-//		CartServiceDAO.getOrderByProduct(id);
+		orderBean.setProductId(productId);
+		ProductBean bean = ProductSearchDAO.getProductByID(productId);
+		int count = 0;
+		int locationId = 0;
+		if(quantity != null){
+			
+			if (quantity.equals("")){
+				quantity = "1";
+			}
+			int quantityInt = Integer.parseInt(quantity);
+			orderBean.setQuantity(quantityInt);
+			orderBean.setTotalPrice(bean.getPrice().multiply(new BigDecimal(quantityInt)));
+		}
+		//=========================
+    	//activeUserLocation
+		else{
+			locationId = (Integer) request.getSession().getAttribute("activeUserID");
+			count = CartServiceDAO.getProductQuantityInCartByProductId(locationId, productId);
+			if(count == 0){
+				orderBean.setQuantity(1);
+				orderBean.setTotalPrice(bean.getPrice().multiply(new BigDecimal(orderBean.getQuantity())));
+			}
+			else{
+				orderBean.setQuantity(count+1);
+				orderBean.setTotalPrice(bean.getPrice().multiply(new BigDecimal(orderBean.getQuantity())));
+			}
+		}
+		//============================
 //		CartServiceDAO.updateProductQuantityInCart(locationId, quantity, productId, updatedBy)
 		BudgetBean budget = new BudgetBean();
 		budget.setBudgetAllotted(new BigDecimal(1000));
@@ -75,9 +90,11 @@ public class CartServlet extends HttpServlet {
 		}
 		budget.setBudgetDate(calendar);
 		
+		if(count > 0){
+			CartServiceDAO.updateProductQuantityInCart(locationId, orderBean.getQuantity(), productId, 1);
+		}
 		CartServiceDAO.addProductToCart(orderBean, budget, 1);
 //		CartServiceDAO.updateProductQuantityInCart(locationId, quantity, productId, updatedBy)
-		
 	}
 
 	/**
@@ -88,15 +105,12 @@ public class CartServlet extends HttpServlet {
 		//created by logged in user
 		//current budget
 		//order id
-    	int id = Integer.parseInt(request.getParameter("id"));
-		OrderBean orderBean = new OrderBean();
-		orderBean.setOrderName("cart");
-		orderBean.setQuantity(1);
-		orderBean.setProductId(id);
+
+		
 //		CartServiceDAO.getOrderByProduct(id);
 //		CartServiceDAO.updateProductQuantityInCart(locationId, quantity, productId, updatedBy)
 //		CartServiceDAO.addProductToCart(order, budget, createdBy)
-//		CartServiceDAO.isProductInCartByProductId(locationId, productId);
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("jsps/productSearch.jsp");
 		dispatcher.forward(request, response);
 	}

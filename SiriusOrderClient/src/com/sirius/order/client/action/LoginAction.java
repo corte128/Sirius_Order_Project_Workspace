@@ -42,12 +42,13 @@ public class LoginAction extends org.apache.struts.action.Action {
 				session.setAttribute("activeUserID", employeeID);
 				session.setAttribute("activeUserType", emp.getRole());
 				session.setAttribute("activeUserEmail", emp.getEmail());
+
 				
 				if (emp.getPicture() != null){
 					String picture = new String(emp.getPicture(),"UTF-8");
 					session.setAttribute("activeUserPicture", picture);
 				}
-				
+
 				return mapping.findForward(SUCCESS);
 			} else {
 				return mapping.findForward(FAILURE);

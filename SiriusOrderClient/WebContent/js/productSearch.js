@@ -33,6 +33,7 @@ function addToCart(productID)
 	};
 	xhttp.send();
 }
+
 function selectedOption(value)
 {
 	alert(value);
@@ -88,7 +89,9 @@ function searchProducts()
 			
 			var spanHeart = document.createElement("span");
 			spanHeart.setAttribute("class", "glyphicon glyphicon-heart clickable-like");
-			spanHeart.onclick='addToWishlist(' + response[key].id + ')';
+			spanHeart.onclick=function(){
+				addToWishlist(response[key].ID);
+			};
 			/*==============================*/
 			
 			var spanPrice = document.createElement("span");
@@ -100,7 +103,12 @@ function searchProducts()
 			
 			var addToCartBtn = document.createElement("input");
 			addToCartBtn.type="button";
-			addToCartBtn.onclick="addToCart(" + response[key].id + ")";
+			addToCartBtn.onclick=(function(){
+				var id = response[key].ID;
+				return function(){
+					addToCart(id + '');
+				}
+			})();
 			addToCartBtn.value="Add To Cart";
 			
 			var productCard = document.createElement("div");
@@ -129,7 +137,7 @@ function verticalHandler(){
 
 function addToWishlist(productID){
 	//'/SiriusOrderClient/ProductSearchServlet?action=addToWishlist&id=' + response[key].ID
-	
+	alert("this is working yo!!!");
 	var url = '/SiriusOrderClient/ProductSearchServlet?action=addToWishlist&id=' + productID;
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET", url, true);
