@@ -10,7 +10,6 @@
 		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
 		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/productSearch.css">
 		<script type="text/javascript" src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
-		
 		<script type="text/javascript" src="/SiriusOrderClient/js/productSearch.js"></script>
 	
 	</head>

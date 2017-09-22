@@ -1,6 +1,12 @@
 /**
  * 
  */
+
+function selectedOption(value){
+	alert("something");
+	$("#category").val(value);
+}
+
 function addToCart(productID)
 {
 	var xhttp = new XMLHttpRequest();
@@ -24,6 +30,7 @@ function addToCart(productID)
 	};
 	xhttp.send();
 }
+
 
 function searchProducts(){
 	
@@ -102,12 +109,8 @@ function searchProducts(){
 
 function verticalHandler(){
 	
-	var container = document.getElementById("");
-	var contentHeight = container.offsetHeight;
+//	var container = document.getElementById("");
+//	var contentHeight = container.offsetHeight;
 	
-}
-
-function selectedOption(value){
-	$("#category").val(value);
 }
 
