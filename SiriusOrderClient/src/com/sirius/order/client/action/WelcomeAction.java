@@ -1,5 +1,6 @@
 package com.sirius.order.client.action;
 
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
@@ -10,6 +11,8 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+
+import com.sirius.product.service.main.product.wsdl.*;
 
 public class WelcomeAction extends Action {
 	private static final Logger logger = Logger.getLogger(WelcomeAction.class.getName());
@@ -25,11 +28,23 @@ public class WelcomeAction extends Action {
 		int userId = 0;
 		
 		if(request.getSession().getAttribute(sessionVariables.getString("ACTIVE_USER_ID")) != null)
+		{	
 			userId = (Integer) request.getSession().getAttribute(sessionVariables.getString("ACTIVE_USER_ID"));
+		}
 		
-		if( userId > 0){
+		
+		
+		if( userId > 0)
+		{
+			if(request.getParameter("action").equals("productSearch"))
+			{
+				List<ProductBean> products = ProductSearchDAO.getAllProductsByType(Integer.parseInt(request.getParameter("type")));
+				request.setAttribute("Products", products);
+			}
 			return mapping.findForward(SUCCESS);
-		}else{	
+		}
+		else
+		{	
 			return mapping.findForward(FAILURE);
 		}
 	}

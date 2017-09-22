@@ -30,12 +30,18 @@ function addToCart(productID)
 	};
 	xhttp.send();
 }
+function selectedOption(value)
+{
+	alert(value);
+	$("#category").val(value);
+}
 
-
-function searchProducts(){
-	
+function searchProducts()
+{	
 	var search = document.getElementById("search");
 	var category = document.getElementById("category");
+	
+	
 	var url = "/SiriusOrderClient/ProductSearchServlet?query=searchProducts&category=" + category.value + "&search=" +  search.value;
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET", url, true);
@@ -45,6 +51,7 @@ function searchProducts(){
 		$('#productContainer').empty();
 		var productContainer = document.getElementById('productContainer');
 		
+		/*
 		var bootStrap = document.createElement("link");
 		bootStrap.rel = "stylesheet";
 		bootStrap.type = "text/css";
@@ -52,10 +59,11 @@ function searchProducts(){
 		productContainer.appendChild(bootStrap);
 		
 		var style = document.createElement("link");
-		style.rel = "stylesheet";
+		.rel = "stylesheet";
 		style.type = "text/css";
 		style.href = "/SiriusOrderClient/css/productCard.css";
 		productContainer.appendChild(style);
+		*/
 		for(key in response)
 		{
 			var image = document.createElement("img");

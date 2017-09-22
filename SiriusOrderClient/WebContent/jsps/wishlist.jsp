@@ -13,15 +13,27 @@
 		<%@ include file="header.jsp"%>
 	</header>
 	<div class="wishlist-container">
+	
 		<%-- PROFILE CARD --%>
 		<div class="wishlist-profile-container">
 			<div>
-				<div class="wishlist-profile-image"></div>
-				<div class="wishlist-profile-welcome"></div>
+				<div class="wishlist-profile-image">
+					<img class="employee_profile_photo" alt="profile image" src="data:image/jpeg;base64,${sessionScope.viewPicture}"/>
+				</div>
+				<div class="wishlist-profile-welcome">
+					<bean:message key="WISHLIST_WELCOME_TEXT" />
+				</div>
 			</div>
-			<div class="wishlist-profile-title"></div>
-			<div class="wishlist-profile-text"></div>
-			<div class="wishlist-profile-title"></div>
+			<div class="wishlist-profile-title">
+				<bean:message key="WISHLIST_WISHLIST_LABEL" />
+			</div>
+			<div class="wishlist-profile-text">
+				<bean:message key="WISHLIST_YOU_HAVE_TEXT" />
+				<bean:message key="WISHLIST_IN_WISHLIST_TEXT" />
+			</div>
+			<div class="wishlist-profile-title">
+				<bean:message key="WISHLIST_LOCATION_LABEL" />
+			</div>
 			<div class="wishlist-profile-text"></div>
 		</div>
 		
@@ -34,6 +46,7 @@
 		<aside>
 			<%@ include file="nav.jsp"%>
 		</aside>
+		
 	</div>
 </body>
 </html>
