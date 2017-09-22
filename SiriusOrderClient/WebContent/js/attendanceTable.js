@@ -13,7 +13,7 @@ app.controller('AttendanceCtrl', [
 				data : [],
 				columnDefs : [ {
 					name : 'Name',
-					width : 100,
+					width : 150,
 					pinnedLeft : true
 				}, {
 					name : 'Email',
@@ -43,6 +43,13 @@ app.controller('AttendanceCtrl', [
 								}
 								if(email == ''){
 									email="%";
+								}
+								if (view == 'PDF'){
+									var downloadDiv = document.getElementById("downloadDiv");
+									downloadDiv.style.display = "block";
+								}else{
+									var downloadDiv = document.getElementById("downloadDiv");
+									downloadDiv.style.display = "none";
 								}
 								
 							

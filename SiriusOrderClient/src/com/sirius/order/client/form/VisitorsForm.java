@@ -1,5 +1,8 @@
 package com.sirius.order.client.form;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -25,9 +28,27 @@ public class VisitorsForm extends ActionForm{
 	
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
 	    ActionErrors errors = new ActionErrors();
-	    if (count < 1){
-	    	errors.add("count", new ActionMessage("registration.name.invalid"));
+	    ArrayList<String> errorArray = new ArrayList<String>();
+	    String[] from = from_date.split("-");
+	    String[] to = to_date.split("-");
+	    Calendar current_Date = Calendar.getInstance();
+	    Calendar to_Date = Calendar.getInstance();
+	    to_Date.set(Integer.parseInt(to[0]), Integer.parseInt(to[1]), Integer.parseInt(to[2]));
+	    Calendar from_Date = Calendar.getInstance();
+	    from_Date.set(Integer.parseInt(from[0]), Integer.parseInt(from[1]), Integer.parseInt(from[2]));
+	    if(from_Date.after(to_Date)){
+	    	//error start date after end date
+	    	errorArray.add("VISITORS_DATE_ORDER_ERROR");
 	    }
+	    if(from_Date.getTimeInMillis() - current_Date.getTimeInMillis() < 604800000){
+	    	//date must be at least 7 days in the future
+	    	errorArray.add("VISITORS_FUTURE_DATE_ERROR");
+	    }
+	    if (count < 1){
+	    	//must have a number greater than 0
+	    	errorArray.add("VISITORS_COUNT_ERROR");
+	    }
+	    request.setAttribute("errorArray", errorArray);
 	    return errors;
 	}
 

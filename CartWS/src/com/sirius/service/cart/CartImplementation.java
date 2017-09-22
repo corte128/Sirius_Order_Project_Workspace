@@ -50,4 +50,10 @@ public class CartImplementation implements CartInterface {
 	{
 		return CartDAO.getAllProductsInCartByProductType(locationId, productType);
 	}
+	
+	@Override
+	public int getProductQuantityInCartByProductId(int locationId, int productId)
+	{
+		return CartDAO.getProductQuantityInCartByProductId(locationId, productId);
+	}
 }

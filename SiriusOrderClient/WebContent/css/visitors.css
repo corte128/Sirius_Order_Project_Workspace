@@ -10,8 +10,7 @@
 	display: flex;
 }
 aside{
-	display: block;
-	flex: 1;
+	flex: 0;
 }
 #visitors-labels{
 	flex: 2;

@@ -40,4 +40,9 @@ public class CartServiceDAO
 		CartProxy client = new CartProxy();
 		return client.getAllProductsInCartByProductType(locationId, productType);
 	}
+	public static int getProductQuantityInCartByProductId(int locationId, int productId) 
+	{
+		CartProxy client = new CartProxy();
+		return client.getProductQuantityInCartByProductId(locationId, productId);
+	}
 }
