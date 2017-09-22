@@ -9,14 +9,17 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
 		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/productSearch.css">
+		
+		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/productCard.css">
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script type="text/javascript" src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
 		
 		<script type="text/javascript" src="/SiriusOrderClient/js/productSearch.js"></script>
 	
 	</head>
-	<body onload="selectedOption('${param.type}')">
+	<body onload="selectedOption(${param.type})">
 		<header>
-			<jsp:include page="header.jsp"></jsp:include>
+			<%@ include file="header.jsp" %>
 		</header>
 		<div id="productSearchAndNavContainer">
 			<main id="productSearchContainer">
@@ -44,7 +47,23 @@
 					<c:forEach var="product" items="${Products}">
 						<c:set var="currentProduct" value="${product}" scope="request"/>
 						<div class="productContainerCard">
-							<%@ include file="productCard.jsp" %>
+							<div class="productCard">
+								<div class="imageContainer">
+									<a href="/SiriusOrderClient/NavigationServlet?action=productDetails&id=${currentProduct.getId()}">
+										<img src="${currentProduct.getImage()}" alt="name of item" class="productImage"></img>
+									</a>
+								</div>
+						
+						
+								<div class="productLabel">
+									<p class="nameLabel">${currentProduct.getName()}</p>
+								</div>
+								<div class="likesAndPrice">
+									<span class="glyphicon glyphicon-heart"></span>
+									<span>$${currentProduct.getPrice()}</span>
+								</div>
+								<input type="button" onclick="addToCart(${currentProduct.getId()})" value="Add To Cart"/>
+							</div>
 						</div>
 					</c:forEach>
 				</div>

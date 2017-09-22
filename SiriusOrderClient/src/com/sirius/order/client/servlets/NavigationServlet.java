@@ -104,7 +104,12 @@ public class NavigationServlet extends HttpServlet {
 		{
 			generatePDF(request, response);
 		}
+		else if(action.equals("wishlist"))
+		{
+			forwardToWishlist(request,response);
+		}
 	}
+	
 	private void forwardToProductDetails(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		ProductBean product = new ProductBean();
 		String id = request.getParameter("id");
@@ -118,17 +123,18 @@ public class NavigationServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/productDetails.jsp?id="+ product.getId());
 		 dispatcher.forward(request, response);
 	}
+	
 	private void forwardToAttendance(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		LocationClientDAO locationClient = new LocationClientDAO();
 		List<LocationBean> locationBeanList = locationClient.getLocations();
-
 
 		HttpSession session =request.getSession();
 		 session.setAttribute("locations", locationBeanList);
 		 RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/authRequired/attendance.jsp");
 		 dispatcher.forward(request, response);
 	}
+	
 	private void forwardToBudget(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		LocationClientDAO locationClient = new LocationClientDAO();
@@ -148,6 +154,7 @@ public class NavigationServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/activateUsers.jsp");
 		dispatcher.forward(request, response);
 	}
+	
 	private void forwardToRegistration(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		HttpSession session = request.getSession();
@@ -156,6 +163,7 @@ public class NavigationServlet extends HttpServlet {
 		session.setAttribute("locations", locations);
 		response.sendRedirect("jsps/registration.jsp");
 	}
+	
 	private void forwardToSuperAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		LocationClientDAO locationClient = new LocationClientDAO();
@@ -180,6 +188,12 @@ public class NavigationServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/authRequired/reviewCart.jsp");
 		dispatcher.forward(request, response);
 	}
+	
+	private void forwardToWishlist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		//request.setAttribute("", o)
+		response.sendRedirect("jsps/wishlist.jsp");
+	}
+	
 	private void generatePDF(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		
