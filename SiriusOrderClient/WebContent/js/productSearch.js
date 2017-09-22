@@ -33,6 +33,7 @@ function addToCart(productID)
 	};
 	xhttp.send();
 }
+
 function selectedOption(value)
 {
 	alert(value);
