@@ -23,6 +23,8 @@
 }
 
 .productLabel{
+	margin:auto;
+	text-align: center;
 	height: 75px;
 	border-bottom: solid black 1px;
 }
