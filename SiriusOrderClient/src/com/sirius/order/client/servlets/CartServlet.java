@@ -42,7 +42,7 @@ public class CartServlet extends HttpServlet {
 		//current budget
 		//order id
 		String quantity = request.getParameter("quantity");
-    	int productId = Integer.parseInt(request.getParameter("id"));
+    	int productId = Integer.parseInt(request.getParameter("productID"));
 		OrderBean orderBean = new OrderBean();
 		orderBean.setOrderName("cart");
 		orderBean.setProductId(productId);
