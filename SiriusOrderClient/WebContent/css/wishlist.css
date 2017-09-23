@@ -24,7 +24,9 @@
 @media (min-device-width: 1025px)  {
   .wishlist-product-card-container{
     display:flex;
-    width: 600px;
+    min-width: 200px;
+    max-width: 600px;
+    width: 65vw;
     height: 250px;
     overflow-x: auto;
     overflow-y: hidden;
