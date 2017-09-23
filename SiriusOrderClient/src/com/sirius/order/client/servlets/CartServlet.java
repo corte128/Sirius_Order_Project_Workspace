@@ -43,34 +43,28 @@ public class CartServlet extends HttpServlet {
 		//order id
 		String quantity = request.getParameter("quantity");
     	int productId = Integer.parseInt(request.getParameter("productID"));
+    	int userId = (Integer) request.getSession().getAttribute("activeUserID");
 		OrderBean orderBean = new OrderBean();
 		orderBean.setOrderName("cart");
 		orderBean.setProductId(productId);
 		ProductBean bean = ProductSearchDAO.getProductByID(productId);
 		int count = 0;
 		int locationId = 0;
-		if(quantity != null){
-			
-			if (quantity.equals("")){
-				quantity = "1";
-			}
-			int quantityInt = Integer.parseInt(quantity);
-			orderBean.setQuantity(quantityInt);
-			orderBean.setTotalPrice(bean.getPrice().multiply(new BigDecimal(quantityInt)));
+		if (quantity.equals("")){
+			quantity = "1";
 		}
+		int quantityInt = Integer.parseInt(quantity);
 		//=========================
     	//activeUserLocation
+		locationId = (Integer) request.getSession().getAttribute("activeUserLocation");
+		count = CartServiceDAO.getProductQuantityInCartByProductId(locationId, productId);
+		if(count == 0){
+			orderBean.setQuantity(quantityInt);
+			orderBean.setTotalPrice(bean.getPrice().multiply(new BigDecimal(orderBean.getQuantity())));
+		}
 		else{
-			locationId = (Integer) request.getSession().getAttribute("activeUserID");
-			count = CartServiceDAO.getProductQuantityInCartByProductId(locationId, productId);
-			if(count == 0){
-				orderBean.setQuantity(1);
-				orderBean.setTotalPrice(bean.getPrice().multiply(new BigDecimal(orderBean.getQuantity())));
-			}
-			else{
-				orderBean.setQuantity(count+1);
-				orderBean.setTotalPrice(bean.getPrice().multiply(new BigDecimal(orderBean.getQuantity())));
-			}
+			orderBean.setQuantity(++count);
+			orderBean.setTotalPrice(bean.getPrice().multiply(new BigDecimal(orderBean.getQuantity())));
 		}
 		//============================
 //		CartServiceDAO.updateProductQuantityInCart(locationId, quantity, productId, updatedBy)
@@ -91,9 +85,11 @@ public class CartServlet extends HttpServlet {
 		budget.setBudgetDate(calendar);
 		
 		if(count > 0){
-			CartServiceDAO.updateProductQuantityInCart(locationId, orderBean.getQuantity(), productId, 1);
+			CartServiceDAO.updateProductQuantityInCart(locationId, orderBean.getQuantity(), productId, userId);
 		}
-		CartServiceDAO.addProductToCart(orderBean, budget, 1);
+		else{
+			CartServiceDAO.addProductToCart(orderBean, budget, userId);
+		}
 //		CartServiceDAO.updateProductQuantityInCart(locationId, quantity, productId, updatedBy)
 	}
 

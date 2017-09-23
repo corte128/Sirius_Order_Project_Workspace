@@ -56,9 +56,9 @@ public class ProductSearchServlet extends HttpServlet {
 	        else{
 	            objects = ProductSearchDAO.getAllProductsByNameAndType(name, category);
 	        }
-	        List<List<ProductBean>> lists = separateList(objects, 20);
+	        //List<List<ProductBean>> lists = separateList(objects, 20);
 	        //break objects down for lazy loading into separate lists
-	        		
+	        
 			request.setAttribute("Products", objects);
 			
 			

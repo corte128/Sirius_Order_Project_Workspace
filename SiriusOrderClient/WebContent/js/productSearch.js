@@ -9,7 +9,6 @@ function selectedOption(value){
 
 function addToCart(productID)
 {
-	alert("Product ID: " + productID);
 	var xhttp = new XMLHttpRequest();
 	var quantityElement = document.getElementById("quantityToAdd");
     var quantity = 1;
@@ -89,11 +88,13 @@ function searchProducts()
 			
 			var spanHeart = document.createElement("span");
 			spanHeart.setAttribute("class", "glyphicon glyphicon-heart clickable-like");
-			spanHeart.onclick=function(){
-				addToWishlist(response[key].ID);
-			};
+			spanHeart.onclick=(function() {
+				var id = response[key].ID;
+				return function(){
+					addToWishlist(id);
+				}
+			})();
 			/*==============================*/
-			
 			var spanPrice = document.createElement("span");
 			spanPrice.innerHTML = '$' + response[key].Price;
 			var divLikesAndPrice = document.createElement("div");
@@ -103,12 +104,13 @@ function searchProducts()
 			
 			var addToCartBtn = document.createElement("input");
 			addToCartBtn.type="button";
-			addToCartBtn.onclick=(function(){
+			addToCartBtn.onclick=(function (){
 				var id = response[key].ID;
 				return function(){
-					addToCart(id + '');
-				}
+					addToCart(id);
+				};
 			})();
+			console.log(response[key].ID);
 			addToCartBtn.value="Add To Cart";
 			
 			var productCard = document.createElement("div");
@@ -137,7 +139,6 @@ function verticalHandler(){
 
 function addToWishlist(productID){
 	//'/SiriusOrderClient/ProductSearchServlet?action=addToWishlist&id=' + response[key].ID
-	alert("this is working yo!!!");
 	var url = '/SiriusOrderClient/ProductSearchServlet?action=addToWishlist&id=' + productID;
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET", url, true);

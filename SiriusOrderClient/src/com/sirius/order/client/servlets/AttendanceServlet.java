@@ -118,10 +118,11 @@ public class AttendanceServlet extends HttpServlet {
 				cal.set(Calendar.DATE,
 						cal.getActualMaximum(Calendar.DAY_OF_MONTH));
 				endDate = df.format(cal.getTime());
-			} else {
-				startDate = "1900-01-01";
-				endDate = "3000-12-31";
-			}
+			}	
+//				} else {
+//				startDate = "1900-01-01";
+//				endDate = "3000-12-31";
+//			}
 			if (!startDate.matches("\\d{4}-\\d{2}-\\d{2}")) {
 				startDate = "";
 			}

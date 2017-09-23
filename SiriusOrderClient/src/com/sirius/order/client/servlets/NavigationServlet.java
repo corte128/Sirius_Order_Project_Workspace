@@ -51,6 +51,10 @@ public class NavigationServlet extends HttpServlet {
 
 		String action = request.getParameter("action");
 		HttpSession session = request.getSession();
+		OfficeAdminClientDAO oficeAdminClient = new OfficeAdminClientDAO();
+		List<EmployeeBean> employees = oficeAdminClient.getUnapprovedEmployees((Integer) session.getAttribute("activeUserLocation"));
+		int numUnapprovedEmployees = employees.size();
+		session.setAttribute("numAlerts", numUnapprovedEmployees);
 
 		if(action.equalsIgnoreCase("attendance"))
 		{

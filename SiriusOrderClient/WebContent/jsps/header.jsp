@@ -21,7 +21,8 @@
 				<html:link href="/SiriusOrderClient/jsps/login.jsp">
 					<fmt:message key="HEADER_LOGIN" />
 				</html:link>
-				<html:link href="/SiriusOrderClient/NavigationServlet?action=registration">
+				<html:link
+					href="/SiriusOrderClient/NavigationServlet?action=registration">
 					<fmt:message key="HEADER_REGISTER" />
 				</html:link>
 			</c:if>
@@ -34,21 +35,35 @@
 			</c:if>
 			<table class="headerNavTable">
 				<tr>
+					<td>
+						<html:link
+								href="/SiriusOrderClient/jsps/welcome.jsp"> 
+								Home
+								</html:link>
+					</td>
 					<c:if test="${sessionScope.activeUserType == '2'}">
 						<td class="headerLink"><html:link
 								href="/SiriusOrderClient/NavigationServlet?action=activateUsers">
-								<fmt:message key="HEADER_ALERTS" />
-							</html:link>
+								<c:if test="${numAlerts== null}">
+									<fmt:message key="HEADER_ALERTS" />
+								</c:if>
+								<c:if test="${numAlerts!= null}">
+									${numAlerts} <fmt:message key="HEADER_ALERTS" />
+								</c:if>
+							</html:link> 
 					</c:if>
 					<c:if test="${sessionScope.activeUserType == '3'}">
-						<td class="headerLink"><html:link href="/SiriusOrderClient/NavigationServlet?action=superAdmin">
+						<td class="headerLink"><html:link
+								href="/SiriusOrderClient/NavigationServlet?action=superAdmin"> 
 								<fmt:message key="HEADER_ADMIN" />
-							</html:link></td>
+							</html:link>
+						</td>
 					</c:if>
 					<c:if test="${sessionScope.activeUserName != null}">
 						<td class="headerLink"><a
 							href="/SiriusOrderClient/LogoutServlet"><fmt:message
-									key="HEADER_LOGOUT" /> </a></td>
+									key="HEADER_LOGOUT" /> </a>
+						</td>
 					</c:if>
 				</tr>
 			</table>

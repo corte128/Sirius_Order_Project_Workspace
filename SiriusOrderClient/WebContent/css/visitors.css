@@ -1,7 +1,3 @@
-@media only screen and (min-width: 300px) {}
-@media only screen and (min-width: 768px) {}
-@media only screen and (min-width: 800px) {}
-
 #visitors-content{
 	display: flex;
 }
@@ -21,3 +17,51 @@ aside{
 .error{
 	color: red;
 }
+#visitors-title{
+	position: absolute;
+	color: #5F6060;
+	font-family: serif;
+	font-style: italic;
+	text-align: center;
+	width: 100%;
+}
+label{
+	font-family: serif;
+	font-style: italic;
+	color: #5F6060;
+}
+#visitor-add-button{
+	background-color: #5F6060;
+	color: white;
+	border: none;
+	padding: 5px;
+	width: 75px;
+}
+@media only screen and (min-width: 300px) {
+	.visitors-form-input{
+		width: 175px;
+	}
+	#visitors-form{
+		margin-top: 50px;
+		margin-left: 20px;
+	}
+	#visitors-input-fields{
+		margin-top: 15px;
+	}
+	#future-date, #date-order, #count-error{
+		height: 45px;
+	}
+	#visitor-add-button{
+		position: absolute;
+		right: 25px;
+	}
+}
+@media only screen and (min-width: 768px) {
+	#visitors-labels{
+		flex: 4;
+	}
+	#visitors-input-fields{
+		flex: 4;
+	}
+}
+@media only screen and (min-width: 800px) {}
