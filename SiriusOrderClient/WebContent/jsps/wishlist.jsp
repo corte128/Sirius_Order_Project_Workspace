@@ -14,8 +14,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/SiriusOrderClient/js/wishlist.js"></script>
 </head>
-<body>
-	<%-- HEADER --%>
+<body> 
+	<%-- HEADER --%> 
 	<header>
 		<%@ include file="header.jsp"%>
 	</header>
@@ -33,18 +33,18 @@
 					<c:out value="${sessionScope.activeUserName}" />
 				</div>
 			</div>
-			<div class="wishlist-profile-title">
+			<div class="wishlist-profile-title wishlist-profile-title-wishlist">
 				<bean:message key="WISHLIST_WISHLIST_LABEL" />
 			</div>
-			<div class="wishlist-profile-text">
+			<div class="wishlist-profile-text wishlist-profile-text-wishlist">
 				<bean:message key="WISHLIST_YOU_HAVE_TEXT" />
-				<%-- NEEDS THE CARD COUNT HERE --%>
+				<c:out value="${ProductAmount}"/>
 				<bean:message key="WISHLIST_IN_WISHLIST_TEXT" />
 			</div>
-			<div class="wishlist-profile-title">
+			<div class="wishlist-profile-title wishlist-profile-title-location">
 				<bean:message key="WISHLIST_LOCATION_LABEL" />
 			</div>
-			<div class="wishlist-profile-text">
+			<div class="wishlist-profile-text wishlist-profile-text-location">
 				<c:out value="${requestScope.location}" />
 			</div>
 		</div>

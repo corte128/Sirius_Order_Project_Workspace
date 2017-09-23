@@ -12,9 +12,9 @@
 <meta name="viewport" content="width=device-width" />
 <script src="/SiriusOrderClient/js/registration.js"></script>
 <title><fmt:message key="REGISTRATION_TITLE" /></title> 
-</head>
+</head> 
 <body>
-	<header>
+	<header> 
 		<%@ include file="header.jsp" %>
 	</header>
 	<div id="registration-content">

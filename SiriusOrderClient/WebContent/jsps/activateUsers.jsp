@@ -18,9 +18,9 @@
 <script src="/SiriusOrderClient/js/activateUser.js"></script>
 <c:if test="${activeUserID==null}">
 	<jsp:forward page = "/jsps/welcome.jsp" />
-</c:if> 
+</c:if>  
 </head>
-<body>
+<body>  
 	<header>
 		<%@ include file="header.jsp" %>
 	</header>

@@ -14,12 +14,12 @@
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script type="text/javascript" src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
 		<script type="text/javascript" src="/SiriusOrderClient/js/productSearch.js"></script>
-	
+	 
 	</head>
 	<body onload="selectedOption(${param.type})">
 		<header>
 			<%@ include file="header.jsp" %>
-		</header>
+		</header> 
 		<div id="productSearchAndNavContainer">
 			<main id="productSearchContainer">
 				<div class="searchContainer">

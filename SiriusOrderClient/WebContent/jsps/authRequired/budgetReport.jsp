@@ -6,7 +6,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:setBundle basename="com.sirius.order.client.properties.common"/>
 <html>
-	<head>
+	<head> 
 		<title><fmt:message key="BUDGET_REPORT_TITLE_LABEL" /></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		
@@ -26,7 +26,7 @@
     	
     	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
     	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-		
+	 	
   		<script src="/SiriusOrderClient/js/chartCreator.js"></script>
 	</head>
 	<body ng-app="chartApp">
