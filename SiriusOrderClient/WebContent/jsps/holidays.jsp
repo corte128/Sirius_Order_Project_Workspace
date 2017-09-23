@@ -19,8 +19,8 @@
 <script type="text/javascript" src="/SiriusOrderClient/js/jquery.appendGrid-1.7.1.js"></script>
 <script type="text/javascript" src="/SiriusOrderClient/js/holidays.js"></script>
 </head>
-<body>   
-	<header>
+<body>    
+	<header> 
 		<%@ include file="header.jsp" %>
 	</header>
 	<div id="holidays-content">

@@ -1,40 +1,143 @@
 @CHARSET "ISO-8859-1";
 
 .productCard{
+	font-family: Calibri, sans-serif;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-	width: 170px;
-	height: 200px;
-	
-	padding-bottom: 5px;
-}
-
-.productImage{
-	width: 50%;
-	height: 40%;
-	padding-top: 5px;
-	padding-bottom: 2px;
 }
 
 .likesAndPrice{
+	font-style: italic;
 	padding: 7px 0px 2px 20px;
-}
-
-.productLabel{
-	border-bottom: solid black 1px;
 }
 
 .glyphicon{
 	color:#AF4B33
 }
 
-.addToCartBtn{
-	padding-left: 41px;
-}
-
-.imageContainer{
-	padding-left: 40px;	
-}
-
 .nameLabel{
-	font-size: 1.5vh;
+	padding-left: 15px;
+	padding-right: 15px;
+	font-size: 1.5rem;
+}
+
+/* Desktop */
+@media (min-device-width: 1025px)  {
+	.productCard{
+		width: 180px;
+		height: 210px;
+		margin-top: 10px;
+		padding-bottom: 10px;
+		font-size: 10px;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+
+	.productImage{
+		width: 125px;
+		height: 100px;
+		margin-top: 5px;
+		padding-top: 5px;
+		padding-bottom: 2px;
+	}
+
+	.productLabel{
+		margin:auto;
+		text-align: center;
+		height: 57px;
+		border-bottom: solid black 1px;
+	}
+
+	.addToCartBtn{
+		margin-left:55px;
+	}
+
+	.imageContainer{
+		padding-left: 29px;
+	}
+
+	.nameLabel{
+		font-size: 12px;
+	}
+}
+
+/* Ipad */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+	.productCard{
+		width: 270px;
+		height: 355px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		margin-right: 25px;
+		margin-left: 25px;
+		padding-bottom: 10px;
+	}
+
+	.productImage{
+		width: 200px;
+		height: 175px;
+		margin: auto;
+		margin-top: 10px;
+		padding-top: 5px;
+		padding-bottom: 2px;
+	}
+
+	.productLabel{
+		margin:auto;
+		text-align: center;
+		height: 95px;
+		border-bottom: solid black 1px;
+	}
+
+	.addToCartBtn{
+		margin-left:90px;
+	}
+
+	.imageContainer{
+		padding-left: 25px;
+	}
+
+	.nameLabel{
+		font-size: 2rem;
+	}
+}
+
+/* Iphone 5 */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+	.productCard{
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+		width: 250px;
+		height: 340px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		padding-bottom: 10px;
+	}
+
+	.productImage{
+		width: 200px;
+		height: 175px;
+		margin: auto;
+		margin-top: 10px;
+		padding-top: 5px;
+		padding-bottom: 2px;
+	}
+
+	.productLabel{
+		margin:auto;
+		text-align: center;
+		height: 75px;
+		border-bottom: solid black 1px;
+	}
+
+	.addToCartBtn{
+		margin-left:80px;
+	}
+
+	.imageContainer{
+		padding-left: 25px;
+	}
+
 }

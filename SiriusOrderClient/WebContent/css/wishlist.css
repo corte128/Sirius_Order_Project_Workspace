@@ -4,31 +4,11 @@
   display:flex;
   flex-wrap: wrap;
   font-family: Serif;
-  font-size: 16px;
-}
-
-.wishlist-profile-container{
-  margin: auto;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-  width: 280px;
-  height: 300px;
-  margin-top: 7px;
-  font-style: italic;
-  padding-bottom: 5px;
+  font-size: 1.8rem;
 }
 
 .wishlist-product-card-container{
   margin: auto;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-  width: 280px;
-  height: 300px;
-  margin-top: 7px;
-  font-style: italic;
-  padding-bottom: 5px;
-}
-
-.wishlist-navbar-container{
-
 }
 
 .wishlist-profile-image-welcome{
@@ -37,18 +17,151 @@
 
 /* Desktop */
 @media (min-device-width: 1025px)  {
+  .wishlist-product-card-container{
+    display:flex;
+    min-width: 200px;
+    max-width: 600px;
+    width: 65vw;
+    height: 250px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .wishlist-profile-container{
+    margin-left: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    width: 210px;
+    height: 220px;
+    font-size: 12px;
+    margin-top: 7px;
+    font-style: italic;
+    padding-bottom: 5px;
+  }
+
+.wishlist-profile-image img{
+  flex: 2;
+  width: 70px;
+  height: 70px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.wishlist-profile-welcome{
+  flex: 2;
+  text-align: left;
+  padding-left: 15px;
+  margin: auto;
+  color: grey;
+}
+
+.wishlist-profile-title{
+  margin-left: 10px;
+  padding-bottom: 7px;
+  font-weight: bold;
+}
+
+.wishlist-profile-text{
+  margin-left: 10px;
+  padding-bottom: 7px;
+}
+
 }
 
 /* Ipad */
 @media only screen
 and (min-device-width : 768px)
 and (max-device-width : 1024px) {
+  .wishlist-product-card-container{
+    display:flex;
+    width: 700px;
+    height: 400px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .wishlist-profile-container{
+    margin: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    width: 700px;
+    height: 350px;
+    margin-top: 7px;
+    margin-bottom: 100px;
+    font-style: italic;
+    font-size: 2.3rem;
+    padding-bottom: 5px;
+  }
+
+  .wishlist-profile-image img{
+    flex: 2;
+    width: 327px;
+    height: 327px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .wishlist-profile-welcome{
+    flex: 2;
+    position: absolute;
+    left:375px;
+    top:85px;
+    text-align: left;
+    padding-left: 15px;
+    margin: auto;
+    color: grey;
+  }
+
+  .wishlist-profile-title{
+    margin-left: 10px;
+    padding-bottom: 7px;
+    font-weight: bold;
+  }
+
+  .wishlist-profile-title-wishlist{
+    position:absolute;
+    left: 375px;
+    top: 150px;
+  }
+
+  .wishlist-profile-title-location{
+    position:absolute;
+    left: 375px;
+    top: 250px;
+  }
+
+  .wishlist-profile-text{
+    margin-left: 10px;
+    padding-bottom: 7px;
+  }
+
+  .wishlist-profile-text-wishlist{
+    position:absolute;
+    left: 385px;
+    top: 175px;
+  }
+
+  .wishlist-profile-text-location{
+    position:absolute;
+    left: 385px;
+    top: 275px;
+  }
+
 }
 
 /* Iphone 5 */
 @media only screen
 and (min-device-width : 320px)
 and (max-device-width : 568px) {
+  .wishlist-profile-container{
+    margin: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    width: 280px;
+    height: 300px;
+    margin-top: 7px;
+    font-style: italic;
+    padding-bottom: 5px;
+  }
 
 .wishlist-profile-image img{
   flex: 2;

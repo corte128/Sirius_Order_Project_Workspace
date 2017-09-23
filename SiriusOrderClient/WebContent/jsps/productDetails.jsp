@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css"
     	href="/SiriusOrderClient/css/productDetails.css">
     	<script src="/SiriusOrderClient/js/productSearch.js"></script>
-    	
+    	 
     	
   </head>
   <body>
@@ -22,7 +22,7 @@
               ${productPrice}
             </div>
             <div class="likesContainer">
-            </div>
+            </div> 
           </div>
           <div class="orderFormContainer">
           <form method="post">

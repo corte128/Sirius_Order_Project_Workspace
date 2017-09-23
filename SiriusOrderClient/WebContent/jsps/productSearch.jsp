@@ -14,12 +14,12 @@
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script type="text/javascript" src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
 		<script type="text/javascript" src="/SiriusOrderClient/js/productSearch.js"></script>
-	
+	 
 	</head>
 	<body onload="selectedOption(${param.type})">
 		<header>
 			<%@ include file="header.jsp" %>
-		</header>
+		</header> 
 		<div id="productSearchAndNavContainer">
 			<main id="productSearchContainer">
 				<div class="searchContainer">
@@ -52,14 +52,15 @@
 										<img src="${currentProduct.getImage()}" alt="name of item" class="productImage"></img>
 									</a>
 								</div>
-						
-						
 								<div class="productLabel">
 									<p class="nameLabel">${currentProduct.getName()}</p>
 								</div>
 								<div class="likesAndPrice">
 									<span class="glyphicon glyphicon-heart clickable-like" onclick='addToWishlist(${currentProduct.getId()})'></span>
+									<c:set var="productId" value="LikesForProduct:${currentProduct.getId()}" scope="request"/>
+									<span id="numOfLikes${currentProduct.getId()}">${requestScope[productId].size()}</span>
 									<span>$${currentProduct.getPrice()}</span>
+
 								</div>
 								<input type="button" onclick="addToCart(${currentProduct.getId()})" value="Add To Cart"/>
 							</div>

@@ -8,6 +8,7 @@ import java.util.List;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
+import javax.json.JsonObjectBuilder;
 import javax.json.JsonWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpSession;
 import com.sirius.attendancews.attendance.wsdl.AttendanceRecordBean;
 import com.sirius.product.service.main.product.wsdl.ProductBean;
 import com.sirius.product.service.main.product.wsdl.ProductSearchDAO;
+import com.sirius.wishlistws.wishlist.wsdl.EmployeeBean;
 import com.sirius.wishlistws.wishlist.wsdl.WishlistDAO;
 
 /**
@@ -44,7 +46,38 @@ public class ProductSearchServlet extends HttpServlet {
 		if(action.equals("addToWishlist")){
 			int id = Integer.parseInt(request.getParameter("id"));
 			int userId = (Integer) request.getSession().getAttribute("activeUserID");
-			WishlistDAO.addToLikeTable(userId, id);
+			boolean alreadyLiked = false;
+			List<com.sirius.wishlistws.wishlist.wsdl.ProductBean> productsLiked = WishlistDAO.getAllProductsEmployeeLiked(userId);
+			for(com.sirius.wishlistws.wishlist.wsdl.ProductBean bean : productsLiked){
+				if(bean.getId() == id){
+					alreadyLiked = true;
+				}
+			}
+			if(alreadyLiked){
+				WishlistDAO.removeFromEmployeeWishlist(userId, id);
+			}
+			else{
+				WishlistDAO.addToLikeTable(userId, id);
+			}
+			
+			List<EmployeeBean> emps = WishlistDAO.getAllEmployeesWhoLikedProduct(id);
+			List<String> empNames = new ArrayList<String>();
+			for(EmployeeBean emp : emps){
+				empNames.add(emp.getName());
+			}
+//			request.setAttribute("LikesForProduct:" + id,  empNames);
+//			JsonObjectBuilder objBuilder = Json.createObjectBuilder();
+			JsonArrayBuilder builder = Json.createArrayBuilder();
+			for (String name : empNames) {
+				builder.add(name);
+			}
+			JsonArray output = builder.build();
+			PrintWriter out = response.getWriter();
+			JsonWriter writer = Json.createWriter(out);
+			writer.writeArray(output);
+			writer.close();
+			
+			
 		}
 		else{
 	        String name = request.getParameter("search");
@@ -56,9 +89,9 @@ public class ProductSearchServlet extends HttpServlet {
 	        else{
 	            objects = ProductSearchDAO.getAllProductsByNameAndType(name, category);
 	        }
-	        List<List<ProductBean>> lists = separateList(objects, 20);
+	        //List<List<ProductBean>> lists = separateList(objects, 20);
 	        //break objects down for lazy loading into separate lists
-	        		
+	        
 			request.setAttribute("Products", objects);
 			
 			
