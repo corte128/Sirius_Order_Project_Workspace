@@ -1,9 +1,28 @@
 @CHARSET "ISO-8859-1";
 
+.productCard{
+	font-family: Calibri, sans-serif;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.likesAndPrice{
+	font-style: italic;
+	padding: 7px 0px 2px 20px;
+}
+
+.glyphicon{
+	color:#AF4B33
+}
+
+.nameLabel{
+	padding-left: 15px;
+	padding-right: 15px;
+	font-size: 1.5rem;
+}
+
 /* Desktop */
 @media (min-device-width: 1025px)  {
 	.productCard{
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 		width: 180px;
 		height: 210px;
 		margin-top: 10px;
@@ -21,19 +40,11 @@
 		padding-bottom: 2px;
 	}
 
-	.likesAndPrice{
-		padding: 7px 0px 2px 20px;
-	}
-
 	.productLabel{
 		margin:auto;
 		text-align: center;
 		height: 57px;
 		border-bottom: solid black 1px;
-	}
-
-	.glyphicon{
-		color:#AF4B33
 	}
 
 	.addToCartBtn{
@@ -45,8 +56,6 @@
 	}
 
 	.nameLabel{
-		padding-left: 15px;
-		padding-right: 15px;
 		font-size: 12px;
 	}
 }
@@ -56,9 +65,8 @@
 and (min-device-width : 768px)
 and (max-device-width : 1024px) {
 	.productCard{
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-		width: 250px;
-		height: 340px;
+		width: 270px;
+		height: 355px;
 		margin-top: 20px;
 		margin-bottom: 20px;
 		margin-right: 25px;
@@ -75,23 +83,15 @@ and (max-device-width : 1024px) {
 		padding-bottom: 2px;
 	}
 
-	.likesAndPrice{
-		padding: 7px 0px 2px 20px;
-	}
-
 	.productLabel{
 		margin:auto;
 		text-align: center;
-		height: 75px;
+		height: 95px;
 		border-bottom: solid black 1px;
 	}
 
-	.glyphicon{
-		color:#AF4B33
-	}
-
 	.addToCartBtn{
-		margin-left:80px;
+		margin-left:90px;
 	}
 
 	.imageContainer{
@@ -99,9 +99,7 @@ and (max-device-width : 1024px) {
 	}
 
 	.nameLabel{
-		padding-left: 15px;
-		padding-right: 15px;
-		font-size: 1.5rem;
+		font-size: 2rem;
 	}
 }
 
@@ -127,19 +125,11 @@ and (max-device-width : 568px) {
 		padding-bottom: 2px;
 	}
 
-	.likesAndPrice{
-		padding: 7px 0px 2px 20px;
-	}
-
 	.productLabel{
 		margin:auto;
 		text-align: center;
 		height: 75px;
 		border-bottom: solid black 1px;
-	}
-
-	.glyphicon{
-		color:#AF4B33
 	}
 
 	.addToCartBtn{
@@ -148,12 +138,6 @@ and (max-device-width : 568px) {
 
 	.imageContainer{
 		padding-left: 25px;
-	}
-
-	.nameLabel{
-		padding-left: 15px;
-		padding-right: 15px;
-		font-size: 1.5rem;
 	}
 
 }
