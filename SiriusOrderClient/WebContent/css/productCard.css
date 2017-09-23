@@ -1,5 +1,56 @@
 @CHARSET "ISO-8859-1";
 
+/* Desktop */
+@media (min-device-width: 1025px)  {
+	.productCard{
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+		width: 180px;
+		height: 210px;
+		margin-top: 10px;
+		padding-bottom: 10px;
+		font-size: 10px;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+
+	.productImage{
+		width: 125px;
+		height: 100px;
+		margin-top: 5px;
+		padding-top: 5px;
+		padding-bottom: 2px;
+	}
+
+	.likesAndPrice{
+		padding: 7px 0px 2px 20px;
+	}
+
+	.productLabel{
+		margin:auto;
+		text-align: center;
+		height: 57px;
+		border-bottom: solid black 1px;
+	}
+
+	.glyphicon{
+		color:#AF4B33
+	}
+
+	.addToCartBtn{
+		margin-left:55px;
+	}
+
+	.imageContainer{
+		padding-left: 29px;
+	}
+
+	.nameLabel{
+		padding-left: 15px;
+		padding-right: 15px;
+		font-size: 12px;
+	}
+}
+
 /* Ipad */
 @media only screen
 and (min-device-width : 768px)
