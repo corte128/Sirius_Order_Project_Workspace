@@ -1,0 +1,42 @@
+@CHARSET "ISO-8859-1";
+
+.breakroom-cart-product-container
+{
+	display: flex;
+	border-bottom: 1px solid black;
+}
+.breakroom-cart-product-image-container
+{
+	background-color: lightgrey;
+	padding: 10px 20px 10px 20px;
+	
+}
+.breakroom-cart-product-image-container img
+{
+	position: relative;
+	left: calc(50% - 25px);
+	width: 50x;
+	height: 50px;
+}
+.breakroom-cart-product-name-container
+{
+	flex: 3;
+	padding: 10px 0 10px 0;
+}
+.breakroom-cart-product-price-container
+{
+	flex: 2;
+}
+.breakroom-cart-product-quantity-container
+{
+}
+.breakroom-cart-product-quantity-container input
+{
+	width: 50px;
+	padding: 5px;
+	text-align: right;
+}
+.breakroom-cart-product-action-container
+{
+	padding: 8px 40px 10px 10px;
+}

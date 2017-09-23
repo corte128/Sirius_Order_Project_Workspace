@@ -10,48 +10,64 @@
 
 <html>
 <head>
-<title>reviewCart</title>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>reviewCart</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+	<link rel="stylesheet" href="/SiriusOrderClient/css/reviewCart.css">
 </head>
 <body>
-	<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" />
-		<div>
-			<img src="${product.getImage()}"></img>
-			<span>Name</span>
-			<span>$12.34</span>
-			<input onchange="calcBreakroomTotals()" type="text" value="7"/>
-			<a href="#" class="glyphicon glyphicon-trash"></a>
-		</div>
+	<c:if test="${breakroomOrders.size() > 0}">
+		<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" />
+		<c:set var="breakroomIndex" value="0" scope="page" />
+	</c:if>
+	
 	<c:forEach var="product" items="${breakroomProducts}">
-		<div class="breakroom-cart-product-container">
-			<img src="${product.getImage()}"></img>
-			<span>${product.getName()}</span>
-			<span>${product.getPrice()}</span>
-			<input onchange="calcBreakroomTotals()" type="text" value="${product.getQuantity()}"/>
-			<a href="#" class="glyphicon glyphicon-trash"></a>
+		<div id="cartOrder${breakroomOrders.get(breakroomIndex).getId()}" class="breakroom-cart-product-container">
+			<div class="breakroom-cart-product-image-container">
+				<img src="${product.getImage()}"></img>
+			</div>
+			<div class="breakroom-cart-product-name-container">
+				${product.getName()}
+			</div>
+			<div class="breakroom-cart-product-price-container">
+				$${product.getPrice()}
+			</div>
+			<div class="breakroom-cart-product-quantity-container">
+				<input onchange="calcBreakroomTotals()" type="text" value="${breakroomOrders.get(breakroomIndex).getQuantity()}"/>
+			</div>
+			<div class="breakroom-cart-product-action-container">
+				<a href="#" class="glyphicon glyphicon-trash"></a>
+			</div>
 		</div>
+		<c:set var="breakroomIndex" value="${breakroomIndex + 1}" scope="page"/>
 	</c:forEach>
-	<fmt:message key="REVIEW_CART_OFFICE_SUPPLIES_LABEL" />
+	<c:if test="${officeSuppliesOrders.size() > 0}">
+		<fmt:message key="REVIEW_CART_OFFICE_SUPPLIES_LABEL" />
+		<c:set var="officeSuppliesIndex" value="0" scope="page" />
+	</c:if>
 	<c:forEach var="product" items="${officeSuppliesProducts}">
 		<div class="office-supplies-cart-product-container">
 			<img src="${product.getImage()}"></img>
 			<span>${product.getName()}</span>
-			<span>${product.getPrice()}</span>
-			<input onchange="calcOfficeSuppliesTotals()" type="text" value="${product.getQuantity()}"/>
+			<span>$${product.getPrice()}</span>
+			<input onchange="calcOfficeSuppliesTotals()" type="text" value="${officeSuppliesOrders.get(officeSuppliesIndex).getQuantity()}"/>
 			<a href="#" class="glyphicon glyphicon-trash"></a>
 		</div>
+		<c:set var="officeSuppliesIndex" value="${officeSuppliesIndex + 1}" scope="page"/>
 	</c:forEach>
-	<fmt:message key="REVIEW_CART_INK_AND_TONER_LABEL" />
+	<c:if test="${inkAndTonerOrders.size() > 0}">
+		<fmt:message key="REVIEW_CART_INK_AND_TONER_LABEL" />
+		<c:set var="inkIndex" value="0" scope="page" />
+	</c:if>
 	<c:forEach var="product" items="${inkAndTonerProducts}">
 		<div class="ink-and-toner-cart-product-container">
 			<img src="${product.getImage()}"></img>
 			<span>${product.getName()}</span>
-			<span>${product.getPrice()}</span>
-			<input onchange="calcInkAndTonerTotals()" type="text" value="${product.getQuantity()}"/>
+			<span>$${product.getPrice()}</span>
+			<input onchange="calcInkAndTonerTotals()" type="text" value="${inkAndTonerOrders.get(inkIndex).getQuantity()}"/>
 			<a href="#" class="glyphicon glyphicon-trash"></a>
 		</div>
+		<c:set var="inkIndex" value="${inkIndex + 1}" scope="page"/>
 	</c:forEach>
 	
 </body>

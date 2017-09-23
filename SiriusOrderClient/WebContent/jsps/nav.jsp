@@ -43,7 +43,7 @@
 					
 					<c:if test="${sessionScope.activeUserType} == 2">
 						<li>	
-							<a href="/SiriusOrderClient/jsps/cart.jsp">
+							<a href="/SiriusOrderClient/NavigationServlet?action=cart">
 								<div class="nav-sidebar-icon-image-container">
 									<img class="nav-sidebar-icon-image" 
 										src="/SiriusOrderClient/assets/cart_icon.png" 
@@ -133,7 +133,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="/SiriusOrderClient/jsps/cart.jsp">
+				<a href="/SiriusOrderClient/NavigationServlet?action=cart">
 					<div class="nav-icon-image-container">
 						<img class="nav-icon-image" src="/SiriusOrderClient/assets/cart_icon.png" alt="Cart Icon"/>
 					</div>

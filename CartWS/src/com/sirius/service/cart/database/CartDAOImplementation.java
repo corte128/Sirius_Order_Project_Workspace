@@ -272,7 +272,7 @@ public class CartDAOImplementation {
 		for(Integer id : ids){
 			sbObj.append(" OR order_id_pk = "+id);
 		}
-		
+		sbObj.append(";");
 		try {
 			logger.log(Level.FINE, "Preparing to execute quantity query: ");
 			logger.log(Level.FINE, "   " + sbObj.toString());
