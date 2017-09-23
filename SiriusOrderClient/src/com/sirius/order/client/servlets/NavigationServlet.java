@@ -209,6 +209,7 @@ public class NavigationServlet extends HttpServlet {
         	products.add(ppObj.getProductByID(wlObj.getId()));
         }
         
+        request.setAttribute("ProductAmount", products.size());
 		request.setAttribute("Products", products);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/wishlist.jsp");

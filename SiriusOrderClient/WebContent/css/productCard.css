@@ -1,48 +1,106 @@
 @CHARSET "ISO-8859-1";
 
-.productCard{
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-	width: 250px;
-	height: 325px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	padding-bottom: 10px;
+/* Ipad */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+	.productCard{
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+		width: 250px;
+		height: 340px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		padding-bottom: 10px;
+	}
+
+	.productImage{
+		width: 200px;
+		height: 175px;
+		margin: auto;
+		margin-top: 10px;
+		padding-top: 5px;
+		padding-bottom: 2px;
+	}
+
+	.likesAndPrice{
+		padding: 7px 0px 2px 20px;
+	}
+
+	.productLabel{
+		margin:auto;
+		text-align: center;
+		height: 75px;
+		border-bottom: solid black 1px;
+	}
+
+	.glyphicon{
+		color:#AF4B33
+	}
+
+	.addToCartBtn{
+		margin-left:80px;
+	}
+
+	.imageContainer{
+		padding-left: 25px;
+	}
+
+	.nameLabel{
+		padding-left: 15px;
+		padding-right: 15px;
+		font-size: 1.5rem;
+	}
 }
 
-.productImage{
-	width: 200px;
-	height: 175px;
-	margin: auto;
-	margin-top: 10px;
-	padding-top: 5px;
-	padding-bottom: 2px;
-}
+/* Iphone 5 */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+	.productCard{
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+		width: 250px;
+		height: 340px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		padding-bottom: 10px;
+	}
 
-.likesAndPrice{
-	padding: 7px 0px 2px 20px;
-}
+	.productImage{
+		width: 200px;
+		height: 175px;
+		margin: auto;
+		margin-top: 10px;
+		padding-top: 5px;
+		padding-bottom: 2px;
+	}
 
-.productLabel{
-	margin:auto;
-	text-align: center;
-	height: 75px;
-	border-bottom: solid black 1px;
-}
+	.likesAndPrice{
+		padding: 7px 0px 2px 20px;
+	}
 
-.glyphicon{
-	color:#AF4B33
-}
+	.productLabel{
+		margin:auto;
+		text-align: center;
+		height: 75px;
+		border-bottom: solid black 1px;
+	}
 
-.addToCartBtn{
-	margin-left:80px;
-}
+	.glyphicon{
+		color:#AF4B33
+	}
 
-.imageContainer{
-	padding-left: 25px;
-}
+	.addToCartBtn{
+		margin-left:80px;
+	}
 
-.nameLabel{
-	padding-left: 15px;
-	padding-right: 15px;
-	font-size: 1.5rem;
+	.imageContainer{
+		padding-left: 25px;
+	}
+
+	.nameLabel{
+		padding-left: 15px;
+		padding-right: 15px;
+		font-size: 1.5rem;
+	}
+
 }
