@@ -146,8 +146,6 @@ function addToWishlist(productID){
 	{
 		var response = JSON.parse(xhttp.responseText);
 		var numOfEmps = response.length;
-		console.log(numOfEmps);
-		console.log(response);
 		var likesContainer = document.getElementById('numOfLikes' + productID);
 		likesContainer.innerHTML = numOfEmps;
 	};
