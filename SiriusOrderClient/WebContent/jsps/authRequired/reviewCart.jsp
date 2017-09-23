@@ -14,6 +14,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/SiriusOrderClient/css/reviewCart.css">
+	
+	<script type="text/javascript" src="/SiriusOrderClient/js/calcCartTotal.js"></script>
 </head> 
 <body>
 	<c:if test="${breakroomOrders.size() > 0}">
@@ -36,7 +38,7 @@
 				<input onchange="calcBreakroomTotals()" type="text" value="${breakroomOrders.get(breakroomIndex).getQuantity()}"/>
 			</div>
 			<div class="breakroom-cart-product-action-container">
-				<a href="#" class="glyphicon glyphicon-trash"></a>
+				<div class="glyphicon glyphicon-trash" onclick="removeFromCart(${breakroomOrders.get(breakroomIndex).getId()})"></div>
 			</div>
 		</div>
 		<c:set var="breakroomIndex" value="${breakroomIndex + 1}" scope="page"/>

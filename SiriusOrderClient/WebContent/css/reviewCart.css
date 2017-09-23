@@ -40,3 +40,7 @@
 {
 	padding: 8px 40px 10px 10px;
 }
+.breakroom-cart-product-action-container div
+{
+	cursor: pointer;
+}
