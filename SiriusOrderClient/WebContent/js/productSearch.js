@@ -142,6 +142,15 @@ function addToWishlist(productID){
 	var url = '/SiriusOrderClient/ProductSearchServlet?action=addToWishlist&id=' + productID;
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET", url, true);
+	xhttp.onreadystatechange = function()
+	{
+		var response = JSON.parse(xhttp.responseText);
+		var numOfEmps = response.length;
+		console.log(numOfEmps);
+		console.log(response);
+		var likesContainer = document.getElementById('numOfLikes' + productID);
+		likesContainer.innerHTML = numOfEmps;
+	};
 	xhttp.send();
 }
 
