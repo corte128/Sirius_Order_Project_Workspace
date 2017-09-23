@@ -34,20 +34,29 @@
 @media only screen
 and (min-device-width : 768px)
 and (max-device-width : 1024px) {
+  .wishlist-product-card-container{
+    display:flex;
+    width: 700px;
+    height: 400px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
   .wishlist-profile-container{
     margin: auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
     width: 700px;
-    height: 300px;
+    height: 350px;
     margin-top: 7px;
+    margin-bottom: 100px;
     font-style: italic;
     padding-bottom: 5px;
   }
 
   .wishlist-profile-image img{
     flex: 2;
-    width: 280px;
-    height: 280px;
+    width: 327px;
+    height: 327px;
     margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 20px;

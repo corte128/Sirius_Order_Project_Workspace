@@ -10,6 +10,8 @@ and (max-device-width : 1024px) {
 		height: 340px;
 		margin-top: 20px;
 		margin-bottom: 20px;
+		margin-right: 25px;
+		margin-left: 25px;
 		padding-bottom: 10px;
 	}
 
