@@ -68,7 +68,10 @@
 						</div>
 						<div class="likesAndPrice">
 							<span class="glyphicon glyphicon-heart clickable-like"
-								onclick='addToWishlist(${currentProduct.getId()})'></span> <span>$${currentProduct.getPrice()}</span>
+								onclick='addToWishlist(${currentProduct.getId()})'></span> 
+							<c:set var="productId" value="LikesForProduct:${currentProduct.getId()}" scope="request"/>
+							<span id="numOfLikes${currentProduct.getId()}" class="num-of-likes">${requestScope[productId].size()}</span>
+							<span>$${currentProduct.getPrice()}</span>
 						</div>
 						<input class="addToCartBtn" type="button"
 							onclick="addToCart(${currentProduct.getId()})"

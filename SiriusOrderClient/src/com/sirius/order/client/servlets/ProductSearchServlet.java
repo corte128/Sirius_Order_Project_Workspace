@@ -96,12 +96,19 @@ public class ProductSearchServlet extends HttpServlet {
 			
 			
 			JsonArrayBuilder builder = Json.createArrayBuilder();
-			for (ProductBean record : objects) {
+			for (ProductBean record : objects)
+			{
+				JsonArrayBuilder likesBuilder = Json.createArrayBuilder();
+				List<EmployeeBean> emps = WishlistDAO.getAllEmployeesWhoLikedProduct(record.getId());
+				for(EmployeeBean emp : emps){
+					likesBuilder.add(emp.getName());
+				}
 				builder.add(Json.createObjectBuilder()
 						.add("Image", record.getImage())
 						.add("Name", record.getName())
 						.add("ID", record.getId())
-						.add("Price", record.getPrice()));
+						.add("Price", record.getPrice())
+						.add("Likers", likesBuilder));
 			}
 			JsonArray output = builder.build();
 
