@@ -16,6 +16,7 @@ import org.apache.struts.upload.FormFile;
 import com.sirius.adminws.officeadmin.wsdl.EmployeeBean;
 import com.sirius.adminws.officeadmin.wsdl.OfficeAdminClientDAO;
 import com.sirius.employeews.employee.wsdl.EmployeeClientDAO;
+import com.sirius.mailws.mail.wsdl.MailProxyDAO;
 import com.sirius.order.client.form.RegistrationForm;
 
 public class RegistrationAction extends org.apache.struts.action.Action{
@@ -44,7 +45,10 @@ public class RegistrationAction extends org.apache.struts.action.Action{
 			if (status) {
 				OfficeAdminClientDAO officeAdminClient = new OfficeAdminClientDAO();
 				EmployeeBean officeAdmin = officeAdminClient.getOfficeAdmin(location);
-				// mail office admin about registration
+				MailProxyDAO mailDao = new MailProxyDAO();
+				String subject = "New User Registered";
+				String message = name + " has registered with your office location. Please verify their status.";
+				mailDao.sendMessage(subject, message, officeAdmin.getEmail());
 				return mapping.findForward(SUCCESS);
 			} else {
 				return mapping.findForward(FAILURE);

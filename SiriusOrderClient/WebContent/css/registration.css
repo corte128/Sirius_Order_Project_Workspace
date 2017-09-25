@@ -15,12 +15,33 @@ html body{
 	font-style: italic;
 }
 .registration-field{
-	border: grey 1px solid;
+	border: black 1px solid;
 }
 #registration-button{
+	margin-top: 10px;
 	border: none;
 	background-color: #5F6060;
 	color: lightgrey;
+	width: 75px;
+	padding: 5px;
+}
+#email-error-spacing{
+	display: none;
+	height: 5px;
+}
+#browse-button{
+	display: inline-block;
+	font-family: arial;
+	font-size: .8em;
+	margin-top: 5px;
+	padding: 5px;
+	border: black 1px solid;
+	width: 75px;
+	text-align: center;
+}
+#chosen-file{
+	width: 100px;
+	font-size: .75em;
 }
 @media only screen and (min-width: 300px) {
 	#registration-title{
@@ -42,7 +63,7 @@ html body{
 		flex: 4;
 	}
 	.registration-field{
-		margin-bottom: 5px;
+		margin-top: 5px;
 	}
 	input{
 		max-width: 150px;
@@ -55,7 +76,13 @@ html body{
 	#registration-button{
 		position: absolute;
 		right: 23px;
-		padding: 3px;
+	}
+	.error{
+		margin-top: -5px;
+		font-size: .75em;
+	}
+	#location-field{
+		overflow: hidden;
 	}
 }
 @media only screen and (min-width: 768px) {
@@ -96,6 +123,7 @@ html body{
 		position: absolute;
 		right: 20%;
 		padding: 10px;
+		width: 120px;
 	}
 	.error{
 		font-size: .8em;
@@ -121,12 +149,12 @@ html body{
 	#registration-labels{
 		flex: 2;
 		padding: 0;
-		padding-left: 275px;
+		padding-left: 25%;
 		margin-top: -20px;
 	}
 	#registration-inputs-container{
 		padding: 0;
-		flex: 4;
+		flex: 5;
 	}
 	.error{
 		font-size: 1em;
@@ -149,7 +177,7 @@ html body{
 	#registration-button{
 		display: relative;
 		left: 55%;
-		padding: 3px;
+		width: 100px;
 	}
 }
 
