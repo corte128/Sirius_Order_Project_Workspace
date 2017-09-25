@@ -98,7 +98,7 @@
 							<ul class="nav-sidebar-sub-list">
 								<div class="admin-nav-sidebar-sub-text-container">
 									<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/NavigationServlet?action=visitors">
-										Add Visitors
+										Add Visitors 
 									</a>
 								</div>
 								<div class="admin-nav-sidebar-sub-text-container">

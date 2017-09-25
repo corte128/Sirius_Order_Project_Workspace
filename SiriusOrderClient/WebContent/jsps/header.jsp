@@ -67,7 +67,6 @@
 					</c:if>
 				</tr>
 			</table>
-
 		</div>
 	</div>
 </div>
