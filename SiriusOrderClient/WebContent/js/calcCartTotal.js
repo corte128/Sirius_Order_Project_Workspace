@@ -26,7 +26,7 @@ function calcInkAndTonerTotals()
 	price = price.slice(1);
 	var quantity = document.getElementById("inkAndTonerQuantity");
 	var output = price*quantity;
-	document.getElementById("inkAndTonerTotalAmount").innerHTML = $ + output;	
+	document.getElementById("inkAndTonerTotalAmount").innerHTML = $ + output;
 }
 
 function removeFromCart(orderID){

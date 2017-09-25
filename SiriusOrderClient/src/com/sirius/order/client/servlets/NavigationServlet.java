@@ -52,11 +52,17 @@ public class NavigationServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		HttpSession session = request.getSession();
 		OfficeAdminClientDAO oficeAdminClient = new OfficeAdminClientDAO();
-		List<EmployeeBean> employees = oficeAdminClient.getUnapprovedEmployees((Integer) session.getAttribute("activeUserLocation"));
+		List<EmployeeBean> employees = new ArrayList<EmployeeBean>();
+		Object userId =(Integer)request.getSession().getAttribute(sessionVariables.getString("ACTIVE_USER_ID"));
+		if(session.getAttribute("activeUserLocation")!= null)
+			 employees = oficeAdminClient.getUnapprovedEmployees((Integer) session.getAttribute("activeUserLocation"));
 		int numUnapprovedEmployees = employees.size();
 		session.setAttribute("numAlerts", numUnapprovedEmployees);
 
-		if(action.equalsIgnoreCase("attendance"))
+		if(userId == null){
+			response.sendRedirect("jsps/login.jsp");
+		}
+		else if(action.equalsIgnoreCase("attendance"))
 		{
 			forwardToAttendance(request, response);
 		}
@@ -230,24 +236,26 @@ public class NavigationServlet extends HttpServlet {
 	}
 	
 	private void forwardToWishlist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		LocationProxy lpObj = new LocationProxy();
-		int locationId = (Integer) request.getSession().getAttribute(sessionVariables.getString("ACTIVE_USER_LOCATION"));
-		String location = lpObj.getLocationStringByLocationId(locationId);
-		request.setAttribute("location", location);
-		
-		//TODO: Fix it so both the product and wishlist are using the same bean
-        List<com.sirius.wishlistws.wishlist.wsdl.ProductBean> wsProducts = new ArrayList<com.sirius.wishlistws.wishlist.wsdl.ProductBean>();
-        List<ProductBean> products = new ArrayList<ProductBean>();
-        ProductProxy ppObj = new ProductProxy();
-        int employeeId = (Integer) request.getSession().getAttribute(sessionVariables.getString("ACTIVE_USER_ID"));
-        wsProducts = WishlistDAO.getAllProductsEmployeeLiked(employeeId);
-        
-        for(com.sirius.wishlistws.wishlist.wsdl.ProductBean wlObj : wsProducts){
-        	products.add(ppObj.getProductByID(wlObj.getId()));
-        }
-        
-        request.setAttribute("ProductAmount", products.size());
-		request.setAttribute("Products", products);
+		if(request.getSession().getAttribute(sessionVariables.getString("ACTIVE_USER_LOCATION")) != null){
+			LocationProxy lpObj = new LocationProxy();
+			int locationId = (Integer) request.getSession().getAttribute(sessionVariables.getString("ACTIVE_USER_LOCATION"));
+			String location = lpObj.getLocationStringByLocationId(locationId);
+			request.setAttribute("location", location);
+			
+			//TODO: Fix it so both the product and wishlist are using the same bean
+	        List<com.sirius.wishlistws.wishlist.wsdl.ProductBean> wsProducts = new ArrayList<com.sirius.wishlistws.wishlist.wsdl.ProductBean>();
+	        List<ProductBean> products = new ArrayList<ProductBean>();
+	        ProductProxy ppObj = new ProductProxy();
+	        int employeeId = (Integer) request.getSession().getAttribute(sessionVariables.getString("ACTIVE_USER_ID"));
+	        wsProducts = WishlistDAO.getAllProductsEmployeeLiked(employeeId);
+	        
+	        for(com.sirius.wishlistws.wishlist.wsdl.ProductBean wlObj : wsProducts){
+	        	products.add(ppObj.getProductByID(wlObj.getId()));
+	        }
+	        
+	        request.setAttribute("ProductAmount", products.size());
+			request.setAttribute("Products", products);
+		}
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/wishlist.jsp");
 		dispatcher.forward(request, response);

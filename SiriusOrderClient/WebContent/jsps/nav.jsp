@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/nav.css">
 	
-	<%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--%>
+	<%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--%> 
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="/SiriusOrderClient/js/nav.js"></script>
 	 
@@ -98,7 +98,7 @@
 							<ul class="nav-sidebar-sub-list">
 								<div class="admin-nav-sidebar-sub-text-container">
 									<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/NavigationServlet?action=visitors">
-										Add Visitors
+										Add Visitors 
 									</a>
 								</div>
 								<div class="admin-nav-sidebar-sub-text-container">

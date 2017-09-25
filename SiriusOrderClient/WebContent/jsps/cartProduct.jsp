@@ -7,7 +7,7 @@
 <title>cartProduct</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
-<body>
+<body> 
 	<div>
 		<img src="${product.getImage()}"></img>
 		<span>${product.getName()}</span>
@@ -16,4 +16,4 @@
 		<a href="#" class="glyphicon glyphicon-trash"></a>
 	</div>
 </body> 
-</html> 
+</html>

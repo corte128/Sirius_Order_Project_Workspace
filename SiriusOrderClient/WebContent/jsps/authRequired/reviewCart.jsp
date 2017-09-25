@@ -7,7 +7,7 @@
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 
 <fmt:setBundle basename="com.sirius.order.client.properties.common"/>
-
+ 
 <html>
 <head>
 	<title>reviewCart</title>

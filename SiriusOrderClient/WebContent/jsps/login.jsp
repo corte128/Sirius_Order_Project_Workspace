@@ -4,7 +4,7 @@
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<html>
+<html>  
 <head> 
 <fmt:setBundle basename="com.sirius.order.client.properties.common"/>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -12,11 +12,11 @@
 <meta name="viewport" content="width=device-width" />
 <title><fmt:message key="LOGIN_TITLE" /></title>
 </head>
-<body>
-	<header> 
+<body>  
+	<header>  
 		<%@ include file="header.jsp" %>
-	</header>
-	<div id="login-content">	
+	</header>  
+	<div id="login-content">	 
 		<div id="login-form">
 			<div id="login-labels">
 				<br /> 
