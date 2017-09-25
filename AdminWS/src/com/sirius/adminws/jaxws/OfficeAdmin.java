@@ -58,4 +58,11 @@ public interface OfficeAdmin {
 	@ResponseWrapper(localName = "getUnapprovedEmployeesResponse", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl", className = "com.sirius.adminws.jaxws.GetUnapprovedEmployeesResponse")
 	public List<EmployeeBean> getUnapprovedEmployees(
 			@WebParam(name = "locationID", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl") int locationID);
+	
+	@WebMethod(action = "getOfficeAdmin")
+	@WebResult(name = "getOfficeAdminReturn", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl")
+	@RequestWrapper(localName = "getOfficeAdmin", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl", className = "com.sirius.adminws.jaxws.GetOfficeAdmin")
+	@ResponseWrapper(localName = "getOfficeAdminResponse", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl", className = "com.sirius.adminws.jaxws.GetOfficeAdminResponse")
+	public EmployeeBean getOfficeAdmin(
+			@WebParam(name = "locationID", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl") int locationID);
 }

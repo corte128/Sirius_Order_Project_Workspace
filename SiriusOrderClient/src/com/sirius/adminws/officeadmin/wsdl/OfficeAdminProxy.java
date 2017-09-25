@@ -137,4 +137,8 @@ public class OfficeAdminProxy{
         return _getDescriptor().getProxy().getUnapprovedEmployees(locationID);
     }
 
+    public EmployeeBean getOfficeAdmin(int locationID) {
+        return _getDescriptor().getProxy().getOfficeAdmin(locationID);
+    }
+
 }

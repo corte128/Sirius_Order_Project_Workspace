@@ -13,6 +13,8 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.upload.FormFile;
 
+import com.sirius.adminws.officeadmin.wsdl.EmployeeBean;
+import com.sirius.adminws.officeadmin.wsdl.OfficeAdminClientDAO;
 import com.sirius.employeews.employee.wsdl.EmployeeClientDAO;
 import com.sirius.order.client.form.RegistrationForm;
 
@@ -40,6 +42,9 @@ public class RegistrationAction extends org.apache.struts.action.Action{
 	        imageData = Base64.encodeBase64(imageData);
 			status = dao.addEmployee(name, password, 1, email, imageData, location);
 			if (status) {
+				OfficeAdminClientDAO officeAdminClient = new OfficeAdminClientDAO();
+				EmployeeBean officeAdmin = officeAdminClient.getOfficeAdmin(location);
+				// mail office admin about registration
 				return mapping.findForward(SUCCESS);
 			} else {
 				return mapping.findForward(FAILURE);

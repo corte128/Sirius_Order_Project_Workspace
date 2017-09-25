@@ -29,7 +29,9 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _DeleteHoliday_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "deleteHoliday");
+    private final static QName _GetOfficeAdmin_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "getOfficeAdmin");
     private final static QName _DeleteHolidayResponse_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "deleteHolidayResponse");
+    private final static QName _GetOfficeAdminResponse_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "getOfficeAdminResponse");
     private final static QName _GetUnapprovedEmployees_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "getUnapprovedEmployees");
     private final static QName _AddHolidayResponse_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "addHolidayResponse");
     private final static QName _AddVisitors_QNAME = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "addVisitors");
@@ -103,11 +105,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetOfficeAdmin }
+     * 
+     */
+    public GetOfficeAdmin createGetOfficeAdmin() {
+        return new GetOfficeAdmin();
+    }
+
+    /**
      * Create an instance of {@link DeleteHoliday }
      * 
      */
     public DeleteHoliday createDeleteHoliday() {
         return new DeleteHoliday();
+    }
+
+    /**
+     * Create an instance of {@link GetOfficeAdminResponse }
+     * 
+     */
+    public GetOfficeAdminResponse createGetOfficeAdminResponse() {
+        return new GetOfficeAdminResponse();
     }
 
     /**
@@ -152,12 +170,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetOfficeAdmin }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://adminws.sirius.com/officeAdmin/wsdl", name = "getOfficeAdmin")
+    public JAXBElement<GetOfficeAdmin> createGetOfficeAdmin(GetOfficeAdmin value) {
+        return new JAXBElement<GetOfficeAdmin>(_GetOfficeAdmin_QNAME, GetOfficeAdmin.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link DeleteHolidayResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://adminws.sirius.com/officeAdmin/wsdl", name = "deleteHolidayResponse")
     public JAXBElement<DeleteHolidayResponse> createDeleteHolidayResponse(DeleteHolidayResponse value) {
         return new JAXBElement<DeleteHolidayResponse>(_DeleteHolidayResponse_QNAME, DeleteHolidayResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetOfficeAdminResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://adminws.sirius.com/officeAdmin/wsdl", name = "getOfficeAdminResponse")
+    public JAXBElement<GetOfficeAdminResponse> createGetOfficeAdminResponse(GetOfficeAdminResponse value) {
+        return new JAXBElement<GetOfficeAdminResponse>(_GetOfficeAdminResponse_QNAME, GetOfficeAdminResponse.class, null, value);
     }
 
     /**
