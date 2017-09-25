@@ -3,13 +3,13 @@
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
 <html>
 <head> 
-<title>welcome</title>
+<title>welcome</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css"
-	href="/SiriusOrderClient/css/welcome.css">
+	href="/SiriusOrderClient/css/welcome.css"> 
 <link rel="stylesheet" type="text/css"
 	href="/SiriusOrderClient/css/font.css">
 <link rel="stylesheet"
@@ -61,7 +61,7 @@
 					class="sr-only">Previous</span> </a> <a class="right carousel-control"
 					href="#myCarousel" data-slide="next"> <span
 					class="glyphicon glyphicon-chevron-right"></span> <span
-					class="sr-only">Next</span> </a>
+					class="sr-only">Next</span> </a> 
 			</div>
 
 			<%-- OFFICE OPTIONS --%>
