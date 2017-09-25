@@ -24,7 +24,7 @@
 @media (min-device-width: 1025px)  {
 	.productCard{
 		width: 180px;
-		height: 210px;
+		height: 250px;
 		margin-top: 10px;
 		padding-bottom: 10px;
 		font-size: 10px;
@@ -43,13 +43,14 @@
 
 	.productLabel{
 		margin:auto;
+		padding-top: 20px;
 		text-align: center;
-		height: 57px;
+		height: 95px;
 		border-bottom: solid black 1px;
 	}
 
 	.addToCartBtn{
-		margin-left:55px;
+		margin-left:59px;
 	}
 
 	.imageContainer{
@@ -155,5 +156,5 @@ and (max-device-width : 568px) {
 	margin-left: 20px;
 	margin-top: -70px;
 	opacity: .85;
-	
+
 }
