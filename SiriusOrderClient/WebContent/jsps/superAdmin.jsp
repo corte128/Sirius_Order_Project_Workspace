@@ -60,15 +60,15 @@
 	
 				<%-- BUTTONS --%>
 				<div class="super-admin-button-container">
-					<button type="button" class="btn super-admin-button"
+					<button type="button" class="super-admin-button"
 						data-toggle="modal" data-target="#assignAdminModal">
 						<bean:message key="SUPER_ADMIN_ASSIGN_ADMIN_LABEL" />
 					</button>
-					<button type="button" class="btn super-admin-button"
+					<button type="button" class="super-admin-button"
 						data-toggle="modal" data-target="#addLocationModal">
 						<bean:message key="SUPER_ADMIN_ADD_LOCATION_LABEL" />
 					</button>
-					<button type="submit" class="btn super-admin_button">
+					<button type="submit" class="super-admin-button">
 						<bean:message key="SUPER_ADMIN_ASSIGN_BUDGET_LABEL" />
 					</button>
 				</div>
@@ -96,11 +96,11 @@
 							<div class="form-group">
 								<label for="recipient-name" class="form-control-label">
 									<bean:message key="SUPER_ADMIN_CITY_LABEL" />: </label> <input
-									type="text" class="form-control" id="location" name="city">
+									type="text" class="super-admin-input" id="location" name="city">
 							</div>
 							<div class="form-group">
 								<label for="message-text" class="form-control-label"> <bean:message
-										key="SUPER_ADMIN_STATE_LABEL" />: </label> <select name="state">
+										key="SUPER_ADMIN_STATE_LABEL" />: </label> <select name="state" class="options-input">
 									<option value="AL">Alabama</option>
 									<option value="AK">Alaska</option>
 									<option value="AZ">Arizona</option>
@@ -155,12 +155,12 @@
 								</select>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary"
+								<button type="button" class="super-admin-button"
 									data-dismiss="modal">
 									<bean:message key="SUPER_ADMIN_CLOSE_LABEL" />
 								</button>
 								<button form="addLocationForm" type="submit"
-									class="btn super-admin_button">
+									class="super-admin-button">
 									<bean:message key="SUPER_ADMIN_ADD_LABEL" />
 								</button>
 							</div>
@@ -192,7 +192,7 @@
 							<div class="form-group">
 								<label for="recipient-name" class="form-control-label">
 									<bean:message key="SUPER_ADMIN_LOCATION_LABEL" />: </label> <select
-									id="locationSelect" name="locations" class="locations_select">
+									id="locationSelect" name="locations" class="options-input">
 									<c:forEach items="${locations}" var="location">
 										<option value="${location.id}">
 											<c:out value="${location.city},${location.state}" />
@@ -207,18 +207,18 @@
 								<div class="typeahead__container">
 									<div class="typeahead__field">
 										<span class="typeahead__query"> <input
-											class="office-admin-input" name="admin"
+											class="super-admin-input" name="admin"
 											type="text" placeholder="Search" autocomplete="off">
 										</span>
 									</div>
 								</div>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary"
+								<button type="button" class="super-admin-button"
 									data-dismiss="modal">
 									<bean:message key="SUPER_ADMIN_CLOSE_LABEL" />
 								</button>
-								<button type="submit" class="btn super-admin_button">
+								<button type="submit" class="super-admin-button">
 									<bean:message key="SUPER_ADMIN_ASSIGN_LABEL" />
 								</button>
 							</div>

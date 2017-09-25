@@ -7,3 +7,6 @@
 aside{
 	flex: 1;
 }
+.save_button, .delete_button{
+	width: 25px;
+}
