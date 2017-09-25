@@ -129,6 +129,11 @@
 		display: none;
 	}
 }
+#navIconSidebarContainer
+{
+	position: relative;
+	height: 100%;
+}
 #responsiveNavHamburgerButton
 {
 	font-weight: bold;
@@ -165,6 +170,7 @@
 	position: fixed;
 	height: 100%;
 	width: 40%;
+	top: 50px;
 	left: 60%;
 	overflow: auto;
 	background-color:rgba(95, 96, 104, 0.7);

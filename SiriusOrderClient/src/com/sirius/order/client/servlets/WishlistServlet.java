@@ -50,10 +50,11 @@ public class WishlistServlet extends HttpServlet {
 	    int employeeId = (Integer) request.getSession().getAttribute(sessionVariables.getString("ACTIVE_USER_ID"));
 	   
 	    wsProducts = WishlistDAO.getAllProductsEmployeeLiked(employeeId);
-	    
+	    int location_id = (Integer) request.getSession().getAttribute("activeUserLocation");
+	 
 	    for(com.sirius.wishlistws.wishlist.wsdl.ProductBean wlObj : wsProducts){
 	    	products.add(ProductSearchDAO.getProductByID(wlObj.getId()));
-	    	emps = WishlistDAO.getAllEmployeesWhoLikedProduct(wlObj.getId());
+	    	emps = WishlistDAO.getAllEmployeesWhoLikedProduct(wlObj.getId(), location_id);
 	    }
 	    
 		request.setAttribute("Products", products);
@@ -62,7 +63,7 @@ public class WishlistServlet extends HttpServlet {
 		for (ProductBean record : products)
 		{
 			JsonArrayBuilder likesBuilder = Json.createArrayBuilder();
-			
+
 			for(EmployeeBean emp : emps){
 				likesBuilder.add(emp.getName());
 			}

@@ -2,10 +2,6 @@
  * 
  */
 
-function selectedOption(value){
-	alert("something");
-	$("#category").val(value);
-}
 
 function addToCart(productID)
 {
@@ -143,5 +139,13 @@ function addToWishlist(productID){
 		likesContainer.innerHTML = numOfEmps;
 	};
 	xhttp.send();
+}
+
+function createModal(likesModalID){
+	document.getElementById(likesModalID).style.display = 'block';
+}
+
+function deleteModal(likesModalID){
+	document.getElementById(likesModalID).style.display = 'none';
 }
 

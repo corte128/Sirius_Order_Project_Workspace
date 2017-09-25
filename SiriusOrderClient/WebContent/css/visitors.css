@@ -25,7 +25,7 @@ aside{
 	text-align: center;
 	width: 100%;
 }
-label{
+.visitor-form-label{
 	font-family: serif;
 	font-style: italic;
 	color: #5F6060;
@@ -48,20 +48,85 @@ label{
 	#visitors-input-fields{
 		margin-top: 15px;
 	}
-	#future-date, #date-order, #count-error{
-		height: 45px;
+	#future-date{
+		height: 20px;
+	}
+	#date-order{
+		height: 20px;
+	}
+	#count-error{
+		height: 20px;
 	}
 	#visitor-add-button{
 		position: absolute;
 		right: 25px;
 	}
+	.error{
+		display: inline-block;
+		font-size: 12px;
+		max-width: 175px;
+	}
 }
 @media only screen and (min-width: 768px) {
+	h3{
+		font-size: 32px !important;
+	}
+	#visitors-content{
+		font-size: 2em;
+	}
+	#visitors-form{
+		margin-top: 75px;
+	}
 	#visitors-labels{
-		flex: 4;
+		flex: 3;
+		padding-left: 15%;
+		margin-top: -10px;
 	}
 	#visitors-input-fields{
-		flex: 4;
+		flex: 5;
+	}
+	.visitors-form-input{
+		width: 250px;
+	}
+	#visitor-add-button{
+		margin-right: 120px;
+	}
+	#future-date, #date-order{
+		height: 20px;
+	}
+	#count-error{
+		height: 0;
+	}
+	.error{
+		max-width: 250px;
+		font-size: 18px;
 	}
 }
-@media only screen and (min-width: 800px) {}
+@media only screen and (min-width: 800px) {
+	#visitors-content{
+		font-size: 1.5em;
+	}
+	#visitors-labels{
+		flex: 2;
+		padding-left: 25%;
+		margin-top: -8px;
+	}
+	#future-date, #date-order, #count-error{
+		display: none;
+	}
+	.visitors-form-input{
+		width: 250px;
+		margin-bottom: 10px;
+	}
+	.error{
+		display: inline;
+	}
+	.visitor-form-label{
+		margin: 0;
+		padding: 0;
+		height: 20px;
+	}
+	#visitor-add-button{
+		right: 470px;
+	}
+}

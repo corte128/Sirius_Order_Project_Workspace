@@ -18,9 +18,9 @@ public class JaxwsWishlistImpl implements Wishlist{
 	}
 
 	@Override
-	public List<EmployeeBean> getAllEmployeesWhoLikedProduct(int product_id) {
+	public List<EmployeeBean> getAllEmployeesWhoLikedProduct(int product_id, int location_id) {
 		WishlistServiceDAO dao = new WishlistServiceDAO();
-		return dao.getAllEmployeesWhoLikedProduct(product_id);
+		return dao.getAllEmployeesWhoLikedProduct(product_id, location_id);
 	}
 
 	@Override

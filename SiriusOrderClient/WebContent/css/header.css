@@ -2,11 +2,16 @@ body {
 	margin: 0px;
 	padding: 0px;
 }
-
-
+.spacerDiv{
+ height: 50px;
+ display: none;
+}
+.headerContainer{
+	font-family: serif;
+	font-style: italic;
+}
 header {
-	background-color: #5F6060;
-	color: white;
+	
 	witdh:100vw;
 }
 
@@ -20,21 +25,26 @@ header {
 	display: flex;
 	padding: 0;
 	margin-right: 25px;
+	background-color: #5F6060;
+	color: white;
 }
 
 .headerRight {
 	height: 100%;
 	width:100%;
-	text-align: right;
+	text-align: left;
 	flex: 1;
 	font-size: 14pt;
+	margin-left: 15px;
 }
 
-
-
-table.headerNavTable {
-	margin:auto;
+td {
+    padding: 0px;
 }
+.loginRegisterDiv{
+	padding-left: 2px;
+}
+
 
 .headerRight a {
 	color: white;
@@ -44,12 +54,22 @@ table.headerNavTable {
 
 @media(max-width: 768px) 
 {
+	.headerContainer{
+		position: fixed;
+		width:100%;
+		left: 0px;
+		top: 0px;
+		z-index: 500;
+ 	}
 	.headerRight 
 	{
 	
-		margin:auto;
-		text-align: center;
-		margin-right: 0;
-		margin-left:60px;
+		font-size: 12pt;
+	}
+	.loginRegisterDiv{
+	margin-bottom: 5px;
+	}
+	.spacerDiv{
+	display: block;
 	}
 }
