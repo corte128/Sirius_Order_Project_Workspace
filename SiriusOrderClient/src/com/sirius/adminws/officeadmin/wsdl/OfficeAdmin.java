@@ -124,4 +124,19 @@ public interface OfficeAdmin {
         @WebParam(name = "locationID", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl")
         int locationID);
 
+    /**
+     * 
+     * @param locationID
+     * @return
+     *     returns com.sirius.adminws.officeadmin.wsdl.EmployeeBean
+     */
+    @WebMethod(action = "getOfficeAdmin")
+    @WebResult(name = "getOfficeAdminReturn", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl")
+    @RequestWrapper(localName = "getOfficeAdmin", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl", className = "com.sirius.adminws.officeadmin.wsdl.GetOfficeAdmin")
+    @ResponseWrapper(localName = "getOfficeAdminResponse", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl", className = "com.sirius.adminws.officeadmin.wsdl.GetOfficeAdminResponse")
+    @Action(input = "getOfficeAdmin", output = "http://adminws.sirius.com/officeAdmin/wsdl/OfficeAdmin/getOfficeAdminResponse")
+    public EmployeeBean getOfficeAdmin(
+        @WebParam(name = "locationID", targetNamespace = "http://adminws.sirius.com/officeAdmin/wsdl")
+        int locationID);
+
 }

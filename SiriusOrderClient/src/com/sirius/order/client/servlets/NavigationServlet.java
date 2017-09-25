@@ -243,18 +243,21 @@ public class NavigationServlet extends HttpServlet {
 			request.setAttribute("location", location);
 			
 			//TODO: Fix it so both the product and wishlist are using the same bean
-	        List<com.sirius.wishlistws.wishlist.wsdl.ProductBean> wsProducts = new ArrayList<com.sirius.wishlistws.wishlist.wsdl.ProductBean>();
-	        List<ProductBean> products = new ArrayList<ProductBean>();
-	        ProductProxy ppObj = new ProductProxy();
-	        int employeeId = (Integer) request.getSession().getAttribute(sessionVariables.getString("ACTIVE_USER_ID"));
-	        wsProducts = WishlistDAO.getAllProductsEmployeeLiked(employeeId);
-	        
-	        for(com.sirius.wishlistws.wishlist.wsdl.ProductBean wlObj : wsProducts){
-	        	products.add(ppObj.getProductByID(wlObj.getId()));
-	        }
-	        
-	        request.setAttribute("ProductAmount", products.size());
-			request.setAttribute("Products", products);
+//			List<com.sirius.wishlistws.wishlist.wsdl.ProductBean> wsProducts = new ArrayList<com.sirius.wishlistws.wishlist.wsdl.ProductBean>();
+//		    List<ProductBean> products = new ArrayList<ProductBean>();
+//		    List<com.sirius.wishlistws.wishlist.wsdl.EmployeeBean> emps = new ArrayList<com.sirius.wishlistws.wishlist.wsdl.EmployeeBean>();
+//		    int employeeId = (Integer) request.getSession().getAttribute(sessionVariables.getString("ACTIVE_USER_ID"));
+//		   
+//		    wsProducts = WishlistDAO.getAllProductsEmployeeLiked(employeeId);
+//		    
+//		    for(com.sirius.wishlistws.wishlist.wsdl.ProductBean wlObj : wsProducts){
+//		    	products.add(ProductSearchDAO.getProductByID(wlObj.getId()));
+//		    	emps = WishlistDAO.getAllEmployeesWhoLikedProduct(wlObj.getId());
+//		    }
+//			    
+//	        
+//	        request.setAttribute("ProductAmount", products.size());
+//			request.setAttribute("Products", products);
 		}
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/wishlist.jsp");

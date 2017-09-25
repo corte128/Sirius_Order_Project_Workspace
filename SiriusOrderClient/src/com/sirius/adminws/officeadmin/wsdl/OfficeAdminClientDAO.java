@@ -30,4 +30,9 @@ public class OfficeAdminClientDAO {
 		return client.getUnapprovedEmployees(locationID);
 	}
 	
+	public EmployeeBean getOfficeAdmin(int locationID){
+		OfficeAdminProxy client = new OfficeAdminProxy();
+		return client.getOfficeAdmin(locationID);
+	}
+	
 }
