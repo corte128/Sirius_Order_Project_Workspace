@@ -6,7 +6,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 
-<fmt:setBundle basename="com.sirius.order.client.properties.common"/>
+<fmt:setBundle basename="com.sirius.order.client.properties.common"/> 
  
 <html>
 <head>

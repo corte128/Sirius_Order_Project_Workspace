@@ -72,7 +72,7 @@
 													, ${location.getState()}</option>
 											</c:forEach>
 										</select>
-									</c:if>
+									</c:if> 
 
 									<c:if test="${sessionScope.activeUserType==2 }">
 										<c:forEach items="${locations}" var="location">
