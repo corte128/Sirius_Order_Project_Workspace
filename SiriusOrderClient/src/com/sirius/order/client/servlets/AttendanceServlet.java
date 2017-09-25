@@ -193,7 +193,7 @@ public class AttendanceServlet extends HttpServlet {
 				//set the position for the first line
 				contentStream.newLineAtOffset(25, 725);
 				//format our strings so we get a nice output
-				String formatString = "%-25s%-25s%-25s%s";
+				String formatString = "%-s%-s%-s%-s";
 				
 				// this will be our header
 				String headerTextString = String.format(formatString, "Name", "Email", "Date", "Location");
