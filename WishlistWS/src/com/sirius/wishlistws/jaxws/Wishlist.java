@@ -28,7 +28,8 @@ public interface Wishlist {
 	@RequestWrapper(localName = "getAllEmployeesWhoLikedProduct", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl", className = "com.sirius.wishlistws.jaxws.getAllEmployeesWhoLikedProduct")
 	@ResponseWrapper(localName = "getAllEmployeesWhoLikedProductResponse", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl", className = "com.sirius.wishlistws.jaxws.getAllEmployeesWhoLikedProductResponse")
 	public List<EmployeeBean> getAllEmployeesWhoLikedProduct(
-			@WebParam(name = "product_id", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl") int product_id);
+			@WebParam(name = "product_id", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl") int product_id,
+			@WebParam(name = "location_id", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl") int location_id);
 	
 	@WebMethod(action = "getAllProductsEmployeeLiked")
 	@WebResult(name = "getAllProductsEmployeeLikedReturn", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl")

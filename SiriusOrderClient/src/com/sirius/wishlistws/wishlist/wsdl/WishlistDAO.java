@@ -9,9 +9,9 @@ public class WishlistDAO {
         proxy.addToLikeTable(employeeId,productId);
     }
 
-    public static List<EmployeeBean> getAllEmployeesWhoLikedProduct(int productId) {
+    public static List<EmployeeBean> getAllEmployeesWhoLikedProduct(int productId, int location_id) {
     	WishlistProxy proxy = new WishlistProxy();
-        return proxy.getAllEmployeesWhoLikedProduct(productId);
+        return proxy.getAllEmployeesWhoLikedProduct(productId, location_id);
     }
 
     public static List<ProductBean> getAllProductsEmployeeLiked(int employeeId) {

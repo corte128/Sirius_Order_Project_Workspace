@@ -43,6 +43,7 @@ public class ProductSearchServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String action = request.getParameter("action");
+		int location_id = (Integer) request.getSession().getAttribute("activeUserLocation");
 		if(action.equals("addToWishlist")){
 			int id = Integer.parseInt(request.getParameter("id"));
 			int userId = (Integer) request.getSession().getAttribute("activeUserID");
@@ -60,7 +61,7 @@ public class ProductSearchServlet extends HttpServlet {
 				WishlistDAO.addToLikeTable(userId, id);
 			}
 			
-			List<EmployeeBean> emps = WishlistDAO.getAllEmployeesWhoLikedProduct(id);
+			List<EmployeeBean> emps = WishlistDAO.getAllEmployeesWhoLikedProduct(id, location_id);
 			List<String> empNames = new ArrayList<String>();
 			for(EmployeeBean emp : emps){
 				empNames.add(emp.getName());
@@ -99,7 +100,7 @@ public class ProductSearchServlet extends HttpServlet {
 			for (ProductBean record : objects)
 			{
 				JsonArrayBuilder likesBuilder = Json.createArrayBuilder();
-				List<EmployeeBean> emps = WishlistDAO.getAllEmployeesWhoLikedProduct(record.getId());
+				List<EmployeeBean> emps = WishlistDAO.getAllEmployeesWhoLikedProduct(record.getId(), location_id);
 				for(EmployeeBean emp : emps){
 					likesBuilder.add(emp.getName());
 				}
