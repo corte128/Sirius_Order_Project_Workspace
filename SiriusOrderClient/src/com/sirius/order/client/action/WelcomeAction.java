@@ -1,6 +1,9 @@
 package com.sirius.order.client.action;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
@@ -13,6 +16,8 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import com.sirius.product.service.main.product.wsdl.*;
+import com.sirius.wishlistws.wishlist.wsdl.EmployeeBean;
+import com.sirius.wishlistws.wishlist.wsdl.WishlistDAO;
 
 public class WelcomeAction extends Action {
 	private static final Logger logger = Logger.getLogger(WelcomeAction.class.getName());
@@ -40,6 +45,17 @@ public class WelcomeAction extends Action {
 			{
 				List<ProductBean> products = ProductSearchDAO.getAllProductsByType(Integer.parseInt(request.getParameter("type")));
 				request.setAttribute("Products", products);
+				//Map<Integer, List<EmployeeBean>> productsWithLikes = new HashMap<Integer, List<EmployeeBean>>();
+				int id = 0;
+				for(ProductBean bean : products){
+					id = bean.getId();
+					List<EmployeeBean> emps = WishlistDAO.getAllEmployeesWhoLikedProduct(id);
+					List<String> empNames = new ArrayList<String>();
+					for(EmployeeBean emp : emps){
+						empNames.add(emp.getName());
+					}
+					request.setAttribute("LikesForProduct:" + id,  empNames);
+				}
 			}
 			return mapping.findForward(SUCCESS);
 		}

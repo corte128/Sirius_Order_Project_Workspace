@@ -133,6 +133,18 @@ public class NavigationServlet extends HttpServlet {
 		request.setAttribute("productName", product.getName());
 		request.setAttribute("productPrice", product.getPrice());
 		request.setAttribute("productType", product.getType());
+		if(product.getType().equals("Breakroom"))
+		{
+			request.setAttribute("productTypeId", 1);
+		}
+		else if(product.getType().equals("Office Supplies"))
+		{
+			request.setAttribute("productTypeId", 2);
+		}
+		else
+		{
+			request.setAttribute("productTypeId", 3);
+		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/productDetails.jsp?id="+ product.getId());
 		 dispatcher.forward(request, response);
 	}
@@ -190,14 +202,35 @@ public class NavigationServlet extends HttpServlet {
 	private void forwardToCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		HttpSession session = request.getSession();
-//		int locationId = (Integer)session.getAttribute("activeUserLocation");
-		int locationId = 1;
-		List<OrderBean> breakroomProducts = CartServiceDAO.getAllProductsInCartByProductType(locationId, "Breakroom");
-		List<OrderBean> officeSuppliesProducts = CartServiceDAO.getAllProductsInCartByProductType(locationId, "Office Supplies");
-		List<OrderBean> inkAndTonerProducts = CartServiceDAO.getAllProductsInCartByProductType(locationId, "Ink & Toner");
+		int locationId = (Integer)session.getAttribute("activeUserLocation");
+		
+		List<OrderBean> breakroomOrders = CartServiceDAO.getAllProductsInCartByProductType(locationId, "Breakroom");
+		List<OrderBean> officeSuppliesOrders = CartServiceDAO.getAllProductsInCartByProductType(locationId, "Office Supplies");
+		List<OrderBean> inkAndTonerOrders = CartServiceDAO.getAllProductsInCartByProductType(locationId, "Ink & Toner");
+		
+		List<ProductBean>  breakroomProducts = new ArrayList<ProductBean>();
+		List<ProductBean>  officeSuppliesProducts = new ArrayList<ProductBean>();
+		List<ProductBean>  inkAndTonerProducts = new ArrayList<ProductBean>();
+		
+		for(OrderBean order : breakroomOrders)
+		{
+			breakroomProducts.add(ProductSearchDAO.getProductByID(order.getProductId()));
+		}
+		for(OrderBean order : officeSuppliesOrders)
+		{
+			officeSuppliesProducts.add(ProductSearchDAO.getProductByID(order.getProductId()));
+		}
+		for(OrderBean order : inkAndTonerOrders)
+		{
+			inkAndTonerProducts.add(ProductSearchDAO.getProductByID(order.getProductId()));
+		}
+		
 		request.setAttribute("breakroomProducts", breakroomProducts);
+		request.setAttribute("breakroomOrders", breakroomOrders);
 		request.setAttribute("officeSuppliesProducts", officeSuppliesProducts);
+		request.setAttribute("officeSuppliesOrders", officeSuppliesOrders);
 		request.setAttribute("inkAndTonerProducts", inkAndTonerProducts);
+		request.setAttribute("inkAndTonerOrders", inkAndTonerOrders);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/authRequired/reviewCart.jsp");
 		dispatcher.forward(request, response);
 	}

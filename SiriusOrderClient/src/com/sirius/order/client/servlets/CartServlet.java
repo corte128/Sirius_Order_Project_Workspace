@@ -41,56 +41,63 @@ public class CartServlet extends HttpServlet {
 		//created by logged in user
 		//current budget
 		//order id
-		String quantity = request.getParameter("quantity");
-    	int productId = Integer.parseInt(request.getParameter("productID"));
+		String action = request.getParameter("action");
     	int userId = (Integer) request.getSession().getAttribute("activeUserID");
-		OrderBean orderBean = new OrderBean();
-		orderBean.setOrderName("cart");
-		orderBean.setProductId(productId);
-		ProductBean bean = ProductSearchDAO.getProductByID(productId);
-		int count = 0;
-		int locationId = 0;
-		if (quantity.equals("")){
-			quantity = "1";
-		}
-		int quantityInt = Integer.parseInt(quantity);
-		//=========================
-    	//activeUserLocation
-		locationId = (Integer) request.getSession().getAttribute("activeUserLocation");
-		count = CartServiceDAO.getProductQuantityInCartByProductId(locationId, productId);
-		if(count == 0){
-			orderBean.setQuantity(quantityInt);
-			orderBean.setTotalPrice(bean.getPrice().multiply(new BigDecimal(orderBean.getQuantity())));
+		if(action.equals("removeFromCart")){
+	    	int orderId = Integer.parseInt(request.getParameter("orderId"));
+			CartServiceDAO.removeProductFromCart(orderId, userId);
 		}
 		else{
-			orderBean.setQuantity(++count);
-			orderBean.setTotalPrice(bean.getPrice().multiply(new BigDecimal(orderBean.getQuantity())));
-		}
-		//============================
-//		CartServiceDAO.updateProductQuantityInCart(locationId, quantity, productId, updatedBy)
-		BudgetBean budget = new BudgetBean();
-		budget.setBudgetAllotted(new BigDecimal(1000));
-		budget.setBudgetRecommended(new BigDecimal(800));
-		budget.setLocationId(1);
-		
-		GregorianCalendar gCal = new GregorianCalendar();
-		gCal.setTime(new Date());
+			String quantity = request.getParameter("quantity");
+	    	int productId = Integer.parseInt(request.getParameter("productID"));
+			OrderBean orderBean = new OrderBean();
+			orderBean.setOrderName("cart");
+			orderBean.setProductId(productId);
+			ProductBean bean = ProductSearchDAO.getProductByID(productId);
+			int count = 0;
+			int locationId = 0;
+			if (quantity.equals("")){
+				quantity = "1";
+			}
+			int quantityInt = Integer.parseInt(quantity);
+			//=========================
+	    	//activeUserLocation
+			locationId = (Integer) request.getSession().getAttribute("activeUserLocation");
+			count = CartServiceDAO.getProductQuantityInCartByProductId(locationId, productId);
+			if(count == 0){
+				orderBean.setQuantity(quantityInt);
+				orderBean.setTotalPrice(bean.getPrice().multiply(new BigDecimal(orderBean.getQuantity())));
+			}
+			else{
+				orderBean.setQuantity(++count);
+				orderBean.setTotalPrice(bean.getPrice().multiply(new BigDecimal(orderBean.getQuantity())));
+			}
+			//============================
+//			CartServiceDAO.updateProductQuantityInCart(locationId, quantity, productId, updatedBy)
+			BudgetBean budget = new BudgetBean();
+			budget.setBudgetAllotted(new BigDecimal(1000));
+			budget.setBudgetRecommended(new BigDecimal(800));
+			budget.setLocationId(1);
+			
+			GregorianCalendar gCal = new GregorianCalendar();
+			gCal.setTime(new Date());
 
-		XMLGregorianCalendar calendar = null;
-		try {
-			calendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(gCal);
-		} catch (DatatypeConfigurationException e) {
-			e.printStackTrace();
+			XMLGregorianCalendar calendar = null;
+			try {
+				calendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(gCal);
+			} catch (DatatypeConfigurationException e) {
+				e.printStackTrace();
+			}
+			budget.setBudgetDate(calendar);
+			
+			if(count > 0){
+				CartServiceDAO.updateProductQuantityInCart(locationId, orderBean.getQuantity(), productId, userId);
+			}
+			else{
+				CartServiceDAO.addProductToCart(orderBean, budget, userId);
+			}
+//			CartServiceDAO.updateProductQuantityInCart(locationId, quantity, productId, updatedBy)
 		}
-		budget.setBudgetDate(calendar);
-		
-		if(count > 0){
-			CartServiceDAO.updateProductQuantityInCart(locationId, orderBean.getQuantity(), productId, userId);
-		}
-		else{
-			CartServiceDAO.addProductToCart(orderBean, budget, userId);
-		}
-//		CartServiceDAO.updateProductQuantityInCart(locationId, quantity, productId, updatedBy)
 	}
 
 	/**
