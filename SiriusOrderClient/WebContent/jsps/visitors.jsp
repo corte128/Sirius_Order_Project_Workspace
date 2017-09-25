@@ -24,44 +24,44 @@
 		<div id="visitors-form">
 			<div id="visitors-labels">
 				<br />
-				<label><fmt:message key="VISITORS_FROM_DATE_LABEL" /></label>
+				<div class="visitor-form-label"><fmt:message key="VISITORS_FROM_DATE_LABEL" /></div>
 				<br />
 				<c:if test="${errorArray.contains('VISITORS_FUTURE_DATE_ERROR')}">
-					<div id="future-date" class="mobile-error"><br/></div>
+					<div id="future-date" class="mobile-error"></div>
 				</c:if>
-				<label><fmt:message key="VISITORS_TO_DATE_LABEL" /></label>
+				<div class="visitor-form-label"><fmt:message key="VISITORS_TO_DATE_LABEL" /></div>
 				<br />
 				<c:if test="${errorArray.contains('VISITORS_DATE_ORDER_ERROR')}">
-					<div id="date-order" class="mobile-error"><br/></div>
+					<div id="date-order" class="mobile-error"></div>
 				</c:if>
-				<label><fmt:message key="VISITORS_COUNT_LABEL" /></label>
+				<div class="visitor-form-label"><fmt:message key="VISITORS_COUNT_LABEL" /></div>
 				<br />
 				<c:if test="${errorArray.contains('VISITORS_COUNT_ERROR')}">
-					<div id="count-error" class="mobile-error"><br/></div>
+					<div id="count-error" class="mobile-error"></div>
 				</c:if>
-				<label><fmt:message key="VISITORS_COMMENT_LABEL" /></label>
+				<div class="visitor-form-label"><fmt:message key="VISITORS_COMMENT_LABEL" /></div>
 			</div>
 			<div id="visitors-input-fields">
 				<html:form action="/Visitors">
 					<input class="visitors-form-input" required type="date" name="from_date" />
 					<c:if test="${errorArray.contains('VISITORS_FUTURE_DATE_ERROR')}">
-						<label id="desktop-error" class="error">
+						<span class="error">
 							<fmt:message key="VISITORS_FUTURE_DATE_ERROR" />
-						</label>
+						</span>
 					</c:if>
 					<br />
 					<input class="visitors-form-input" required type="date" name="to_date" />
 					<c:if test="${errorArray.contains('VISITORS_DATE_ORDER_ERROR')}">
-						<label id="desktop-error" class="error">
+						<span class="error">
 							<fmt:message key="VISITORS_DATE_ORDER_ERROR" />
-						</label>
+						</span>
 					</c:if>
 					<br />
 					<html:text styleClass="visitors-form-input" property="count"></html:text>
 					<c:if test="${errorArray.contains('VISITORS_COUNT_ERROR')}">
-						<label id="desktop-error" class="error">
+						<span class="error">
 							<fmt:message key="VISITORS_COUNT_ERROR" />
-						</label>
+						</span>
 					</c:if>
 					<br />
 					<html:textarea styleClass="visitors-form-input" property="comment"></html:textarea>

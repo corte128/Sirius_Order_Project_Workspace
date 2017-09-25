@@ -21,6 +21,15 @@
 		<div class="likesAndPrice">
 			<span class="glyphicon glyphicon-heart clickable-like"></span>
 			<span>$${currentProduct.getPrice()}</span>
+			
+			<div id="likesModal${currentProduct.getId()}" class="likes-modal">
+				<c:forEach var="user" items="${requestScope[productId]}">
+					<div>
+						${user}
+					</div>
+				</c:forEach>
+			</div>
+			
 		</div>
 		<input type="button" onclick="addToCart(${currentProduct.getId()})" value="Add To Cart"/>
 	</div>
