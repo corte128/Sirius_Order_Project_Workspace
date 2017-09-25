@@ -1,16 +1,17 @@
 <!DOCTYPE HTML>
 <html>
   <head>
+  	<%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
     <link rel="stylesheet" type="text/css"
     	href="/SiriusOrderClient/css/productDetails.css">
-    	<script src="/SiriusOrderClient/js/productSearch.js"></script>
+    <script src="/SiriusOrderClient/js/productSearch.js"></script>
     	 
     	
   </head>
   <body>
     <div class="productDetailsMainContianer">
       <div class="breadCrumbs">
-        <a href="jsps/welcome.jsp">welcome</a> > <a href="SiriusOrderClient/ProductSearchServlet?category=1&search=">${productType}</a> > <a href="#">${productName}</a>
+        <a href="jsps/welcome.jsp">welcome</a> > <html:link page="/Welcome.do?type=${productTypeId}&action=productSearch">${productType}</html:link> > <a href="#">${productName}</a>
       </div>
       <div class="imgAndOrderInfoContainer">
         <div class="productPictureContainer">

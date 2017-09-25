@@ -16,7 +16,7 @@ function addToCart(productID)
     {
         quantity = quantityElement.value;
     }
-	var url = "/SiriusOrderClient/CartServlet?query=addToCart&productID=" + productID +"&quantity="+quantity;
+	var url = "/SiriusOrderClient/CartServlet?action=addToCart&productID=" + productID +"&quantity="+quantity;
 	xhttp.open("GET", url, true);
 	xhttp.onreadystatechange = function()
 	{
@@ -53,19 +53,7 @@ function searchProducts()
 		$('#productContainer').empty();
 		var productContainer = document.getElementById('productContainer');
 		
-		/*
-		var bootStrap = document.createElement("link");
-		bootStrap.rel = "stylesheet";
-		bootStrap.type = "text/css";
-		bootStrap.href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css";
-		productContainer.appendChild(bootStrap);
-		
-		var style = document.createElement("link");
-		.rel = "stylesheet";
-		style.type = "text/css";
-		style.href = "/SiriusOrderClient/css/productCard.css";
-		productContainer.appendChild(style);
-		*/
+
 		for(key in response)
 		{
 			var image = document.createElement("img");
@@ -97,12 +85,18 @@ function searchProducts()
 			/*==============================*/
 			var spanPrice = document.createElement("span");
 			spanPrice.innerHTML = '$' + response[key].Price;
+			var numOfLikes = document.createElement("span");
+			numOfLikes.id = "numOfLikes" + response[key].ID;
+			numOfLikes.setAttribute("class", "num-of-likes")
+			numOfLikes.innerHTML = response[key].Likers.length;
 			var divLikesAndPrice = document.createElement("div");
 			divLikesAndPrice.setAttribute("class", "likesAndPrice");
 			divLikesAndPrice.appendChild(spanHeart);
+			divLikesAndPrice.appendChild(numOfLikes);
 			divLikesAndPrice.appendChild(spanPrice);
 			
 			var addToCartBtn = document.createElement("input");
+			addToCartBtn.setAttribute("class", "addToCartBtn");
 			addToCartBtn.type="button";
 			addToCartBtn.onclick=(function (){
 				var id = response[key].ID;
@@ -110,7 +104,6 @@ function searchProducts()
 					addToCart(id);
 				};
 			})();
-			console.log(response[key].ID);
 			addToCartBtn.value="Add To Cart";
 			
 			var productCard = document.createElement("div");

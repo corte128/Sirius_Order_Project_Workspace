@@ -30,7 +30,7 @@ function calcInkAndTonerTotals()
 }
 
 function removeFromCart(orderID){
-	var url = '/SiriusOrderClient/CartServlet?action=removeFromCart&id=' + orderID;
+	var url = '/SiriusOrderClient/CartServlet?action=removeFromCart&orderId=' + orderID;
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET", url, true);
 	xhttp.onreadystatechange = function()

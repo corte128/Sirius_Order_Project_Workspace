@@ -127,6 +127,18 @@ public class NavigationServlet extends HttpServlet {
 		request.setAttribute("productName", product.getName());
 		request.setAttribute("productPrice", product.getPrice());
 		request.setAttribute("productType", product.getType());
+		if(product.getType().equals("Breakroom"))
+		{
+			request.setAttribute("productTypeId", 1);
+		}
+		else if(product.getType().equals("Office Supplies"))
+		{
+			request.setAttribute("productTypeId", 2);
+		}
+		else
+		{
+			request.setAttribute("productTypeId", 3);
+		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/productDetails.jsp?id="+ product.getId());
 		 dispatcher.forward(request, response);
 	}
