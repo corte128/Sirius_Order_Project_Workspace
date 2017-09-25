@@ -40,7 +40,7 @@
 			<table class="headerNavTable">
 				<tr>
 					<td><html:link href="/SiriusOrderClient/jsps/welcome.jsp"> 
-								Home
+								<fmt:message key="HEADER_HOME" />
 								</html:link>
 					</td>
 					<c:if test="${sessionScope.activeUserType == '2'}">

@@ -17,7 +17,7 @@
 	
 	<script type="text/javascript" src="/SiriusOrderClient/js/calcCartTotal.js"></script>
 </head> 
-<body>
+<body onload="calcBreakroomTotals()">
 	<c:if test="${breakroomOrders.size() > 0}">
 		<div class="cart-section-title-container">
 			<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" />
@@ -52,7 +52,16 @@
 		<c:set var="breakroomIndex" value="${breakroomIndex + 1}" scope="page"/>
 	</c:forEach>
 	<c:if test="${breakroomOrders.size() > 0}">
-	
+		<div id="breakroomSummaryContainer">
+			<div class="cart-product-image-container">
+			</div>
+			<div id="breakroomTotalQuantityContainer" 
+				class="cart-product-name-container">
+			</div>
+			<div id="breakroomTotalPriceContainer" 
+				class="cart-product-price-container">
+			</div>
+		</div>
 	</c:if>
 	
 	<c:if test="${officeSuppliesOrders.size() > 0}">
@@ -87,6 +96,7 @@
 		</div>
 		<c:set var="officeSuppliesIndex" value="${officeSuppliesIndex + 1}" scope="page"/>
 	</c:forEach>
+	
 	<c:if test="${inkAndTonerOrders.size() > 0}">
 		<div class="cart-section-title-container">
 			<fmt:message key="REVIEW_CART_INK_AND_TONER_LABEL" />
