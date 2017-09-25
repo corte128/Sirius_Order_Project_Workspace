@@ -1,32 +1,61 @@
-/**
- * 
- */
 
 function calcBreakroomTotals()
 {
-	var price = document.getElementById("breakroomPrice");
-	price = price.slice(1);
-	var quantity = document.getElementById("breakroomQuantity");
-	var output = price*quantity;
-	document.getElementById("breakroomTotalAmount").innerHTML = $ + output;	
+	alert(0);
+	var prices = document.getElementsByClassName("breakroom-cart-product-price-container");
+	var quantities = document.getElementsByClassName("breakroom-cart-product-quantity-input");
+
+	var totalPrice = 0;
+	var itemTotal = 0;
+	for(var i = 0; i < prices.length; ++i){
+		var price = prices[i].innerText.slice(1);;
+		var quantity = Number(quantities[i].value);
+		console.log(price);
+		console.log(quantity);
+		totalPrice += (price * quantity);
+		itemTotal += quantity;
+	}
+	totalPrice = totalPrice.toFixed(2);
+	
+
+	document.getElementById("breakroomTotalQuantityContainer").innerHTML = 'Breakroom Total(' + itemTotal + ' items)';
+	document.getElementById("breakroomTotalPriceContainer").innerHTML = '$' + totalPrice;
 }
 
 function calcOfficeSuppliesTotals()
 {
-	var price = document.getElementById("officeSuppliesPrice");
-	price = price.slice(1);
-	var quantity = document.getElementById("officeSuppliesQuantity");
-	var output = price*quantity;
-	document.getElementById("officeSuppliesTotalAmount").innerHTML = $ + output;	
+	var prices = document.getElementsByClassName("office-supplies-cart-product-price-container");
+	var quantities = document.getElementsByClassName("office-supplies-cart-product-price-container");
+
+	var totalPrice = 0;
+	var itemTotal = 0;
+	
+	for(var i = 0; i < prices.length; ++i){
+		price = prices[i].slice(1);
+		totalPrice += price * quantities[i];
+		itemTotal += quantities[i];
+	}
+	
+	document.getElementById("officeSuppliesTotalQuantityContainer").innerHTML = 'Office Supplies Total(' + quantity + ' items)';
+	document.getElementById("officeSuppliesTotalPriceContainer").innerHTML = '$' + totalPrice;	
 }
 
 function calcInkAndTonerTotals()
 {
-	var price = document.getElementById("inkAndTonerPrice");
-	price = price.slice(1);
-	var quantity = document.getElementById("inkAndTonerQuantity");
-	var output = price*quantity;
-	document.getElementById("inkAndTonerTotalAmount").innerHTML = $ + output;
+	var prices = document.getElementsByClassName("ink-and-toner-cart-product-price-container");
+	var quantities = document.getElementsByClassName("ink-and-toner-supplies-cart-product-price-container");
+
+	var totalPrice = 0;
+	var itemTotal = 0;
+	
+	for(var i = 0; i < prices.length; ++i){
+		price = prices[i].slice(1);
+		totalPrice += price * quantities[i];
+		itemTotal += quantities[i];
+	}
+	
+	document.getElementById("inkAndTonerTotalQuantityContainer").innerHTML = 'Ink & Toner Total(' + quantity + ' items)';
+	document.getElementById("inkAndTonerTotalPriceContainer").innerHTML = '$' + totalPrice;
 }
 
 function removeFromCart(orderID){
@@ -42,3 +71,9 @@ function removeFromCart(orderID){
 	xhttp.send();
 }
 
+function calcTotals()
+{
+	calcBreakroomTotals();
+	calcOfficeSuppliesTotals();
+	calcInkAndTonerTotals();
+}

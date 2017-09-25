@@ -63,6 +63,19 @@
   flex:4;
 }
 
+.ui-grid-header-cell{
+  width: 110px;
+}
+
+.ui-grid-cell-contents {
+  color:white;
+  background-color: #5F6060;
+  height: 35px;
+  font-size: 10px;
+  text-align: center;
+  line-height: 25px;
+}
+
 /* Desktop */
 @media (max-width : 1024px) {
 

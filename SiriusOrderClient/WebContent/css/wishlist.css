@@ -20,9 +20,8 @@
   .wishlist-product-card-container{
     display:flex;
     min-width: 200px;
-    max-width: 600px;
     width: 65vw;
-    height: 235px;
+    height: 285px;
     overflow-x: auto;
     overflow-y: hidden;
   }
@@ -31,7 +30,7 @@
     margin-left: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
     width: 210px;
-    height: 220px;
+    height: 250px;
     font-size: 12px;
     margin-top: 7px;
     font-style: italic;
@@ -75,7 +74,7 @@ and (max-device-width : 1024px) {
   .wishlist-product-card-container{
     display:flex;
     width: 700px;
-    height: 400px;
+    height: 450px;
     overflow-x: auto;
     overflow-y: hidden;
   }
@@ -131,7 +130,6 @@ and (max-device-width : 1024px) {
   }
 
   .wishlist-profile-text{
-    margin-left: 10px;
     padding-bottom: 7px;
   }
 
