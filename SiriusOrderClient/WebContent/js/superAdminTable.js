@@ -5,7 +5,7 @@ app.controller('superAdminCtrl', [
 		'$http',
 		'$q',
 		function($scope, $http, $q) {
-			var locationHeaderCellTemplate = '<div class="ngHeaderSortColumnLocation {{col.headerClass}}" ng-style="{cursor: col.cursor}" ng-class="{ ngSorted: !noSortVisible }">'+
+			var locationHeaderCellTemplate = '<div class="ngHeaderSortColumn ngHeaderSortColumnLocation {{col.headerClass}}" ng-style="{cursor: col.cursor}" ng-class="{ ngSorted: !noSortVisible }">'+
             '<div ng-click="col.sort($event)" ng-class="\'colt\' + col.index" class="ngHeaderText">{{col.displayName}}</div>'+
             '<div class="ngSortButtonDown" ng-show="col.showSortButtonDown()"></div>'+
             '<div class="ngSortButtonUp" ng-show="col.showSortButtonUp()"></div>'+
@@ -13,7 +13,7 @@ app.controller('superAdminCtrl', [
           '</div>'+
           '<div ng-show="col.resizable" class="ngHeaderGrip" ng-click="col.gripClick($event)" ng-mousedown="col.gripOnMouseDown($event)"></div>';
 			
-			var nameHeaderCellTemplate = '<div class="ngHeaderSortColumnName {{col.headerClass}}" ng-style="{cursor: col.cursor}" ng-class="{ ngSorted: !noSortVisible }">'+
+			var nameHeaderCellTemplate = '<div class="ngHeaderSortColumn ngHeaderSortColumnName {{col.headerClass}}" ng-style="{cursor: col.cursor}" ng-class="{ ngSorted: !noSortVisible }">'+
             '<div ng-click="col.sort($event)" ng-class="\'colt\' + col.index" class="ngHeaderText">{{col.displayName}}</div>'+
             '<div class="ngSortButtonDown" ng-show="col.showSortButtonDown()"></div>'+
             '<div class="ngSortButtonUp" ng-show="col.showSortButtonUp()"></div>'+
@@ -96,7 +96,7 @@ $(document).ready(function(){
 		officeData = data;
 		console.log(officeData);
 		$.typeahead({
-		    input: '.office-admin-input',
+		    input: '.super-admin-input',
 		    order: "desc",
 		    source: {
 		    	data: officeData
