@@ -4,11 +4,21 @@
 
 function calcBreakroomTotals()
 {
-	var price = document.getElementById("breakroomPrice");
-	price = price.slice(1);
-	var quantity = document.getElementById("breakroomQuantity");
-	var output = price*quantity;
-	document.getElementById("breakroomTotalAmount").innerHTML = $ + output;	
+	var prices = document.getElementsByClassName("breakroom-cart-product-price-container");
+	var quantities = document.getElementsByClassName("breakroom-cart-product-price-container");
+
+	var totalPrice = 0;
+	var itemTotal = 0;
+	for(var i = 0; i < prices.length; ++i){
+		price = prices[i].slice(1);
+		totalPrice += price * quantities[i];
+		itemTotal += quantities[i];
+	}
+	
+	
+	document.getElementById("breakroomTotalQuantityContainer").innerHTML = 'Breakroom Total(' + quantity + ' items)';
+	
+	document.getElementById("breakroomTotalPriceContainer").innerHTML = '$' + totalPrice;
 }
 
 function calcOfficeSuppliesTotals()
