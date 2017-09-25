@@ -2,14 +2,14 @@ body {
 	margin: 0px;
 	padding: 0px;
 }
+a{
+	text-decoration: none;
+}
 .spacerDiv{
  height: 50px;
  display: none;
 }
-.headerContainer{
-	font-family: serif;
-	font-style: italic;
-}
+
 header {
 	
 	witdh:100vw;
@@ -26,6 +26,8 @@ header {
 	padding: 0;
 	background-color: #5F6060;
 	color: white;
+	font-family: serif;
+	font-style: italic;
 }
 
 .headerRight {
