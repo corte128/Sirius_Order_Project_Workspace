@@ -1,4 +1,12 @@
 
+.grid{
+  width:100%;
+  margin-top:5px;
+  height: 350px;
+  font-family: Calibri;
+  border: none;
+}
+
 .super-admin-container-nav{
     display:flex;
 }
@@ -63,19 +71,68 @@
   flex:4;
 }
 
+.ui-grid-top-panel{
+  background:none;
+}
+
 .ui-grid-header-cell{
-  width: 110px;
+  border:none;
 }
 
-.ui-grid-cell-contents {
+.ngHeaderSortColumnLocation{
   color:white;
-  background-color: #5F6060;
+  background-color: #5C5C5C;
   height: 35px;
-  font-size: 10px;
+  font-size: 14px;
   text-align: center;
-  line-height: 25px;
+  line-height: 35px;
+  border: none;
 }
 
+.ngHeaderSortColumnName{
+  color:white;
+  background-color: #555257;
+  height: 35px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 35px;
+  border: none;
+}
+
+.ui-grid-canvas{
+  padding:0px;
+}
+
+.ui-grid-header{
+  border:none;
+}
+
+.location-row{
+  background-color: #ECECEC !important;
+  text-align: center;
+  font-weight: bold;
+  margin: auto;
+  height: 30px;
+  line-height: 45px;
+  border: none;
+  border-top: 1px solid black;
+}
+
+.name-row{
+  /*background-color: #F2F2F2 !important;*/
+  font-family: 'times new roman';
+  text-align: center;
+  margin: auto;
+  height: 30px;
+  line-height: 35px;
+  border: none;
+  border-top: 1px solid black;
+}
+
+div.ui-grid-cell input{
+  width: 90px;
+
+}
 /* Desktop */
 @media (max-width : 1024px) {
 

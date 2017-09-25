@@ -287,7 +287,7 @@ public class SuperAdminDAOImplementation {
 				
 				office.setLocationId(results.getInt("location_id_pk"));
 				sbObj.append(results.getString("location_city"));
-				sbObj.append(",");
+				sbObj.append(", ");
 				sbObj.append(results.getString("state_abbr"));
 				office.setLocation(sbObj.toString());
 				office.setAdminName(results.getString("employee_name"));
