@@ -42,13 +42,14 @@ public class WishlistServiceDAOImpl {
 		
 	}
 	//completed
-	public List<EmployeeBean> getAllEmployeesWhoLikedProduct(int product_id){
+	public List<EmployeeBean> getAllEmployeesWhoLikedProduct(int product_id, int location_id){
 	    List<EmployeeBean> employees = new ArrayList<EmployeeBean>();
 		String sql = queries.getString("GET_ALL_EMPLOYEES_WHO_LIKED_PRODUCT");
 		try {
 		    //String sql = "SELECT employee_id_pk, employee_name FROM Employee_tbl LEFT JOIN Likes_tbl ON Employee_tbl.employee_id_pk = Likes_tbl.employee_id_fk WHERE product_id=?";
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, product_id);
+			statement.setInt(2, location_id);
 		    ResultSet rs = statement.executeQuery();
 			while (rs.next()) {
 				// Retrieve by column name
@@ -66,7 +67,6 @@ public class WishlistServiceDAOImpl {
 		catch(Exception e) {
 			System.out.println(e);
 		}
-		
 		return employees;
 	}
 	

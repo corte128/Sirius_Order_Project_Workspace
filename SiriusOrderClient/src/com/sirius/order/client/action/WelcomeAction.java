@@ -47,9 +47,10 @@ public class WelcomeAction extends Action {
 				request.setAttribute("Products", products);
 				//Map<Integer, List<EmployeeBean>> productsWithLikes = new HashMap<Integer, List<EmployeeBean>>();
 				int id = 0;
+				int location_id = (Integer) request.getSession().getAttribute("activeUserLocation");
 				for(ProductBean bean : products){
 					id = bean.getId();
-					List<EmployeeBean> emps = WishlistDAO.getAllEmployeesWhoLikedProduct(id);
+					List<EmployeeBean> emps = WishlistDAO.getAllEmployeesWhoLikedProduct(id, location_id);
 					List<String> empNames = new ArrayList<String>();
 					for(EmployeeBean emp : emps){
 						empNames.add(emp.getName());

@@ -39,6 +39,7 @@ public interface Wishlist {
 
     /**
      * 
+     * @param locationId
      * @param productId
      * @return
      *     returns java.util.List<com.sirius.wishlistws.wishlist.wsdl.EmployeeBean>
@@ -50,7 +51,9 @@ public interface Wishlist {
     @Action(input = "getAllEmployeesWhoLikedProduct", output = "http://wishlistws.sirius.com/wishlist/wsdl/Wishlist/getAllEmployeesWhoLikedProductResponse")
     public List<EmployeeBean> getAllEmployeesWhoLikedProduct(
         @WebParam(name = "product_id", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl")
-        int productId);
+        int productId,
+        @WebParam(name = "location_id", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl")
+        int locationId);
 
     /**
      * 

@@ -58,10 +58,11 @@ public class WishlistServlet extends HttpServlet {
 		
 		
 		JsonArrayBuilder builder = Json.createArrayBuilder();
+		int location_id = (Integer) request.getSession().getAttribute("activeUserLocation");
 		for (ProductBean record : products)
 		{
 			JsonArrayBuilder likesBuilder = Json.createArrayBuilder();
-			List<EmployeeBean> emps = WishlistDAO.getAllEmployeesWhoLikedProduct(record.getId());
+			List<EmployeeBean> emps = WishlistDAO.getAllEmployeesWhoLikedProduct(record.getId(), location_id);
 			for(EmployeeBean emp : emps){
 				likesBuilder.add(emp.getName());
 			}

@@ -25,7 +25,7 @@ public class WishlistServiceDAO {
 		impl.closeConnection();
 	}
 	
-	public List<EmployeeBean> getAllEmployeesWhoLikedProduct(int product_id){
+	public List<EmployeeBean> getAllEmployeesWhoLikedProduct(int product_id, int location_id){
 		Connection conn = null;
 		try {
 			conn = DBConnection.getConnection();
@@ -35,7 +35,7 @@ public class WishlistServiceDAO {
 			e.printStackTrace();
 		}
 		WishlistServiceDAOImpl impl = new WishlistServiceDAOImpl(conn);
-		List<EmployeeBean> employees = impl.getAllEmployeesWhoLikedProduct(product_id);
+		List<EmployeeBean> employees = impl.getAllEmployeesWhoLikedProduct(product_id, location_id);
 		impl.closeConnection();
 		return employees;
 	}

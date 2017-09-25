@@ -64,6 +64,7 @@
   <xs:complexType name="getAllEmployeesWhoLikedProduct">
     <xs:sequence>
       <xs:element name="product_id" type="xs:int" form="qualified"/>
+      <xs:element name="location_id" type="xs:int" form="qualified"/>
     </xs:sequence>
   </xs:complexType>
 

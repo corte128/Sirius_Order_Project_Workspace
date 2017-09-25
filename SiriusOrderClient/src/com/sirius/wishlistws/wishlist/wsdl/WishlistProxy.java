@@ -121,8 +121,8 @@ public class WishlistProxy{
         _getDescriptor().getProxy().addToLikeTable(employeeId,productId);
     }
 
-    public List<EmployeeBean> getAllEmployeesWhoLikedProduct(int productId) {
-        return _getDescriptor().getProxy().getAllEmployeesWhoLikedProduct(productId);
+    public List<EmployeeBean> getAllEmployeesWhoLikedProduct(int productId, int locationId) {
+        return _getDescriptor().getProxy().getAllEmployeesWhoLikedProduct(productId,locationId);
     }
 
     public List<ProductBean> getAllProductsEmployeeLiked(int employeeId) {
