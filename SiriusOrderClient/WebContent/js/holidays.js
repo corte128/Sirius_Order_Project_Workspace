@@ -12,16 +12,16 @@ $(function ()
         ],
         customRowButtons: [
             { 
-            	uiButton: { showLabel: true, label: 'Save' },
+            	uiButton: { label: 'Save' },
             	click: saveEntry, 
-            	btsCss: { 'min-width': '30px' }, 
+            	btsCss: { 'width': '30px' }, 
             	btnAttr: { title: 'Save Entry' }, 
             	btnClass: 'save_button',
             	atTheFront: true },
             { 
-            	uiButton: { showLabel: true, label: 'Delete' }, 
+            	uiButton: { label: 'Delete' }, 
             	click: deleteEntry, 
-            	btsCss: { 'min-width': '30px' }, 
+            	btsCss: { 'width': '30px' }, 
             	btnAttr: { title: 'Delete Entry' }, 
             	btnClass: 'delete_button',
             	atTheFront: true }
