@@ -38,7 +38,9 @@
 			</div>
 			<div class="wishlist-profile-text wishlist-profile-text-wishlist">
 				<bean:message key="WISHLIST_YOU_HAVE_TEXT" />
-				<c:out value="${ProductAmount}"/>
+				<span id="productAmount">
+					<%--<c:out value="${ProductAmount}"/> --%>
+				</span>
 				<bean:message key="WISHLIST_IN_WISHLIST_TEXT" />
 			</div>
 			<div class="wishlist-profile-title wishlist-profile-title-location">
