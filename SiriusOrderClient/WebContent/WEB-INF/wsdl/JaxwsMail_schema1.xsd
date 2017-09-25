@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema targetNamespace="http://jaxws.mail.service.order.sirius.com/jaxws/JaxwsMail/wsdl" version="1.0" xmlns:ns1="http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl" xmlns:tns="http://jaxws.mail.service.order.sirius.com/jaxws/JaxwsMail/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:import namespace="http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl" schemaLocation="JaxwsMail_schema2.xsd"/>
+
+  <xs:element name="sendMessage" type="tns:sendMessage"/>
+
+  <xs:element name="sendMessageResponse" type="tns:sendMessageResponse"/>
+
+  <xs:complexType name="sendMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="ns1:subject"/>
+      <xs:element minOccurs="0" ref="ns1:message"/>
+      <xs:element minOccurs="0" ref="ns1:toAddress"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendMessageResponse">
+    <xs:sequence>
+      <xs:element form="qualified" name="sendMessageReturn" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

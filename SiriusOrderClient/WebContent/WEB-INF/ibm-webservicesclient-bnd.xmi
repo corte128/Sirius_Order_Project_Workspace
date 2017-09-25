@@ -30,4 +30,7 @@
   <serviceRefs xmi:id="ServiceRef_1506089375624" serviceRefLink="service/JaxwsWishlist">
     <portQnameBindings xmi:id="PortQnameBinding_1506089375624" portQnameNamespaceLink="http://wishlistws.sirius.com/wishlist/wsdl" portQnameLocalNameLink="wishlist"/>
   </serviceRefs>
+  <serviceRefs xmi:id="ServiceRef_1506357618089" serviceRefLink="service/JaxwsMail">
+    <portQnameBindings xmi:id="PortQnameBinding_1506357618089" portQnameNamespaceLink="http://jaxws.mail.service.order.sirius.com/jaxws/JaxwsMail/wsdl" portQnameLocalNameLink="JaxwsMail" overriddenEndpointURI="http://localhost:9080/MailWS/JaxwsMail"/>
+  </serviceRefs>
 </com.ibm.etools.webservice.wscbnd:ClientBinding>
