@@ -68,7 +68,7 @@ and (min-device-width : 768px)
 and (max-device-width : 1024px) {
 	.productCard{
 		width: 270px;
-		height: 355px;
+		height: 400px;
 		margin-top: 20px;
 		margin-bottom: 20px;
 		margin-right: 25px;
@@ -89,7 +89,7 @@ and (max-device-width : 1024px) {
 	.productLabel{
 		margin:auto;
 		text-align: center;
-		height: 95px;
+		height: 140px;
 		border-bottom: solid black 1px;
 	}
 
@@ -113,7 +113,7 @@ and (max-device-width : 568px) {
 	.productCard{
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 		width: 250px;
-		height: 340px;
+		height: 350px;
 		margin-top: 20px;
 		margin-bottom: 20px;
 		padding-bottom: 10px;
@@ -132,7 +132,7 @@ and (max-device-width : 568px) {
 	.productLabel{
 		margin:auto;
 		text-align: center;
-		height: 75px;
+		height: 92px;
 		border-bottom: solid black 1px;
 	}
 

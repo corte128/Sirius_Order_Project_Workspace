@@ -21,7 +21,7 @@
     display:flex;
     min-width: 200px;
     width: 65vw;
-    height: 275px;
+    height: 285px;
     overflow-x: auto;
     overflow-y: hidden;
   }
@@ -74,7 +74,7 @@ and (max-device-width : 1024px) {
   .wishlist-product-card-container{
     display:flex;
     width: 700px;
-    height: 400px;
+    height: 450px;
     overflow-x: auto;
     overflow-y: hidden;
   }
@@ -130,7 +130,6 @@ and (max-device-width : 1024px) {
   }
 
   .wishlist-profile-text{
-    margin-left: 10px;
     padding-bottom: 7px;
   }
 
