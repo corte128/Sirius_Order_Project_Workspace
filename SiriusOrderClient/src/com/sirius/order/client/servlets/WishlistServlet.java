@@ -46,22 +46,24 @@ public class WishlistServlet extends HttpServlet {
 		//TODO: Fix it so both the product and wishlist are using the same bean
 	    List<com.sirius.wishlistws.wishlist.wsdl.ProductBean> wsProducts = new ArrayList<com.sirius.wishlistws.wishlist.wsdl.ProductBean>();
 	    List<ProductBean> products = new ArrayList<ProductBean>();
+	    List<EmployeeBean> emps = new ArrayList<EmployeeBean>();
 	    int employeeId = (Integer) request.getSession().getAttribute(sessionVariables.getString("ACTIVE_USER_ID"));
 	   
 	    wsProducts = WishlistDAO.getAllProductsEmployeeLiked(employeeId);
-	    
+	    int location_id = (Integer) request.getSession().getAttribute("activeUserLocation");
+	 
 	    for(com.sirius.wishlistws.wishlist.wsdl.ProductBean wlObj : wsProducts){
 	    	products.add(ProductSearchDAO.getProductByID(wlObj.getId()));
+	    	emps = WishlistDAO.getAllEmployeesWhoLikedProduct(wlObj.getId(), location_id);
 	    }
 	    
 		request.setAttribute("Products", products);
-		
 		
 		JsonArrayBuilder builder = Json.createArrayBuilder();
 		for (ProductBean record : products)
 		{
 			JsonArrayBuilder likesBuilder = Json.createArrayBuilder();
-			List<EmployeeBean> emps = WishlistDAO.getAllEmployeesWhoLikedProduct(record.getId());
+
 			for(EmployeeBean emp : emps){
 				likesBuilder.add(emp.getName());
 			}

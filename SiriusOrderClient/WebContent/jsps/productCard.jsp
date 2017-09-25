@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/productCard.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<div class="productCard"> 
-		<div class="imageContainer">
+		<div class="imageContainer"> 
 			<a href="/SiriusOrderClient/NavigationServlet?action=productDetails&id=${currentProduct.getId()}">
 				<img src="${currentProduct.getImage()}" alt="name of item" class="productImage"></img>
 			</a>
@@ -21,6 +21,15 @@
 		<div class="likesAndPrice">
 			<span class="glyphicon glyphicon-heart clickable-like"></span>
 			<span>$${currentProduct.getPrice()}</span>
+			
+			<div id="likesModal${currentProduct.getId()}" class="likes-modal">
+				<c:forEach var="user" items="${requestScope[productId]}">
+					<div>
+						${user}
+					</div>
+				</c:forEach>
+			</div>
+			
 		</div>
 		<input type="button" onclick="addToCart(${currentProduct.getId()})" value="Add To Cart"/>
 	</div>

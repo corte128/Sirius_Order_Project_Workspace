@@ -85,11 +85,36 @@ function searchProducts()
 			numOfLikes.id = "numOfLikes" + response[key].ID;
 			numOfLikes.setAttribute("class", "num-of-likes")
 			numOfLikes.innerHTML = response[key].Likers.length;
+			numOfLikes.onmouseover = (function (){
+				var id = response[key].ID;
+				return function(){
+					createModal('likesModal' + id);
+				};
+			})();
+			
+			numOfLikes.onmouseout = (function (){
+				var id = response[key].ID;
+				return function(){
+					deleteModal('likesModal' + id);
+				};
+			})();
+					
 			var divLikesAndPrice = document.createElement("div");
 			divLikesAndPrice.setAttribute("class", "likesAndPrice");
 			divLikesAndPrice.appendChild(spanHeart);
 			divLikesAndPrice.appendChild(numOfLikes);
 			divLikesAndPrice.appendChild(spanPrice);
+			
+			var likesModal = document.createElement("div");
+			likesModal.setAttribute("class", 'likes-modal');
+			likesModal.id = 'likesModal' + response[key].ID;
+			console.log(response[key].Likers);
+			for(nameKey in response[key].Likers){
+				var innerModalDiv = document.createElement("div");
+				innerModalDiv.innerHTML = response[key].Likers[nameKey];
+				likesModal.appendChild(innerModalDiv);
+			}
+			divLikesAndPrice.appendChild(likesModal);
 			
 			var addToCartBtn = document.createElement("input");
 			addToCartBtn.setAttribute("class", "addToCartBtn");

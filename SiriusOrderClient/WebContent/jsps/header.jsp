@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css"
 	href="/SiriusOrderClient/css/header.css">
 
-<div class="spacerDiv">
+<div class="spacerDiv"> 
 
 </div>
 

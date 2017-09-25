@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="product_id" type="{http://www.w3.org/2001/XMLSchema}int" form="qualified"/>
+ *         &lt;element name="location_id" type="{http://www.w3.org/2001/XMLSchema}int" form="qualified"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -32,12 +33,15 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "getAllEmployeesWhoLikedProduct", propOrder = {
-    "productId"
+    "productId",
+    "locationId"
 })
 public class GetAllEmployeesWhoLikedProduct {
 
     @XmlElement(name = "product_id", namespace = "http://wishlistws.sirius.com/wishlist/wsdl")
     protected int productId;
+    @XmlElement(name = "location_id", namespace = "http://wishlistws.sirius.com/wishlist/wsdl")
+    protected int locationId;
 
     /**
      * Gets the value of the productId property.
@@ -53,6 +57,22 @@ public class GetAllEmployeesWhoLikedProduct {
      */
     public void setProductId(int value) {
         this.productId = value;
+    }
+
+    /**
+     * Gets the value of the locationId property.
+     * 
+     */
+    public int getLocationId() {
+        return locationId;
+    }
+
+    /**
+     * Sets the value of the locationId property.
+     * 
+     */
+    public void setLocationId(int value) {
+        this.locationId = value;
     }
 
 }
