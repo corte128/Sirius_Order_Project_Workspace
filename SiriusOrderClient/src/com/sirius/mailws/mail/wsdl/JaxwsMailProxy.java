@@ -1,4 +1,4 @@
-package com.sirius.adminws.officeadmin.wsdl;
+package com.sirius.mailws.mail.wsdl;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -11,16 +11,15 @@ import javax.xml.ws.BindingProvider;
 import javax.xml.ws.Dispatch;
 import javax.xml.ws.Service;
 import javax.xml.ws.soap.SOAPBinding;
-import java.util.List;
 import javax.xml.ws.Action;
 
-public class OfficeAdminProxy{
+public class JaxwsMailProxy{
 
     protected Descriptor _descriptor;
 
     public class Descriptor {
-        private com.sirius.adminws.officeadmin.wsdl.JaxwsOfficeAdmin _service = null;
-        private com.sirius.adminws.officeadmin.wsdl.OfficeAdmin _proxy = null;
+        private com.sirius.mailws.mail.wsdl.JaxwsMail_Service _service = null;
+        private com.sirius.mailws.mail.wsdl.JaxwsMail _proxy = null;
         private Dispatch<Source> _dispatch = null;
         private boolean _useJNDIOnly = false;
 
@@ -29,7 +28,7 @@ public class OfficeAdminProxy{
         }
 
         public Descriptor(URL wsdlLocation, QName serviceName) {
-            _service = new com.sirius.adminws.officeadmin.wsdl.JaxwsOfficeAdmin(wsdlLocation, serviceName);
+            _service = new com.sirius.mailws.mail.wsdl.JaxwsMail_Service(wsdlLocation, serviceName);
             initCommon();
         }
 
@@ -40,7 +39,7 @@ public class OfficeAdminProxy{
             try
             {
                 InitialContext ctx = new InitialContext();
-                _service = (com.sirius.adminws.officeadmin.wsdl.JaxwsOfficeAdmin)ctx.lookup("java:comp/env/service/JaxwsOfficeAdmin");
+                _service = (com.sirius.mailws.mail.wsdl.JaxwsMail_Service)ctx.lookup("java:comp/env/service/JaxwsMail");
             }
             catch (NamingException e)
             {
@@ -51,15 +50,15 @@ public class OfficeAdminProxy{
             }
 
             if (_service == null && !_useJNDIOnly)
-                _service = new com.sirius.adminws.officeadmin.wsdl.JaxwsOfficeAdmin();
+                _service = new com.sirius.mailws.mail.wsdl.JaxwsMail_Service();
             initCommon();
         }
 
         private void initCommon() {
-            _proxy = _service.getOfficeAdmin();
+            _proxy = _service.getJaxwsMail();
         }
 
-        public com.sirius.adminws.officeadmin.wsdl.OfficeAdmin getProxy() {
+        public com.sirius.mailws.mail.wsdl.JaxwsMail getProxy() {
             return _proxy;
         }
 
@@ -70,7 +69,7 @@ public class OfficeAdminProxy{
 
         public Dispatch<Source> getDispatch() {
             if (_dispatch == null ) {
-                QName portQName = new QName("http://adminws.sirius.com/officeAdmin/wsdl", "officeAdmin");
+                QName portQName = new QName("http://jaxws.mail.service.order.sirius.com/jaxws/JaxwsMail/wsdl", "JaxwsMail");
                 _dispatch = _service.createDispatch(portQName, Source.class, Service.Mode.MESSAGE);
 
                 String proxyEndpointUrl = getEndpoint();
@@ -103,12 +102,12 @@ public class OfficeAdminProxy{
         }
     }
 
-    public OfficeAdminProxy() {
+    public JaxwsMailProxy() {
         _descriptor = new Descriptor();
         _descriptor.setMTOMEnabled(false);
     }
 
-    public OfficeAdminProxy(URL wsdlLocation, QName serviceName) {
+    public JaxwsMailProxy(URL wsdlLocation, QName serviceName) {
         _descriptor = new Descriptor(wsdlLocation, serviceName);
         _descriptor.setMTOMEnabled(false);
     }
@@ -117,28 +116,8 @@ public class OfficeAdminProxy{
         return _descriptor;
     }
 
-    public boolean addVisitors(String startDate, String endDate, int count, String comment, int userID, int locationID) {
-        return _getDescriptor().getProxy().addVisitors(startDate,endDate,count,comment,userID,locationID);
-    }
-
-    public boolean addHoliday(String holidayName, String date, int userID, int locationID) {
-        return _getDescriptor().getProxy().addHoliday(holidayName,date,userID,locationID);
-    }
-
-    public boolean deleteHoliday(int holidayID, int userID) {
-        return _getDescriptor().getProxy().deleteHoliday(holidayID,userID);
-    }
-
-    public List<Holiday> getAllHolidays(int locationID) {
-        return _getDescriptor().getProxy().getAllHolidays(locationID);
-    }
-
-    public List<EmployeeBean> getUnapprovedEmployees(int locationID) {
-        return _getDescriptor().getProxy().getUnapprovedEmployees(locationID);
-    }
-
-    public EmployeeBean getOfficeAdmin(int locationID) {
-        return _getDescriptor().getProxy().getOfficeAdmin(locationID);
+    public boolean sendMessage(String subject, String message, String toAddress) {
+        return _getDescriptor().getProxy().sendMessage(subject,message,toAddress);
     }
 
 }
