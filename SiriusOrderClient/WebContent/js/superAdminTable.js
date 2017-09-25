@@ -14,25 +14,25 @@ app.controller('superAdminCtrl', [
 //			                },
 							{
 								name : 'Location',
-								width : 100,
-								cellTemplate: '<div class="ui-grid-cell-contents"> <input hidden name="locationIds" value=\'{{row.entity["Location Id"]}}\'></input><div>{{row.entity.Location}}</div></div>',
+								width : 125,
+								cellTemplate: '<div class="ui-grid-cell-contents"> <input hidden name="locationIds" value=\'{{row.entity["Location Id"]}}\'></input><div class="location-row-title">{{row.entity.Location}}</div></div>',
 								pinnedLeft : true
 							},
 							{
 								name : 'Admin Name',
-								width : 100
+								width : 125
 							},
 							{
 								name : 'Admin Email',
-								width : 150
+								width : 125
 							},
 							{
 								name : 'No of Employees',
-								width : 100
+								width : 125
 							},
 							{
 								name : 'Recommended Budget',
-								width : 100
+								width : 125
 								//cellTemplate : '<div class="ui-grid-cell-contents"><input type="text" class="super-admin-input" value=\'{{row.entity["Recommended Budget"]}}\'/></div>'
 							},
 							{
