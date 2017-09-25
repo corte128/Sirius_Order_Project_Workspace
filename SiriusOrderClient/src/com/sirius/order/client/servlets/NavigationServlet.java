@@ -59,7 +59,7 @@ public class NavigationServlet extends HttpServlet {
 		int numUnapprovedEmployees = employees.size();
 		session.setAttribute("numAlerts", numUnapprovedEmployees);
 
-		if(userId == null){
+		if(userId == null && !action.equalsIgnoreCase("registration")){
 			response.sendRedirect("jsps/login.jsp");
 		}
 		else if(action.equalsIgnoreCase("attendance"))

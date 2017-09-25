@@ -16,7 +16,7 @@
 </head> 
 <body> 
 	<%-- HEADER --%>  
-	<header>
+	<header> 
 		<%@ include file="header.jsp"%>
 	</header>
 	<div class="wishlist-container">
