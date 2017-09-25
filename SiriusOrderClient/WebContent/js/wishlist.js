@@ -1,3 +1,8 @@
+$( document ).ready(function() {
+	getProducts();
+});
+
+
 function getProducts()
 {	
 	console.log("in products");
@@ -10,7 +15,8 @@ function getProducts()
 		$('#wishlist-product-card-container-id').empty();
 		var productContainer = document.getElementById('wishlist-product-card-container-id');
 		
-
+		document.getElementById('productAmount').innerHTML = response.length;
+		
 		for(key in response)
 		{
 			var image = document.createElement("img");
@@ -97,6 +103,14 @@ function addToWishlist(productID){
 	};
 	xhttp.send();
 	
+}
+
+function createModal(likesModalID){
+	document.getElementById(likesModalID).style.display = 'block';
+}
+
+function deleteModal(likesModalID){
+	document.getElementById(likesModalID).style.display = 'none';
 }
 
 

@@ -9,7 +9,7 @@
 	src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
 
 </head>
-<body>
+<body> 
 	<header>
 		<%@ include file="/jsps/header.jsp"%>
 	</header>

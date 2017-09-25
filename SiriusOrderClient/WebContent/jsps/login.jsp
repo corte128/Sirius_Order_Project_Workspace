@@ -16,7 +16,7 @@
 	<header>  
 		<%@ include file="header.jsp" %>
 	</header>  
-	<div id="login-content">	 
+	<div id="login-content">	  
 		<div id="login-form">
 			<div id="login-labels">
 				<br /> 

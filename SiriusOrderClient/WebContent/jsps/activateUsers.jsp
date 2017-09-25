@@ -20,7 +20,7 @@
 	<jsp:forward page = "/jsps/welcome.jsp" />
 </c:if>  
 </head>
-<body>   
+<body>    
 	<header>
 		<%@ include file="header.jsp" %>
 	</header>
