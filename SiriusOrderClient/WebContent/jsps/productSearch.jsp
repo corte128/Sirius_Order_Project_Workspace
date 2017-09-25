@@ -16,7 +16,7 @@
 		<script type="text/javascript" src="/SiriusOrderClient/js/productSearch.js"></script>
 	 
 	</head>
-	<body onload="selectedOption(${param.type})">
+	<body onload="selectedOption(${param.type})"> 
 		<header>
 			<%@ include file="header.jsp" %>
 		</header> 
