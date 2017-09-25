@@ -15,7 +15,7 @@
 <script src="/SiriusOrderClient/js/wishlist.js"></script>
 </head>
 <body> 
-	<%-- HEADER --%> 
+	<%-- HEADER --%>  
 	<header>
 		<%@ include file="header.jsp"%>
 	</header>

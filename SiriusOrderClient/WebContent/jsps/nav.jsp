@@ -31,7 +31,7 @@
 			-->
 				<ul id="navSidebarIconLinksList">
 					<li>
-						<a href="/SiriusOrderClient/jsps/wishlist.jsp">
+						<a href="/SiriusOrderClient/NavigationServlet?action=wishlist">
 							<div class="nav-sidebar-icon-image-container">
 								<img class="nav-sidebar-icon-image nav-icon-image-shadow" 
 									src="/SiriusOrderClient/assets/wishlist_icon.png" 
@@ -98,7 +98,7 @@
 							<ul class="nav-sidebar-sub-list">
 								<div class="admin-nav-sidebar-sub-text-container">
 									<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/NavigationServlet?action=visitors">
-										Add Visitors
+										Add Visitors 
 									</a>
 								</div>
 								<div class="admin-nav-sidebar-sub-text-container">
@@ -126,7 +126,7 @@
     	
 		<ul id="navIconLinksList">
 			<li>
-				<a href="/SiriusOrderClient/jsps/wishlist.jsp">
+				<a href="/SiriusOrderClient/NavigationServlet?action=wishlist">
 					<div class="nav-icon-image-container">
 						<img class="nav-icon-image nav-icon-image-shadow" src="/SiriusOrderClient/assets/wishlist_icon.png" alt="Wishlist Icon"/>
 					</div>
