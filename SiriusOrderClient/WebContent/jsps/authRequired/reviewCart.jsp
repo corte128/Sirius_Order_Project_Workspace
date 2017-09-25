@@ -27,20 +27,23 @@
 		</div>
 		<c:set var="breakroomIndex" value="0" scope="page" />
 	</c:if>
-	
 	<c:forEach var="product" items="${breakroomProducts}">
-		<div id="cartOrder${breakroomOrders.get(breakroomIndex).getId()}" class="cart-product-container">
+		<div id="cartOrder${breakroomOrders.get(breakroomIndex).getId()}" 
+			class="cart-product-container">
 			<div class="cart-product-image-container">
 				<img src="${product.getImage()}" />
 			</div>
 			<div class="cart-product-name-container">
 				${product.getName()}
 			</div>
-			<div class="cart-product-price-container">
+			<div class="cart-product-price-container 
+				breakroom-cart-product-price-container">
 				$${product.getPrice()}
 			</div>
 			<div class="cart-product-quantity-container">
-				<input onchange="calcBreakroomTotals()" type="text" value="${breakroomOrders.get(breakroomIndex).getQuantity()}"/>
+				<input onchange="calcBreakroomTotals()" 
+					class="breakroom-cart-product-quantity-input"
+				 	type="text" value="${breakroomOrders.get(breakroomIndex).getQuantity()}"/>
 			</div>
 			<div class="cart-product-action-container">
 				<div class="glyphicon glyphicon-trash" onclick="removeFromCart(${breakroomOrders.get(breakroomIndex).getId()})"></div>
@@ -48,6 +51,10 @@
 		</div>
 		<c:set var="breakroomIndex" value="${breakroomIndex + 1}" scope="page"/>
 	</c:forEach>
+	<c:if test="${breakroomOrders.size() > 0}">
+	
+	</c:if>
+	
 	<c:if test="${officeSuppliesOrders.size() > 0}">
 		<div class="cart-section-title-container">
 			<fmt:message key="REVIEW_CART_OFFICE_SUPPLIES_LABEL" />
@@ -65,11 +72,14 @@
 			<div class="cart-product-name-container">
 				${product.getName()}
 			</div>
-			<div class="cart-product-price-container">
+			<div class="cart-product-price-container
+				office-supplies-cart-product-price-container">
 				$${product.getPrice()}
 			</div>
 			<div class="cart-product-quantity-container">
-				<input onchange="calcOfficeSuppliesTotals()" type="text" value="${officeSuppliesOrders.get(officeSuppliesIndex).getQuantity()}"/>
+				<input onchange="calcOfficeSuppliesTotals()" 
+					class="office-supplies-cart-product-quantity-input"
+					type="text" value="${officeSuppliesOrders.get(officeSuppliesIndex).getQuantity()}"/>
 			</div>
 			<div class="cart-product-action-container">
 				<div class="glyphicon glyphicon-trash" onclick="removeFromCart(${officeSuppliesOrders.get(officeSuppliesIndex).getId()})"></div>
@@ -94,11 +104,14 @@
 			<div class="cart-product-name-container">
 				${product.getName()}
 			</div>
-			<div class="cart-product-price-container">
+			<div class="cart-product-price-container
+				ink-cart-product-price-container">
 				$${product.getPrice()}
 			</div>
 			<div class="cart-product-quantity-container">
-				<input onchange="calcInkAndTonerTotals()" type="text" value="${inkAndTonerOrders.get(inkIndex).getQuantity()}"/>
+				<input onchange="calcInkAndTonerTotals()" 
+					class="ink-cart-product-quantity-input"
+					type="text" value="${inkAndTonerOrders.get(inkIndex).getQuantity()}"/>
 			</div>
 			<div class="cart-product-action-container">
 				<div class="glyphicon glyphicon-trash" onclick="removeFromCart(${inkAndTonerOrders.get(inkIndex).getId()})"></div>
