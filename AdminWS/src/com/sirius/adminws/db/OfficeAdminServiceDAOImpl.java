@@ -131,16 +131,13 @@ public class OfficeAdminServiceDAOImpl {
 			stmt.setInt(1, locationID);
 			stmt.setString(2, "pending");
 			ResultSet rs = stmt.executeQuery();
-			int count = 0;
 			while(rs.next()){
-				count++;
 				EmployeeBean e = new EmployeeBean();
 				e.setEmail(rs.getString("employee_email"));
 				e.setName(rs.getString("employee_name"));
 				e.setId(rs.getInt("employee_id_pk"));
 				emps.add(e);
 			}
-			System.out.println("Employee Count: " + count);
 			DBConnection.closeResultSet(rs);
 			DBConnection.closePreparedStatement(stmt);
 		} catch (SQLException e) {
@@ -148,6 +145,30 @@ public class OfficeAdminServiceDAOImpl {
 			e.printStackTrace();
 		}
 		return emps;
+	}
+	
+	public EmployeeBean getOfficeAdmin(int locationID){
+		logger.log(Level.FINE, "Getting Office Admin...");
+		String sql = "SELECT * FROM employee_tbl WHERE "+ 
+		" location_id_fk = (?) AND employee_type_id_fk = (?)";
+		EmployeeBean officeAdmin = new EmployeeBean();
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, locationID);
+			stmt.setInt(2, 2);
+			ResultSet rs = stmt.executeQuery();
+			if(rs.next()){
+				officeAdmin.setEmail(rs.getString("employee_email"));
+				officeAdmin.setName(rs.getString("employee_name"));
+				officeAdmin.setId(rs.getInt("employee_id_pk"));
+			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closePreparedStatement(stmt);
+		} catch (SQLException e) {
+			logger.log(Level.FINE, "SQL Error in getOfficeAdmin(): "+e);
+			e.printStackTrace();
+		}
+		return officeAdmin;
 	}
 	
 	public void closeConnection(){

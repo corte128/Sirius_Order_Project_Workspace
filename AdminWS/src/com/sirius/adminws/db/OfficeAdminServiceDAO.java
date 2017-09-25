@@ -151,4 +151,26 @@ public class OfficeAdminServiceDAO {
 		}
 		return emps;
 	}
+	
+	public EmployeeBean getOfficeAdmin(int locationID){
+		logger.log(Level.FINE, "Getting Office Admin for location: " + locationID);
+		Connection conn = null;
+		EmployeeBean emp = null;
+		try {
+			conn = DBConnection.getConnection();
+			OfficeAdminServiceDAOImpl impl = new OfficeAdminServiceDAOImpl(conn);
+			emp = impl.getOfficeAdmin(locationID);
+			impl.closeConnection();
+		} catch (NamingException e) {
+			logger.log(Level.FINE, "Naming Error in getOfficeAdmin(): "+e);
+			e.printStackTrace();
+		} catch (SQLException e) {
+			logger.log(Level.FINE, "SQL Error in getOfficeAdmin(): "+e);
+			e.printStackTrace();
+		} catch (Exception e) {
+			logger.log(Level.FINE, "Error in getOfficeAdmin(): "+e);
+			e.printStackTrace();
+		}
+		return emp;
+	}
 }

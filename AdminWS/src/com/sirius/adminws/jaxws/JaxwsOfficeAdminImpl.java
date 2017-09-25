@@ -42,4 +42,10 @@ public class JaxwsOfficeAdminImpl implements OfficeAdmin {
 		return dao.getUnapprovedEmployees(locationID);
 	}
 
+	@Override
+	public EmployeeBean getOfficeAdmin(int locationID) {
+		OfficeAdminServiceDAO dao = new OfficeAdminServiceDAO();
+		return dao.getOfficeAdmin(locationID);
+	}
+
 }
