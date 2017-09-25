@@ -16,7 +16,7 @@
 		<script type="text/javascript" src="/SiriusOrderClient/js/productSearch.js"></script>
 	 
 	</head>
-	<body onload="selectedOption(${param.type})">
+	<body onload="selectedOption(${param.type})"> 
 		<header>
 			<%@ include file="header.jsp" %>
 		</header> 
@@ -58,9 +58,15 @@
 								<div class="likesAndPrice">
 									<span class="glyphicon glyphicon-heart clickable-like" onclick='addToWishlist(${currentProduct.getId()})'></span>
 									<c:set var="productId" value="LikesForProduct:${currentProduct.getId()}" scope="request"/>
-									<span id="numOfLikes${currentProduct.getId()}" class="num-of-likes">${requestScope[productId].size()}</span>
+									<span id="numOfLikes${currentProduct.getId()}" class="num-of-likes" onmouseover="createModal('likesModal${currentProduct.getId()}')" onmouseout="deleteModal('likesModal${currentProduct.getId()}')">${requestScope[productId].size()}</span>
 									<span>$${currentProduct.getPrice()}</span>
-
+									<div id="likesModal${currentProduct.getId()}" class="likes-modal">
+										<c:forEach var="user" items="${requestScope[productId]}">
+											<div>
+												${user}
+											</div>
+										</c:forEach>
+									</div>
 								</div>
 								<input class="addToCartBtn" type="button" 
 									onclick="addToCart(${currentProduct.getId()})" 

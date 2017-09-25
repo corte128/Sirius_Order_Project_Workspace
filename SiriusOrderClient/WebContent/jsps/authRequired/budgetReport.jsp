@@ -4,7 +4,7 @@
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<fmt:setBundle basename="com.sirius.order.client.properties.common"/>
+<fmt:setBundle basename="com.sirius.order.client.properties.common"/> 
 <html>
 	<head> 
 		<title><fmt:message key="BUDGET_REPORT_TITLE_LABEL" /></title>

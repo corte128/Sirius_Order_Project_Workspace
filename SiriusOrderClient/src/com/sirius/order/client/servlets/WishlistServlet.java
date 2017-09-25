@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sirius.product.service.main.product.wsdl.ProductBean;
 import com.sirius.product.service.main.product.wsdl.ProductProxy;
+import com.sirius.product.service.main.product.wsdl.ProductSearchDAO;
+import com.sirius.wishlistws.wishlist.wsdl.EmployeeBean;
 import com.sirius.wishlistws.wishlist.wsdl.WishlistDAO;
 
 /**
@@ -39,41 +41,44 @@ public class WishlistServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String action = request.getParameter("action");
-		if(action.equals("addToWishlist")){
-			int id = Integer.parseInt(request.getParameter("id"));
-			int userId = (Integer) request.getSession().getAttribute("activeUserID");
-			WishlistDAO.addToLikeTable(userId, id);
-		}
-		else{
-			//TODO: Fix it so both the product and wishlist are using the same bean
-	        List<com.sirius.wishlistws.wishlist.wsdl.ProductBean> wsProducts = new ArrayList<com.sirius.wishlistws.wishlist.wsdl.ProductBean>();
-	        List<ProductBean> products = new ArrayList<ProductBean>();
-	        ProductProxy ppObj = new ProductProxy();
-	        int employeeId = (Integer) request.getSession().getAttribute(sessionVariables.getString("ACTIVE_USER_ID"));
-	        wsProducts = WishlistDAO.getAllProductsEmployeeLiked(employeeId);
-	        
-	        for(com.sirius.wishlistws.wishlist.wsdl.ProductBean wlObj : wsProducts){
-	        	products.add(ppObj.getProductByID(wlObj.getId()));
-	        }
-	        
-			//request.setAttribute("Products", products);
-			
-			JsonArrayBuilder builder = Json.createArrayBuilder();
-			for (ProductBean product : products) {
-				builder.add(Json.createObjectBuilder()
-						.add("Image", product.getImage())
-						.add("Name", product.getName())
-						.add("ID", product.getId())
-						.add("Price", product.getPrice()));
-			}
-			JsonArray output = builder.build();
+		//String action = request.getParameter("action");
 
-			PrintWriter out = response.getWriter();
-			JsonWriter writer = Json.createWriter(out);
-			writer.writeArray(output);
-			writer.close();
+		//TODO: Fix it so both the product and wishlist are using the same bean
+	    List<com.sirius.wishlistws.wishlist.wsdl.ProductBean> wsProducts = new ArrayList<com.sirius.wishlistws.wishlist.wsdl.ProductBean>();
+	    List<ProductBean> products = new ArrayList<ProductBean>();
+	    int employeeId = (Integer) request.getSession().getAttribute(sessionVariables.getString("ACTIVE_USER_ID"));
+	   
+	    wsProducts = WishlistDAO.getAllProductsEmployeeLiked(employeeId);
+	    
+	    for(com.sirius.wishlistws.wishlist.wsdl.ProductBean wlObj : wsProducts){
+	    	products.add(ProductSearchDAO.getProductByID(wlObj.getId()));
+	    }
+	    
+		request.setAttribute("Products", products);
+		
+		
+		JsonArrayBuilder builder = Json.createArrayBuilder();
+		for (ProductBean record : products)
+		{
+			JsonArrayBuilder likesBuilder = Json.createArrayBuilder();
+			List<EmployeeBean> emps = WishlistDAO.getAllEmployeesWhoLikedProduct(record.getId());
+			for(EmployeeBean emp : emps){
+				likesBuilder.add(emp.getName());
+			}
+			builder.add(Json.createObjectBuilder()
+					.add("Image", record.getImage())
+					.add("Name", record.getName())
+					.add("ID", record.getId())
+					.add("Price", record.getPrice())
+					.add("Likers", likesBuilder));
 		}
+		JsonArray output = builder.build();
+
+		PrintWriter out = response.getWriter();
+		JsonWriter writer = Json.createWriter(out);
+		writer.writeArray(output);
+		writer.close();
+		
 	}
 
 	/**
