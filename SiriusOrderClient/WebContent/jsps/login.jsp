@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width" />
 <title><fmt:message key="LOGIN_TITLE" /></title>
 </head>
-<body>   
+<body>    
 	<header>  
 		<%@ include file="header.jsp" %>
 	</header>  
