@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.etools.webservice.wscbnd:ClientBinding xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.etools.webservice.wscbnd="http://www.ibm.com/websphere/appserver/schemas/5.0.2/wscbnd.xmi" xmi:id="ClientBinding_1506435840653">
+  <serviceRefs xmi:id="ServiceRef_1506435840653" serviceRefLink="service/JaxwsAttendance">
+    <portQnameBindings xmi:id="PortQnameBinding_1506435840653" portQnameNamespaceLink="http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl" portQnameLocalNameLink="Attendance" overriddenEndpointURI="http://localhost:9080/AttendanceWS/JaxwsAttendance"/>
+  </serviceRefs>
+  <serviceRefs xmi:id="ServiceRef_1506437365831" serviceRefLink="service/JaxwsOfficeAdmin">
+    <portQnameBindings xmi:id="PortQnameBinding_1506437365831" portQnameNamespaceLink="http://adminws.sirius.com/officeAdmin/wsdl" portQnameLocalNameLink="officeAdmin" overriddenEndpointURI="http://localhost:9080/AdminWS/JaxwsOfficeAdmin"/>
+  </serviceRefs>
+</com.ibm.etools.webservice.wscbnd:ClientBinding>

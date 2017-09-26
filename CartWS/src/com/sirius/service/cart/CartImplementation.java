@@ -10,7 +10,7 @@ import com.sirius.service.cart.bean.OrderBean;
 import com.sirius.service.cart.database.CartDAO;
 
 @WebService(endpointInterface="com.sirius.service.cart.CartInterface",
-portName="cart", targetNamespace ="http://cart.service.sirius.com/cart/wsdl",
+portName="cart", targetNamespace ="http://generate.service.sirius.com/cart/wsdl",
 serviceName="CartService")
 public class CartImplementation implements CartInterface {
 	
