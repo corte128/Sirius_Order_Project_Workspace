@@ -20,6 +20,21 @@
 	<script type="text/javascript" src="/SiriusOrderClient/js/calcCartTotal.js"></script>
 </head> 
 <body onload="calcTotals()">
+	<div id="cartHeaderContainer">
+		<div id="cartHeaderProductImageContainerColumn" class="cart-product-image-container">
+		</div>
+		<div class="cart-product-name-container">
+		</div>
+		<div class="cart-product-price-container">
+			<fmt:message key="CART_HEADER_PRICE_LABEL" />
+		</div>
+		<div class="cart-product-quantity-container">
+			<fmt:message key="CART_HEADER_QUANTITY_LABEL" />
+		</div>
+		<div class="cart-product-action-container">
+			<fmt:message key="CART_HEADER_ACTIONS_LABEL" />
+		</div>
+	</div>
 	<div id="cartContentRows">
 		<c:if test="${breakroomOrders.size() > 0}">
 			<div class="cart-section-title-container cart-product-color-alternate-container">
