@@ -21,7 +21,7 @@ function calcBreakroomTotals()
 function calcOfficeSuppliesTotals()
 {
 	var prices = document.getElementsByClassName("office-supplies-cart-product-price-container");
-	var quantities = document.getElementsByClassName("office-supplies-cart-product-price-container");
+	var quantities = document.getElementsByClassName("office-supplies-cart-product-quantity-input");
 
 	var totalPrice = 0;
 	var itemTotal = 0;
@@ -39,21 +39,24 @@ function calcOfficeSuppliesTotals()
 
 function calcInkAndTonerTotals()
 {
-	var prices = document.getElementsByClassName("ink-and-toner-cart-product-price-container");
-	var quantities = document.getElementsByClassName("ink-and-toner-supplies-cart-product-price-container");
-
-	var totalPrice = 0;
-	var itemTotal = 0;
-	for(var i = 0; i < prices.length; ++i){
-		var price = prices[i].innerText.slice(1);
-		var quantity = Number(quantities[i].value);
-		totalPrice += price * quantity;
-		itemTotal += quantity;
-	}
-	totalPrice = totalPrice.toFixed(2);
+	if(document.getElementById("inkAndTonerTotalQuantityContainer") != null)
+	{
+		var prices = document.getElementsByClassName("ink-cart-product-price-container");
+		var quantities = document.getElementsByClassName("ink-cart-product-quantity-input");
 	
-	document.getElementById("inkAndTonerTotalQuantityContainer").innerHTML = 'Ink & Toner Total(' + itemTotal + ' items)';
-	document.getElementById("inkAndTonerTotalPriceContainer").innerHTML = '$' + totalPrice;
+		var totalPrice = 0;
+		var itemTotal = 0;
+		for(var i = 0; i < prices.length; ++i){
+			var price = prices[i].innerText.slice(1);
+			var quantity = Number(quantities[i].value);
+			totalPrice += price * quantity;
+			itemTotal += quantity;
+		}
+		totalPrice = totalPrice.toFixed(2);
+		
+		document.getElementById("inkAndTonerTotalQuantityContainer").innerHTML = 'Ink & Toner Total(' + itemTotal + ' items)';
+		document.getElementById("inkAndTonerTotalPriceContainer").innerHTML = '$' + totalPrice;
+	}
 }
 
 function removeFromCart(orderID){
@@ -65,6 +68,7 @@ function removeFromCart(orderID){
 		var productDiv = document.getElementById("cartOrder" + orderID);
 //		var parentDiv = productDiv.parentElement.nodeName;
 		productDiv.parentNode.removeChild(productDiv);
+		calcTotals()
 	};
 	xhttp.send();
 }
@@ -75,3 +79,8 @@ function calcTotals()
 	calcOfficeSuppliesTotals();
 	calcInkAndTonerTotals();
 }
+function showIncludeOrderModal()
+{
+	document.getElementById("includeSavedOrderModal").style.display = 'block';
+}
+

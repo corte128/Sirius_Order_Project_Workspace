@@ -13,6 +13,10 @@
 
   <xs:element name="getAllProductsInCartResponse" type="tns:getAllProductsInCartResponse"/>
 
+  <xs:element name="getAllSavedOrders" type="tns:getAllSavedOrders"/>
+
+  <xs:element name="getAllSavedOrdersResponse" type="tns:getAllSavedOrdersResponse"/>
+
   <xs:element name="getOrderByOrderName" type="tns:getOrderByOrderName"/>
 
   <xs:element name="getOrderByOrderNameResponse" type="tns:getOrderByOrderNameResponse"/>
@@ -32,6 +36,28 @@
   <xs:element name="updateProductQuantityInCart" type="tns:updateProductQuantityInCart"/>
 
   <xs:element name="updateProductQuantityInCartResponse" type="tns:updateProductQuantityInCartResponse"/>
+
+  <xs:complexType name="getAllSavedOrders">
+    <xs:sequence>
+      <xs:element name="locationId" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllSavedOrdersResponse">
+    <xs:sequence>
+      <xs:element name="getAllSavedOrdersReturn" type="tns:orderBean" form="qualified" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="orderBean">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="orderName" type="xs:string" minOccurs="0"/>
+      <xs:element name="productId" type="xs:int"/>
+      <xs:element name="quantity" type="xs:int"/>
+      <xs:element name="totalPrice" type="xs:decimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
 
   <xs:complexType name="saveOrder">
     <xs:sequence>
@@ -81,16 +107,6 @@
   <xs:complexType name="getAllProductsInCartResponse">
     <xs:sequence>
       <xs:element name="getAllProductsInCartReturn" type="tns:orderBean" form="qualified" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="orderBean">
-    <xs:sequence>
-      <xs:element name="id" type="xs:int"/>
-      <xs:element name="orderName" type="xs:string" minOccurs="0"/>
-      <xs:element name="productId" type="xs:int"/>
-      <xs:element name="quantity" type="xs:int"/>
-      <xs:element name="totalPrice" type="xs:decimal" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 

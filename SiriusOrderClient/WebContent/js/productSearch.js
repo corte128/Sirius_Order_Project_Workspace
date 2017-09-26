@@ -24,7 +24,7 @@ function addToCart(productID)
 //		else{
 //			console.log("Results are empty");
 //		}
-		//TO DO alert user
+//		TO DO alert user
 	};
 	xhttp.send();
 }

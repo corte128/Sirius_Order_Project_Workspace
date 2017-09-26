@@ -52,6 +52,12 @@
   <message name="getProductQuantityInCartByProductIdResponse">
     <part element="tns:getProductQuantityInCartByProductIdResponse" name="parameters"/>
   </message>
+  <message name="getAllSavedOrders">
+    <part element="tns:getAllSavedOrders" name="parameters"/>
+  </message>
+  <message name="getAllSavedOrdersResponse">
+    <part element="tns:getAllSavedOrdersResponse" name="parameters"/>
+  </message>
   <portType name="CartService">
     <operation name="addProductToCart">
       <input message="tns:addProductToCart" wsam:Action="addProductToCart"/>
@@ -84,6 +90,10 @@
     <operation name="getProductQuantityInCartByProductId">
       <input message="tns:getProductQuantityInCartByProductId" wsam:Action="getProductQuantityInCartByProductId"/>
       <output message="tns:getProductQuantityInCartByProductIdResponse" wsam:Action="http://cart.service.sirius.com/cart/wsdl/CartService/getProductQuantityInCartByProductIdResponse"/>
+    </operation>
+    <operation name="getAllSavedOrders">
+      <input message="tns:getAllSavedOrders" wsam:Action="getAllSavedOrders"/>
+      <output message="tns:getAllSavedOrdersResponse" wsam:Action="http://cart.service.sirius.com/cart/wsdl/CartService/getAllSavedOrdersResponse"/>
     </operation>
   </portType>
   <binding name="cartBinding" type="tns:CartService">
@@ -153,6 +163,15 @@
     </operation>
     <operation name="getProductQuantityInCartByProductId">
       <soap:operation soapAction="getProductQuantityInCartByProductId"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getAllSavedOrders">
+      <soap:operation soapAction="getAllSavedOrders"/>
       <input>
         <soap:body use="literal"/>
       </input>

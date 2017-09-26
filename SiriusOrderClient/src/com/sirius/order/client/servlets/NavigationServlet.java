@@ -2,7 +2,9 @@ package com.sirius.order.client.servlets;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import javax.servlet.RequestDispatcher;
@@ -212,6 +214,9 @@ public class NavigationServlet extends HttpServlet {
 		List<ProductBean>  officeSuppliesProducts = new ArrayList<ProductBean>();
 		List<ProductBean>  inkAndTonerProducts = new ArrayList<ProductBean>();
 		
+		List<OrderBean> savedOrders = CartServiceDAO.getAllSavedOrders(locationId);
+		Map<String, List<OrderBean>> mapOfList = convertSavedOrdersListToMap(savedOrders);
+		
 		for(OrderBean order : breakroomOrders)
 		{
 			breakroomProducts.add(ProductSearchDAO.getProductByID(order.getProductId()));
@@ -267,6 +272,24 @@ public class NavigationServlet extends HttpServlet {
 	private void generatePDF(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		
+	}
+	
+	private Map<String, List<OrderBean>> convertSavedOrdersListToMap(List<OrderBean> orders){
+		
+		Map<String, List<OrderBean>> mapOfOrders = new HashMap<String, List<OrderBean>>();
+		for(OrderBean order: orders){
+			String orderName = order.getOrderName();
+			if(mapOfOrders.containsKey(orderName)){
+				List<OrderBean> orderInMap = mapOfOrders.get(orderName);
+				orderInMap.add(order);
+				mapOfOrders.put(orderName, orderInMap);
+			}
+			else{
+				List<OrderBean> currentOrders = new ArrayList<OrderBean>();
+				mapOfOrders.put(orderName, currentOrders);
+			}
+		}
+		return mapOfOrders;
 	}
 	
 	/**
