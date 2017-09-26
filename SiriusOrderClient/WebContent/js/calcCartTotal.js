@@ -21,7 +21,7 @@ function calcBreakroomTotals()
 function calcOfficeSuppliesTotals()
 {
 	var prices = document.getElementsByClassName("office-supplies-cart-product-price-container");
-	var quantities = document.getElementsByClassName("office-supplies-cart-product-price-container");
+	var quantities = document.getElementsByClassName("office-supplies-cart-product-quantity-input");
 
 	var totalPrice = 0;
 	var itemTotal = 0;
@@ -39,8 +39,8 @@ function calcOfficeSuppliesTotals()
 
 function calcInkAndTonerTotals()
 {
-	var prices = document.getElementsByClassName("ink-and-toner-cart-product-price-container");
-	var quantities = document.getElementsByClassName("ink-and-toner-supplies-cart-product-price-container");
+	var prices = document.getElementsByClassName("ink-cart-product-price-container");
+	var quantities = document.getElementsByClassName("ink-cart-product-quantity-input");
 
 	var totalPrice = 0;
 	var itemTotal = 0;
@@ -75,3 +75,8 @@ function calcTotals()
 	calcOfficeSuppliesTotals();
 	calcInkAndTonerTotals();
 }
+function showIncludeOrderModal()
+{
+	document.getElementById("includeSavedOrderModal").style.display = 'block';
+}
+
