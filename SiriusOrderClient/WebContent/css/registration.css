@@ -125,7 +125,7 @@ html body{
 		font-size: 1em;
 	}
 	.registration-label{
-		padding-top: 6%;
+		padding-top: 7%;
 		display: inline-block;
 		padding-bottom: 5%;
 	}
@@ -143,6 +143,12 @@ html body{
 	}
 	#location-field{
 		height: 45px;
+	}
+	#password-error{
+		display: none;
+	}
+	.error-div{
+		display: none;
 	}
 }
 @media only screen and (min-width: 800px) {
@@ -191,6 +197,12 @@ html body{
 	}
 	#profile-label{
 		margin-top: 10px;
+	}
+	#password-error{
+		display: none;
+	}
+	.error-div{
+		display: none;
 	}
 }
 

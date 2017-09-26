@@ -24,7 +24,7 @@
 				<br />
 				<label class="registration-label"><fmt:message key="REGISTRATION_NAME_LABEL" /></label>
 				<c:if test="${errorArray.contains('REGISTRATION_NAME_INVALID')}">
-					<div></div>
+					<div class="error-div"></div>
 				</c:if>
 				<br />
 				<label class="registration-label"><fmt:message key="REGISTRATION_EMAIL_LABEL" /></label>
@@ -38,6 +38,7 @@
 				<c:if test="${errorArray.contains('REGISTRATION_PASSWORDS_INVALID')}">
 					<div id="password-error"></div>
 				</c:if>
+				<br/>
 				<label id="profile-label" class="registration-label"><fmt:message key="REGISTRATION_PROFILE_PIC_LABEL" /></label>
 			</div>
 			<div id="registration-inputs-container">
