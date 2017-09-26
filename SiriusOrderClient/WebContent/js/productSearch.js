@@ -29,9 +29,14 @@ function addToCart(productID)
 	xhttp.send();
 }
 
+ function simpleAlert(){
+	console.log("THIS IS BROKE");
+	alert("this one is working");
+}
+
 function selectedOption(value)
 {
-	alert(value);
+	alert("something is working");
 	$("#category").val(value);
 }
 
@@ -162,6 +167,14 @@ function addToWishlist(productID){
 		var numOfEmps = response.length;
 		var likesContainer = document.getElementById('numOfLikes' + productID);
 		likesContainer.innerHTML = numOfEmps;
+		
+		var likesModal = document.getElementById("likesModal" + productID);
+		likesModal.innerHTML = '';
+		for(key in response){
+			var innerModalDiv = document.createElement("div");
+			innerModalDiv.innerHTML = response[key];
+			likesModal.appendChild(innerModalDiv);
+		}
 	};
 	xhttp.send();
 }

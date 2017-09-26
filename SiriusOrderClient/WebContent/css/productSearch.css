@@ -12,6 +12,7 @@ select {
 
 .searchContainer{
 	margin-left: 20%;
+	padding-top: 5px;
 }
 
 .searchBar{
@@ -48,3 +49,14 @@ select {
 .clickable-like{
 	cursor: pointer;
 }
+
+.price-tag{
+	color: #FF241B;
+	display: inline-block;
+	padding-left: 10px;
+}
+
+.num-of-likes{
+	display: inline-block;
+}
+
