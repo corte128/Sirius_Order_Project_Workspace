@@ -655,7 +655,7 @@ public class CartDAOImplementation {
 	public static int getProductQuantityInCartByProductId(int locationId, int productId, Connection conn) throws NamingException, SQLException
 	{
 		PreparedStatement statement = null;
-		List<OrderBean> orders = new ArrayList<OrderBean>();
+//		List<OrderBean> orders = new ArrayList<OrderBean>();
 		ResultSet results = null;
 		String orderQuery = queries.getString("GET_PRODUCT_IN_CART_BY_ID");
 
@@ -696,5 +696,54 @@ public class CartDAOImplementation {
 				DBConnection.closeResultSet(results);
 			}
 		}
+	}
+	
+	public static List<OrderBean> getAllSavedOrders(int locationId, Connection conn) throws SQLException{
+		//GET_SAVED_ORDERS
+		String orderQuery = queries.getString("GET_SAVED_ORDERS");
+		PreparedStatement statement = null;
+		List<OrderBean> orderList = new ArrayList<OrderBean>();
+
+		ResultSet results = null;
+		
+		try {
+			logger.log(Level.FINE, "Preparing to execute order query: ");
+			logger.log(Level.FINE, "   " + orderQuery);
+			// setting budget to the table
+			try {
+				statement = conn.prepareStatement(orderQuery);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			statement.setInt(1, locationId);
+			logger.log(Level.FINE,
+					"Setting the order based on the paramaters: ");
+			logger.log(Level.FINE, "   int: " + locationId);
+			// executing creation statement
+			results = statement.executeQuery();
+			
+			while(results.next()){
+				OrderBean order = new OrderBean();
+				order.setId(results.getInt("order_id_pk"));
+				order.setOrderName(results.getString("order_name"));
+				order.setProductId(results.getInt("product_id_fk"));
+				order.setTotalPrice(results.getBigDecimal("total_price"));
+				order.setQuantity(results.getInt("quantity"));
+				orderList.add(order);
+			}
+			logger.log(Level.FINE,"products acquired");
+		}
+		finally {
+			if (statement != null) {
+				DBConnection.closePreparedStatement(statement);
+			}
+			if (results != null){
+				DBConnection.closeResultSet(results);
+			}
+		}
+		
+		return orderList;
+		
 	}
 }

@@ -178,4 +178,19 @@ public interface CartService {
         @WebParam(name = "productId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
         int productId);
 
+    /**
+     * 
+     * @param locationId
+     * @return
+     *     returns java.util.List<com.sirius.service.cart.cart.wsdl.OrderBean>
+     */
+    @WebMethod(action = "getAllSavedOrders")
+    @WebResult(name = "getAllSavedOrdersReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+    @RequestWrapper(localName = "getAllSavedOrders", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.cart.wsdl.GetAllSavedOrders")
+    @ResponseWrapper(localName = "getAllSavedOrdersResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.cart.wsdl.GetAllSavedOrdersResponse")
+    @Action(input = "getAllSavedOrders", output = "http://cart.service.sirius.com/cart/wsdl/CartService/getAllSavedOrdersResponse")
+    public List<OrderBean> getAllSavedOrders(
+        @WebParam(name = "locationId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+        int locationId);
+
 }

@@ -1,10 +1,13 @@
 package com.sirius.order.client.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import javax.json.Json;
+import javax.json.JsonWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -43,9 +46,37 @@ public class CartServlet extends HttpServlet {
 		//order id
 		String action = request.getParameter("action");
     	int userId = (Integer) request.getSession().getAttribute("activeUserID");
+		int locationId = (Integer) request.getSession().getAttribute("activeUserLocation");
+		
 		if(action.equals("removeFromCart")){
 	    	int orderId = Integer.parseInt(request.getParameter("orderId"));
 			CartServiceDAO.removeProductFromCart(orderId, userId);
+		}
+		else if(action.equals("saveOrder")){
+			PrintWriter out = response.getWriter();
+			int output = 0;
+			if(!request.getParameter("orderName").trim().equalsIgnoreCase("cart")){
+				//reject
+				String orderName = request.getParameter("Name");
+				BudgetBean budget = new BudgetBean();
+				budget.setLocationId(locationId);
+				budget.setBudgetAllotted(new BigDecimal(1000));
+				budget.setBudgetRecommended(new BigDecimal(1000));
+				
+				GregorianCalendar gCal = new GregorianCalendar();
+				gCal.setTime(new Date());
+
+				XMLGregorianCalendar calendar = null;
+				try {
+					calendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(gCal);
+				} catch (DatatypeConfigurationException e) {
+					e.printStackTrace();
+				}
+				budget.setBudgetDate(calendar);
+				CartServiceDAO.saveOrder(orderName, budget, locationId, userId);
+				output = 1;
+			}
+			out.write(output);
 		}
 		else{
 			String quantity = request.getParameter("quantity");
@@ -55,14 +86,12 @@ public class CartServlet extends HttpServlet {
 			orderBean.setProductId(productId);
 			ProductBean bean = ProductSearchDAO.getProductByID(productId);
 			int count = 0;
-			int locationId = 0;
 			if (quantity.equals("")){
 				quantity = "1";
 			}
 			int quantityInt = Integer.parseInt(quantity);
 			//=========================
 	    	//activeUserLocation
-			locationId = (Integer) request.getSession().getAttribute("activeUserLocation");
 			count = CartServiceDAO.getProductQuantityInCartByProductId(locationId, productId);
 			if(count == 0){
 				orderBean.setQuantity(quantityInt);
@@ -77,7 +106,7 @@ public class CartServlet extends HttpServlet {
 			BudgetBean budget = new BudgetBean();
 			budget.setBudgetAllotted(new BigDecimal(1000));
 			budget.setBudgetRecommended(new BigDecimal(800));
-			budget.setLocationId(1);
+			budget.setLocationId(locationId);
 			
 			GregorianCalendar gCal = new GregorianCalendar();
 			gCal.setTime(new Date());

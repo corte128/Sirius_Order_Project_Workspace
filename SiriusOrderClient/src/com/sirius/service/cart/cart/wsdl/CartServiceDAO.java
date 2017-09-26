@@ -45,4 +45,9 @@ public class CartServiceDAO
 		CartProxy client = new CartProxy();
 		return client.getProductQuantityInCartByProductId(locationId, productId);
 	}
+	
+	public static List<OrderBean> getAllSavedOrders(int locationId){
+		CartProxy client = new CartProxy();
+		return client.getAllSavedOrders(locationId);
+	}
 }

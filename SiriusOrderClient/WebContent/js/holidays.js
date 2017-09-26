@@ -17,19 +17,18 @@ $(function ()
             	btsCss: { 'width': '30px' }, 
             	btnAttr: { title: 'Save Entry' }, 
             	btnClass: 'save_button',
-            	atTheFront: true },
+            	atTheFront: true 
+            },
             { 
             	uiButton: { label: 'Delete' }, 
             	click: deleteEntry, 
             	btsCss: { 'width': '30px' }, 
             	btnAttr: { title: 'Delete Entry' }, 
-            	btnClass: 'delete_button',
-            	atTheFront: true }
+            	btnClass: 'delete_button'
+            }
         ],
         customGridButtons: {
-        	append: $('<button></button>').text('Add').get(0),
-        	save_button: $('<button></button>').text('Save').get(0),
-        	delete_button: $('<button></button>').text('Delete').get(0)
+        	append: $('<button></button>').text('Add').get(0)
         },
         hideButtons: {
         	removeLast: true,

@@ -78,7 +78,6 @@ public class ProductSearchServlet extends HttpServlet {
 			writer.writeArray(output);
 			writer.close();
 			
-			
 		}
 		else{
 	        String name = request.getParameter("search");
