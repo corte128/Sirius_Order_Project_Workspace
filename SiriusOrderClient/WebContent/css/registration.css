@@ -78,8 +78,9 @@ html body{
 		padding-bottom: 9%;
 	}
 	#registration-button{
-		position: absolute;
-		right: 23px;
+		position: relative;
+		float: right;
+		margin-right: 23px;
 	}
 	.error{
 		margin-top: -5px;
@@ -89,10 +90,13 @@ html body{
 		overflow: hidden;
 	}
 	#password-error{
-		height: 15px;
+		
 	}
 	.error-above-register{
 		height: 15px;
+	}
+	#email-error-spacing{
+		
 	}
 }
 @media only screen and (min-width: 768px) {
@@ -150,6 +154,9 @@ html body{
 	.error-div{
 		display: none;
 	}
+	#email-error-spacing{
+		display: none !important;
+	}
 }
 @media only screen and (min-width: 800px) {
 	body{
@@ -203,6 +210,9 @@ html body{
 	}
 	.error-div{
 		display: none;
+	}
+	#email-error-spacing{
+		display: none !important;
 	}
 }
 
