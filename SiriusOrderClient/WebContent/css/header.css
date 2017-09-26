@@ -5,6 +5,11 @@ body {
 a{
 	text-decoration: none;
 }
+
+.headerRight a:hover{
+	text-decoration: underline;
+	color:rgb(43,91,133);
+}
 .spacerDiv{
  height: 50px;
  display: none;
