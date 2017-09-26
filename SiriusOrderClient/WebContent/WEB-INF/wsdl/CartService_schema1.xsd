@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><xs:schema targetNamespace="http://cart.service.sirius.com/cart/wsdl" version="1.0" xmlns:tns="http://cart.service.sirius.com/cart/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://cart.service.sirius.com/cart/wsdl" xmlns:tns="http://cart.service.sirius.com/cart/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
   <xs:element name="addProductToCart" type="tns:addProductToCart"/>
 
@@ -11,6 +12,10 @@
   <xs:element name="getAllProductsInCartByProductTypeResponse" type="tns:getAllProductsInCartByProductTypeResponse"/>
 
   <xs:element name="getAllProductsInCartResponse" type="tns:getAllProductsInCartResponse"/>
+
+  <xs:element name="getAllSavedOrders" type="tns:getAllSavedOrders"/>
+
+  <xs:element name="getAllSavedOrdersResponse" type="tns:getAllSavedOrdersResponse"/>
 
   <xs:element name="getOrderByOrderName" type="tns:getOrderByOrderName"/>
 
@@ -32,20 +37,42 @@
 
   <xs:element name="updateProductQuantityInCartResponse" type="tns:updateProductQuantityInCartResponse"/>
 
+  <xs:complexType name="getAllSavedOrders">
+    <xs:sequence>
+      <xs:element name="locationId" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllSavedOrdersResponse">
+    <xs:sequence>
+      <xs:element name="getAllSavedOrdersReturn" type="tns:orderBean" form="qualified" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="orderBean">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="orderName" type="xs:string" minOccurs="0"/>
+      <xs:element name="productId" type="xs:int"/>
+      <xs:element name="quantity" type="xs:int"/>
+      <xs:element name="totalPrice" type="xs:decimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="saveOrder">
     <xs:sequence>
-      <xs:element form="qualified" minOccurs="0" name="orderName" type="xs:string"/>
-      <xs:element form="qualified" minOccurs="0" name="budget" type="tns:budgetBean"/>
-      <xs:element form="qualified" name="locationId" type="xs:int"/>
-      <xs:element form="qualified" name="createdBy" type="xs:int"/>
+      <xs:element name="orderName" type="xs:string" form="qualified" minOccurs="0"/>
+      <xs:element name="budget" type="tns:budgetBean" form="qualified" minOccurs="0"/>
+      <xs:element name="locationId" type="xs:int" form="qualified"/>
+      <xs:element name="createdBy" type="xs:int" form="qualified"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="budgetBean">
     <xs:sequence>
-      <xs:element minOccurs="0" name="budgetAllotted" type="xs:decimal"/>
-      <xs:element minOccurs="0" name="budgetDate" type="xs:dateTime"/>
-      <xs:element minOccurs="0" name="budgetRecommended" type="xs:decimal"/>
+      <xs:element name="budgetAllotted" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="budgetDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="budgetRecommended" type="xs:decimal" minOccurs="0"/>
       <xs:element name="id" type="xs:int"/>
       <xs:element name="locationId" type="xs:int"/>
       <xs:element name="orderId" type="xs:int"/>
@@ -54,110 +81,101 @@
 
   <xs:complexType name="saveOrderResponse">
     <xs:sequence>
-      <xs:element form="qualified" name="saveOrderReturn" type="xs:boolean"/>
+      <xs:element name="saveOrderReturn" type="xs:boolean" form="qualified"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="removeProductFromCart">
     <xs:sequence>
-      <xs:element form="qualified" name="orderId" type="xs:int"/>
-      <xs:element form="qualified" name="updatedBy" type="xs:int"/>
+      <xs:element name="orderId" type="xs:int" form="qualified"/>
+      <xs:element name="updatedBy" type="xs:int" form="qualified"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="removeProductFromCartResponse">
     <xs:sequence>
-      <xs:element form="qualified" name="removeProductFromCartReturn" type="xs:boolean"/>
+      <xs:element name="removeProductFromCartReturn" type="xs:boolean" form="qualified"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="getAllProductsInCart">
     <xs:sequence>
-      <xs:element form="qualified" name="locationId" type="xs:int"/>
+      <xs:element name="locationId" type="xs:int" form="qualified"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="getAllProductsInCartResponse">
     <xs:sequence>
-      <xs:element form="qualified" maxOccurs="unbounded" minOccurs="0" name="getAllProductsInCartReturn" type="tns:orderBean"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="orderBean">
-    <xs:sequence>
-      <xs:element name="id" type="xs:int"/>
-      <xs:element minOccurs="0" name="orderName" type="xs:string"/>
-      <xs:element name="productId" type="xs:int"/>
-      <xs:element name="quantity" type="xs:int"/>
-      <xs:element minOccurs="0" name="totalPrice" type="xs:decimal"/>
+      <xs:element name="getAllProductsInCartReturn" type="tns:orderBean" form="qualified" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="updateProductQuantityInCart">
     <xs:sequence>
-      <xs:element form="qualified" name="locationId" type="xs:int"/>
-      <xs:element form="qualified" name="quantity" type="xs:int"/>
-      <xs:element form="qualified" name="productId" type="xs:int"/>
-      <xs:element form="qualified" name="updatedBy" type="xs:int"/>
+      <xs:element name="locationId" type="xs:int" form="qualified"/>
+      <xs:element name="quantity" type="xs:int" form="qualified"/>
+      <xs:element name="productId" type="xs:int" form="qualified"/>
+      <xs:element name="updatedBy" type="xs:int" form="qualified"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="updateProductQuantityInCartResponse">
     <xs:sequence>
-      <xs:element form="qualified" name="updateProductQuantityInCartReturn" type="xs:boolean"/>
+      <xs:element name="updateProductQuantityInCartReturn" type="xs:boolean" form="qualified"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="addProductToCart">
     <xs:sequence>
-      <xs:element form="qualified" minOccurs="0" name="order" type="tns:orderBean"/>
-      <xs:element form="qualified" minOccurs="0" name="budget" type="tns:budgetBean"/>
-      <xs:element form="qualified" name="createdBy" type="xs:int"/>
+      <xs:element name="order" type="tns:orderBean" form="qualified" minOccurs="0"/>
+      <xs:element name="budget" type="tns:budgetBean" form="qualified" minOccurs="0"/>
+      <xs:element name="createdBy" type="xs:int" form="qualified"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="addProductToCartResponse">
     <xs:sequence>
-      <xs:element form="qualified" name="addProductToCartReturn" type="xs:boolean"/>
+      <xs:element name="addProductToCartReturn" type="xs:boolean" form="qualified"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="getProductQuantityInCartByProductId">
     <xs:sequence>
-      <xs:element form="qualified" name="locationId" type="xs:int"/>
-      <xs:element form="qualified" name="productId" type="xs:int"/>
+      <xs:element name="locationId" type="xs:int" form="qualified"/>
+      <xs:element name="productId" type="xs:int" form="qualified"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="getProductQuantityInCartByProductIdResponse">
     <xs:sequence>
-      <xs:element form="qualified" name="getProductQuantityInCartByProductIdReturn" type="xs:int"/>
+      <xs:element name="getProductQuantityInCartByProductIdReturn" type="xs:int" form="qualified"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="getOrderByOrderName">
     <xs:sequence>
-      <xs:element form="qualified" minOccurs="0" name="orderName" type="xs:string"/>
-      <xs:element form="qualified" name="locationId" type="xs:int"/>
+      <xs:element name="orderName" type="xs:string" form="qualified" minOccurs="0"/>
+      <xs:element name="locationId" type="xs:int" form="qualified"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="getOrderByOrderNameResponse">
     <xs:sequence>
-      <xs:element form="qualified" maxOccurs="unbounded" minOccurs="0" name="getOrderByOrderNameReturn" type="tns:orderBean"/>
+      <xs:element name="getOrderByOrderNameReturn" type="tns:orderBean" form="qualified" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="getAllProductsInCartByProductType">
     <xs:sequence>
-      <xs:element form="qualified" name="locationId" type="xs:int"/>
-      <xs:element form="qualified" minOccurs="0" name="productType" type="xs:string"/>
+      <xs:element name="locationId" type="xs:int" form="qualified"/>
+      <xs:element name="productType" type="xs:string" form="qualified" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="getAllProductsInCartByProductTypeResponse">
     <xs:sequence>
-      <xs:element form="qualified" maxOccurs="unbounded" minOccurs="0" name="getAllProductsInCartByProductTypeReturn" type="tns:orderBean"/>
+      <xs:element name="getAllProductsInCartByProductTypeReturn" type="tns:orderBean" form="qualified" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
+

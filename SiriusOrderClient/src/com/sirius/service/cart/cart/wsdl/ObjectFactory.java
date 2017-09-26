@@ -29,8 +29,8 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _UpdateProductQuantityInCartResponse_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "updateProductQuantityInCartResponse");
-    private final static QName _UpdateProductQuantityInCart_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "updateProductQuantityInCart");
     private final static QName _RemoveProductFromCartResponse_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "removeProductFromCartResponse");
+    private final static QName _UpdateProductQuantityInCart_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "updateProductQuantityInCart");
     private final static QName _GetAllProductsInCartResponse_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "getAllProductsInCartResponse");
     private final static QName _RemoveProductFromCart_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "removeProductFromCart");
     private final static QName _GetAllProductsInCart_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "getAllProductsInCart");
@@ -38,6 +38,8 @@ public class ObjectFactory {
     private final static QName _SaveOrder_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "saveOrder");
     private final static QName _GetAllProductsInCartByProductTypeResponse_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "getAllProductsInCartByProductTypeResponse");
     private final static QName _GetAllProductsInCartByProductType_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "getAllProductsInCartByProductType");
+    private final static QName _GetAllSavedOrdersResponse_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "getAllSavedOrdersResponse");
+    private final static QName _GetAllSavedOrders_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "getAllSavedOrders");
     private final static QName _GetOrderByOrderNameResponse_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "getOrderByOrderNameResponse");
     private final static QName _GetProductQuantityInCartByProductIdResponse_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "getProductQuantityInCartByProductIdResponse");
     private final static QName _AddProductToCartResponse_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "addProductToCartResponse");
@@ -50,6 +52,22 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link GetAllSavedOrders }
+     * 
+     */
+    public GetAllSavedOrders createGetAllSavedOrders() {
+        return new GetAllSavedOrders();
+    }
+
+    /**
+     * Create an instance of {@link GetAllSavedOrdersResponse }
+     * 
+     */
+    public GetAllSavedOrdersResponse createGetAllSavedOrdersResponse() {
+        return new GetAllSavedOrdersResponse();
     }
 
     /**
@@ -206,21 +224,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateProductQuantityInCart }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://cart.service.sirius.com/cart/wsdl", name = "updateProductQuantityInCart")
-    public JAXBElement<UpdateProductQuantityInCart> createUpdateProductQuantityInCart(UpdateProductQuantityInCart value) {
-        return new JAXBElement<UpdateProductQuantityInCart>(_UpdateProductQuantityInCart_QNAME, UpdateProductQuantityInCart.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link RemoveProductFromCartResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://cart.service.sirius.com/cart/wsdl", name = "removeProductFromCartResponse")
     public JAXBElement<RemoveProductFromCartResponse> createRemoveProductFromCartResponse(RemoveProductFromCartResponse value) {
         return new JAXBElement<RemoveProductFromCartResponse>(_RemoveProductFromCartResponse_QNAME, RemoveProductFromCartResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdateProductQuantityInCart }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cart.service.sirius.com/cart/wsdl", name = "updateProductQuantityInCart")
+    public JAXBElement<UpdateProductQuantityInCart> createUpdateProductQuantityInCart(UpdateProductQuantityInCart value) {
+        return new JAXBElement<UpdateProductQuantityInCart>(_UpdateProductQuantityInCart_QNAME, UpdateProductQuantityInCart.class, null, value);
     }
 
     /**
@@ -284,6 +302,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://cart.service.sirius.com/cart/wsdl", name = "getAllProductsInCartByProductType")
     public JAXBElement<GetAllProductsInCartByProductType> createGetAllProductsInCartByProductType(GetAllProductsInCartByProductType value) {
         return new JAXBElement<GetAllProductsInCartByProductType>(_GetAllProductsInCartByProductType_QNAME, GetAllProductsInCartByProductType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllSavedOrdersResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cart.service.sirius.com/cart/wsdl", name = "getAllSavedOrdersResponse")
+    public JAXBElement<GetAllSavedOrdersResponse> createGetAllSavedOrdersResponse(GetAllSavedOrdersResponse value) {
+        return new JAXBElement<GetAllSavedOrdersResponse>(_GetAllSavedOrdersResponse_QNAME, GetAllSavedOrdersResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllSavedOrders }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cart.service.sirius.com/cart/wsdl", name = "getAllSavedOrders")
+    public JAXBElement<GetAllSavedOrders> createGetAllSavedOrders(GetAllSavedOrders value) {
+        return new JAXBElement<GetAllSavedOrders>(_GetAllSavedOrders_QNAME, GetAllSavedOrders.class, null, value);
     }
 
     /**
