@@ -216,11 +216,6 @@ public class NavigationServlet extends HttpServlet {
 		
 		List<OrderBean> savedOrders = CartServiceDAO.getAllSavedOrders(locationId);
 		Map<String, List<OrderBean>> mapOfList = convertSavedOrdersListToMap(savedOrders);
-		int iterator = 1;
-		for(Map.Entry<String, List<OrderBean>> str : mapOfList.entrySet()){
-			System.out.println(iterator + ") " + str);
-			iterator++;
-		}
 		
 		for(OrderBean order : breakroomOrders)
 		{
