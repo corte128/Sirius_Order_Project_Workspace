@@ -5,16 +5,15 @@ $(function ()
     {
         initRows: 1,
         columns: [
-            { name: 'FederalHoliday', display: 'Federal Holiday', type: 'text', ctrlAttr: { maxlength: 100 }, ctrlCss: { width: '160px'} },
-            { name: 'Date', display: 'Date', type: 'date', ctrlAttr: { maxlength: 100 }, ctrlCss: { width: '130px'} },
-            { name: 'DayofWeek', display: 'Day of Week', type: 'text', ctrlAttr: { maxlength: 10 }, ctrlCss: { width: '100px'} },
+            { name: 'FederalHoliday', display: 'Federal Holiday', type: 'text', ctrlAttr: { maxlength: 100 }, ctrlCss: { width: '100%'} },
+            { name: 'Date', display: 'Date', type: 'date', ctrlAttr: { maxlength: 50 }, ctrlCss: { width: '100%'} },
+            { name: 'DayofWeek', display: 'Day of Week', type: 'text', ctrlAttr: { maxlength: 50 }, ctrlCss: { width: '100%'} },
             { name: 'ID', type: 'hidden', value: 0 }
         ],
         customRowButtons: [
             { 
             	uiButton: { label: 'Save' },
             	click: saveEntry, 
-            	btsCss: { 'width': '30px' }, 
             	btnAttr: { title: 'Save Entry' }, 
             	btnClass: 'save_button',
             	atTheFront: true 
@@ -22,13 +21,26 @@ $(function ()
             { 
             	uiButton: { label: 'Delete' }, 
             	click: deleteEntry, 
-            	btsCss: { 'width': '30px' }, 
             	btnAttr: { title: 'Delete Entry' }, 
             	btnClass: 'delete_button'
             }
         ],
         customGridButtons: {
-        	append: $('<button></button>').text('Add').get(0)
+        	append: $('<button></button>').text('Add').get(0),
+        	delete_button: function(){
+        		var button = document.createElement('div');
+        		button.type = 'button';
+        		button.innerHTML = 'Delete';
+        		return button;
+        	},
+        	save_button: function () {
+                var div = document.createElement('div');
+                div.innerHTML = 'v';
+                div.style.padding = '2px 12px 2px 12px';
+                div.style.backgroundColor = '#ff9999';
+                div.style.display = 'inline';
+                return div;
+        	}
         },
         hideButtons: {
         	removeLast: true,
