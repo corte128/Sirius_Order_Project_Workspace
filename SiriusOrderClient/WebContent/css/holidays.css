@@ -5,6 +5,11 @@
 #holidays-table{
 	flex: 9;
 }
+td.ui-widget-header{
+	border: none;
+	background: #5F6060;
+	border-right: grey solid 1px;
+}
 aside{
 	flex: 0;
 }
@@ -48,4 +53,21 @@ button.append, button.removeLast, button.remove, button.moveUp
 }
 #tblAppendGrid{
 	width: 100%;
+}
+thead.ui-widget-header{
+	border: none;
+}
+#tblAppendGrid_FederalHoliday_td_head, #tblAppendGrid_Date_td_head, #tblAppendGrid_DayofWeek_td_head{
+	padding-left: 5px;
+	font-family: serif;
+	color: lightgrey;
+}
+.ui-widget-content tr {
+	border-bottom: #5F6060 solid 2px;
+}
+tfoot.ui-widget-header{
+	border: none;
+}
+#tblAppendGrid_footer_td{
+	background-color: #F2F2F2;
 }
