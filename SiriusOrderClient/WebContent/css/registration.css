@@ -78,8 +78,9 @@ html body{
 		padding-bottom: 9%;
 	}
 	#registration-button{
-		position: absolute;
-		right: 23px;
+		position: relative;
+		float: right;
+		margin-right: 23px;
 	}
 	.error{
 		margin-top: -5px;
