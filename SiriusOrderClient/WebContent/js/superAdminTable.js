@@ -5,40 +5,77 @@ app.controller('superAdminCtrl', [
 		'$http',
 		'$q',
 		function($scope, $http, $q) {
+			var locationHeaderCellTemplate = '<div class="ngHeaderSortColumn ngHeaderSortColumnLocation {{col.headerClass}}" ng-style="{cursor: col.cursor}" ng-class="{ ngSorted: !noSortVisible }">'+
+            '<div ng-click="col.sort($event)" ng-class="\'colt\' + col.index" class="ngHeaderText">{{col.displayName}}</div>'+
+            '<div class="ngSortButtonDown" ng-show="col.showSortButtonDown()"></div>'+
+            '<div class="ngSortButtonUp" ng-show="col.showSortButtonUp()"></div>'+
+            '<div class="ngSortPriority">{{col.sortPriority}}</div>'+
+          '</div>'+
+          '<div ng-show="col.resizable" class="ngHeaderGrip" ng-click="col.gripClick($event)" ng-mousedown="col.gripOnMouseDown($event)"></div>';
+			
+			var nameHeaderCellTemplate = '<div class="ngHeaderSortColumn ngHeaderSortColumnName {{col.headerClass}}" ng-style="{cursor: col.cursor}" ng-class="{ ngSorted: !noSortVisible }">'+
+            '<div ng-click="col.sort($event)" ng-class="\'colt\' + col.index" class="ngHeaderText">{{col.displayName}}</div>'+
+            '<div class="ngSortButtonDown" ng-show="col.showSortButtonDown()"></div>'+
+            '<div class="ngSortButtonUp" ng-show="col.showSortButtonUp()"></div>'+
+            '<div class="ngSortPriority">{{col.sortPriority}}</div>'+
+          '</div>'+
+          '<div ng-show="col.resizable" class="ngHeaderGrip" ng-click="col.gripClick($event)" ng-mousedown="col.gripOnMouseDown($event)"></div>';
+			
+			var locationRowTemplate = '<input hidden name="locationIds" value=\'{{row.entity["Location Id"]}}\'></input>' +
+			'<div>{{row.entity.Location}}</div>';
+			
+			var rowTemplate = '<div ng-style="{\'cursor\': row.cursor, \'z-index\': col.zIndex() }" ng-repeat="col in renderedColumns" ng-class="col.colIndex()" class="ngCell {{col.cellClass}}" ng-cell></div>';
+			
 			$scope.gridOptions = {
 					data : [],
+					rowHeight: 45,
 					columnDefs : [
-//			                {
-//			            	    name : 'Location Id',
-//			            	    cellTemplate: '<div class="ui-grid-cell-contents"> <input name="locationIds" value=\'{{row.entity["Location Id"]}}\'></input></div>'
-//			                },
 							{
 								name : 'Location',
 								width : 125,
-								cellTemplate: '<div class="ui-grid-cell-contents"> <input hidden name="locationIds" value=\'{{row.entity["Location Id"]}}\'></input><div class="location-row-title">{{row.entity.Location}}</div></div>',
+								
+								cellClass: 'location-row',
+								headerCellTemplate: locationHeaderCellTemplate,
+								cellTemplate: locationRowTemplate,
 								pinnedLeft : true
 							},
 							{
 								name : 'Admin Name',
-								width : 125
+								headerCellTemplate: nameHeaderCellTemplate,
+								width : 125,
+								cellClass: 'name-row'
+								//cellTemplate:'<div class="name-row"> {{row.entity["Admin Name"]}} </div>'
 							},
 							{
 								name : 'Admin Email',
-								width : 125
+								headerCellTemplate: nameHeaderCellTemplate,
+								width : 125,
+								cellClass: 'name-row'
+								//cellTemplate:'<div class="name-row"> {{row.entity["Admin Email"]}} </div>'
 							},
 							{
 								name : 'No of Employees',
-								width : 125
+								headerCellTemplate: nameHeaderCellTemplate,
+								width : 125,
+								cellClass: 'name-row'
+								//cellTemplate:'<div class="name-row"> {{row.entity["No of Employees"]}} </div>'
 							},
 							{
 								name : 'Recommended Budget',
-								width : 125
-								//cellTemplate : '<div class="ui-grid-cell-contents"><input type="text" class="super-admin-input" value=\'{{row.entity["Recommended Budget"]}}\'/></div>'
+								headerCellTemplate: nameHeaderCellTemplate,
+								width : 125,
+								cellFilter: 'currency',
+								cellClass: 'name-row'
+								//cellTemplate:'<div class="name-row"> {{row.entity["Recommended Budget"]}} </div>'
+								
 							},
 							{
 								name : 'Allotted Budget',
+								headerCellTemplate: nameHeaderCellTemplate,
 								width : 100,
-								cellTemplate : '<div class="ui-grid-cell-contents"><input type="text" class="super-admin-input" name="budgetAllotted" value=\'{{row.entity["Allotted Budget"]}}\'/></div>'
+								cellClass: 'name-row',
+								cellFilter: 'currency',
+								cellTemplate : '<span style="float:left">$</span> <input class="allotted-budget-input" type="text" class="super-admin-input" name="budgetAllotted" value=\'{{row.entity["Allotted Budget"]}}\'/>'
 							} ]
 				};
 
@@ -59,7 +96,7 @@ $(document).ready(function(){
 		officeData = data;
 		console.log(officeData);
 		$.typeahead({
-		    input: '.office-admin-input',
+		    input: '.super-admin-input',
 		    order: "desc",
 		    source: {
 		    	data: officeData

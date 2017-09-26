@@ -23,14 +23,21 @@
 			<div id="registration-labels">
 				<br />
 				<label class="registration-label"><fmt:message key="REGISTRATION_NAME_LABEL" /></label>
+				<c:if test="${errorArray.contains('REGISTRATION_NAME_INVALID')}">
+					<div></div>
+				</c:if>
 				<br />
 				<label class="registration-label"><fmt:message key="REGISTRATION_EMAIL_LABEL" /></label>
+				<div id="email-error-spacing"></div>
 				<br />
 				<label class="registration-label"><fmt:message key="REGISTRATION_LOCATION_LABEL" /></label>
 				<br />
 				<label class="registration-label"><fmt:message key="REGISTRATION_PASSWORD_LABEL" /></label>
 				<br />
 				<label class="registration-label"><fmt:message key="REGISTRATION_CONFIRM_PASSWORD_LABEL" /></label>
+				<c:if test="${errorArray.contains('REGISTRATION_PASSWORDS_INVALID')}">
+					<div></div>
+				</c:if>
 				<br />
 				<label class="registration-label"><fmt:message key="REGISTRATION_PROFILE_PIC_LABEL" /></label>
 			</div>
@@ -39,22 +46,22 @@
 					<html:form action="/Registration" enctype="multipart/form-data">
 						<input class="registration-field" required type="text" name="name" />
 						<c:if test="${errorArray.contains('REGISTRATION_NAME_INVALID')}">
-							<label class="error">
+							<span class="error">
 								<fmt:message key="REGISTRATION_NAME_INVALID" />
-							</label>
+							</span>
 						</c:if>
 						<br />
 						<input id="registration-email" onblur="checkEmail()" class="registration-field" required type="email" name="email" />
 						<label id="email-taken-error" class="error"><fmt:message key="REGISTRATION_EMAIL_TAKEN" /></label>
 						<c:if test="${errorArray.contains('REGISTRATION_EMAIL_INVALID')}">
-							<label class="error">
+							<span class="error">
 								<fmt:message key="REGISTRATION_EMAIL_INVALID" />
-							</label>
+							</span>
 						</c:if>
 						<br />
 						<select id="location-field" class="registration-field" name="location">
 							<c:forEach var="loc" items="${sessionScope.locations}">
-								<option value="${loc.getId()}">${loc.getCity()}, ${loc.getState()}</option>
+								<option class="location-object" value="${loc.getId()}">${loc.getCity()}, ${loc.getState()}</option>
 							</c:forEach>
 						</select>
 						<br />
@@ -62,12 +69,14 @@
 						<br />
 						<input class="registration-field" required type="password" name="confirm_password" />
 						<c:if test="${errorArray.contains('REGISTRATION_PASSWORDS_INVALID')}"> 
-							<label class="error">
+							<span class="error">
 								<fmt:message key="REGISTRATION_PASSWORDS_INVALID" />
-							</label>
+							</span>
 						</c:if>
 						<br />
-						<html:file styleId="photo-field" name="RegistrationForm" property="photo" />
+						<label id="browse-button" for="photo-field">Browse</label>
+						<span id="chosen-file"></span>
+						<input type="file" id="photo-field" onchange="changeFileName()" name="photo" style="display: none"/>
 						<br />
 						<html:submit styleId="registration-button" value="Register" />
 					</html:form>
