@@ -61,50 +61,19 @@ public class GenerateDAO {
 					numberOfHolidays++;
 				}
 			}
-			
+			conn = DBConnection.getConnection();
 			//gets the visitors for the week
 			numberOfEmployees += GenerateDAOImplementation.getNumberOfVisitors(conn, locationId, beginningOfWeek.toString(), endOfWeek.toString());
 			
-			//checks for holidays
-			conn = DBConnection.getConnection();
-			conn.setAutoCommit(false);
-			
-		
-			conn.commit();
+			recommendedBudget = new BigDecimal(numberOfEmployees*2*(5-numberOfHolidays)+100);
 			
 		}catch(NamingException e){
-			try {
-				conn.rollback();
-			} catch (SQLException e1) {
-				logger.log(Level.SEVERE,"SQL Exception Found: Couldn't roll back", e1);
-			} finally{
-				logger.log(Level.SEVERE,"Naming Exception Found: Incorrect naming", e);
-			}
+			logger.log(Level.SEVERE,"Naming Exception Found: Incorrect naming", e);
 		} catch (SQLException e) {
-			try {
-				conn.rollback();
-			} catch (SQLException e1) {
-				logger.log(Level.SEVERE,"SQL Exception Found: Couldn't roll back", e1);
-			} finally{
-				logger.log(Level.SEVERE,"SQL Exception Found: Incorrect properties", e);
-			}
+			logger.log(Level.SEVERE,"SQL Exception Found: Incorrect properties", e);
 		} catch (Exception e){
-			try {
-				conn.rollback();
-			} catch (SQLException e1) {
-				logger.log(Level.SEVERE,"SQL Exception Found: Couldn't roll back", e1);
-			} finally{
-				logger.log(Level.SEVERE,"Exception Found ", e);
-			}
-		} finally{
-			if (conn != null){
-				try {
-					DBConnection.closeConnection(conn);
-				} catch (SQLException e) {
-					logger.log(Level.SEVERE,"SQL Exception ", e);
-				}
-			}
-		}
+			logger.log(Level.SEVERE,"Exception Found ", e);
+		} 
 		
 
 		return recommendedBudget;
