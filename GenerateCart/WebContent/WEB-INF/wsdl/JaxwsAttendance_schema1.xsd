@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema targetNamespace="http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl" version="1.0" xmlns:tns="http://jaxws.attendance.service.order.sirius.com/jaxws/attendance/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="getAttendanceRecords" type="tns:getAttendanceRecords"/>
+
+  <xs:element name="getAttendanceResponse" type="tns:getAttendanceResponse"/>
+
+  <xs:complexType name="getAttendanceRecords">
+    <xs:sequence>
+      <xs:element form="qualified" minOccurs="0" name="name" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="email" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="locationId" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="beginDate" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="endDate" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAttendanceResponse">
+    <xs:sequence>
+      <xs:element form="qualified" maxOccurs="unbounded" minOccurs="0" name="getAttendanceRecordsReturn" type="tns:attendanceRecordBean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="attendanceRecordBean">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="attendantDate" type="xs:string"/>
+      <xs:element minOccurs="0" name="attendantEmail" type="xs:string"/>
+      <xs:element minOccurs="0" name="attendantLocation" type="xs:string"/>
+      <xs:element minOccurs="0" name="attendantName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
