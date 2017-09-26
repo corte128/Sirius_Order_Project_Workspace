@@ -8,7 +8,6 @@ import java.util.List;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
-import javax.json.JsonObjectBuilder;
 import javax.json.JsonWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,7 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.sirius.attendancews.attendance.wsdl.AttendanceRecordBean;
 import com.sirius.product.service.main.product.wsdl.ProductBean;
 import com.sirius.product.service.main.product.wsdl.ProductSearchDAO;
 import com.sirius.wishlistws.wishlist.wsdl.EmployeeBean;
@@ -77,7 +75,6 @@ public class ProductSearchServlet extends HttpServlet {
 			JsonWriter writer = Json.createWriter(out);
 			writer.writeArray(output);
 			writer.close();
-			
 		}
 		else{
 	        String name = request.getParameter("search");
@@ -93,8 +90,6 @@ public class ProductSearchServlet extends HttpServlet {
 	        //break objects down for lazy loading into separate lists
 	        
 			request.setAttribute("Products", objects);
-			
-			
 			JsonArrayBuilder builder = Json.createArrayBuilder();
 			for (ProductBean record : objects)
 			{

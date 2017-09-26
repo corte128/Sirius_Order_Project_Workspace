@@ -15,6 +15,7 @@ import com.sirius.adminws.officeadmin.wsdl.Holiday;
 import com.sirius.adminws.officeadmin.wsdl.OfficeAdminProxy;
 import com.sirius.order.service.attendance.jaxws.jaxws.attendance.wsdl.AttendanceProxy;
 import com.sirius.order.service.attendance.jaxws.jaxws.attendance.wsdl.AttendanceRecordBean;
+import com.sirius.service.beans.OrderBean;
 
 public class GenerateDAO {
 	private static final Logger logger = Logger.getLogger(GenerateDAO.class.getName());
@@ -123,5 +124,9 @@ public class GenerateDAO {
 		}
 		
 		return cal;
+	}
+	
+	public static List<OrderBean> getTotalLikesForProducts(){
+		return null;
 	}
 }
