@@ -21,8 +21,7 @@
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-	<fmt:setBundle basename="com.sirius.order.client.properties.common" /> 
+	<fmt:setBundle basename="com.sirius.order.client.properties.common" />
 	<%-- HEADER --%>
 	<header>
 		<%@ include file="header.jsp"%>

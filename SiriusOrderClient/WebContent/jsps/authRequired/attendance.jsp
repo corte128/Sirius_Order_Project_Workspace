@@ -39,7 +39,7 @@
 			</header>
 			<div class="flexContainer">
 
-
+ 
 				<fmt:setBundle
 					basename="com.sirius.order.client.properties.attendance" />
 				<div class="attendancePageContainer" ng-controller="AttendanceCtrl">

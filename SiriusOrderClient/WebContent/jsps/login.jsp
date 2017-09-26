@@ -34,9 +34,9 @@
 						<input id="input-field" required type="password" name="password" placeholder=<fmt:message key="LOGIN_PASSWORD_LABEL" /> />
 						<br />
 						<html:submit styleId="login-button" value="Login" />
-						<div id="errors">
-							<html:errors  />
-						</div>
+						<c:if test="${errs.contains('LOGIN_CREDENTIALS')}">
+						<div id="errors"><fmt:message key="LOGIN_CREDENTIALS" /></div>
+						</c:if>
 					</html:form>
 				</div>
 			</div>

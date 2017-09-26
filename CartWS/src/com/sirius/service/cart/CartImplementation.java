@@ -56,4 +56,9 @@ public class CartImplementation implements CartInterface {
 	{
 		return CartDAO.getProductQuantityInCartByProductId(locationId, productId);
 	}
+
+	@Override
+	public List<OrderBean> getAllSavedOrders(int locationId) {
+		return CartDAO.getAllSavedOrders(locationId);
+	}
 }

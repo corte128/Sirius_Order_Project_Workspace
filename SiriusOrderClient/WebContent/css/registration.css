@@ -7,6 +7,9 @@ html body{
 #email-taken-error{
 	display: none;
 }
+#invalid-email{
+	display: none;
+}
 #registration-title{
 	color: #5F6060;
 }
@@ -27,8 +30,8 @@ html body{
 }
 #email-error-spacing{
 	display: none;
-	height: 5px;
 }
+
 #browse-button{
 	display: inline-block;
 	font-family: arial;
@@ -55,6 +58,7 @@ html body{
 		display: flex;
 	}
 	#registration-labels{
+		margin-top: 5px;
 		padding-left: 15px;
 		flex: 3;
 	}
@@ -83,6 +87,12 @@ html body{
 	}
 	#location-field{
 		overflow: hidden;
+	}
+	#password-error{
+		height: 15px;
+	}
+	.error-above-register{
+		height: 15px;
 	}
 }
 @media only screen and (min-width: 768px) {
@@ -172,12 +182,15 @@ html body{
 	}
 	.registration-label{
 		padding-top: 0;
-		padding-bottom: 8px;
+		padding-bottom: 13px;
 	}
 	#registration-button{
 		display: relative;
 		left: 55%;
 		width: 100px;
+	}
+	#profile-label{
+		margin-top: 10px;
 	}
 }
 
