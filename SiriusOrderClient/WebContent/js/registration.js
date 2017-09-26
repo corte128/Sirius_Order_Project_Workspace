@@ -8,25 +8,41 @@ function checkEmail(){
 		var message = document.getElementById("email-taken-error");
 		var button = document.getElementById("registration-button");
 		var error = document.getElementById("email-error-spacing");
-		xhttp.onreadystatechange = function(){
-			var response = xhttp.responseText;
-			console.log(response);
-			if(response == "true"){
-				//display error
-	        	console.log("Email is taken");
-	        	message.style.display = 'inline';
-	        	button.disabled = true;
-	        	error.style.display = 'block';
-	        }
-	        else if(response == "false") {
-	        	//all is good
-	        	console.log("Email is free");
-	        	message.style.display = 'none';
-	        	error.style.display = 'none';
-	        	button.disabled = false;
-	        }
-		};
-		xhttp.send();
+		var invalidError = document.getElementById("invalid-email");
+		var errorbool = false;
+		if(!email.match("^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\\.)?[a-zA-Z]+\\.)?(siriuscom)\\.com$")){
+			invalidError.style.display = 'inline';
+			button.disabled = true;
+			errorbool = true;
+			error.style.display = 'block';
+		}
+		else{
+			invalidError.style.display = 'none';
+			button.disabled = false;
+			errorbool = false;
+			error.style.display = 'none';
+		}
+		if (errorbool == false){
+			xhttp.onreadystatechange = function(){
+				var response = xhttp.responseText;
+				console.log(response);
+				if(response == "true"){
+					//display error
+		        	console.log("Email is taken");
+		        	message.style.display = 'inline';
+		        	button.disabled = true;
+		        	error.style.display = 'block';
+		        }
+		        else if(response == "false") {
+		        	//all is good
+		        	console.log("Email is free");
+		        	message.style.display = 'none';
+		        	error.style.display = 'none';
+		        	button.disabled = false;
+		        }
+			};
+			xhttp.send();
+		}
 	}
 };
 function changeFileName(){

@@ -1,5 +1,7 @@
 package com.sirius.order.client.form;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -24,13 +26,16 @@ public class LoginForm extends ActionForm{
 	
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
 	    ActionErrors errors = new ActionErrors();
+	    ArrayList<String> errs = new ArrayList<String>();
 	    int employeeID = 0;
 	    LoginClientDAO dao = new LoginClientDAO();
 		employeeID = dao.getEmployeeByCredentials(email, password);
 	    // CREDENTIALS ERROR
 	    if (employeeID == 0) {
 	        errors.add("password", new ActionMessage("LOGIN_CREDENTIALS"));
+	        errs.add("LOGIN_CREDENTIALS");
 	    }
+	    request.setAttribute("errs", errs);
 	    return errors;
 	}
 	

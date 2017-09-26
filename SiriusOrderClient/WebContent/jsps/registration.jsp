@@ -36,10 +36,9 @@
 				<br />
 				<label class="registration-label"><fmt:message key="REGISTRATION_CONFIRM_PASSWORD_LABEL" /></label>
 				<c:if test="${errorArray.contains('REGISTRATION_PASSWORDS_INVALID')}">
-					<div></div>
+					<div id="password-error"></div>
 				</c:if>
-				<br />
-				<label class="registration-label"><fmt:message key="REGISTRATION_PROFILE_PIC_LABEL" /></label>
+				<label id="profile-label" class="registration-label"><fmt:message key="REGISTRATION_PROFILE_PIC_LABEL" /></label>
 			</div>
 			<div id="registration-inputs-container">
 				<div id="registration-inputs">
@@ -52,12 +51,8 @@
 						</c:if>
 						<br />
 						<input id="registration-email" onblur="checkEmail()" class="registration-field" required type="email" name="email" />
-						<label id="email-taken-error" class="error"><fmt:message key="REGISTRATION_EMAIL_TAKEN" /></label>
-						<c:if test="${errorArray.contains('REGISTRATION_EMAIL_INVALID')}">
-							<span class="error">
-								<fmt:message key="REGISTRATION_EMAIL_INVALID" />
-							</span>
-						</c:if>
+						<span id="email-taken-error" class="error"><fmt:message key="REGISTRATION_EMAIL_TAKEN" /></span>
+						<span class="error" id="invalid-email"><fmt:message key="REGISTRATION_EMAIL_INVALID" /></span>
 						<br />
 						<select id="location-field" class="registration-field" name="location">
 							<c:forEach var="loc" items="${sessionScope.locations}">
@@ -78,6 +73,12 @@
 						<span id="chosen-file"></span>
 						<input type="file" id="photo-field" onchange="changeFileName()" name="photo" style="display: none"/>
 						<br />
+						<c:if test="${errorArray.contains('REGISTRATION_NAME_INVALID')}">
+							<div></div>
+						</c:if>
+						<c:if test="${errorArray.contains('REGISTRATION_PASSWORDS_INVALID')}">
+							<div></div>
+						</c:if>
 						<html:submit styleId="registration-button" value="Register" />
 					</html:form>
 				</div>
