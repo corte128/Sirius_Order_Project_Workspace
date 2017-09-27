@@ -96,7 +96,7 @@ $(document).ready(function(){
 		officeData = data;
 		console.log(officeData);
 		$.typeahead({
-		    input: '.super-admin-input',
+		    input: '#typeaheadAdminInput',
 		    order: "desc",
 		    source: {
 		    	data: officeData

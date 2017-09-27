@@ -8,10 +8,14 @@ function addToCart(productID)
 	var xhttp = new XMLHttpRequest();
 	var quantityElement = document.getElementById("quantityToAdd");
     var quantity = 1;
+   
     if (quantityElement != null)
     {
+    	
         quantity = quantityElement.value;
+        
     }
+    console.log(quantity);
 	var url = "/SiriusOrderClient/CartServlet?action=addToCart&productID=" + productID +"&quantity="+quantity;
 	xhttp.open("GET", url, true);
 	xhttp.onreadystatechange = function()
@@ -29,9 +33,14 @@ function addToCart(productID)
 	xhttp.send();
 }
 
+ function simpleAlert(){
+	console.log("THIS IS BROKE");
+	alert("this one is working");
+}
+
 function selectedOption(value)
 {
-	alert(value);
+	alert("something is working");
 	$("#category").val(value);
 }
 
@@ -162,9 +171,36 @@ function addToWishlist(productID){
 		var numOfEmps = response.length;
 		var likesContainer = document.getElementById('numOfLikes' + productID);
 		likesContainer.innerHTML = numOfEmps;
+		
+		var likesModal = document.getElementById("likesModal" + productID);
+		likesModal.innerHTML = '';
+		for(key in response){
+			var innerModalDiv = document.createElement("div");
+			innerModalDiv.innerHTML = response[key];
+			likesModal.appendChild(innerModalDiv);
+		}
 	};
 	xhttp.send();
 }
+
+//function getAllLikers(productID){
+//	var url = '/SiriusOrderClient/NavigationServlet?action=getLikers&id=' + productID;
+//	var xhttp = new XMLHttpRequest();
+//	xhttp.open("GET", url, true);
+//	xhttp.onreadystatechange = function()
+//	{
+//		var response = JSON.parse(xhttp.responseText);
+//		var likesModal = document.getElementById("likesModal" + productID);
+//		likesModal.innerHTML = '';
+//		for(item in response){
+//			var innerModalDiv = document.createElement("div");
+//			innerModalDiv.innerHTML = item.Name; 
+//			likesModal.appendChild(innerModalDiv);
+//		}
+//	}
+//}
+
+
 
 function createModal(likesModalID){
 	document.getElementById(likesModalID).style.display = 'block';

@@ -48,6 +48,24 @@
 
 		<%-- SUPER ADMIN --%>
 		<div class="super-admin-container">
+		
+			<%-- ERROR CHECKING --%>
+			<c:if test = "${sessionScope.locationAlreadyExists}">
+				<div class="super-admin-error">
+					<bean:message key="LOCATION_ALREADY_EXISTS_ERROR" />
+				</div>
+			</c:if>
+			<c:if test = "${sessionScope.officeAdminAlreadyExists}">
+				<div class="super-admin-error">
+					<bean:message key="OFFICE_ADMIN_ALREADY_EXISTS_ERROR" />
+				</div>
+			</c:if>
+			<c:if test = "${sessionScope.invalidBudget}">
+				<div class="super-admin-error">
+					<bean:message key="INVALID_BUDGET_ERROR" />
+				</div>
+			</c:if>
+			
 			<form class="form-container" id="setBudgetForm"
 							action="/SiriusOrderClient/SuperAdminServlet?action=setBudget"
 							name="setBudget" method="POST">
@@ -68,7 +86,8 @@
 						data-toggle="modal" data-target="#addLocationModal">
 						<bean:message key="SUPER_ADMIN_ADD_LOCATION_LABEL" />
 					</button>
-					<button type="submit" class="super-admin-button">
+					<button type="button" class="super-admin-button"
+						data-toggle="modal" data-target="#assignBudgetModal">
 						<bean:message key="SUPER_ADMIN_ASSIGN_BUDGET_LABEL" />
 					</button>
 				</div>
@@ -80,27 +99,20 @@
 			role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">
-							<bean:message key="SUPER_ADMIN_ADD_LOCATION_LABEL" />
-						</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
 					<div class="modal-body">
 						<form class="form-container" id="addLocationForm"
 							action="/SiriusOrderClient/SuperAdminServlet?action=addLocation"
 							name="addLocation" method="POST">
-							<div class="form-group">
-								<label for="recipient-name" class="form-control-label">
-									<bean:message key="SUPER_ADMIN_CITY_LABEL" />: </label> <input
-									type="text" class="super-admin-input" id="location" name="city">
+							<div class="super-admin-modal-group">
+								<label for="recipient-name" class="super-admin-modal-label">
+									<bean:message key="SUPER_ADMIN_CITY_LABEL" />: 
+								</label> 
+								<input type="text" class="super-admin-modal-text-input" id="location" name="city"/>
 							</div>
-							<div class="form-group">
-								<label for="message-text" class="form-control-label"> <bean:message
-										key="SUPER_ADMIN_STATE_LABEL" />: </label> <select name="state" class="options-input">
+							<div class="super-admin-modal-group">
+								<label for="message-text" class="super-admin-modal-label"> 
+								<bean:message key="SUPER_ADMIN_STATE_LABEL" />: </label> 
+								<select name="state" class="super-admin-modal-text-input">
 									<option value="AL">Alabama</option>
 									<option value="AK">Alaska</option>
 									<option value="AZ">Arizona</option>
@@ -176,23 +188,15 @@
 			role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">
-							<bean:message key="SUPER_ADMIN_ASSIGN_ADMIN_LABEL" />
-						</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
 					<div class="modal-body">
 						<form class="form-container" id="addLocationForm"
 							action="/SiriusOrderClient/SuperAdminServlet?action=assignAdmin"
 							name="assignAdmin" method="POST">
-							<div class="form-group">
-								<label for="recipient-name" class="form-control-label">
-									<bean:message key="SUPER_ADMIN_LOCATION_LABEL" />: </label> <select
-									id="locationSelect" name="locations" class="options-input">
+							<div class="super-admin-modal-group">
+								<label for="recipient-name" class="super-admin-modal-label">
+									<bean:message key="SUPER_ADMIN_LOCATION_LABEL" />: 
+								</label> 
+								<select id="locationSelect" name="locations" class="super-admin-modal-text-input">
 									<c:forEach items="${locations}" var="location">
 										<option value="${location.id}">
 											<c:out value="${location.city},${location.state}" />
@@ -201,13 +205,14 @@
 								</select>
 								<%-- <input type="text" class="form-control" id="location"> --%>
 							</div>
-							<div class="form-group">
-								<label for="message-text" class="form-control-label"> <bean:message
-										key="SUPER_ADMIN_NAME_LABEL" />: </label>
+							<div class="super-admin-modal-group">
+								<label for="message-text" class="super-admin-modal-label"> 
+									<bean:message key="SUPER_ADMIN_NAME_LABEL" />: 
+								</label>
 								<div class="typeahead__container">
 									<div class="typeahead__field">
-										<span class="typeahead__query"> <input
-											class="super-admin-input" name="admin"
+										<span class="typeahead__query"> 
+										<input class="super-admin-modal-text-input" name="admin" id="typeaheadAdminInput"
 											type="text" placeholder="Search" autocomplete="off">
 										</span>
 									</div>
@@ -220,6 +225,35 @@
 								</button>
 								<button type="submit" class="super-admin-button">
 									<bean:message key="SUPER_ADMIN_ASSIGN_LABEL" />
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<%--ASSIGN BUDGET MODAL--%>
+		<div class="modal fade" id="assignBudgetModal" tabindex="-1"
+			role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<form class="form-container" id="addLocationForm"
+							action="/SiriusOrderClient/SuperAdminServlet?action=assignAdmin"
+							name="assignAdmin" method="POST">
+							<div class="super-admin-modal-group">
+								<label for="recipient-name" class="super-admin-modal-label">
+									<bean:message key="SUPER_ADMIN_ARE_YOU_SURE" /> 
+								</label> 
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="super-admin-button"
+									data-dismiss="modal">
+									<bean:message key="SUPER_ADMIN_NO" />
+								</button>
+								<button type="submit" class="super-admin-button" form="setBudgetForm">
+									<bean:message key="SUPER_ADMIN_YES" />
 								</button>
 							</div>
 						</form>

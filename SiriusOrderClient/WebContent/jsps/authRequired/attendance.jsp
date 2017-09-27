@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Search for attendance records</title> 
+<title>Search for attendance records</title>
 <link rel="stylesheet" type="text/css"
 	href="/SiriusOrderClient/css/attendance.css">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -27,6 +27,7 @@
 <link rel="stylesheet" type="text/css"
 	href="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.css" />
 <script src="/SiriusOrderClient/js/attendanceTable.js"></script>
+
 </head>
 <c:choose>
 	<c:when test="${sessionScope.activeUserName == null}">
@@ -39,10 +40,22 @@
 			</header>
 			<div class="flexContainer">
 
- 
+
 				<fmt:setBundle
 					basename="com.sirius.order.client.properties.attendance" />
+
+
+
 				<div class="attendancePageContainer" ng-controller="AttendanceCtrl">
+
+					<div class="errorMessage" id="viewSelectError">
+						<p>You must select a 'View'</p>
+					</div>
+					<div class="errorMessage" id="dateSelectError">
+						<p>Select only a Range or 'To' and 'From'</p>
+					</div>
+
+
 					<div id="attendanceSearchBox" class="searchBox">
 						<form id="attendanceSearchForm" class="attendanceForm">
 
@@ -72,7 +85,7 @@
 													, ${location.getState()}</option>
 											</c:forEach>
 										</select>
-									</c:if> 
+									</c:if>
 
 									<c:if test="${sessionScope.activeUserType==2 }">
 										<c:forEach items="${locations}" var="location">
@@ -91,8 +104,8 @@
 									<div class="inputFieldLabel">
 										<fmt:message key="ATTENDANCE_VIEW" />
 									</div>
-									<select id="view" name="view">
-										<option value="%">select</option>
+									<select id="view" name="view" required>
+										<option>select</option>
 										<option value="display">Display</option>
 										<option value="PDF">PDF</option>
 									</select>
@@ -144,7 +157,7 @@
 							href="/SiriusOrderClient/generatedPDF/test-pdf.pdf"
 							target="_blank">click here to download</a>
 					</div>
-					<div id="grid1" ui-grid="gridOptions" ui-grid-pagination
+					<div id="displayDiv" ui-grid="gridOptions" ui-grid-pagination
 						ui-grid-auto-resize class="grid"></div>
 
 				</div>

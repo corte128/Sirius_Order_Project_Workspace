@@ -5,31 +5,28 @@ $(function ()
     {
         initRows: 1,
         columns: [
-            { name: 'FederalHoliday', display: 'Federal Holiday', type: 'text', ctrlAttr: { maxlength: 100 }, ctrlCss: { width: '160px'} },
-            { name: 'Date', display: 'Date', type: 'date', ctrlAttr: { maxlength: 100 }, ctrlCss: { width: '130px'} },
-            { name: 'DayofWeek', display: 'Day of Week', type: 'text', ctrlAttr: { maxlength: 10 }, ctrlCss: { width: '100px'} },
+            { name: 'FederalHoliday', display: 'Federal Holiday', type: 'text', ctrlAttr: { maxlength: 100, placeholder: "Enter holiday name..." }, ctrlCss: { width: '100%'} },
+            { name: 'Date', display: 'Date', type: 'date', ctrlAttr: { maxlength: 50 }, ctrlCss: { width: '100%'} },
+            { name: 'DayofWeek', display: 'Day of Week', type: 'text', ctrlAttr: { maxlength: 50, placeholder: "Enter day of week..." }, ctrlCss: { width: '100%'} },
             { name: 'ID', type: 'hidden', value: 0 }
         ],
         customRowButtons: [
             { 
             	uiButton: { label: 'Save' },
             	click: saveEntry, 
-            	btsCss: { 'width': '30px' }, 
             	btnAttr: { title: 'Save Entry' }, 
             	btnClass: 'save_button',
-            	atTheFront: true },
+            	atTheFront: true 
+            },
             { 
             	uiButton: { label: 'Delete' }, 
             	click: deleteEntry, 
-            	btsCss: { 'width': '30px' }, 
             	btnAttr: { title: 'Delete Entry' }, 
-            	btnClass: 'delete_button',
-            	atTheFront: true }
+            	btnClass: 'delete_button'
+            }
         ],
         customGridButtons: {
-        	append: $('<button></button>').text('Add').get(0),
-        	save_button: $('<button></button>').text('Save').get(0),
-        	delete_button: $('<button></button>').text('Delete').get(0)
+        	append: $('<button></button>').text('Add').get(0)
         },
         hideButtons: {
         	removeLast: true,

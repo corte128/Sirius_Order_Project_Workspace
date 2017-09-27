@@ -1,6 +1,9 @@
 html body{
 	font-family: serif !important;
 }
+#errors{
+	color: red;
+}
 #login-button{
 	font-family: Arial;
 	font-weight: bold;

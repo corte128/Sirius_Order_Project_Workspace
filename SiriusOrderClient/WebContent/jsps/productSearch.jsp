@@ -12,11 +12,14 @@
 		
 		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/productCard.css">
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    	
 		<script type="text/javascript" src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
 		<script type="text/javascript" src="/SiriusOrderClient/js/productSearch.js"></script>
-	  
+		
 	</head>
-	<body onload="selectedOption(${param.type})"> 
+	<body onload="simpleAlert();">
+
 		<header>
 			<%@ include file="header.jsp" %>
 		</header> 
@@ -40,7 +43,9 @@
 						<option value="2">Office Supplies</option>
 					</select>
 					<input type="text" class="search searchBar" id="search" name="search"></input>
-					<input id="productSearchButton" type="button" onclick="searchProducts()" class="search" value="Search"/>
+					<div class="search-icon-container">
+						<span id="productSearchButton" onclick="searchProducts()"><i class="material-icons search-icon">search</i></span>
+					</div>
 				</div>
 				<div id="productContainer" class="productContainer">
 					<c:forEach var="product" items="${Products}">
@@ -58,8 +63,8 @@
 								<div class="likesAndPrice">
 									<span class="glyphicon glyphicon-heart clickable-like" onclick='addToWishlist(${currentProduct.getId()})'></span>
 									<c:set var="productId" value="LikesForProduct:${currentProduct.getId()}" scope="request"/>
-									<span id="numOfLikes${currentProduct.getId()}" class="num-of-likes" onmouseover="createModal('likesModal${currentProduct.getId()}')" onmouseout="deleteModal('likesModal${currentProduct.getId()}')">${requestScope[productId].size()}</span>
-									<span>$${currentProduct.getPrice()}</span>
+									<div id="numOfLikes${currentProduct.getId()}" class="num-of-likes" onmouseover="createModal('likesModal${currentProduct.getId()}')" onmouseout="deleteModal('likesModal${currentProduct.getId()}')">${requestScope[productId].size()}</div>
+									<div class="price-tag">$ ${currentProduct.getPrice()}</div>
 									<div id="likesModal${currentProduct.getId()}" class="likes-modal">
 										<c:forEach var="user" items="${requestScope[productId]}">
 											<div>
@@ -68,9 +73,11 @@
 										</c:forEach>
 									</div>
 								</div>
-								<input class="addToCartBtn" type="button" 
-									onclick="addToCart(${currentProduct.getId()})" 
+								<div class="add-to-cart-btn-container">
+									<input class="addToCartBtn" type="button" 
+									onclick="addToCart(${productId})" 
 									value="Add To Cart" />
+								</div>
 							</div>
 						</div>
 					</c:forEach>

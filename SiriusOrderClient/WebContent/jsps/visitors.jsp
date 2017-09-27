@@ -8,12 +8,12 @@
 <head> 
 	<fmt:setBundle basename="com.sirius.order.client.properties.common"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/visitors.css">
 	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/jquery-ui.structure.min.css"/>
 	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/jquery-ui.theme.min.css"/>
 	<title><fmt:message key="VISITORS_TITLE" /></title>
 	<script type="text/javascript" src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
 	<script type="text/javascript" src="/SiriusOrderClient/js/jquery-ui-1.12.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/visitors.css">
 </head>
 <body>    
 	<header>
@@ -24,22 +24,22 @@
 		<div id="visitors-form">
 			<div id="visitors-labels">
 				<br />
-				<div class="visitor-form-label"><fmt:message key="VISITORS_FROM_DATE_LABEL" /></div>
+				<label class="visitor-form-label"><fmt:message key="VISITORS_FROM_DATE_LABEL" /></label>
 				<br />
 				<c:if test="${errorArray.contains('VISITORS_FUTURE_DATE_ERROR')}">
 					<div id="future-date" class="mobile-error"></div>
 				</c:if>
-				<div class="visitor-form-label"><fmt:message key="VISITORS_TO_DATE_LABEL" /></div>
+				<label class="visitor-form-label top-padding"><fmt:message key="VISITORS_TO_DATE_LABEL" /></label>
 				<br />
 				<c:if test="${errorArray.contains('VISITORS_DATE_ORDER_ERROR')}">
 					<div id="date-order" class="mobile-error"></div>
 				</c:if>
-				<div class="visitor-form-label"><fmt:message key="VISITORS_COUNT_LABEL" /></div>
+				<label class="visitor-form-label top-padding"><fmt:message key="VISITORS_COUNT_LABEL" /></label>
 				<br />
 				<c:if test="${errorArray.contains('VISITORS_COUNT_ERROR')}">
 					<div id="count-error" class="mobile-error"></div>
 				</c:if>
-				<div class="visitor-form-label"><fmt:message key="VISITORS_COMMENT_LABEL" /></div>
+				<label class="visitor-form-label top-padding"><fmt:message key="VISITORS_COMMENT_LABEL" /></label>
 			</div>
 			<div id="visitors-input-fields">
 				<html:form action="/Visitors">
@@ -50,21 +50,21 @@
 						</span>
 					</c:if>
 					<br />
-					<input class="visitors-form-input" required type="date" name="to_date" />
+					<input class="visitors-form-input top-padding" required type="date" name="to_date" />
 					<c:if test="${errorArray.contains('VISITORS_DATE_ORDER_ERROR')}">
 						<span class="error">
 							<fmt:message key="VISITORS_DATE_ORDER_ERROR" />
 						</span>
 					</c:if>
 					<br />
-					<html:text styleClass="visitors-form-input" property="count"></html:text>
+					<html:text styleId="count-input" styleClass="visitors-form-input top-padding" property="count"></html:text>
 					<c:if test="${errorArray.contains('VISITORS_COUNT_ERROR')}">
 						<span class="error">
 							<fmt:message key="VISITORS_COUNT_ERROR" />
 						</span>
 					</c:if>
 					<br />
-					<html:textarea styleClass="visitors-form-input" property="comment"></html:textarea>
+					<html:textarea styleClass="visitors-form-input top-padding" property="comment"></html:textarea>
 					<br />
 					<html:submit styleId="visitor-add-button" value=Add><fmt:message key="VISITORS_ADD_BUTTON" /></html:submit>
 				</html:form>

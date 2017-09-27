@@ -88,7 +88,7 @@ public class AttendanceServlet extends HttpServlet {
 
 				
 
-				System.out.println(endDate);
+				
 			} else if (range.equalsIgnoreCase("lastWeek")) {
 				cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
 				cal.add(Calendar.DATE, -7);
@@ -201,7 +201,7 @@ public class AttendanceServlet extends HttpServlet {
 						}
 						
 					}
-					System.out.println(contentForTable);
+					
 					drawTable(myPage, contentStream, 750, 40, contentForTable);
 					contentStream.close();
 				}
@@ -284,36 +284,7 @@ public class AttendanceServlet extends HttpServlet {
 //
 //				// close the document
 //
-//				mainDocument.close();
-				// // Dummy Table
-				// float margin = 50;
-				// // starting y position is whole page height subtracted by top
-				// // and bottom margin
-				// float yStartNewPage = myPage.getMediaBox().getHeight()
-				// - (2 * margin);
-				// // we want table across whole page width (subtracted by left
-				// and
-				// // right margin ofcourse)
-				// float tableWidth = myPage.getMediaBox().getWidth()
-				// - (2 * margin);
-				//
-				// boolean drawContent = true;
-				// float yStart = yStartNewPage;
-				// float bottomMargin = 70;
-				// // y position is your coordinate of top left corner of the
-				// table
-				// float yPosition = 550;
-				//
-				// BaseTable dataTable = new BaseTable(yStart, yStartNewPage,
-				// bottomMargin, tableWidth, margin, mainDocument, myPage,
-				// true, drawContent);
-				// DataTable t = new DataTable(dataTable, myPage); //TODO:
-				// crashes here
-				// t.addListToTable(dataList, DataTable.HASHEADER);
-				// dataTable.draw();
-				// mainDocument.addPage(myPage);
-				// mainDocument.save("C:/pdfTestFiles/testPDF.pdf");
-				// mainDocument.close();
+
 
 			}
 		}
