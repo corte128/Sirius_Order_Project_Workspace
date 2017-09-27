@@ -52,8 +52,9 @@
 						<p>You must select a 'View'</p>
 					</div>
 					<div class="errorMessage" id="dateSelectError">
-						<p>Select only a Range or 'To' and 'From'</p>
+						<p>Select either 'Range' or 'To/From' Field</p>
 					</div>
+					
 
 
 					<div id="attendanceSearchBox" class="searchBox">
@@ -152,10 +153,13 @@
 						</form>
 
 					</div>
+					<div class="noInfoMessage" id="noInfoFoundError">
+						<p>User not found with the provided information.</p>
+					</div>
 					<div class="hideDownloadDiv" id="downloadDiv">
 						Your PDF has been generated <br /> <a
 							href="/SiriusOrderClient/generatedPDF/test-pdf.pdf"
-							target="_blank">click here to download</a>
+							target="_blank">Click here to download</a>
 					</div>
 					<div id="displayDiv" ui-grid="gridOptions" ui-grid-pagination
 						ui-grid-auto-resize class="grid"></div>
