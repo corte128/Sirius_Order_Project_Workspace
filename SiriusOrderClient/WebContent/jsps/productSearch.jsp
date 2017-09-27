@@ -73,16 +73,19 @@
 										</c:forEach>
 									</div>
 								</div>
-								<div class="add-to-cart-btn-container">
-									<input class="addToCartBtn" type="button" 
-									onclick="addToCart(${productId})" 
-									value="Add To Cart" />
-								</div>
+								<c:if test ="${sessionScope.activeUserType == 2}">
+									<div class="add-to-cart-btn-container">
+										<input class="addToCartBtn" type="button" 
+										onclick="addToCart(${productId})" 
+										value="Add To Cart" />
+									</div>
+								</c:if>
 							</div>
 						</div>
 					</c:forEach>
 				</div>
 			</main>
+			<input id="userType" type="hidden" value="${sessionScope.activeUserType}" />
 			<aside id="productSearchNavContainer">
 				<%@ include file="nav.jsp"%>
 			</aside>

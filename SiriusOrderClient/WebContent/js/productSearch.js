@@ -15,7 +15,6 @@ function addToCart(productID)
         quantity = quantityElement.value;
         
     }
-    console.log(quantity);
 	var url = "/SiriusOrderClient/CartServlet?action=addToCart&productID=" + productID +"&quantity="+quantity;
 	xhttp.open("GET", url, true);
 	xhttp.onreadystatechange = function()
@@ -58,6 +57,7 @@ function searchProducts()
 		$('#productContainer').empty();
 		var productContainer = document.getElementById('productContainer');
 		
+		var user = document.getElementById("userType").value;
 
 		for(key in response)
 		{
@@ -126,18 +126,21 @@ function searchProducts()
 			divLikesAndPrice.appendChild(likesModal);
 			
 			var addToCartBtnContainer = document.createElement("div");
-			addToCartBtnContainer.setAttribute("class", "add-to-cart-btn-container");
-			var addToCartBtn = document.createElement("input");
-			addToCartBtn.setAttribute("class", "addToCartBtn");
-			addToCartBtn.type="button";
-			addToCartBtn.onclick=(function (){
-				var id = response[key].ID;
-				return function(){
-					addToCart(id);
-				};
-			})();
-			addToCartBtn.value="Add To Cart";
-			addToCartBtnContainer.appendChild(addToCartBtn);
+			if(user == 2){
+				addToCartBtnContainer.setAttribute("class", "add-to-cart-btn-container");
+				var addToCartBtn = document.createElement("input");
+				addToCartBtn.setAttribute("class", "addToCartBtn");
+				addToCartBtn.type="button";
+				addToCartBtn.onclick=(function (){
+					var id = response[key].ID;
+					return function(){
+						addToCart(id);
+					};
+				})();
+				addToCartBtn.value="Add To Cart";
+				addToCartBtnContainer.appendChild(addToCartBtn);
+			}
+
 			var productCard = document.createElement("div");
 			productCard.setAttribute("class", "productCard");
 			productCard.appendChild(imageContainer);
@@ -205,6 +208,7 @@ function addToWishlist(productID){
 
 
 function createModal(likesModalID){
+	
 	var size = document.getElementById("numOfLikes" + likesModalID).innerText;
 	if(size > 0){
 		document.getElementById('likesModal'+likesModalID).style.display = 'block';
