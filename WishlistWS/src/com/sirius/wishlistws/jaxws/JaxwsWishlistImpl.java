@@ -1,10 +1,14 @@
 package com.sirius.wishlistws.jaxws;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.jws.WebService;
 
 import com.sirius.wishlistws.beans.EmployeeBean;
+import com.sirius.wishlistws.beans.EmployeeLikeBean;
 import com.sirius.wishlistws.beans.ProductBean;
 import com.sirius.wishlistws.db.WishlistServiceDAO;
 
@@ -34,5 +38,24 @@ public class JaxwsWishlistImpl implements Wishlist{
 		WishlistServiceDAO dao = new WishlistServiceDAO();
 		dao.removeFromEmployeeWishlist(employee_id, product_id);
 	}
-
+	
+	@Override
+	public List<EmployeeLikeBean> getAllEmployeesWhoLikedProducts(List<ProductBean> productList, int location_id)
+	{
+		List<EmployeeLikeBean> output = new ArrayList<EmployeeLikeBean>();
+		for(ProductBean product : productList)
+		{
+			int productId = product.getId();
+			for(EmployeeBean emp : getAllEmployeesWhoLikedProduct(productId, location_id))
+			{
+				EmployeeLikeBean liker = new EmployeeLikeBean();
+				liker.setProductId(productId);
+				liker.setId(emp.getId());
+				liker.setName(emp.getName());
+				liker.setEmail(emp.getEmail());
+				output.add(liker);
+			}
+		}
+		return output;
+	}
 }

@@ -1,5 +1,12 @@
 @CHARSET "ISO-8859-1";
 
+.hideDownloadDiv{
+	display: none;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 #budgetSearchBoxAndNavContainer
 {
 	display: flex;
