@@ -17,7 +17,7 @@
 		<div class="productDetailsPageDiv">
 			<div class="productDetailsMainContianer">
 				<div class="breadCrumbs">
-					<a href="jsps/welcome.jsp">welcome</a> >
+					<a href="/SiriusOrderClient/jsps/welcome.jsp">welcome</a> >
 					<html:link
 						page="/Welcome.do?type=${productTypeId}&action=productSearch">${productType}</html:link>
 					> <a href="#">${productName}</a>

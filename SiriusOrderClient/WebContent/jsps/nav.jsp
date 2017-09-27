@@ -42,7 +42,7 @@
 						</a>
 					</li>
 					
-					<c:if test="${sessionScope.activeUserType} == 2">
+					<c:if test="${sessionScope.activeUserType == 2}">
 						<li>	
 							<a href="/SiriusOrderClient/NavigationServlet?action=cart">
 								<div class="nav-sidebar-icon-image-container">
@@ -55,7 +55,7 @@
 						</li>
 					</c:if>
 					
-					<c:if test="${sessionScope.activeUserType} == 2">	
+					<c:if test="${sessionScope.activeUserType == 2}">
 						<li>	
 							<div id="reportsNavIconContainer" 
 								class="nav-sidebar-icon-image-container" 
@@ -83,38 +83,39 @@
 							</div>
 						</li>
 					</c:if>
-					
-					<li>
-						<div id="adminNavIconContainer" 
-							class="nav-sidebar-icon-image-container" 
-							data-toggle="collapse" 
-							data-target="#adminNavSubItemsList"
-						>
-							<img class="nav-sidebar-icon-image nav-icon-image-shadow"
-								src="/SiriusOrderClient/assets/admin_icon.png" 
-								alt="Admin Sub Menu" 
-							/>
-						</div>
-						<div id="adminNavSubItemsList" class="panel-collapse collapse">
-							<ul class="nav-sidebar-sub-list">
-								<div class="admin-nav-sidebar-sub-text-container">
-									<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/NavigationServlet?action=visitors">
-										Add Visitors 
-									</a>
-								</div>
-								<div class="admin-nav-sidebar-sub-text-container">
-									<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/NavigationServlet?action=holidays">
-										Add Public Holidays
-									</a>
-								</div>
-								<div class="admin-nav-sidebar-sub-text-container">
-									<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/NavigationServlet?action=activateUsers">
-										Activate Users
-									</a>
-								</div>
-							</ul>
-						</div>
-					</li>
+					<c:if test="${sessionScope.activeUserType == 3}">
+						<li>
+							<div id="adminNavIconContainer" 
+								class="nav-sidebar-icon-image-container" 
+								data-toggle="collapse" 
+								data-target="#adminNavSubItemsList"
+							>
+								<img class="nav-sidebar-icon-image nav-icon-image-shadow"
+									src="/SiriusOrderClient/assets/admin_icon.png" 
+									alt="Admin Sub Menu" 
+								/>
+							</div>
+							<div id="adminNavSubItemsList" class="panel-collapse collapse">
+								<ul class="nav-sidebar-sub-list">
+									<div class="admin-nav-sidebar-sub-text-container">
+										<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/NavigationServlet?action=visitors">
+											Add Visitors 
+										</a>
+									</div>
+									<div class="admin-nav-sidebar-sub-text-container">
+										<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/NavigationServlet?action=holidays">
+											Add Public Holidays
+										</a>
+									</div>
+									<div class="admin-nav-sidebar-sub-text-container">
+										<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/NavigationServlet?action=activateUsers">
+											Activate Users
+										</a>
+									</div>
+								</ul>
+							</div>
+						</li>
+					</c:if>
 				</ul>
 			</div>
 	      	
@@ -126,76 +127,82 @@
 		</div>
     	
 		<ul id="navIconLinksList">
-			<li>
+			<li class="nav-link-option-container">
 				<a href="/SiriusOrderClient/NavigationServlet?action=wishlist">
 					<div class="nav-icon-image-container">
 						<img class="nav-icon-image nav-icon-image-shadow" src="/SiriusOrderClient/assets/wishlist_icon.png" alt="Wishlist Icon"/>
 					</div>
 				</a>
 			</li>
-			<li>
-				<a href="/SiriusOrderClient/NavigationServlet?action=cart">
-					<div class="nav-icon-image-container">
-						<img class="nav-icon-image" src="/SiriusOrderClient/assets/cart_icon.png" alt="Cart Icon"/>
-					</div>
-				</a>
-			</li>
-			<li onmouseout="closeReportsModal()">
-				<div id="navReportsSubModal" onmouseover="showReportsModal()" onmouseout="closeReportsModal()">
-					<div id="reportsNavSubModalTextContainer">
-						<div class="reports-nav-sub-modal-text-container">
-							<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/NavigationServlet?action=attendance">
-								Attendance Report
-							</a>
+			<c:if test="${sessionScope.activeUserType == 2}">
+				<li class="nav-link-option-container">
+					<a href="/SiriusOrderClient/NavigationServlet?action=cart">
+						<div class="nav-icon-image-container">
+							<img class="nav-icon-image" src="/SiriusOrderClient/assets/cart_icon.png" alt="Cart Icon"/>
 						</div>
-						<div class="reports-nav-sub-modal-text-container">
-							<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/NavigationServlet?action=budget">
-								Budget Vs Actual
-							</a>
+					</a>
+				</li>
+			</c:if>
+			<c:if test="${sessionScope.activeUserType == 2}">
+				<li onmouseout="closeReportsModal()" class="nav-link-option-container">
+					<div id="navReportsSubModal" onmouseover="showReportsModal()" onmouseout="closeReportsModal()">
+						<div id="reportsNavSubModalTextContainer">
+							<div class="reports-nav-sub-modal-text-container">
+								<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/NavigationServlet?action=attendance">
+									Attendance Report
+								</a>
+							</div>
+							<div class="reports-nav-sub-modal-text-container">
+								<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/NavigationServlet?action=budget">
+									Budget Vs Actual
+								</a>
+							</div>
 						</div>
-					</div>
-					
-					<img id="navReportsSubModalImage" 
-						src="/SiriusOrderClient/assets/left_options_modal.png" 
-						alt="Reports Sub Menu" 
-					/>
-				</div>
-				
-				<div id="reportsNavIconContainer" class="nav-icon-image-container" onmouseover="showReportsModal()">
-					<img class="nav-icon-image nav-icon-image-shadow" 
-						src="/SiriusOrderClient/assets/reports_icon.png" 
-						alt="Reports Icon"
-					/>
-				</div>
-			</li>
-			<li onmouseout="closeAdminModal()">
-				<div id="navAdminSubModal" onmouseover="showAdminModal()" onmouseout="closeAdminModal()">
-					<div id="adminNavSubModalTextContainer">
-						<div class="admin-nav-sub-modal-text-container">
-							<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/NavigationServlet?action=visitors">
-								Add Visitors
-							</a>
-						</div>
-						<div class="admin-nav-sub-modal-text-container">
-							<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/NavigationServlet?action=holidays">
-								Add Public Holidays
-							</a>
-						</div>
-						<div class="admin-nav-sub-modal-text-container">
-							<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/NavigationServlet?action=activateUsers">
-								Activate Users
-							</a>
-						</div>
+						
+						<img id="navReportsSubModalImage" 
+							src="/SiriusOrderClient/assets/left_options_modal.png" 
+							alt="Reports Sub Menu" 
+						/>
 					</div>
 					
-					<img id="navAdminSubModalImage" 
-						src="/SiriusOrderClient/assets/left_options_modal.png" 
-						alt="Admin Sub Menu" 
-					/>
-				</div>
-				<div id="adminNavIconContainer" class="nav-icon-image-container" onmouseover="showAdminModal()">
-					<img class="nav-icon-image nav-icon-image-shadow" src="/SiriusOrderClient/assets/admin_icon.png" alt="Admin Icon"/>
-				</div>
-			</li>
+					<div id="reportsNavIconContainer" class="nav-icon-image-container" onmouseover="showReportsModal()">
+						<img class="nav-icon-image nav-icon-image-shadow" 
+							src="/SiriusOrderClient/assets/reports_icon.png" 
+							alt="Reports Icon"
+						/>
+					</div>
+				</li>
+			</c:if>
+			<c:if test="${sessionScope.activeUserType == 3}">
+				<li onmouseout="closeAdminModal()" class="nav-link-option-container">
+					<div id="navAdminSubModal" onmouseover="showAdminModal()" onmouseout="closeAdminModal()">
+						<div id="adminNavSubModalTextContainer">
+							<div class="admin-nav-sub-modal-text-container">
+								<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/NavigationServlet?action=visitors">
+									Add Visitors
+								</a>
+							</div>
+							<div class="admin-nav-sub-modal-text-container">
+								<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/NavigationServlet?action=holidays">
+									Add Public Holidays
+								</a>
+							</div>
+							<div class="admin-nav-sub-modal-text-container">
+								<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/NavigationServlet?action=activateUsers">
+									Activate Users
+								</a>
+							</div>
+						</div>
+						
+						<img id="navAdminSubModalImage" 
+							src="/SiriusOrderClient/assets/left_options_modal.png" 
+							alt="Admin Sub Menu" 
+						/>
+					</div>
+					<div id="adminNavIconContainer" class="nav-icon-image-container" onmouseover="showAdminModal()">
+						<img class="nav-icon-image nav-icon-image-shadow" src="/SiriusOrderClient/assets/admin_icon.png" alt="Admin Icon"/>
+					</div>
+				</li>
+			</c:if>
 		</ul>
 	</nav>
