@@ -39,6 +39,8 @@ label{
 	border: none;
 	padding: 5px;
 	width: 75px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 @media only screen and (min-width: 300px) {
 	.visitors-form-input{

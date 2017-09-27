@@ -58,6 +58,31 @@ select {
 {
 	flex: 1;
 }
+
+/* Iphone 5 */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px){
+	select {
+		width: 25px;
+	}
+	
+	.searchContainer{
+		margin-left: 15%;
+	}
+}
+
+/* Ipad */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px){
+	.searchContainer{
+		margin-left: 10%;
+	}
+}
+
+
+
 /*postion absolute*/
 /* Ipad Iphone*/
 @media only screen
@@ -69,8 +94,6 @@ and (max-device-width : 1024px) {
 	.searchBar{
 		width: 60%;
 	}
-	.searchContainer{
-		margin-left: 10%;
-	}
+
 }
 

@@ -26,7 +26,7 @@
             <forward name="failure" path="./jsps/registration.jsp" />
         </action>
         <action input="./jsps/visitors.jsp" name="VisitorsForm" path="/Visitors" scope="session" type="com.sirius.order.client.action.VisitorsAction">
-            <forward name="success" path="./jsps/welcome.jsp" />
+            <forward name="success" path="./jsps/visitors_success.jsp" />
             <forward name="failure" path="./jsps/visitors.jsp" />
         </action>
         <action path="/Welcome" type="com.sirius.order.client.action.WelcomeAction">

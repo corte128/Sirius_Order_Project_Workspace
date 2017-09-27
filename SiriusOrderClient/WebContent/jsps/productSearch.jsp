@@ -63,7 +63,7 @@
 								<div class="likesAndPrice">
 									<span class="glyphicon glyphicon-heart clickable-like" onclick='addToWishlist(${currentProduct.getId()})'></span>
 									<c:set var="productId" value="LikesForProduct:${currentProduct.getId()}" scope="request"/>
-									<div id="numOfLikes${currentProduct.getId()}" class="num-of-likes" onmouseover="createModal('likesModal${currentProduct.getId()}')" onmouseout="deleteModal('likesModal${currentProduct.getId()}')">${requestScope[productId].size()}</div>
+									<div id="numOfLikes${currentProduct.getId()}" class="num-of-likes" onmouseover="createModal(${currentProduct.getId()})" onmouseout="deleteModal('likesModal${currentProduct.getId()}')">${requestScope[productId].size()}</div>
 									<div class="price-tag">$ ${currentProduct.getPrice()}</div>
 									<div id="likesModal${currentProduct.getId()}" class="likes-modal">
 										<c:forEach var="user" items="${requestScope[productId]}">
