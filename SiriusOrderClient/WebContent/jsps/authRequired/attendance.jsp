@@ -30,8 +30,8 @@
 
 </head>
 <c:choose>
-	<c:when test="${sessionScope.activeUserName == null}">
-		<c:redirect url="SirusOrderClient/jsps/login.jsp" />
+	<c:when test="${sessionScope.activeUserType == null || sessionScope.activeUserType == 1}">
+		<c:redirect url="/jsps/login.jsp" />
 	</c:when>
 	<c:otherwise>
 		<body ng-app="attendanceTable">
