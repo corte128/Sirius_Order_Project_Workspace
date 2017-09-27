@@ -115,10 +115,6 @@ public class NavigationServlet extends HttpServlet {
 		{
 			forwardToProductDetails(request, response);
 		}
-		else if(action.equalsIgnoreCase("generatePDF"))
-		{
-			generatePDF(request, response);
-		}
 		else if(action.equals("wishlist"))
 		{
 			forwardToWishlist(request,response);
@@ -214,9 +210,6 @@ public class NavigationServlet extends HttpServlet {
 		List<ProductBean>  officeSuppliesProducts = new ArrayList<ProductBean>();
 		List<ProductBean>  inkAndTonerProducts = new ArrayList<ProductBean>();
 		
-		List<OrderBean> savedOrders = CartServiceDAO.getAllSavedOrders(locationId);
-		Map<String, List<OrderBean>> mapOfList = convertSavedOrdersListToMap(savedOrders);
-		
 		for(OrderBean order : breakroomOrders)
 		{
 			breakroomProducts.add(ProductSearchDAO.getProductByID(order.getProductId()));
@@ -236,6 +229,30 @@ public class NavigationServlet extends HttpServlet {
 		request.setAttribute("officeSuppliesOrders", officeSuppliesOrders);
 		request.setAttribute("inkAndTonerProducts", inkAndTonerProducts);
 		request.setAttribute("inkAndTonerOrders", inkAndTonerOrders);
+		
+		List<OrderBean> savedOrders = CartServiceDAO.getAllSavedOrders(locationId);
+		Map<String, List<OrderBean>> mapOfOrders = new HashMap<String, List<OrderBean>>();
+		Map<String, List<ProductBean>> mapOfProducts = new HashMap<String, List<ProductBean>>();
+		for(OrderBean order: savedOrders){
+			String orderName = order.getOrderName();
+			if(!orderName.equals("cart"))
+			{
+				if(!mapOfOrders.containsKey(orderName))
+				{
+					mapOfOrders.put(orderName, new ArrayList<OrderBean>());
+				}
+				mapOfOrders.get(orderName).add(order);
+				
+				if(!mapOfProducts.containsKey(orderName))
+				{
+					mapOfProducts.put(orderName, new ArrayList<ProductBean>());
+				}
+				mapOfProducts.get(orderName).add(ProductSearchDAO.getProductByID(order.getProductId()));
+			}
+		}
+		
+		request.setAttribute("savedOrders", mapOfOrders);
+		request.setAttribute("savedProducts", mapOfProducts);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/authRequired/reviewCart.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -268,29 +285,7 @@ public class NavigationServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsps/wishlist.jsp");
 		dispatcher.forward(request, response);
 	}
-	
-	private void generatePDF(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
-		
-	}
-	
-	private Map<String, List<OrderBean>> convertSavedOrdersListToMap(List<OrderBean> orders){
-		
-		Map<String, List<OrderBean>> mapOfOrders = new HashMap<String, List<OrderBean>>();
-		for(OrderBean order: orders){
-			String orderName = order.getOrderName();
-			if(mapOfOrders.containsKey(orderName)){
-				List<OrderBean> orderInMap = mapOfOrders.get(orderName);
-				orderInMap.add(order);
-				mapOfOrders.put(orderName, orderInMap);
-			}
-			else{
-				List<OrderBean> currentOrders = new ArrayList<OrderBean>();
-				mapOfOrders.put(orderName, currentOrders);
-			}
-		}
-		return mapOfOrders;
-	}
+
 	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
