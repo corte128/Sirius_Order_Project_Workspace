@@ -131,7 +131,7 @@ body
 .cart-modal
 {
 	position: fixed;
-	z-index: 1000;
+	z-index: 950;
 	top: 20vh;
 	left: 25vw;
 	width: 50vw;
@@ -161,6 +161,10 @@ body
 .order-container
 {
 	display: none;
+	border-top: 0.5px solid black;
+}
+.cart-order-container
+{
 	border-top: 0.5px solid black;
 }
 .order-item-container

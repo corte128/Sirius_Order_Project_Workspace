@@ -6,8 +6,9 @@
 	<meta name="viewport" content="width=device-width" />
 	
 	<%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
-	<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%><!--  
-	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">-->
+	<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<!--  <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/nav.css">
 	

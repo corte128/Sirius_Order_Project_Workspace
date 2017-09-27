@@ -83,6 +83,10 @@ function showIncludeOrderModal()
 {
 	document.getElementById("includeSavedOrderModal").style.display = 'block';
 }
+function showSaveOrderModal()
+{
+	document.getElementById("saveOrderModal").style.display = 'block';
+}
 function populateItemsFromOrders()
 {
 	var orderNameId = document.getElementById("includeSavedOrderModalOrderSelect").value + 'OrderContainer';
