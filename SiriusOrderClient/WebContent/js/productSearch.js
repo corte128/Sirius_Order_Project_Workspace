@@ -98,7 +98,7 @@ function searchProducts()
 			numOfLikes.onmouseover = (function (){
 				var id = response[key].ID;
 				return function(){
-					createModal('likesModal' + id);
+					createModal(id);
 				};
 			})();
 			
@@ -205,7 +205,10 @@ function addToWishlist(productID){
 
 
 function createModal(likesModalID){
-	document.getElementById(likesModalID).style.display = 'block';
+	var size = document.getElementById("numOfLikes" + likesModalID).innerText;
+	if(size > 0){
+		document.getElementById('likesModal'+likesModalID).style.display = 'block';
+	}
 }
 
 function deleteModal(likesModalID){
