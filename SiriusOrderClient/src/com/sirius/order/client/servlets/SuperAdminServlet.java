@@ -16,6 +16,7 @@ import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -93,17 +94,34 @@ public class SuperAdminServlet extends HttpServlet {
 		
 		if(action!=null){
 			if(action.equals("addLocation")){
+				boolean locationAlreadyExists = false;
 				String city = request.getParameter("city");
 				String state = request.getParameter("state");
 				Integer id = (Integer) request.getSession().getAttribute(sessionVariables.getString("ACTIVE_USER_ID"));
-				if(city != null && state != null)
-					superAdminProxyObj.addLocation(city, state, id);
+				
+				if(city != null && state != null){
+					List<OfficeBean> offices = superAdminProxyObj.getOffices();
+					for(OfficeBean office : offices){
+						if(office.getLocation().equals(city+", "+state)){
+							locationAlreadyExists = true;
+							break;
+						}
+					}
+					if(!locationAlreadyExists)
+						superAdminProxyObj.addLocation(city, state, id);
+	
+					request.getSession().setAttribute("locationAlreadyExists", locationAlreadyExists);
+					request.getSession().setAttribute("officeAdminAlreadyExists", false);
+					request.getSession().setAttribute("budgetInvalid", false);
+				}
 			}
 			else if(action.equals("setBudget")){
 				Map<String, String[]> parameters = request.getParameterMap();
 
 				List<Integer> locationIds = new ArrayList<Integer>();
 				List<BigDecimal> budgets = new ArrayList<BigDecimal>();
+				
+				boolean invalidBudget = false;
 				
 				for(String parameter : parameters.keySet()) {
 					//locations
@@ -121,7 +139,15 @@ public class SuperAdminServlet extends HttpServlet {
 				        	DecimalFormat dfObj = new DecimalFormat();
 				        	dfObj.setParseBigDecimal(true);
 				        	try {
-								budgets.add((BigDecimal) dfObj.parse(strVal));
+				        		BigDecimal budgetAmount = (BigDecimal) dfObj.parse(strVal);
+				        		if(budgetAmount.doubleValue() > 0){
+				        			budgets.add((budgetAmount));
+				        		}
+				        		else{
+				        			invalidBudget = true;
+				        			break;
+				        		}
+				        			
 							} catch (ParseException e) {
 								logger.log(Level.SEVERE,"Parse exception for budget",e);
 							}
@@ -129,8 +155,14 @@ public class SuperAdminServlet extends HttpServlet {
 				    }
 				}
 				
-				for(int index = 0; index < locationIds.size(); index++)
-					superAdminProxyObj.setBudgetByLocation(budgets.get(index), locationIds.get(index));
+				if(!invalidBudget){
+					for(int index = 0; index < locationIds.size(); index++){
+						superAdminProxyObj.setBudgetByLocation(budgets.get(index), locationIds.get(index));
+					}
+				}
+				request.getSession().setAttribute("locationAlreadyExists", false);
+				request.getSession().setAttribute("officeAdminAlreadyExists", false);
+				request.getSession().setAttribute("budgetInvalid", invalidBudget);
 			}
 			else if(action.equals("assignAdmin")){
 				int locationId = Integer.parseInt(request.getParameter("locations"));
@@ -138,14 +170,28 @@ public class SuperAdminServlet extends HttpServlet {
 				int adminId = 0;
 				Integer id = (Integer) request.getSession().getAttribute(sessionVariables.getString("ACTIVE_USER_ID"));
 				
-				if(admin != null)
+				if(admin != null){
 					adminId = superAdminProxyObj.getEmployeeIdByName(admin);
-				
-				if(locationId != 0 && admin != null){}
-					superAdminProxyObj.assignAdmin(locationId, adminId, id);
+					boolean officeAdminAlreadyExists = false;
+					List<OfficeBean> offices = superAdminProxyObj.getOffices();
+					for(OfficeBean office : offices){
+						if(office.getLocationId() == locationId){
+							officeAdminAlreadyExists = true;
+							break;
+						}
+					}
+					if(locationId != 0 && !officeAdminAlreadyExists){
+						superAdminProxyObj.assignAdmin(locationId, adminId, id);
+					}
+					request.getSession().setAttribute("officeAdminAlreadyExists", officeAdminAlreadyExists);
+					request.getSession().setAttribute("locationAlreadyExists", false);
+					request.getSession().setAttribute("budgetInvalid", false);
+				}
 			}
 		}
 			
+		//RequestDispatcher dispatcher = request.getRequestDispatcher("/NavigationServlet?action=superAdmin");
+		// dispatcher.forward(request, response);
 		response.sendRedirect("/SiriusOrderClient/NavigationServlet?action=superAdmin");
 	}
 }

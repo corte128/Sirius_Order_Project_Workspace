@@ -1,12 +1,73 @@
 #holidays-content{
+	margin-top: 5px;
 	display: flex;
 }
 #holidays-table{
 	flex: 9;
 }
-aside{
-	flex: 1;
+td.ui-widget-header{
+	border: none;
+	background: #5F6060;
+	border-right: grey solid 1px;
 }
-.save_button, .delete_button{
-	width: 25px;
+aside{
+	flex: 0;
+}
+button.save_button{
+	background-color: transparent;
+	width: 20px;
+	height: 20px;
+	border: 0;
+	background-size: 100%;
+	background-size: 20px auto;
+	background-image: url("http://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Save_font_awesome.svg/512px-Save_font_awesome.svg.png");
+}
+button.delete_button{
+	background-color: transparent;
+	width: 20px;
+	height: 20px;
+	border: 0;
+	background-size: 100%;
+	background-size: 20px auto;
+	background-image: url("http://www.dickssanitation.com/site_assets/trash.png");
+}
+button.insert
+{
+    height: 42px !important;
+    width: auto !important;
+}
+button.insert .ui-icon-insert
+{
+    width: 32px;
+    height: 32px;
+    /* margin-top: -0px !important; */
+}
+button.insert .ui-button-text
+{
+    padding-left: 48px;
+}
+button.append, button.removeLast, button.remove, button.moveUp
+{
+    width: auto !important;
+    height: auto !important;
+}
+#tblAppendGrid{
+	width: 100%;
+}
+thead.ui-widget-header{
+	border: none;
+}
+#tblAppendGrid_FederalHoliday_td_head, #tblAppendGrid_Date_td_head, #tblAppendGrid_DayofWeek_td_head{
+	padding-left: 5px;
+	font-family: serif;
+	color: lightgrey;
+}
+.ui-widget-content tr {
+	border-bottom: #5F6060 solid 2px;
+}
+tfoot.ui-widget-header{
+	border: none;
+}
+#tblAppendGrid_footer_td{
+	background-color: #F2F2F2;
 }

@@ -8,6 +8,7 @@
 .likesAndPrice{
 	font-style: italic;
 	padding: 7px 0px 2px 20px;
+	font-size: 16px;
 }
 
 .glyphicon{
@@ -20,11 +21,16 @@
 	font-size: 1.5rem;
 }
 
+.imageContainer{
+	margin: auto;
+	text-align: center;
+}
+
 /* Desktop */
 @media (min-device-width: 1025px)  {
 	.productCard{
 		width: 180px;
-		height: 250px;
+		height: 260px;
 		margin-top: 10px;
 		padding-bottom: 10px;
 		font-size: 10px;
@@ -34,7 +40,7 @@
 	}
 
 	.productImage{
-		width: 125px;
+		width: 100px;
 		height: 100px;
 		margin-top: 5px;
 		padding-top: 5px;
@@ -48,13 +54,21 @@
 		height: 95px;
 		border-bottom: solid black 1px;
 	}
-
-	.addToCartBtn{
-		margin-left:59px;
+	
+	.add-to-cart-btn-container{
+		text-align: center;
 	}
 
-	.imageContainer{
-		padding-left: 29px;
+	.addToCartBtn{
+		margin: auto;
+		width: 70%;
+		font-size: 1.25em;
+		color: white;
+		background-color: #928EA1;
+		background: linear-gradient(#928EA1, #ABA5BC);
+		border: none;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+		padding: 5px;
 	}
 
 	.nameLabel{
@@ -96,10 +110,7 @@ and (max-device-width : 1024px) {
 	.addToCartBtn{
 		margin-left:90px;
 	}
-
-	.imageContainer{
-		padding-left: 25px;
-	}
+	
 
 	.nameLabel{
 		font-size: 2rem;
