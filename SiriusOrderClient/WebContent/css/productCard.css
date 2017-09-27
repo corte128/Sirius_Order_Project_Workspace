@@ -8,11 +8,11 @@
 .likesAndPrice{
 	font-style: italic;
 	padding: 7px 0px 2px 20px;
-	font-size: 16px;
+	font-size: 1.6em;
 }
 
-.glyphicon{
-	color:#AF4B33
+.glyphicon-heart{
+	color:#AF4B33;
 }
 
 .nameLabel{
@@ -26,6 +26,41 @@
 	text-align: center;
 }
 
+.price-tag{
+	color: #FF241B;
+	display: inline-block;
+	padding-left: 10px;
+}
+
+.num-of-likes{
+	display: inline-block;
+}
+
+.clickable-like{
+	cursor: pointer;
+}
+
+.addToCartBtn{
+	margin: auto;
+	width: 70%;
+	font-size: 1.25em;
+	color: white;
+	background-color: #928EA1;
+	background: linear-gradient(#928EA1, #ABA5BC);
+	border: none;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+	padding: 5px;
+}
+
+.add-to-cart-btn-container{
+	text-align: center;
+}
+
+.productImage{
+	width: 150px;
+	height: 150px;
+}
+
 /* Desktop */
 @media (min-device-width: 1025px)  {
 	.productCard{
@@ -36,6 +71,7 @@
 		font-size: 10px;
 		margin-left: 10px;
 		margin-right: 10px;
+		margin: auto;
 		position: relative;
 	}
 
@@ -54,22 +90,6 @@
 		height: 95px;
 		border-bottom: solid black 1px;
 	}
-	
-	.add-to-cart-btn-container{
-		text-align: center;
-	}
-
-	.addToCartBtn{
-		margin: auto;
-		width: 70%;
-		font-size: 1.25em;
-		color: white;
-		background-color: #928EA1;
-		background: linear-gradient(#928EA1, #ABA5BC);
-		border: none;
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-		padding: 5px;
-	}
 
 	.nameLabel{
 		font-size: 12px;
@@ -85,15 +105,12 @@ and (max-device-width : 1024px) {
 		height: 400px;
 		margin-top: 20px;
 		margin-bottom: 20px;
-		margin-right: 25px;
-		margin-left: 25px;
+		margin: auto;
 		padding-bottom: 10px;
 		position: relative;
 	}
 
 	.productImage{
-		width: 200px;
-		height: 175px;
 		margin: auto;
 		margin-top: 10px;
 		padding-top: 5px;
@@ -106,12 +123,7 @@ and (max-device-width : 1024px) {
 		height: 140px;
 		border-bottom: solid black 1px;
 	}
-
-	.addToCartBtn{
-		margin-left:90px;
-	}
 	
-
 	.nameLabel{
 		font-size: 2rem;
 	}
@@ -127,14 +139,12 @@ and (max-device-width : 568px) {
 		height: 350px;
 		margin-top: 20px;
 		margin-bottom: 20px;
+		margin: auto;
 		padding-bottom: 10px;
 		position: relative;
 	}
 
 	.productImage{
-		width: 200px;
-		height: 175px;
-		margin: auto;
 		margin-top: 10px;
 		padding-top: 5px;
 		padding-bottom: 2px;
@@ -147,13 +157,6 @@ and (max-device-width : 568px) {
 		border-bottom: solid black 1px;
 	}
 
-	.addToCartBtn{
-		margin-left:80px;
-	}
-
-	.imageContainer{
-		padding-left: 25px;
-	}
 }
 
 .likes-modal{

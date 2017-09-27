@@ -12,6 +12,8 @@
 		
 		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/productCard.css">
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    	
 		<script type="text/javascript" src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
 		<script type="text/javascript" src="/SiriusOrderClient/js/productSearch.js"></script>
 		
@@ -41,7 +43,9 @@
 						<option value="2">Office Supplies</option>
 					</select>
 					<input type="text" class="search searchBar" id="search" name="search"></input>
-					<input id="productSearchButton" type="button" onclick="searchProducts()" class="search" value="Search"/>
+					<div class="search-icon-container">
+						<span id="productSearchButton" onclick="searchProducts()"><i class="material-icons search-icon">search</i></span>
+					</div>
 				</div>
 				<div id="productContainer" class="productContainer">
 					<c:forEach var="product" items="${Products}">
