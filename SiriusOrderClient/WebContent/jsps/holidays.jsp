@@ -24,6 +24,7 @@
 	<header> 
 		<%@ include file="header.jsp" %>
 	</header>
+	<div id="holiday-table-title">Add Holidays</div>
 	<div id="holidays-content">
 		<div id="holidays-table">
 		  	<form action="" method="post">

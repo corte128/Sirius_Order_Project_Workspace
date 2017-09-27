@@ -57,7 +57,7 @@
 						</span>
 					</c:if>
 					<br />
-					<html:text styleId="count-input" styleClass="visitors-form-input top-padding" property="count"></html:text>
+					<input type="text" id="count-input" class="visitors-form-input top-padding" name="count" />
 					<c:if test="${errorArray.contains('VISITORS_COUNT_ERROR')}">
 						<span class="error">
 							<fmt:message key="VISITORS_COUNT_ERROR" />

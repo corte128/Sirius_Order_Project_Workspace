@@ -79,9 +79,49 @@ public class QueryServlet extends HttpServlet {
 					default: break;
 					}
 					
+					String holidayDate = day.getDate();
+					String[] dateParts = holidayDate.split("/");
+					String month = "";
+					if(dateParts[0].equals("01")){
+						month = "January";
+					}
+					if(dateParts[0].equals("02")){
+						month = "February";
+					}
+					if(dateParts[0].equals("03")){
+						month = "March";
+					}
+					if(dateParts[0].equals("04")){
+						month = "April";
+					}
+					if(dateParts[0].equals("05")){
+						month = "May";
+					}
+					if(dateParts[0].equals("06")){
+						month = "June";
+					}
+					if(dateParts[0].equals("07")){
+						month = "July";
+					}
+					if(dateParts[0].equals("08")){
+						month = "August";
+					}
+					if(dateParts[0].equals("09")){
+						month = "September";
+					}
+					if(dateParts[0].equals("10")){
+						month = "October";
+					}
+					if(dateParts[0].equals("11")){
+						month = "November";
+					}
+					if(dateParts[0].equals("12")){
+						month = "December";
+					}
+					
 		            builder.add(Json.createObjectBuilder()
 		                            .add("FederalHoliday", day.getHolidayName())
-		                            .add("Date", day.getDate())
+		                            .add("Date", month+" "+dateParts[1]+", "+dateParts[2])
 		                            .add("DayofWeek", dayofweek)
 		                            .add("ID", day.getId()));
 		        }
