@@ -1,4 +1,4 @@
-#Thu Sep 21 15:25:44 CDT 2017
+#Wed Sep 27 13:46:36 CDT 2017
 encoding//WebContent/jsps/wishlist.jsp=ISO-8859-1
 encoding//WebContent/jsps/nav.jsp=ISO-8859-1
 encoding//WebContent/jsps/header.jsp=ISO-8859-1
@@ -10,6 +10,7 @@ encoding//WebContent/jsps/productCard.jsp=ISO-8859-1
 eclipse.preferences.version=1
 encoding//WebContent/jsps/cartProduct.jsp=ISO-8859-1
 encoding//WebContent/jsps/welcome.jsp=ISO-8859-1
+encoding//WebContent/jsps/visitors_success.jsp=ISO-8859-1
 encoding//WebContent/jsps/superAdmin.jsp=ISO-8859-1
 =\=\=\=\=\=\=
 encoding//WebContent/jsps/login.jsp=ISO-8859-1

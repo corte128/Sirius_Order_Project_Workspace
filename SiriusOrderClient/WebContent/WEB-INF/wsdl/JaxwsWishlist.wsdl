@@ -28,6 +28,12 @@
   <message name="removeFromEmployeeWishlistResponse">
     <part element="tns:removeFromEmployeeWishlistResponse" name="parameters"/>
   </message>
+  <message name="getAllEmployeesWhoLikedProducts">
+    <part element="tns:getAllEmployeesWhoLikedProducts" name="parameters"/>
+  </message>
+  <message name="getAllEmployeesWhoLikedProductsResponse">
+    <part element="tns:getAllEmployeesWhoLikedProductsResponse" name="parameters"/>
+  </message>
   <portType name="Wishlist">
     <operation name="addToLikeTable">
       <input message="tns:addToLikeTable" wsam:Action="addToLikeTable"/>
@@ -44,6 +50,10 @@
     <operation name="removeFromEmployeeWishlist">
       <input message="tns:removeFromEmployeeWishlist" wsam:Action="removeFromEmployeeWishlist"/>
       <output message="tns:removeFromEmployeeWishlistResponse" wsam:Action="http://wishlistws.sirius.com/wishlist/wsdl/Wishlist/removeFromEmployeeWishlistResponse"/>
+    </operation>
+    <operation name="getAllEmployeesWhoLikedProducts">
+      <input message="tns:getAllEmployeesWhoLikedProducts" wsam:Action="getAllEmployeesWhoLikedProducts"/>
+      <output message="tns:getAllEmployeesWhoLikedProductsResponse" wsam:Action="http://wishlistws.sirius.com/wishlist/wsdl/Wishlist/getAllEmployeesWhoLikedProductsResponse"/>
     </operation>
   </portType>
   <binding name="wishlistBinding" type="tns:Wishlist">
@@ -77,6 +87,15 @@
     </operation>
     <operation name="removeFromEmployeeWishlist">
       <soap:operation soapAction="removeFromEmployeeWishlist"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getAllEmployeesWhoLikedProducts">
+      <soap:operation soapAction="getAllEmployeesWhoLikedProducts"/>
       <input>
         <soap:body use="literal"/>
       </input>

@@ -1,10 +1,12 @@
 package com.sirius.order.client.servlets;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +20,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+
+import com.sirius.attendancews.attendance.wsdl.AttendanceRecordBean;
 import com.sirius.searchws.search.wsdl.ActualvBudgetBean;
 import com.sirius.searchws.search.wsdl.SearchClientDAO;
 
@@ -62,6 +70,8 @@ public class BudgetServlet extends HttpServlet {
 	 */
 	private void getBudgetSearchJSON(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		String view = request.getParameter("view");
+
 		int locationId = Integer.parseInt(request.getParameter("locationId"));
 		String reportType = request.getParameter("reportType");
 		
@@ -71,10 +81,8 @@ public class BudgetServlet extends HttpServlet {
 		Date toDate = null;
 		try 
 		{
-			String temp = request.getParameter("toDate");
 			toDate = df.parse(request.getParameter("toDate"));
 			fromDate = df.parse(request.getParameter("fromDate"));
-			System.out.println(temp);
 		} 
 		catch (ParseException e) 
 		{
@@ -82,19 +90,56 @@ public class BudgetServlet extends HttpServlet {
 		}
 		
 		List<ActualvBudgetBean> budgetReports = SearchClientDAO.budgetSearch(locationId, fromDate, toDate, reportType);
-		JsonArrayBuilder builder = Json.createArrayBuilder();
-		for(ActualvBudgetBean budgetReport : budgetReports)
-		{
-			builder.add(Json.createArrayBuilder().add(budgetReport.getTime())
-				.add(budgetReport.getBudget())
-				.add(budgetReport.getActual()));
-		}
-		JsonArray output = builder.build();
 		
-		PrintWriter out = response.getWriter();
-		JsonWriter writer = Json.createWriter(out);
-		writer.writeArray(output);
-		writer.close();
+		if(view.equalsIgnoreCase("Display")){
+			JsonArrayBuilder builder = Json.createArrayBuilder();
+			for(ActualvBudgetBean budgetReport : budgetReports)
+			{
+				builder.add(Json.createArrayBuilder().add(budgetReport.getTime())
+					.add(budgetReport.getBudget())
+					.add(budgetReport.getActual()));
+			}
+			JsonArray output = builder.build();
+			
+			PrintWriter out = response.getWriter();
+			JsonWriter writer = Json.createWriter(out);
+			writer.writeArray(output);
+			writer.close();
+		}
+		else{
+			PDPage myPage = new PDPage();
+			PDDocument mainDocument = new PDDocument();
+			
+			String path = "C:/Users/IEUser/IBM/rationalsdp/Sirius_Order_Project_Workspace/SiriusOrderClient/WebContent/generatedPDF/test-pdf.pdf";
+			PDPageContentStream contentStream = new PDPageContentStream(mainDocument, myPage);
+			List<List<ActualvBudgetBean>> subLists = separateList(budgetReports, 35); 
+			
+			for(List<ActualvBudgetBean> list: subLists){
+				myPage = new PDPage();
+				mainDocument.addPage(myPage);
+				contentStream = new PDPageContentStream(
+						mainDocument, myPage);
+				String[][] contentForTable = new String[list.size()+1][3];
+				for (int i = 0; i < list.size()+1; i++){
+					if(i==0){
+						contentForTable[0][0] = "Name :";
+						contentForTable[0][1] = "From :";
+						contentForTable[0][2] = "To :";
+					}else{
+					contentForTable[i][0] = list.get(i-1).getTime();
+					contentForTable[i][1] = "$" + list.get(i-1).getActual();
+					contentForTable[i][2] = "$" + list.get(i-1).getBudget();
+					}
+					
+				}
+				
+				drawTable(myPage, contentStream, 750, 40, contentForTable);
+				contentStream.close();
+			}
+			contentStream.close();
+			mainDocument.save(new File(path));
+			mainDocument.close();
+		}
 	}
 	
 	/**
@@ -102,6 +147,63 @@ public class BudgetServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+	}
+	
+	private List<List<ActualvBudgetBean>> separateList(List<ActualvBudgetBean> objects, int numOfObjects){
+		/**/
+		List<List<ActualvBudgetBean>> lists = new ArrayList<List<ActualvBudgetBean>>();
+		int length = objects.size();
+		for(int i = 0; i < length; i+= numOfObjects){
+			int endpoint = (i+numOfObjects);
+			if(endpoint >= length) {
+				endpoint = length;
+			}
+			lists.add(objects.subList(i, endpoint));
+		}
+		return lists;
+	}
+	
+	private void drawTable(PDPage page, PDPageContentStream contentStream,
+			float y, float margin, String[][] content) throws IOException {
+		final int rows = content.length;
+		final int cols = content[0].length;
+		final float rowHeight = 20f;
+		final float tableWidth = page.getMediaBox().getWidth() - (2 * margin);
+		final float tableHeight = rowHeight * rows;
+		final float colWidth = tableWidth / (float) cols;
+		final float cellMargin = 5f;
+
+		// draw the rows
+		float nexty = y;
+		for (int i = 0; i <= rows; i++) {
+			contentStream.drawLine(margin, nexty, margin + tableWidth, nexty);
+			nexty -= rowHeight;
+		}
+
+		// draw the columns
+		float nextx = margin;
+		for (int i = 0; i <= cols; i++) {
+			contentStream.drawLine(nextx, y, nextx, y - tableHeight);
+			nextx += colWidth;
+		}
+
+		// now add the text
+		contentStream.setFont(PDType1Font.HELVETICA, 12);
+
+		float textx = margin + cellMargin;
+		float texty = y - 15;
+		for (int i = 0; i < content.length; i++) {
+			for (int j = 0; j < content[i].length; j++) {
+				String text = content[i][j];
+				contentStream.beginText();
+				contentStream.moveTextPositionByAmount(textx, texty);
+				contentStream.drawString(text);
+				contentStream.endText();
+				textx += colWidth;
+			}
+			texty -= rowHeight;
+			textx = margin + cellMargin;
+		}
 	}
 
 }

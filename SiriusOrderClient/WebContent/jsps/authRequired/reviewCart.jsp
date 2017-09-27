@@ -210,15 +210,53 @@
 			</span>
 		</div>
 	</c:if>
-		
+	
+	<!-- INCLUDE SAVED ORDER MODAL -->
 	<div id="includeSavedOrderModal" class="cart-modal">
 		<div id="includeSavedOrderModalTitleContainer">
 			<span id="includeSavedOrderModalTitleTextContainer">
 				<fmt:message key="CART_SAVED_ORDERS_LABEL" />
 			</span>
-			<select onchange="populateItemsFromOrders">
-			
+			<select id="includeSavedOrderModalOrderSelect" onchange="populateItemsFromOrders()">
+				<option value="" selected><fmt:message key="CART_SELECT_LABEL" /></option>
+				<c:forEach var="orderName" items="${savedOrders.keySet()}">
+					<option value="${orderName}">${orderName}</option>
+				</c:forEach>
 			</select>
+		</div>
+		<c:forEach var="orderName" items="${savedOrders.keySet()}">
+			<div id="${orderName}OrderContainer" class="order-container">
+				<div class="order-item-container
+					cart-modal-color-alternate-container">
+					<div class="order-item-input-container">
+						<input id="${orderName}OrderTitleCheckbox" type="checkbox" />
+					</div>
+					<div class="order-title-text-container">
+						<fmt:message key="CART_ITEMS_LABEL" />
+					</div>
+				</div>
+				<!-- GENERATE A DIV FOR EACH ITEM IN AN ORDER -->
+				<c:set var="orderIndex" value="0" scope="page" />
+				<!--<c:set var="curOrderName" value="${orderName}" scope="page"/>-->
+				<c:forEach var="orderItem" items="${savedOrders.get(orderName)}">
+					<div class="order-item-container
+						cart-modal-color-alternate-container">
+						<div class="order-item-input-container">
+							<input id="OrderCheckbox${savedOrders.get(orderName)[orderIndex].getId()}" type="checkbox" />
+						</div>
+						<div class="order-title-text-container">
+							${savedProducts.get(curOrderName)[orderIndex].getName()}
+						</div>
+					</div>
+					<c:set var="orderIndex" value="${orderIndex + 1}" scope="page"/>
+				</c:forEach>
+			</div>
+		</c:forEach>
+		<div id="includeSavedOrderModalButtonContainer" class="cart-modal-button-container">
+			<button id="includeSavedOrderModalButton" 
+				class="cart-modal-button">
+				<fmt:message key="CART_INCLUDE_LABEL" />
+			</button>
 		</div>
 	</div>
 </body>

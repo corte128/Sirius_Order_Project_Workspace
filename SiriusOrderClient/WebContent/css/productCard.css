@@ -170,5 +170,6 @@ and (max-device-width : 568px) {
 	margin-left: 20px;
 	margin-top: -70px;
 	opacity: .85;
+	bottom: 60px;
 
 }
