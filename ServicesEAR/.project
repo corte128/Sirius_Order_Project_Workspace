@@ -8,7 +8,6 @@
 		<project>MailWS</project>
 		<project>LoginWS</project>
 		<project>LocationWS</project>
-		<project>GenerateCartWS</project>
 		<project>AttendanceWS</project>
 		<project>AdminWS</project>
 		<project>SearchWS</project>

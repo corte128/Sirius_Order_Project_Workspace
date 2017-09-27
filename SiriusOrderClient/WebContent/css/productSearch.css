@@ -4,6 +4,7 @@ select {
 	background-color: #605C68;
 	color: #CACACA;
 	width: 115px;
+	height: 25px;
 }
 
 .search{
@@ -17,6 +18,18 @@ select {
 
 .searchBar{
 	width: 40%;
+}
+
+.search-icon-container{
+	display: inline;
+}
+
+.search-icon{
+	font-size: 1.8em !important;
+	color: #8A8698;
+	position: relative;
+	top: 6px;
+	cursor: pointer;
 }
 
 .productContainer{
@@ -46,23 +59,41 @@ select {
 	flex: 1;
 }
 
-.clickable-like{
-	cursor: pointer;
+/* Iphone 5 */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px){
+	select {
+		width: 25px;
+	}
+	
+	.searchContainer{
+		margin-left: 15%;
+	}
+}
+
+/* Ipad */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px){
+	.searchContainer{
+		margin-left: 10%;
+	}
 }
 
 
-.glyphicon {
-    color: #AF4B33;
-    font-size: 16pt;
-}
 
-.price-tag{
-	color: #FF241B;
-	display: inline-block;
-	padding-left: 10px;
-}
+/*postion absolute*/
+/* Ipad Iphone*/
+@media only screen
+and (min-device-width : 300px)
+and (max-device-width : 1024px) {
+	#productSearchNavContainer{
+		position: absolute;
+	}
+	.searchBar{
+		width: 60%;
+	}
 
-.num-of-likes{
-	display: inline-block;
 }
 

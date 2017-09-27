@@ -30,12 +30,17 @@ aside{
 	font-style: italic;
 	color: #5F6060;
 }
+label{
+	font-weight: 100 !important;
+}
 #visitor-add-button{
 	background-color: #5F6060;
 	color: white;
 	border: none;
 	padding: 5px;
 	width: 75px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 @media only screen and (min-width: 300px) {
 	.visitors-form-input{
@@ -49,13 +54,13 @@ aside{
 		margin-top: 15px;
 	}
 	#future-date{
-		height: 20px;
+		height: 35px;
 	}
 	#date-order{
-		height: 20px;
+		height: 35px;
 	}
 	#count-error{
-		height: 20px;
+		height: 15px;
 	}
 	#visitor-add-button{
 		position: absolute;
@@ -65,6 +70,9 @@ aside{
 		display: inline-block;
 		font-size: 12px;
 		max-width: 175px;
+	}
+	.top-padding{
+		margin-top: 10px;
 	}
 }
 @media only screen and (min-width: 768px) {
@@ -80,7 +88,7 @@ aside{
 	#visitors-labels{
 		flex: 3;
 		padding-left: 15%;
-		margin-top: -10px;
+		margin-top: -20px;
 	}
 	#visitors-input-fields{
 		flex: 5;
@@ -92,10 +100,10 @@ aside{
 		margin-right: 120px;
 	}
 	#future-date, #date-order{
-		height: 20px;
+		height: 50px;
 	}
 	#count-error{
-		height: 0;
+		height: 40px;
 	}
 	.error{
 		max-width: 250px;
@@ -109,7 +117,7 @@ aside{
 	#visitors-labels{
 		flex: 2;
 		padding-left: 25%;
-		margin-top: -8px;
+		margin-top: -30px;
 	}
 	#future-date, #date-order, #count-error{
 		display: none;
@@ -120,13 +128,22 @@ aside{
 	}
 	.error{
 		display: inline;
+		font-size: .75em;
+	}
+	#visitor-add-button{
+		right: 470px;
+	}
+	.top-padding{
+		margin-top: 0;
 	}
 	.visitor-form-label{
 		margin: 0;
 		padding: 0;
 		height: 20px;
+		margin-top: 15px;
 	}
-	#visitor-add-button{
-		right: 470px;
+	#count-input{
+		width: 150px;
+		margin-right: 100px;
 	}
 }

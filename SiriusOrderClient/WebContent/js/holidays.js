@@ -5,10 +5,35 @@ $(function ()
     {
         initRows: 1,
         columns: [
-            { name: 'FederalHoliday', display: 'Federal Holiday', type: 'text', ctrlAttr: { maxlength: 100 }, ctrlCss: { width: '100%'} },
-            { name: 'Date', display: 'Date', type: 'date', ctrlAttr: { maxlength: 50 }, ctrlCss: { width: '100%'} },
-            { name: 'DayofWeek', display: 'Day of Week', type: 'text', ctrlAttr: { maxlength: 50 }, ctrlCss: { width: '100%'} },
-            { name: 'ID', type: 'hidden', value: 0 }
+            { 
+            	name: 'FederalHoliday', 
+            	display: 'Federal Holiday', 
+            	type: 'text', 
+            	ctrlAttr: { maxlength: 100, placeholder: "Enter holiday name..." }, 
+            	ctrlCss: { width: '100%'} 
+            },
+            { 
+            	name: 'Date', 
+            	display: 'Date', 
+            	type: 'ui-datepicker', 
+            	ctrlAttr: { maxlength: 50 }, 
+            	ctrlCss: { width: '100%'},
+            	onChange: function (evt, rowIndex) {
+            		$( ".hasDatepicker" ).datepicker( "option", "dateFormat", "MM d, yy" );
+                }
+            },
+            { 
+            	name: 'DayofWeek', 
+            	display: 'Day of Week', 
+            	type: 'text', 
+            	ctrlAttr: { maxlength: 50, placeholder: "Enter day of week..." }, 
+            	ctrlCss: { width: '100%'} 
+            },
+            { 
+            	name: 'ID', 
+            	type: 'hidden', 
+            	value: 0 
+            }
         ],
         customRowButtons: [
             { 
@@ -26,21 +51,7 @@ $(function ()
             }
         ],
         customGridButtons: {
-        	append: $('<button></button>').text('Add').get(0),
-        	delete_button: function(){
-        		var button = document.createElement('div');
-        		button.type = 'button';
-        		button.innerHTML = 'Delete';
-        		return button;
-        	},
-        	save_button: function () {
-                var div = document.createElement('div');
-                div.innerHTML = 'v';
-                div.style.padding = '2px 12px 2px 12px';
-                div.style.backgroundColor = '#ff9999';
-                div.style.display = 'inline';
-                return div;
-        	}
+        	append: $('<button></button>').text('Add').get(0)
         },
         hideButtons: {
         	removeLast: true,
@@ -50,7 +61,7 @@ $(function ()
         	remove: true
         }
     });
-    getTableData();
+    $( ".hasDatepicker" ).datepicker( "option", "dateFormat", "MM d, yy" );
 });
 
 function saveEntry(evtObj, uniqueIndex, rowData){
@@ -71,7 +82,7 @@ function saveEntry(evtObj, uniqueIndex, rowData){
 			if(response != null){
 				console.log(response);
 				if(response == 1){
-					alert("Successfully saved holiday: " + rowData.FederalHoliday);
+					alert("Successfully saved holiday! ");
 				}
 			}
 			else{
@@ -97,7 +108,7 @@ function deleteEntry(evtObj, uniqueIndex, rowData){
 			if(response != null){
 				console.log(response);
 				if(response == 1){
-					alert("Successfully deleted holiday: " + rowData.FederalHoliday);
+					alert("Successfully deleted holiday!");
 				}
 			}
 			else{

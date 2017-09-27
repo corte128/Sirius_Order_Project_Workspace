@@ -30,6 +30,12 @@
   <message name="removeFromEmployeeWishlistResponse">
     <part name="parameters" element="tns:removeFromEmployeeWishlistResponse"/>
   </message>
+  <message name="getAllEmployeesWhoLikedProducts">
+    <part name="parameters" element="tns:getAllEmployeesWhoLikedProducts"/>
+  </message>
+  <message name="getAllEmployeesWhoLikedProductsResponse">
+    <part name="parameters" element="tns:getAllEmployeesWhoLikedProductsResponse"/>
+  </message>
   <portType name="Wishlist">
     <operation name="addToLikeTable">
       <input wsam:Action="addToLikeTable" message="tns:addToLikeTable"/>
@@ -46,6 +52,10 @@
     <operation name="removeFromEmployeeWishlist">
       <input wsam:Action="removeFromEmployeeWishlist" message="tns:removeFromEmployeeWishlist"/>
       <output wsam:Action="http://wishlistws.sirius.com/wishlist/wsdl/Wishlist/removeFromEmployeeWishlistResponse" message="tns:removeFromEmployeeWishlistResponse"/>
+    </operation>
+    <operation name="getAllEmployeesWhoLikedProducts">
+      <input wsam:Action="getAllEmployeesWhoLikedProducts" message="tns:getAllEmployeesWhoLikedProducts"/>
+      <output wsam:Action="http://wishlistws.sirius.com/wishlist/wsdl/Wishlist/getAllEmployeesWhoLikedProductsResponse" message="tns:getAllEmployeesWhoLikedProductsResponse"/>
     </operation>
   </portType>
   <binding name="wishlistBinding" type="tns:Wishlist">
@@ -86,10 +96,19 @@
         <soap:body use="literal"/>
       </output>
     </operation>
+    <operation name="getAllEmployeesWhoLikedProducts">
+      <soap:operation soapAction="getAllEmployeesWhoLikedProducts"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
   </binding>
   <service name="JaxwsWishlist">
     <port name="wishlist" binding="tns:wishlistBinding">
-      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+      <soap:address location="http://localhost:9080/WishlistWS/JaxwsWishlist"/>
     </port>
   </service>
 </definitions>

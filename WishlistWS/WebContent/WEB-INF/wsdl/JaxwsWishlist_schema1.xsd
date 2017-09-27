@@ -9,6 +9,10 @@
 
   <xs:element name="getAllEmployeesWhoLikedProductResponse" type="tns:getAllEmployeesWhoLikedProductResponse"/>
 
+  <xs:element name="getAllEmployeesWhoLikedProducts" type="tns:getAllEmployeesWhoLikedProducts"/>
+
+  <xs:element name="getAllEmployeesWhoLikedProductsResponse" type="tns:getAllEmployeesWhoLikedProductsResponse"/>
+
   <xs:element name="getAllProductsEmployeeLiked" type="tns:getAllProductsEmployeeLiked"/>
 
   <xs:element name="getAllProductsEmployeeLikedResponse" type="tns:getAllProductsEmployeeLikedResponse"/>
@@ -28,15 +32,10 @@
     <xs:sequence/>
   </xs:complexType>
 
-  <xs:complexType name="getAllProductsEmployeeLiked">
+  <xs:complexType name="getAllEmployeesWhoLikedProducts">
     <xs:sequence>
-      <xs:element name="employee_id" type="xs:int" form="qualified"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="getAllProductsEmployeeLikedResponse">
-    <xs:sequence>
-      <xs:element name="getAllProductsEmployeeLikedReturn" type="tns:productBean" form="qualified" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="productList" type="tns:productBean" form="qualified" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="location_id" type="xs:int" form="qualified"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -47,6 +46,33 @@
       <xs:element name="name" type="xs:string" minOccurs="0"/>
       <xs:element name="price" type="xs:decimal" minOccurs="0"/>
       <xs:element name="type" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllEmployeesWhoLikedProductsResponse">
+    <xs:sequence>
+      <xs:element name="getAllEmployeesWhoLikedProductsReturn" type="tns:employeeLikeBean" form="qualified" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="employeeLikeBean">
+    <xs:sequence>
+      <xs:element name="email" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="productId" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllProductsEmployeeLiked">
+    <xs:sequence>
+      <xs:element name="employee_id" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllProductsEmployeeLikedResponse">
+    <xs:sequence>
+      <xs:element name="getAllProductsEmployeeLikedReturn" type="tns:productBean" form="qualified" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 

@@ -144,6 +144,11 @@
 						</table>
 					</div>
 				</div>
+				<div class="hideDownloadDiv" id="downloadDiv">
+						Your PDF has been generated
+						<br />
+						<a href="/SiriusOrderClient/generatedPDF/test-pdf.pdf" target="_blank">click here to download</a>
+				</div>
 			</div>
 		</main>
 	</body>

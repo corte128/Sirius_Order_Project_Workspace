@@ -8,9 +8,12 @@ function addToCart(productID)
 	var xhttp = new XMLHttpRequest();
 	var quantityElement = document.getElementById("quantityToAdd");
     var quantity = 1;
+   
     if (quantityElement != null)
     {
+    	
         quantity = quantityElement.value;
+        
     }
 	var url = "/SiriusOrderClient/CartServlet?action=addToCart&productID=" + productID +"&quantity="+quantity;
 	xhttp.open("GET", url, true);
@@ -54,6 +57,7 @@ function searchProducts()
 		$('#productContainer').empty();
 		var productContainer = document.getElementById('productContainer');
 		
+		var user = document.getElementById("userType").value;
 
 		for(key in response)
 		{
@@ -81,11 +85,12 @@ function searchProducts()
 				var id = response[key].ID;
 				return function(){
 					addToWishlist(id);
-				}
+				};
 			})();
 			/*==============================*/
-			var spanPrice = document.createElement("span");
-			spanPrice.innerHTML = '$' + response[key].Price;
+			var divPrice = document.createElement("div");
+			divPrice.setAttribute("class", "price-tag");
+			divPrice.innerHTML = '$ ' + response[key].Price;
 			var numOfLikes = document.createElement("span");
 			numOfLikes.id = "numOfLikes" + response[key].ID;
 			numOfLikes.setAttribute("class", "num-of-likes")
@@ -93,7 +98,7 @@ function searchProducts()
 			numOfLikes.onmouseover = (function (){
 				var id = response[key].ID;
 				return function(){
-					createModal('likesModal' + id);
+					createModal(id);
 				};
 			})();
 			
@@ -108,12 +113,11 @@ function searchProducts()
 			divLikesAndPrice.setAttribute("class", "likesAndPrice");
 			divLikesAndPrice.appendChild(spanHeart);
 			divLikesAndPrice.appendChild(numOfLikes);
-			divLikesAndPrice.appendChild(spanPrice);
+			divLikesAndPrice.appendChild(divPrice);
 			
 			var likesModal = document.createElement("div");
 			likesModal.setAttribute("class", 'likes-modal');
 			likesModal.id = 'likesModal' + response[key].ID;
-			console.log(response[key].Likers);
 			for(nameKey in response[key].Likers){
 				var innerModalDiv = document.createElement("div");
 				innerModalDiv.innerHTML = response[key].Likers[nameKey];
@@ -121,23 +125,28 @@ function searchProducts()
 			}
 			divLikesAndPrice.appendChild(likesModal);
 			
-			var addToCartBtn = document.createElement("input");
-			addToCartBtn.setAttribute("class", "addToCartBtn");
-			addToCartBtn.type="button";
-			addToCartBtn.onclick=(function (){
-				var id = response[key].ID;
-				return function(){
-					addToCart(id);
-				};
-			})();
-			addToCartBtn.value="Add To Cart";
-			
+			var addToCartBtnContainer = document.createElement("div");
+			if(user == 2){
+				addToCartBtnContainer.setAttribute("class", "add-to-cart-btn-container");
+				var addToCartBtn = document.createElement("input");
+				addToCartBtn.setAttribute("class", "addToCartBtn");
+				addToCartBtn.type="button";
+				addToCartBtn.onclick=(function (){
+					var id = response[key].ID;
+					return function(){
+						addToCart(id);
+					};
+				})();
+				addToCartBtn.value="Add To Cart";
+				addToCartBtnContainer.appendChild(addToCartBtn);
+			}
+
 			var productCard = document.createElement("div");
 			productCard.setAttribute("class", "productCard");
 			productCard.appendChild(imageContainer);
 			productCard.appendChild(nameDiv);
 			productCard.appendChild(divLikesAndPrice);
-			productCard.appendChild(addToCartBtn);
+			productCard.appendChild(addToCartBtnContainer);
 			
 			var productCardContainer = document.createElement("div");
 			productCardContainer.setAttribute("class", "productContainerCard");
@@ -179,8 +188,30 @@ function addToWishlist(productID){
 	xhttp.send();
 }
 
+//function getAllLikers(productID){
+//	var url = '/SiriusOrderClient/NavigationServlet?action=getLikers&id=' + productID;
+//	var xhttp = new XMLHttpRequest();
+//	xhttp.open("GET", url, true);
+//	xhttp.onreadystatechange = function()
+//	{
+//		var response = JSON.parse(xhttp.responseText);
+//		var likesModal = document.getElementById("likesModal" + productID);
+//		likesModal.innerHTML = '';
+//		for(item in response){
+//			var innerModalDiv = document.createElement("div");
+//			innerModalDiv.innerHTML = item.Name; 
+//			likesModal.appendChild(innerModalDiv);
+//		}
+//	}
+//}
+
+
+
 function createModal(likesModalID){
-	document.getElementById(likesModalID).style.display = 'block';
+	var size = document.getElementById("numOfLikes" + likesModalID).innerText;
+	if(size > 0){
+		document.getElementById('likesModal'+likesModalID).style.display = 'block';
+	}
 }
 
 function deleteModal(likesModalID){

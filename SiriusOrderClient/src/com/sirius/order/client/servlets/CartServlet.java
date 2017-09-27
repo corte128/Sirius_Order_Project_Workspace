@@ -17,6 +17,7 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import com.ibm.trl.util.xml.QName;
 import com.sirius.product.service.main.product.wsdl.ProductBean;
 import com.sirius.product.service.main.product.wsdl.ProductSearchDAO;
 import com.sirius.service.cart.cart.wsdl.BudgetBean;
@@ -98,7 +99,8 @@ public class CartServlet extends HttpServlet {
 				orderBean.setTotalPrice(bean.getPrice().multiply(new BigDecimal(orderBean.getQuantity())));
 			}
 			else{
-				orderBean.setQuantity(++count);
+				count += quantityInt;
+				orderBean.setQuantity(count);
 				orderBean.setTotalPrice(bean.getPrice().multiply(new BigDecimal(orderBean.getQuantity())));
 			}
 			//============================

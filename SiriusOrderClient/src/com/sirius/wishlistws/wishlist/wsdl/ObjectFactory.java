@@ -30,6 +30,8 @@ public class ObjectFactory {
 
     private final static QName _AddToLikeTable_QNAME = new QName("http://wishlistws.sirius.com/wishlist/wsdl", "addToLikeTable");
     private final static QName _AddToLikeTableResponse_QNAME = new QName("http://wishlistws.sirius.com/wishlist/wsdl", "addToLikeTableResponse");
+    private final static QName _GetAllEmployeesWhoLikedProducts_QNAME = new QName("http://wishlistws.sirius.com/wishlist/wsdl", "getAllEmployeesWhoLikedProducts");
+    private final static QName _GetAllEmployeesWhoLikedProductsResponse_QNAME = new QName("http://wishlistws.sirius.com/wishlist/wsdl", "getAllEmployeesWhoLikedProductsResponse");
     private final static QName _GetAllProductsEmployeeLiked_QNAME = new QName("http://wishlistws.sirius.com/wishlist/wsdl", "getAllProductsEmployeeLiked");
     private final static QName _GetAllProductsEmployeeLikedResponse_QNAME = new QName("http://wishlistws.sirius.com/wishlist/wsdl", "getAllProductsEmployeeLikedResponse");
     private final static QName _RemoveFromEmployeeWishlist_QNAME = new QName("http://wishlistws.sirius.com/wishlist/wsdl", "removeFromEmployeeWishlist");
@@ -109,6 +111,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetAllEmployeesWhoLikedProducts }
+     * 
+     */
+    public GetAllEmployeesWhoLikedProducts createGetAllEmployeesWhoLikedProducts() {
+        return new GetAllEmployeesWhoLikedProducts();
+    }
+
+    /**
+     * Create an instance of {@link GetAllEmployeesWhoLikedProductsResponse }
+     * 
+     */
+    public GetAllEmployeesWhoLikedProductsResponse createGetAllEmployeesWhoLikedProductsResponse() {
+        return new GetAllEmployeesWhoLikedProductsResponse();
+    }
+
+    /**
+     * Create an instance of {@link EmployeeLikeBean }
+     * 
+     */
+    public EmployeeLikeBean createEmployeeLikeBean() {
+        return new EmployeeLikeBean();
+    }
+
+    /**
      * Create an instance of {@link EmployeeBean }
      * 
      */
@@ -140,6 +166,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://wishlistws.sirius.com/wishlist/wsdl", name = "addToLikeTableResponse")
     public JAXBElement<AddToLikeTableResponse> createAddToLikeTableResponse(AddToLikeTableResponse value) {
         return new JAXBElement<AddToLikeTableResponse>(_AddToLikeTableResponse_QNAME, AddToLikeTableResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllEmployeesWhoLikedProducts }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://wishlistws.sirius.com/wishlist/wsdl", name = "getAllEmployeesWhoLikedProducts")
+    public JAXBElement<GetAllEmployeesWhoLikedProducts> createGetAllEmployeesWhoLikedProducts(GetAllEmployeesWhoLikedProducts value) {
+        return new JAXBElement<GetAllEmployeesWhoLikedProducts>(_GetAllEmployeesWhoLikedProducts_QNAME, GetAllEmployeesWhoLikedProducts.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllEmployeesWhoLikedProductsResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://wishlistws.sirius.com/wishlist/wsdl", name = "getAllEmployeesWhoLikedProductsResponse")
+    public JAXBElement<GetAllEmployeesWhoLikedProductsResponse> createGetAllEmployeesWhoLikedProductsResponse(GetAllEmployeesWhoLikedProductsResponse value) {
+        return new JAXBElement<GetAllEmployeesWhoLikedProductsResponse>(_GetAllEmployeesWhoLikedProductsResponse_QNAME, GetAllEmployeesWhoLikedProductsResponse.class, null, value);
     }
 
     /**

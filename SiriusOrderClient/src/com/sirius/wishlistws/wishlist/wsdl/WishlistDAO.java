@@ -2,7 +2,8 @@ package com.sirius.wishlistws.wishlist.wsdl;
 
 import java.util.List;
 
-public class WishlistDAO {
+public class WishlistDAO
+{
 
     public static void addToLikeTable(int employeeId, int productId) {
     	WishlistProxy proxy = new WishlistProxy();
@@ -22,5 +23,11 @@ public class WishlistDAO {
     public static void removeFromEmployeeWishlist(int employeeId, int productId) {
     	WishlistProxy proxy = new WishlistProxy();
     	proxy.removeFromEmployeeWishlist(employeeId,productId);
+    }
+    
+    public static List<EmployeeLikeBean> getAllEmployeesWhoLikedProducts(List<ProductBean> productList, int location_id)     
+    {
+    	WishlistProxy proxy = new WishlistProxy();
+    	return proxy.getAllEmployeesWhoLikedProducts(productList, location_id);
     }
 }

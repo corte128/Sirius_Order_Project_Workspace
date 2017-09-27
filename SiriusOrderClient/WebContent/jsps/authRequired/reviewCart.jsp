@@ -4,7 +4,6 @@
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 
 <fmt:setBundle basename="com.sirius.order.client.properties.common"/> 
  
@@ -210,15 +209,127 @@
 			</span>
 		</div>
 	</c:if>
-		
+	
+	<!-- INCLUDE SAVED ORDER MODAL -->
 	<div id="includeSavedOrderModal" class="cart-modal">
 		<div id="includeSavedOrderModalTitleContainer">
 			<span id="includeSavedOrderModalTitleTextContainer">
 				<fmt:message key="CART_SAVED_ORDERS_LABEL" />
 			</span>
-			<select onchange="populateItemsFromOrders">
-			
+			<select id="includeSavedOrderModalOrderSelect" onchange="populateItemsFromOrders()">
+				<option value="" selected><fmt:message key="CART_SELECT_LABEL" /></option>
+				<c:forEach var="orderName" items="${savedOrders.keySet()}">
+					<option value="${orderName}">${orderName}</option>
+				</c:forEach>
 			</select>
+		</div>
+		<c:forEach var="orderName" items="${savedOrders.keySet()}">
+			<div id="${orderName}OrderContainer" class="order-container">
+				<div class="order-item-container
+					cart-modal-color-alternate-container">
+					<div class="order-item-input-container">
+						<input id="${orderName}OrderTitleCheckbox" type="checkbox" />
+					</div>
+					<div class="order-title-text-container">
+						<fmt:message key="CART_ITEMS_LABEL" />
+					</div>
+				</div>
+				<!-- GENERATE A DIV FOR EACH ITEM IN AN ORDER -->
+				<c:set var="orderIndex" value="0" scope="page" />
+				<!--<c:set var="curOrderName" value="${orderName}" scope="page"/>-->
+				<c:forEach var="orderItem" items="${savedOrders.get(orderName)}">
+					<div class="order-item-container
+						cart-modal-color-alternate-container">
+						<div class="order-item-input-container">
+							<input id="includeOrderCheckbox${savedOrders.get(orderName)[orderIndex].getId()}" 
+								class="include-order-checkbox-${savedOrders.get(orderName)[orderIndex].getName()}"
+								type="checkbox" />
+						</div>
+						<div class="order-title-text-container">
+							${savedProducts.get(curOrderName)[orderIndex].getName()}
+						</div>
+					</div>
+					<c:set var="orderIndex" value="${orderIndex + 1}" scope="page"/>
+				</c:forEach>
+			</div>
+		</c:forEach>
+		<div id="includeSavedOrderModalButtonContainer" class="cart-modal-button-container">
+			<button id="includeSavedOrderModalButton" 
+				class="cart-modal-button">
+				<fmt:message key="CART_INCLUDE_LABEL" />
+			</button>
+		</div>
+	</div>
+	
+	<!-- SAVE ORDER MODAL -->
+	<div id="saveOrderModal" class="cart-modal">
+		<div id="saveOrderModalTitleContainer">
+			<span id="saveOrderModalTitleTextContainer">
+				<fmt:message key="CART_NAME_LABEL" />
+			</span>
+			<input id="saveOrderModalOrderInput" type="text" />
+		</div>
+		
+		<div id="cartOrderContainer" class="cart-order-container">
+			<div class="order-item-container
+				cart-modal-color-alternate-container">
+				<div class="order-item-input-container">
+					<input id="saveOrderTitleCheckbox" type="checkbox" />
+				</div>
+				<div class="order-title-text-container">
+					<fmt:message key="CART_ITEMS_LABEL" />
+				</div>
+			</div>
+			<!-- GENERATE A DIV FOR EACH ITEM IN AN ORDER -->
+			<c:set var="breakroomModalIndex" value="0" scope="page" />
+			<c:forEach var="product" items="${breakroomProducts}">
+				<div class="order-item-container
+					cart-modal-color-alternate-container">
+					<div class="order-item-input-container">
+						<input id="saveOrderCheckbox${breakroomOrders.get(breakroomModalIndex).getId()}" type="checkbox" />
+					</div>
+					<div class="order-title-text-container">
+						${breakroomProducts.get(breakroomModalIndex).getName()}
+					</div>
+				</div>
+				<c:set var="breakroomIndex" value="${breakroomIndex + 1}" scope="page"/>
+			</c:forEach>
+			
+			<c:set var="officeSuppliesIndex" value="0" scope="page" />
+			<c:forEach var="product" items="${officeSuppliesProducts}">
+				<div class="order-item-container
+					cart-modal-color-alternate-container">
+					<div class="order-item-input-container">
+						<input id="saveOrderCheckbox${officeSuppliesOrders.get(officeSuppliesIndex).getId()}" type="checkbox" />
+					</div>
+					<div class="order-title-text-container">
+						${officeSuppliesProducts.get(officeSuppliesIndex).getName()}
+					</div>
+				</div>
+				<c:set var="officeSuppliesIndex" value="${officeSuppliesIndex + 1}" scope="page"/>
+			</c:forEach>
+			
+			<c:set var="inkIndex" value="0" scope="page" />
+			<c:forEach var="product" items="${inkAndTonerProducts}">
+				<div class="order-item-container
+					cart-modal-color-alternate-container">
+					<div class="order-item-input-container">
+						<input id="saveOrderCheckbox${inkAndTonerOrders.get(inkIndex).getId()}" type="checkbox" />
+					</div>
+					<div class="order-title-text-container">
+						${inkAndTonerProducts.get(inkIndex).getName()}
+					</div>
+				</div>
+				<c:set var="inkIndex" value="${inkIndex + 1}" scope="page"/>
+			</c:forEach>
+			
+		</div>
+			
+		<div id="includeSavedOrderModalButtonContainer" class="cart-modal-button-container">
+			<button id="includeSavedOrderModalButton" 
+				class="cart-modal-button">
+				<fmt:message key="CART_SAVE_LABEL" />
+			</button>
 		</div>
 	</div>
 </body>
