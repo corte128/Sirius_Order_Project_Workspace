@@ -178,7 +178,7 @@ public class AttendanceServlet extends HttpServlet {
 					String[][] contentForTable = new String[list.size()+1][4];
 					Calendar calendar = Calendar.getInstance();
 					String[] dateArray = new String[3];
-					SimpleDateFormat sFormat = new SimpleDateFormat("MM/dd/yyy");
+					SimpleDateFormat sFormat = new SimpleDateFormat("MM/dd/yyyy");
 					String formatedDate = "";
 					for (int i = 0; i < list.size()+1; i++){
 						if(i==0){
@@ -193,7 +193,7 @@ public class AttendanceServlet extends HttpServlet {
 						
 						dateArray = list.get(i-1).getAttendantDate().split("-");
 						calendar.set(Calendar.YEAR, Integer.parseInt(dateArray[0]));
-						calendar.set(Calendar.MONTH, Integer.parseInt(dateArray[1]));
+						calendar.set(Calendar.MONTH, Integer.parseInt(dateArray[1])-1);
 						calendar.set(Calendar.DATE, Integer.parseInt(dateArray[2]));
 						formatedDate = sFormat.format(calendar.getTime());
 						
