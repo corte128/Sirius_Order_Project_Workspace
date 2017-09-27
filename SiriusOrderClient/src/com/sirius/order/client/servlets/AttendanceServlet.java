@@ -367,7 +367,7 @@ public class AttendanceServlet extends HttpServlet {
 			
 			dateArray = record.getAttendantDate().split("-");
 			calendar.set(Calendar.YEAR, Integer.parseInt(dateArray[0]));
-			calendar.set(Calendar.MONTH, Integer.parseInt(dateArray[1]));
+			calendar.set(Calendar.MONTH-1, Integer.parseInt(dateArray[1]));
 			calendar.set(Calendar.DATE, Integer.parseInt(dateArray[2]));
 			formatedDate = sFormat.format(calendar.getTime());
 			
