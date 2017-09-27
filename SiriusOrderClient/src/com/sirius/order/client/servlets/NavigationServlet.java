@@ -20,11 +20,11 @@ import com.sirius.locationws.location.wsdl.LocationBean;
 import com.sirius.locationws.location.wsdl.LocationClientDAO;
 import com.sirius.locationws.location.wsdl.LocationProxy;
 import com.sirius.product.service.main.product.wsdl.ProductBean;
-import com.sirius.product.service.main.product.wsdl.ProductProxy;
 import com.sirius.product.service.main.product.wsdl.ProductSearchDAO;
 import com.sirius.service.cart.cart.wsdl.CartServiceDAO;
 import com.sirius.service.cart.cart.wsdl.OrderBean;
 import com.sirius.wishlistws.wishlist.wsdl.WishlistDAO;
+
 
 
 
@@ -126,8 +126,11 @@ public class NavigationServlet extends HttpServlet {
 	}
 	
 	private void forwardToProductDetails(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		HttpSession session = request.getSession();
 		ProductBean product = new ProductBean();
 		String id = request.getParameter("id");
+		Integer locationId = (Integer) session.getAttribute("activeUserLocation");
+//		int locationId = Integer.parseInt(locationIdString);
 		product = ProductSearchDAO.getProductByID(Integer.parseInt(id));
 		request.setAttribute("productDetails", product.getDetails());
 		request.setAttribute("productId", product.getId());
@@ -135,6 +138,16 @@ public class NavigationServlet extends HttpServlet {
 		request.setAttribute("productName", product.getName());
 		request.setAttribute("productPrice", product.getPrice());
 		request.setAttribute("productType", product.getType());
+		
+		List<com.sirius.wishlistws.wishlist.wsdl.EmployeeBean> emps = WishlistDAO.getAllEmployeesWhoLikedProduct(Integer.parseInt(id), locationId);
+		List<String> empNames = new ArrayList<String>();
+		for(com.sirius.wishlistws.wishlist.wsdl.EmployeeBean emp : emps){
+			empNames.add(emp.getName());
+		}
+		
+		request.setAttribute("LikesForProduct",  empNames);
+		request.setAttribute("numLikes", empNames.size());
+		
 		if(product.getType().equals("Breakroom"))
 		{
 			request.setAttribute("productTypeId", 1);
