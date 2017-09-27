@@ -42,6 +42,7 @@
 										</c:forEach>
 									</div>
 						</div>
+						<c:if test="${sessionScope.activeUserType == 2}">
 						<div class="orderFormContainer">
 							
 								<label class = "productLabel" for="quantityToAdd">Quantity: </label> <input
@@ -51,6 +52,7 @@
 									to Cart</button>
 							
 						</div>
+						</c:if>
 					</div>
 				</div>
 				<div class="productDetailsText">
