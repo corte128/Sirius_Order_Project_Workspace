@@ -133,4 +133,8 @@ public class WishlistProxy{
         _getDescriptor().getProxy().removeFromEmployeeWishlist(employeeId,productId);
     }
 
+    public List<EmployeeLikeBean> getAllEmployeesWhoLikedProducts(List<ProductBean> productList, int locationId) {
+        return _getDescriptor().getProxy().getAllEmployeesWhoLikedProducts(productList,locationId);
+    }
+
 }

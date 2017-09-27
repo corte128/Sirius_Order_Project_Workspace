@@ -31,19 +31,28 @@
 						<div class="likesAndPriceContiner">
 							<span class="priceContiner">$ ${productPrice}</span> 
 							<span class="likesContainer"> 
-								<span class="glyphicon glyphicon-heart clickable-like" onclick='addToWishlist(${currentProduct.getId()})'></span>
-								<span class="likesCount">${numLikes}</span> 
+								<span class="glyphicon glyphicon-heart clickable-like" onclick='addToWishlist(${productId})'></span>
+								<span class="likesCount" id="numOfLikes${productId}" onmouseover="createModal('likesModal${productId}')" onmouseout="deleteModal('likesModal${productId}')">${numLikes}</span> 
 							</span>
+						<div id="likesModal${productId}" class="likes-modal">
+										<c:forEach var="user" items="${LikesForProduct}">
+											<div>
+												${user}
+											</div>
+										</c:forEach>
+									</div>
 						</div>
+						<c:if test="${sessionScope.activeUserType == 2}">
 						<div class="orderFormContainer">
-							<form>
+							
 								<label class = "productLabel" for="quantityToAdd">Quantity: </label> <input
-									type="number" name="quantityToAdd" value="" required
+									type="number" id = "quantityToAdd" name="quantityToAdd" value="" required
 									pattern="^[0-9]{1,2}$" maxlength="2" class="quantityInput">
 								<button id="addToCartButton" onclick="addToCart(${productId})">Add
 									to Cart</button>
-							</form>
+							
 						</div>
+						</c:if>
 					</div>
 				</div>
 				<div class="productDetailsText">

@@ -85,4 +85,22 @@ public interface Wishlist {
         @WebParam(name = "product_id", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl")
         int productId);
 
+    /**
+     * 
+     * @param locationId
+     * @param productList
+     * @return
+     *     returns java.util.List<com.sirius.wishlistws.wishlist.wsdl.EmployeeLikeBean>
+     */
+    @WebMethod(action = "getAllEmployeesWhoLikedProducts")
+    @WebResult(name = "getAllEmployeesWhoLikedProductsReturn", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl")
+    @RequestWrapper(localName = "getAllEmployeesWhoLikedProducts", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl", className = "com.sirius.wishlistws.wishlist.wsdl.GetAllEmployeesWhoLikedProducts")
+    @ResponseWrapper(localName = "getAllEmployeesWhoLikedProductsResponse", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl", className = "com.sirius.wishlistws.wishlist.wsdl.GetAllEmployeesWhoLikedProductsResponse")
+    @Action(input = "getAllEmployeesWhoLikedProducts", output = "http://wishlistws.sirius.com/wishlist/wsdl/Wishlist/getAllEmployeesWhoLikedProductsResponse")
+    public List<EmployeeLikeBean> getAllEmployeesWhoLikedProducts(
+        @WebParam(name = "productList", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl")
+        List<ProductBean> productList,
+        @WebParam(name = "location_id", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl")
+        int locationId);
+
 }

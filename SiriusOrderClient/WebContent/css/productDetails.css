@@ -1,103 +1,168 @@
-#addToCartButton{
+#addToCartButton {
 	height: 50px;
 	width: 200px;
 	background-color: #5F6060;
-	color: white;	
+	color: white;
 	margin-left: 20px;
 }
-.breadCrumbs{
- 
-  margin-bottom: 10px;
-  
+
+.breadCrumbs {
+	margin-bottom: 10px;
 }
 
 .breadCrumbs a {
-    text-decoration: underline;
-    color: gray;
-    font-size: 1.25rem;
-  	margin-bottom: 10px;
+	text-decoration: underline;
+	color: gray;
+	font-size: 1.25rem;
+	margin-bottom: 10px;
 }
-.productLabel{
+
+.productLabel {
 	font-family: serif;
 	font-style: italic;
 }
+
 .flexBoxContainer {
-    display: flex;
+	display: flex;
 }
 
-.productDetailsPageDiv{
-	flex:7;
+.productDetailsPageDiv {
+	flex: 7;
 }
 
-.productDetailsMainContianer{
-border: 1px solid lightgray;
-width: 760px;
-margin: auto;
-margin-top: 10px;
-padding: 10px;
+.productDetailsMainContianer {
+	border: 1px solid lightgray;
+	width: 760px;
+	margin: auto;
+	margin-top: 10px;
+	padding: 10px;
 }
 
-aside{
-flex:1;
+aside {
+	flex: 1;
 }
 
-.imgAndOrderInfoContainer{
-  display: flex;
-  flex-wrap: wrap;
+.imgAndOrderInfoContainer {
+	display: flex;
+	flex-wrap: wrap;
 }
 
-.orderInfoContainer{
-margin-top: 30px;
-margin-left: 100px;
+.orderInfoContainer {
+	margin-top: 30px;
+	margin-left: 100px;
 }
 
 .likesAndPriceContiner {
-    
-    margin-bottom: 70px;
+	margin-bottom: 70px;
 }
 
-.priceContiner{
+.priceContiner {
 	font-size: 20pt;
 	color: red;
 	margin-right: 50px;
 	font-family: Calibri, sans-serif;
 	font-style: italic;
 }
-.likesContainer{
-display:inline-block;
 
+.likesContainer {
+	display: inline-block;
 }
+
 .longDescrip {
-    margin-left: 60px;
+	margin-left: 60px;
 }
 
-
-.clickable-like{
+.clickable-like {
 	cursor: pointer;
-	display:inline-block;
-}
-.likesCount{
-    display: inline-block;
-    position: relative;
-    top: -7px;
-    right: 0px;
+	display: inline-block;
 }
 
-
-.productPictureContainer{
-  width: 300px;
-  height:200px;
-  margin-bottom: 10px;
+.likesCount {
+	display: inline-block;
+	position: relative;
+	top: -7px;
+	right: 0px;
 }
+
+.productPictureContainer {
+	width: 300px;
+	height: 200px;
+	margin-bottom: 10px;
+}
+
 .titleText {
-    font-size: 16pt;
-    font-weight: bold;
-}
-.quantityInput {
-    width: 50px;
+	font-size: 16pt;
+	font-weight: bold;
 }
 
-.glyphicon{
-color: #AF4B33;
-font-size: 16pt;
+.quantityInput {
+	width: 50px;
+}
+
+.glyphicon {
+	color: #AF4B33;
+	font-size: 16pt;
+}
+
+.likes-modal {
+	display: none;
+	z-index: 3;
+	position: absolute;
+	border: 1px dotted gray;
+	background-color: white;
+	padding-left: 2px;
+	padding-right: 2px;
+	margin-left: 20px;
+	margin-top: -70px;
+	opacity: .85;
+}
+
+@media ( max-width : 769px) {
+	aside {
+		width: 0px;
+		height: 0px;
+		position: absolute;
+	}
+}
+
+@media ( max-width : 500px) {
+	aside {
+		width: 0px;
+		height: 0px;
+		position: absolute;
+	}
+	.productDetailsMainContianer {
+		width: 300px;
+	}
+	.orderInfoContainer {
+		margin-top: 20px;
+		margin: auto;
+	}
+	.likesAndPriceContiner {
+    margin-bottom: 20px;
+    margin-left: 15px;
+}
+#addToCartButton{
+	margin:auto;
+}
+.orderFormContainer{
+	    margin-bottom: 10px;
+}
+
+.longDescrip {
+    margin-left: 0px;
+    text-align: center;
+}
+.titleText{
+	margin-left: 0px;
+	text-align: center;
+}
+.imgAndOrderInfoContainer{
+	margin-left: 35px;
+}
+
+label.productLabel {
+    margin-left: 40px;
+}
+
 }

@@ -1,6 +1,7 @@
 package com.sirius.wishlistws.jaxws;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -10,6 +11,7 @@ import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 
 import com.sirius.wishlistws.beans.EmployeeBean;
+import com.sirius.wishlistws.beans.EmployeeLikeBean;
 import com.sirius.wishlistws.beans.ProductBean;
 
 @WebService(name = "Wishlist", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl")
@@ -46,4 +48,11 @@ public interface Wishlist {
 			@WebParam(name = "employee_id", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl") int employee_id,
 			@WebParam(name = "product_id", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl") int product_id);
 	
+	@WebMethod(action = "getAllEmployeesWhoLikedProducts")
+	@WebResult(name = "getAllEmployeesWhoLikedProductsReturn", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl")
+	@RequestWrapper(localName = "getAllEmployeesWhoLikedProducts", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl", className = "com.sirius.wishlistws.jaxws.getAllEmployeesWhoLikedProducts")
+	@ResponseWrapper(localName = "getAllEmployeesWhoLikedProductsResponse", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl", className = "com.sirius.wishlistws.jaxws.getAllEmployeesWhoLikedProductsResponse")
+	public List<EmployeeLikeBean> getAllEmployeesWhoLikedProducts(
+			@WebParam(name = "productList", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl") List<ProductBean> productList,
+			@WebParam(name = "location_id", targetNamespace = "http://wishlistws.sirius.com/wishlist/wsdl") int location_id);
 }
