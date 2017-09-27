@@ -4,6 +4,7 @@ select {
 	background-color: #605C68;
 	color: #CACACA;
 	width: 115px;
+	height: 25px;
 }
 
 .search{
@@ -27,6 +28,8 @@ select {
 	font-size: 1.2em;
 	color: #8A8698;
 	position: relative;
+	top: 6px;
+	cursor: pointer;
 }
 
 .productContainer{

@@ -81,11 +81,12 @@ function searchProducts()
 				var id = response[key].ID;
 				return function(){
 					addToWishlist(id);
-				}
+				};
 			})();
 			/*==============================*/
-			var spanPrice = document.createElement("span");
-			spanPrice.innerHTML = '$' + response[key].Price;
+			var divPrice = document.createElement("div");
+			divPrice.setAttribute("class", "price-tag");
+			divPrice.innerHTML = '$ ' + response[key].Price;
 			var numOfLikes = document.createElement("span");
 			numOfLikes.id = "numOfLikes" + response[key].ID;
 			numOfLikes.setAttribute("class", "num-of-likes")
@@ -108,12 +109,11 @@ function searchProducts()
 			divLikesAndPrice.setAttribute("class", "likesAndPrice");
 			divLikesAndPrice.appendChild(spanHeart);
 			divLikesAndPrice.appendChild(numOfLikes);
-			divLikesAndPrice.appendChild(spanPrice);
+			divLikesAndPrice.appendChild(divPrice);
 			
 			var likesModal = document.createElement("div");
 			likesModal.setAttribute("class", 'likes-modal');
 			likesModal.id = 'likesModal' + response[key].ID;
-			console.log(response[key].Likers);
 			for(nameKey in response[key].Likers){
 				var innerModalDiv = document.createElement("div");
 				innerModalDiv.innerHTML = response[key].Likers[nameKey];
@@ -121,6 +121,8 @@ function searchProducts()
 			}
 			divLikesAndPrice.appendChild(likesModal);
 			
+			var addToCartBtnContainer = document.createElement("div");
+			addToCartBtnContainer.setAttribute("class", "add-to-cart-btn-container");
 			var addToCartBtn = document.createElement("input");
 			addToCartBtn.setAttribute("class", "addToCartBtn");
 			addToCartBtn.type="button";
@@ -131,13 +133,13 @@ function searchProducts()
 				};
 			})();
 			addToCartBtn.value="Add To Cart";
-			
+			addToCartBtnContainer.appendChild(addToCartBtn);
 			var productCard = document.createElement("div");
 			productCard.setAttribute("class", "productCard");
 			productCard.appendChild(imageContainer);
 			productCard.appendChild(nameDiv);
 			productCard.appendChild(divLikesAndPrice);
-			productCard.appendChild(addToCartBtn);
+			productCard.appendChild(addToCartBtnContainer);
 			
 			var productCardContainer = document.createElement("div");
 			productCardContainer.setAttribute("class", "productContainerCard");
