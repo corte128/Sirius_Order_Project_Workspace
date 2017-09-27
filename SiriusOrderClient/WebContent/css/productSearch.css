@@ -48,3 +48,8 @@ select {
 .clickable-like{
 	cursor: pointer;
 }
+
+.glyphicon {
+    color: #AF4B33;
+    font-size: 16pt;
+}
