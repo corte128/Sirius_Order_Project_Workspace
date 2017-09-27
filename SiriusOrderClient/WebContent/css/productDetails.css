@@ -101,3 +101,17 @@ display:inline-block;
 color: #AF4B33;
 font-size: 16pt;
 }
+
+.likes-modal{
+	display: none;
+	z-index: 3;
+	position: absolute;
+	border: 1px dotted gray;
+	background-color: white;
+	padding-left: 2px;
+	padding-right: 2px;
+	margin-left: 20px;
+	margin-top: -70px;
+	opacity: .85;
+
+}

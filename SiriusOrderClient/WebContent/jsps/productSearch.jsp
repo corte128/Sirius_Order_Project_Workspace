@@ -71,7 +71,7 @@
 								</div>
 								<div class="add-to-cart-btn-container">
 									<input class="addToCartBtn" type="button" 
-									onclick="addToCart(${currentProduct.getId()})" 
+									onclick="addToCart(${productId})" 
 									value="Add To Cart" />
 								</div>
 							</div>
