@@ -18,8 +18,7 @@ public class GenerateImplementation implements GenerateInterface {
 
 	@Override
 	public boolean generateCart(int locationId) {
-		// TODO Auto-generated method stub
-		return false;
+		return GenerateDAO.generateCart();
 	}
 
 }
