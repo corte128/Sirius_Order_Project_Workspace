@@ -6,10 +6,11 @@
 <head>
 <title>wishlist</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css"
-	href="/SiriusOrderClient/css/wishlist.css">
+
 	<link rel="stylesheet" type="text/css"
 	href="/SiriusOrderClient/css/productCard.css">
+	<link rel="stylesheet" type="text/css"
+	href="/SiriusOrderClient/css/wishlist.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/SiriusOrderClient/js/wishlist.js"></script>
@@ -52,68 +53,10 @@
 		</div>
 
 		<%-- PRODUCT CARDS --%>
-		<div class="wishlist-product-card-container" id="wishlist-product-card-container-id">
-			<c:forEach var="product" items="${Products}">
-					<c:set var="currentProduct" value="${product}" scope="request"/>
-					<div class="productContainerCard">
-						<div class="productCard">
-							<div class="imageContainer">
-								<a href="/SiriusOrderClient/NavigationServlet?action=productDetails&id=${currentProduct.getId()}">
-									<img src="${currentProduct.getImage()}" alt="name of item" class="productImage"></img>
-								</a>
-							</div>
-							<div class="productLabel">
-								<p class="nameLabel">${currentProduct.getName()}</p>
-							</div>
-							<div class="likesAndPrice">
-								<span class="glyphicon glyphicon-heart clickable-like" onclick='addToWishlist(${currentProduct.getId()})'></span>
-								<c:set var="productId" value="LikesForProduct:${currentProduct.getId()}" scope="request"/>
-								<span id="numOfLikes${currentProduct.getId()}" class="num-of-likes" onmouseover="createModal('likesModal${currentProduct.getId()}')" onmouseout="deleteModal('likesModal${currentProduct.getId()}')">${requestScope[productId].size()}</span>
-								<span>$${currentProduct.getPrice()}</span>
-								<div id="likesModal${currentProduct.getId()}" class="likes-modal">
-									<c:forEach var="user" items="${requestScope[productId]}">
-										<div>
-											${user}
-										</div>
-									</c:forEach>
-								</div>
-							</div>
-							<input class="addToCartBtn" type="button" 
-								onclick="addToCart(${currentProduct.getId()})" 
-								value="Add To Cart" />
-						</div>
-					</div>
-				</c:forEach>
-		
-			<%--<c:forEach var="product" items="${Products}">
-				<c:set var="currentProduct" value="${product}" scope="request" />
-				<div class="productContainerCard">
-					<div class="productCard">
-						<div class="imageContainer">
-							<a
-								href="/SiriusOrderClient/NavigationServlet?action=productDetails&id=${currentProduct.getId()}">
-								<img src="${currentProduct.getImage()}" alt="name of item"
-								class="productImage"></img> </a>
-						</div>
-
-
-						<div class="productLabel">
-							<p class="nameLabel">${currentProduct.getName()}</p>
-						</div>
-						<div class="likesAndPrice">
-							<span class="glyphicon glyphicon-heart clickable-like" onclick='addToWishlist(${currentProduct.getId()})'></span>
-							<c:set var="productId" value="LikesForProduct:${currentProduct.getId()}" scope="request"/>
-							<span id="numOfLikes${currentProduct.getId()}" class="num-of-likes">${requestScope[productId].size()}</span>
-							<span>$${currentProduct.getPrice()}</span>
-						</div>
-						<input class="addToCartBtn" type="button"
-							onclick="addToCart(${currentProduct.getId()})"
-							value="Add To Cart" />
-					</div>
-				</div>
-			</c:forEach> --%>
+		<div class="wishlist-product-card-container" id="productContainer">
+			
 		</div>
-
+		<input id="userType" type="hidden" value="${sessionScope.activeUserType}" />
 		<%-- ASIDE --%>
 		<aside class="wishlist-navbar-container">
 			<%@ include file="nav.jsp"%>
