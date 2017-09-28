@@ -16,7 +16,7 @@
 	flex: 11.5;
 	margin: 5px;
 	border: 1px black solid;
-	padding: 8% 5% 0 5%;
+	padding: 3% 5% 0 5%;
 	position: relative;
 }
 #budgetNavContainer
@@ -47,8 +47,11 @@
 	padding: 8px 18px 8px 18px;
 	cursor: pointer;
 	border: none;
+	margin-top: 1%;
+	margin-left: 26.9%;
 }
-@media(min-width: 769px) 
+
+/*@media(min-width: 769px) 
 {
 	#budgetReportGenerateReportButton
 	{
@@ -59,9 +62,23 @@
 		top: calc(100% - 44px);
 		
 	}
-}
+}*/
 
 #budgetGridContainer
 {
 	padding: 70px;
+}
+
+/* Iphone 5 */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+	#budgetSearchBoxAndNavContainer{
+		width: 130%;
+	}
+	
+	#budgetGridContainer
+	{
+		padding: 20px;
+	}
 }
