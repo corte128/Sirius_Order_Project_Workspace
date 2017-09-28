@@ -64,7 +64,7 @@
 						</span>
 					</c:if>
 					<br />
-					<html:textarea styleClass="visitors-form-input top-padding" property="comment"></html:textarea>
+					<textarea class="visitors-form-input top-padding" name="comment"></textarea>
 					<br />
 					<html:submit styleId="visitor-add-button" value=Add><fmt:message key="VISITORS_ADD_BUTTON" /></html:submit>
 				</html:form>
