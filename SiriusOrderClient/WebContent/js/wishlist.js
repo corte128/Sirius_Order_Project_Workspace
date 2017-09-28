@@ -2,6 +2,45 @@ $( document ).ready(function() {
 	getProducts();
 });
 
+function addToCart(productID)
+{
+	$('#addConfirmed' + productID).fadeIn('fast').delay(1000).fadeOut('slow')
+	var xhttp = new XMLHttpRequest();
+	var quantityElement = document.getElementById("quantityToAdd");
+    var quantity = 1;
+   
+    if (quantityElement != null)
+    {
+        quantity = quantityElement.value;
+        if (quantity < 0 ){
+        	var errorMessageDiv = document.getElementById("errorMessage");
+        	errorMessageDiv.style.display= "block";
+        }else{
+        	var errorMessageDiv = document.getElementById("errorMessage");
+        	errorMessageDiv.style.display= "none";
+        }
+        
+    }
+	var url = "/SiriusOrderClient/CartServlet?action=addToCart&productID=" + productID +"&quantity="+quantity;
+	xhttp.open("GET", url, true);
+	xhttp.onreadystatechange = function()
+	{
+//		var response = xhttp.responseText;
+//		if(response != null){
+//			console.log(response);
+//			$('#tblAppendGrid').appendGrid('load', JSON.parse(response));
+//		}
+//		else{
+//			console.log("Results are empty");
+//		}
+//		TO DO alert user
+	};
+	xhttp.send();
+	var successElement = document.getElementById("successMessage");
+	if (successElement != null && quantity > 0){
+		$('#successMessage').fadeIn('fast').delay(3000).fadeOut('slow')
+	}
+}
 
 function getProducts()
 {	
@@ -110,7 +149,7 @@ function getProducts()
 			
 			var productAddedDiv = document.createElement("span");
 			productAddedDiv.setAttribute("class", "confirm-popup");
-			productAddedDiv.id = 'addConfirmed$' + response[key].ID;
+			productAddedDiv.id = 'addConfirmed' + response[key].ID;
 			productAddedDiv.innerHTML = 'Product Added!';
 			
 			productCard.appendChild(productAddedDiv);

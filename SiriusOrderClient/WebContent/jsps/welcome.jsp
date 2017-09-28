@@ -30,7 +30,7 @@
 	</header>
 	<c:if test="${visitor_success != null}">
 		<div id='visitor_dialog'>
-			<p>The visitors have been successfully saved.</p>
+			<p><fmt:message key="VISITORS_SUCCESS_MESSAGE" /></p>
 		</div>
 	</c:if>
 	
