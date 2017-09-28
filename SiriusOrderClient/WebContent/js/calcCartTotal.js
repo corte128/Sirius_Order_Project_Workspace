@@ -66,7 +66,6 @@ function removeFromCart(orderID){
 	xhttp.onreadystatechange = function()
 	{
 		var productDiv = document.getElementById("cartOrder" + orderID);
-//		var parentDiv = productDiv.parentElement.nodeName;
 		productDiv.parentNode.removeChild(productDiv);
 		calcTotals();
 	};
@@ -154,5 +153,72 @@ function selectAllOrderCheckboxes(orderName)
 }
 function includeOrderInCart()
 {
-	
+	var curOrderName = document.getElementById("includeSavedOrderModalOrderSelect").value;
+	var checkBoxes = document.getElementsByClassName("include-order-checkbox-" + curOrderName);
+	for(var index = 0; index < checkBoxes.length; ++index)
+	{
+		if(checkBoxes[index].checked == true)
+		{
+			var orderId = checkBoxes[index].id.substring(20);
+			var productId = document.getElementById("includeOrderProductId" + orderId).value;
+			var xhttp = new XMLHttpRequest();
+			var url = "/SiriusOrderClient/CartServlet?action=addOrderToCart&productID=" + productId +"&quantity="+1;
+			xhttp.open("GET", url, true);
+			xhttp.onreadystatechange = function()
+			{
+				var response = JSON.parse(this.responseText);
+				console.log(this.responseText);
+				if(response.length > 0)
+				{
+					var data = response[0];
+					var endDiv = null;
+					var classType = '';
+					var functionType = '';
+					if(data.productType == 'Breakroom')
+					{
+						endDiv = document.getElementById("breakroomSummaryContainer");
+						classType = 'breakroom';
+						functionType = 'Breakroom';
+					}
+					else if(data.productType == 'Office Supplies')
+					{
+						endDiv = document.getElementById("officeSuppliesSummaryContainer");
+						classType = 'office-supplies';
+						functionType = 'OfficeSupplies';
+					}
+					else
+					{
+						endDiv = document.getElementById("inkAndTonerOrdersSummaryContainer");
+						classType = 'ink-cart';
+						functionType = 'InkAndToner';
+					}
+					endDiv.outerHTML = '<div id="cartOrder' + data.orderId + '" \
+												class="cart-product-container cart-product-color-alternate-container"> \
+											<div class="cart-product-image-container"> \
+												<img src="' + data.productImage + '" /> \
+											</div> \
+											<div class="cart-product-name-container"> \
+												' + data.productName + ' \
+											</div> \
+											<div class="cart-product-price-container \
+												' + classType + '-cart-product-price-container"> \
+												$' + data.productPrice + ' \
+											</div> \
+											<div class="cart-product-quantity-container"> \
+												<input id="cartProductQuantityInput' + data.orderId + '" \
+													class="' + classType + '-cart-product-quantity-input" \
+													onchange="calc' + functionType + 'TotalsAndUpdate(' + data.productId + ', ' + data.orderId + ')" \
+													type="text" value="' + data.quantity + '"/> \
+											</div> \
+											<div class="cart-product-action-container"> \
+												<div class="glyphicon glyphicon-trash" onclick="removeFromCart(' + data.orderId + ')"></div> \
+											</div> \
+										</div>' + endDiv.outerHTML;
+						
+					
+				}
+			};
+			xhttp.send();
+		}	
+	}
 }

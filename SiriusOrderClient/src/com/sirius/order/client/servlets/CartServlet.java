@@ -5,8 +5,11 @@ import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonArrayBuilder;
 import javax.json.JsonWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -84,9 +87,76 @@ public class CartServlet extends HttpServlet {
 		{
 			int quantityInt = Integer.parseInt(request.getParameter("quantity"));
 			int productId = Integer.parseInt(request.getParameter("productID"));
-			System.out.println(CartServiceDAO.getProductQuantityInCartByProductId(locationId, productId));
 			CartServiceDAO.updateProductQuantityInCart(locationId, quantityInt, productId, userId);
-			System.out.println(CartServiceDAO.getProductQuantityInCartByProductId(locationId, productId));
+		}
+		else if(action.equals("addOrderToCart"))
+		{
+			int productId = Integer.parseInt(request.getParameter("productID"));
+			int numInCart = CartServiceDAO.getProductQuantityInCartByProductId(locationId, productId);
+			if(numInCart == 0)
+			{
+				ProductBean product = ProductSearchDAO.getProductByID(productId);
+				
+				OrderBean order = new OrderBean();
+				order.setQuantity(1);
+				order.setOrderName("cart");
+				order.setProductId(productId);
+				order.setTotalPrice(product.getPrice().multiply(new BigDecimal(order.getQuantity())));
+				
+				BudgetBean budget = new BudgetBean();
+				budget.setBudgetAllotted(new BigDecimal(1000));
+				budget.setBudgetRecommended(new BigDecimal(800));
+				budget.setLocationId(locationId);
+				
+				GregorianCalendar gCal = new GregorianCalendar();
+				gCal.setTime(new Date());
+
+				XMLGregorianCalendar calendar = null;
+				try {
+					calendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(gCal);
+				} catch (DatatypeConfigurationException e) {
+					e.printStackTrace();
+				}
+				budget.setBudgetDate(calendar);
+				
+				CartServiceDAO.addProductToCart(order, budget, userId);
+				
+				List<OrderBean> orders = CartServiceDAO.getAllProductsInCart(locationId);
+				OrderBean curOrder = null;
+				for(OrderBean orderIt : orders)
+				{
+					if(productId == orderIt.getProductId())
+					{
+						curOrder = orderIt;
+					}
+				}
+				
+				JsonArrayBuilder builder = Json.createArrayBuilder();
+				
+				builder.add(Json.createObjectBuilder()
+							.add("orderId", curOrder.getId())
+							.add("productName", product.getName())
+							.add("productImage", product.getImage())
+							.add("quantity", curOrder.getQuantity())
+							.add("productPrice", product.getPrice())
+							.add("productType", product.getType())
+							.add("productId", product.getId()));
+				
+				JsonArray output = builder.build();
+				PrintWriter out = response.getWriter();
+				JsonWriter writer = Json.createWriter(out);
+				writer.writeArray(output);
+				writer.close();
+			}
+			else
+			{
+				JsonArrayBuilder builder = Json.createArrayBuilder();
+				JsonArray output = builder.build();
+				PrintWriter out = response.getWriter();
+				JsonWriter writer = Json.createWriter(out);
+				writer.writeArray(output);
+				writer.close();
+			}
 		}
 		else{
 			String quantity = request.getParameter("quantity");

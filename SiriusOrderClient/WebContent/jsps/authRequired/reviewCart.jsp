@@ -250,6 +250,9 @@
 						<div class="order-title-text-container">
 							${savedProducts.get(curOrderName)[orderIndex].getName()}
 						</div>
+						<input id="includeOrderProductId${savedOrders[orderName].get(orderIndex).getId()}"
+							type="hidden" value="${savedProducts.get(curOrderName)[orderIndex].getId()}"
+						/>
 					</div>
 					<c:set var="orderIndex" value="${orderIndex + 1}" scope="page"/>
 				</c:forEach>
