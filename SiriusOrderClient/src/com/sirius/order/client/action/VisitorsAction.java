@@ -36,6 +36,7 @@ public class VisitorsAction extends org.apache.struts.action.Action{
 			if (status) {
 				count = 0;
 				comment = "";
+				request.setAttribute("visitor_success", "true");
 				return mapping.findForward(SUCCESS);
 			} else {
 				return mapping.findForward(FAILURE);

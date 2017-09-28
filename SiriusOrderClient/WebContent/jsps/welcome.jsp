@@ -19,6 +19,8 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" 
+		src="/SiriusOrderClient/js/welcome.js"></script>
 </head>
 <body>  
 	<fmt:setBundle basename="com.sirius.order.client.properties.common" />
@@ -26,6 +28,11 @@
 	<header>
 		<%@ include file="header.jsp"%>
 	</header>
+	<c:if test="${visitor_success != null}">
+		<div id='visitor_dialog'>
+			<p>The visitors have been successfully saved.</p>
+		</div>
+	</c:if>
 	
 	<%-- CAROUSEL --%>
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
