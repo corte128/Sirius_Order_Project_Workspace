@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="/SiriusOrderClient/css/font-awesome-4.7.0/css/font-awesome.min.css">
 <meta name="viewport" content="width=device-width" />
 </head>
-<body>
+<body> 
 	<header> 
 		<%@ include file="header.jsp" %>
 	</header>

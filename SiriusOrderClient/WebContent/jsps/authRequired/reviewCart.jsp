@@ -78,7 +78,7 @@
 				<div class="cart-product-image-container">
 				</div>
 				<div id="breakroomTotalQuantityContainer" 
-					class="cart-product-name-container">
+					class="cart-product-name-container"> 
 				</div>
 				<div id="breakroomTotalPriceContainer" 
 					class="cart-product-price-container">

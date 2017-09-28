@@ -15,6 +15,12 @@
 	</header>
 	<div class="flexBoxContainer">
 		<div class="productDetailsPageDiv">
+			<div id="successMessage" class="successMessage">
+				Added to cart successfully
+			</div>
+			<div id="errorMessage" class="errorMessage">
+				Quantity can not be negative
+			</div>
 			<div class="productDetailsMainContianer">
 				<div class="breadCrumbs">
 					<a href="/SiriusOrderClient/jsps/welcome.jsp">Welcome</a> >
@@ -60,6 +66,7 @@
 					<div class="longDescrip">${productDetails}</div>
 				</div>
 			</div>
+			
 		</div>
 		<aside>
 			<%@ include file="/jsps/nav.jsp"%>
