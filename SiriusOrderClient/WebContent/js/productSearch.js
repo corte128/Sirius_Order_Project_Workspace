@@ -14,6 +14,7 @@ function addToCart(productID)
     	
         quantity = quantityElement.value;
         
+        
     }
 	var url = "/SiriusOrderClient/CartServlet?action=addToCart&productID=" + productID +"&quantity="+quantity;
 	xhttp.open("GET", url, true);
@@ -31,6 +32,8 @@ function addToCart(productID)
 	};
 	xhttp.send();
 }
+
+
 
  function simpleAlert(){
 	console.log("THIS IS BROKE");
