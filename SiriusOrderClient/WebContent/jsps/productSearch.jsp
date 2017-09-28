@@ -80,7 +80,7 @@
 										value="Add To Cart" />
 									</div>
 									<span id="addConfirmed${currentProduct.getId()}" class="confirm-popup">
-										Product was added to cart
+										Product Added!
 									</span>
 								</c:if>
 							</div>

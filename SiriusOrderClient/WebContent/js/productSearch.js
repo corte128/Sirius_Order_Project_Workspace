@@ -5,8 +5,7 @@
 
 function addToCart(productID)
 {
-	$('#addConfirmed' + productID).fadeIn('fast');
-	//.delay(1000).fadeOut('slow')
+	$('#addConfirmed' + productID).fadeIn('fast').delay(1000).fadeOut('slow')
 	var xhttp = new XMLHttpRequest();
 	var quantityElement = document.getElementById("quantityToAdd");
     var quantity = 1;
@@ -148,9 +147,17 @@ function searchProducts()
 			productCard.appendChild(divLikesAndPrice);
 			productCard.appendChild(addToCartBtnContainer);
 			
+			var productAddedDiv = document.createElement("span");
+			productAddedDiv.setAttribute("class", "confirm-popup");
+			productAddedDiv.id = 'addConfirmed$' + response[key].ID;
+			productAddedDiv.innerHTML = 'Product Added!';
+			
+			productCard.appendChild(productAddedDiv);
+			
 			var productCardContainer = document.createElement("div");
 			productCardContainer.setAttribute("class", "productContainerCard");
 			productCardContainer.appendChild(productCard);
+			
 			
 			productContainer.appendChild(productCardContainer);
 		}

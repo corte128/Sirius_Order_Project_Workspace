@@ -39,7 +39,10 @@ app.controller('BudgetChartCtrl', ['$scope', '$http',  function ($scope, $http)
 		   		var numRows = response.data.length;
 				var expectedHeight = numRows * 100;
 		   		var chart = new google.visualization.BarChart(document.getElementById('budgetChartContainer'));
-				chart.draw(data, {colors: ['#A7C1C3', '#B0B47A'], bar: {groupWidth: '90%'}, height: expectedHeight});
+				chart.draw(data, {colors: ['#A7C1C3', '#B0B47A'], bar: {groupWidth: '90%'}, chartArea: {
+		            height: "80%",
+		            width: "80%"
+		        }, height: expectedHeight});
 				
 
 				var table = $('#budgetGrid').DataTable();
