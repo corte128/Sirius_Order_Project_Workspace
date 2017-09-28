@@ -23,7 +23,6 @@ body
 	background-color: #ECECEC;
 	padding: 10px 20px 10px 20px;
 	width: 90px;
-	
 }
 .cart-product-image-container img
 {
@@ -181,4 +180,19 @@ body
 .order-title-text-container
 {
 	margin-top: 26px;
+}
+
+.cart-modal-button-container{
+	    position: absolute;
+    margin-right: 10px;
+    right: 0px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.cart-modal-button{
+	height: 50px;
+	width: 100px;
+	background-color: #5F6060;
+	color: white;
 }

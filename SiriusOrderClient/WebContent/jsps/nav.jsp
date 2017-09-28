@@ -25,7 +25,7 @@
 			<!--
 				<div id="responsiveNavCloseContainer">
 					<div id="responsiveNavClose"
-						class="glyphicon glyphicon-remove" 
+	 					class="glyphicon glyphicon-remove" 
 						onclick="closeSidebar()"
 					></div>
 				</div>

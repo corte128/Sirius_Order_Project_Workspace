@@ -13,7 +13,7 @@
 <script src="/SiriusOrderClient/js/registration.js"></script>
 <title><fmt:message key="REGISTRATION_TITLE" /></title> 
 </head>   
-<body>
+<body> 
 	<header> 
 		<%@ include file="header.jsp" %>
 	</header>

@@ -61,6 +61,21 @@
 	height: 150px;
 }
 
+.confirm-popup{
+	display: none;
+	z-index: 3;
+	border: 1px solid black;
+	bottom: 60px;
+	position: relative;
+	background-color: gray;
+	border-radius: 50%;
+	color: white;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
 /* Desktop */
 @media (min-device-width: 1025px)  {
 	.productCard{
@@ -93,6 +108,8 @@
 
 	.nameLabel{
 		font-size: 12px;
+		opacity: .85;
+		position: relative;
 	}
 }
 

@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
-	<head>
+	<head> 
 		<title>productSearch</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">
@@ -76,9 +76,12 @@
 								<c:if test ="${sessionScope.activeUserType == 2}">
 									<div class="add-to-cart-btn-container">
 										<input class="addToCartBtn" type="button" 
-										onclick="addToCart(${productId})" 
+										onclick="addToCart('${currentProduct.getId()}')" 
 										value="Add To Cart" />
 									</div>
+									<span id="addConfirmed${currentProduct.getId()}" class="confirm-popup">
+										Product was added to cart
+									</span>
 								</c:if>
 							</div>
 						</div>

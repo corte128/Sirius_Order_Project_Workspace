@@ -5,14 +5,21 @@
 
 function addToCart(productID)
 {
+	$('#addConfirmed' + productID).fadeIn('fast').delay(1000).fadeOut('slow')
 	var xhttp = new XMLHttpRequest();
 	var quantityElement = document.getElementById("quantityToAdd");
     var quantity = 1;
    
     if (quantityElement != null)
     {
-    	
         quantity = quantityElement.value;
+        if (quantity < 0 ){
+        	var errorMessageDiv = document.getElementById("errorMessage");
+        	errorMessageDiv.style.display= "block";
+        }else{
+        	var errorMessageDiv = document.getElementById("errorMessage");
+        	errorMessageDiv.style.display= "none";
+        }
         
     }
 	var url = "/SiriusOrderClient/CartServlet?action=addToCart&productID=" + productID +"&quantity="+quantity;
@@ -30,7 +37,13 @@ function addToCart(productID)
 //		TO DO alert user
 	};
 	xhttp.send();
+	var successElement = document.getElementById("successMessage");
+	if (successElement != null && quantity > 0){
+		$('#successMessage').fadeIn('fast').delay(3000).fadeOut('slow')
+	}
 }
+
+
 
  function simpleAlert(){
 	console.log("THIS IS BROKE");
@@ -93,7 +106,7 @@ function searchProducts()
 			divPrice.innerHTML = '$ ' + response[key].Price;
 			var numOfLikes = document.createElement("span");
 			numOfLikes.id = "numOfLikes" + response[key].ID;
-			numOfLikes.setAttribute("class", "num-of-likes")
+			numOfLikes.setAttribute("class", "num-of-likes");
 			numOfLikes.innerHTML = response[key].Likers.length;
 			numOfLikes.onmouseover = (function (){
 				var id = response[key].ID;

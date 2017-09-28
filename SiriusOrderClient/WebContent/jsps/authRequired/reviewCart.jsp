@@ -78,7 +78,7 @@
 				<div class="cart-product-image-container">
 				</div>
 				<div id="breakroomTotalQuantityContainer" 
-					class="cart-product-name-container">
+					class="cart-product-name-container"> 
 				</div>
 				<div id="breakroomTotalPriceContainer" 
 					class="cart-product-price-container">
@@ -322,7 +322,6 @@
 				</div>
 				<c:set var="inkIndex" value="${inkIndex + 1}" scope="page"/>
 			</c:forEach>
-			
 		</div>
 			
 		<div id="includeSavedOrderModalButtonContainer" class="cart-modal-button-container">

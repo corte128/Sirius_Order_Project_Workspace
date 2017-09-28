@@ -15,6 +15,12 @@
 	</header>
 	<div class="flexBoxContainer">
 		<div class="productDetailsPageDiv">
+			<div id="successMessage" class="successMessage">
+				Added to cart successfully
+			</div>
+			<div id="errorMessage" class="errorMessage">
+				Quantity can not be negative
+			</div>
 			<div class="productDetailsMainContianer">
 				<div class="breadCrumbs">
 					<a href="/SiriusOrderClient/jsps/welcome.jsp">Welcome</a> >
@@ -32,7 +38,7 @@
 							<span class="priceContiner">$ ${productPrice}</span> 
 							<span class="likesContainer"> 
 								<span class="glyphicon glyphicon-heart clickable-like" onclick='addToWishlist(${productId})'></span>
-								<span class="likesCount" id="numOfLikes${productId}" onmouseover="createModal('likesModal${productId}')" onmouseout="deleteModal('likesModal${productId}')">${numLikes}</span> 
+								<span class="likesCount" id="numOfLikes${productId}" onmouseover="createModal(${productId})" onmouseout="deleteModal('likesModal${productId}')">${numLikes}</span> 
 							</span>
 						<div id="likesModal${productId}" class="likes-modal">
 										<c:forEach var="user" items="${LikesForProduct}">
@@ -60,6 +66,7 @@
 					<div class="longDescrip">${productDetails}</div>
 				</div>
 			</div>
+			
 		</div>
 		<aside>
 			<%@ include file="/jsps/nav.jsp"%>

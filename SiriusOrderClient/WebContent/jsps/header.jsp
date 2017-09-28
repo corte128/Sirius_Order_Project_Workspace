@@ -11,7 +11,7 @@
 <div class="spacerDiv"> 
 
 </div>
-
+ 
 <div class="headerContainer">
 	<c:set var="now" value="<%= new java.util.Date()%>" />
 
