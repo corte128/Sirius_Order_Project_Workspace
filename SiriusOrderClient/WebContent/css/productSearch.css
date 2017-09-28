@@ -64,11 +64,11 @@ select {
 and (min-device-width : 320px)
 and (max-device-width : 568px){
 	select {
-		width: 25px;
+		width: 20%;
 	}
 	
 	.searchContainer{
-		margin-left: 15%;
+		margin-left: 10%;
 	}
 }
 
