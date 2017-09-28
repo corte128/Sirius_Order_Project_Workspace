@@ -152,10 +152,16 @@ body
 #includeSavedOrderModalTitleContainer
 {
 	padding: 20px;
+	relative: relative;
 }
 #includeSavedOrderModalTitleCenterContainer
 {
 	margin: auto;
+}
+#saveOrderModalTitleContainer
+{
+	padding: 20px;
+	relative: relative;
 }
 .order-container
 {

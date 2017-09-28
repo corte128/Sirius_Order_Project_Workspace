@@ -250,10 +250,6 @@ public class NavigationServlet extends HttpServlet {
 		List<ProductBean> officeSuppliesProducts = new ArrayList<ProductBean>();
 		List<ProductBean> inkAndTonerProducts = new ArrayList<ProductBean>();
 
-		List<OrderBean> savedOrders = CartServiceDAO
-				.getAllSavedOrders(locationId);
-		Map<String, List<OrderBean>> mapOfList = convertSavedOrdersListToMap(savedOrders);
-
 		for (OrderBean order : breakroomOrders) {
 			breakroomProducts.add(ProductSearchDAO.getProductByID(order
 					.getProductId()));
@@ -267,12 +263,56 @@ public class NavigationServlet extends HttpServlet {
 					.getProductId()));
 		}
 
+//		List<OrderBean> savedOrders = CartServiceDAO.getAllSavedOrders(locationId);
+//		Map<String, List<OrderBean>> mapOfList = new HashMap<String, List<OrderBean>>();
+//		for (OrderBean order : savedOrders)
+//		{
+//			String orderName = order.getOrderName();
+//			if(!mapOfList.containsKey(orderName)) 
+//			{
+//				mapOfList.put(orderName, new ArrayList<OrderBean>());
+//			}
+//			mapOfList.get(orderName).add(order);
+//		}
+//		
+//		int iterator = 1;
+//		for(Map.Entry<String, List<OrderBean>> str : mapOfList.entrySet())
+//		{
+//			System.out.println(iterator + ") " + str);
+//			iterator++;
+//		}
+		 
 		request.setAttribute("breakroomProducts", breakroomProducts);
 		request.setAttribute("breakroomOrders", breakroomOrders);
 		request.setAttribute("officeSuppliesProducts", officeSuppliesProducts);
 		request.setAttribute("officeSuppliesOrders", officeSuppliesOrders);
 		request.setAttribute("inkAndTonerProducts", inkAndTonerProducts);
 		request.setAttribute("inkAndTonerOrders", inkAndTonerOrders);
+
+
+		List<OrderBean> savedOrders = CartServiceDAO.getAllSavedOrders(locationId);
+ 		Map<String, List<OrderBean>> mapOfOrders = new HashMap<String, List<OrderBean>>();
+ 		Map<String, List<ProductBean>> mapOfProducts = new HashMap<String, List<ProductBean>>();
+ 		for(OrderBean order: savedOrders){
+ 			String orderName = order.getOrderName();
+ 			if(!orderName.equals("cart"))
+ 			{
+				if(!mapOfOrders.containsKey(orderName))
+ 				{
+ 					mapOfOrders.put(orderName, new ArrayList<OrderBean>());
+ 				}
+ 				mapOfOrders.get(orderName).add(order);
+ 				
+ 				if(!mapOfProducts.containsKey(orderName))
+ 				{
+ 					mapOfProducts.put(orderName, new ArrayList<ProductBean>());
+ 				}
+ 				mapOfProducts.get(orderName).add(ProductSearchDAO.getProductByID(order.getProductId()));
+ 			}
+ 		}
+		request.setAttribute("savedOrders", mapOfOrders);
+ 		request.setAttribute("savedProducts", mapOfProducts);
+ 		
 		RequestDispatcher dispatcher = request
 				.getRequestDispatcher("/jsps/authRequired/reviewCart.jsp");
 		dispatcher.forward(request, response);
@@ -346,16 +386,14 @@ public class NavigationServlet extends HttpServlet {
 			List<OrderBean> orders) {
 
 		Map<String, List<OrderBean>> mapOfOrders = new HashMap<String, List<OrderBean>>();
-		for (OrderBean order : orders) {
+		for (OrderBean order : orders)
+		{
 			String orderName = order.getOrderName();
-			if (mapOfOrders.containsKey(orderName)) {
-				List<OrderBean> orderInMap = mapOfOrders.get(orderName);
-				orderInMap.add(order);
-				mapOfOrders.put(orderName, orderInMap);
-			} else {
-				List<OrderBean> currentOrders = new ArrayList<OrderBean>();
-				mapOfOrders.put(orderName, currentOrders);
+			if(!mapOfOrders.containsKey(orderName)) 
+			{
+				mapOfOrders.put(orderName, new ArrayList<OrderBean>());
 			}
+			mapOfOrders.get(orderName).add(order);
 		}
 		return mapOfOrders;
 	}

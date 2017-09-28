@@ -228,7 +228,9 @@
 				<div class="order-item-container
 					cart-modal-color-alternate-container">
 					<div class="order-item-input-container">
-						<input id="${orderName}OrderTitleCheckbox" type="checkbox" />
+						<input id="${orderName}OrderTitleCheckbox" type="checkbox"
+							onchange="selectAllOrderCheckboxes('${orderName}')"
+						 />
 					</div>
 					<div class="order-title-text-container">
 						<fmt:message key="CART_ITEMS_LABEL" />
@@ -241,8 +243,8 @@
 					<div class="order-item-container
 						cart-modal-color-alternate-container">
 						<div class="order-item-input-container">
-							<input id="includeOrderCheckbox${savedOrders.get(orderName)[orderIndex].getId()}" 
-								class="include-order-checkbox-${savedOrders.get(orderName)[orderIndex].getName()}"
+							<input id="includeOrderCheckbox${savedOrders[orderName].get(orderIndex).getId()}" 
+								class="include-order-checkbox-${savedOrders[orderName].get(orderIndex).getOrderName()}"
 								type="checkbox" />
 						</div>
 						<div class="order-title-text-container">
@@ -255,7 +257,8 @@
 		</c:forEach>
 		<div id="includeSavedOrderModalButtonContainer" class="cart-modal-button-container">
 			<button id="includeSavedOrderModalButton" 
-				class="cart-modal-button">
+				class="cart-modal-button"
+				onclick="includeOrderInCart()">
 				<fmt:message key="CART_INCLUDE_LABEL" />
 			</button>
 		</div>
