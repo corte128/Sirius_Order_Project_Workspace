@@ -38,7 +38,7 @@
 							<span class="priceContiner">$ ${productPrice}</span> 
 							<span class="likesContainer"> 
 								<span class="glyphicon glyphicon-heart clickable-like" onclick='addToWishlist(${productId})'></span>
-								<span class="likesCount" id="numOfLikes${productId}" onmouseover="createModal('likesModal${productId}')" onmouseout="deleteModal('likesModal${productId}')">${numLikes}</span> 
+								<span class="likesCount" id="numOfLikes${productId}" onmouseover="createModal(${productId})" onmouseout="deleteModal('likesModal${productId}')">${numLikes}</span> 
 							</span>
 						<div id="likesModal${productId}" class="likes-modal">
 										<c:forEach var="user" items="${LikesForProduct}">
