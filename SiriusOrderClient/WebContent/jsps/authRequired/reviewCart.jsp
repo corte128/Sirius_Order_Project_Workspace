@@ -18,7 +18,7 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript" src="/SiriusOrderClient/js/calcCartTotal.js"></script>
 </head> 
-<body onload="calcTotals()">
+<body onload="calcTotals()"> 
 	<div id="cartHeaderContainer">
 		<div id="cartHeaderProductImageContainerColumn" class="cart-product-image-container">
 		</div>

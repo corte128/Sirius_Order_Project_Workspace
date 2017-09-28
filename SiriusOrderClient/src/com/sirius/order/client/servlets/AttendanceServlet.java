@@ -361,13 +361,15 @@ public class AttendanceServlet extends HttpServlet {
 		JsonArrayBuilder builder = Json.createArrayBuilder();
 		Calendar calendar = Calendar.getInstance();
 		String[] dateArray = new String[3];
-		SimpleDateFormat sFormat = new SimpleDateFormat("MM/dd/yyy");
+		SimpleDateFormat sFormat = new SimpleDateFormat("MM/dd/yyyy");
 		String formatedDate = "";
 		for (AttendanceRecordBean record : attendanceRecords) {
 			
+			
 			dateArray = record.getAttendantDate().split("-");
+			
 			calendar.set(Calendar.YEAR, Integer.parseInt(dateArray[0]));
-			calendar.set(Calendar.MONTH-1, Integer.parseInt(dateArray[1]));
+			calendar.set(Calendar.MONTH, Integer.parseInt(dateArray[1])-1);
 			calendar.set(Calendar.DATE, Integer.parseInt(dateArray[2]));
 			formatedDate = sFormat.format(calendar.getTime());
 			
