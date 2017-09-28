@@ -233,7 +233,7 @@
 							onchange="selectAllOrderCheckboxes('${orderName}')"
 						 />
 					</div>
-					<div class="order-title-text-container">
+					<div class="order-title-text-container items-label">
 						<fmt:message key="CART_ITEMS_LABEL" />
 					</div>
 				</div>
@@ -281,7 +281,7 @@
 				<div class="order-item-input-container">
 					<input id="saveOrderTitleCheckbox" type="checkbox" />
 				</div>
-				<div class="order-title-text-container">
+				<div  class="order-title-text-container items-label">
 					<fmt:message key="CART_ITEMS_LABEL" />
 				</div>
 			</div>
