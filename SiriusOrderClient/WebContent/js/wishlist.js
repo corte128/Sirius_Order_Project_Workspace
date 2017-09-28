@@ -145,7 +145,10 @@ function addToWishlist(productID){
 }
 
 function createModal(likesModalID){
-	document.getElementById(likesModalID).style.display = 'block';
+	var size = document.getElementById("numOfLikes" + likesModalID).innerText;
+	if(size > 0){
+		document.getElementById('likesModal'+likesModalID).style.display = 'block';
+	}
 }
 
 function deleteModal(likesModalID){
