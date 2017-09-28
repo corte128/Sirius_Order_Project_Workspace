@@ -41,7 +41,8 @@ public class CartServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
 		//created by logged in user
 		//current budget
 		//order id
@@ -78,6 +79,14 @@ public class CartServlet extends HttpServlet {
 				output = 1;
 			}
 			out.write(output);
+		}
+		else if(action.equals("changeQuantity"))
+		{
+			int quantityInt = Integer.parseInt(request.getParameter("quantity"));
+			int productId = Integer.parseInt(request.getParameter("productID"));
+			System.out.println(CartServiceDAO.getProductQuantityInCartByProductId(locationId, productId));
+			CartServiceDAO.updateProductQuantityInCart(locationId, quantityInt, productId, userId);
+			System.out.println(CartServiceDAO.getProductQuantityInCartByProductId(locationId, productId));
 		}
 		else{
 			String quantity = request.getParameter("quantity");

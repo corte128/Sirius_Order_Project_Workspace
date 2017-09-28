@@ -4,6 +4,7 @@
 	background-color: #5F6060;
 	color: white;
 	margin-left: 20px;
+	box-shadow: 2px 1px 4px 0px grey;
 }
 
 .breadCrumbs {
