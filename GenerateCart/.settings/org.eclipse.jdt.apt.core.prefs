@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+#Thu Sep 28 08:35:32 CDT 2017
+=======
 #Wed Sep 27 16:45:54 CDT 2017
+>>>>>>> ec6574d1b8e919e67aa4aa3f88dfd0b97a2e71b0
 org.eclipse.jdt.apt.processorOptions/com.ibm.ws.ast.jws.annotations.processor.validateWSDL=on
 org.eclipse.jdt.apt.aptEnabled=true
 eclipse.preferences.version=1

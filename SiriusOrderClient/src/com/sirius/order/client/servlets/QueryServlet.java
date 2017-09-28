@@ -80,48 +80,48 @@ public class QueryServlet extends HttpServlet {
 					}
 					
 					String holidayDate = day.getDate();
-					String[] dateParts = holidayDate.split("/");
+					String[] dateParts = holidayDate.split("-");
 					String month = "";
-					if(dateParts[0].equals("01")){
+					if(dateParts[1].equals("01")){
 						month = "January";
 					}
-					if(dateParts[0].equals("02")){
+					else if(dateParts[1].equals("02")){
 						month = "February";
 					}
-					if(dateParts[0].equals("03")){
+					else if(dateParts[1].equals("03")){
 						month = "March";
 					}
-					if(dateParts[0].equals("04")){
+					else if(dateParts[1].equals("04")){
 						month = "April";
 					}
-					if(dateParts[0].equals("05")){
+					else if(dateParts[1].equals("05")){
 						month = "May";
 					}
-					if(dateParts[0].equals("06")){
+					else if(dateParts[1].equals("06")){
 						month = "June";
 					}
-					if(dateParts[0].equals("07")){
+					else if(dateParts[1].equals("07")){
 						month = "July";
 					}
-					if(dateParts[0].equals("08")){
+					else if(dateParts[1].equals("08")){
 						month = "August";
 					}
-					if(dateParts[0].equals("09")){
+					else if(dateParts[1].equals("09")){
 						month = "September";
 					}
-					if(dateParts[0].equals("10")){
+					else if(dateParts[1].equals("10")){
 						month = "October";
 					}
-					if(dateParts[0].equals("11")){
+					else if(dateParts[1].equals("11")){
 						month = "November";
 					}
-					if(dateParts[0].equals("12")){
+					else {
 						month = "December";
 					}
 					
 		            builder.add(Json.createObjectBuilder()
 		                            .add("FederalHoliday", day.getHolidayName())
-		                            .add("Date", month+" "+dateParts[1]+", "+dateParts[2])
+		                            .add("Date", month+" "+dateParts[2]+", "+dateParts[0])
 		                            .add("DayofWeek", dayofweek)
 		                            .add("ID", day.getId()));
 		        }

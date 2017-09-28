@@ -62,9 +62,9 @@
 					$${product.getPrice()}
 				</div>
 				<div class="cart-product-quantity-container">
-					<input onchange="calcBreakroomTotals()" 
+					<input id="cartProductQuantityInput${breakroomOrders.get(breakroomIndex).getId()}"
 						class="breakroom-cart-product-quantity-input"
-						onchange="calcBreakroomTotals()"
+						onchange="calcBreakroomTotalsAndUpdate(${product.getId()}, ${breakroomOrders.get(breakroomIndex).getId()})"
 					 	type="text" value="${breakroomOrders.get(breakroomIndex).getQuantity()}"/>
 				</div>
 				<div class="cart-product-action-container">
@@ -120,9 +120,9 @@
 					$${product.getPrice()}
 				</div>
 				<div class="cart-product-quantity-container">
-					<input onchange="calcOfficeSuppliesTotals()" 
+					<input id="cartProductQuantityInput${officeSuppliesOrders.get(officeSuppliesIndex).getId()}"
 						class="office-supplies-cart-product-quantity-input"
-						onchange="calcOfficeSuppliesTotals()"
+						onchange="calcOfficeSuppliesTotalsAndUpdate(${product.getId()}, ${officeSuppliesOrders.get(officeSuppliesIndex).getId()})"
 						type="text" value="${officeSuppliesOrders.get(officeSuppliesIndex).getQuantity()}"/>
 				</div>
 				<div class="cart-product-action-container">
@@ -178,9 +178,9 @@
 					$${product.getPrice()}
 				</div>
 				<div class="cart-product-quantity-container">
-					<input onchange="calcInkAndTonerTotals()" 
+					<input id="cartProductQuantityInput${inkAndTonerOrders.get(inkIndex).getId()}"
 						class="ink-cart-product-quantity-input"
-						onchange="calcInkAndTonerTotals()"
+						onchange="calcInkAndTonerTotalsAndUpdate(${product.getId()}, ${inkAndTonerOrders.get(inkIndex).getId()})"
 						type="text" value="${inkAndTonerOrders.get(inkIndex).getQuantity()}"/>
 				</div>
 				<div class="cart-product-action-container">

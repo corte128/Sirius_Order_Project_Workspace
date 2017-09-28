@@ -5,6 +5,45 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="WishlistWS.war" deploy-path="/" handle="module:/resource/WishlistWS/WishlistWS">
+<<<<<<< HEAD
+            <dependent-object>Module_1506607318800</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ProductWS.war" deploy-path="/" handle="module:/resource/ProductWS/ProductWS">
+            <dependent-object>Module_1506607318801</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="MailWS.war" deploy-path="/" handle="module:/resource/MailWS/MailWS">
+            <dependent-object>Module_1506607318802</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="LoginWS.war" deploy-path="/" handle="module:/resource/LoginWS/LoginWS">
+            <dependent-object>Module_1506607318803</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="LocationWS.war" deploy-path="/" handle="module:/resource/LocationWS/LocationWS">
+            <dependent-object>Module_1506607318804</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="AttendanceWS.war" deploy-path="/" handle="module:/resource/AttendanceWS/AttendanceWS">
+            <dependent-object>Module_1506607318805</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="AdminWS.war" deploy-path="/" handle="module:/resource/AdminWS/AdminWS">
+            <dependent-object>Module_1506607318806</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="SearchWS.war" deploy-path="/" handle="module:/resource/SearchWS/SearchWS">
+            <dependent-object>Module_1506607318807</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="EmployeeWS.war" deploy-path="/" handle="module:/resource/EmployeeWS/EmployeeWS">
+            <dependent-object>Module_1506607318808</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="CartWS.war" deploy-path="/" handle="module:/resource/CartWS/CartWS">
+            <dependent-object>Module_1506607318809</dependent-object>
+=======
             <dependent-object>Module_1506548754575</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -46,6 +85,7 @@
         </dependent-module>
         <dependent-module archiveName="CartWS.war" deploy-path="/" handle="module:/resource/CartWS/CartWS">
             <dependent-object>Module_1506548754585</dependent-object>
+>>>>>>> ec6574d1b8e919e67aa4aa3f88dfd0b97a2e71b0
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>

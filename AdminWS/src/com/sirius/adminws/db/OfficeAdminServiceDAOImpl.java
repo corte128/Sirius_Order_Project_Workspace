@@ -97,7 +97,7 @@ public class OfficeAdminServiceDAOImpl {
 		}
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setString(1, month+"/"+day+"/"+year);
+			stmt.setString(1, year+"-"+month+"-"+day);
 			stmt.setString(2, holidayName);
 			stmt.setInt(3, userID);
 			stmt.setInt(4, locationID);
