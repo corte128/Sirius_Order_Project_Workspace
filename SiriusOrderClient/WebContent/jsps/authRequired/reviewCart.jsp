@@ -213,6 +213,7 @@
 	<!-- INCLUDE SAVED ORDER MODAL -->
 	<div id="includeSavedOrderModal" class="cart-modal">
 		<div id="includeSavedOrderModalTitleContainer">
+			<span id="closeButton" class="closeButton"  onclick="closeIncludeInOrderWindow()">X</span>
 			<span id="includeSavedOrderModalTitleTextContainer">
 				<fmt:message key="CART_SAVED_ORDERS_LABEL" />
 			</span>
@@ -232,7 +233,7 @@
 							onchange="selectAllOrderCheckboxes('${orderName}')"
 						 />
 					</div>
-					<div class="order-title-text-container">
+					<div class="order-title-text-container items-label">
 						<fmt:message key="CART_ITEMS_LABEL" />
 					</div>
 				</div>
@@ -270,6 +271,7 @@
 	<!-- SAVE ORDER MODAL -->
 	<div id="saveOrderModal" class="cart-modal">
 		<div id="saveOrderModalTitleContainer">
+			<span id="closeButton" class="closeButton"  onclick="closeSavedOrdersWindow()">X</span>
 			<span id="saveOrderModalTitleTextContainer">
 				<fmt:message key="CART_NAME_LABEL" />
 			</span>
@@ -282,7 +284,7 @@
 				<div class="order-item-input-container">
 					<input id="saveOrderTitleCheckbox" type="checkbox" />
 				</div>
-				<div class="order-title-text-container">
+				<div  class="order-title-text-container items-label">
 					<fmt:message key="CART_ITEMS_LABEL" />
 				</div>
 			</div>

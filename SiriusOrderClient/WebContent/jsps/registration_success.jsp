@@ -21,8 +21,8 @@
 		<div id="check-icon">
 			<i class="fa fa-check-circle-o fa-2x" aria-hidden="true"></i>
 		</div>
-		<div id="success-title">Registration Successful!</div>
-		<p>Your account has been registered. Please wait until an office administrator verifies your account.</p>
+		<div id="success-title"><fmt:message key="REGISTRATION_SUCCESS_TITLE" /></div>
+		<p><fmt:message key="REGISTRATION_SUCCESS_CONTENT" /></p>
 	</div>
 </body>
 </html>

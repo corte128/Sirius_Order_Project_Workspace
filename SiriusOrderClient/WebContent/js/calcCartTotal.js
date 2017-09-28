@@ -222,3 +222,13 @@ function includeOrderInCart()
 		}	
 	}
 }
+
+function closeSavedOrdersWindow(){
+	var saveOrderModal = document.getElementById("saveOrderModal");
+	saveOrderModal.style.display = "none";
+}
+
+function closeIncludeInOrderWindow(){
+	 var includeSavedOrderModal = document.getElementById("includeSavedOrderModal");
+	 includeSavedOrderModal.style.display = "none";
+}
