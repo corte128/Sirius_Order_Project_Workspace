@@ -20,7 +20,7 @@
 <script type="text/javascript" src="/SiriusOrderClient/js/holidays.js"></script>
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/holidays.css">
 </head>
-<body>      
+<body>       
 	<header> 
 		<%@ include file="header.jsp" %>
 	</header>

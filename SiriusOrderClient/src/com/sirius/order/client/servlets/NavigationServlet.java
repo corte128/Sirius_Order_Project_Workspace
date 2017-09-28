@@ -67,24 +67,39 @@ public class NavigationServlet extends HttpServlet {
 		int numUnapprovedEmployees = employees.size();
 		session.setAttribute("numAlerts", numUnapprovedEmployees);
 
-		if (userId == null && !action.equalsIgnoreCase("registration")) {
+		if (userId == null && !action.equalsIgnoreCase("registration"))
+		{
 			response.sendRedirect("jsps/login.jsp");
-		} else if (action.equalsIgnoreCase("attendance")) {
+		} 
+		else if (action.equalsIgnoreCase("attendance"))
+		{
 			forwardToAttendance(request, response);
-		} else if (action.equals("budget")) {
+		}
+		else if (action.equals("budget"))
+		{
 			forwardToBudget(request, response);
-		} else if (action.equals("visitors")) {
+		}
+		else if (action.equals("visitors"))
+		{
 			if (session.getAttribute("activeUserType") == null
-					|| (Integer) session.getAttribute("activeUserType") == 1) {
+					|| (Integer) session.getAttribute("activeUserType") == 1)
+			{
 				response.sendRedirect("jsps/welcome.jsp");
-			} else {
+			}
+			else
+			{
 				response.sendRedirect("jsps/visitors.jsp");
 			}
-		} else if (action.equals("activateUsers")) {
+		}
+		else if (action.equals("activateUsers"))
+		{
 			if (session.getAttribute("activeUserID") == null
-					|| (Integer) session.getAttribute("activeUserType") == 1) {
+					|| (Integer) session.getAttribute("activeUserType") == 1)
+			{
 				response.sendRedirect("jsps/welcome.jsp");
-			} else {
+			}
+			else 
+			{
 				forwardToActivateUsers(request, response);
 			}
 		} else if (action.equals("holidays")) {
@@ -94,17 +109,29 @@ public class NavigationServlet extends HttpServlet {
 			} else {
 				response.sendRedirect("jsps/holidays.jsp");
 			}
-		} else if (action.equals("registration")) {
+		}
+		else if (action.equals("registration"))
+		{
 			forwardToRegistration(request, response);
-		} else if (action.equals("superAdmin")) {
+		}
+		else if (action.equals("superAdmin")) 
+		{
 			forwardToSuperAdmin(request, response);
-		} else if (action.equals("cart")) {
+		}
+		else if (action.equals("cart"))
+		{
 			forwardToCart(request, response);
-		} else if (action.equals("productDetails")) {
+		}
+		else if (action.equals("productDetails"))
+		{
 			forwardToProductDetails(request, response);
-		} else if (action.equalsIgnoreCase("getLikers")) {
+		} 
+		else if (action.equalsIgnoreCase("getLikers")) 
+		{
 			getLikers(request, response);
-		} else if (action.equals("wishlist")) {
+		} 
+		else if (action.equals("wishlist")) 
+		{
 			forwardToWishlist(request, response);
 		}
 	}
@@ -223,10 +250,6 @@ public class NavigationServlet extends HttpServlet {
 		List<ProductBean> officeSuppliesProducts = new ArrayList<ProductBean>();
 		List<ProductBean> inkAndTonerProducts = new ArrayList<ProductBean>();
 
-		List<OrderBean> savedOrders = CartServiceDAO
-				.getAllSavedOrders(locationId);
-		Map<String, List<OrderBean>> mapOfList = convertSavedOrdersListToMap(savedOrders);
-
 		for (OrderBean order : breakroomOrders) {
 			breakroomProducts.add(ProductSearchDAO.getProductByID(order
 					.getProductId()));
@@ -240,12 +263,56 @@ public class NavigationServlet extends HttpServlet {
 					.getProductId()));
 		}
 
+//		List<OrderBean> savedOrders = CartServiceDAO.getAllSavedOrders(locationId);
+//		Map<String, List<OrderBean>> mapOfList = new HashMap<String, List<OrderBean>>();
+//		for (OrderBean order : savedOrders)
+//		{
+//			String orderName = order.getOrderName();
+//			if(!mapOfList.containsKey(orderName)) 
+//			{
+//				mapOfList.put(orderName, new ArrayList<OrderBean>());
+//			}
+//			mapOfList.get(orderName).add(order);
+//		}
+//		
+//		int iterator = 1;
+//		for(Map.Entry<String, List<OrderBean>> str : mapOfList.entrySet())
+//		{
+//			System.out.println(iterator + ") " + str);
+//			iterator++;
+//		}
+		 
 		request.setAttribute("breakroomProducts", breakroomProducts);
 		request.setAttribute("breakroomOrders", breakroomOrders);
 		request.setAttribute("officeSuppliesProducts", officeSuppliesProducts);
 		request.setAttribute("officeSuppliesOrders", officeSuppliesOrders);
 		request.setAttribute("inkAndTonerProducts", inkAndTonerProducts);
 		request.setAttribute("inkAndTonerOrders", inkAndTonerOrders);
+
+
+		List<OrderBean> savedOrders = CartServiceDAO.getAllSavedOrders(locationId);
+ 		Map<String, List<OrderBean>> mapOfOrders = new HashMap<String, List<OrderBean>>();
+ 		Map<String, List<ProductBean>> mapOfProducts = new HashMap<String, List<ProductBean>>();
+ 		for(OrderBean order: savedOrders){
+ 			String orderName = order.getOrderName();
+ 			if(!orderName.equals("cart"))
+ 			{
+				if(!mapOfOrders.containsKey(orderName))
+ 				{
+ 					mapOfOrders.put(orderName, new ArrayList<OrderBean>());
+ 				}
+ 				mapOfOrders.get(orderName).add(order);
+ 				
+ 				if(!mapOfProducts.containsKey(orderName))
+ 				{
+ 					mapOfProducts.put(orderName, new ArrayList<ProductBean>());
+ 				}
+ 				mapOfProducts.get(orderName).add(ProductSearchDAO.getProductByID(order.getProductId()));
+ 			}
+ 		}
+		request.setAttribute("savedOrders", mapOfOrders);
+ 		request.setAttribute("savedProducts", mapOfProducts);
+ 		
 		RequestDispatcher dispatcher = request
 				.getRequestDispatcher("/jsps/authRequired/reviewCart.jsp");
 		dispatcher.forward(request, response);
@@ -319,16 +386,14 @@ public class NavigationServlet extends HttpServlet {
 			List<OrderBean> orders) {
 
 		Map<String, List<OrderBean>> mapOfOrders = new HashMap<String, List<OrderBean>>();
-		for (OrderBean order : orders) {
+		for (OrderBean order : orders)
+		{
 			String orderName = order.getOrderName();
-			if (mapOfOrders.containsKey(orderName)) {
-				List<OrderBean> orderInMap = mapOfOrders.get(orderName);
-				orderInMap.add(order);
-				mapOfOrders.put(orderName, orderInMap);
-			} else {
-				List<OrderBean> currentOrders = new ArrayList<OrderBean>();
-				mapOfOrders.put(orderName, currentOrders);
+			if(!mapOfOrders.containsKey(orderName)) 
+			{
+				mapOfOrders.put(orderName, new ArrayList<OrderBean>());
 			}
+			mapOfOrders.get(orderName).add(order);
 		}
 		return mapOfOrders;
 	}

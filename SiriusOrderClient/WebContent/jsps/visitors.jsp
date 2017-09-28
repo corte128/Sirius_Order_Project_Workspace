@@ -15,7 +15,7 @@
 	<script type="text/javascript" src="/SiriusOrderClient/js/jquery-ui-1.12.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/visitors.css">
 </head>
-<body>    
+<body>     
 	<header>
 		<%@ include file="header.jsp" %>
 	</header>
@@ -64,7 +64,7 @@
 						</span>
 					</c:if>
 					<br />
-					<html:textarea styleClass="visitors-form-input top-padding" property="comment"></html:textarea>
+					<textarea class="visitors-form-input top-padding" name="comment"></textarea>
 					<br />
 					<html:submit styleId="visitor-add-button" value=Add><fmt:message key="VISITORS_ADD_BUTTON" /></html:submit>
 				</html:form>

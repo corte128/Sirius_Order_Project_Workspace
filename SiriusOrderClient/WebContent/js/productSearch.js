@@ -13,6 +13,14 @@ function addToCart(productID)
     if (quantityElement != null)
     {
         quantity = quantityElement.value;
+        if (quantity < 0 ){
+        	var errorMessageDiv = document.getElementById("errorMessage");
+        	errorMessageDiv.style.display= "block";
+        }else{
+        	var errorMessageDiv = document.getElementById("errorMessage");
+        	errorMessageDiv.style.display= "none";
+        }
+        
     }
 	var url = "/SiriusOrderClient/CartServlet?action=addToCart&productID=" + productID +"&quantity="+quantity;
 	xhttp.open("GET", url, true);
@@ -29,7 +37,13 @@ function addToCart(productID)
 //		TO DO alert user
 	};
 	xhttp.send();
+	var successElement = document.getElementById("successMessage");
+	if (successElement != null && quantity > 0){
+		$('#successMessage').fadeIn('fast').delay(3000).fadeOut('slow')
+	}
 }
+
+
 
  function simpleAlert(){
 	console.log("THIS IS BROKE");

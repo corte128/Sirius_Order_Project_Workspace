@@ -1,91 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="ServicesEAR">
         <wb-resource deploy-path="/" source-path="/" tag="defaultRootSource"/>
-        <dependent-module archiveName="GenerateCart.jar" deploy-path="/lib" handle="module:/resource/GenerateCart/GenerateCart">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="WishlistWS.war" deploy-path="/" handle="module:/resource/WishlistWS/WishlistWS">
 <<<<<<< HEAD
-            <dependent-object>Module_1506607318800</dependent-object>
+            <dependent-object>Module_1506615675250</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="ProductWS.war" deploy-path="/" handle="module:/resource/ProductWS/ProductWS">
-            <dependent-object>Module_1506607318801</dependent-object>
+            <dependent-object>Module_1506615675251</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="MailWS.war" deploy-path="/" handle="module:/resource/MailWS/MailWS">
-            <dependent-object>Module_1506607318802</dependent-object>
+            <dependent-object>Module_1506615675252</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="LoginWS.war" deploy-path="/" handle="module:/resource/LoginWS/LoginWS">
-            <dependent-object>Module_1506607318803</dependent-object>
+            <dependent-object>Module_1506615675253</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="LocationWS.war" deploy-path="/" handle="module:/resource/LocationWS/LocationWS">
-            <dependent-object>Module_1506607318804</dependent-object>
+            <dependent-object>Module_1506615675266</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="AttendanceWS.war" deploy-path="/" handle="module:/resource/AttendanceWS/AttendanceWS">
-            <dependent-object>Module_1506607318805</dependent-object>
+            <dependent-object>Module_1506615675267</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="AdminWS.war" deploy-path="/" handle="module:/resource/AdminWS/AdminWS">
-            <dependent-object>Module_1506607318806</dependent-object>
+            <dependent-object>Module_1506615675268</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="SearchWS.war" deploy-path="/" handle="module:/resource/SearchWS/SearchWS">
-            <dependent-object>Module_1506607318807</dependent-object>
+            <dependent-object>Module_1506615675269</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="EmployeeWS.war" deploy-path="/" handle="module:/resource/EmployeeWS/EmployeeWS">
-            <dependent-object>Module_1506607318808</dependent-object>
+            <dependent-object>Module_1506615675270</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="CartWS.war" deploy-path="/" handle="module:/resource/CartWS/CartWS">
-            <dependent-object>Module_1506607318809</dependent-object>
+            <dependent-object>Module_1506615675271</dependent-object>
 =======
-            <dependent-object>Module_1506548754575</dependent-object>
+            <dependent-object>Module_1506615292882</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="ProductWS.war" deploy-path="/" handle="module:/resource/ProductWS/ProductWS">
-            <dependent-object>Module_1506548754576</dependent-object>
+            <dependent-object>Module_1506615292883</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="MailWS.war" deploy-path="/" handle="module:/resource/MailWS/MailWS">
-            <dependent-object>Module_1506548754577</dependent-object>
+            <dependent-object>Module_1506615292884</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="LoginWS.war" deploy-path="/" handle="module:/resource/LoginWS/LoginWS">
-            <dependent-object>Module_1506548754578</dependent-object>
+            <dependent-object>Module_1506615292885</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="LocationWS.war" deploy-path="/" handle="module:/resource/LocationWS/LocationWS">
-            <dependent-object>Module_1506548754579</dependent-object>
+            <dependent-object>Module_1506615292886</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="GenerateCartWS.war" deploy-path="/" handle="module:/resource/GenerateCartWS/GenerateCartWS">
-            <dependent-object>Module_1506548754580</dependent-object>
+            <dependent-object>Module_1506615292887</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="GenerateCart.jar" deploy-path="/lib" handle="module:/resource/GenerateCart/GenerateCart">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="AttendanceWS.war" deploy-path="/" handle="module:/resource/AttendanceWS/AttendanceWS">
-            <dependent-object>Module_1506548754581</dependent-object>
+            <dependent-object>Module_1506615292888</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="AdminWS.war" deploy-path="/" handle="module:/resource/AdminWS/AdminWS">
-            <dependent-object>Module_1506548754582</dependent-object>
+            <dependent-object>Module_1506615292889</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="SearchWS.war" deploy-path="/" handle="module:/resource/SearchWS/SearchWS">
-            <dependent-object>Module_1506548754583</dependent-object>
+            <dependent-object>Module_1506615292890</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="EmployeeWS.war" deploy-path="/" handle="module:/resource/EmployeeWS/EmployeeWS">
-            <dependent-object>Module_1506548754584</dependent-object>
+            <dependent-object>Module_1506615292891</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="CartWS.war" deploy-path="/" handle="module:/resource/CartWS/CartWS">
-            <dependent-object>Module_1506548754585</dependent-object>
->>>>>>> ec6574d1b8e919e67aa4aa3f88dfd0b97a2e71b0
+            <dependent-object>Module_1506615292892</dependent-object>
+>>>>>>> def500ebb336c109b157736df8d64801c1cb4a5f
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>

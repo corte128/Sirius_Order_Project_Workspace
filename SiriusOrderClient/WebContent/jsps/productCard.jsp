@@ -13,7 +13,7 @@
 				<img src="${currentProduct.getImage()}" alt="name of item" class="productImage"></img>
 			</a>
 		</div>
-
+ 
    
 		<div class="productLabel">
 			<p class="nameLabel">${currentProduct.getName()}</p>
