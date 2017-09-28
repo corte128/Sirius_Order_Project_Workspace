@@ -213,6 +213,7 @@
 	<!-- INCLUDE SAVED ORDER MODAL -->
 	<div id="includeSavedOrderModal" class="cart-modal">
 		<div id="includeSavedOrderModalTitleContainer">
+			<span id="closeButton" class="closeButton"  onclick="closeIncludeInOrderWindow()">X</span>
 			<span id="includeSavedOrderModalTitleTextContainer">
 				<fmt:message key="CART_SAVED_ORDERS_LABEL" />
 			</span>
@@ -267,6 +268,7 @@
 	<!-- SAVE ORDER MODAL -->
 	<div id="saveOrderModal" class="cart-modal">
 		<div id="saveOrderModalTitleContainer">
+			<span id="closeButton" class="closeButton"  onclick="closeSavedOrdersWindow()">X</span>
 			<span id="saveOrderModalTitleTextContainer">
 				<fmt:message key="CART_NAME_LABEL" />
 			</span>
