@@ -104,3 +104,35 @@ tbody td.ui-widget-content:nth-child(2){
 .ui-widget-content tr:nth-child(even) {
 	background: rgb(242, 242, 242);
 }
+.ui-datepicker-calendar{
+	background: white;
+}
+.ui-datepicker-calendar tr{
+	border: none;
+}
+#ui-datepicker-div{
+	padding: 0;
+}
+#save_dialog{
+	display: none;
+	background: white !important;
+}
+.ui-dialog{
+	background: white !important;
+	padding: 0;
+	margin: auto;
+	border: none !important;
+}
+button.ui-dialog-titlebar-close{
+	display: none;
+}
+.ui-dialog-titlebar{
+	background: none !important;
+	background-color: #5F6060 !important;
+	border: none;
+	color: white;
+}
+.ui-widget-overlay{
+	background: grey;
+	opacity: 0.5;
+}
