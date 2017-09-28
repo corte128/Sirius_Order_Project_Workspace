@@ -4,6 +4,7 @@
 	background-color: #5F6060;
 	color: white;
 	margin-left: 20px;
+	box-shadow: 2px 1px 4px 0px grey;
 }
 
 .breadCrumbs {
@@ -62,6 +63,7 @@ aside {
 	margin-right: 50px;
 	font-family: Calibri, sans-serif;
 	font-style: italic;
+	font-weight: bold;
 }
 
 .likesContainer {
@@ -144,6 +146,7 @@ aside {
 }
 #addToCartButton{
 	margin:auto;
+	margin-top: 10px;
 }
 .orderFormContainer{
 	    margin-bottom: 10px;

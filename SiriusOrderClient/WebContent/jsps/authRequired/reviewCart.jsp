@@ -4,7 +4,6 @@
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 
 <fmt:setBundle basename="com.sirius.order.client.properties.common"/> 
  
@@ -19,7 +18,7 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript" src="/SiriusOrderClient/js/calcCartTotal.js"></script>
 </head> 
-<body onload="calcTotals()">
+<body onload="calcTotals()"> 
 	<div id="cartHeaderContainer">
 		<div id="cartHeaderProductImageContainerColumn" class="cart-product-image-container">
 		</div>
@@ -63,9 +62,9 @@
 					$${product.getPrice()}
 				</div>
 				<div class="cart-product-quantity-container">
-					<input onchange="calcBreakroomTotals()" 
+					<input id="cartProductQuantityInput${breakroomOrders.get(breakroomIndex).getId()}"
 						class="breakroom-cart-product-quantity-input"
-						onchange="calcBreakroomTotals()"
+						onchange="calcBreakroomTotalsAndUpdate(${product.getId()}, ${breakroomOrders.get(breakroomIndex).getId()})"
 					 	type="text" value="${breakroomOrders.get(breakroomIndex).getQuantity()}"/>
 				</div>
 				<div class="cart-product-action-container">
@@ -121,9 +120,9 @@
 					$${product.getPrice()}
 				</div>
 				<div class="cart-product-quantity-container">
-					<input onchange="calcOfficeSuppliesTotals()" 
+					<input id="cartProductQuantityInput${officeSuppliesOrders.get(officeSuppliesIndex).getId()}"
 						class="office-supplies-cart-product-quantity-input"
-						onchange="calcOfficeSuppliesTotals()"
+						onchange="calcOfficeSuppliesTotalsAndUpdate(${product.getId()}, ${officeSuppliesOrders.get(officeSuppliesIndex).getId()})"
 						type="text" value="${officeSuppliesOrders.get(officeSuppliesIndex).getQuantity()}"/>
 				</div>
 				<div class="cart-product-action-container">
@@ -179,9 +178,9 @@
 					$${product.getPrice()}
 				</div>
 				<div class="cart-product-quantity-container">
-					<input onchange="calcInkAndTonerTotals()" 
+					<input id="cartProductQuantityInput${inkAndTonerOrders.get(inkIndex).getId()}"
 						class="ink-cart-product-quantity-input"
-						onchange="calcInkAndTonerTotals()"
+						onchange="calcInkAndTonerTotalsAndUpdate(${product.getId()}, ${inkAndTonerOrders.get(inkIndex).getId()})"
 						type="text" value="${inkAndTonerOrders.get(inkIndex).getQuantity()}"/>
 				</div>
 				<div class="cart-product-action-container">
@@ -242,7 +241,9 @@
 					<div class="order-item-container
 						cart-modal-color-alternate-container">
 						<div class="order-item-input-container">
-							<input id="OrderCheckbox${savedOrders.get(orderName)[orderIndex].getId()}" type="checkbox" />
+							<input id="includeOrderCheckbox${savedOrders.get(orderName)[orderIndex].getId()}" 
+								class="include-order-checkbox-${savedOrders.get(orderName)[orderIndex].getName()}"
+								type="checkbox" />
 						</div>
 						<div class="order-title-text-container">
 							${savedProducts.get(curOrderName)[orderIndex].getName()}
@@ -256,6 +257,78 @@
 			<button id="includeSavedOrderModalButton" 
 				class="cart-modal-button">
 				<fmt:message key="CART_INCLUDE_LABEL" />
+			</button>
+		</div>
+	</div>
+	
+	<!-- SAVE ORDER MODAL -->
+	<div id="saveOrderModal" class="cart-modal">
+		<div id="saveOrderModalTitleContainer">
+			<span id="saveOrderModalTitleTextContainer">
+				<fmt:message key="CART_NAME_LABEL" />
+			</span>
+			<input id="saveOrderModalOrderInput" type="text" />
+		</div>
+		
+		<div id="cartOrderContainer" class="cart-order-container">
+			<div class="order-item-container
+				cart-modal-color-alternate-container">
+				<div class="order-item-input-container">
+					<input id="saveOrderTitleCheckbox" type="checkbox" />
+				</div>
+				<div class="order-title-text-container">
+					<fmt:message key="CART_ITEMS_LABEL" />
+				</div>
+			</div>
+			<!-- GENERATE A DIV FOR EACH ITEM IN AN ORDER -->
+			<c:set var="breakroomModalIndex" value="0" scope="page" />
+			<c:forEach var="product" items="${breakroomProducts}">
+				<div class="order-item-container
+					cart-modal-color-alternate-container">
+					<div class="order-item-input-container">
+						<input id="saveOrderCheckbox${breakroomOrders.get(breakroomModalIndex).getId()}" type="checkbox" />
+					</div>
+					<div class="order-title-text-container">
+						${breakroomProducts.get(breakroomModalIndex).getName()}
+					</div>
+				</div>
+				<c:set var="breakroomIndex" value="${breakroomIndex + 1}" scope="page"/>
+			</c:forEach>
+			
+			<c:set var="officeSuppliesIndex" value="0" scope="page" />
+			<c:forEach var="product" items="${officeSuppliesProducts}">
+				<div class="order-item-container
+					cart-modal-color-alternate-container">
+					<div class="order-item-input-container">
+						<input id="saveOrderCheckbox${officeSuppliesOrders.get(officeSuppliesIndex).getId()}" type="checkbox" />
+					</div>
+					<div class="order-title-text-container">
+						${officeSuppliesProducts.get(officeSuppliesIndex).getName()}
+					</div>
+				</div>
+				<c:set var="officeSuppliesIndex" value="${officeSuppliesIndex + 1}" scope="page"/>
+			</c:forEach>
+			
+			<c:set var="inkIndex" value="0" scope="page" />
+			<c:forEach var="product" items="${inkAndTonerProducts}">
+				<div class="order-item-container
+					cart-modal-color-alternate-container">
+					<div class="order-item-input-container">
+						<input id="saveOrderCheckbox${inkAndTonerOrders.get(inkIndex).getId()}" type="checkbox" />
+					</div>
+					<div class="order-title-text-container">
+						${inkAndTonerProducts.get(inkIndex).getName()}
+					</div>
+				</div>
+				<c:set var="inkIndex" value="${inkIndex + 1}" scope="page"/>
+			</c:forEach>
+			
+		</div>
+			
+		<div id="includeSavedOrderModalButtonContainer" class="cart-modal-button-container">
+			<button id="includeSavedOrderModalButton" 
+				class="cart-modal-button">
+				<fmt:message key="CART_SAVE_LABEL" />
 			</button>
 		</div>
 	</div>

@@ -5,7 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
 <html>
-
+ 
 <head>
 	<title>welcome</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -20,7 +20,7 @@
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body> 
 	<fmt:setBundle basename="com.sirius.order.client.properties.common" />
 	<%-- HEADER --%>
 	<header>

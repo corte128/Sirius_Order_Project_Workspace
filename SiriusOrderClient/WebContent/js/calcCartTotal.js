@@ -83,6 +83,10 @@ function showIncludeOrderModal()
 {
 	document.getElementById("includeSavedOrderModal").style.display = 'block';
 }
+function showSaveOrderModal()
+{
+	document.getElementById("saveOrderModal").style.display = 'block';
+}
 function populateItemsFromOrders()
 {
 	var orderNameId = document.getElementById("includeSavedOrderModalOrderSelect").value + 'OrderContainer';
@@ -93,4 +97,50 @@ function populateItemsFromOrders()
 		console.log(orderContainers[i]);
 	}
 	document.getElementById(orderNameId).style.display = 'block';
+}
+function updateQuantity(productId, quantity)
+{
+	var url = "/SiriusOrderClient/CartServlet?action=changeQuantity&productID=" + productId +"&quantity="+quantity;
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("GET", url, true);
+	xhttp.send();
+}
+function calcBreakroomTotalsAndUpdate(productId, orderId)
+{
+	var quantity = document.getElementById("cartProductQuantityInput" + orderId).value;
+	if(quantity <= 0)
+	{
+		removeFromCart(orderId);
+	}
+	else
+	{
+		calcBreakroomTotals();
+		updateQuantity(productId, quantity);
+	}
+}
+function calcOfficeSuppliesTotalsAndUpdate(productId, orderId)
+{
+	var quantity = document.getElementById("cartProductQuantityInput" + orderId).value;
+	if(quantity <= 0)
+	{
+		removeFromCart(orderId);
+	}
+	else
+	{
+		calcOfficeSuppliesTotals();
+		updateQuantity(productId, quantity);
+	}
+}
+function calcInkAndTonerTotalsAndUpdate(productId, orderId)
+{
+	var quantity = document.getElementById("cartProductQuantityInput" + orderId).value;
+	if(quantity <= 0)
+	{
+		removeFromCart(orderId);
+	}
+	else
+	{
+		calcInkAndTonerTotals();
+		updateQuantity(productId, quantity);
+	}
 }

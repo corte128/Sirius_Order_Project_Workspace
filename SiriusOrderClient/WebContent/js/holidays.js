@@ -61,6 +61,7 @@ $(function ()
         	remove: true
         }
     });
+    getTableData();
     $( ".hasDatepicker" ).datepicker( "option", "dateFormat", "MM d, yy" );
 });
 

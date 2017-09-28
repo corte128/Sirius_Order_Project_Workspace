@@ -8,9 +8,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
+import javax.enterprise.inject.New;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
@@ -145,20 +147,7 @@ public class AttendanceServlet extends HttpServlet {
 			
 			 
 			if (view.equalsIgnoreCase("display")) {
-				JsonArrayBuilder builder = Json.createArrayBuilder();
-				for (AttendanceRecordBean record : attendanceRecords) {
-					builder.add(Json.createObjectBuilder()
-							.add("Name", record.getAttendantName())
-							.add("Email", record.getAttendantEmail())
-							.add("Date", record.getAttendantDate())
-							.add("Location", record.getAttendantLocation()));
-				}
-				JsonArray output = builder.build();
-
-				PrintWriter out = response.getWriter();
-				JsonWriter writer = Json.createWriter(out);
-				writer.writeArray(output);
-				writer.close();
+				getJsonData(attendanceRecords, response);
 			} else if (view.equalsIgnoreCase("pdf")) {
 				
 				
@@ -187,16 +176,28 @@ public class AttendanceServlet extends HttpServlet {
 					contentStream = new PDPageContentStream(
 							mainDocument, myPage);
 					String[][] contentForTable = new String[list.size()+1][4];
+					Calendar calendar = Calendar.getInstance();
+					String[] dateArray = new String[3];
+					SimpleDateFormat sFormat = new SimpleDateFormat("MM/dd/yyyy");
+					String formatedDate = "";
 					for (int i = 0; i < list.size()+1; i++){
 						if(i==0){
-							contentForTable[0][0] = "Name :";
-							contentForTable[0][1] = "Email :";
-							contentForTable[0][2] = "Date :";
-							contentForTable[0][3] = "Location :";
+							contentForTable[0][0] = "Name";
+							contentForTable[0][1] = "Email";
+							contentForTable[0][2] = "Date";
+							contentForTable[0][3] = "Location";
 						}else{
 						contentForTable[i][0] = list.get(i-1).getAttendantName();
 						contentForTable[i][1] = list.get(i-1).getAttendantEmail();
-						contentForTable[i][2] = list.get(i-1).getAttendantDate();
+						
+						
+						dateArray = list.get(i-1).getAttendantDate().split("-");
+						calendar.set(Calendar.YEAR, Integer.parseInt(dateArray[0]));
+						calendar.set(Calendar.MONTH, Integer.parseInt(dateArray[1])-1);
+						calendar.set(Calendar.DATE, Integer.parseInt(dateArray[2]));
+						formatedDate = sFormat.format(calendar.getTime());
+						
+						contentForTable[i][2] = formatedDate;
 						contentForTable[i][3] = list.get(i-1).getAttendantLocation();
 						}
 						
@@ -284,7 +285,7 @@ public class AttendanceServlet extends HttpServlet {
 //
 //				// close the document
 //
-
+		getJsonData(attendanceRecords, response);
 
 			}
 		}
@@ -355,5 +356,34 @@ public class AttendanceServlet extends HttpServlet {
 			lists.add(objects.subList(i, endpoint));
 		}
 		return lists;
+	}
+	private void getJsonData(ArrayList<AttendanceRecordBean> attendanceRecords, HttpServletResponse response)throws ServletException, IOException{
+		JsonArrayBuilder builder = Json.createArrayBuilder();
+		Calendar calendar = Calendar.getInstance();
+		String[] dateArray = new String[3];
+		SimpleDateFormat sFormat = new SimpleDateFormat("MM/dd/yyyy");
+		String formatedDate = "";
+		for (AttendanceRecordBean record : attendanceRecords) {
+			
+			
+			dateArray = record.getAttendantDate().split("-");
+			
+			calendar.set(Calendar.YEAR, Integer.parseInt(dateArray[0]));
+			calendar.set(Calendar.MONTH, Integer.parseInt(dateArray[1])-1);
+			calendar.set(Calendar.DATE, Integer.parseInt(dateArray[2]));
+			formatedDate = sFormat.format(calendar.getTime());
+			
+			builder.add(Json.createObjectBuilder()
+					.add("Name", record.getAttendantName())
+					.add("Email", record.getAttendantEmail())
+					.add("Date", formatedDate)
+					.add("Location", record.getAttendantLocation()));
+		}
+		JsonArray output = builder.build();
+
+		PrintWriter out = response.getWriter();
+		JsonWriter writer = Json.createWriter(out);
+		writer.writeArray(output);
+		writer.close();	
 	}
 }

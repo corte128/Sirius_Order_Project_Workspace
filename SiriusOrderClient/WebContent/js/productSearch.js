@@ -208,7 +208,6 @@ function addToWishlist(productID){
 
 
 function createModal(likesModalID){
-	
 	var size = document.getElementById("numOfLikes" + likesModalID).innerText;
 	if(size > 0){
 		document.getElementById('likesModal'+likesModalID).style.display = 'block';
