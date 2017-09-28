@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="GenerateCart">
         <wb-resource deploy-path="/" source-path="/"/>
+<<<<<<< HEAD
+=======
+        <wb-resource deploy-path="/" source-path="/.apt_generated"/>
+>>>>>>> ec6574d1b8e919e67aa4aa3f88dfd0b97a2e71b0
     </wb-module>
 </project-modules>

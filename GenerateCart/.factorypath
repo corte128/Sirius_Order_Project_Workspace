@@ -1,6 +1,9 @@
 <factorypath>
     <factorypathentry kind="PLUGIN" id="com.ibm.ws.ast.wsfp.annotations.processor" enabled="true" runInBatchMode="false"/>
+<<<<<<< HEAD
     <factorypathentry kind="PLUGIN" id="com.ibm.adapter.j2c.codegen" enabled="true" runInBatchMode="false"/>
+=======
+>>>>>>> ec6574d1b8e919e67aa4aa3f88dfd0b97a2e71b0
     <factorypathentry kind="PLUGIN" id="com.ibm.etools.webtools.jpa.managerbean" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="PLUGIN" id="com.ibm.jaxrs.annotations.processor" enabled="false" runInBatchMode="false"/>
     <factorypathentry kind="PLUGIN" id="com.ibm.jee.annotations.processor" enabled="false" runInBatchMode="false"/>
