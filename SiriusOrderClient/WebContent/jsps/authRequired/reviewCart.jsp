@@ -322,7 +322,6 @@
 				</div>
 				<c:set var="inkIndex" value="${inkIndex + 1}" scope="page"/>
 			</c:forEach>
-			
 		</div>
 			
 		<div id="includeSavedOrderModalButtonContainer" class="cart-modal-button-container">

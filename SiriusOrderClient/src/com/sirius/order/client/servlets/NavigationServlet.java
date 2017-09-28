@@ -67,24 +67,39 @@ public class NavigationServlet extends HttpServlet {
 		int numUnapprovedEmployees = employees.size();
 		session.setAttribute("numAlerts", numUnapprovedEmployees);
 
-		if (userId == null && !action.equalsIgnoreCase("registration")) {
+		if (userId == null && !action.equalsIgnoreCase("registration"))
+		{
 			response.sendRedirect("jsps/login.jsp");
-		} else if (action.equalsIgnoreCase("attendance")) {
+		} 
+		else if (action.equalsIgnoreCase("attendance"))
+		{
 			forwardToAttendance(request, response);
-		} else if (action.equals("budget")) {
+		}
+		else if (action.equals("budget"))
+		{
 			forwardToBudget(request, response);
-		} else if (action.equals("visitors")) {
+		}
+		else if (action.equals("visitors"))
+		{
 			if (session.getAttribute("activeUserType") == null
-					|| (Integer) session.getAttribute("activeUserType") == 1) {
+					|| (Integer) session.getAttribute("activeUserType") == 1)
+			{
 				response.sendRedirect("jsps/welcome.jsp");
-			} else {
+			}
+			else
+			{
 				response.sendRedirect("jsps/visitors.jsp");
 			}
-		} else if (action.equals("activateUsers")) {
+		}
+		else if (action.equals("activateUsers"))
+		{
 			if (session.getAttribute("activeUserID") == null
-					|| (Integer) session.getAttribute("activeUserType") == 1) {
+					|| (Integer) session.getAttribute("activeUserType") == 1)
+			{
 				response.sendRedirect("jsps/welcome.jsp");
-			} else {
+			}
+			else 
+			{
 				forwardToActivateUsers(request, response);
 			}
 		} else if (action.equals("holidays")) {
@@ -94,17 +109,29 @@ public class NavigationServlet extends HttpServlet {
 			} else {
 				response.sendRedirect("jsps/holidays.jsp");
 			}
-		} else if (action.equals("registration")) {
+		}
+		else if (action.equals("registration"))
+		{
 			forwardToRegistration(request, response);
-		} else if (action.equals("superAdmin")) {
+		}
+		else if (action.equals("superAdmin")) 
+		{
 			forwardToSuperAdmin(request, response);
-		} else if (action.equals("cart")) {
+		}
+		else if (action.equals("cart"))
+		{
 			forwardToCart(request, response);
-		} else if (action.equals("productDetails")) {
+		}
+		else if (action.equals("productDetails"))
+		{
 			forwardToProductDetails(request, response);
-		} else if (action.equalsIgnoreCase("getLikers")) {
+		} 
+		else if (action.equalsIgnoreCase("getLikers")) 
+		{
 			getLikers(request, response);
-		} else if (action.equals("wishlist")) {
+		} 
+		else if (action.equals("wishlist")) 
+		{
 			forwardToWishlist(request, response);
 		}
 	}
