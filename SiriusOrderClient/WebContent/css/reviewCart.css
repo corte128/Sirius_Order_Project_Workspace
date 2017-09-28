@@ -181,3 +181,18 @@ body
 {
 	margin-top: 26px;
 }
+
+.cart-modal-button-container{
+	    position: absolute;
+    margin-right: 10px;
+    right: 0px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.cart-modal-button{
+	height: 50px;
+	width: 100px;
+	background-color: #5F6060;
+	color: white;
+}
