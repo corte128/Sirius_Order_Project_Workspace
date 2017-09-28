@@ -38,9 +38,8 @@ label{
 	color: white;
 	border: none;
 	padding: 5px;
-	width: 75px;
-	padding-left: 10px;
-	padding-right: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 @media only screen and (min-width: 300px) {
 	.visitors-form-input{
@@ -98,6 +97,8 @@ label{
 	}
 	#visitor-add-button{
 		margin-right: 120px;
+		padding-left: 40px;
+		padding-right: 40px;
 	}
 	#future-date, #date-order{
 		height: 50px;
@@ -132,6 +133,8 @@ label{
 	}
 	#visitor-add-button{
 		right: 470px;
+		padding-left: 40px;
+		padding-right: 40px;
 	}
 	.top-padding{
 		margin-top: 0;

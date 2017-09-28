@@ -19,7 +19,7 @@ $(function ()
             	ctrlAttr: { maxlength: 50 }, 
             	ctrlCss: { width: '100%'},
             	onChange: function (evt, rowIndex) {
-            		$( ".hasDatepicker" ).datepicker( "option", "dateFormat", "MM d, yy" );
+            		$("#tblAppendGrid_Date_"+(rowIndex+1)+".hasDatepicker").datepicker( "option", "dateFormat", "MM d, yy" );
                 }
             },
             { 
@@ -69,10 +69,26 @@ function saveEntry(evtObj, uniqueIndex, rowData){
 	console.log(rowData.ID);
 	console.log(rowData.Date);
 	if(rowData.ID > 0){
-		alert('Already in database');
+		$("<div id='save_dialog' title='Save Failed'>Cannot save. Holiday is already in database.</div>").dialog({
+			resizable: false,
+			modal: true,
+			buttons: {
+				Close: function(){
+					$(this).dialog("close");
+				}
+			}
+		});
 	}
 	else {
-		alert('Saved Holiday in position: ' + uniqueIndex);
+		$("<div id='save_dialog' title='Save Successful'>The holiday was successfully saved!</div>").dialog({
+			resizable: false,
+			modal: true,
+			buttons: {
+				Close: function(){
+					$(this).dialog("close");
+				}
+			}
+		});
 		//ajax call to delete holiday
 		var xhttp = new XMLHttpRequest();
 		var url = "/SiriusOrderClient/QueryServlet?query=addHoliday&name="+rowData.FederalHoliday+"&date="+rowData.Date;
@@ -81,9 +97,8 @@ function saveEntry(evtObj, uniqueIndex, rowData){
 		{
 			var response = xhttp.responseText;
 			if(response != null){
-				console.log(response);
 				if(response == 1){
-					alert("Successfully saved holiday! ");
+					
 				}
 			}
 			else{
@@ -97,8 +112,16 @@ function saveEntry(evtObj, uniqueIndex, rowData){
 function deleteEntry(evtObj, uniqueIndex, rowData){
 	console.log(evtObj+" "+uniqueIndex+" "+rowData);
 	if(rowData.ID > 0){
-		alert('Deleting Holiday in position: ' + uniqueIndex);
 		$('#tblAppendGrid').appendGrid('removeRow', uniqueIndex-1);
+		$("<div id='delete_dialog' title='Delete Successful'>The holiday was successfully deleted!</div>").dialog({
+			resizable: false,
+			modal: true,
+			buttons: {
+				Close: function(){
+					$(this).dialog("close");
+				}
+			}
+		});
 		//ajax call to delete holiday
 		var xhttp = new XMLHttpRequest();
 		var url = "/SiriusOrderClient/QueryServlet?query=deleteHoliday&id="+rowData.ID;
@@ -109,7 +132,7 @@ function deleteEntry(evtObj, uniqueIndex, rowData){
 			if(response != null){
 				console.log(response);
 				if(response == 1){
-					alert("Successfully deleted holiday!");
+					
 				}
 			}
 			else{
