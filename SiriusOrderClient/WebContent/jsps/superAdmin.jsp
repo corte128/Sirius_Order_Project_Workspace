@@ -243,7 +243,7 @@
 							action="/SiriusOrderClient/SuperAdminServlet?action=assignAdmin"
 							name="assignAdmin" method="POST">
 							<div class="super-admin-modal-group">
-								<label for="recipient-name" class="super-admin-modal-label">
+								<label for="recipient-name" class="super-admin-modal-message">
 									<bean:message key="SUPER_ADMIN_ARE_YOU_SURE" /> 
 								</label> 
 							</div>

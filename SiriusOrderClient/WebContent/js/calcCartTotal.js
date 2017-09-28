@@ -94,7 +94,6 @@ function populateItemsFromOrders()
 	for(var i = 0; i < orderContainers.length; ++i)
 	{
 		orderContainers[i].style.display = 'none';
-		console.log(orderContainers[i]);
 	}
 	document.getElementById(orderNameId).style.display = 'block';
 }
@@ -143,4 +142,27 @@ function calcInkAndTonerTotalsAndUpdate(productId, orderId)
 		calcInkAndTonerTotals();
 		updateQuantity(productId, quantity);
 	}
+}
+function selectAllOrderCheckboxes(orderName)
+{
+	var newCheckedValue = document.getElementById(orderName + "OrderTitleCheckbox").checked;
+	var checkBoxes = document.getElementsByClassName("include-order-checkbox-" + orderName);
+	for(key in checkBoxes)
+	{
+		checkBoxes[key].checked = newCheckedValue;
+	}
+}
+function includeOrderInCart()
+{
+	
+}
+
+function closeSavedOrdersWindow(){
+	var saveOrderModal = document.getElementById("saveOrderModal");
+	saveOrderModal.style.display = "none";
+}
+
+function closeIncludeInOrderWindow(){
+	 var includeSavedOrderModal = document.getElementById("includeSavedOrderModal");
+	 includeSavedOrderModal.style.display = "none";
 }

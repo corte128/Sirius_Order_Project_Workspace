@@ -54,16 +54,16 @@ app.controller('superAdminCtrl', [
 								//cellTemplate:'<div class="name-row"> {{row.entity["Admin Email"]}} </div>'
 							},
 							{
-								name : 'No of Employees',
+								name : 'No. of Employees',
 								headerCellTemplate: nameHeaderCellTemplate,
 								width : 125,
-								cellClass: 'name-row'
-								//cellTemplate:'<div class="name-row"> {{row.entity["No of Employees"]}} </div>'
+								cellClass: 'name-row',
+								cellTemplate:'<div> {{row.entity["No of Employees"]}} </div>'
 							},
 							{
 								name : 'Recommended Budget',
 								headerCellTemplate: nameHeaderCellTemplate,
-								width : 125,
+								width : 135,
 								cellFilter: 'currency',
 								cellClass: 'name-row'
 								//cellTemplate:'<div class="name-row"> {{row.entity["Recommended Budget"]}} </div>'
