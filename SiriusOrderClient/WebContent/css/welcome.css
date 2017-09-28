@@ -11,6 +11,22 @@ body{
   flex-wrap: wrap;
 }
 
+#visitor_dialog{
+	width: 300px;
+	right: calc(50% - 150px);
+	position: absolute;
+	border: solid darkgrey 1px;
+	border-radius: 5px;
+	z-index: 100;
+	background-color: white;
+	padding: 5px;
+	text-align: center;
+	padding-top: 15px;
+}
+#visitor_dialog button{
+	float: right;
+}
+
 @media (min-device-width: 1025px)  {
 .welcome-container{
   display:flex;
@@ -62,7 +78,6 @@ aside{
   height: 150px;
 }
 }
-
 /* Ipad */
 @media only screen
 and (min-device-width : 768px)
