@@ -5,15 +5,15 @@
 
 function addToCart(productID)
 {
+	$('#addConfirmed' + productID).fadeIn('fast');
+	//.delay(1000).fadeOut('slow')
 	var xhttp = new XMLHttpRequest();
 	var quantityElement = document.getElementById("quantityToAdd");
     var quantity = 1;
    
     if (quantityElement != null)
     {
-    	
         quantity = quantityElement.value;
-        
     }
 	var url = "/SiriusOrderClient/CartServlet?action=addToCart&productID=" + productID +"&quantity="+quantity;
 	xhttp.open("GET", url, true);
@@ -93,7 +93,7 @@ function searchProducts()
 			divPrice.innerHTML = '$ ' + response[key].Price;
 			var numOfLikes = document.createElement("span");
 			numOfLikes.id = "numOfLikes" + response[key].ID;
-			numOfLikes.setAttribute("class", "num-of-likes")
+			numOfLikes.setAttribute("class", "num-of-likes");
 			numOfLikes.innerHTML = response[key].Likers.length;
 			numOfLikes.onmouseover = (function (){
 				var id = response[key].ID;
