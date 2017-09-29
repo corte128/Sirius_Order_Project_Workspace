@@ -21,19 +21,19 @@
 <script type="text/javascript" src="/SiriusOrderClient/js/jquery-ui-1.12.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
- 
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
 <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
 
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
-
 <script src="/SiriusOrderClient/js/activateUser.js"></script>
-
-<c:if test="${activeUserID==null}">
+<c:if test="${activeUserID == null}">
 	<jsp:forward page = "/jsps/welcome.jsp" />
-</c:if>  
+</c:if> 
+<c:if test="${activeUserType < 2}">
+	<jsp:forward page = "/jsps/welcome.jsp" />
+</c:if>
 </head>
+ 
 <body>     
 	<header>
 		<%@ include file="header.jsp" %>

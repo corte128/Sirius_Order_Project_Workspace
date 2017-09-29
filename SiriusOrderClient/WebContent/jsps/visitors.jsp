@@ -14,8 +14,16 @@
 	<script type="text/javascript" src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
 	<script type="text/javascript" src="/SiriusOrderClient/js/jquery-ui-1.12.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/visitors.css">
+
+<c:if test="${activeUserID == null}">
+	<jsp:forward page = "/jsps/welcome.jsp" />
+</c:if> 
+<c:if test="${activeUserType < 2}">
+	<jsp:forward page = "/jsps/welcome.jsp" />
+</c:if>
 </head>
-<body>     
+
+<body>    
 	<header>
 		<%@ include file="header.jsp" %>
 	</header>

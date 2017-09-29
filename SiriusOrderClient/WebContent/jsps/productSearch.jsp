@@ -18,8 +18,7 @@
 		<script type="text/javascript" src="/SiriusOrderClient/js/productSearch.js"></script>
 		
 	</head>
-	<body onload="simpleAlert();">
-
+	<body onload="alert('hi');">
 		<header>
 			<%@ include file="header.jsp" %>
 		</header> 

@@ -5,7 +5,7 @@
 
 function addToCart(productID)
 {
-	$('#addConfirmed' + productID).fadeIn('fast').delay(1000).fadeOut('slow')
+	$('#addConfirmed' + productID).fadeIn('fast').delay(1000).fadeOut('slow');
 	var xhttp = new XMLHttpRequest();
 	var quantityElement = document.getElementById("quantityToAdd");
     var quantity = 1;
@@ -39,13 +39,13 @@ function addToCart(productID)
 	xhttp.send();
 	var successElement = document.getElementById("successMessage");
 	if (successElement != null && quantity > 0){
-		$('#successMessage').fadeIn('fast').delay(3000).fadeOut('slow')
+		$('#successMessage').fadeIn('fast').delay(3000).fadeOut('slow');
 	}
 }
 
 
 
- function simpleAlert(){
+function simpleAlert(){
 	console.log("THIS IS BROKE");
 	alert("this one is working");
 }
@@ -186,6 +186,10 @@ function verticalHandler(){
 	
 }
 
+function reachedLimitPopup(){
+	document.getElementById("");
+}
+
 function addToWishlist(productID){
 	//'/SiriusOrderClient/ProductSearchServlet?action=addToWishlist&id=' + response[key].ID
 	var url = '/SiriusOrderClient/ProductSearchServlet?action=addToWishlist&id=' + productID;
@@ -194,17 +198,23 @@ function addToWishlist(productID){
 	xhttp.onreadystatechange = function()
 	{
 		var response = JSON.parse(xhttp.responseText);
-		var numOfEmps = response.length;
-		var likesContainer = document.getElementById('numOfLikes' + productID);
-		likesContainer.innerHTML = numOfEmps;
-		
-		var likesModal = document.getElementById("likesModal" + productID);
-		likesModal.innerHTML = '';
-		for(key in response){
-			var innerModalDiv = document.createElement("div");
-			innerModalDiv.innerHTML = response[key];
-			likesModal.appendChild(innerModalDiv);
+		if(response.limit == 1){
+			reachedLimitPopup();
 		}
+		else{
+			var numOfEmps = response.length;
+			var likesContainer = document.getElementById('numOfLikes' + productID);
+			likesContainer.innerHTML = numOfEmps;
+			
+			var likesModal = document.getElementById("likesModal" + productID);
+			likesModal.innerHTML = '';
+			for(key in response){
+				var innerModalDiv = document.createElement("div");
+				innerModalDiv.innerHTML = response[key];
+				likesModal.appendChild(innerModalDiv);
+			}
+		}
+		
 	};
 	xhttp.send();
 }
