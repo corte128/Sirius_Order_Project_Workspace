@@ -24,6 +24,12 @@
 
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/holidays.css">
 
+<c:if test="${activeUserID == null}">
+	<jsp:forward page = "/jsps/welcome.jsp" />
+</c:if> 
+<c:if test="${activeUserType < 2}">
+	<jsp:forward page = "/jsps/welcome.jsp" />
+</c:if>
 </head>
 <body>       
 	<header> 
