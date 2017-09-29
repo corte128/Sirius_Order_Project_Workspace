@@ -141,3 +141,8 @@ button.ui-dialog-titlebar-close{
 	background: grey;
 	opacity: 0.5;
 }
+@media only screen and (max-width: 320px) {
+	button.save_button{
+		padding-right: 5px;
+	}
+}
