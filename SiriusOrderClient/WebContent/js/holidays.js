@@ -63,6 +63,7 @@ $(function ()
     });
     getTableData();
     $( ".hasDatepicker" ).datepicker( "option", "dateFormat", "MM d, yy" );
+    resizeAppendGrid();
 });
 
 function saveEntry(evtObj, uniqueIndex, rowData){
