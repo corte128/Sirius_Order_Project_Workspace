@@ -126,5 +126,10 @@
 		overflow-y: hidden;
 		margin: auto;
 		margin-top: 400px;
+		    margin-left: 80px;
+	}
+	.hideDownloadDiv{
+		margin:auto;
+		margin-left: 120px;
 	}
 }
