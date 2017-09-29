@@ -38,10 +38,12 @@ public class ObjectFactory {
     private final static QName _SaveOrder_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "saveOrder");
     private final static QName _GetAllProductsInCartByProductTypeResponse_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "getAllProductsInCartByProductTypeResponse");
     private final static QName _GetAllProductsInCartByProductType_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "getAllProductsInCartByProductType");
+    private final static QName _GetMostRecentBudgetByLocation_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "getMostRecentBudgetByLocation");
     private final static QName _GetAllSavedOrdersResponse_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "getAllSavedOrdersResponse");
     private final static QName _GetAllSavedOrders_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "getAllSavedOrders");
-    private final static QName _GetOrderByOrderNameResponse_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "getOrderByOrderNameResponse");
+    private final static QName _GetMostRecentBudgetByLocationsResponse_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "getMostRecentBudgetByLocationsResponse");
     private final static QName _GetProductQuantityInCartByProductIdResponse_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "getProductQuantityInCartByProductIdResponse");
+    private final static QName _GetOrderByOrderNameResponse_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "getOrderByOrderNameResponse");
     private final static QName _AddProductToCartResponse_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "addProductToCartResponse");
     private final static QName _GetOrderByOrderName_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "getOrderByOrderName");
     private final static QName _GetProductQuantityInCartByProductId_QNAME = new QName("http://cart.service.sirius.com/cart/wsdl", "getProductQuantityInCartByProductId");
@@ -68,6 +70,14 @@ public class ObjectFactory {
      */
     public GetAllSavedOrdersResponse createGetAllSavedOrdersResponse() {
         return new GetAllSavedOrdersResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetMostRecentBudgetByLocation }
+     * 
+     */
+    public GetMostRecentBudgetByLocation createGetMostRecentBudgetByLocation() {
+        return new GetMostRecentBudgetByLocation();
     }
 
     /**
@@ -103,6 +113,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetProductQuantityInCartByProductIdResponse }
+     * 
+     */
+    public GetProductQuantityInCartByProductIdResponse createGetProductQuantityInCartByProductIdResponse() {
+        return new GetProductQuantityInCartByProductIdResponse();
+    }
+
+    /**
      * Create an instance of {@link GetOrderByOrderNameResponse }
      * 
      */
@@ -111,11 +129,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetProductQuantityInCartByProductIdResponse }
+     * Create an instance of {@link GetMostRecentBudgetByLocationsResponse }
      * 
      */
-    public GetProductQuantityInCartByProductIdResponse createGetProductQuantityInCartByProductIdResponse() {
-        return new GetProductQuantityInCartByProductIdResponse();
+    public GetMostRecentBudgetByLocationsResponse createGetMostRecentBudgetByLocationsResponse() {
+        return new GetMostRecentBudgetByLocationsResponse();
     }
 
     /**
@@ -143,19 +161,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetAllProductsInCartResponse }
-     * 
-     */
-    public GetAllProductsInCartResponse createGetAllProductsInCartResponse() {
-        return new GetAllProductsInCartResponse();
-    }
-
-    /**
      * Create an instance of {@link RemoveProductFromCart }
      * 
      */
     public RemoveProductFromCart createRemoveProductFromCart() {
         return new RemoveProductFromCart();
+    }
+
+    /**
+     * Create an instance of {@link GetAllProductsInCartResponse }
+     * 
+     */
+    public GetAllProductsInCartResponse createGetAllProductsInCartResponse() {
+        return new GetAllProductsInCartResponse();
     }
 
     /**
@@ -305,6 +323,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetMostRecentBudgetByLocation }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cart.service.sirius.com/cart/wsdl", name = "getMostRecentBudgetByLocation")
+    public JAXBElement<GetMostRecentBudgetByLocation> createGetMostRecentBudgetByLocation(GetMostRecentBudgetByLocation value) {
+        return new JAXBElement<GetMostRecentBudgetByLocation>(_GetMostRecentBudgetByLocation_QNAME, GetMostRecentBudgetByLocation.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetAllSavedOrdersResponse }{@code >}}
      * 
      */
@@ -323,12 +350,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrderByOrderNameResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetMostRecentBudgetByLocationsResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://cart.service.sirius.com/cart/wsdl", name = "getOrderByOrderNameResponse")
-    public JAXBElement<GetOrderByOrderNameResponse> createGetOrderByOrderNameResponse(GetOrderByOrderNameResponse value) {
-        return new JAXBElement<GetOrderByOrderNameResponse>(_GetOrderByOrderNameResponse_QNAME, GetOrderByOrderNameResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://cart.service.sirius.com/cart/wsdl", name = "getMostRecentBudgetByLocationsResponse")
+    public JAXBElement<GetMostRecentBudgetByLocationsResponse> createGetMostRecentBudgetByLocationsResponse(GetMostRecentBudgetByLocationsResponse value) {
+        return new JAXBElement<GetMostRecentBudgetByLocationsResponse>(_GetMostRecentBudgetByLocationsResponse_QNAME, GetMostRecentBudgetByLocationsResponse.class, null, value);
     }
 
     /**
@@ -338,6 +365,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://cart.service.sirius.com/cart/wsdl", name = "getProductQuantityInCartByProductIdResponse")
     public JAXBElement<GetProductQuantityInCartByProductIdResponse> createGetProductQuantityInCartByProductIdResponse(GetProductQuantityInCartByProductIdResponse value) {
         return new JAXBElement<GetProductQuantityInCartByProductIdResponse>(_GetProductQuantityInCartByProductIdResponse_QNAME, GetProductQuantityInCartByProductIdResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrderByOrderNameResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://cart.service.sirius.com/cart/wsdl", name = "getOrderByOrderNameResponse")
+    public JAXBElement<GetOrderByOrderNameResponse> createGetOrderByOrderNameResponse(GetOrderByOrderNameResponse value) {
+        return new JAXBElement<GetOrderByOrderNameResponse>(_GetOrderByOrderNameResponse_QNAME, GetOrderByOrderNameResponse.class, null, value);
     }
 
     /**

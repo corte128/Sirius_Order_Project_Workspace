@@ -62,4 +62,10 @@ public class CartImplementation implements CartInterface
 	public List<OrderBean> getAllSavedOrders(int locationId) {
 		return CartDAO.getAllSavedOrders(locationId);
 	}
+	
+	@Override
+	public BudgetBean getMostRecentBudgetByLocation(int locationId)
+	{
+		return CartDAO.getMostRecentBudgetByLocation(locationId);
+	}
 }
