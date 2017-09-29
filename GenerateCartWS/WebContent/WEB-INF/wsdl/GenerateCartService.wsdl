@@ -32,7 +32,7 @@
   </binding>
   <service name="GenerateCartService">
     <port name="generate" binding="tns:generateBinding">
-      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+      <soap:address location="http://localhost:9080/GenerateCartWS/GenerateCartService"/>
     </port>
   </service>
 </definitions>
