@@ -14,8 +14,11 @@ function calcBreakroomTotals()
 	}
 	totalPrice = totalPrice.toFixed(2);
 
-	document.getElementById("breakroomTotalQuantityContainer").innerHTML = 'Breakroom Total(' + itemTotal + ' items)';
-	document.getElementById("breakroomTotalPriceContainer").innerHTML = '$' + totalPrice;
+	if(document.getElementById("breakroomTotalQuantityContainer") != null)
+	{
+		document.getElementById("breakroomTotalQuantityContainer").innerHTML = 'Breakroom Total(' + itemTotal + ' items)';
+		document.getElementById("breakroomTotalPriceContainer").innerHTML = '$' + totalPrice;
+	}
 }
 
 function calcOfficeSuppliesTotals()
@@ -32,9 +35,11 @@ function calcOfficeSuppliesTotals()
 		itemTotal += quantity;
 	}
 	totalPrice = totalPrice.toFixed(2);
-	
-	document.getElementById("officeSuppliesTotalQuantityContainer").innerHTML = 'Office Supplies Total(' + itemTotal + ' items)';
-	document.getElementById("officeSuppliesTotalPriceContainer").innerHTML = '$' + totalPrice;	
+	if(document.getElementById("officeSuppliesTotalQuantityContainer") != null)
+	{	
+		document.getElementById("officeSuppliesTotalQuantityContainer").innerHTML = 'Office Supplies Total(' + itemTotal + ' items)';
+		document.getElementById("officeSuppliesTotalPriceContainer").innerHTML = '$' + totalPrice;	
+	}
 }
 
 function calcInkAndTonerTotals()
@@ -54,8 +59,11 @@ function calcInkAndTonerTotals()
 		}
 		totalPrice = totalPrice.toFixed(2);
 		
-		document.getElementById("inkAndTonerTotalQuantityContainer").innerHTML = 'Ink & Toner Total(' + itemTotal + ' items)';
-		document.getElementById("inkAndTonerTotalPriceContainer").innerHTML = '$' + totalPrice;
+		if(document.getElementById("inkAndTonerTotalQuantityContainer") != null)
+		{
+			document.getElementById("inkAndTonerTotalQuantityContainer").innerHTML = 'Ink & Toner Total(' + itemTotal + ' items)';
+			document.getElementById("inkAndTonerTotalPriceContainer").innerHTML = '$' + totalPrice;
+		}	
 	}
 }
 
@@ -66,7 +74,7 @@ function removeFromCart(orderID){
 	xhttp.onreadystatechange = function()
 	{
 		var productDiv = document.getElementById("cartOrder" + orderID);
-		productDiv.parentNode.removeChild(productDiv);
+		productDiv.parentElement.removeChild(productDiv);
 		calcTotals();
 	};
 	xhttp.send();
@@ -155,6 +163,15 @@ function selectAllOrderCheckboxes(orderName)
 		checkBoxes[key].checked = newCheckedValue;
 	}
 }
+function selectAllSaveCheckboxes()
+{
+	var newCheckedValue = document.getElementById("saveOrderTitleCheckbox").checked;
+	var checkBoxes = document.getElementsByClassName("save-order-checkbox");
+	for(key in checkBoxes)
+	{
+		checkBoxes[key].checked = newCheckedValue;
+	}
+}
 function includeOrderInCart()
 {
 	var curOrderName = document.getElementById("includeSavedOrderModalOrderSelect").value;
@@ -167,7 +184,7 @@ function includeOrderInCart()
 			var productId = document.getElementById("includeOrderProductId" + orderId).value;
 			var xhttp = new XMLHttpRequest();
 			var url = "/SiriusOrderClient/CartServlet?action=addOrderToCart&productID=" + productId +"&quantity="+1;
-			xhttp.open("GET", url, true);
+			xhttp.open("GET", url, false);
 			xhttp.onreadystatechange = function()
 			{
 				var response = JSON.parse(this.responseText);
@@ -181,6 +198,10 @@ function includeOrderInCart()
 					if(data.productType == 'Breakroom')
 					{
 						endDiv = document.getElementById("breakroomSummaryContainer");
+						if(endDiv == null)
+						{
+							
+						}
 						classType = 'breakroom';
 						functionType = 'Breakroom';
 					}
@@ -220,7 +241,17 @@ function includeOrderInCart()
 										</div>' + endDiv.outerHTML;
 						
 					var saveOrderModalOptionsContainer = document.getElementById("cartOrderContainer");
-					//saveOrderModalOptionsContainer.innerHTML += TODO
+					saveOrderModalOptionsContainer.innerHTML += '<div class="order-item-container \
+																	cart-modal-color-alternate-container"> \
+																	<div class="order-item-input-container"> \
+																		<input id="saveOrderCheckbox' + data.productId + '" ' +  
+																				'class="save-order-checkbox" \
+																				type="checkbox" /> \
+																	</div> \
+																	<div class="order-title-text-container"> \
+																		' + data.productName + ' \
+																	</div> \
+																</div>';
 					
 					calcTotals();
 					closeIncludeInOrderWindow();
@@ -233,7 +264,7 @@ function includeOrderInCart()
 function saveOrder()
 {
 	var curOrderName = document.getElementById("saveOrderModalOrderInput").value;
-	var checkBoxes = document.getElementsByClassName("include-order-checkbox");
+	var checkBoxes = document.getElementsByClassName("save-order-checkbox");
 	var xhttp = new XMLHttpRequest();
 	var url = "/SiriusOrderClient/CartServlet?action=saveOrderFromCart&orderName=" + curOrderName;
 	for(var index = 0; index < checkBoxes.length; ++index)
@@ -241,10 +272,11 @@ function saveOrder()
 		if(checkBoxes[index].checked == true)
 		{
 			var productId = checkBoxes[index].id.substring(17);
+			console.log(productId);
 			url += "&productID=" + productId;
 		}
 	}
-	xhttp.open("GET", url, true);
+	xhttp.open("GET", url, false);
 	xhttp.send();	
 	closeSavedOrdersWindow();	
 }

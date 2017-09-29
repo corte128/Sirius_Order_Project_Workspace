@@ -86,7 +86,7 @@ public class CartServlet extends HttpServlet {
 				}
 				budget.setBudgetDate(calendar);
 				
-				CartServiceDAO.saveOrder(orderName, budget, locationId, userId);
+				CartServiceDAO.saveOrder(productIdList, orderName, budget, locationId, userId);
 			}
 			
 		}

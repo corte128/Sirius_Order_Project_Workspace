@@ -61,6 +61,7 @@
 
   <xs:complexType name="saveOrder">
     <xs:sequence>
+      <xs:element name="productIdList" type="xs:int" form="qualified" minOccurs="0" maxOccurs="unbounded"/>
       <xs:element name="orderName" type="xs:string" form="qualified" minOccurs="0"/>
       <xs:element name="budget" type="tns:budgetBean" form="qualified" minOccurs="0"/>
       <xs:element name="locationId" type="xs:int" form="qualified"/>

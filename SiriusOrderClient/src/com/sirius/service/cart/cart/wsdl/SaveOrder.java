@@ -5,8 +5,11 @@
 
 package com.sirius.service.cart.cart.wsdl;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -20,6 +23,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="productIdList" type="{http://www.w3.org/2001/XMLSchema}int" maxOccurs="unbounded" minOccurs="0" form="qualified"/>
  *         &lt;element name="orderName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0" form="qualified"/>
  *         &lt;element name="budget" type="{http://cart.service.sirius.com/cart/wsdl}budgetBean" minOccurs="0" form="qualified"/>
  *         &lt;element name="locationId" type="{http://www.w3.org/2001/XMLSchema}int" form="qualified"/>
@@ -34,6 +38,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "saveOrder", propOrder = {
+    "productIdList",
     "orderName",
     "budget",
     "locationId",
@@ -41,10 +46,41 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class SaveOrder {
 
+    @XmlElement(type = Integer.class)
+    protected List<Integer> productIdList;
     protected String orderName;
     protected BudgetBean budget;
     protected int locationId;
     protected int createdBy;
+
+    /**
+     * Gets the value of the productIdList property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the productIdList property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getProductIdList().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Integer }
+     * 
+     * 
+     */
+    public List<Integer> getProductIdList() {
+        if (productIdList == null) {
+            productIdList = new ArrayList<Integer>();
+        }
+        return this.productIdList;
+    }
 
     /**
      * Gets the value of the orderName property.

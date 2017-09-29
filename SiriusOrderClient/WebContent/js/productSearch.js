@@ -186,15 +186,16 @@ function verticalHandler(){
 	
 }
 
-function reachedLimitPopup(){
-	document.getElementById("");
+function reachedLimitPopup()
+{
+	$('#likedLimit').fadeIn('fast').delay(1000).fadeOut('slow');
 }
 
 function addToWishlist(productID){
 	//'/SiriusOrderClient/ProductSearchServlet?action=addToWishlist&id=' + response[key].ID
 	var url = '/SiriusOrderClient/ProductSearchServlet?action=addToWishlist&id=' + productID;
 	var xhttp = new XMLHttpRequest();
-	xhttp.open("GET", url, true);
+	xhttp.open("GET", url, false);
 	xhttp.onreadystatechange = function()
 	{
 		var response = JSON.parse(xhttp.responseText);
@@ -214,7 +215,6 @@ function addToWishlist(productID){
 				likesModal.appendChild(innerModalDiv);
 			}
 		}
-		
 	};
 	xhttp.send();
 }

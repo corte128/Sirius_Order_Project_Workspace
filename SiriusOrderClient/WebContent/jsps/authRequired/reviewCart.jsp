@@ -41,19 +41,19 @@
 				</div>
 			</div>
 			<div id="cartContentRows">
-				<c:if test="${breakroomOrders.size() > 0}">
-					<div class="cart-section-title-container cart-product-color-alternate-container">
-						<div class="cart-product-image-container">
-						</div>
-						<div class="cart-section-title-text-container">
-							<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" />
-						</div>
-						<span class="include-saved-order-container" onclick="showIncludeOrderModal()">
-							<fmt:message key="CART_INCLUDE_FROM_SAVED_ORDER_LABEL" />
-						</span>
+			
+				<div class="cart-section-title-container cart-product-color-alternate-container">
+					<div class="cart-product-image-container">
 					</div>
-					<c:set var="breakroomIndex" value="0" scope="page" />
-				</c:if>
+					<div class="cart-section-title-text-container">
+						<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" />
+					</div>
+					<span class="include-saved-order-container" onclick="showIncludeOrderModal()">
+						<fmt:message key="CART_INCLUDE_FROM_SAVED_ORDER_LABEL" />
+					</span>
+				</div>
+				<c:set var="breakroomIndex" value="0" scope="page" />
+
 				<c:forEach var="product" items="${breakroomProducts}">
 					<div id="cartOrder${breakroomOrders.get(breakroomIndex).getId()}" 
 						class="cart-product-container cart-product-color-alternate-container">
@@ -79,39 +79,38 @@
 					</div>
 					<c:set var="breakroomIndex" value="${breakroomIndex + 1}" scope="page"/>
 				</c:forEach>
-				<c:if test="${breakroomOrders.size() > 0}">
-					<div id="breakroomSummaryContainer" class="cart-product-color-alternate-container cart-summary-container">
-						<div class="cart-product-image-container">
-						</div>
-						<div id="breakroomTotalQuantityContainer" 
-							class="cart-product-name-container"> 
-						</div>
-						<div id="breakroomTotalPriceContainer" 
-							class="cart-product-price-container">
-						</div>
-						<div class="cart-product-quantity-container">
-						</div>
-						<div class="cart-product-action-container">
-						</div>
-						<span class="save-order-container" onclick="showSaveOrderModal()">
-							<fmt:message key="CART_SAVE_THE_ORDER_LABEL" />
-						</span>
-					</div>
-				</c:if>
 				
-				<c:if test="${officeSuppliesOrders.size() > 0}">
-					<div class="cart-section-title-container cart-product-color-alternate-container">
-						<div class="cart-product-image-container">
-						</div>
-						<div class="cart-section-title-text-container">
-							<fmt:message key="REVIEW_CART_OFFICE_SUPPLIES_LABEL" />
-						</div>
-						<span class="include-saved-order-container" onclick="showIncludeOrderModal()">
-							<fmt:message key="CART_INCLUDE_FROM_SAVED_ORDER_LABEL" />
-						</span>
+				<div id="breakroomSummaryContainer" class="cart-product-color-alternate-container cart-summary-container">
+					<div class="cart-product-image-container">
 					</div>
-					<c:set var="officeSuppliesIndex" value="0" scope="page" />
-				</c:if>
+					<div id="breakroomTotalQuantityContainer" 
+						class="cart-product-name-container"> 
+					</div>
+					<div id="breakroomTotalPriceContainer" 
+						class="cart-product-price-container">
+					</div>
+					<div class="cart-product-quantity-container">
+					</div>
+					<div class="cart-product-action-container">
+					</div>
+					<span class="save-order-container" onclick="showSaveOrderModal()">
+						<fmt:message key="CART_SAVE_THE_ORDER_LABEL" />
+					</span>
+				</div>
+				
+				
+				<div class="cart-section-title-container cart-product-color-alternate-container">
+					<div class="cart-product-image-container">
+					</div>
+					<div class="cart-section-title-text-container">
+						<fmt:message key="REVIEW_CART_OFFICE_SUPPLIES_LABEL" />
+					</div>
+					<span class="include-saved-order-container" onclick="showIncludeOrderModal()">
+						<fmt:message key="CART_INCLUDE_FROM_SAVED_ORDER_LABEL" />
+					</span>
+				</div>
+				<c:set var="officeSuppliesIndex" value="0" scope="page" />
+
 				<c:forEach var="product" items="${officeSuppliesProducts}">
 					<div id="cartOrder${officeSuppliesOrders.get(officeSuppliesIndex).getId()}" 
 						class="cart-product-container cart-product-color-alternate-container">
@@ -137,39 +136,38 @@
 					</div>
 					<c:set var="officeSuppliesIndex" value="${officeSuppliesIndex + 1}" scope="page"/>
 				</c:forEach>
-				<c:if test="${officeSuppliesOrders.size() > 0}">
-					<div id="officeSuppliesSummaryContainer" class="cart-product-color-alternate-container cart-summary-container">
-						<div class="cart-product-image-container">
-						</div>
-						<div id="officeSuppliesTotalQuantityContainer" 
-							class="cart-product-name-container">
-						</div>
-						<div id="officeSuppliesTotalPriceContainer" 
-							class="cart-product-price-container">
-						</div>
-						<div class="cart-product-quantity-container">
-						</div>
-						<div class="cart-product-action-container">
-						</div>
-						<span class="save-order-container" onclick="showSaveOrderModal()">
-							<fmt:message key="CART_SAVE_THE_ORDER_LABEL" />
-						</span>
-					</div>
-				</c:if>
 				
-				<c:if test="${inkAndTonerOrders.size() > 0}">
-					<div class="cart-section-title-container cart-product-color-alternate-container">
-						<div class="cart-product-image-container">
-						</div>
-						<div class="cart-section-title-text-container">
-							<fmt:message key="REVIEW_CART_INK_AND_TONER_LABEL" />
-						</div>
-						<span class="include-saved-order-container" onclick="showIncludeOrderModal()">
-							<fmt:message key="CART_INCLUDE_FROM_SAVED_ORDER_LABEL" />
-						</span>
+				<div id="officeSuppliesSummaryContainer" class="cart-product-color-alternate-container cart-summary-container">
+					<div class="cart-product-image-container">
 					</div>
-					<c:set var="inkIndex" value="0" scope="page" />
-				</c:if>
+					<div id="officeSuppliesTotalQuantityContainer" 
+						class="cart-product-name-container">
+					</div>
+					<div id="officeSuppliesTotalPriceContainer" 
+						class="cart-product-price-container">
+					</div>
+					<div class="cart-product-quantity-container">
+					</div>
+					<div class="cart-product-action-container">
+					</div>
+					<span class="save-order-container" onclick="showSaveOrderModal()">
+						<fmt:message key="CART_SAVE_THE_ORDER_LABEL" />
+					</span>
+				</div>
+				
+				
+				<div class="cart-section-title-container cart-product-color-alternate-container">
+					<div class="cart-product-image-container">
+					</div>
+					<div class="cart-section-title-text-container">
+						<fmt:message key="REVIEW_CART_INK_AND_TONER_LABEL" />
+					</div>
+					<span class="include-saved-order-container" onclick="showIncludeOrderModal()">
+						<fmt:message key="CART_INCLUDE_FROM_SAVED_ORDER_LABEL" />
+					</span>
+				</div>
+				<c:set var="inkIndex" value="0" scope="page" />
+					
 				<c:forEach var="product" items="${inkAndTonerProducts}">
 					<div id="cartOrder${inkAndTonerOrders.get(inkIndex).getId()}" 
 						class="cart-product-container cart-product-color-alternate-container">
@@ -196,25 +194,24 @@
 					<c:set var="inkIndex" value="${inkIndex + 1}" scope="page"/>
 				</c:forEach>
 			</div>	
-			<c:if test="${inkAndTonerOrders.size() > 0}">
-				<div id="inkAndTonerOrdersSummaryContainer" class="cart-product-color-alternate-container cart-summary-container">
-					<div class="cart-product-image-container">
-					</div>
-					<div id="inkAndTonerTotalQuantityContainer" 
-						class="cart-product-name-container">
-					</div>
-					<div id="inkAndTonerTotalPriceContainer" 
-						class="cart-product-price-container">
-					</div>
-					<div class="cart-product-quantity-container">
-					</div>
-					<div class="cart-product-action-container">
-					</div>
-					<span class="save-order-container" onclick="showSaveOrderModal()">
-						<fmt:message key="CART_SAVE_THE_ORDER_LABEL" />
-					</span>
+			
+			<div id="inkAndTonerOrdersSummaryContainer" class="cart-product-color-alternate-container cart-summary-container">
+				<div class="cart-product-image-container">
 				</div>
-			</c:if>
+				<div id="inkAndTonerTotalQuantityContainer" 
+					class="cart-product-name-container">
+				</div>
+				<div id="inkAndTonerTotalPriceContainer" 
+					class="cart-product-price-container">
+				</div>
+				<div class="cart-product-quantity-container">
+				</div>
+				<div class="cart-product-action-container">
+				</div>
+				<span class="save-order-container" onclick="showSaveOrderModal()">
+					<fmt:message key="CART_SAVE_THE_ORDER_LABEL" />
+				</span>
+			</div>
 			
 			<!-- INCLUDE SAVED ORDER MODAL -->
 			<div id="includeSavedOrderModal" class="cart-modal">
@@ -288,7 +285,7 @@
 					<div class="order-item-container
 						cart-modal-color-alternate-container">
 						<div class="order-item-input-container">
-							<input id="saveOrderTitleCheckbox" type="checkbox" />
+							<input id="saveOrderTitleCheckbox" type="checkbox" onchange="selectAllSaveCheckboxes()" />
 						</div>
 						<div  class="order-title-text-container items-label">
 							<fmt:message key="CART_ITEMS_LABEL" />
@@ -308,39 +305,39 @@
 								${breakroomProducts.get(breakroomModalIndex).getName()}
 							</div>
 						</div>
-						<c:set var="breakroomIndex" value="${breakroomIndex + 1}" scope="page"/>
+						<c:set var="breakroomModalIndex" value="${breakroomModalIndex + 1}" scope="page"/>
 					</c:forEach>
 					
-					<c:set var="officeSuppliesIndex" value="0" scope="page" />
+					<c:set var="officeSuppliesModalIndex" value="0" scope="page" />
 					<c:forEach var="product" items="${officeSuppliesProducts}">
 						<div class="order-item-container
 							cart-modal-color-alternate-container">
 							<div class="order-item-input-container">
-								<input id="saveOrderCheckbox${officeSuppliesProducts.get(breakroomModalIndex).getId()}" 
+								<input id="saveOrderCheckbox${officeSuppliesProducts.get(officeSuppliesModalIndex).getId()}" 
 									class="save-order-checkbox"
 									type="checkbox" />
 							</div>
 							<div class="order-title-text-container">
-								${officeSuppliesProducts.get(officeSuppliesIndex).getName()}
+								${officeSuppliesProducts.get(officeSuppliesModalIndex).getName()}
 							</div>
 						</div>
-						<c:set var="officeSuppliesIndex" value="${officeSuppliesIndex + 1}" scope="page"/>
+						<c:set var="officeSuppliesModalIndex" value="${officeSuppliesModalIndex + 1}" scope="page"/>
 					</c:forEach>
 					
-					<c:set var="inkIndex" value="0" scope="page" />
+					<c:set var="inkModalIndex" value="0" scope="page" />
 					<c:forEach var="product" items="${inkAndTonerProducts}">
 						<div class="order-item-container
 							cart-modal-color-alternate-container">
 							<div class="order-item-input-container">
-								<input id="saveOrderCheckbox${inkAndTonerProducts.get(breakroomModalIndex).getId()}" 
+								<input id="saveOrderCheckbox${inkAndTonerProducts.get(inkModalIndex).getId()}" 
 									class="save-order-checkbox"
 									type="checkbox" />
 							</div>
 							<div class="order-title-text-container">
-								${inkAndTonerProducts.get(inkIndex).getName()}
+								${inkAndTonerProducts.get(inkModalIndex).getName()}
 							</div>
 						</div>
-						<c:set var="inkIndex" value="${inkIndex + 1}" scope="page"/>
+						<c:set var="inkModalIndex" value="${inkModalIndex + 1}" scope="page"/>
 					</c:forEach>
 				</div>
 					
