@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema targetNamespace="http://locationws.sirius.com/location/wsdl" version="1.0" xmlns:tns="http://locationws.sirius.com/location/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="getLocationStringByLocationId" type="tns:getLocationStringByLocationId"/>
+
+  <xs:element name="getLocationStringByLocationIdResponse" type="tns:getLocationStringByLocationIdResponse"/>
+
+  <xs:element name="getLocations" type="tns:getLocations"/>
+
+  <xs:element name="getLocationsResponse" type="tns:getLocationsResponse"/>
+
+  <xs:complexType name="getLocations">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getLocationsResponse">
+    <xs:sequence>
+      <xs:element form="qualified" maxOccurs="unbounded" minOccurs="0" name="getLocationsReturn" type="tns:locationBean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="locationBean">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="city" type="xs:string"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="numberOfEmployees" type="xs:int"/>
+      <xs:element minOccurs="0" name="state" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getLocationStringByLocationId">
+    <xs:sequence>
+      <xs:element form="qualified" name="locationId" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getLocationStringByLocationIdResponse">
+    <xs:sequence>
+      <xs:element form="qualified" minOccurs="0" name="getLocationStringByLocationIdReturn" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

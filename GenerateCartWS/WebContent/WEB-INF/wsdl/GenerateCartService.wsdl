@@ -6,12 +6,6 @@
       <xsd:import namespace="http://generate.service.sirius.com/cart/wsdl" schemaLocation="GenerateCartService_schema1.xsd"/>
     </xsd:schema>
   </types>
-  <message name="generateBudget">
-    <part name="parameters" element="tns:generateBudget"/>
-  </message>
-  <message name="generateBudgetResponse">
-    <part name="parameters" element="tns:generateBudgetResponse"/>
-  </message>
   <message name="generateCart">
     <part name="parameters" element="tns:generateCart"/>
   </message>
@@ -19,10 +13,6 @@
     <part name="parameters" element="tns:generateCartResponse"/>
   </message>
   <portType name="CartGenerateService">
-    <operation name="generateBudget">
-      <input wsam:Action="generateBudget" message="tns:generateBudget"/>
-      <output wsam:Action="http://generate.service.sirius.com/cart/wsdl/CartGenerateService/generateBudgetResponse" message="tns:generateBudgetResponse"/>
-    </operation>
     <operation name="generateCart">
       <input wsam:Action="generateCart" message="tns:generateCart"/>
       <output wsam:Action="http://generate.service.sirius.com/cart/wsdl/CartGenerateService/generateCartResponse" message="tns:generateCartResponse"/>
@@ -30,15 +20,6 @@
   </portType>
   <binding name="generateBinding" type="tns:CartGenerateService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-    <operation name="generateBudget">
-      <soap:operation soapAction="generateBudget"/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
     <operation name="generateCart">
       <soap:operation soapAction="generateCart"/>
       <input>

@@ -1,7 +1,5 @@
 package com.sirius.service.generate;
 
-import java.math.BigDecimal;
-
 import javax.jws.WebService;
 
 import com.sirius.service.generate.database.GenerateDAO;
@@ -12,12 +10,9 @@ serviceName="GenerateCartService")
 public class GenerateImplementation implements GenerateInterface {
 
 	@Override
-	public BigDecimal generateBudget(int locationId) {
-		return GenerateDAO.generateBudget(locationId);
-	}
-
-	@Override
-	public boolean generateCart(int locationId) {
+	public boolean generateCart() {
+		//GenerateCart gcObj = new GenerateCart(10,35,30);
+		//gcObj.start();
 		return GenerateDAO.generateCart();
 	}
 

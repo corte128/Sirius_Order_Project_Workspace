@@ -6,4 +6,10 @@
   <serviceRefs xmi:id="ServiceRef_1506437365831" serviceRefLink="service/JaxwsOfficeAdmin">
     <portQnameBindings xmi:id="PortQnameBinding_1506437365831" portQnameNamespaceLink="http://adminws.sirius.com/officeAdmin/wsdl" portQnameLocalNameLink="officeAdmin" overriddenEndpointURI="http://localhost:9080/AdminWS/JaxwsOfficeAdmin"/>
   </serviceRefs>
+  <serviceRefs xmi:id="ServiceRef_1506630186887" serviceRefLink="service/CartService">
+    <portQnameBindings xmi:id="PortQnameBinding_1506630186887" portQnameNamespaceLink="http://cart.service.sirius.com/cart/wsdl" portQnameLocalNameLink="cart" overriddenEndpointURI="http://localhost:9080/CartWS/CartService"/>
+  </serviceRefs>
+  <serviceRefs xmi:id="ServiceRef_1506694245019" serviceRefLink="service/JaxwsLocation">
+    <portQnameBindings xmi:id="PortQnameBinding_1506694245019" portQnameNamespaceLink="http://locationws.sirius.com/location/wsdl" portQnameLocalNameLink="location" overriddenEndpointURI="http://localhost:9080/LocationWS/JaxwsLocation"/>
+  </serviceRefs>
 </com.ibm.etools.webservice.wscbnd:ClientBinding>
