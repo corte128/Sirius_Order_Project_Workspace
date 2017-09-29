@@ -22,7 +22,7 @@
 	<script type="text/javascript" 
 		src="/SiriusOrderClient/js/welcome.js"></script>
 </head>
-<body>  
+<body>
 	<fmt:setBundle basename="com.sirius.order.client.properties.common" />
 	<%-- HEADER --%>
 	<header>
