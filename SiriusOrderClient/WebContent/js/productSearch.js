@@ -52,7 +52,6 @@ function simpleAlert(){
 
 function selectedOption(value)
 {
-	alert("something is working");
 	$("#category").val(value);
 }
 

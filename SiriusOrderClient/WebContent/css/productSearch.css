@@ -62,7 +62,7 @@ select {
 #likedLimit{
 	display: none;
 	z-index: 3;
-	position: absolute;
+	position: fixed;
 	padding: 5px;
 	margin-left: 10%;
 	border: 1px solid red;
