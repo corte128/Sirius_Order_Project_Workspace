@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,7 +35,7 @@ public class GenerateDAOImplementation {
 			statement.setString(5, endDate);
 
 			logger.log(Level.FINE,
-					"Getting the budget based on the paramaters: ");
+					"Getting the visitors based on the paramaters: ");
 			logger.log(Level.FINE, "   Int: " + locationId);
 			logger.log(Level.FINE, "   String: " + startDate);
 			logger.log(Level.FINE, "   String: " + endDate);
@@ -54,5 +56,60 @@ public class GenerateDAOImplementation {
 		}
 		
 		return numberOfVisitors;
+	}
+	
+	/**
+	 * gets the prices, likes, and products as array lists
+	 * @param conn
+	 * @param locationId
+	 * @return List<List<Integer>>
+	 * @throws SQLException
+	 */
+	public static List<List<Integer>> getProductsLikesPrices (Connection conn, int locationId) throws SQLException{
+		List<List<Integer>> results = new ArrayList<List<Integer>>(3);
+		List<Integer> products = new ArrayList<Integer>();
+		List<Integer> likes = new ArrayList<Integer>();
+		List<Integer> prices = new ArrayList<Integer>();
+		
+		PreparedStatement statement = null;
+		ResultSet resultsFromQuery = null;
+
+		String visitorQuery = queries.getString("GET_PRODUCTS_LIKES_PRICE");
+
+		try {
+			logger.log(Level.FINE, "Preparing to execute query: ");
+			logger.log(Level.FINE, "   " + visitorQuery);
+			// getting budget from the table
+			statement = conn.prepareStatement(visitorQuery);
+			statement.setInt(1, locationId);
+
+
+			logger.log(Level.FINE,
+					"Getting the price, products, and likes based on the paramaters: ");
+			logger.log(Level.FINE, "   Int: " + locationId);
+
+			// executing select statement
+			resultsFromQuery = statement.executeQuery();
+
+			while(resultsFromQuery.next()){
+				products.add(resultsFromQuery.getInt("product_id_pk"));
+				likes.add(resultsFromQuery.getInt("likes"));
+				prices.add(resultsFromQuery.getInt("product_price"));
+			}
+			
+			results.add(products);
+			results.add(likes);
+			results.add(prices);
+
+		} finally {
+			if (statement != null) {
+				DBConnection.closePreparedStatement(statement);
+			}
+			if (results != null){
+				DBConnection.closeResultSet(resultsFromQuery);
+			}
+		}
+
+		return results;
 	}
 }
