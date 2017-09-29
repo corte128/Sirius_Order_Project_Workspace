@@ -104,7 +104,7 @@
 	}
 	#budgetGridContainer {
 		padding: 20px;
-		margin-top: 500px;
+		position: absolute;
 	}
 	.budgetSearchBoxContainer {
 		
@@ -125,6 +125,6 @@
 		overflow-x: auto;
 		overflow-y: hidden;
 		margin: auto;
-		position: absolute;
+		margin-top: 400px;
 	}
 }
