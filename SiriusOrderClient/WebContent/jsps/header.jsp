@@ -39,7 +39,7 @@
 
 			<table class="headerNavTable">
 				<tr>
-					<td><html:link href="/SiriusOrderClient/jsps/welcome.jsp"> 
+					<td><html:link href="/SiriusOrderClient/NavigationServlet?action=welcome"> 
 								<fmt:message key="HEADER_HOME" />
 								</html:link>
 					</td>
