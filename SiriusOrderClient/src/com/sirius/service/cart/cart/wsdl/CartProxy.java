@@ -133,8 +133,8 @@ public class CartProxy{
         return _getDescriptor().getProxy().removeProductFromCart(orderId,updatedBy);
     }
 
-    public boolean saveOrder(String orderName, BudgetBean budget, int locationId, int createdBy) {
-        return _getDescriptor().getProxy().saveOrder(orderName,budget,locationId,createdBy);
+    public boolean saveOrder(List<Integer> productIdList, String orderName, BudgetBean budget, int locationId, int createdBy) {
+        return _getDescriptor().getProxy().saveOrder(productIdList,orderName,budget,locationId,createdBy);
     }
 
     public List<OrderBean> getOrderByOrderName(String orderName, int locationId) {

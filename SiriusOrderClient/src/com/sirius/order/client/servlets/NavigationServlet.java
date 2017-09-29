@@ -234,15 +234,14 @@ public class NavigationServlet extends HttpServlet {
 	}
 
 	private void forwardToCart(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+		HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		int locationId = (Integer) session.getAttribute("activeUserLocation");
 
 		List<OrderBean> breakroomOrders = CartServiceDAO
 				.getAllProductsInCartByProductType(locationId, "Breakroom");
 		List<OrderBean> officeSuppliesOrders = CartServiceDAO
-				.getAllProductsInCartByProductType(locationId,
-						"Office Supplies");
+				.getAllProductsInCartByProductType(locationId, "Office Supplies");
 		List<OrderBean> inkAndTonerOrders = CartServiceDAO
 				.getAllProductsInCartByProductType(locationId, "Ink & Toner");
 
