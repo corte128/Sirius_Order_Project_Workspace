@@ -1,39 +1,37 @@
 @CHARSET "ISO-8859-1";
 
-.hideDownloadDiv{
+.hideDownloadDiv {
 	display: none;
-    margin: auto;
-    text-align: center;
-    margin-bottom: 20px;
+	margin: auto;
+	text-align: center;
+	margin-bottom: 20px;
 }
 
-#budgetSearchBoxAndNavContainer
-{
+#budgetSearchBoxAndNavContainer {
 	display: flex;
 }
-#budgetSearchBoxContainer
-{
+
+#budgetSearchBoxContainer {
 	flex: 11.5;
 	margin: 5px;
 	border: 1px black solid;
 	padding: 3% 5% 0 5%;
 	position: relative;
 }
-#budgetNavContainer
-{
+
+#budgetNavContainer {
 	flex: 0;
 }
 
-.budget-search-box-label-container
-{
+.budget-search-box-label-container {
 	font-style: italic;
 	font-weight: bold;
 	font-family: serif;
 	font-size: 15px;
 	color: grey;
 }
-#budgetReportGenerateReportButton
-{
+
+#budgetReportGenerateReportButton {
 	float: right;
 	width: 140px;
 	background-color: #5F6060;
@@ -46,10 +44,9 @@
 	margin-right: 36.7%;
 }
 
-.budget-report-generate-report-button-container{
+.budget-report-generate-report-button-container {
 	flex: 1;
 }
-
 
 /*		#budgetReportGenerateReportButton
 	{
@@ -61,28 +58,24 @@
 		
 	}
 */
-
-.row{
+.row {
 	display: flex;
 }
 
-.view-input{
+.view-input {
 	margin-left: -170px;
 }
 
-.budget-search-box-label-container{
-	flex: 1;
-}
-	
-.budget-search-box-input-container{
+.budget-search-box-label-container {
 	flex: 1;
 }
 
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px)
-{
-	/*#budgetReportGenerateReportButton
+.budget-search-box-input-container {
+	flex: 1;
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width
+	: 1024px) { /*#budgetReportGenerateReportButton
 	{
 		display: inline-block;
 		position: absolute;
@@ -91,59 +84,47 @@ and (max-device-width : 1024px)
 		top: calc(100% - 44px);
 		
 	}*/
-	
-	.view-input{
+	.view-input {
 		margin-left: -89px;
 	}
-	
-	#budgetReportGenerateReportButton{
+	#budgetReportGenerateReportButton {
 		margin-right: 17%;
 	}
-	
 }
 
-#budgetGridContainer
-{
+#budgetGridContainer {
 	padding: 70px;
 }
 
 /* Iphone 5 */
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 568px) {
-	#budgetSearchBoxAndNavContainer{
+@media only screen and (min-device-width : 320px) and (max-device-width
+	: 568px) {
+	#budgetSearchBoxAndNavContainer {
 		width: 130%;
 	}
-	
-	#budgetGridContainer
-	{
+	#budgetGridContainer {
 		padding: 20px;
+		margin-top: 500px;
 	}
-	
-	.budgetSearchBoxContainer{
+	.budgetSearchBoxContainer {
 		
 	}
-	
-	.budget-search-box-label-container{
+	.budget-search-box-label-container {
 		padding-left: 5px;
 	}
-	
-	.row{
+	.row {
 		padding-bottom: 28px;
 	}
-	
-	.view-input{
+	.view-input {
 		margin-right: -85px;
 	}
-	
-	#budgetReportGenerateReportButton{
+	#budgetReportGenerateReportButton {
 		margin-right: 5px;
 	}
-div#budgetChartContainer {
-    /* overflow-y: auto; */
-    overflow-x: auto;
-    overflow-y: hidden;
-    margin: auto;
-}
-	
+	div#budgetChartContainer { /* overflow-y: auto; */
+		overflow-x: auto;
+		overflow-y: hidden;
+		margin: auto;
+		position: absolute;
+	}
 }
