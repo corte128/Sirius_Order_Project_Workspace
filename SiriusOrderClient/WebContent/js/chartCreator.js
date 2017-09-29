@@ -41,7 +41,7 @@ app.controller('BudgetChartCtrl', ['$scope', '$http',  function ($scope, $http)
 		   		var chart = new google.visualization.BarChart(document.getElementById('budgetChartContainer'));
 				chart.draw(data, {colors: ['#A7C1C3', '#B0B47A'], bar: {groupWidth: '90%'}, chartArea: {
 		            height: "80%",
-		            width: "80%"
+		            width: "70%"
 		        }, height: expectedHeight});
 				
 
@@ -52,7 +52,7 @@ app.controller('BudgetChartCtrl', ['$scope', '$http',  function ($scope, $http)
 				{
 					response.data[key].push(response.data[key][1]-response.data[key][2]);
 					console.log(response.data[key]);
-					table.row.add(response.data[key]).draw();
+					table.row.add(response.data[key]).draw();S
 				}
 			}
 			if(displayOption == 'PDF')
