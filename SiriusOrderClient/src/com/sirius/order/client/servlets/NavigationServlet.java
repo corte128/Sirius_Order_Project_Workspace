@@ -14,6 +14,7 @@ import javax.json.JsonArrayBuilder;
 import javax.json.JsonValue;
 import javax.json.JsonWriter;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -45,6 +46,14 @@ public class NavigationServlet extends HttpServlet {
 	public NavigationServlet() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	
+	/**
+	 * @see Servlet#init(ServletConfig)
+	 */
+	public void init(ServletConfig config) throws ServletException {
+		// TODO Auto-generated method stub
+		
 	}
 
 	/**

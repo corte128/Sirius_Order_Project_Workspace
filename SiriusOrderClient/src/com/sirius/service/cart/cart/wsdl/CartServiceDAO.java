@@ -50,4 +50,10 @@ public class CartServiceDAO
 		CartProxy client = new CartProxy();
 		return client.getAllSavedOrders(locationId);
 	}
+	
+	public static BudgetBean getMostRecentBudgetByLocation(int locationId)
+	{
+		CartProxy client = new CartProxy();
+		return client.getMostRecentBudgetByLocation(locationId);
+	}
 }
