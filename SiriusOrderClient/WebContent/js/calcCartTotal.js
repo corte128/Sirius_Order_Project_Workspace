@@ -67,7 +67,8 @@ function calcInkAndTonerTotals()
 	}
 }
 
-function removeFromCart(orderID){
+function removeFromCart(orderID)
+{
 	var url = '/SiriusOrderClient/CartServlet?action=removeFromCart&orderId=' + orderID;
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET", url, true);

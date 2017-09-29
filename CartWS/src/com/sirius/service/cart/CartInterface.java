@@ -178,5 +178,14 @@ public interface CartInterface {
 			@WebParam(name="locationId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
 			int locationId
 			);
+	
+	@WebMethod(action = "getMostRecentBudgetByLocation")
+	@WebResult(name = "getMostRecentBudgetByLocationReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+	@RequestWrapper(localName = "getMostRecentBudgetByLocation", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetMostRecentBudgetByLocation")
+	@ResponseWrapper(localName = "getMostRecentBudgetByLocationsResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetMostRecentBudgetByLocationResponse")
+	public BudgetBean getMostRecentBudgetByLocation(
+			@WebParam(name="locationId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+			int locationId
+			);
 
 }
