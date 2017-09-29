@@ -1,45 +1,38 @@
 @CHARSET "ISO-8859-1";
 
-.hideDownloadDiv{
+.hideDownloadDiv {
 	display: none;
-    margin: auto;
-    text-align: center;
-    margin-bottom: 20px;
+	margin: auto;
+	text-align: center;
+	margin-bottom: 20px;
 }
 
-#budgetSearchBoxAndNavContainer
-{
+#budgetSearchBoxAndNavContainer {
 	display: flex;
 }
-#budgetSearchBoxContainer
-{
+
+#budgetSearchBoxContainer {
 	flex: 11.5;
 	margin: 5px;
 	border: 1px black solid;
 	padding: 3% 5% 0 5%;
 	position: relative;
 }
-#budgetNavContainer
-{
+
+#budgetNavContainer {
 	flex: 0;
 }
-@media(min-width: 769px) 
-{
-	#budgetNavContainer
-	{
-		flex: 0.5;
-	}
-}
-.budget-search-box-label-container
-{
+
+.budget-search-box-label-container {
 	font-style: italic;
 	font-weight: bold;
 	font-family: serif;
 	font-size: 15px;
 	color: grey;
 }
-#budgetReportGenerateReportButton
-{
+
+#budgetReportGenerateReportButton {
+	float: right;
 	width: 140px;
 	background-color: #5F6060;
 	color: lightgrey;
@@ -48,12 +41,14 @@
 	cursor: pointer;
 	border: none;
 	margin-top: 1%;
-	margin-left: 26.9%;
+	margin-right: 36.7%;
 }
 
-/*@media(min-width: 769px) 
-{
-	#budgetReportGenerateReportButton
+.budget-report-generate-report-button-container {
+	flex: 1;
+}
+
+/*		#budgetReportGenerateReportButton
 	{
 		display: inline-block;
 		position: absolute;
@@ -62,23 +57,79 @@
 		top: calc(100% - 44px);
 		
 	}
-}*/
+*/
+.row {
+	display: flex;
+}
 
-#budgetGridContainer
-{
+.view-input {
+	margin-left: -170px;
+}
+
+.budget-search-box-label-container {
+	flex: 1;
+}
+
+.budget-search-box-input-container {
+	flex: 1;
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width
+	: 1024px) { /*#budgetReportGenerateReportButton
+	{
+		display: inline-block;
+		position: absolute;
+		text-align: center;
+		left: calc(100% - 160px);
+		top: calc(100% - 44px);
+		
+	}*/
+	.view-input {
+		margin-left: -89px;
+	}
+	#budgetReportGenerateReportButton {
+		margin-right: 17%;
+	}
+}
+
+#budgetGridContainer {
 	padding: 70px;
 }
 
 /* Iphone 5 */
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 568px) {
-	#budgetSearchBoxAndNavContainer{
+@media only screen and (min-device-width : 320px) and (max-device-width
+	: 568px) {
+	#budgetSearchBoxAndNavContainer {
 		width: 130%;
 	}
-	
-	#budgetGridContainer
-	{
+	#budgetGridContainer {
 		padding: 20px;
+		position: absolute;
+	}
+	.budgetSearchBoxContainer {
+		
+	}
+	.budget-search-box-label-container {
+		padding-left: 5px;
+	}
+	.row {
+		padding-bottom: 28px;
+	}
+	.view-input {
+		margin-right: -85px;
+	}
+	#budgetReportGenerateReportButton {
+		margin-right: 5px;
+	}
+	div#budgetChartContainer { /* overflow-y: auto; */
+		overflow-x: auto;
+		overflow-y: hidden;
+		margin: auto;
+		margin-top: 400px;
+		    margin-left: 80px;
+	}
+	.hideDownloadDiv{
+		margin:auto;
+		margin-left: 120px;
 	}
 }

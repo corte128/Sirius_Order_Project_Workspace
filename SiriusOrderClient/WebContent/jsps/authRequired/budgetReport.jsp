@@ -38,10 +38,10 @@
 				<div id="budgetSearchBoxAndNavContainer">
 					<div id="budgetSearchBoxContainer">
 						<div class="row">
-							<div class="budget-search-box-label-container col-md-3 col-sm-3 col-xs-6">
+							<div class="budget-search-box-label-container">
 								<fmt:message key="BUDGET_REPORT_REPORT_TYPE_LABEL" />
 							</div>
-							<div class="budget-search-box-input-container col-md-3 col-sm-3 col-xs-6">
+							<div class="budget-search-box-input-container">
 								<select id="budgetSearchReportTypeInput">
 									<option value="" selected>
 										<fmt:message key="BUDGET_REPORT_SELECT_LABEL" />
@@ -56,18 +56,18 @@
 								</select>
 							</div>
 							
-							<div class="budget-search-box-label-container col-md-3 col-sm-3 col-xs-6">
+							<div class="budget-search-box-label-container">
 								<fmt:message key="BUDGET_REPORT_FROM_DATE_LABEL" />
 							</div>
-							<div class="budget-search-box-input-container col-md-3 col-sm-3 col-xs-6">
+							<div class="budget-search-box-input-container">
 								<input id="budgetSearchFromDateTypeInput" type="date"></input>
 							</div>
 						</div>
 						<div class="row">
-							<div class="budget-search-box-label-container col-md-3 col-sm-3 col-xs-6">
+							<div class="budget-search-box-label-container">
 								<fmt:message key="BUDGET_REPORT_LOCATION_LABEL" />
 							</div>
-							<div class="budget-search-box-input-container col-md-3 col-sm-3 col-xs-6">
+							<div class="budget-search-box-input-container">
 								<select id="budgetSearchLocationInput">
 									<c:choose>
 										<c:when test="${sessionScope.activeUserType} == 2">
@@ -88,18 +88,18 @@
 								</select>
 							</div>
 							
-							<div class="budget-search-box-label-container col-md-3 col-sm-3 col-xs-6">
+							<div class="budget-search-box-label-container">
 								<fmt:message key="BUDGET_REPORT_TO_DATE_LABEL" />
 							</div>
-							<div class="budget-search-box-input-container col-md-3 col-sm-3 col-xs-6">
+							<div class="budget-search-box-input-container">
 								<input id="budgetSearchToDateTypeInput" type="date"></input>
 							</div>
 						</div>
 						<div class="row">
-							<div class="budget-search-box-label-container col-md-3 col-sm-3 col-xs-6">
+							<div class="budget-search-box-label-container">
 								<fmt:message key="BUDGET_REPORT_VIEW_LABEL" />
 							</div>
-							<div class="budget-search-box-input-container col-md-3 col-sm-3 col-xs-6">
+							<div class="budget-search-box-input-container view-input">
 								<select id="budgetSearchViewInput">
 									<option value="" selected>
 										<fmt:message key="BUDGET_REPORT_SELECT_LABEL" />
@@ -113,10 +113,12 @@
 									</option>
 								</select>
 							</div>
-							
-							<div id="budgetReportGenerateReportButton" class="col-md-6 col-sm-6 col-xs-12" ng-click="generateChart()">
-								<fmt:message key="BUDGET_REPORT_GENERATE_REPORT_LABEL" />
+							<div class="budget-report-generate-report-button-container">
+								<div id="budgetReportGenerateReportButton" ng-click="generateChart()">
+									<fmt:message key="BUDGET_REPORT_GENERATE_REPORT_LABEL" />
+								</div>
 							</div>
+
 						</div>
 					</div>
 					<aside id="budgetNavContainer">
@@ -147,7 +149,7 @@
 				<div class="hideDownloadDiv" id="downloadDiv">
 						Your PDF has been generated
 						<br />
-						<a href="/SiriusOrderClient/generatedPDF/test-pdf.pdf" target="_blank">click here to download</a>
+						<a href="/SiriusOrderClient/generatedPDF/test-pdf.pdf" target="_blank">Click here to download</a>
 				</div>
 			</div>
 		</main>

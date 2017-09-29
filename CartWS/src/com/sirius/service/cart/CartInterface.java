@@ -106,6 +106,8 @@ public interface CartInterface {
 	@RequestWrapper(localName = "saveOrder", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.SaveOrder")
 	@ResponseWrapper(localName = "saveOrderResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.SaveOrderResponse")
 	public boolean saveOrder(
+			@WebParam(name="productIdList", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+			List<Integer> productIdList,
 			@WebParam(name="orderName", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
 			String orderName,
 			@WebParam(name="budget", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")

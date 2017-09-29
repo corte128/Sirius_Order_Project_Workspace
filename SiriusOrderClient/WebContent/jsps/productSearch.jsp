@@ -18,8 +18,7 @@
 		<script type="text/javascript" src="/SiriusOrderClient/js/productSearch.js"></script>
 		
 	</head>
-	<body onload="simpleAlert();">
-
+	<body onload="alert('hi');">
 		<header>
 			<%@ include file="header.jsp" %>
 		</header> 
@@ -45,6 +44,9 @@
 					<input type="text" class="search searchBar" id="search" name="search"></input>
 					<div class="search-icon-container">
 						<span id="productSearchButton" onclick="searchProducts()"><i class="material-icons search-icon">search</i></span>
+					</div>
+					<div id="likedLimit">
+						You have 5 products in Wishlist already.
 					</div>
 				</div>
 				<div id="productContainer" class="productContainer">

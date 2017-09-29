@@ -1,4 +1,4 @@
-package com.sirius.service.cart.cart.wsdl;
+package com.sirius.service.generate.cart.wsdl;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -13,14 +13,17 @@ import javax.xml.ws.Service;
 import javax.xml.ws.soap.SOAPBinding;
 import java.util.List;
 import javax.xml.ws.Action;
+import com.sirius.service.cart.cart.wsdl.BudgetBean;
+import com.sirius.service.cart.cart.wsdl.ObjectFactory;
+import com.sirius.service.cart.cart.wsdl.OrderBean;
 
 public class CartProxy{
 
     protected Descriptor _descriptor;
 
     public class Descriptor {
-        private com.sirius.service.cart.cart.wsdl.CartService_Service _service = null;
-        private com.sirius.service.cart.cart.wsdl.CartService _proxy = null;
+        private com.sirius.service.generate.cart.wsdl.CartService_Service _service = null;
+        private com.sirius.service.generate.cart.wsdl.CartService _proxy = null;
         private Dispatch<Source> _dispatch = null;
         private boolean _useJNDIOnly = false;
 
@@ -29,7 +32,7 @@ public class CartProxy{
         }
 
         public Descriptor(URL wsdlLocation, QName serviceName) {
-            _service = new com.sirius.service.cart.cart.wsdl.CartService_Service(wsdlLocation, serviceName);
+            _service = new com.sirius.service.generate.cart.wsdl.CartService_Service(wsdlLocation, serviceName);
             initCommon();
         }
 
@@ -40,7 +43,7 @@ public class CartProxy{
             try
             {
                 InitialContext ctx = new InitialContext();
-                _service = (com.sirius.service.cart.cart.wsdl.CartService_Service)ctx.lookup("java:comp/env/service/CartService");
+                _service = (com.sirius.service.generate.cart.wsdl.CartService_Service)ctx.lookup("java:comp/env/service/CartService");
             }
             catch (NamingException e)
             {
@@ -51,7 +54,7 @@ public class CartProxy{
             }
 
             if (_service == null && !_useJNDIOnly)
-                _service = new com.sirius.service.cart.cart.wsdl.CartService_Service();
+                _service = new com.sirius.service.generate.cart.wsdl.CartService_Service();
             initCommon();
         }
 
@@ -59,7 +62,7 @@ public class CartProxy{
             _proxy = _service.getCart();
         }
 
-        public com.sirius.service.cart.cart.wsdl.CartService getProxy() {
+        public com.sirius.service.generate.cart.wsdl.CartService getProxy() {
             return _proxy;
         }
 
@@ -70,7 +73,7 @@ public class CartProxy{
 
         public Dispatch<Source> getDispatch() {
             if (_dispatch == null ) {
-                QName portQName = new QName("http://cart.service.sirius.com/cart/wsdl", "cart");
+                QName portQName = new QName("http://generate.service.sirius.com/cart/wsdl", "cart");
                 _dispatch = _service.createDispatch(portQName, Source.class, Service.Mode.MESSAGE);
 
                 String proxyEndpointUrl = getEndpoint();

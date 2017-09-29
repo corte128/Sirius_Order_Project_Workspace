@@ -10,9 +10,10 @@ import com.sirius.service.cart.bean.OrderBean;
 import com.sirius.service.cart.database.CartDAO;
 
 @WebService(endpointInterface="com.sirius.service.cart.CartInterface",
-portName="cart", targetNamespace ="http://generate.service.sirius.com/cart/wsdl",
+portName="cart", targetNamespace ="http://cart.service.sirius.com/cart/wsdl",
 serviceName="CartService")
-public class CartImplementation implements CartInterface {
+public class CartImplementation implements CartInterface
+{
 	
 	@Override
 	public boolean addProductToCart(OrderBean order, BudgetBean budget, int createdBy) {
@@ -36,8 +37,8 @@ public class CartImplementation implements CartInterface {
 	}
 
 	@Override
-	public boolean saveOrder(String orderName, BudgetBean budget, int locationId, int createdBy) {
-		return CartDAO.saveOrder(orderName, budget, locationId, createdBy);
+	public boolean saveOrder(List<Integer> productIdList, String orderName, BudgetBean budget, int locationId, int createdBy) {
+		return CartDAO.saveOrder(productIdList, orderName, budget, locationId, createdBy);
 	}
 
 	@Override

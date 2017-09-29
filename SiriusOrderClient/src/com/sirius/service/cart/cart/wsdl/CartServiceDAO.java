@@ -25,10 +25,10 @@ public class CartServiceDAO
 		CartProxy client = new CartProxy();
 		return client.removeProductFromCart(orderId, updatedBy);
 	}
-	public static boolean saveOrder(String orderName, BudgetBean budget, int locationId, int createdBy) 
+	public static boolean saveOrder(List<Integer> productIdList, String orderName, BudgetBean budget, int locationId, int createdBy) 
 	{
 		CartProxy client = new CartProxy();
-		return client.saveOrder(orderName, budget, locationId, createdBy);
+		return client.saveOrder(productIdList, orderName, budget, locationId, createdBy);
 	}
 	public static List<OrderBean> getOrderByOrderName(String orderName, int locationId)
 	{

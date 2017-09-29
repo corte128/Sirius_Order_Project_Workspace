@@ -5,7 +5,7 @@
 
 function addToCart(productID)
 {
-	$('#addConfirmed' + productID).fadeIn('fast').delay(1000).fadeOut('slow')
+	$('#addConfirmed' + productID).fadeIn('fast').delay(1000).fadeOut('slow');
 	var xhttp = new XMLHttpRequest();
 	var quantityElement = document.getElementById("quantityToAdd");
     var quantity = 1;
@@ -39,13 +39,13 @@ function addToCart(productID)
 	xhttp.send();
 	var successElement = document.getElementById("successMessage");
 	if (successElement != null && quantity > 0){
-		$('#successMessage').fadeIn('fast').delay(3000).fadeOut('slow')
+		$('#successMessage').fadeIn('fast').delay(3000).fadeOut('slow');
 	}
 }
 
 
 
- function simpleAlert(){
+function simpleAlert(){
 	console.log("THIS IS BROKE");
 	alert("this one is working");
 }
@@ -163,7 +163,7 @@ function searchProducts()
 			
 			var productAddedDiv = document.createElement("span");
 			productAddedDiv.setAttribute("class", "confirm-popup");
-			productAddedDiv.id = 'addConfirmed$' + response[key].ID;
+			productAddedDiv.id = 'addConfirmed' + response[key].ID;
 			productAddedDiv.innerHTML = 'Product Added!';
 			
 			productCard.appendChild(productAddedDiv);
@@ -186,24 +186,34 @@ function verticalHandler(){
 	
 }
 
+function reachedLimitPopup()
+{
+	$('#likedLimit').fadeIn('fast').delay(1000).fadeOut('slow');
+}
+
 function addToWishlist(productID){
 	//'/SiriusOrderClient/ProductSearchServlet?action=addToWishlist&id=' + response[key].ID
 	var url = '/SiriusOrderClient/ProductSearchServlet?action=addToWishlist&id=' + productID;
 	var xhttp = new XMLHttpRequest();
-	xhttp.open("GET", url, true);
+	xhttp.open("GET", url, false);
 	xhttp.onreadystatechange = function()
 	{
 		var response = JSON.parse(xhttp.responseText);
-		var numOfEmps = response.length;
-		var likesContainer = document.getElementById('numOfLikes' + productID);
-		likesContainer.innerHTML = numOfEmps;
-		
-		var likesModal = document.getElementById("likesModal" + productID);
-		likesModal.innerHTML = '';
-		for(key in response){
-			var innerModalDiv = document.createElement("div");
-			innerModalDiv.innerHTML = response[key];
-			likesModal.appendChild(innerModalDiv);
+		if(response.limit == 1){
+			reachedLimitPopup();
+		}
+		else{
+			var numOfEmps = response.length;
+			var likesContainer = document.getElementById('numOfLikes' + productID);
+			likesContainer.innerHTML = numOfEmps;
+			
+			var likesModal = document.getElementById("likesModal" + productID);
+			likesModal.innerHTML = '';
+			for(key in response){
+				var innerModalDiv = document.createElement("div");
+				innerModalDiv.innerHTML = response[key];
+				likesModal.appendChild(innerModalDiv);
+			}
 		}
 	};
 	xhttp.send();

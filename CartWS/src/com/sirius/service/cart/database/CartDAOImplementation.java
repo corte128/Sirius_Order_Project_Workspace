@@ -348,20 +348,27 @@ public class CartDAOImplementation {
 	 * @return List<OrderBean>
 	 * @throws SQLException
 	 */
-	public static List<OrderBean> getOrdersInCartByLocation(int locationId,
+	public static List<OrderBean> getOrdersInCartByLocation(List<Integer> productIdList, int locationId,
 			Connection conn) throws SQLException {
 		PreparedStatement statement = null;
 		List<OrderBean> orders = new ArrayList<OrderBean>();
 		ResultSet results = null;
-		String orderQuery = queries.getString("GET_ORDERS_IN_CART_BY_LOCATION");
-
+		StringBuilder orderQuery = new StringBuilder();
+		orderQuery.append(queries.getString("GET_ORDERS_IN_CART_BY_LOCATION"));
+		
+		for(int productId : productIdList)
+		{
+			orderQuery.append(" OR product_id_fk = " + productId); 
+		}
+		orderQuery.append(");");
 		try {
 			logger.log(Level.FINE, "Preparing to execute order query: ");
 			logger.log(Level.FINE, "   " + orderQuery);
 			// getting the ids from the table
-			statement = conn.prepareStatement(orderQuery);
+			statement = conn.prepareStatement(orderQuery.toString());
 			statement.setInt(1, locationId);
-
+			
+			
 			logger.log(Level.FINE,
 					"Setting the order based on the paramaters: ");
 			logger.log(Level.FINE, "   int: " + locationId);

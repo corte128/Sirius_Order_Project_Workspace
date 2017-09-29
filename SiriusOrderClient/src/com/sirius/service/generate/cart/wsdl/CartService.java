@@ -3,7 +3,7 @@
 //
 
 
-package com.sirius.service.cart.cart.wsdl;
+package com.sirius.service.generate.cart.wsdl;
 
 import java.util.List;
 import javax.jws.WebMethod;
@@ -14,6 +14,9 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.ws.Action;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
+import com.sirius.service.cart.cart.wsdl.BudgetBean;
+import com.sirius.service.cart.cart.wsdl.ObjectFactory;
+import com.sirius.service.cart.cart.wsdl.OrderBean;
 
 @WebService(name = "CartService", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
 @XmlSeeAlso({
