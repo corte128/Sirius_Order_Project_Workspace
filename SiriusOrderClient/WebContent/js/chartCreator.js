@@ -52,7 +52,7 @@ app.controller('BudgetChartCtrl', ['$scope', '$http',  function ($scope, $http)
 				{
 					response.data[key].push(response.data[key][1]-response.data[key][2]);
 					console.log(response.data[key]);
-					table.row.add(response.data[key]).draw();S
+					table.row.add(response.data[key]).draw();
 				}
 			}
 			if(displayOption == 'PDF')
