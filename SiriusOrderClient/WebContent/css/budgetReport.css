@@ -23,13 +23,7 @@
 {
 	flex: 0;
 }
-@media(min-width: 769px) 
-{
-	#budgetNavContainer
-	{
-		flex: 0.5;
-	}
-}
+
 .budget-search-box-label-container
 {
 	font-style: italic;
@@ -40,6 +34,7 @@
 }
 #budgetReportGenerateReportButton
 {
+	float: right;
 	width: 140px;
 	background-color: #5F6060;
 	color: lightgrey;
@@ -48,12 +43,15 @@
 	cursor: pointer;
 	border: none;
 	margin-top: 1%;
-	margin-left: 26.9%;
+	margin-right: 36.7%;
 }
 
-/*@media(min-width: 769px) 
-{
-	#budgetReportGenerateReportButton
+.budget-report-generate-report-button-container{
+	flex: 1;
+}
+
+
+/*		#budgetReportGenerateReportButton
 	{
 		display: inline-block;
 		position: absolute;
@@ -62,7 +60,47 @@
 		top: calc(100% - 44px);
 		
 	}
-}*/
+*/
+
+.row{
+	display: flex;
+}
+
+.view-input{
+	margin-left: -170px;
+}
+
+.budget-search-box-label-container{
+	flex: 1;
+}
+	
+.budget-search-box-input-container{
+	flex: 1;
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+{
+	/*#budgetReportGenerateReportButton
+	{
+		display: inline-block;
+		position: absolute;
+		text-align: center;
+		left: calc(100% - 160px);
+		top: calc(100% - 44px);
+		
+	}*/
+	
+	.view-input{
+		margin-left: -89px;
+	}
+	
+	#budgetReportGenerateReportButton{
+		margin-right: 17%;
+	}
+	
+}
 
 #budgetGridContainer
 {
@@ -81,4 +119,31 @@ and (max-device-width : 568px) {
 	{
 		padding: 20px;
 	}
+	
+	.budgetSearchBoxContainer{
+		
+	}
+	
+	.budget-search-box-label-container{
+		padding-left: 5px;
+	}
+	
+	.row{
+		padding-bottom: 28px;
+	}
+	
+	.view-input{
+		margin-right: -85px;
+	}
+	
+	#budgetReportGenerateReportButton{
+		margin-right: 5px;
+	}
+div#budgetChartContainer {
+    /* overflow-y: auto; */
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: auto;
+}
+	
 }
