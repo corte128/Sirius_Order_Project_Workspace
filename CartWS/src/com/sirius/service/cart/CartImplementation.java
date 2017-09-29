@@ -36,8 +36,8 @@ public class CartImplementation implements CartInterface {
 	}
 
 	@Override
-	public boolean saveOrder(String orderName, BudgetBean budget, int locationId, int createdBy) {
-		return CartDAO.saveOrder(orderName, budget, locationId, createdBy);
+	public boolean saveOrder(List<Integer> productIdList, String orderName, BudgetBean budget, int locationId, int createdBy) {
+		return CartDAO.saveOrder(productIdList, orderName, budget, locationId, createdBy);
 	}
 
 	@Override

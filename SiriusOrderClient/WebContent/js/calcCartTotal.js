@@ -78,6 +78,10 @@ function calcTotals()
 	calcOfficeSuppliesTotals();
 	calcInkAndTonerTotals();
 }
+(function loader()
+{
+	calcTotals();
+})();
 function showIncludeOrderModal()
 {
 	document.getElementById("includeSavedOrderModal").style.display = 'block';
@@ -215,14 +219,35 @@ function includeOrderInCart()
 											</div> \
 										</div>' + endDiv.outerHTML;
 						
+					var saveOrderModalOptionsContainer = document.getElementById("cartOrderContainer");
+					//saveOrderModalOptionsContainer.innerHTML += TODO
 					
+					calcTotals();
+					closeIncludeInOrderWindow();
 				}
 			};
 			xhttp.send();
 		}	
 	}
 }
-
+function saveOrder()
+{
+	var curOrderName = document.getElementById("saveOrderModalOrderInput").value;
+	var checkBoxes = document.getElementsByClassName("include-order-checkbox");
+	var xhttp = new XMLHttpRequest();
+	var url = "/SiriusOrderClient/CartServlet?action=saveOrderFromCart&orderName=" + curOrderName;
+	for(var index = 0; index < checkBoxes.length; ++index)
+	{
+		if(checkBoxes[index].checked == true)
+		{
+			var productId = checkBoxes[index].id.substring(17);
+			url += "&productID=" + productId;
+		}
+	}
+	xhttp.open("GET", url, true);
+	xhttp.send();	
+	closeSavedOrdersWindow();	
+}
 function closeSavedOrdersWindow(){
 	var saveOrderModal = document.getElementById("saveOrderModal");
 	saveOrderModal.style.display = "none";

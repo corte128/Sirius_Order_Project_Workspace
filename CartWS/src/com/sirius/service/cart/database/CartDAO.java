@@ -214,7 +214,7 @@ public class CartDAO {
 	 * @param createdBy
 	 * @return boolean
 	 */
-	public static boolean saveOrder(String orderName, BudgetBean budget, int locationId, int createdBy) {
+	public static boolean saveOrder(List<Integer> productIdList, String orderName, BudgetBean budget, int locationId, int createdBy) {
 		Connection conn = null;
 		List<OrderBean> orders = new ArrayList<OrderBean>();
 		int latestRecord = 0;
@@ -225,9 +225,8 @@ public class CartDAO {
 		try{
 			conn = DBConnection.getConnection();
 			conn.setAutoCommit(false);
-			
 			//getting all the valid orders where the quantity can be changed
-			orders = CartDAOImplementation.getOrdersInCartByLocation(locationId,conn);
+			orders = CartDAOImplementation.getOrdersInCartByLocation(productIdList, locationId,conn);
 			//removing previous order if it exists
 			removed = CartDAOImplementation.removeOrdersByOrderName(orderName,createdBy,conn);
 			//updating the product quantity

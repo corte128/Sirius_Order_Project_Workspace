@@ -3,6 +3,7 @@ package com.sirius.order.client.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -57,6 +58,38 @@ public class CartServlet extends HttpServlet {
 	    	int orderId = Integer.parseInt(request.getParameter("orderId"));
 			CartServiceDAO.removeProductFromCart(orderId, userId);
 		}
+		else if(action.equals("saveOrderFromCart"))
+		{
+			String orderName = request.getParameter("orderName");
+			String[] productIdArray = request.getParameterValues("productID");
+			if(productIdArray.length > 0)
+			{
+				List<Integer> productIdList = new ArrayList<Integer>();
+				for(String productId : productIdArray)
+				{
+					productIdList.add(Integer.parseInt(productId));
+				}
+				
+				BudgetBean budget = new BudgetBean();
+				budget.setLocationId(locationId);
+				budget.setBudgetAllotted(new BigDecimal(1000));
+				budget.setBudgetRecommended(new BigDecimal(1000));
+				
+				GregorianCalendar gCal = new GregorianCalendar();
+				gCal.setTime(new Date());
+
+				XMLGregorianCalendar calendar = null;
+				try {
+					calendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(gCal);
+				} catch (DatatypeConfigurationException e) {
+					e.printStackTrace();
+				}
+				budget.setBudgetDate(calendar);
+				
+				CartServiceDAO.saveOrder(orderName, budget, locationId, userId);
+			}
+			
+		}
 		else if(action.equals("saveOrder")){
 			PrintWriter out = response.getWriter();
 			int output = 0;
@@ -78,7 +111,7 @@ public class CartServlet extends HttpServlet {
 					e.printStackTrace();
 				}
 				budget.setBudgetDate(calendar);
-				CartServiceDAO.saveOrder(orderName, budget, locationId, userId);
+				//CartServiceDAO.saveOrder(orderName, budget, locationId, userId);
 				output = 1;
 			}
 			out.write(output);

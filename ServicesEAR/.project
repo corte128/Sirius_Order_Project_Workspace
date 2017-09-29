@@ -8,11 +8,6 @@
 		<project>MailWS</project>
 		<project>LoginWS</project>
 		<project>LocationWS</project>
-<<<<<<< HEAD
-=======
-		<project>GenerateCartWS</project>
-		<project>GenerateCart</project>
->>>>>>> de66b31759c26be51bd17ef4eb9ec909c594e95b
 		<project>AttendanceWS</project>
 		<project>AdminWS</project>
 		<project>SearchWS</project>
