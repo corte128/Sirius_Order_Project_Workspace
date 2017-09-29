@@ -176,6 +176,8 @@ public class CartServlet extends HttpServlet {
 							.add("productId", product.getId()));
 				
 				JsonArray output = builder.build();
+				response.setContentType("application/json");
+			    response.setCharacterEncoding("UTF-8");
 				PrintWriter out = response.getWriter();
 				JsonWriter writer = Json.createWriter(out);
 				writer.writeArray(output);

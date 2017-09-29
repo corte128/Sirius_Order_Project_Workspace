@@ -83,6 +83,7 @@ public class ProductSearchServlet extends HttpServlet {
 					builder.add(name);
 				}
 				JsonArray output = builder.build();
+			    response.setCharacterEncoding("UTF-8");
 				PrintWriter out = response.getWriter();
 				JsonWriter writer = Json.createWriter(out);
 				writer.writeArray(output);
@@ -119,7 +120,8 @@ public class ProductSearchServlet extends HttpServlet {
 						.add("Likers", likesBuilder));
 			}
 			JsonArray output = builder.build();
-
+			response.setContentType("application/json");
+		    response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
 			JsonWriter writer = Json.createWriter(out);
 			writer.writeArray(output);
