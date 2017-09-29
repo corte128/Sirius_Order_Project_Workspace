@@ -330,8 +330,10 @@ main
 	}
 	.cart-modal
 	{
-		left: 15vw;
-    	width: 70vw;
+		left: 10vw;
+    	width: 80vw;
+    	top: 15vh;
+    	height: 70vh;
 	}
 	.order-title-text-container
 	{
