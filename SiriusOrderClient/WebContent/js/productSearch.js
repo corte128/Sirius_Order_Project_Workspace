@@ -163,7 +163,7 @@ function searchProducts()
 			
 			var productAddedDiv = document.createElement("span");
 			productAddedDiv.setAttribute("class", "confirm-popup");
-			productAddedDiv.id = 'addConfirmed$' + response[key].ID;
+			productAddedDiv.id = 'addConfirmed' + response[key].ID;
 			productAddedDiv.innerHTML = 'Product Added!';
 			
 			productCard.appendChild(productAddedDiv);
