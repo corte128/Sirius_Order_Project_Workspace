@@ -153,4 +153,8 @@ public class CartProxy{
         return _getDescriptor().getProxy().getAllSavedOrders(locationId);
     }
 
+    public BudgetBean getMostRecentBudgetByLocation(int locationId) {
+        return _getDescriptor().getProxy().getMostRecentBudgetByLocation(locationId);
+    }
+
 }

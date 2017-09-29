@@ -17,6 +17,10 @@
 
   <xs:element name="getAllSavedOrdersResponse" type="tns:getAllSavedOrdersResponse"/>
 
+  <xs:element name="getMostRecentBudgetByLocation" type="tns:getMostRecentBudgetByLocation"/>
+
+  <xs:element name="getMostRecentBudgetByLocationsResponse" type="tns:getMostRecentBudgetByLocationsResponse"/>
+
   <xs:element name="getOrderByOrderName" type="tns:getOrderByOrderName"/>
 
   <xs:element name="getOrderByOrderNameResponse" type="tns:getOrderByOrderNameResponse"/>
@@ -83,6 +87,18 @@
   <xs:complexType name="saveOrderResponse">
     <xs:sequence>
       <xs:element name="saveOrderReturn" type="xs:boolean" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getMostRecentBudgetByLocation">
+    <xs:sequence>
+      <xs:element name="locationId" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getMostRecentBudgetByLocationsResponse">
+    <xs:sequence>
+      <xs:element name="getMostRecentBudgetByLocationReturn" type="tns:budgetBean" form="qualified" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 

@@ -437,5 +437,42 @@ public class CartDAO {
 		}
 		return output;
 	}
-	
+	public static BudgetBean getMostRecentBudgetByLocation(int locationId)
+	{
+		Connection conn = null;
+		BudgetBean output = null;
+		
+		try
+		{
+			conn = DBConnection.getConnection();
+			//output = CartDAOImplementation.getMostRecentBudgetByLocation(locationId, conn);
+		}
+		catch(NamingException e)
+		{
+			logger.log(Level.SEVERE,"Naming Exception Found: Incorrect naming", e);
+		}
+		catch(SQLException e)
+		{
+			logger.log(Level.SEVERE,"SQL Exception Found: Incorrect properties", e);
+		}
+		catch(Exception e)
+		{
+			logger.log(Level.SEVERE,"Exception Found ", e);
+		}
+		finally
+		{
+			if(conn != null)
+			{
+				try
+				{
+					DBConnection.closeConnection(conn);
+				}
+				catch(SQLException e)
+				{
+					logger.log(Level.SEVERE,"SQL Exception ", e);
+				}
+			}
+		}
+		return output;
+	}
 }
