@@ -45,6 +45,9 @@
 					<div class="search-icon-container">
 						<span id="productSearchButton" onclick="searchProducts()"><i class="material-icons search-icon">search</i></span>
 					</div>
+					<div id="likedLimit">
+						You have 5 products in Wishlist already.
+					</div>
 				</div>
 				<div id="productContainer" class="productContainer">
 					<c:forEach var="product" items="${Products}">
