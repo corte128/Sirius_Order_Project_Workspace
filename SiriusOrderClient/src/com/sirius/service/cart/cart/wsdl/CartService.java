@@ -196,4 +196,19 @@ public interface CartService {
         @WebParam(name = "locationId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
         int locationId);
 
+    /**
+     * 
+     * @param locationId
+     * @return
+     *     returns com.sirius.service.cart.cart.wsdl.BudgetBean
+     */
+    @WebMethod(action = "getMostRecentBudgetByLocation")
+    @WebResult(name = "getMostRecentBudgetByLocationReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+    @RequestWrapper(localName = "getMostRecentBudgetByLocation", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.cart.wsdl.GetMostRecentBudgetByLocation")
+    @ResponseWrapper(localName = "getMostRecentBudgetByLocationsResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.cart.wsdl.GetMostRecentBudgetByLocationsResponse")
+    @Action(input = "getMostRecentBudgetByLocation", output = "http://cart.service.sirius.com/cart/wsdl/CartService/getMostRecentBudgetByLocationResponse")
+    public BudgetBean getMostRecentBudgetByLocation(
+        @WebParam(name = "locationId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+        int locationId);
+
 }

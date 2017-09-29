@@ -90,10 +90,29 @@
 	#budgetReportGenerateReportButton {
 		margin-right: 17%;
 	}
+	#budgetGridContainer {
+		padding: 20px;
+		position: absolute;
+		width: 100vw;
+	}
+	.budgetSearchBoxContainer {
+		width: 100vw;
+	}
+	div#budgetChartContainer { /* overflow-y: auto; */
+		overflow-x: auto;
+		overflow-y: hidden;
+		margin: auto;
+		margin-top: 400px;
+		    margin-left: 80px;
+	}
+	.hideDownloadDiv{
+		margin:auto;
+		margin-left: 120px;
+	}
 }
 
 #budgetGridContainer {
-	padding: 70px;
+	margin: auto;
 }
 
 /* Iphone 5 */
@@ -105,9 +124,10 @@
 	#budgetGridContainer {
 		padding: 20px;
 		position: absolute;
+		width: 100vw;
 	}
 	.budgetSearchBoxContainer {
-		
+		width: 100vw;
 	}
 	.budget-search-box-label-container {
 		padding-left: 5px;
@@ -119,6 +139,9 @@
 		margin-right: -85px;
 	}
 	#budgetReportGenerateReportButton {
+		margin-right: 5px;
+	}
+	#budgetGridContainer{
 		margin-right: 5px;
 	}
 	div#budgetChartContainer { /* overflow-y: auto; */

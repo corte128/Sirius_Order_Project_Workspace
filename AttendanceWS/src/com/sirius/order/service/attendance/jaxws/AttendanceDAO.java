@@ -30,6 +30,8 @@ public class AttendanceDAO {
 		} catch (SQLException e) {
 			logger.log(Level.FINE, "sql exception");
 			logger.log(Level.FINE, e.getMessage());
+		}finally{
+			DBConnection.closeConnection(conn);
 		}
 		return attendanceList;
  	}

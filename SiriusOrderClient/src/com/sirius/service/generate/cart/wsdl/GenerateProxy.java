@@ -1,4 +1,4 @@
-package com.sirius.service.cart.cart.wsdl;
+package com.sirius.service.generate.cart.wsdl;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -11,16 +11,15 @@ import javax.xml.ws.BindingProvider;
 import javax.xml.ws.Dispatch;
 import javax.xml.ws.Service;
 import javax.xml.ws.soap.SOAPBinding;
-import java.util.List;
 import javax.xml.ws.Action;
 
-public class CartProxy{
+public class GenerateProxy{
 
     protected Descriptor _descriptor;
 
     public class Descriptor {
-        private com.sirius.service.cart.cart.wsdl.CartService_Service _service = null;
-        private com.sirius.service.cart.cart.wsdl.CartService _proxy = null;
+        private com.sirius.service.generate.cart.wsdl.GenerateCartService _service = null;
+        private com.sirius.service.generate.cart.wsdl.CartGenerateService _proxy = null;
         private Dispatch<Source> _dispatch = null;
         private boolean _useJNDIOnly = false;
 
@@ -29,7 +28,7 @@ public class CartProxy{
         }
 
         public Descriptor(URL wsdlLocation, QName serviceName) {
-            _service = new com.sirius.service.cart.cart.wsdl.CartService_Service(wsdlLocation, serviceName);
+            _service = new com.sirius.service.generate.cart.wsdl.GenerateCartService(wsdlLocation, serviceName);
             initCommon();
         }
 
@@ -40,7 +39,7 @@ public class CartProxy{
             try
             {
                 InitialContext ctx = new InitialContext();
-                _service = (com.sirius.service.cart.cart.wsdl.CartService_Service)ctx.lookup("java:comp/env/service/CartService");
+                _service = (com.sirius.service.generate.cart.wsdl.GenerateCartService)ctx.lookup("java:comp/env/service/GenerateCartService");
             }
             catch (NamingException e)
             {
@@ -51,15 +50,15 @@ public class CartProxy{
             }
 
             if (_service == null && !_useJNDIOnly)
-                _service = new com.sirius.service.cart.cart.wsdl.CartService_Service();
+                _service = new com.sirius.service.generate.cart.wsdl.GenerateCartService();
             initCommon();
         }
 
         private void initCommon() {
-            _proxy = _service.getCart();
+            _proxy = _service.getGenerate();
         }
 
-        public com.sirius.service.cart.cart.wsdl.CartService getProxy() {
+        public com.sirius.service.generate.cart.wsdl.CartGenerateService getProxy() {
             return _proxy;
         }
 
@@ -70,7 +69,7 @@ public class CartProxy{
 
         public Dispatch<Source> getDispatch() {
             if (_dispatch == null ) {
-                QName portQName = new QName("http://cart.service.sirius.com/cart/wsdl", "cart");
+                QName portQName = new QName("http://generate.service.sirius.com/cart/wsdl", "generate");
                 _dispatch = _service.createDispatch(portQName, Source.class, Service.Mode.MESSAGE);
 
                 String proxyEndpointUrl = getEndpoint();
@@ -103,12 +102,12 @@ public class CartProxy{
         }
     }
 
-    public CartProxy() {
+    public GenerateProxy() {
         _descriptor = new Descriptor();
         _descriptor.setMTOMEnabled(false);
     }
 
-    public CartProxy(URL wsdlLocation, QName serviceName) {
+    public GenerateProxy(URL wsdlLocation, QName serviceName) {
         _descriptor = new Descriptor(wsdlLocation, serviceName);
         _descriptor.setMTOMEnabled(false);
     }
@@ -117,44 +116,8 @@ public class CartProxy{
         return _descriptor;
     }
 
-    public boolean addProductToCart(OrderBean order, BudgetBean budget, int createdBy) {
-        return _getDescriptor().getProxy().addProductToCart(order,budget,createdBy);
-    }
-
-    public List<OrderBean> getAllProductsInCart(int locationId) {
-        return _getDescriptor().getProxy().getAllProductsInCart(locationId);
-    }
-
-    public boolean updateProductQuantityInCart(int locationId, int quantity, int productId, int updatedBy) {
-        return _getDescriptor().getProxy().updateProductQuantityInCart(locationId,quantity,productId,updatedBy);
-    }
-
-    public boolean removeProductFromCart(int orderId, int updatedBy) {
-        return _getDescriptor().getProxy().removeProductFromCart(orderId,updatedBy);
-    }
-
-    public boolean saveOrder(List<Integer> productIdList, String orderName, BudgetBean budget, int locationId, int createdBy) {
-        return _getDescriptor().getProxy().saveOrder(productIdList,orderName,budget,locationId,createdBy);
-    }
-
-    public List<OrderBean> getOrderByOrderName(String orderName, int locationId) {
-        return _getDescriptor().getProxy().getOrderByOrderName(orderName,locationId);
-    }
-
-    public List<OrderBean> getAllProductsInCartByProductType(int locationId, String productType) {
-        return _getDescriptor().getProxy().getAllProductsInCartByProductType(locationId,productType);
-    }
-
-    public int getProductQuantityInCartByProductId(int locationId, int productId) {
-        return _getDescriptor().getProxy().getProductQuantityInCartByProductId(locationId,productId);
-    }
-
-    public List<OrderBean> getAllSavedOrders(int locationId) {
-        return _getDescriptor().getProxy().getAllSavedOrders(locationId);
-    }
-
-    public BudgetBean getMostRecentBudgetByLocation(int locationId) {
-        return _getDescriptor().getProxy().getMostRecentBudgetByLocation(locationId);
+    public boolean generateCart() {
+        return _getDescriptor().getProxy().generateCart();
     }
 
 }

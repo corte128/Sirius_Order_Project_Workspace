@@ -14,6 +14,7 @@ import javax.json.JsonArrayBuilder;
 import javax.json.JsonValue;
 import javax.json.JsonWriter;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +30,7 @@ import com.sirius.product.service.main.product.wsdl.ProductBean;
 import com.sirius.product.service.main.product.wsdl.ProductSearchDAO;
 import com.sirius.service.cart.cart.wsdl.CartServiceDAO;
 import com.sirius.service.cart.cart.wsdl.OrderBean;
+import com.sirius.service.generate.cart.wsdl.GenerateCartClientDAO;
 import com.sirius.wishlistws.wishlist.wsdl.WishlistDAO;
 
 /**
@@ -44,7 +46,14 @@ public class NavigationServlet extends HttpServlet {
 	 */
 	public NavigationServlet() {
 		super();
-		// TODO Auto-generated constructor stub
+	}
+	
+	/**
+	 * @see Servlet#init(ServletConfig)
+	 */
+	public void init(ServletConfig config) throws ServletException {
+//		GenerateCartClientDAO generate = new GenerateCartClientDAO();
+//		generate.GenerateCart();
 	}
 
 	/**

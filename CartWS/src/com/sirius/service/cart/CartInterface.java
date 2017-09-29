@@ -12,6 +12,8 @@ import javax.xml.ws.ResponseWrapper;
 import com.sirius.service.cart.bean.BudgetBean;
 import com.sirius.service.cart.bean.OrderBean;
 
+
+
 /**
  * Cart Services
  * Adds product to cart
@@ -175,6 +177,15 @@ public interface CartInterface {
 	@RequestWrapper(localName = "getAllSavedOrders", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetAllSavedOrders")
 	@ResponseWrapper(localName = "getAllSavedOrdersResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetAllSavedOrdersResponse")
 	public List<OrderBean> getAllSavedOrders(
+			@WebParam(name="locationId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+			int locationId
+			);
+	
+	@WebMethod(action = "getMostRecentBudgetByLocation")
+	@WebResult(name = "getMostRecentBudgetByLocationReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+	@RequestWrapper(localName = "getMostRecentBudgetByLocation", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetMostRecentBudgetByLocation")
+	@ResponseWrapper(localName = "getMostRecentBudgetByLocationsResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetMostRecentBudgetByLocationResponse")
+	public BudgetBean getMostRecentBudgetByLocation(
 			@WebParam(name="locationId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
 			int locationId
 			);

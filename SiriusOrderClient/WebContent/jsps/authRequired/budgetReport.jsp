@@ -126,9 +126,9 @@
 					</aside>
 				</div>
 				<div class="row">
-					<div id="budgetChartContainer" class="col-md-6">
+					<div id="budgetChartContainer">
 					</div>
-					<div id="budgetGridContainer" class="col-md-6">
+					<div id="budgetGridContainer">
 						<table id="budgetGrid" class="display nowrap dataTable dtr-inline" 
 							cellspacing="0" width="100%"
 						>

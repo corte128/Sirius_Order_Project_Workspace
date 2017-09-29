@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://generate.service.sirius.com/cart/wsdl" xmlns:tns="http://generate.service.sirius.com/cart/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="generateCart" type="tns:generateCart"/>
+
+  <xs:element name="generateCartResponse" type="tns:generateCartResponse"/>
+
+  <xs:complexType name="generateCart">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="generateCartResponse">
+    <xs:sequence>
+      <xs:element name="generateCartReturn" type="xs:boolean" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

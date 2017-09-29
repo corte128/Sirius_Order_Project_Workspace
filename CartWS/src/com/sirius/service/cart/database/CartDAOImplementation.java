@@ -1,10 +1,12 @@
 package com.sirius.service.cart.database;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -752,5 +754,56 @@ public class CartDAOImplementation {
 		
 		return orderList;
 		
+	}
+	public static BudgetBean getMostRecentBudgetByLocation(int locationId, Connection conn) throws SQLException
+	{
+		String query = queries.getString("GET_SAVED_ORDERS");
+		PreparedStatement statement = null;
+		BudgetBean budget = new BudgetBean();
+		Date x = null;
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.DAY_OF_WEEK, 1);
+		
+		ResultSet results = null;
+		
+		try {
+			logger.log(Level.FINE, "Preparing to execute order query: ");
+			logger.log(Level.FINE, "   " + query);
+			//setting budget to the table
+			try {
+				statement = conn.prepareStatement(query);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			statement.setInt(1, locationId);
+			statement.setDate(2, x, cal);
+			logger.log(Level.FINE,
+					"Setting the order based on the paramaters: ");
+			logger.log(Level.FINE, "   int: " + locationId);
+			// executing creation statement
+			results = statement.executeQuery();
+			
+			if(results.next())
+			{
+				budget.setId(results.getInt("budget_id_pk"));
+				budget.setOrderId(results.getInt("order_id_fk"));
+				budget.setLocationId(results.getInt("location_id_fk"));
+				budget.setBudgetDate(results.getDate("budget_date"));
+				budget.setBudgetAllotted(results.getBigDecimal("budget_allotted"));
+				budget.setBudgetRecommended(results.getBigDecimal("budget_recommended"));
+			}
+			logger.log(Level.FINE,"products acquired");
+		}
+		finally {
+			if (statement != null) {
+				DBConnection.closePreparedStatement(statement);
+			}
+			if (results != null){
+				DBConnection.closeResultSet(results);
+			}
+		}
+		
+		return budget;
 	}
 }

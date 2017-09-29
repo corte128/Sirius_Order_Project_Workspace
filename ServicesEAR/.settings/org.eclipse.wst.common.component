@@ -41,5 +41,9 @@
             <dependent-object>Module_1506693221221</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="GenerateCartWS.war" deploy-path="/" handle="module:/resource/GenerateCartWS/GenerateCartWS">
+            <dependent-object>Module_1506713342936</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>
