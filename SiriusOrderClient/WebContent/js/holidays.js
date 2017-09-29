@@ -37,14 +37,14 @@ $(function ()
         ],
         customRowButtons: [
             { 
-            	uiButton: { label: 'Save' },
+            	uiButton: { label: 'Save', showLabel: false },
             	click: saveEntry, 
             	btnAttr: { title: 'Save Entry' }, 
             	btnClass: 'save_button',
             	atTheFront: true 
             },
             { 
-            	uiButton: { label: 'Delete' }, 
+            	uiButton: { label: 'Delete', showLabel: false }, 
             	click: deleteEntry, 
             	btnAttr: { title: 'Delete Entry' }, 
             	btnClass: 'delete_button'
@@ -163,4 +163,14 @@ function getTableData ()
 		}
 	};
 	xhttp.send();
+}
+
+function resizeAppendGrid(){
+	var mq = window.matchMedia("(min-width: 500px)");
+    if(mq.matches){
+    	$("#tblAppendGrid").appendGrid('showColumn', 'DayofWeek');
+    }
+    else{
+    	$("#tblAppendGrid").appendGrid('hideColumn', 'DayofWeek');
+    }
 }
