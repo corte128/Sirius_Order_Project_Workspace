@@ -119,21 +119,23 @@ public class BudgetServlet extends HttpServlet {
 				mainDocument.addPage(myPage);
 				contentStream = new PDPageContentStream(
 						mainDocument, myPage);
-				String[][] contentForTable = new String[list.size()+1][3];
+				String[][] contentForTable = new String[list.size()+1][4];
 				for (int i = 0; i < list.size()+1; i++){
 					if(i==0){
-						contentForTable[0][0] = "Name :";
-						contentForTable[0][1] = "From :";
-						contentForTable[0][2] = "To :";
+						contentForTable[0][0] = "Date Range";
+						contentForTable[0][1] = "Actual";
+						contentForTable[0][2] = "Budget";
+						contentForTable[0][3] = "Variance";
 					}else{
 					contentForTable[i][0] = list.get(i-1).getTime();
 					contentForTable[i][1] = "$" + list.get(i-1).getActual();
 					contentForTable[i][2] = "$" + list.get(i-1).getBudget();
+					contentForTable[i][3]= "$" + (list.get(i-1).getActual().subtract(list.get(i-1).getBudget()));
 					}
 					
 				}
 				
-				drawTable(myPage, contentStream, 750, 40, contentForTable);
+				drawTable(myPage, contentStream, 750, 30, contentForTable);
 				contentStream.close();
 			}
 			contentStream.close();
