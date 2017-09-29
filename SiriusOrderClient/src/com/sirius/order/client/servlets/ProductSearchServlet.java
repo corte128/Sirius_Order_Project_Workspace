@@ -8,6 +8,8 @@ import java.util.List;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 import javax.json.JsonWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -47,6 +49,7 @@ public class ProductSearchServlet extends HttpServlet {
 			int userId = (Integer) request.getSession().getAttribute("activeUserID");
 			boolean alreadyLiked = false;
 			List<com.sirius.wishlistws.wishlist.wsdl.ProductBean> productsLiked = WishlistDAO.getAllProductsEmployeeLiked(userId);
+			boolean likedLimit = productsLiked.size() < 5;
 			for(com.sirius.wishlistws.wishlist.wsdl.ProductBean bean : productsLiked){
 				if(bean.getId() == id){
 					alreadyLiked = true;
@@ -55,26 +58,36 @@ public class ProductSearchServlet extends HttpServlet {
 			if(alreadyLiked){
 				WishlistDAO.removeFromEmployeeWishlist(userId, id);
 			}
-			else{
+			else if(likedLimit){
 				WishlistDAO.addToLikeTable(userId, id);
 			}
-			
-			List<EmployeeBean> emps = WishlistDAO.getAllEmployeesWhoLikedProduct(id, location_id);
-			List<String> empNames = new ArrayList<String>();
-			for(EmployeeBean emp : emps){
-				empNames.add(emp.getName());
+			else{
+				JsonObjectBuilder objBuilder = Json.createObjectBuilder();
+				objBuilder.add("limit", 1);
+				JsonObject output = objBuilder.build();
+				PrintWriter out = response.getWriter();
+				JsonWriter writer = Json.createWriter(out);
+				writer.write(output);
+				writer.close();
 			}
-//			request.setAttribute("LikesForProduct:" + id,  empNames);
-//			JsonObjectBuilder objBuilder = Json.createObjectBuilder();
-			JsonArrayBuilder builder = Json.createArrayBuilder();
-			for (String name : empNames) {
-				builder.add(name);
+			if(alreadyLiked || likedLimit){
+				List<EmployeeBean> emps = WishlistDAO.getAllEmployeesWhoLikedProduct(id, location_id);
+				List<String> empNames = new ArrayList<String>();
+				for(EmployeeBean emp : emps){
+					empNames.add(emp.getName());
+				}
+//				request.setAttribute("LikesForProduct:" + id,  empNames);
+//				JsonObjectBuilder objBuilder = Json.createObjectBuilder();
+				JsonArrayBuilder builder = Json.createArrayBuilder();
+				for (String name : empNames) {
+					builder.add(name);
+				}
+				JsonArray output = builder.build();
+				PrintWriter out = response.getWriter();
+				JsonWriter writer = Json.createWriter(out);
+				writer.writeArray(output);
+				writer.close();
 			}
-			JsonArray output = builder.build();
-			PrintWriter out = response.getWriter();
-			JsonWriter writer = Json.createWriter(out);
-			writer.writeArray(output);
-			writer.close();
 		}
 		else{
 	        String name = request.getParameter("search");
