@@ -8,12 +8,12 @@
 		<project>MailWS</project>
 		<project>LoginWS</project>
 		<project>LocationWS</project>
+		<project>GenerateCartWS</project>
 		<project>AttendanceWS</project>
 		<project>AdminWS</project>
 		<project>SearchWS</project>
 		<project>EmployeeWS</project>
 		<project>CartWS</project>
-		<project>GenerateCartWS</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
