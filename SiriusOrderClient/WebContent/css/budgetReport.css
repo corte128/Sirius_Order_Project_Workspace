@@ -139,6 +139,11 @@ and (max-device-width : 568px) {
 	#budgetReportGenerateReportButton{
 		margin-right: 5px;
 	}
-
+div#budgetChartContainer {
+    /* overflow-y: auto; */
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: auto;
+}
 	
 }
