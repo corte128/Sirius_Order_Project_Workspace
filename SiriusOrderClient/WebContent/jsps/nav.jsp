@@ -31,17 +31,18 @@
 				</div>
 			-->
 				<ul id="navSidebarIconLinksList">
-					<li>
-						<a href="/SiriusOrderClient/NavigationServlet?action=wishlist">
-							<div class="nav-sidebar-icon-image-container">
-								<img class="nav-sidebar-icon-image nav-icon-image-shadow" 
-									src="/SiriusOrderClient/assets/wishlist_icon.png" 
-									alt="Wishlist Icon"
-								/>
-							</div>
-						</a>
-					</li>
-					
+					<c:if test="${sessionScope.activeUserType == 1 || sessionScope.activeUserType == 2}">
+						<li>
+							<a href="/SiriusOrderClient/NavigationServlet?action=wishlist">
+								<div class="nav-sidebar-icon-image-container">
+									<img class="nav-sidebar-icon-image nav-icon-image-shadow" 
+										src="/SiriusOrderClient/assets/wishlist_icon.png" 
+										alt="Wishlist Icon"
+									/>
+								</div>
+							</a>
+						</li>
+					</c:if>
 					<c:if test="${sessionScope.activeUserType == 2}">
 						<li>	
 							<a href="/SiriusOrderClient/NavigationServlet?action=cart">
@@ -83,7 +84,7 @@
 							</div>
 						</li>
 					</c:if>
-					<c:if test="${sessionScope.activeUserType == 3}">
+					<c:if test="${sessionScope.activeUserType == 2}">
 						<li>
 							<div id="adminNavIconContainer" 
 								class="nav-sidebar-icon-image-container" 
@@ -127,13 +128,15 @@
 		</div>
     	
 		<ul id="navIconLinksList">
-			<li class="nav-link-option-container">
-				<a href="/SiriusOrderClient/NavigationServlet?action=wishlist">
-					<div class="nav-icon-image-container">
-						<img class="nav-icon-image nav-icon-image-shadow" src="/SiriusOrderClient/assets/wishlist_icon.png" alt="Wishlist Icon"/>
-					</div>
-				</a>
-			</li>
+			<c:if test="${sessionScope.activeUserType == 1 || sessionScope.activeUserType == 2}">
+				<li class="nav-link-option-container">
+					<a href="/SiriusOrderClient/NavigationServlet?action=wishlist">
+						<div class="nav-icon-image-container">
+							<img class="nav-icon-image nav-icon-image-shadow" src="/SiriusOrderClient/assets/wishlist_icon.png" alt="Wishlist Icon"/>
+						</div>
+					</a>
+				</li>
+			</c:if>
 			<c:if test="${sessionScope.activeUserType == 2}">
 				<li class="nav-link-option-container">
 					<a href="/SiriusOrderClient/NavigationServlet?action=cart">
@@ -173,7 +176,7 @@
 					</div>
 				</li>
 			</c:if>
-			<c:if test="${sessionScope.activeUserType == 3}">
+			<c:if test="${sessionScope.activeUserType == 2}">
 				<li onmouseout="closeAdminModal()" class="nav-link-option-container">
 					<div id="navAdminSubModal" onmouseover="showAdminModal()" onmouseout="closeAdminModal()">
 						<div id="adminNavSubModalTextContainer">

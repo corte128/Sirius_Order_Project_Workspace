@@ -13,6 +13,7 @@
 		<project>SearchWS</project>
 		<project>EmployeeWS</project>
 		<project>CartWS</project>
+		<project>GenerateCartWS</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
