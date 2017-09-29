@@ -22,6 +22,7 @@ body
 {
 	background-color: #ECECEC;
 	padding: 10px 20px 10px 20px;
+	margin-bottom: 1px;
 	width: 90px;
 }
 .cart-product-image-container img
@@ -148,7 +149,7 @@ body
 	background-color: white;
 	display: none;
 	overflow-y: auto;
-	
+	overflow-x: hidden;
 }
 .cart-modal-color-alternate-container:nth-child(odd)
 {
@@ -174,11 +175,13 @@ body
 }
 .order-container
 {
+	margin-top: 5px;
 	display: none;
 	border-top: 0.5px solid black;
 }
 .cart-order-container
 {
+	margin-top: 5px;
 	border-top: 0.5px solid black;
 }
 .order-item-container
@@ -324,5 +327,15 @@ main
 	.cart-summary-container
 	{
 		font-size: 9px;
+	}
+	.cart-modal
+	{
+		left: 15vw;
+    	width: 70vw;
+	}
+	.order-title-text-container
+	{
+		font-size: 12px;
+		margin-top: 9px;
 	}
 }
