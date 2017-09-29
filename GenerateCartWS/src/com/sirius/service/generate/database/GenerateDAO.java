@@ -74,7 +74,8 @@ public class GenerateDAO {
 
 			// gets the all the attendance from the previous week
 			List<AttendanceRecordBean> attendanceResults = attendance
-					.getAttendanceRecords("%", "%", String.valueOf(locationId), beginDate, endDate);
+					.getAttendanceRecords("%", "%", String.valueOf(locationId),
+							beginDate, endDate);
 			numberOfEmployees = attendanceResults.size();
 
 			// gets the holidays and checks if the holidays are with in the date
@@ -90,7 +91,7 @@ public class GenerateDAO {
 				}
 			}
 			conn = DBConnection.getConnection();
-			
+
 			// gets the visitors for the week
 			numberOfEmployees += GenerateDAOImplementation.getNumberOfVisitors(
 					conn, locationId, beginningOfWeek.toString(),
@@ -118,98 +119,113 @@ public class GenerateDAO {
 	 * @return boolean
 	 */
 	public static boolean generateCart() {
-		boolean flag = true;
+		boolean flag = false;
+		Connection conn = null;
 		CartProxy cp = new CartProxy();
-    	LocationProxy lpObj = new LocationProxy();
-    	List<LocationBean> locations = lpObj.getLocations();
-    	
-    	for(LocationBean location : locations){
-    		BigDecimal budget = generateBudget(location.getId());
-    		int roundedBudget = budget.toBigInteger().intValue();
-    		BudgetBean budgetObj = new BudgetBean();
-    		OrderBean orderObj = new OrderBean();
-    		Connection conn = null;
-    		List<List<Integer>> items = null;
-    		
-			try{
-				conn = DBConnection.getConnection();
-				conn.setAutoCommit(false);
-				//get all products that were liked
-				items = GenerateDAOImplementation.getProductsLikesPrices(conn, location.getId());
-	
+		LocationProxy lpObj = new LocationProxy();
+		List<LocationBean> locations = lpObj.getLocations();
+		// clear out the carts
+		
+
+		try {
+			conn = DBConnection.getConnection();
+			conn.setAutoCommit(false);
+
+			//GenerateDAOImplementation.clearCart(conn);
+			
+			for (LocationBean location : locations) {
+				BigDecimal budget = generateBudget(location.getId());
+				int roundedBudget = budget.toBigInteger().intValue();
+				BudgetBean budgetObj = new BudgetBean();
+				OrderBean orderObj = new OrderBean();
+				List<List<Integer>> items = null;
+				
+				// get all products that were liked
+				items = GenerateDAOImplementation.getProductsLikesPrices(conn,
+						location.getId());
+
 				List<Integer> products = items.get(0);
-				Map<Integer,Integer> productsNeeded = new HashMap<Integer,Integer>();;
+				Map<Integer, Integer> productsNeeded = new HashMap<Integer, Integer>();
+				
 				int likes[] = new int[products.size()];
 				int prices[] = new int[products.size()];
-				
-				//converting to array lists
-				for(int index = 0; index<products.size(); index++){
+
+				// converting to array lists
+				for (int index = 0; index < products.size(); index++) {
 					likes[index] = items.get(1).get(index);
 					prices[index] = items.get(2).get(index);
 				}
-				
-				//optimize
-				productsNeeded = optimizationOfProductIds(roundedBudget, prices, likes, products.size());
-				
-				//gets the budget object and date
-				GregorianCalendar gCal = new GregorianCalendar();
-				gCal.setTime(new Date());
+
+				if(prices.length != 0){
+					// optimize
+					productsNeeded = optimizationOfProductIds(roundedBudget,
+							prices, likes, products.size());
 	
-				XMLGregorianCalendar calendar = null;
-				try {
-					calendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(gCal);
-				} catch (DatatypeConfigurationException e) {
-					e.printStackTrace();
-				}
-				budgetObj.setBudgetAllotted(budget);
-				budgetObj.setBudgetRecommended(budget);
-				budgetObj.setBudgetDate(calendar);
-				budgetObj.setLocationId(location.getId());
-				
-				
-				//adds the cart to the database
-				for(Integer key : productsNeeded.keySet()){
-					int quantity = productsNeeded.get(key);
-					BigDecimal totalPrice = new BigDecimal(items.get(2).get(key)*quantity);
-					
-					orderObj.setProductId(products.get(key));
-					orderObj.setQuantity(quantity);
-					orderObj.setOrderName("cart");
-					orderObj.setTotalPrice(totalPrice);
-					
-					cp.addProductToCart(orderObj, budgetObj, 0);
-				}
-				
-				//make re-occurring using scheduling
-				schedule();
-				conn.commit();
-			}catch (SQLException e) {
-				try {
-					conn.rollback();
-				} catch (SQLException e1) {
-					logger.log(Level.SEVERE,"SQL Exception Found: Couldn't roll back", e1);
-				} finally{
-					logger.log(Level.SEVERE,"SQL Exception Found: Incorrect properties", e);
-				}
-			} catch (Exception e){
-				try {
-					conn.rollback();
-				} catch (SQLException e1) {
-					logger.log(Level.SEVERE,"SQL Exception Found: Couldn't roll back", e1);
-				} finally{
-					logger.log(Level.SEVERE,"Exception Found ", e);
-				}
-			} finally{
-				if (conn != null){
+					// gets the budget object and date
+					GregorianCalendar gCal = new GregorianCalendar();
+					gCal.setTime(new Date());
+	
+					XMLGregorianCalendar calendar = null;
 					try {
-						DBConnection.closeConnection(conn);
-					} catch (SQLException e) {
-						logger.log(Level.SEVERE,"SQL Exception ", e);
+						calendar = DatatypeFactory.newInstance()
+								.newXMLGregorianCalendar(gCal);
+					} catch (DatatypeConfigurationException e) {
+						e.printStackTrace();
+					}
+					budgetObj.setBudgetAllotted(budget);
+					budgetObj.setBudgetRecommended(budget);
+					budgetObj.setBudgetDate(calendar);
+					budgetObj.setLocationId(location.getId());
+	
+					// adds the cart to the database
+					for (Integer key : productsNeeded.keySet()) {
+						int quantity = productsNeeded.get(key);
+						BigDecimal totalPrice = new BigDecimal(items.get(2)
+								.get(key) * quantity);
+	
+						orderObj.setProductId(products.get(key));
+						orderObj.setQuantity(quantity);
+						orderObj.setOrderName("cart");
+						orderObj.setTotalPrice(totalPrice);
+	
+						cp.addProductToCart(orderObj, budgetObj, 0);
 					}
 				}
+
 			}
-    	}
-				
+			// make re-occurring using scheduling
+			schedule();
+			conn.commit();
+			flag = true;
+		} catch (SQLException e) {
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				logger.log(Level.SEVERE,
+						"SQL Exception Found: Couldn't roll back", e1);
+			} finally {
+				logger.log(Level.SEVERE,
+						"SQL Exception Found: Incorrect properties", e);
+			}
+		} catch (Exception e) {
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				logger.log(Level.SEVERE,
+						"SQL Exception Found: Couldn't roll back", e1);
+			} finally {
+				logger.log(Level.SEVERE, "Exception Found ", e);
+			}
+		} finally {
+			if (conn != null) {
+				try {
+					DBConnection.closeConnection(conn);
+				} catch (SQLException e) {
+					logger.log(Level.SEVERE, "SQL Exception ", e);
+				}
+			}
+		}
+
 		return flag;
 	}
 
@@ -240,7 +256,7 @@ public class GenerateDAO {
 	 * @param productAmount
 	 * @return List<Integer>
 	 */
-	private static Map<Integer,Integer> optimizationOfProductIds(int budget,
+	private static Map<Integer, Integer> optimizationOfProductIds(int budget,
 			int price[], int likes[], int productAmount) {
 
 		int xCor = 0, yCor = 0;
@@ -248,7 +264,7 @@ public class GenerateDAO {
 		int lowCost = 0;
 		boolean completed = false;
 
-		Map<Integer,Integer> products = new HashMap<Integer,Integer>();
+		Map<Integer, Integer> products = new HashMap<Integer, Integer>();
 		List<ArrayList<KnapsackBean>> grid = null;
 		Set<Integer> optimalProductIds = null;
 
@@ -275,17 +291,17 @@ public class GenerateDAO {
 			// generates the total cost of the products
 			// and adds the product ids to return
 			for (Integer productId : optimalProductIds) {
-				if(products.containsKey(productId))
-					products.put(productId, products.get(productId)+1);
+				if (products.containsKey(productId))
+					products.put(productId, products.get(productId) + 1);
 				else
 					products.put(productId, 1);
-				
+
 				total += price[productId];
 				if (lowCost == 0 || lowCost > price[productId])
 					lowCost = price[productId];
 			}
 
-			//determine if there is money left in the budget
+			// determine if there is money left in the budget
 			if ((total + lowCost) > budget)
 				completed = true;
 			else
@@ -344,7 +360,9 @@ public class GenerateDAO {
 				else {
 					K[i][w] = K[i - 1][w];
 
-					kBean.setProductId(grid.get(i - 1).get(w).getProductId());// change												// id
+					kBean.setProductId(grid.get(i - 1).get(w).getProductId());// change
+																				// //
+																				// id
 					kBean.setWeight(K[i - 1][w]);
 					kBean.setxCor(i - 1);
 					kBean.setyCor(w);
@@ -367,28 +385,27 @@ public class GenerateDAO {
 	private static int max(int a, int b) {
 		return (a > b) ? a : b;
 	}
-	
-	private static void schedule() throws NamingException, RemoteException, CreateException, UserCalendarSpecifierInvalid, UserCalendarPeriodInvalid{
+
+	private static void schedule() throws NamingException, RemoteException,
+			CreateException, UserCalendarSpecifierInvalid,
+			UserCalendarPeriodInvalid {
 		// Create an initial context
 		InitialContext ctx = new InitialContext();
 
 		// Lookup and narrow the default UserCalendar home.
-		UserCalendarHome defaultCalHome=(UserCalendarHome)
-			PortableRemoteObject.narrow(ctx.lookup(
-		      UserCalendarHome.DEFAULT_CALENDAR_JNDI_NAME), 
-			   UserCalendarHome.class);
+		UserCalendarHome defaultCalHome = (UserCalendarHome) PortableRemoteObject
+				.narrow(ctx.lookup(UserCalendarHome.DEFAULT_CALENDAR_JNDI_NAME),
+						UserCalendarHome.class);
 
 		// Create the default UserCalendar instance.
 		UserCalendar defaultCal = defaultCalHome.create();
 
 		// Calculate a date using CRON based on the current
-		// date and time.  Return the next date that is 
+		// date and time. Return the next date that is
 		// Sunday at 11am
 		// 0 0 11 ? * SUN
-		Date newDate = 
-		    defaultCal.applyDelta(new Date(), 
-		        "CRON", "0 0 11 ? * SUN");
+		Date newDate = defaultCal.applyDelta(new Date(), "CRON",
+				"0 0 11 ? * SUN");
 	}
 
-	
 }

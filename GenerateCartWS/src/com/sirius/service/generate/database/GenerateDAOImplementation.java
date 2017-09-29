@@ -112,4 +112,31 @@ public class GenerateDAOImplementation {
 
 		return results;
 	}
+
+	/**
+	 * Clear
+	 * @param conn
+	 * @param id
+	 * @throws SQLException 
+	 */
+	public static void clearCart(Connection conn) throws SQLException {
+		PreparedStatement statement = null;
+
+		String orderQuery = queries.getString("CLEAR_CART");
+
+		try {
+			logger.log(Level.FINE, "Preparing to execute query: ");
+			logger.log(Level.FINE, "   " + orderQuery);
+			// getting budget from the table
+			statement = conn.prepareStatement(orderQuery);
+
+			// executing select statement
+			statement.executeUpdate();
+
+		} finally {
+			if (statement != null) {
+				DBConnection.closePreparedStatement(statement);
+			}
+		}
+	}
 }
