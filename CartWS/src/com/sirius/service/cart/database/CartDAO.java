@@ -313,6 +313,13 @@ public class CartDAO {
 		
 		return orders;
 	}
+	
+	/**
+	 * gets all products in carts by type
+	 * @param locationId
+	 * @param productType
+	 * @return List<OrderBean>
+	 */
 	public static List<OrderBean> getAllProductsInCartByProductType(int locationId, String productType)
 	{
 		Connection conn = null;
@@ -398,7 +405,11 @@ public class CartDAO {
 		return output;
 	}
 	
-	
+	/**
+	 * gets all saved orders
+	 * @param locationId
+	 * @return List<OrderBean>
+	 */
 	public static List<OrderBean> getAllSavedOrders(int locationId) 
 	{
 		Connection conn = null;
@@ -437,6 +448,12 @@ public class CartDAO {
 		}
 		return output;
 	}
+	
+	/**
+	 * gets the most recent budget by Location
+	 * @param locationId
+	 * @return BudgetBean
+	 */
 	public static BudgetBean getMostRecentBudgetByLocation(int locationId)
 	{
 		Connection conn = null;
@@ -474,5 +491,42 @@ public class CartDAO {
 			}
 		}
 		return output;
+	}
+
+	/**
+	 * gets all order by product type even if they aren't in the cart
+	 * @param locationId
+	 * @param productTypeId
+	 * @return List<OrderBean>
+	 */
+	public static List<OrderBean> getAllOrdersByProdutType(int locationId,
+			int productTypeId) {
+		Connection conn = null;
+		List<OrderBean> orders = new ArrayList<OrderBean>();
+		
+		try{
+			conn = DBConnection.getConnection();
+			orders = CartDAOImplementation.getAllOrdersByProdutType(locationId, productTypeId, conn);
+		}catch(NamingException e){
+			logger.log(Level.SEVERE,"Naming Exception Found: Incorrect naming", e);
+		}catch(SQLException e){
+			logger.log(Level.SEVERE,"SQL Exception Found: Incorrect properties", e);
+		}catch(Exception e){
+			logger.log(Level.SEVERE,"Exception Found ", e);
+		}finally{
+			if(conn != null)
+			{
+				try
+				{
+					DBConnection.closeConnection(conn);
+				}
+				catch(SQLException e)
+				{
+					logger.log(Level.SEVERE,"SQL Exception ", e);
+				}
+			}
+		}
+		
+		return orders;
 	}
 }

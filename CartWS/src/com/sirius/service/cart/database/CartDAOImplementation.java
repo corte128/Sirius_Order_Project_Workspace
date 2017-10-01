@@ -707,6 +707,13 @@ public class CartDAOImplementation {
 		}
 	}
 	
+	/**
+	 * Gets all the saved orders
+	 * @param locationId
+	 * @param conn
+	 * @return List<OrderBean>
+	 * @throws SQLException
+	 */
 	public static List<OrderBean> getAllSavedOrders(int locationId, Connection conn) throws SQLException{
 		//GET_SAVED_ORDERS
 		String orderQuery = queries.getString("GET_SAVED_ORDERS");
@@ -755,6 +762,14 @@ public class CartDAOImplementation {
 		return orderList;
 		
 	}
+	
+	/**
+	 * gets the most recent budget by location
+	 * @param locationId
+	 * @param conn
+	 * @return BudgetBean
+	 * @throws SQLException
+	 */
 	public static BudgetBean getMostRecentBudgetByLocation(int locationId, Connection conn) throws SQLException
 	{
 		String query = queries.getString("GET_SAVED_ORDERS");
@@ -805,5 +820,63 @@ public class CartDAOImplementation {
 		}
 		
 		return budget;
+	}
+
+	/**
+	 * Get all orders by product type even if they aren't in the cart
+	 * @param locationId
+	 * @param productTypeId
+	 * @param conn
+	 * @return List<OrderBean>
+	 * @throws SQLException 
+	 */
+	public static List<OrderBean> getAllOrdersByProdutType(int locationId,
+			int productTypeId, Connection conn) throws SQLException {
+		PreparedStatement statement = null;
+		List<OrderBean> orders = new ArrayList<OrderBean>();
+		ResultSet results = null;
+		String orderQuery = queries.getString("GET_ALL_PRODUCTS_BY_TYPE");
+
+		try {
+			logger.log(Level.FINE, "Preparing to execute order query: ");
+			logger.log(Level.FINE, "   " + orderQuery);
+			// setting budget to the table
+			statement = conn.prepareStatement(orderQuery);
+			statement.setInt(1, locationId);
+			statement.setInt(2, productTypeId);
+			
+			logger.log(Level.FINE,
+					"Getting the order based on the paramaters: ");
+			logger.log(Level.FINE, "   int: " + locationId);
+			logger.log(Level.FINE, "   int: " + productTypeId);
+
+			// executing creation statement
+			results = statement.executeQuery();
+			
+			// sifting through the result set and populating the orders
+			while(results.next()){
+				OrderBean order = new OrderBean();
+				
+				order.setId(results.getInt("order_id_pk"));
+				order.setOrderName(results.getString("order_name"));
+				order.setProductId(results.getInt("product_id_fk"));
+				order.setTotalPrice(results.getBigDecimal("total_price"));
+				order.setQuantity(results.getInt("quantity"));
+				
+				orders.add(order);
+				logger.log(Level.FINE,"acquired order #: " + order.getId());
+			}
+
+			logger.log(Level.FINE,"products acquired");
+		} finally {
+			if (statement != null) {
+				DBConnection.closePreparedStatement(statement);
+			}
+			if (results != null){
+				DBConnection.closeResultSet(results);
+			}
+		}
+		
+		return orders;
 	}
 }

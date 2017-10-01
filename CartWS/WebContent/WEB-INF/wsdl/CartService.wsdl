@@ -66,6 +66,12 @@
   <message name="getMostRecentBudgetByLocationResponse">
     <part name="parameters" element="tns:getMostRecentBudgetByLocationsResponse"/>
   </message>
+  <message name="getAllOrdersByProductType">
+    <part name="parameters" element="tns:getAllOrdersByProductType"/>
+  </message>
+  <message name="getAllOrdersByProductTypeResponse">
+    <part name="parameters" element="tns:getAllOrdersByProductTypeResponse"/>
+  </message>
   <portType name="CartService">
     <operation name="addProductToCart">
       <input wsam:Action="addProductToCart" message="tns:addProductToCart"/>
@@ -106,6 +112,10 @@
     <operation name="getMostRecentBudgetByLocation">
       <input wsam:Action="getMostRecentBudgetByLocation" message="tns:getMostRecentBudgetByLocation"/>
       <output wsam:Action="http://cart.service.sirius.com/cart/wsdl/CartService/getMostRecentBudgetByLocationResponse" message="tns:getMostRecentBudgetByLocationResponse"/>
+    </operation>
+    <operation name="getAllOrdersByProductType">
+      <input wsam:Action="getAllOrdersByProductType" message="tns:getAllOrdersByProductType"/>
+      <output wsam:Action="http://cart.service.sirius.com/cart/wsdl/CartService/getAllOrdersByProductTypeResponse" message="tns:getAllOrdersByProductTypeResponse"/>
     </operation>
   </portType>
   <binding name="cartBinding" type="tns:CartService">
@@ -200,10 +210,19 @@
         <soap:body use="literal"/>
       </output>
     </operation>
+    <operation name="getAllOrdersByProductType">
+      <soap:operation soapAction="getAllOrdersByProductType"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
   </binding>
   <service name="CartService">
     <port name="cart" binding="tns:cartBinding">
-      <soap:address location="http://localhost:9080/CartWS/CartService"/>
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
     </port>
   </service>
 </definitions>

@@ -68,4 +68,10 @@ public class CartImplementation implements CartInterface
 	{
 		return CartDAO.getMostRecentBudgetByLocation(locationId);
 	}
+
+	@Override
+	public List<OrderBean> getAllOrdersByProductType(int locationId,
+			int productTypeId) {
+		return CartDAO.getAllOrdersByProdutType(locationId, productTypeId);
+	}
 }
