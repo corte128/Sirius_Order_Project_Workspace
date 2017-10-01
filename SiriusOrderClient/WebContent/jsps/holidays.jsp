@@ -31,7 +31,7 @@
 	<jsp:forward page = "/jsps/welcome.jsp" />
 </c:if>
 </head>
-<body onresize="resizeAppendGrid()">       
+<body onresize="resizeAppendGrid()">   
 	<header> 
 		<%@ include file="header.jsp" %>
 	</header>

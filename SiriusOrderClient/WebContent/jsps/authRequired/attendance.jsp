@@ -157,7 +157,7 @@
 					</div>
 					<div class="hideDownloadDiv" id="downloadDiv">
 						<fmt:message key="ATTENDANCE_PDF_GENERATED" /> <br /> <a
-							href="/SiriusOrderClient/generatedPDF/test-pdf.pdf"
+							href="/SiriusOrderClient/generatedPDF/attendance-pdf.pdf"
 							target="_blank"><fmt:message key="ATTENDANCE_CLICK_DOWNLOAD" /></a>
 					</div>
 					<div id="displayDiv" ui-grid="gridOptions" ui-grid-pagination

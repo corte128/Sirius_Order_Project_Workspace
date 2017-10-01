@@ -462,7 +462,7 @@ public class CartDAO {
 		try
 		{
 			conn = DBConnection.getConnection();
-			//output = CartDAOImplementation.getMostRecentBudgetByLocation(locationId, conn);
+			output = CartDAOImplementation.getMostRecentBudgetByLocation(locationId, conn);
 		}
 		catch(NamingException e)
 		{

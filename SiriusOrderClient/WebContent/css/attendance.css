@@ -11,6 +11,10 @@ aside {
 ng-scope{
 witdh:100vw;
 }
+abbr[data-original-title], abbr[title] {
+    cursor: help;
+    border-bottom: none;
+}
 .attendancePageContainer {
 	flex: 7;
 }
