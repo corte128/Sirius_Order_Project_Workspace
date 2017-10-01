@@ -69,17 +69,19 @@
 							</div>
 							<div class="budget-search-box-input-container">
 								<select id="budgetSearchLocationInput">
+									<option value="" selected>
+										<fmt:message key="BUDGET_REPORT_SELECT_LABEL" />
+										 <fmt:message key="BUDGET_REPORT_LOCATION_LABEL" />
+									</option>
 									<c:choose>
-										<c:when test="${sessionScope.activeUserType} == 2">
-											<option value="${sessionScope.activeUserLocation}" selected>
-												${sessionScope.activeUserLocation}
-											</option>
+										<c:when test="${sessionScope.activeUserType == 2}">
+											<c:forEach var="location" items="${locations}">
+												<c:if test="${sessionScope.activeUserLocation == location.getId()}">
+													<option value="${location.getId()}" selected>${location.getCity()}, ${location.getState()}</option>
+												</c:if>
+											</c:forEach>
 										</c:when>
 										<c:otherwise>
-											<option value="" selected>
-												<fmt:message key="BUDGET_REPORT_SELECT_LABEL" />
-												 <fmt:message key="BUDGET_REPORT_LOCATION_LABEL" />
-											</option>
 											<c:forEach var="location" items="${locations}">
 												<option value="${location.getId()}">${location.getCity()}, ${location.getState()}</option>
 											</c:forEach>
@@ -149,7 +151,7 @@
 				<div class="hideDownloadDiv" id="downloadDiv">
 						Your PDF has been generated
 						<br />
-						<a href="/SiriusOrderClient/generatedPDF/test-pdf.pdf" target="_blank">Click here to download</a>
+						<a href="/SiriusOrderClient/generatedPDF/budget-pdf.pdf" target="_blank">Click here to download</a>
 				</div>
 			</div>
 		</main>

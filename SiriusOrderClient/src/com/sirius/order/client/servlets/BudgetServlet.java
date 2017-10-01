@@ -110,7 +110,7 @@ public class BudgetServlet extends HttpServlet {
 			PDPage myPage = new PDPage();
 			PDDocument mainDocument = new PDDocument();
 			
-			String path = "C:/Users/IEUser/IBM/rationalsdp/Sirius_Order_Project_Workspace/SiriusOrderClient/WebContent/generatedPDF/test-pdf.pdf";
+			String path = "C:/Users/IEUser/IBM/rationalsdp/Sirius_Order_Project_Workspace/SiriusOrderClient/WebContent/generatedPDF/budget-pdf.pdf";
 			PDPageContentStream contentStream = new PDPageContentStream(mainDocument, myPage);
 			List<List<ActualvBudgetBean>> subLists = separateList(budgetReports, 35); 
 			
