@@ -1,5 +1,8 @@
 package com.sirius.order.client.action;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,6 +12,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import com.sirius.adminws.officeadmin.wsdl.OfficeAdminClientDAO;
 import com.sirius.employeews.employee.wsdl.EmployeeBean;
 import com.sirius.employeews.employee.wsdl.EmployeeClientDAO;
 import com.sirius.loginws.login.wsdl.LoginClientDAO;
@@ -46,6 +50,14 @@ public class LoginAction extends org.apache.struts.action.Action {
 					String picture = new String(emp.getPicture(),"UTF-8");
 					session.setAttribute("activeUserPicture", picture);
 				}
+				OfficeAdminClientDAO oficeAdminClient = new OfficeAdminClientDAO();
+				List<com.sirius.adminws.officeadmin.wsdl.EmployeeBean> employees = new ArrayList<com.sirius.adminws.officeadmin.wsdl.EmployeeBean>();
+				employees = oficeAdminClient
+						.getUnapprovedEmployees((Integer) session
+								.getAttribute("activeUserLocation"));
+				int numUnapprovedEmployees = employees.size();
+				session.setAttribute("numAlerts", numUnapprovedEmployees);
+				
 				return mapping.findForward(SUCCESS);
 			} else {
 				return mapping.findForward(FAILURE);

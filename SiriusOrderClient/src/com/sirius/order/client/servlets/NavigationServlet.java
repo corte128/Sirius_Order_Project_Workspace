@@ -30,6 +30,7 @@ import com.sirius.product.service.main.product.wsdl.ProductBean;
 import com.sirius.product.service.main.product.wsdl.ProductSearchDAO;
 import com.sirius.service.cart.cart.wsdl.CartServiceDAO;
 import com.sirius.service.cart.cart.wsdl.OrderBean;
+import com.sirius.service.generate.cart.wsdl.GenerateCartClientDAO;
 import com.sirius.wishlistws.wishlist.wsdl.WishlistDAO;
 
 /**
@@ -45,15 +46,14 @@ public class NavigationServlet extends HttpServlet {
 	 */
 	public NavigationServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
-		
+//		GenerateCartClientDAO generate = new GenerateCartClientDAO();
+//		generate.GenerateCart();
 	}
 
 	/**
@@ -79,6 +79,10 @@ public class NavigationServlet extends HttpServlet {
 		if (userId == null && !action.equalsIgnoreCase("registration"))
 		{
 			response.sendRedirect("jsps/login.jsp");
+		}
+		else if (action.equalsIgnoreCase("welcome")) 
+		{
+			response.sendRedirect("jsps/welcome.jsp");
 		} 
 		else if (action.equalsIgnoreCase("attendance"))
 		{

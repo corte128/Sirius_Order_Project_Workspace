@@ -11,8 +11,6 @@ public class GenerateImplementation implements GenerateInterface {
 
 	@Override
 	public boolean generateCart() {
-		//GenerateCart gcObj = new GenerateCart(10,35,30);
-		//gcObj.start();
 		return GenerateDAO.generateCart();
 	}
 
