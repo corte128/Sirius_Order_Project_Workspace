@@ -70,6 +70,12 @@ select {
 	background-color: white;
 }
 
+#noResults{
+	display: block;
+	font-style: italic;
+	margin-left: 10px;
+}
+
 /* Iphone 5 */
 @media only screen
 and (min-device-width : 320px)

@@ -69,110 +69,118 @@ function searchProducts()
 		$('#productContainer').empty();
 		var productContainer = document.getElementById('productContainer');
 		
-		var user = document.getElementById("userType").value;
-
-		for(key in response)
-		{
-			var image = document.createElement("img");
-			image.src = response[key].Image;
-			image.setAttribute("class", "productImage");
-			image.alt=response[key].Name;
-			var link = document.createElement("a");
-			link.href='/SiriusOrderClient/NavigationServlet?action=productDetails&id=' + response[key].ID;
-			link.appendChild(image);
-			var imageContainer = document.createElement("div");
-			imageContainer.setAttribute("class", "imageContainer");
-			imageContainer.appendChild(link);
-			
-			var name = document.createElement("p");
-			name.setAttribute("class", "nameLabel");
-			name.innerHTML = response[key].Name;
-			var nameDiv = document.createElement("div");
-			nameDiv.setAttribute("class", "productLabel");
-			nameDiv.appendChild(name);
-			
-			var spanHeart = document.createElement("span");
-			spanHeart.setAttribute("class", "glyphicon glyphicon-heart clickable-like");
-			spanHeart.onclick=(function() {
-				var id = response[key].ID;
-				return function(){
-					addToWishlist(id);
-				};
-			})();
-			/*==============================*/
-			var divPrice = document.createElement("div");
-			divPrice.setAttribute("class", "price-tag");
-			divPrice.innerHTML = '$ ' + response[key].Price;
-			var numOfLikes = document.createElement("span");
-			numOfLikes.id = "numOfLikes" + response[key].ID;
-			numOfLikes.setAttribute("class", "num-of-likes");
-			numOfLikes.innerHTML = response[key].Likers.length;
-			numOfLikes.onmouseover = (function (){
-				var id = response[key].ID;
-				return function(){
-					createModal(id);
-				};
-			})();
-			
-			numOfLikes.onmouseout = (function (){
-				var id = response[key].ID;
-				return function(){
-					deleteModal('likesModal' + id);
-				};
-			})();
-					
-			var divLikesAndPrice = document.createElement("div");
-			divLikesAndPrice.setAttribute("class", "likesAndPrice");
-			divLikesAndPrice.appendChild(spanHeart);
-			divLikesAndPrice.appendChild(numOfLikes);
-			divLikesAndPrice.appendChild(divPrice);
-			
-			var likesModal = document.createElement("div");
-			likesModal.setAttribute("class", 'likes-modal');
-			likesModal.id = 'likesModal' + response[key].ID;
-			for(nameKey in response[key].Likers){
-				var innerModalDiv = document.createElement("div");
-				innerModalDiv.innerHTML = response[key].Likers[nameKey];
-				likesModal.appendChild(innerModalDiv);
-			}
-			divLikesAndPrice.appendChild(likesModal);
-			
-			var addToCartBtnContainer = document.createElement("div");
-			if(user == 2){
-				addToCartBtnContainer.setAttribute("class", "add-to-cart-btn-container");
-				var addToCartBtn = document.createElement("input");
-				addToCartBtn.setAttribute("class", "addToCartBtn");
-				addToCartBtn.type="button";
-				addToCartBtn.onclick=(function (){
+		if(response.length > 0){
+			var user = document.getElementById("userType").value;
+			for(key in response)
+			{
+				var image = document.createElement("img");
+				image.src = response[key].Image;
+				image.setAttribute("class", "productImage");
+				image.alt=response[key].Name;
+				var link = document.createElement("a");
+				link.href='/SiriusOrderClient/NavigationServlet?action=productDetails&id=' + response[key].ID;
+				link.appendChild(image);
+				var imageContainer = document.createElement("div");
+				imageContainer.setAttribute("class", "imageContainer");
+				imageContainer.appendChild(link);
+				
+				var name = document.createElement("p");
+				name.setAttribute("class", "nameLabel");
+				name.innerHTML = response[key].Name;
+				var nameDiv = document.createElement("div");
+				nameDiv.setAttribute("class", "productLabel");
+				nameDiv.appendChild(name);
+				
+				var spanHeart = document.createElement("span");
+				spanHeart.setAttribute("class", "glyphicon glyphicon-heart clickable-like");
+				spanHeart.onclick=(function() {
 					var id = response[key].ID;
 					return function(){
-						addToCart(id);
+						addToWishlist(id);
 					};
 				})();
-				addToCartBtn.value="Add To Cart";
-				addToCartBtnContainer.appendChild(addToCartBtn);
-			}
+				/*==============================*/
+				var divPrice = document.createElement("div");
+				divPrice.setAttribute("class", "price-tag");
+				divPrice.innerHTML = '$ ' + response[key].Price;
+				var numOfLikes = document.createElement("span");
+				numOfLikes.id = "numOfLikes" + response[key].ID;
+				numOfLikes.setAttribute("class", "num-of-likes");
+				numOfLikes.innerHTML = response[key].Likers.length;
+				numOfLikes.onmouseover = (function (){
+					var id = response[key].ID;
+					return function(){
+						createModal(id);
+					};
+				})();
+				
+				numOfLikes.onmouseout = (function (){
+					var id = response[key].ID;
+					return function(){
+						deleteModal('likesModal' + id);
+					};
+				})();
+						
+				var divLikesAndPrice = document.createElement("div");
+				divLikesAndPrice.setAttribute("class", "likesAndPrice");
+				divLikesAndPrice.appendChild(spanHeart);
+				divLikesAndPrice.appendChild(numOfLikes);
+				divLikesAndPrice.appendChild(divPrice);
+				
+				var likesModal = document.createElement("div");
+				likesModal.setAttribute("class", 'likes-modal');
+				likesModal.id = 'likesModal' + response[key].ID;
+				for(nameKey in response[key].Likers){
+					var innerModalDiv = document.createElement("div");
+					innerModalDiv.innerHTML = response[key].Likers[nameKey];
+					likesModal.appendChild(innerModalDiv);
+				}
+				divLikesAndPrice.appendChild(likesModal);
+				
+				var addToCartBtnContainer = document.createElement("div");
+				if(user == 2){
+					addToCartBtnContainer.setAttribute("class", "add-to-cart-btn-container");
+					var addToCartBtn = document.createElement("input");
+					addToCartBtn.setAttribute("class", "addToCartBtn");
+					addToCartBtn.type="button";
+					addToCartBtn.onclick=(function (){
+						var id = response[key].ID;
+						return function(){
+							addToCart(id);
+						};
+					})();
+					addToCartBtn.value="Add To Cart";
+					addToCartBtnContainer.appendChild(addToCartBtn);
+				}
 
-			var productCard = document.createElement("div");
-			productCard.setAttribute("class", "productCard");
-			productCard.appendChild(imageContainer);
-			productCard.appendChild(nameDiv);
-			productCard.appendChild(divLikesAndPrice);
-			productCard.appendChild(addToCartBtnContainer);
+				var productCard = document.createElement("div");
+				productCard.setAttribute("class", "productCard");
+				productCard.appendChild(imageContainer);
+				productCard.appendChild(nameDiv);
+				productCard.appendChild(divLikesAndPrice);
+				productCard.appendChild(addToCartBtnContainer);
+				
+				var productAddedDiv = document.createElement("span");
+				productAddedDiv.setAttribute("class", "confirm-popup");
+				productAddedDiv.id = 'addConfirmed' + response[key].ID;
+				productAddedDiv.innerHTML = 'Product Added!';
+				
+				productCard.appendChild(productAddedDiv);
+				
+				var productCardContainer = document.createElement("div");
+				productCardContainer.setAttribute("class", "productContainerCard");
+				productCardContainer.appendChild(productCard);
+				
+				
+				productContainer.appendChild(productCardContainer);
+			}
+		}
+		else{
 			
-			var productAddedDiv = document.createElement("span");
-			productAddedDiv.setAttribute("class", "confirm-popup");
-			productAddedDiv.id = 'addConfirmed' + response[key].ID;
-			productAddedDiv.innerHTML = 'Product Added!';
-			
-			productCard.appendChild(productAddedDiv);
-			
-			var productCardContainer = document.createElement("div");
-			productCardContainer.setAttribute("class", "productContainerCard");
-			productCardContainer.appendChild(productCard);
-			
-			
-			productContainer.appendChild(productCardContainer);
+			var noResultsDiv = document.createElement("div");
+			noResultsDiv.id = 'noResults';
+			noResultsDiv.innerHTML = 'There are no results.';
+			productContainer.appendChild(noResultsDiv);
 		}
 	};
 	xhttp.send();
