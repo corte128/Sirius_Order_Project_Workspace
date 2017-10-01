@@ -56,7 +56,7 @@
 						</li>
 					</c:if>
 					
-					<c:if test="${sessionScope.activeUserType == 2}">
+					<c:if test="${sessionScope.activeUserType == 2 || sessionScope.activeUserType == 3}">
 						<li>	
 							<div id="reportsNavIconContainer" 
 								class="nav-sidebar-icon-image-container" 
@@ -146,7 +146,7 @@
 					</a>
 				</li>
 			</c:if>
-			<c:if test="${sessionScope.activeUserType == 2}">
+			<c:if test="${sessionScope.activeUserType == 2  || sessionScope.activeUserType == 3}">
 				<li onmouseout="closeReportsModal()" class="nav-link-option-container">
 					<div id="navReportsSubModal" onmouseover="showReportsModal()" onmouseout="closeReportsModal()">
 						<div id="reportsNavSubModalTextContainer">

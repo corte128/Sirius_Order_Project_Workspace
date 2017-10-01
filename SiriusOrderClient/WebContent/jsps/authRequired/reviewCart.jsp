@@ -18,13 +18,19 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	
 </head> 
-<body> 
+<body>
 	<%-- HEADER --%>
 	<header>
 		<%@ include file="../header.jsp"%>
 	</header>
 	<div id="cartAndNavContainer">
 		<main>
+			<div id="cartMainContentLabelContainer"><fmt:message key="CART_CART_LABEL" /></div>
+			<div id="breakroomAboveBudgetContainer">
+				<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" />
+				 <span id="breakroomAboveBudgetAmountContainer"></span>
+				 <fmt:message key="CART_ABOVE_BUDGET_LABEL" />
+			</div>
 			<div id="cartHeaderContainer">
 				<div id="cartHeaderProductImageContainerColumn" class="cart-product-image-container">
 				</div>
@@ -46,7 +52,7 @@
 					<div class="cart-product-image-container">
 					</div>
 					<div class="cart-section-title-text-container">
-						<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" />
+						<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" />${currentBudget.getBudgetAllotted()}
 					</div>
 					<span class="include-saved-order-container" onclick="showIncludeOrderModal()">
 						<fmt:message key="CART_INCLUDE_FROM_SAVED_ORDER_LABEL" />
