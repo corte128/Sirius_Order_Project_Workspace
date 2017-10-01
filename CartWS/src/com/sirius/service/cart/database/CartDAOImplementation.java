@@ -707,7 +707,8 @@ public class CartDAOImplementation {
 		}
 	}
 	
-	public static List<OrderBean> getAllSavedOrders(int locationId, Connection conn) throws SQLException{
+	public static List<OrderBean> getAllSavedOrders(int locationId, Connection conn) throws SQLException
+	{
 		//GET_SAVED_ORDERS
 		String orderQuery = queries.getString("GET_SAVED_ORDERS");
 		PreparedStatement statement = null;
@@ -757,27 +758,32 @@ public class CartDAOImplementation {
 	}
 	public static BudgetBean getMostRecentBudgetByLocation(int locationId, Connection conn) throws SQLException
 	{
-		String query = queries.getString("GET_SAVED_ORDERS");
+		String query = queries.getString("GET_BUDGET_AT_LOCATION");
 		PreparedStatement statement = null;
 		BudgetBean budget = new BudgetBean();
 		Date x = null;
 		Calendar cal = Calendar.getInstance();
-		cal.set(Calendar.DAY_OF_WEEK, 1);
+		cal.setFirstDayOfWeek(Calendar.MONDAY);
+		cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
 		
 		ResultSet results = null;
 		
-		try {
+		try
+		{
 			logger.log(Level.FINE, "Preparing to execute order query: ");
 			logger.log(Level.FINE, "   " + query);
 			//setting budget to the table
-			try {
+			try 
+			{
 				statement = conn.prepareStatement(query);
-			} catch (SQLException e) {
+			}
+			catch (SQLException e)
+			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			statement.setInt(1, locationId);
-			statement.setDate(2, x, cal);
+			statement.setDate(2, new java.sql.Date(cal.getTimeInMillis()));
 			logger.log(Level.FINE,
 					"Setting the order based on the paramaters: ");
 			logger.log(Level.FINE, "   int: " + locationId);

@@ -28,6 +28,7 @@ import com.sirius.locationws.location.wsdl.LocationClientDAO;
 import com.sirius.locationws.location.wsdl.LocationProxy;
 import com.sirius.product.service.main.product.wsdl.ProductBean;
 import com.sirius.product.service.main.product.wsdl.ProductSearchDAO;
+import com.sirius.service.cart.cart.wsdl.BudgetBean;
 import com.sirius.service.cart.cart.wsdl.CartServiceDAO;
 import com.sirius.service.cart.cart.wsdl.OrderBean;
 import com.sirius.service.generate.cart.wsdl.GenerateCartClientDAO;
@@ -251,6 +252,9 @@ public class NavigationServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		int locationId = (Integer) session.getAttribute("activeUserLocation");
 
+		BudgetBean currentBudget = CartServiceDAO.getMostRecentBudgetByLocation(locationId);
+		request.setAttribute("currentBudget", currentBudget);
+		
 		List<OrderBean> breakroomOrders = CartServiceDAO
 				.getAllProductsInCartByProductType(locationId, "Breakroom");
 		List<OrderBean> officeSuppliesOrders = CartServiceDAO

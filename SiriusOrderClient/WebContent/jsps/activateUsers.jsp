@@ -34,7 +34,7 @@
 </c:if>
 </head>
  
-<body>     
+<body>
 	<header>
 		<%@ include file="header.jsp" %>
 	</header>
