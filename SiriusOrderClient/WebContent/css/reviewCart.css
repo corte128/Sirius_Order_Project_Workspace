@@ -4,6 +4,19 @@ body
 {
 	font-family: sarif;
 }
+#cartMainContentLabelContainer
+{
+	padding: 30px 0 30px 25px;
+	font-style: italic;
+	font-size: 20px;
+	font-family: sarif;
+}
+#breakroomAboveBudgetContainer
+{
+	display: none;
+	color: red;
+	text-align: right;
+}
 .cart-product-color-alternate-container:nth-child(odd)
 {
 	background-color: white;
@@ -16,6 +29,7 @@ body
 {
 	display: flex;
 	border-bottom: 0.5px solid black;
+	border-right: 0.5px solid black;
 	min-height: 70px;
 }
 .cart-product-image-container
@@ -80,6 +94,7 @@ body
 {
 	min-height: 70px;
 	border-bottom: 0.5px solid black;
+	border-right: 0.5px solid black;
 	font-size: 200%;
 	font-weight: bold;
 	position: relative;
@@ -107,6 +122,7 @@ body
 {
 	display: flex;
 	border-bottom: 0.5px solid black;
+	border-right: 0.5px solid black;
 	min-height: 70px;
 	position: relative;
 }

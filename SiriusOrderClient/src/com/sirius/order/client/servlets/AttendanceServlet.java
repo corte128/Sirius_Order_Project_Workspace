@@ -151,7 +151,7 @@ public class AttendanceServlet extends HttpServlet {
 			} else if (view.equalsIgnoreCase("pdf")) {
 				
 				
-				List<List<AttendanceRecordBean>> subLists = separateList(attendanceRecords, 35); 
+				List<List<AttendanceRecordBean>> subLists = separateList(attendanceRecords, 25); 
 				
 				
 				
@@ -159,19 +159,19 @@ public class AttendanceServlet extends HttpServlet {
 					
 				
 				
-				PDPage myPage = new PDPage();
+				PDPage myPage = new PDPage(new PDRectangle(PDRectangle.A4.getHeight(), PDRectangle.A4.getWidth()));
 				PDDocument mainDocument = new PDDocument();
 
 				
 				String ctx = request.getContextPath();
 
-				String path = "C:/Users/IEUser/IBM/rationalsdp/Sirius_Order_Project_Workspace/SiriusOrderClient/WebContent/generatedPDF/test-pdf.pdf";
+				String path = "C:/Users/IEUser/IBM/rationalsdp/Sirius_Order_Project_Workspace/SiriusOrderClient/WebContent/generatedPDF/attendance-pdf.pdf";
 				PDPageContentStream contentStream = new PDPageContentStream(
 						mainDocument, myPage);
 
 				
 			for(List<AttendanceRecordBean> list: subLists){
-					myPage = new PDPage();
+					myPage = new PDPage(new PDRectangle(PDRectangle.A4.getHeight(), PDRectangle.A4.getWidth()));
 					mainDocument.addPage(myPage);
 					contentStream = new PDPageContentStream(
 							mainDocument, myPage);
@@ -203,7 +203,7 @@ public class AttendanceServlet extends HttpServlet {
 						
 					}
 					
-					drawTable(myPage, contentStream, 750, 40, contentForTable);
+					drawTable(myPage, contentStream, 550, 40, contentForTable);
 					contentStream.close();
 				}
 
