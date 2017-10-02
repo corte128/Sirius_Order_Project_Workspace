@@ -28,7 +28,7 @@
 }*/
 
 .super-admin-budget-table{
-
+	
 }
 
 .super-admin-button {
@@ -42,7 +42,7 @@
 }
 
 .super-admin-button-container {
-  margin-left: 375px;
+  margin-left: 735px;
 }
 
 .super-admin-button:hover{
@@ -129,12 +129,23 @@ div.ui-grid-cell input{
   height: 40px;
 }
 
+.allotted-budget-input{
+  text-align: right;
+}
+
 /* Desktop */
 @media (min-width : 1024px) {
   .grid{
     width:775px;
     margin-top:5px;
+    margin-right: 0;
+    margin-left: 0;
     /*height: 150px;*/
+  }
+  
+  .super-admin-budget-table{
+	width: 75%;
+	margin: auto;
   }
 
   .super-admin-container {
@@ -143,6 +154,9 @@ div.ui-grid-cell input{
 
   .ui-grid-viewport{
 
+  }
+  #grid1{
+  	margin: auto;
   }
 }
 

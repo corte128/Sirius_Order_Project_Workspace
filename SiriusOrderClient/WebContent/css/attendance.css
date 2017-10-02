@@ -1,6 +1,7 @@
 .flexContainer {
 	display: flex;
 }
+
 html{
 	width:100%;
 }
@@ -8,24 +9,31 @@ html{
 aside {
 	flex: 1;
 }
+
 ng-scope{
-witdh:100vw;
+	width:100vw;
 }
+
 abbr {
     text-decoration: none;
     border: none;
 }
 .pageTitle{
-margin: auto;
- text-align: center;
- font-family: calibri;
- margin-bottom: 10px;
+	margin: auto;
+ 	text-align: center;
+ 	font-family: serrif;
+ 	margin-bottom: 10px;
     margin-top: 10px;
+    font-style: italic;
 }
 .ui-grid-pager-control .ui-grid-pager-max-pages-number > * {
     vertical-align: middle;
     text-decoration: none;
     border: none;
+}
+
+.ui-grid-contents-wrapper{
+	
 }
 
 abbr[data-original-title], abbr[title] {
@@ -118,7 +126,7 @@ abbr[data-original-title], abbr[title] {
 
 .grid {
 	margin: auto;
-	width: 500px;
+	width: 75%;
 	height: 400px;
 	display: none;
 	overflow: auto;
@@ -132,40 +140,50 @@ abbr[data-original-title], abbr[title] {
 }
 
 #submitBtn {
-	justify-content: space-around;
+	display: block;
+	justify-content: initial;
+	float: right;
+	margin-top: 20px;
+}
+
+#attendanceSearchBox{
+	width: 75%;
 }
 
 
-
-
 @media ( max-width : 769px) {
-	aside {
-	width: 0px;
-    height: 0px;
-    position: absolute;
-	}
 	
+	aside {
+		width: 0px;
+	    height: 0px;
+	    position: absolute;
+	}
 	
 }
 
 
 
 @media ( max-width : 500px) {
+
 	aside {
-	width: 0px;
-    height: 0px;
-    position: absolute;
+		width: 0px;
+	    height: 0px;
+	    position: absolute;
 	}
 	
 	.searchBox {
+		width: 300px;
+	}
 	
-	width: 300px;
-}
-.grid {
-	margin: auto;
-	width: 300px;
-	height: 420px;
-	overflow: auto;
-}
+	.grid {
+		margin: auto;
+		width: 300px;
+		height: 420px;
+		overflow: auto;
+	}
+	
+	#attendanceSearchBox{
+		width: 100%;
+	}
 	
 }
