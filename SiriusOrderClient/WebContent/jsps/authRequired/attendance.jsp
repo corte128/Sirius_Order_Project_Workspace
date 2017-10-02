@@ -46,7 +46,11 @@
 				<fmt:setBundle
 					basename="com.sirius.order.client.properties.attendance" />
 
-
+				<div class="instructionsBox">
+					<div id="instructionsTitle">Instructions </div>
+					<p> You can use this form to retrieve attendance records of employees in specific location.
+						<br />Please note to pick either To/From OR Range fields, but not both.</p>
+				</div>
 
 				<div class="attendancePageContainer" ng-controller="AttendanceCtrl">
 					<div class="pageTitle">
