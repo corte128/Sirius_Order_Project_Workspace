@@ -35,7 +35,7 @@
 						<input type="text" class="search searchBar" name="search"></input>
 						<input id="productSearchButton" type="submit" class="search" value="Search"/>
 					</form> -->
-					<select class="categorySelect" id="category" name="category">
+					<select class="category-select" id="category" name="category">
 						<option value="0">All</option>
 						<option value="3">Ink & Toner</option>
 						<option value="1">Breakroom</option>

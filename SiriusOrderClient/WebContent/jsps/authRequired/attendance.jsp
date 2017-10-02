@@ -173,7 +173,7 @@
 									</select>
 
 								</div>
-								<div id="submitBtn" class="inputFieldContainer">
+								<div id="submitBtn" >
 									<button type="button" name="searchBtn" value="search"
 										class="submitBtn" ng-click="getSearch()">
 										<fmt:message key="ATTENDANCE_BUTTON_LABEL" />

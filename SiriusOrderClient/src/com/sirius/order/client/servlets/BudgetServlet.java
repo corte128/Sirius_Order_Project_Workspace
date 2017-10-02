@@ -127,10 +127,10 @@ public class BudgetServlet extends HttpServlet {
 						contentForTable[0][2] = "Budget";
 						contentForTable[0][3] = "Variance";
 					}else{
-					contentForTable[i][0] = list.get(i-1).getTime();
-					contentForTable[i][1] = "$" + list.get(i-1).getActual();
-					contentForTable[i][2] = "$" + list.get(i-1).getBudget();
-					contentForTable[i][3]= "$" + (list.get(i-1).getActual().subtract(list.get(i-1).getBudget()));
+						contentForTable[i][0] = list.get(i-1).getTime();
+						contentForTable[i][1] = "$" + list.get(i-1).getActual();
+						contentForTable[i][2] = "$" + list.get(i-1).getBudget();
+						contentForTable[i][3] = "$" + (list.get(i-1).getActual().subtract(list.get(i-1).getBudget()));
 					}
 					
 				}
@@ -163,6 +163,10 @@ public class BudgetServlet extends HttpServlet {
 			lists.add(objects.subList(i, endpoint));
 		}
 		return lists;
+	}
+	
+	private String addPaddingToString(String input, int limit){
+		return null;
 	}
 	
 	private void drawTable(PDPage page, PDPageContentStream contentStream,
@@ -208,4 +212,5 @@ public class BudgetServlet extends HttpServlet {
 		}
 	}
 
+	
 }
