@@ -16,11 +16,12 @@ abbr {
     border: none;
 }
 .pageTitle{
-margin: auto;
- text-align: center;
- font-family: calibri;
- margin-bottom: 10px;
+	margin: auto;
+ 	text-align: center;
+ 	font-family: serrif;
+ 	margin-bottom: 10px;
     margin-top: 10px;
+    font-style: italic;
 }
 .ui-grid-pager-control .ui-grid-pager-max-pages-number > * {
     vertical-align: middle;
