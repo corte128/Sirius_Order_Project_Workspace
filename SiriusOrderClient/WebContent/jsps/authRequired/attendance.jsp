@@ -4,8 +4,7 @@
 <head>
 <meta charset="utf-8">
 <title>Search for attendance records</title>
-<link rel="stylesheet" type="text/css"
-	href="/SiriusOrderClient/css/attendance.css">
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:setBundle basename="com.sirius.order.client.properties.attendance" />
@@ -27,6 +26,8 @@
 <link rel="stylesheet" type="text/css"
 	href="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.css" />
 <script src="/SiriusOrderClient/js/attendanceTable.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="/SiriusOrderClient/css/attendance.css">
 
 </head>
 <c:choose>
@@ -44,7 +45,9 @@
 				<fmt:setBundle
 					basename="com.sirius.order.client.properties.attendance" />
 
-
+				<div classs="pageTitle">
+				<h1>Attendance</h1>
+				</div>
 
 				<div class="attendancePageContainer" ng-controller="AttendanceCtrl">
 
