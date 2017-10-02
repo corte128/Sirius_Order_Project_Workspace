@@ -2,6 +2,7 @@ package com.sirius.order.client.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -254,6 +255,7 @@ public class NavigationServlet extends HttpServlet {
 		int locationId = (Integer) session.getAttribute("activeUserLocation");
 
 		BudgetBean currentBudget = CartServiceDAO.getMostRecentBudgetByLocation(locationId);
+		currentBudget.setBudgetAllotted(currentBudget.getBudgetAllotted().subtract(new BigDecimal(100)));
 		request.setAttribute("currentBudget", currentBudget);
 		
 		List<OrderBean> breakroomOrders = CartServiceDAO
