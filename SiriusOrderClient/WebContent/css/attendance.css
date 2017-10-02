@@ -11,9 +11,27 @@ aside {
 ng-scope{
 witdh:100vw;
 }
+abbr {
+    text-decoration: none;
+    border: none;
+}
+.pageTitle{
+margin: auto;
+ text-align: center;
+ font-family: calibri;
+ margin-bottom: 10px;
+    margin-top: 10px;
+}
+.ui-grid-pager-control .ui-grid-pager-max-pages-number > * {
+    vertical-align: middle;
+    text-decoration: none;
+    border: none;
+}
+
 abbr[data-original-title], abbr[title] {
     cursor: help;
-    border-bottom: none;
+    border-bottom: 1px dotted #777;
+    border: none !important; 
 }
 .attendancePageContainer {
 	flex: 7;

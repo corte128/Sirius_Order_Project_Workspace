@@ -31,7 +31,7 @@ public class RegistrationForm extends ActionForm{
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
 	    ActionErrors errors = new ActionErrors();
 	    ArrayList<String> errorArray = new ArrayList<String>();
-	    if (!name.matches("[a-zA-Z\\s]+")){
+	    if (!name.matches("[a-zA-Z\\s]+") || name.length() == 0){
 	    	errors.add("name_error", new ActionMessage("REGISTRATION_NAME_INVALID"));
 	    	errorArray.add("REGISTRATION_NAME_INVALID");
 	    }
@@ -39,7 +39,7 @@ public class RegistrationForm extends ActionForm{
 	    	errors.add("email", new ActionMessage("REGISTRATION_EMAIL_INVALID"));
 	    	errorArray.add("REGISTRATION_EMAIL_INVALID");
 	    }
-	    if (!password.equals(confirm_password)){
+	    if (!password.equals(confirm_password) || confirm_password.length() == 0){
 	    	errors.add("password", new ActionMessage("REGISTRATION_PASSWORDS_INVALID"));
 	    	errorArray.add("REGISTRATION_PASSWORDS_INVALID");
 	    }

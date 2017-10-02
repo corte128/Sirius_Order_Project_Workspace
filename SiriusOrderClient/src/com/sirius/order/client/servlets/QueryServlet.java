@@ -33,7 +33,6 @@ public class QueryServlet extends HttpServlet {
      */
     public QueryServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
