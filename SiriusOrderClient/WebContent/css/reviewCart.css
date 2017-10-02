@@ -162,6 +162,16 @@ body
 	top: 20px;
 	cursor: pointer;
 }
+
+#cartTaxContainer
+{
+	text-align: center;
+}
+#cartGrandTotalContainer
+{
+	text-align: center;
+}
+
 .cart-modal
 {
 	position: fixed;

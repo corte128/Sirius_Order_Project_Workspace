@@ -223,6 +223,14 @@
 				</span>
 			</div>
 			
+			<div id="cartTaxContainer">
+				<fmt:message key="CART_TAX_PERCENTAGE_LABEL" /> $<span id="cartTaxAmountContainer"></span>
+			</div>
+			
+			<div id="cartGrandTotalContainer">
+				<fmt:message key="CART_TOTAL_LABEL" /> $<span id="cartGrandTotalAmountContainer"></span>
+			</div>
+			
 			<!-- INCLUDE SAVED ORDER MODAL -->
 			<div id="includeSavedOrderModal" class="cart-modal">
 				<div id="includeSavedOrderModalTitleContainer">
