@@ -70,12 +70,14 @@ aside{
   height:100%;
 }
 
-.item{
-  height: 150px;
+.carousel-inner{
+  display:block;
+    max-width: 100%;
+    /*height: auto;*/
 }
 
 #myCarousel{
-  height: 150px;
+  height: 373px;
 }
 }
 /* Ipad */
@@ -117,7 +119,7 @@ and (max-device-width : 1024px) {
 }
 
 #myCarousel{
-  height: 150px;
+  height: 172px;
 }
 }
 
@@ -160,6 +162,6 @@ and (max-device-width : 568px) {
 }
 
 #myCarousel{
-  height: 150px;
+  height: 72px;
 }
 }
