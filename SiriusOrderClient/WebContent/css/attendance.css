@@ -41,6 +41,17 @@ abbr[data-original-title], abbr[title] {
     border-bottom: 1px dotted #777;
     border: none !important; 
 }
+.instructionsBox{
+	text-align: center;
+	width: 20%;
+	margin: auto;
+	margin-top: 20px;
+	box-shadow: 7px 7px 20px darkgrey;
+	min-height: 150px;
+	position: absolute;
+	left:60px;
+	top: 120px;
+}
 .attendancePageContainer {
 	flex: 7;
 }
