@@ -55,7 +55,7 @@
 					<div class="cart-product-image-container">
 					</div>
 					<div class="cart-section-title-text-container">
-						<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" />
+						<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" /><br id="breakroomTitleLineBreak" />
 						 (<fmt:message key="CART_BUDGET_LABEL" />: $<span id="breakroomBudgetAmountContainer">${currentBudget.getBudgetAllotted()}</span>)
 					</div>
 					<span class="include-saved-order-container" onclick="showIncludeOrderModal()">
