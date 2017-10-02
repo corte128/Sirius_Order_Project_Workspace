@@ -49,8 +49,16 @@ public class RegistrationAction extends org.apache.struts.action.Action{
 				String subject = "New User Registered";
 				String message = name + " has registered with your office location. Please verify their status.";
 				mailDao.sendMessage(subject, message, officeAdmin.getEmail());
+				registrationForm.setName("");
+	        	registrationForm.setEmail("");
+				registrationForm.setPassword("");
+				registrationForm.setPhoto(null);
 				return mapping.findForward(SUCCESS);
 			} else {
+				registrationForm.setName("");
+	        	registrationForm.setEmail("");
+				registrationForm.setPassword("");
+				registrationForm.setPhoto(null);
 				return mapping.findForward(FAILURE);
 			}
         } catch (Exception e) {
