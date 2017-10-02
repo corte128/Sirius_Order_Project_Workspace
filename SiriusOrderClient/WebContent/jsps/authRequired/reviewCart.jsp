@@ -28,8 +28,11 @@
 			<div id="cartMainContentLabelContainer"><fmt:message key="CART_CART_LABEL" /></div>
 			<div id="breakroomAboveBudgetContainer">
 				<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" />
-				 <span id="breakroomAboveBudgetAmountContainer"></span>
+				 $<span id="breakroomAboveBudgetAmountContainer"></span>
 				 <fmt:message key="CART_ABOVE_BUDGET_LABEL" />
+			</div>
+			<div id="cartOrderWillBePlacedContainer">
+				<fmt:message key="CART_ORDER_WILL_BE_PLACED_LABEL" /> <fmt:formatDate value="${thisFriday.time}" pattern="dd-MMM"/>
 			</div>
 			<div id="cartHeaderContainer">
 				<div id="cartHeaderProductImageContainerColumn" class="cart-product-image-container">
@@ -52,7 +55,8 @@
 					<div class="cart-product-image-container">
 					</div>
 					<div class="cart-section-title-text-container">
-						<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" />${currentBudget.getBudgetAllotted()}
+						<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" /><br id="breakroomTitleLineBreak" />
+						 (<fmt:message key="CART_BUDGET_LABEL" />: $<span id="breakroomBudgetAmountContainer">${currentBudget.getBudgetAllotted()}</span>)
 					</div>
 					<span class="include-saved-order-container" onclick="showIncludeOrderModal()">
 						<fmt:message key="CART_INCLUDE_FROM_SAVED_ORDER_LABEL" />
@@ -217,6 +221,14 @@
 				<span class="save-order-container" onclick="showSaveOrderModal()">
 					<fmt:message key="CART_SAVE_THE_ORDER_LABEL" />
 				</span>
+			</div>
+			
+			<div id="cartTaxContainer">
+				<fmt:message key="CART_TAX_PERCENTAGE_LABEL" /> $<span id="cartTaxAmountContainer"></span>
+			</div>
+			
+			<div id="cartGrandTotalContainer">
+				<fmt:message key="CART_TOTAL_LABEL" /> $<span id="cartGrandTotalAmountContainer"></span>
 			</div>
 			
 			<!-- INCLUDE SAVED ORDER MODAL -->

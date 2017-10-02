@@ -5,6 +5,10 @@
 
   <xs:element name="addProductToCartResponse" type="tns:addProductToCartResponse"/>
 
+  <xs:element name="getAllOrdersByProductType" type="tns:getAllOrdersByProductType"/>
+
+  <xs:element name="getAllOrdersByProductTypeResponse" type="tns:getAllOrdersByProductTypeResponse"/>
+
   <xs:element name="getAllProductsInCart" type="tns:getAllProductsInCart"/>
 
   <xs:element name="getAllProductsInCartByProductType" type="tns:getAllProductsInCartByProductType"/>
@@ -87,6 +91,19 @@
   <xs:complexType name="saveOrderResponse">
     <xs:sequence>
       <xs:element name="saveOrderReturn" type="xs:boolean" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllOrdersByProductType">
+    <xs:sequence>
+      <xs:element name="locationId" type="xs:int" form="qualified"/>
+      <xs:element name="productTypeId" type="xs:int" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllOrdersByProductTypeResponse">
+    <xs:sequence>
+      <xs:element name="getAllOrdersByProductTypeReturn" type="tns:orderBean" form="qualified" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 

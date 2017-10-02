@@ -2,6 +2,9 @@ package com.sirius.service.cart.cart.wsdl;
 
 import java.util.List;
 
+import javax.jws.WebParam;
+
+
 public class CartServiceDAO 
 {
 	public static boolean addProductToCart(OrderBean order, BudgetBean budget, int createdBy)
@@ -55,5 +58,11 @@ public class CartServiceDAO
 	{
 		CartProxy client = new CartProxy();
 		return client.getMostRecentBudgetByLocation(locationId);
+	}
+	
+	public static List<OrderBean> getAllOrdersByProductType(int locationId, int productTypeId)
+	{
+		CartProxy client = new CartProxy();
+		return client.getAllOrdersByProductType(locationId, productTypeId);
 	}
 }

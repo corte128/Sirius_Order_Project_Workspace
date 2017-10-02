@@ -157,4 +157,8 @@ public class CartProxy{
         return _getDescriptor().getProxy().getMostRecentBudgetByLocation(locationId);
     }
 
+    public List<OrderBean> getAllOrdersByProductType(int locationId, int productTypeId) {
+        return _getDescriptor().getProxy().getAllOrdersByProductType(locationId,productTypeId);
+    }
+
 }

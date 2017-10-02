@@ -16,6 +16,20 @@ body
 	display: none;
 	color: red;
 	text-align: right;
+	font-style: italic;
+	font-family: sarif;
+	padding-right: 10px;
+}
+#cartOrderWillBePlacedContainer
+{
+	color: green;
+	font-style: italic;
+	font-family: sarif;
+	padding: 5px 0 5px 10px;
+}
+#breakroomTitleLineBreak
+{
+	display: none;
 }
 .cart-product-color-alternate-container:nth-child(odd)
 {
@@ -152,6 +166,16 @@ body
 	top: 20px;
 	cursor: pointer;
 }
+
+#cartTaxContainer
+{
+	text-align: center;
+}
+#cartGrandTotalContainer
+{
+	text-align: center;
+}
+
 .cart-modal
 {
 	position: fixed;
@@ -280,13 +304,26 @@ main
 }
 @media(max-width: 321px) 
 {
+	#breakroomAboveBudgetContainer
+	{
+		font-size: 10px;
+	}
+	#cartOrderWillBePlacedContainer
+	{
+		font-size: 10px;
+	}
 	#cartHeaderContainer
 	{
 		font-size: 100%;
 	}
 	.cart-section-title-text-container
 	{
-		font-size: 75%;
+		text-align: center;
+		font-size: 60%;
+	}
+	#breakroomTitleLineBreak
+	{
+		display: block;
 	}
 	.include-saved-order-container
 	{

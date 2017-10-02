@@ -13,7 +13,21 @@ function calcBreakroomTotals()
 		itemTotal += quantity;
 	}
 	totalPrice = totalPrice.toFixed(2);
-
+	var budget = document.getElementById("breakroomBudgetAmountContainer").innerText;
+	if(parseFloat(totalPrice) > parseFloat(budget))
+	{
+		document.getElementById("breakroomTotalPriceContainer").style.color = 'red';
+		document.getElementById("cartGrandTotalContainer").style.color = 'red';
+		var difference = totalPrice - budget;
+		document.getElementById("breakroomAboveBudgetAmountContainer").innerText = difference.toFixed(2);
+		document.getElementById("breakroomAboveBudgetContainer").style.display = 'block';
+	}
+	else
+	{
+		document.getElementById("breakroomTotalPriceContainer").style.color = 'black';
+		document.getElementById("cartGrandTotalContainer").style.color = 'black';
+		document.getElementById("breakroomAboveBudgetContainer").style.display = 'none';
+	}
 	if(document.getElementById("breakroomTotalQuantityContainer") != null)
 	{
 		document.getElementById("breakroomTotalQuantityContainer").innerHTML = 'Breakroom Total(' + itemTotal + ' items)';
@@ -59,14 +73,51 @@ function calcInkAndTonerTotals()
 		}
 		totalPrice = totalPrice.toFixed(2);
 		
-		if(document.getElementById("inkAndTonerTotalQuantityContainer") != null)
-		{
-			document.getElementById("inkAndTonerTotalQuantityContainer").innerHTML = 'Ink & Toner Total(' + itemTotal + ' items)';
-			document.getElementById("inkAndTonerTotalPriceContainer").innerHTML = '$' + totalPrice;
-		}	
+		
+		document.getElementById("inkAndTonerTotalQuantityContainer").innerHTML = 'Ink & Toner Total(' + itemTotal + ' items)';
+		document.getElementById("inkAndTonerTotalPriceContainer").innerHTML = '$' + totalPrice;
+			
 	}
 }
-
+function calcTaxAndGrandTotals()
+{
+	var breakroomPrices = document.getElementsByClassName("breakroom-cart-product-price-container");
+	var breakroomQuantities = document.getElementsByClassName("breakroom-cart-product-quantity-input");
+	
+	var officePrices = document.getElementsByClassName("office-supplies-cart-product-price-container");
+	var officeQuantities = document.getElementsByClassName("office-supplies-cart-product-quantity-input");
+	
+	var inkPrices = document.getElementsByClassName("ink-cart-product-price-container");
+	var inkQuantities = document.getElementsByClassName("ink-cart-product-quantity-input");
+	
+	var totalPrice = 0;
+	for(var i = 0; i < breakroomPrices.length; ++i)
+	{
+		var price = breakroomPrices[i].innerText.slice(1);
+		var quantity = Number(breakroomQuantities[i].value);
+		totalPrice += price * quantity;
+	}
+	for(var i = 0; i < officePrices.length; ++i)
+	{
+		var price = officePrices[i].innerText.slice(1);
+		var quantity = Number(officeQuantities[i].value);
+		totalPrice += price * quantity;
+	}
+	for(var i = 0; i < inkPrices.length; ++i)
+	{
+		var price = inkPrices[i].innerText.slice(1);
+		var quantity = Number(inkQuantities[i].value);
+		totalPrice += price * quantity;
+	}
+	
+	var tax = totalPrice*0.0625;
+	totalPrice = totalPrice + tax;
+	tax = tax.toFixed(2);
+	totalPrice = totalPrice.toFixed(2);
+	
+	document.getElementById("cartTaxAmountContainer").innerText = tax;
+	document.getElementById("cartGrandTotalAmountContainer").innerText = totalPrice;
+}
 function removeFromCart(orderID)
 {
 	var url = '/SiriusOrderClient/CartServlet?action=removeFromCart&orderId=' + orderID;
@@ -86,6 +137,7 @@ function calcTotals()
 	calcBreakroomTotals();
 	calcOfficeSuppliesTotals();
 	calcInkAndTonerTotals();
+	calcTaxAndGrandTotals();
 }
 (function loader()
 {
@@ -126,6 +178,7 @@ function calcBreakroomTotalsAndUpdate(productId, orderId)
 	else
 	{
 		calcBreakroomTotals();
+		calcTaxAndGrandTotals();
 		updateQuantity(productId, quantity);
 	}
 }
@@ -139,6 +192,7 @@ function calcOfficeSuppliesTotalsAndUpdate(productId, orderId)
 	else
 	{
 		calcOfficeSuppliesTotals();
+		calcTaxAndGrandTotals();
 		updateQuantity(productId, quantity);
 	}
 }
@@ -152,6 +206,7 @@ function calcInkAndTonerTotalsAndUpdate(productId, orderId)
 	else
 	{
 		calcInkAndTonerTotals();
+		calcTaxAndGrandTotals();
 		updateQuantity(productId, quantity);
 	}
 }

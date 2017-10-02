@@ -172,6 +172,11 @@ public interface CartInterface {
 			int productID
 			);
 	
+	/**
+	 * Gets all the saved orders
+	 * @param locationId
+	 * @return List<Orderbean>
+	 */
 	@WebMethod(action = "getAllSavedOrders")
 	@WebResult(name = "getAllSavedOrdersReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
 	@RequestWrapper(localName = "getAllSavedOrders", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetAllSavedOrders")
@@ -181,6 +186,11 @@ public interface CartInterface {
 			int locationId
 			);
 	
+	/**
+	 * gets all the most recent budget by location
+	 * @param locationId
+	 * @return BudgetBean
+	 */
 	@WebMethod(action = "getMostRecentBudgetByLocation")
 	@WebResult(name = "getMostRecentBudgetByLocationReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
 	@RequestWrapper(localName = "getMostRecentBudgetByLocation", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.GetMostRecentBudgetByLocation")
@@ -188,6 +198,23 @@ public interface CartInterface {
 	public BudgetBean getMostRecentBudgetByLocation(
 			@WebParam(name="locationId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
 			int locationId
+			);
+	
+	/**
+	 * gets all products by product type including orders not in the cart
+	 * @param locationId
+	 * @param productType
+	 * @return List<OrderBean>
+	 */
+	@WebMethod(action = "getAllOrdersByProductType")
+	@WebResult(name = "getAllOrdersByProductTypeReturn", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+	@RequestWrapper(localName = "getAllOrdersByProductType", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.getAllOrdersByProductType")
+	@ResponseWrapper(localName = "getAllOrdersByProductTypeResponse", targetNamespace = "http://cart.service.sirius.com/cart/wsdl", className = "com.sirius.service.cart.getAllOrdersByProductTypeResponse")
+	public List<OrderBean> getAllOrdersByProductType(
+			@WebParam(name="locationId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+			int locationId,
+			@WebParam(name="productTypeId", targetNamespace = "http://cart.service.sirius.com/cart/wsdl")
+			int productTypeId
 			);
 
 }

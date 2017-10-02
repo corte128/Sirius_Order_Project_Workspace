@@ -67,7 +67,6 @@ $(function ()
 });
 
 function saveEntry(evtObj, uniqueIndex, rowData){
-	console.log(rowData.ID);
 	console.log(rowData.Date);
 	if(rowData.ID > 0){
 		$("<div id='save_dialog' title='Save Failed'>Cannot save. Holiday is already in database.</div>").dialog({
@@ -81,25 +80,29 @@ function saveEntry(evtObj, uniqueIndex, rowData){
 		});
 	}
 	else {
-		$("<div id='save_dialog' title='Save Successful'>The holiday was successfully saved!</div>").dialog({
-			resizable: false,
-			modal: true,
-			buttons: {
-				Close: function(){
-					$(this).dialog("close");
-				}
-			}
-		});
 		//ajax call to delete holiday
 		var xhttp = new XMLHttpRequest();
 		var url = "/SiriusOrderClient/QueryServlet?query=addHoliday&name="+rowData.FederalHoliday+"&date="+rowData.Date;
-		xhttp.open("GET", url, true);
+		xhttp.open("GET", url, false);
 		xhttp.onreadystatechange = function()
 		{
 			var response = xhttp.responseText;
+			console.log("Response: "+response);
 			if(response != null){
-				if(response == 1){
-					
+				if(response == "true"){
+					console.log("Save Success");
+					$("<div id='save_dialog' title='Save Successful'>The holiday was successfully saved!</div>").dialog({
+						resizable: false,
+						modal: true,
+						buttons: {
+							Close: function(){
+								$(this).dialog("close");
+							}
+						}
+					});
+				}
+				else{
+					console.log("Save Unsuccessful");
 				}
 			}
 			else{
@@ -114,26 +117,25 @@ function deleteEntry(evtObj, uniqueIndex, rowData){
 	console.log(evtObj+" "+uniqueIndex+" "+rowData);
 	if(rowData.ID > 0){
 		$('#tblAppendGrid').appendGrid('removeRow', uniqueIndex-1);
-		$("<div id='delete_dialog' title='Delete Successful'>The holiday was successfully deleted!</div>").dialog({
-			resizable: false,
-			modal: true,
-			buttons: {
-				Close: function(){
-					$(this).dialog("close");
-				}
-			}
-		});
 		//ajax call to delete holiday
 		var xhttp = new XMLHttpRequest();
 		var url = "/SiriusOrderClient/QueryServlet?query=deleteHoliday&id="+rowData.ID;
-		xhttp.open("GET", url, true);
+		xhttp.open("GET", url, false);
 		xhttp.onreadystatechange = function()
 		{
 			var response = xhttp.responseText;
 			if(response != null){
 				console.log(response);
-				if(response == 1){
-					
+				if(response == "true"){
+					$("<div id='delete_dialog' title='Delete Successful'>The holiday was successfully deleted!</div>").dialog({
+						resizable: false,
+						modal: true,
+						buttons: {
+							Close: function(){
+								$(this).dialog("close");
+							}
+						}
+					});
 				}
 			}
 			else{
