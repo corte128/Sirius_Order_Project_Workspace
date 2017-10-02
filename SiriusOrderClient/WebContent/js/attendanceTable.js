@@ -77,18 +77,18 @@ app.controller('AttendanceCtrl', [
 				paginationPageSize : 10,
 				columnDefs : [ {
 					name : 'Name',
-					width : 125,
+					width : "25%",
 					pinnedLeft : true
 				}, {
 					name : 'Email',
-					width : 150
+					width : "27%"
 				}, {
 					name : 'Date',
-					width : 100,
+					width : "25%",
 					pinnedRight : true
 				}, {
 					name : 'Location',
-					width : 125
+					width : "25%"
 				} ]
 			};
 
@@ -159,5 +159,12 @@ app.controller('AttendanceCtrl', [
 				});
 			}
 			$scope.getSearch = getSearch;
+			var mq = window.matchMedia("(max-width: 500px)");
+			if(mq.matches){
+				$scope.gridOptions.columnDefs[0].width = "50%";
+				$scope.gridOptions.columnDefs[1].visible = false;
+				$scope.gridOptions.columnDefs[2].width = "50%";
+				$scope.gridOptions.columnDefs[3].visible = false;
+			}
 
 		} ]);
