@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>ServicesEAR</name>
+	<name>SearchWSEAR</name>
 	<comment></comment>
 	<projects>
-		<project>WishlistWS</project>
-		<project>ProductWS</project>
-		<project>MailWS</project>
-		<project>LoginWS</project>
-		<project>LocationWS</project>
-		<project>GenerateCartWS</project>
-		<project>AttendanceWS</project>
-		<project>AdminWS</project>
 		<project>SearchWS</project>
-		<project>EmployeeWS</project>
-		<project>CartWS</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -127,12 +128,11 @@ public class BudgetServlet extends HttpServlet {
 						contentForTable[0][2] = "Budget";
 						contentForTable[0][3] = "Variance";
 					}else{
-					contentForTable[i][0] = list.get(i-1).getTime();
-					contentForTable[i][1] = "$" + list.get(i-1).getActual();
-					contentForTable[i][2] = "$" + list.get(i-1).getBudget();
-					contentForTable[i][3]= "$" + (list.get(i-1).getActual().subtract(list.get(i-1).getBudget()));
+						contentForTable[i][0] = list.get(i-1).getTime();
+						contentForTable[i][1] = addPaddingToString(NumberFormat.getCurrencyInstance().format(list.get(i-1).getActual()), 30);
+						contentForTable[i][2] = addPaddingToString(NumberFormat.getCurrencyInstance().format(list.get(i-1).getBudget()), 30);
+						contentForTable[i][3] = addPaddingToString(NumberFormat.getCurrencyInstance().format((list.get(i-1).getActual().subtract(list.get(i-1).getBudget()))), 30);
 					}
-					
 				}
 				
 				drawTable(myPage, contentStream, 750, 30, contentForTable);
@@ -163,6 +163,15 @@ public class BudgetServlet extends HttpServlet {
 			lists.add(objects.subList(i, endpoint));
 		}
 		return lists;
+	}
+	
+	private String addPaddingToString(String input, int limit){
+		int padding = limit - input.length();
+		String output = "";
+		for(int i = 0; i < padding; i++){
+			output += " ";
+		}
+		return output + input;
 	}
 	
 	private void drawTable(PDPage page, PDPageContentStream contentStream,
@@ -208,4 +217,5 @@ public class BudgetServlet extends HttpServlet {
 		}
 	}
 
+	
 }

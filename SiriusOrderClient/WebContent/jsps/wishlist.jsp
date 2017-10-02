@@ -26,8 +26,16 @@
 		<div class="wishlist-profile-container">
 			<div class="wishlist-profile-image-welcome">
 				<div class="wishlist-profile-image">
-					<img class="employee-profile-photo" alt="profile image"
-						src="data:image/jpeg;base64,${sessionScope.activeUserPicture}" />
+					<c:choose>
+						<c:when test = "${sessionScope.activeUserPicture}">
+						<img class="employee-profile-photo" alt="profile image"
+							src="data:image/jpeg;base64,${sessionScope.activeUserPicture}" />
+						</c:when>
+						<c:otherwise>
+						<img class="employee-profile-photo" alt="profile image"
+							src="/SiriusOrderClient/assets/default.png" />
+						</c:otherwise>
+					</c:choose>
 				</div>
 				<div class="wishlist-profile-welcome">
 					<bean:message key="WISHLIST_WELCOME_TEXT" />

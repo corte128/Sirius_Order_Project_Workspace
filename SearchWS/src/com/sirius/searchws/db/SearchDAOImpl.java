@@ -1,6 +1,7 @@
 package com.sirius.searchws.db;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -38,12 +39,12 @@ public class SearchDAOImpl {
 			statement.setInt(3, location_id);
 		    ResultSet rs = statement.executeQuery();
 		    BudgetObject object = null;
-		    
+		    int i = 0;
 		    while(rs.next()){
 		    	object = new BudgetObject();
-		    	object.setId(rs.getInt("budget_id_pk"));
-		    	object.setActual(rs.getBigDecimal("budget_allotted"));
-		    	object.setBudget(rs.getBigDecimal("budget_recommended"));
+		    	object.setId(i++);
+		    	object.setActual(rs.getBigDecimal("allotted"));
+		    	object.setBudget(rs.getBigDecimal("recommended"));
 		    	object.setDate(rs.getDate("budget_date"));
 		    	budgetObjects.add(object);
 		    }
@@ -81,10 +82,14 @@ public class SearchDAOImpl {
     		BudgetObject obj = budgetObjects.get(incrementer);
     		if(obj.getDate().compareTo(cal.getTime()) <= 0){
     			//add to objects list then in the else add all values together
+    			if(reportType.equalsIgnoreCase("weekly")){
+    				objectsByTimeIncrements = new ArrayList<BudgetObject>();
+    			}
     			objectsByTimeIncrements.add(obj);
     			incrementer++;
     		}
-    		if(incrementer == length-1 || obj.getDate().compareTo(cal.getTime()) > 0){
+    		System.out.println(obj.getDate() + " || " + cal.getTime());
+    		if(incrementer == length || obj.getDate().compareTo(cal.getTime()) > 0){
     			BigDecimal actual = new BigDecimal(0);
     			BigDecimal budget = new BigDecimal(0);
     			ActualvBudgetBean abBean = new ActualvBudgetBean();

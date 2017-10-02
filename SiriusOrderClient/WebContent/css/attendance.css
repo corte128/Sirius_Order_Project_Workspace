@@ -1,6 +1,7 @@
 .flexContainer {
 	display: flex;
 }
+
 html{
 	width:100%;
 }
@@ -8,12 +9,48 @@ html{
 aside {
 	flex: 1;
 }
+
 ng-scope{
-witdh:100vw;
+	width:100vw;
 }
+
+abbr {
+    text-decoration: none;
+    border: none;
+}
+.pageTitle{
+	margin: auto;
+ 	text-align: center;
+ 	font-family: serrif;
+ 	margin-bottom: 10px;
+    margin-top: 10px;
+    font-style: italic;
+}
+.ui-grid-pager-control .ui-grid-pager-max-pages-number > * {
+    vertical-align: middle;
+    text-decoration: none;
+    border: none;
+}
+
+.ui-grid-contents-wrapper{
+	
+}
+
 abbr[data-original-title], abbr[title] {
     cursor: help;
-    border-bottom: none;
+    border-bottom: 1px dotted #777;
+    border: none !important; 
+}
+.instructionsBox{
+	text-align: center;
+	width: 20%;
+	margin: auto;
+	margin-top: 20px;
+	box-shadow: 7px 7px 20px darkgrey;
+	min-height: 150px;
+	position: absolute;
+	left:60px;
+	top: 120px;
 }
 .attendancePageContainer {
 	flex: 7;
@@ -100,7 +137,7 @@ abbr[data-original-title], abbr[title] {
 
 .grid {
 	margin: auto;
-	width: 500px;
+	width: 75%;
 	height: 400px;
 	display: none;
 	overflow: auto;
@@ -114,9 +151,11 @@ abbr[data-original-title], abbr[title] {
 }
 
 #submitBtn {
-	justify-content: space-around;
+	display: block;
+	justify-content: initial;
+	float: right;
+	margin-top: 20px;
 }
-
 
 @media(min-width : 769px)
 {
@@ -125,34 +164,43 @@ abbr[data-original-title], abbr[title] {
 		margin-left: 140px;
 	}
 }
+#attendanceSearchBox{
+	width: 75%;
+}
+
 @media ( max-width : 769px) {
-	aside {
-	width: 0px;
-    height: 0px;
-    position: absolute;
-	}
 	
+	aside {
+		width: 0px;
+	    height: 0px;
+	    position: absolute;
+	}
 	
 }
 
 
 
 @media ( max-width : 500px) {
+
 	aside {
-	width: 0px;
-    height: 0px;
-    position: absolute;
+		width: 0px;
+	    height: 0px;
+	    position: absolute;
 	}
 	
 	.searchBox {
+		width: 300px;
+	}
 	
-	width: 300px;
-}
-.grid {
-	margin: auto;
-	width: 300px;
-	height: 420px;
-	overflow: auto;
-}
+	.grid {
+		margin: auto;
+		width: 300px;
+		height: 420px;
+		overflow: auto;
+	}
+	
+	#attendanceSearchBox{
+		width: 100%;
+	}
 	
 }

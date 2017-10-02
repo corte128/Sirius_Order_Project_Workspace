@@ -23,6 +23,15 @@
 	flex: 0;
 }
 
+.pageTitle {
+	margin: auto;
+	text-align: center;
+	font-family: serrif;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	font-style: italic;
+}
+
 .budget-search-box-label-container {
 	font-style: italic;
 	font-weight: bold;
@@ -108,10 +117,10 @@
 		overflow-y: hidden;
 		margin: auto;
 		margin-top: 400px;
-		    margin-left: 80px;
+		margin-left: 80px;
 	}
-	.hideDownloadDiv{
-		margin:auto;
+	.hideDownloadDiv {
+		margin: auto;
 		margin-left: 120px;
 	}
 }
@@ -146,7 +155,7 @@
 	#budgetReportGenerateReportButton {
 		margin-right: 5px;
 	}
-	#budgetGridContainer{
+	#budgetGridContainer {
 		margin-right: 5px;
 	}
 	div#budgetChartContainer { /* overflow-y: auto; */
@@ -154,10 +163,10 @@
 		overflow-y: hidden;
 		margin: auto;
 		margin-top: 400px;
-		    margin-left: 80px;
+		margin-left: 80px;
 	}
-	.hideDownloadDiv{
-		margin:auto;
+	.hideDownloadDiv {
+		margin: auto;
 		margin-left: 120px;
 	}
 }

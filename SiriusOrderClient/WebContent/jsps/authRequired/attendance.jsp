@@ -4,9 +4,13 @@
 <head>
 <meta charset="utf-8">
 <title>Search for attendance records</title>
+<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/button.css" />
 <link rel="stylesheet" type="text/css"
 	href="/SiriusOrderClient/css/attendance.css">
+=======
+
+>>>>>>> e75987a1d2eedf43844d28df5de4e656049c3f3d
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:setBundle basename="com.sirius.order.client.properties.attendance" />
@@ -29,11 +33,14 @@
 	href="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.css" />
 
 <script src="/SiriusOrderClient/js/attendanceTable.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="/SiriusOrderClient/css/attendance.css">
 
 </head>
 <c:choose>
-	<c:when test="${sessionScope.activeUserType == null || sessionScope.activeUserType == 1}">
-		<c:redirect url="/jsps/login.jsp" /> 
+	<c:when
+		test="${sessionScope.activeUserType == null || sessionScope.activeUserType == 1}">
+		<c:redirect url="/jsps/login.jsp" />
 	</c:when>
 	<c:otherwise>
 		<body ng-app="attendanceTable">
@@ -46,17 +53,27 @@
 				<fmt:setBundle
 					basename="com.sirius.order.client.properties.attendance" />
 
-
+				<div class="instructionsBox">
+					<div id="instructionsTitle">Instructions </div>
+					<p> You can use this form to retrieve attendance records of employees in specific location.
+						<br />Please note to pick either To/From OR Range fields, but not both.</p>
+				</div>
 
 				<div class="attendancePageContainer" ng-controller="AttendanceCtrl">
-
+					<div class="pageTitle">
+						<h1>Attendance</h1>
+					</div>
 					<div class="errorMessage" id="viewSelectError">
-						<p><fmt:message key="ATTENDANCE_VIEW_ERROR" /></p>
+						<p>
+							<fmt:message key="ATTENDANCE_VIEW_ERROR" />
+						</p>
 					</div>
 					<div class="errorMessage" id="dateSelectError">
-						<p><fmt:message key="ATTENDANCE_DATE_ERROR" /></p>
+						<p>
+							<fmt:message key="ATTENDANCE_DATE_ERROR" />
+						</p>
 					</div>
-					
+
 
 
 					<div id="attendanceSearchBox" class="searchBox">
@@ -108,9 +125,15 @@
 										<fmt:message key="ATTENDANCE_VIEW" />
 									</div>
 									<select id="view" name="view" required>
-										<option><fmt:message key="ATTENDANCE_SELECT" /></option>
-										<option value="display"><fmt:message key="ATTENDANCE_DISPLAY" /></option>
-										<option value="PDF"><fmt:message key="ATTENDANCE_PDF" /></option>
+										<option>
+											<fmt:message key="ATTENDANCE_SELECT" />
+										</option>
+										<option value="display">
+											<fmt:message key="ATTENDANCE_DISPLAY" />
+										</option>
+										<option value="PDF">
+											<fmt:message key="ATTENDANCE_PDF" />
+										</option>
 									</select>
 								</div>
 
@@ -136,18 +159,33 @@
 										<fmt:message key="ATTENDANCE_RANGE" />
 									</div>
 									<select id="range" name="range">
-										<option value="%"><fmt:message key="ATTENDANCE_SELECT" /></option>
-										<option value="thisWeek"><fmt:message key="ATTENDANCE_THIS_WEEK" /></option>
-										<option value="lastWeek"><fmt:message key="ATTENDANCE_LAST_WEEK" /></option>
-										<option value="lastTenDays"><fmt:message key="ATTENDANCE_TEN_DAYS" /></option>
-										<option value="thisMonth"><fmt:message key="ATTENDANCE_THIS_MONTH" /></option>
-										<option value="lastMonth"><fmt:message key="ATTENDANCE_LAST_MONTH" /></option>
+										<option value="%">
+											<fmt:message key="ATTENDANCE_SELECT" />
+										</option>
+										<option value="thisWeek">
+											<fmt:message key="ATTENDANCE_THIS_WEEK" />
+										</option>
+										<option value="lastWeek">
+											<fmt:message key="ATTENDANCE_LAST_WEEK" />
+										</option>
+										<option value="lastTenDays">
+											<fmt:message key="ATTENDANCE_TEN_DAYS" />
+										</option>
+										<option value="thisMonth">
+											<fmt:message key="ATTENDANCE_THIS_MONTH" />
+										</option>
+										<option value="lastMonth">
+											<fmt:message key="ATTENDANCE_LAST_MONTH" />
+										</option>
 									</select>
 
 								</div>
-								<div id="submitBtn" class="inputFieldContainer">
+								<div id="submitBtn" >
 									<button type="button" name="searchBtn" value="search"
-										class="project-button" ng-click="getSearch()"><fmt:message key="ATTENDANCE_BUTTON_LABEL" /></button>
+										class="project-button" ng-click="getSearch()">
+										<fmt:message key="ATTENDANCE_BUTTON_LABEL" />
+									</button>
+
 
 								</div>
 							</div>
@@ -155,12 +193,16 @@
 
 					</div>
 					<div class="noInfoMessage" id="noInfoFoundError">
-						<p><fmt:message key="ATTENDANCE_NO_INFO" /></p>
+						<p>
+							<fmt:message key="ATTENDANCE_NO_INFO" />
+						</p>
 					</div>
 					<div class="hideDownloadDiv" id="downloadDiv">
-						<fmt:message key="ATTENDANCE_PDF_GENERATED" /> <br /> <a
+						<fmt:message key="ATTENDANCE_PDF_GENERATED" />
+						<br /> <a
 							href="/SiriusOrderClient/generatedPDF/attendance-pdf.pdf"
-							target="_blank"><fmt:message key="ATTENDANCE_CLICK_DOWNLOAD" /></a>
+							target="_blank"><fmt:message key="ATTENDANCE_CLICK_DOWNLOAD" />
+						</a>
 					</div>
 					<div id="displayDiv" ui-grid="gridOptions" ui-grid-pagination
 						ui-grid-auto-resize class="grid"></div>
