@@ -13,7 +13,19 @@ function calcBreakroomTotals()
 		itemTotal += quantity;
 	}
 	totalPrice = totalPrice.toFixed(2);
-
+	var budget = document.getElementById("breakroomBudgetAmountContainer").innerText;
+	if(parseFloat(totalPrice) > parseFloat(budget))
+	{
+		document.getElementById("breakroomTotalPriceContainer").style.color = 'red';
+		var difference = totalPrice - budget;
+		document.getElementById("breakroomAboveBudgetAmountContainer").innerText = difference.toFixed(2);
+		document.getElementById("breakroomAboveBudgetContainer").style.display = 'block';
+	}
+	else
+	{
+		document.getElementById("breakroomTotalPriceContainer").style.color = 'black';
+		document.getElementById("breakroomAboveBudgetContainer").style.display = 'none';
+	}
 	if(document.getElementById("breakroomTotalQuantityContainer") != null)
 	{
 		document.getElementById("breakroomTotalQuantityContainer").innerHTML = 'Breakroom Total(' + itemTotal + ' items)';

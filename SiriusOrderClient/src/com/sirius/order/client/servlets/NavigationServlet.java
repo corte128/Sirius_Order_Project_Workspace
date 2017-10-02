@@ -3,6 +3,7 @@ package com.sirius.order.client.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -329,6 +330,11 @@ public class NavigationServlet extends HttpServlet {
 		request.setAttribute("savedOrders", mapOfOrders);
  		request.setAttribute("savedProducts", mapOfProducts);
  		
+ 		Calendar cal = Calendar.getInstance();
+		cal.setFirstDayOfWeek(Calendar.SATURDAY);
+		cal.set(Calendar.DAY_OF_WEEK, Calendar.FRIDAY);
+		request.setAttribute("thisFriday", cal);
+		
 		RequestDispatcher dispatcher = request
 				.getRequestDispatcher("/jsps/authRequired/reviewCart.jsp");
 		dispatcher.forward(request, response);

@@ -16,6 +16,16 @@ body
 	display: none;
 	color: red;
 	text-align: right;
+	font-style: italic;
+	font-family: sarif;
+	padding-right: 10px;
+}
+#cartOrderWillBePlacedContainer
+{
+	color: green;
+	font-style: italic;
+	font-family: sarif;
+	padding: 5px 0 5px 10px;
 }
 .cart-product-color-alternate-container:nth-child(odd)
 {
@@ -280,6 +290,14 @@ main
 }
 @media(max-width: 321px) 
 {
+	#breakroomAboveBudgetContainer
+	{
+		font-size: 10px;
+	}
+	#cartOrderWillBePlacedContainer
+	{
+		font-size: 10px;
+	}
 	#cartHeaderContainer
 	{
 		font-size: 100%;
