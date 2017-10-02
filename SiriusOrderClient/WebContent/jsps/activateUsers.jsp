@@ -13,7 +13,6 @@
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/jquery-ui.structure.min.css"/>
 <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/jquery-ui.theme.min.css"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/activateUsers.css">
 
 <title><fmt:message key="ACTIVATE_TITLE" /></title>
 
@@ -26,6 +25,8 @@
 
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
 <script src="/SiriusOrderClient/js/activateUser.js"></script>
+<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/activateUsers.css">
+
 <c:if test="${activeUserID == null}">
 	<jsp:forward page = "/jsps/welcome.jsp" />
 </c:if> 
