@@ -1,8 +1,9 @@
 @CHARSET "ISO-8859-1";
 
-select {
+.category-select {
 	background-color: #605C68;
-	color: #CACACA;
+	color: #ECECEC !important;
+	font-style: italic !important;
 	width: 115px;
 	height: 25px;
 }
@@ -13,6 +14,7 @@ select {
 
 .searchContainer{
 	margin-left: 30%;
+	margin-bottom: 10px;
 	padding-top: 5px;
 }
 
