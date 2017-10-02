@@ -34,12 +34,15 @@ label{
 	font-weight: 100 !important;
 }
 #visitor-add-button{
+	/*
 	background-color: #5F6060;
 	color: white;
 	border: none;
 	padding: 5px;
 	padding-left: 30px;
 	padding-right: 30px;
+	*/
+	
 }
 @media only screen and (min-width: 300px) {
 	.visitors-form-input{
@@ -96,9 +99,9 @@ label{
 		width: 250px;
 	}
 	#visitor-add-button{
-		margin-right: 120px;
-		padding-left: 40px;
-		padding-right: 40px;
+		left: 625px;
+		//padding-left: 40px;
+		//padding-right: 40px;
 	}
 	#future-date, #date-order{
 		height: 50px;
@@ -133,8 +136,8 @@ label{
 	}
 	#visitor-add-button{
 		right: 470px;
-		padding-left: 40px;
-		padding-right: 40px;
+		//padding-left: 40px;
+		//padding-right: 40px;
 	}
 	.top-padding{
 		margin-top: 0;
@@ -148,5 +151,12 @@ label{
 	#count-input{
 		width: 150px;
 		margin-right: 100px;
+	}
+}
+@media only screen and (max-width: 769px) and (min-width: 321px)
+{
+	#visitor-add-button
+	{
+		left: 466px;
 	}
 }

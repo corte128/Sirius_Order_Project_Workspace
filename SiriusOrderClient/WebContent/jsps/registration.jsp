@@ -6,12 +6,13 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head> 
-<fmt:setBundle basename="com.sirius.order.client.properties.common"/>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/registration.css">
-<meta name="viewport" content="width=device-width" />
-<script src="/SiriusOrderClient/js/registration.js"></script>
-<title><fmt:message key="REGISTRATION_TITLE" /></title> 
+	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/button.css" />
+	<fmt:setBundle basename="com.sirius.order.client.properties.common"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/registration.css">
+	<meta name="viewport" content="width=device-width" />
+	<script src="/SiriusOrderClient/js/registration.js"></script>
+	<title><fmt:message key="REGISTRATION_TITLE" /></title> 
 </head>   
 <body> 
 	<header> 
@@ -63,10 +64,10 @@
 							</c:forEach>
 						</select>
 						<br />
-						<html:password name="RegistrationForm" property="password" styleClass="registration-field" />
+						<html:password name="RegistrationForm" property="password" styleClass="registration-field" onchange="checkEmail()" />
 						<%--<input class="registration-field" required type="password" name="password" /> --%>
 						<br />
-						<html:password name="RegistrationForm" property="confirm_password" styleClass="registration-field" />
+						<html:password name="RegistrationForm" property="confirm_password" styleClass="registration-field" onchange="checkEmail()" />
 						<%--<input class="registration-field" required type="password" name="confirm_password" /> --%>
 						<c:if test="${errorArray.contains('REGISTRATION_PASSWORDS_INVALID')}"> 
 							<span class="error">
@@ -84,7 +85,7 @@
 						<c:if test="${errorArray.contains('REGISTRATION_PASSWORDS_INVALID')}">
 							<div></div>
 						</c:if>
-						<html:submit styleId="registration-button" value="Register" />
+						<html:submit styleId="registration-button" styleClass="project-button" value="Register" />
 					</html:form>
 				</div>
 			</div>

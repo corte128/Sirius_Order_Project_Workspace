@@ -20,6 +20,7 @@ html body{
 .registration-field{
 	border: black 1px solid;
 }
+/*
 #registration-button{
 	margin-top: 10px;
 	border: none;
@@ -27,6 +28,11 @@ html body{
 	color: lightgrey;
 	width: 75px;
 	padding: 5px;
+}
+*/
+#registration-button
+{
+	margin-top: 10px;
 }
 #email-error-spacing{
 	display: none;
@@ -158,18 +164,23 @@ html body{
 		display: none !important;
 	}
 }
-@media only screen and (min-width: 800px) {
-	body{
+@media only screen and (min-width: 800px)
+{
+	body
+	{
 		font-size: 1em;
 	}
-	#registration-title{
+	#registration-title
+	{
 		padding-top: 40px;
 		font-size: 2em;
 	}
-	#registration-form{
+	#registration-form
+	{
 		display: flex;
 	}
-	#registration-labels{
+	#registration-labels
+	{
 		flex: 2;
 		padding: 0;
 		padding-left: 25%;
@@ -215,5 +226,10 @@ html body{
 		display: none !important;
 	}
 }
-
-
+@media only screen and (min-width: 321px) and (max-width: 769px)
+{
+	#registration-button
+	{
+		right: 27.5%;
+	}
+}

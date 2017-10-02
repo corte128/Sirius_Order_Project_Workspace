@@ -5,7 +5,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
-<head> 
+<head>
+	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/button.css" />
 	<fmt:setBundle basename="com.sirius.order.client.properties.common"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/jquery-ui.structure.min.css"/>
@@ -15,12 +16,12 @@
 	<script type="text/javascript" src="/SiriusOrderClient/js/jquery-ui-1.12.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/visitors.css">
 
-<c:if test="${activeUserID == null}">
-	<jsp:forward page = "/jsps/welcome.jsp" />
-</c:if> 
-<c:if test="${activeUserType < 2}">
-	<jsp:forward page = "/jsps/welcome.jsp" />
-</c:if>
+	<c:if test="${activeUserID == null}">
+		<jsp:forward page = "/jsps/welcome.jsp" />
+	</c:if> 
+	<c:if test="${activeUserType < 2}">
+		<jsp:forward page = "/jsps/welcome.jsp" />
+	</c:if>
 </head>
 
 <body>     
@@ -74,7 +75,7 @@
 					<br />
 					<textarea class="visitors-form-input top-padding" name="comment"></textarea>
 					<br />
-					<html:submit styleId="visitor-add-button" value=Add><fmt:message key="VISITORS_ADD_BUTTON" /></html:submit>
+					<html:submit styleId="visitor-add-button" styleClass="project-button" value=Add><fmt:message key="VISITORS_ADD_BUTTON" /></html:submit>
 				</html:form>
 			</div>
 		</div>

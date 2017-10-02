@@ -177,10 +177,16 @@ abbr[data-original-title], abbr[title] {
 	margin-top: 20px;
 }
 
+@media(min-width : 769px)
+{
+	.project-button
+	{
+		margin-left: 140px;
+	}
+}
 #attendanceSearchBox{
 	width: 75%;
 }
-
 
 @media ( max-width : 769px) {
 	

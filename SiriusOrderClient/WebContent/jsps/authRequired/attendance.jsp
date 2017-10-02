@@ -4,7 +4,10 @@
 <head>
 <meta charset="utf-8">
 <title>Search for attendance records</title>
-
+<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/button.css" />
+<link rel="stylesheet" type="text/css"
+	href="/SiriusOrderClient/css/attendance.css">
+	
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:setBundle basename="com.sirius.order.client.properties.attendance" />
@@ -25,6 +28,7 @@
 	src="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.css" />
+
 <script src="/SiriusOrderClient/js/attendanceTable.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="/SiriusOrderClient/css/attendance.css">
@@ -178,9 +182,10 @@
 								</div>
 								<div id="submitBtn" >
 									<button type="button" name="searchBtn" value="search"
-										class="submitBtn" ng-click="getSearch()">
+										class="project-button" ng-click="getSearch()">
 										<fmt:message key="ATTENDANCE_BUTTON_LABEL" />
 									</button>
+
 
 								</div>
 							</div>

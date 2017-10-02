@@ -6,11 +6,12 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>  
 <head> 
-<fmt:setBundle basename="com.sirius.order.client.properties.common"/>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/login.css">
-<meta name="viewport" content="width=device-width" />
-<title><fmt:message key="LOGIN_TITLE" /></title>
+	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/button.css" />
+	<fmt:setBundle basename="com.sirius.order.client.properties.common"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/login.css">
+	<meta name="viewport" content="width=device-width" />
+	<title><fmt:message key="LOGIN_TITLE" /></title>
 </head>
 <body>     
 	<header>  
@@ -33,7 +34,7 @@
 						<br />
 						<input id="input-field" required type="password" name="password" placeholder=<fmt:message key="LOGIN_PASSWORD_LABEL" /> />
 						<br />
-						<html:submit styleId="login-button" value="Login" />
+						<html:submit styleId="login-button" styleClass="project-button" value="Login" />
 						<c:if test="${errs.contains('LOGIN_CREDENTIALS')}">
 						<div id="errors"><fmt:message key="LOGIN_CREDENTIALS" /></div>
 						</c:if>
