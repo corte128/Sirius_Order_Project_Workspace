@@ -67,7 +67,7 @@
 						<html:password name="RegistrationForm" property="password" styleClass="registration-field" onchange="checkEmail()" />
 						<%--<input class="registration-field" required type="password" name="password" /> --%>
 						<br />
-						<html:password name="RegistrationForm" property="confirm_password" styleClass="registration-field" />
+						<html:password name="RegistrationForm" property="confirm_password" styleClass="registration-field" onchange="checkEmail()" />
 						<%--<input class="registration-field" required type="password" name="confirm_password" /> --%>
 						<c:if test="${errorArray.contains('REGISTRATION_PASSWORDS_INVALID')}"> 
 							<span class="error">
