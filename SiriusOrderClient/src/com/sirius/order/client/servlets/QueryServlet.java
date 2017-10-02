@@ -134,13 +134,13 @@ public class QueryServlet extends HttpServlet {
 			else if(query.equals("deleteHoliday")){
 				OfficeAdminClientDAO dao = new OfficeAdminClientDAO();
 				boolean status = false;
-				int responseCode;
+				String responseCode;
 				status = dao.deleteHoliday(Integer.parseInt(request.getParameter("id")), (Integer) session.getAttribute("activeUserID"));
 				if (status){
-					responseCode = 1;
+					responseCode = "true";
 				}
 				else{
-					responseCode = 0;
+					responseCode = "false";
 				}
 				PrintWriter writer = response.getWriter();
 				writer.write(responseCode);				
@@ -148,15 +148,15 @@ public class QueryServlet extends HttpServlet {
 			else if(query.equals("addHoliday")){
 				OfficeAdminClientDAO dao = new OfficeAdminClientDAO();
 				boolean status = false;
-				int responseCode;
+				String responseCode;
 				String name = request.getParameter("name");
 				String date = request.getParameter("date");
 				status = dao.addHoliday(name, date, (Integer) session.getAttribute("activeUserID"), (Integer) session.getAttribute("activeUserLocation"));
 				if (status){
-					responseCode = 1;
+					responseCode = "true";
 				}
 				else{
-					responseCode = 0;
+					responseCode = "false";
 				}
 				PrintWriter writer = response.getWriter();
 				writer.write(responseCode);				
