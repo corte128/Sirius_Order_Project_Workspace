@@ -118,8 +118,13 @@ abbr[data-original-title], abbr[title] {
 }
 
 
-
-
+@media(min-width : 769px)
+{
+	.project-button
+	{
+		margin-left: 140px;
+	}
+}
 @media ( max-width : 769px) {
 	aside {
 	width: 0px;

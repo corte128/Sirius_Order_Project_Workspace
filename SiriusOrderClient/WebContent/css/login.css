@@ -4,6 +4,7 @@ html body{
 #errors{
 	color: red;
 }
+/*
 #login-button{
 	font-family: Arial;
 	font-weight: bold;
@@ -13,6 +14,7 @@ html body{
 	padding: 5px;
 	width: 50px;
 }
+*/
 .input-label {
 	color: #5F6060;
 }

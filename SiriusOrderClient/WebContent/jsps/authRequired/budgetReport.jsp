@@ -10,6 +10,8 @@
 		<title><fmt:message key="BUDGET_REPORT_TITLE_LABEL" /></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		
+		<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/button.css" />
+		
 		<script type="text/javascript" src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   		
@@ -116,9 +118,9 @@
 								</select>
 							</div>
 							<div class="budget-report-generate-report-button-container">
-								<div id="budgetReportGenerateReportButton" ng-click="generateChart()">
+								<button id="budgetReportGenerateReportButton" class="project-button" ng-click="generateChart()">
 									<fmt:message key="BUDGET_REPORT_GENERATE_REPORT_LABEL" />
-								</div>
+								</button>
 							</div>
 
 						</div>

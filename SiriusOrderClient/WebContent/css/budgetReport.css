@@ -30,7 +30,7 @@
 	font-size: 15px;
 	color: grey;
 }
-
+/*
 #budgetReportGenerateReportButton {
 	float: right;
 	width: 136px;
@@ -42,6 +42,11 @@
 	border: none;
 	margin-top: 1%;
 	margin-right: 45.3%;
+}
+*/
+#budgetReportGenerateReportButton
+{
+	margin-left: 173px;
 }
 
 .budget-report-generate-report-button-container {
