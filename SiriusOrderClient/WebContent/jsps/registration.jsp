@@ -44,14 +44,16 @@
 			<div id="registration-inputs-container">
 				<div id="registration-inputs">
 					<html:form action="/Registration" enctype="multipart/form-data">
-						<input class="registration-field" required type="text" name="name" />
+						<html:text name="RegistrationForm" property="name" styleClass="registration-field"/>
+						<%--<input class="registration-field" required type="text" name="name" /> --%>
 						<c:if test="${errorArray.contains('REGISTRATION_NAME_INVALID')}">
 							<span class="error">
 								<fmt:message key="REGISTRATION_NAME_INVALID" />
 							</span>
 						</c:if>
 						<br />
-						<input id="registration-email" onblur="checkEmail()" class="registration-field" required type="email" name="email" />
+						<html:text name="RegistrationForm" property="email" onblur="checkEmail()" styleId="registration-email" styleClass="registration-field"/>
+						<%--<input id="registration-email" onblur="checkEmail()" class="registration-field" required type="email" name="email" /> --%>
 						<span id="email-taken-error" class="error"><fmt:message key="REGISTRATION_EMAIL_TAKEN" /></span>
 						<span class="error" id="invalid-email"><fmt:message key="REGISTRATION_EMAIL_INVALID" /></span>
 						<br />
@@ -61,9 +63,11 @@
 							</c:forEach>
 						</select>
 						<br />
-						<input class="registration-field" required type="password" name="password" />
+						<html:password name="RegistrationForm" property="password" styleClass="registration-field" />
+						<%--<input class="registration-field" required type="password" name="password" /> --%>
 						<br />
-						<input class="registration-field" required type="password" name="confirm_password" />
+						<html:password name="RegistrationForm" property="confirm_password" styleClass="registration-field" />
+						<%--<input class="registration-field" required type="password" name="confirm_password" /> --%>
 						<c:if test="${errorArray.contains('REGISTRATION_PASSWORDS_INVALID')}"> 
 							<span class="error">
 								<fmt:message key="REGISTRATION_PASSWORDS_INVALID" />
