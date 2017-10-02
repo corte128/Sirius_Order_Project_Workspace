@@ -1,0 +1,43 @@
+@CHARSET "ISO-8859-1";
+
+.project-button
+{
+  width: 110px;
+  min-height: 30px;
+  margin: 2px;
+  color: white;
+  background-color: #555;
+  box-shadow: 2px 1px 4px 0px grey;
+  border: none;
+  cursor: pointer;
+}
+
+.project-button:hover
+{
+  color: #FAEBD7;
+}
+
+/* Ipad */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+{
+	.project-button
+	{
+		width: 150px;
+		height: 60px;
+		margin: 4px;
+	}
+}
+
+/* Iphone 5 */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px)
+{
+	.project-button
+	{
+		width: 93px;
+		height: 60px;
+	}
+}
