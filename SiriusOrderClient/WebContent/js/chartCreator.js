@@ -64,7 +64,8 @@ app.controller('BudgetChartCtrl', ['$scope', '$http',  function ($scope, $http)
 					chartArea: {
 						height: "80%",
 						width: "50%"
-					}
+					},
+					height: expectedHeight
 				});
 
 				var table = $('#budgetGrid').DataTable();
