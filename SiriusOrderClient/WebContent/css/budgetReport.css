@@ -12,11 +12,12 @@
 }
 
 #budgetSearchBoxContainer {
-	flex: 11.5;
-	margin: 5px;
 	border: 1px black solid;
-	padding: 3% 5% 0 5%;
+	padding-top: 25px;
+	padding-bottom: 25px;
 	position: relative;
+	width: 75%;
+	margin: auto;
 }
 
 #budgetNavContainer {
@@ -74,6 +75,8 @@
 */
 .row {
 	display: flex;
+	margin: 0px !important;
+	margin-left: 20px !important;
 }
 
 .view-input {
@@ -99,8 +102,9 @@
 		
 	}*/
 	.view-input {
-		margin-left: -89px;
+		margin-left: 0px;
 	}
+	
 	#budgetReportGenerateReportButton {
 		margin-right: 17%;
 	}

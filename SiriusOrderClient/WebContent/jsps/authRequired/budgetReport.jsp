@@ -7,7 +7,8 @@
 <fmt:setBundle basename="com.sirius.order.client.properties.common" />
 <html>
 <head>
-<title><fmt:message key="BUDGET_REPORT_TITLE_LABEL" />
+<title>
+	<fmt:message key="BUDGET_REPORT_TITLE_LABEL" />
 </title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
@@ -49,16 +50,11 @@
 	<main ng-controller="BudgetChartCtrl">
 	<div class="budgetPageContainer">
 		<div class="pageTitle">
-			<h1>Budget VS Actual Spent</h1>
+			<h1><fmt:message key="BUDGET_REPORT_TITLE_LABEL" /></h1>
 		</div>
 		<div class="container-fluid" style="padding: 0;">
 			<div id="budgetSearchBoxAndNavContainer">
-
-
-
-
 				<div id="budgetSearchBoxContainer">
-
 					<div class="row">
 						<div class="budget-search-box-label-container">
 							<fmt:message key="BUDGET_REPORT_REPORT_TYPE_LABEL" />
@@ -114,7 +110,6 @@
 								</c:choose>
 							</select>
 						</div>
-
 						<div class="budget-search-box-label-container">
 							<fmt:message key="BUDGET_REPORT_TO_DATE_LABEL" />
 						</div>
@@ -147,7 +142,6 @@
 								<fmt:message key="BUDGET_REPORT_GENERATE_REPORT_LABEL" />
 							</button>
 						</div>
-
 					</div>
 				</div>
 				<aside id="budgetNavContainer">
