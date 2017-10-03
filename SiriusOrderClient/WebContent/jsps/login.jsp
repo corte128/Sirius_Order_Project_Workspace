@@ -17,6 +17,7 @@
 	<header>  
 		<%@ include file="header.jsp" %>
 	</header>  
+	<div id="login-title"><fmt:message key="LOGIN_TITLE" /></div>
 	<div id="login-content">	  
 		<div id="login-form">
 			<div id="login-labels">
@@ -28,7 +29,7 @@
 			
 			<div id="login-inputs-container">
 				<div id="login-inputs">
-					<div id="login-title"><fmt:message key="LOGIN_TITLE" /></div>
+					
 					<html:form action="/Login">
 						<input id="input-field" required type="email" name="email" placeholder=<fmt:message key="LOGIN_EMAIL_LABEL" /> />
 						<br />

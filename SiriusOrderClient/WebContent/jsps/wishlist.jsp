@@ -24,7 +24,7 @@
 	<div class="wishlist-header">
 		<%-- TITLE --%>
 		<div class="wishlist-header-title">
-			<h1>My Wishlist</h1>
+			<h1>My Wishlist</h1> 
 		</div>
 		
 		<%-- ASIDE --%>

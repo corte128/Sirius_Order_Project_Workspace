@@ -47,5 +47,7 @@ button{
 	text-align: center;
 	font-family: serif;
 	font-style: italic;
+	margin: auto;
+	margin-top: 15px;
 	margin-bottom: 30px;
 }
