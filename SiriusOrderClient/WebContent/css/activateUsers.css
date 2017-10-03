@@ -19,6 +19,9 @@ thead{
 	font-family: Calibri;
 	font-size: 1.2em;
 }
+td{
+	font-family: calibri;
+}
 .users-form-row{
 	border-bottom: solid #5F6060 2px;
 	text-align: center;

@@ -12,7 +12,6 @@ function calcBreakroomTotals()
 		totalPrice += price * quantity;
 		itemTotal += quantity;
 	}
-	totalPrice = totalPrice.toFixed(2);
 	var budget = document.getElementById("breakroomBudgetAmountContainer").innerText;
 	if(parseFloat(totalPrice) > parseFloat(budget))
 	{
@@ -32,7 +31,7 @@ function calcBreakroomTotals()
 	if(document.getElementById("breakroomTotalQuantityContainer") != null)
 	{
 		document.getElementById("breakroomTotalQuantityContainer").innerHTML = 'Breakroom Total(' + itemTotal + ' items)';
-		document.getElementById("breakroomTotalPriceContainer").innerHTML = Number(totalPrice).toLocaleString(undefined, { style: 'currency', currency: 'USD' });
+		document.getElementById("breakroomTotalPriceContainer").innerHTML = totalPrice;
 	}
 }
 
@@ -49,11 +48,10 @@ function calcOfficeSuppliesTotals()
 		totalPrice += price * quantity;
 		itemTotal += quantity;
 	}
-	totalPrice = totalPrice.toFixed(2);
 	if(document.getElementById("officeSuppliesTotalQuantityContainer") != null)
 	{	
 		document.getElementById("officeSuppliesTotalQuantityContainer").innerHTML = 'Office Supplies Total(' + itemTotal + ' items)';
-		document.getElementById("officeSuppliesTotalPriceContainer").innerHTML = Number(totalPrice).toLocaleString(undefined, { style: 'currency', currency: 'USD' });	
+		document.getElementById("officeSuppliesTotalPriceContainer").innerHTML = totalPrice;	
 	}
 }
 
@@ -72,11 +70,9 @@ function calcInkAndTonerTotals()
 			totalPrice += price * quantity;
 			itemTotal += quantity;
 		}
-		totalPrice = totalPrice.toFixed(2);
-		
 		
 		document.getElementById("inkAndTonerTotalQuantityContainer").innerHTML = 'Ink & Toner Total(' + itemTotal + ' items)';
-		document.getElementById("inkAndTonerTotalPriceContainer").innerHTML = Number(totalPrice).toLocaleString(undefined, { style: 'currency', currency: 'USD' });
+		document.getElementById("inkAndTonerTotalPriceContainer").innerHTML = totalPrice;
 			
 	}
 }
@@ -129,6 +125,7 @@ function removeFromCart(orderID)
 		var productDiv = document.getElementById("cartOrder" + orderID);
 		productDiv.parentElement.removeChild(productDiv);
 		calcTotals();
+		formatPrices();
 	};
 	xhttp.send();
 }
@@ -140,10 +137,7 @@ function calcTotals()
 	calcInkAndTonerTotals();
 	calcTaxAndGrandTotals();
 }
-(function loader()
-{
-	calcTotals();
-})();
+
 function showIncludeOrderModal()
 {
 	document.getElementById("includeSavedOrderModal").style.display = 'block';
@@ -181,6 +175,7 @@ function calcBreakroomTotalsAndUpdate(productId, orderId)
 		calcBreakroomTotals();
 		calcTaxAndGrandTotals();
 		updateQuantity(productId, quantity);
+		formatPrices();
 	}
 }
 function calcOfficeSuppliesTotalsAndUpdate(productId, orderId)
@@ -195,6 +190,7 @@ function calcOfficeSuppliesTotalsAndUpdate(productId, orderId)
 		calcOfficeSuppliesTotals();
 		calcTaxAndGrandTotals();
 		updateQuantity(productId, quantity);
+		formatPrices();
 	}
 }
 function calcInkAndTonerTotalsAndUpdate(productId, orderId)
@@ -209,6 +205,7 @@ function calcInkAndTonerTotalsAndUpdate(productId, orderId)
 		calcInkAndTonerTotals();
 		calcTaxAndGrandTotals();
 		updateQuantity(productId, quantity);
+		formatPrices();
 	}
 }
 function selectAllOrderCheckboxes(orderName)
@@ -311,6 +308,7 @@ function includeOrderInCart()
 																</div>';
 					
 					calcTotals();
+					formatPrices();
 					closeIncludeInOrderWindow();
 				}
 			};
@@ -329,7 +327,6 @@ function saveOrder()
 		if(checkBoxes[index].checked == true)
 		{
 			var productId = checkBoxes[index].id.substring(17);
-			console.log(productId);
 			url += "&productID=" + productId;
 		}
 	}
@@ -346,3 +343,24 @@ function closeIncludeInOrderWindow(){
 	 var includeSavedOrderModal = document.getElementById("includeSavedOrderModal");
 	 includeSavedOrderModal.style.display = "none";
 }
+
+function formatPrices(){
+	var priceContainers = document.getElementsByClassName('cart-product-price-container');
+	for(index in priceContainers){
+		if(!isNaN(Number(priceContainers[index].innerText)))
+		{
+			priceContainers[index].innerText
+				= Number(priceContainers[index].innerText)
+					.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+		}
+	}
+	
+	document.getElementById("breakroomBudgetAmountContainer").innerText = 
+		Number(document.getElementById("breakroomBudgetAmountContainer").innerText)
+			.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+};
+(function loader()
+{
+	calcTotals();
+	formatPrices();
+})();
