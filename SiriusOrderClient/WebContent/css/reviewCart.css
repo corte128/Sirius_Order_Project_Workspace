@@ -10,6 +10,7 @@ body
 	font-style: italic;
 	font-family: sarif;
 	text-align: center;
+	margin: 0 10%;
 }
 #breakroomAboveBudgetContainer
 {
@@ -18,14 +19,14 @@ body
 	text-align: right;
 	font-style: italic;
 	font-family: sarif;
-	padding-right: 10px;
+	padding-right: 10%;
 }
 #cartOrderWillBePlacedContainer
 {
 	color: green;
 	font-style: italic;
 	font-family: sarif;
-	padding: 5px 0 5px 10px;
+	padding: 5px 0 5px 10%;
 }
 #breakroomTitleLineBreak
 {
@@ -289,10 +290,10 @@ body
 #cartAndNavContainer
 {
 	display: flex;
-	height: calc(100vh - 100px);
+	height: calc(100% - 100px);
 	overflow-y: auto;
 	overflow-x: hidden;
-	width: 100vw;
+	width: 100%;
 	//border-bottom: 2px solid black;
 }
 #cartTaxAndGrandTotalContainer
@@ -313,6 +314,18 @@ main
 }
 @media(max-width: 769px) 
 {
+	#cartMainContentLabelContainer
+	{
+		margin: 0;
+	}
+	#breakroomAboveBudgetContainer
+	{
+		padding-right: 10px;
+	}
+	#cartOrderWillBePlacedContainer
+	{
+		padding: 5px 0 5px 10px;
+	}
 	#cartTaxAndGrandTotalContainer
 	{
 		font-size: 12pt;
@@ -326,6 +339,22 @@ main
 	{
 		font-size: 80%;
 		left: 87%;
+	}
+	#cartHeaderContainer
+	{
+		margin: 0 0;
+	}
+	.cart-section-title-container
+	{
+		margin: 0 0;
+	}
+	.cart-product-container
+	{
+		margin: 0 0;
+	}
+	.cart-summary-container
+	{
+		margin: 0 0;
 	}
 }
 @media(max-width: 321px) 
@@ -345,16 +374,11 @@ main
 	#cartHeaderContainer
 	{
 		font-size: 100%;
-		margin: 0 0;
 	}
 	.cart-section-title-text-container
 	{
 		text-align: center;
 		font-size: 60%;
-	}
-	.cart-section-title-container
-	{
-		margin: 0 0;
 	}	
 	#breakroomTitleLineBreak
 	{
@@ -411,12 +435,10 @@ main
 	.cart-product-container
 	{
 		font-size: 9px;
-		margin: 0 0;
 	}
 	.cart-summary-container
 	{
 		font-size: 9px;
-		margin: 0 0;
 	}
 	.cart-modal
 	{

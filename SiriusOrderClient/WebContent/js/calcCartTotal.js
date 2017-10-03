@@ -308,14 +308,15 @@ function includeOrderInCart()
 																	</div> \
 																</div>';
 					
-					calcTotals();
-					formatPrices();
-					closeIncludeInOrderWindow();
+					
 				}
 			};
 			xhttp.send();
 		}	
 	}
+	calcTotals();
+	formatPrices();
+	closeIncludeInOrderWindow();
 }
 function saveOrder()
 {
