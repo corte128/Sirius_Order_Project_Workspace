@@ -3,7 +3,7 @@
 .project-button
 {
   width: 110px !important;
-  min-height: 30px;
+  min-height: 30px !important;
   margin: 2px;
   color: white;
   background-color: #555;
@@ -11,6 +11,10 @@
   border: none;
   cursor: pointer;
   height: auto !important;
+  padding: 4px 6px;
+  font-family: calibri !important;
+  font-weight: normal !important;
+  font-size: 16px !important;
 }
 
 .project-button:hover

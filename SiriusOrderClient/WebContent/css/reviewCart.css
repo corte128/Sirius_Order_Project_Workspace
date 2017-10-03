@@ -284,6 +284,8 @@ body
 #cartAndNavContainer
 {
 	display: flex;
+	height: 90vh;
+	overflow: auto;
 }
 main
 {
