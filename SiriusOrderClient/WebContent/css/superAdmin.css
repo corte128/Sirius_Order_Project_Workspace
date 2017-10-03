@@ -179,7 +179,7 @@ and (max-device-width : 1024px) {
   }
 
   .super-admin-budget-table{
-    height: 900px;
+    height: 800px;
   }
 
   .super-admin-button {
@@ -208,6 +208,13 @@ and (max-device-width : 1024px) {
   .super-admin-modal-text-input{
     width: 160px !important;
     height: 40px;
+  }
+  .pageTitle{
+  	text-align: center;
+  	font-family: serif;
+  	font-style: italic;
+  	margin: auto;
+  	margin-bottom: 30px;
   }
 }
 
@@ -258,6 +265,13 @@ and (max-device-width : 568px) {
   .super-admin-modal-text-input{
     width: 150px !important;
     height: 40px;
+  }
+  .pageTitle{
+  	text-align: center;
+  	font-family: serif;
+  	font-style: italic;
+  	margin: auto;
+  	margin-bottom: 30px;
   }
 
 }
