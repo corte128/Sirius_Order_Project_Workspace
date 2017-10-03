@@ -11,6 +11,7 @@
 </title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
+<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/button.css" />
 <script type="text/javascript"
 	src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
 <script
@@ -140,10 +141,11 @@
 							</select>
 						</div>
 						<div class="budget-report-generate-report-button-container">
-							<div id="budgetReportGenerateReportButton"
+							<button id="budgetReportGenerateReportButton"
+								class="project-button"
 								ng-click="generateChart()">
 								<fmt:message key="BUDGET_REPORT_GENERATE_REPORT_LABEL" />
-							</div>
+							</button>
 						</div>
 
 					</div>

@@ -43,6 +43,7 @@ public class RegistrationForm extends ActionForm{
 	    	errors.add("password", new ActionMessage("REGISTRATION_PASSWORDS_INVALID"));
 	    	errorArray.add("REGISTRATION_PASSWORDS_INVALID");
 	    }
+	    confirm_password = "";
 	    request.setAttribute("errorArray", errorArray);
 	    return errors;
 	}

@@ -4,7 +4,10 @@
 <head>
 <meta charset="utf-8">
 <title>Search for attendance records</title>
-
+<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/button.css" />
+<link rel="stylesheet" type="text/css"
+	href="/SiriusOrderClient/css/attendance.css">
+	
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:setBundle basename="com.sirius.order.client.properties.attendance" />
@@ -25,6 +28,7 @@
 	src="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.css" />
+
 <script src="/SiriusOrderClient/js/attendanceTable.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="/SiriusOrderClient/css/attendance.css">
@@ -46,12 +50,15 @@
 				<fmt:setBundle
 					basename="com.sirius.order.client.properties.attendance" />
 
-				<div class="instructionsBox">
-					<div id="instructionsTitle">Instructions </div>
-					<p> You can use this form to retrieve attendance records of employees in specific location.
-						<br />Please note to pick either To/From OR Range fields, but not both.</p>
+				<div id ="instructionsBox" class="instructionsBox">
+					<span id="closeBtn" onclick="closeHelp()">X</span>
+					<div id="instructionsTitle"><h2>Instructions: </h2> </div>
+					<ul><li>You can use this form to retrieve attendance records of employees in a specific location.</li>
+						<li>Please note to pick either To/From OR Range fields, but not both.</li>
+					</ul>
+					
 				</div>
-
+				<div class="glyphicon glyphicon-question-sign helpIcon" id="helpIcon" onclick="showHelp()"></div>
 				<div class="attendancePageContainer" ng-controller="AttendanceCtrl">
 					<div class="pageTitle">
 						<h1>Attendance</h1>
@@ -175,9 +182,10 @@
 								</div>
 								<div id="submitBtn" >
 									<button type="button" name="searchBtn" value="search"
-										class="submitBtn" ng-click="getSearch()">
+										class="project-button" ng-click="getSearch()">
 										<fmt:message key="ATTENDANCE_BUTTON_LABEL" />
 									</button>
+
 
 								</div>
 							</div>

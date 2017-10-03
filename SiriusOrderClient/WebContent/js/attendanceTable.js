@@ -5,7 +5,15 @@
 var app = angular.module('attendanceTable', [ 'ngTouch', 'ui.grid',
 		'ui.grid.pagination', 'ui.grid.autoResize' ]);
 
+function showHelp(){
+	var instructionsDiv = document.getElementById("instructionsBox");
+	instructionsDiv.style.display = 'block';
+}
 
+function closeHelp(){
+	var instructionsDiv = document.getElementById("instructionsBox");
+	instructionsDiv.style.display = 'none';
+}
 
 function validateAttendance() {
 
