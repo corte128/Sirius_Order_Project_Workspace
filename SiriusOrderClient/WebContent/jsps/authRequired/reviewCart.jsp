@@ -29,7 +29,7 @@
 			<div id="cartMainContentLabelContainer"><h1><fmt:message key="CART_CART_LABEL" /></h1></div>
 			<div id="breakroomAboveBudgetContainer">
 				<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" />
-				 $<span id="breakroomAboveBudgetAmountContainer"></span>
+				 <span id="breakroomAboveBudgetAmountContainer"></span>
 				 <fmt:message key="CART_ABOVE_BUDGET_LABEL" />
 			</div>
 			<div id="cartOrderWillBePlacedContainer">
@@ -57,8 +57,9 @@
 					</div>
 					<div class="cart-section-title-text-container">
 						<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" /><br id="breakroomTitleLineBreak" />
-						 (<fmt:message key="CART_BUDGET_LABEL" />: $<span id="breakroomBudgetAmountContainer">${currentBudget.getBudgetAllotted()}</span>)
+						 (<fmt:message key="CART_BUDGET_LABEL" />: <span id="breakroomBudgetAmountContainer">${currentBudget.getBudgetAllotted()}</span>)
 					</div>
+					<input id="breakroomBudgetAmountValue" type="hidden" value="${currentBudget.getBudgetAllotted()}" />
 					<span class="include-saved-order-container" onclick="showIncludeOrderModal()">
 						<fmt:message key="CART_INCLUDE_FROM_SAVED_ORDER_LABEL" />
 					</span>
@@ -75,8 +76,9 @@
 							${product.getName()}
 						</div>
 						<div class="cart-product-price-container 
-							breakroom-cart-product-price-container">
-							$${product.getPrice()}
+							breakroom-cart-product-price-container"
+							value="${product.getPrice()}">
+							${product.getPrice()}
 						</div>
 						<div class="cart-product-quantity-container">
 							<input id="cartProductQuantityInput${breakroomOrders.get(breakroomIndex).getId()}"
@@ -132,8 +134,9 @@
 							${product.getName()}
 						</div>
 						<div class="cart-product-price-container
-							office-supplies-cart-product-price-container">
-							$${product.getPrice()}
+							office-supplies-cart-product-price-container"
+							value="${product.getPrice()}">
+							${product.getPrice()}
 						</div>
 						<div class="cart-product-quantity-container">
 							<input id="cartProductQuantityInput${officeSuppliesOrders.get(officeSuppliesIndex).getId()}"
@@ -189,8 +192,9 @@
 							${product.getName()}
 						</div>
 						<div class="cart-product-price-container
-							ink-cart-product-price-container">
-							$${product.getPrice()}
+							ink-cart-product-price-container"
+							value="${product.getPrice()}">
+							${product.getPrice()}
 						</div>
 						<div class="cart-product-quantity-container">
 							<input id="cartProductQuantityInput${inkAndTonerOrders.get(inkIndex).getId()}"
@@ -226,11 +230,11 @@
 			
 			<footer id="cartTaxAndGrandTotalContainer">
 				<div id="cartTaxContainer">
-					<fmt:message key="CART_TAX_PERCENTAGE_LABEL" /> $<span id="cartTaxAmountContainer"></span>
+					<fmt:message key="CART_TAX_PERCENTAGE_LABEL" /> <span id="cartTaxAmountContainer"></span>
 				</div>
 				
 				<div id="cartGrandTotalContainer">
-					<fmt:message key="CART_TOTAL_LABEL" /> $<span id="cartGrandTotalAmountContainer"></span>
+					<fmt:message key="CART_TOTAL_LABEL" /> <span id="cartGrandTotalAmountContainer"></span>
 				</div>
 			</footer>
 			
