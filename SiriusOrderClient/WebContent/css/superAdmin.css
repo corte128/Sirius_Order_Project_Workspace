@@ -28,7 +28,7 @@
 }*/
 
 .super-admin-budget-table{
-	
+
 }
 
 .super-admin-button {
@@ -142,7 +142,7 @@ div.ui-grid-cell input{
     margin-left: 0;
     /*height: 150px;*/
   }
-  
+
   .super-admin-budget-table{
 	width: 75%;
 	margin: auto;
@@ -230,7 +230,7 @@ and (max-device-width : 568px) {
   }
 
   .super-admin-budget-table{
-    height: 440px;
+    height: 350px;
   }
 
   .super-admin-button {
