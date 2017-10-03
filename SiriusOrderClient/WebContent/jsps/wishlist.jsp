@@ -15,15 +15,24 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/SiriusOrderClient/js/wishlist.js"></script>
 </head>  
-<body> 
+<body onresize="resizeDisplay()")> 
+
 	<%-- HEADER --%>  
 	<header> 
 		<%@ include file="header.jsp"%>
 	</header>
 	<div class="wishlist-container">
-
+		<input type="hidden" id="profileImage" value="${sessionScope.activeUserPicture}" /> 
+		<input type="hidden" id="profileName" value="${sessionScope.activeUserName}"/>
+		<input type="hidden" id="wishlistWelcome" value="<bean:message key='WISHLIST_WELCOME_TEXT'/>"/>
+		<input type="hidden" id="wishlistWishlistLabel" value="<bean:message key='WISHLIST_WISHLIST_LABEL'/>"/>
+		<input type="hidden" id="wishlistYouHave" value="<bean:message key='WISHLIST_YOU_HAVE_TEXT'/>"/>
+		<input type="hidden" id="wishlistInWishlist" value="<bean:message key='WISHLIST_IN_WISHLIST_TEXT'/>"/>
+		<input type="hidden" id="wishlistLocationLabel" value="<bean:message key='WISHLIST_LOCATION_LABEL'/>"/>
+		<input type="hidden" id="wishlistLocation" value="${requestScope.location}"/>
+		
 		<%-- PROFILE CARD --%>
-		<div class="wishlist-profile-container">
+		<div class="wishlist-profile-container" id="profileCard">
 			<div class="wishlist-profile-image-welcome">
 				<div class="wishlist-profile-image">
 					<c:choose>
@@ -65,6 +74,7 @@
 			
 		</div>
 		<input id="userType" type="hidden" value="${sessionScope.activeUserType}" />
+		
 		<%-- ASIDE --%>
 		<aside class="wishlist-navbar-container">
 			<%@ include file="nav.jsp"%>

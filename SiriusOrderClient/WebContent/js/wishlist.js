@@ -51,10 +51,57 @@ function getProducts()
 	xhttp.onreadystatechange = function()
 	{
 		var response = JSON.parse(xhttp.responseText);
-		document.getElementById('productAmount').innerHTML = response.length;
 		
 		$('#productContainer').empty();
 		var productContainer = document.getElementById('productContainer');
+		
+		var profileImage = document.getElementById('profileImage').value;
+		var profileName = document.getElementById('profileName').value;
+		var wishlistWelcome = document.getElementById('wishlistWelcome').value;
+		var wishlistWishlistLabel = document.getElementById('wishlistWishlistLabel').value;
+		var wishlistYouHave = document.getElementById('wishlistYouHave').value;
+		var wishlistInWishlist = document.getElementById('wishlistInWishlist').value;
+		var wishlistLocationLabel = document.getElementById('wishlistLocationLabel').value;
+		var wishlistLocation = document.getElementById('wishlistLocation').value;
+		
+		if(profileImage != ""){
+			profileImage = 'data:image/jpeg;base64,' + profileImage;
+		}else{
+			profileImage = '/SiriusOrderClient/assets/default.png';
+		}
+		
+		productContainer.innerHTML = ' <div class="wishlist-card-container" id="profile"> \
+			<div class="productCard"> \
+				<div class="wishlist-profile-image-welcome"> \
+					<div class="wishlist-profile-image"> \
+						<img class="employee-profile-photo" alt=""' + '\
+							src="'+profileImage+'" /> \
+					</div> \
+					<div class="wishlist-profile-welcome"> \
+						'+ wishlistWelcome +' \
+						'+ profileName +' \
+					</div> \
+				</div> \
+				<div class="wishlist-profile-title wishlist-profile-title-wishlist"> \
+					'+ wishlistWishlistLabel +' \
+				</div> \
+				<div class="wishlist-profile-text wishlist-profile-text-wishlist"> \
+					'+ wishlistYouHave +' \
+					<span id="productAmount"> \
+					'+response.length+'\
+					</span> \
+					'+ wishlistInWishlist +' \
+				</div> \
+				<div class="wishlist-profile-title wishlist-profile-title-location"> \
+					'+ wishlistLocationLabel +' \
+				</div> \
+				<div class="wishlist-profile-text wishlist-profile-text-location"> \
+					'+ wishlistLocation +' \
+				</div> \
+			</div>\
+		</div>';
+		
+		//document.getElementById('productAmount').innerHTML = response.length;
 		
 		var user = document.getElementById("userType").value;
 
@@ -160,6 +207,7 @@ function getProducts()
 			
 			
 			productContainer.appendChild(productCardContainer);
+			resizeDisplay();
 		}
 	};
 	xhttp.send();
@@ -194,4 +242,18 @@ function deleteModal(likesModalID){
 	document.getElementById(likesModalID).style.display = 'none';
 }
 
+function resizeDisplay(){
+	var mqls = [
+	            window.matchMedia("(min-width: 768px)"),
+	            window.matchMedia("(max-width: 1024px)")
+	            ];
+	
+    if(mqls[0].matches && mqls[1].matches){
+    	document.getElementById("profile").style.display = "none";
+    	document.getElementById("profileCard").style.display = "flex";
+    }else{
+    	document.getElementById("profile").style.display = "block";
+    	document.getElementById("profileCard").style.display = "none";
+    }
+}
 

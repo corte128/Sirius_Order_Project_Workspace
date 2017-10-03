@@ -33,20 +33,31 @@
   }
 
   .wishlist-profile-container{
-    margin-left: 10px;
+    /*margin-left: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
     width: 210px;
     height: 250px;
     font-size: 12px;
     margin-top: 7px;
     font-style: italic;
-    padding-bottom: 5px;
+    padding-bottom: 5px;*/
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    width: 180px;
+    height: 260px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    font-size: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin: auto;
+    position: relative;
   }
 
 .wishlist-profile-image img{
   flex: 2;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   margin-left: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
