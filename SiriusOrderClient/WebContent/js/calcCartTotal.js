@@ -7,12 +7,12 @@ function calcBreakroomTotals()
 	var totalPrice = 0;
 	var itemTotal = 0;
 	for(var i = 0; i < prices.length; ++i){
-		var price = prices[i].innerText.slice(1);
+		var price = prices[i].getAttribute("value");
 		var quantity = Number(quantities[i].value);
 		totalPrice += price * quantity;
 		itemTotal += quantity;
 	}
-	var budget = document.getElementById("breakroomBudgetAmountContainer").innerText;
+	var budget = document.getElementById("breakroomBudgetAmountValue").value;
 	if(parseFloat(totalPrice) > parseFloat(budget))
 	{
 		document.getElementById("breakroomTotalPriceContainer").style.color = 'red';
@@ -90,19 +90,19 @@ function calcTaxAndGrandTotals()
 	var totalPrice = 0;
 	for(var i = 0; i < breakroomPrices.length; ++i)
 	{
-		var price = breakroomPrices[i].innerText.slice(1);
+		var price = breakroomPrices[i].getAttribute("value");
 		var quantity = Number(breakroomQuantities[i].value);
 		totalPrice += price * quantity;
 	}
 	for(var i = 0; i < officePrices.length; ++i)
 	{
-		var price = officePrices[i].innerText.slice(1);
+		var price = officePrices[i].getAttribute("value");
 		var quantity = Number(officeQuantities[i].value);
 		totalPrice += price * quantity;
 	}
 	for(var i = 0; i < inkPrices.length; ++i)
 	{
-		var price = inkPrices[i].innerText.slice(1);
+		var price = inkPrices[i].getAttribute("value");
 		var quantity = Number(inkQuantities[i].value);
 		totalPrice += price * quantity;
 	}
@@ -280,7 +280,8 @@ function includeOrderInCart()
 												' + data.productName + ' \
 											</div> \
 											<div class="cart-product-price-container \
-												' + classType + '-cart-product-price-container"> \
+												' + classType + '-cart-product-price-container" \
+												value="' + data.productPrice + '"> \
 												$' + data.productPrice + ' \
 											</div> \
 											<div class="cart-product-quantity-container"> \
@@ -354,13 +355,12 @@ function formatPrices(){
 					.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 		}
 	}
-	
-	document.getElementById("breakroomBudgetAmountContainer").innerText = 
-		Number(document.getElementById("breakroomBudgetAmountContainer").innerText)
-			.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 };
 (function loader()
 {
 	calcTotals();
 	formatPrices();
+	document.getElementById("breakroomBudgetAmountContainer").innerText = 
+		Number(document.getElementById("breakroomBudgetAmountContainer").innerText)
+			.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 })();

@@ -44,7 +44,9 @@ body
 	display: flex;
 	border-bottom: 0.5px solid black;
 	border-right: 0.5px solid black;
+	border-left: 0.5px solid black;
 	min-height: 70px;
+	margin: 0 10%;
 }
 .cart-product-image-container
 {
@@ -109,10 +111,12 @@ body
 	min-height: 70px;
 	border-bottom: 0.5px solid black;
 	border-right: 0.5px solid black;
+	border-left: 0.5px solid black;
 	font-size: 200%;
 	font-weight: bold;
 	position: relative;
 	display: flex;
+	margin: 0 10%;
 }
 .cart-section-title-text-container
 {
@@ -137,8 +141,10 @@ body
 	display: flex;
 	border-bottom: 0.5px solid black;
 	border-right: 0.5px solid black;
+	border-left: 0.5px solid black;
 	min-height: 70px;
 	position: relative;
+	margin: 0 10%;
 }
 #cartHeaderContainer
 {
@@ -149,6 +155,7 @@ body
 	color: #ECECEC;
 	font-family: calibri;
 	font-size: 150%;
+	margin: 0 10%;
 }
 #cartHeaderProductImageContainerColumn
 {
@@ -282,7 +289,7 @@ body
 #cartAndNavContainer
 {
 	display: flex;
-	height: 83vh;
+	height: calc(100vh - 100px);
 	overflow-y: auto;
 	overflow-x: hidden;
 	width: 100vw;
@@ -290,13 +297,15 @@ body
 }
 #cartTaxAndGrandTotalContainer
 {
-	padding-top: 10px;
-	height: 17vh;
+	padding-top: 5px;
+	height: 50px;
 	position: fixed;
-	top: calc(83vh + 50px);
+	top: calc(100vh - 50px);
 	width: 100%;
 	background-color: #5C5C5C;
 	color: white;
+	font-family: serif;
+    font-style: italic;
 }
 main
 {
@@ -306,14 +315,7 @@ main
 {
 	#cartTaxAndGrandTotalContainer
 	{
-		height: 13vh;
-		padding-top: 10px;
-		top: calc(87vh + 50px);
-		font-size: 150%;
-	}
-	#cartAndNavContainer
-	{
-		height: 87vh;
+		font-size: 12pt;
 	}
 	.include-saved-order-container
 	{
@@ -325,31 +327,12 @@ main
 		font-size: 80%;
 		left: 87%;
 	}
-	.cart-summary-container
-	{
-		border-right: none;
-	}
-	.cart-product-container
-	{
-		border-right: none;
-	}
-	.cart-section-title-container
-	{
-		border-right: none;
-	}
 }
 @media(max-width: 321px) 
 {
 	#cartTaxAndGrandTotalContainer
 	{
-		height: 17vh;
-		padding-top: 10px;
-		top: calc(83vh + 50px);
-		font-size: 75%;
-	}
-	#cartAndNavContainer
-	{
-		height: 83vh;
+		padding-top: 2.5px;
 	}
 	#breakroomAboveBudgetContainer
 	{
@@ -362,12 +345,17 @@ main
 	#cartHeaderContainer
 	{
 		font-size: 100%;
+		margin: 0 0;
 	}
 	.cart-section-title-text-container
 	{
 		text-align: center;
 		font-size: 60%;
 	}
+	.cart-section-title-container
+	{
+		margin: 0 0;
+	}	
 	#breakroomTitleLineBreak
 	{
 		display: block;
@@ -423,10 +411,12 @@ main
 	.cart-product-container
 	{
 		font-size: 9px;
+		margin: 0 0;
 	}
 	.cart-summary-container
 	{
 		font-size: 9px;
+		margin: 0 0;
 	}
 	.cart-modal
 	{
