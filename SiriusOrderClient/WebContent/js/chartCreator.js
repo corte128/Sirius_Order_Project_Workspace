@@ -30,13 +30,18 @@ app.controller('BudgetChartCtrl', ['$scope', '$http',  function ($scope, $http)
 	   		//console.log(response.data);
 			var displayOption = document.getElementById("budgetSearchViewInput").value;
 			if(displayOption == 'Display'){
+				
+				// Adjust CSS for desktop view
+				var mq = window.matchMedia("(min-width: 1024px)");
+			    if(mq.matches){
+			    	$("#budgetChartContainer").attr('style', 'flex: 1;');
+			    }
+				
 				var data = new google.visualization.DataTable();
 				data.addColumn('string', 'Time');
 				data.addColumn('number', 'Budget');
 				data.addColumn('number', 'Actual');
 		   		// Instantiate and draw the chart
-				
-
 				
 		   		data.addRows(response.data);
 		   		var numRows = response.data.length;
@@ -52,10 +57,15 @@ app.controller('BudgetChartCtrl', ['$scope', '$http',  function ($scope, $http)
 				formatter.format(data, 1);
 				formatter.format(data, 2);
 
-				chart.draw(data, {colors: ['#A7C1C3', '#B0B47A'], bar: {groupWidth: '90%'},hAxis: {minValue: 0}, chartArea: {
-		            height: "80%",
-		            width: "50%"
-		        }, height: expectedHeight, width: expectedWidth});
+				chart.draw(data, {
+					colors: ['#A7C1C3', '#B0B47A'], 
+					bar: {groupWidth: '90%'},
+					hAxis: {minValue: 0}, 
+					chartArea: {
+						height: "80%",
+						width: "50%"
+					}
+				});
 
 				var table = $('#budgetGrid').DataTable();
 				table.clear();
