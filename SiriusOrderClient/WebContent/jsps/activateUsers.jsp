@@ -40,7 +40,11 @@
 		<%@ include file="header.jsp" %>
 	</header>
 	<div id="users-content">
+		
 		<div id="users-form">
+		<div class="pageTitle">
+						<h1>Activate Users</h1>
+		</div>
 			<table class="table">
 				<thead>
 			      <tr>
