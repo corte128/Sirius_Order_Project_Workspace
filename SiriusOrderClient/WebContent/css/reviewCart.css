@@ -170,10 +170,16 @@ body
 #cartTaxContainer
 {
 	text-align: center;
+	position: fixed;
+	top: 90vh;
+	width: 100%;
 }
 #cartGrandTotalContainer
 {
 	text-align: center;
+	position: fixed;
+	top: 95vh;
+	width: 100%;
 }
 
 .cart-modal
@@ -284,8 +290,9 @@ body
 #cartAndNavContainer
 {
 	display: flex;
-	height: 90vh;
+	height: 80vh;
 	overflow: auto;
+	border-bottom: 2px solid black;
 }
 main
 {
@@ -293,6 +300,20 @@ main
 }
 @media(max-width: 769px) 
 {
+	#cartTaxContainer
+	{
+		top: 93vh;
+		font-size: 150%;
+	}
+	#cartGrandTotalContainer
+	{
+		top: 96vh;
+		font-size: 150%;
+	}
+	#cartAndNavContainer
+	{
+		height: 87vh;
+	}
 	.include-saved-order-container
 	{
 		font-size: 40%;
@@ -306,6 +327,18 @@ main
 }
 @media(max-width: 321px) 
 {
+	#cartTaxContainer
+	{
+		top: 90vh;
+	}
+	#cartGrandTotalContainer
+	{
+		top: 95vh;
+	}
+	#cartAndNavContainer
+	{
+		height: 80vh;
+	}
 	#breakroomAboveBudgetContainer
 	{
 		font-size: 10px;
