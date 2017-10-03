@@ -166,7 +166,6 @@ body
 	top: 20px;
 	cursor: pointer;
 }
-
 #cartTaxContainer
 {
 	text-align: center;
@@ -175,7 +174,6 @@ body
 {
 	text-align: center;
 }
-
 .cart-modal
 {
 	position: fixed;
@@ -284,8 +282,21 @@ body
 #cartAndNavContainer
 {
 	display: flex;
-	height: 90vh;
-	overflow: auto;
+	height: 83vh;
+	overflow-y: auto;
+	overflow-x: hidden;
+	width: 100vw;
+	//border-bottom: 2px solid black;
+}
+#cartTaxAndGrandTotalContainer
+{
+	padding-top: 10px;
+	height: 17vh;
+	position: fixed;
+	top: calc(83vh + 50px);
+	width: 100%;
+	background-color: #5C5C5C;
+	color: white;
 }
 main
 {
@@ -293,6 +304,17 @@ main
 }
 @media(max-width: 769px) 
 {
+	#cartTaxAndGrandTotalContainer
+	{
+		height: 13vh;
+		padding-top: 10px;
+		top: calc(87vh + 50px);
+		font-size: 150%;
+	}
+	#cartAndNavContainer
+	{
+		height: 87vh;
+	}
 	.include-saved-order-container
 	{
 		font-size: 40%;
@@ -303,9 +325,32 @@ main
 		font-size: 80%;
 		left: 87%;
 	}
+	.cart-summary-container
+	{
+		border-right: none;
+	}
+	.cart-product-container
+	{
+		border-right: none;
+	}
+	.cart-section-title-container
+	{
+		border-right: none;
+	}
 }
 @media(max-width: 321px) 
 {
+	#cartTaxAndGrandTotalContainer
+	{
+		height: 17vh;
+		padding-top: 10px;
+		top: calc(83vh + 50px);
+		font-size: 75%;
+	}
+	#cartAndNavContainer
+	{
+		height: 83vh;
+	}
 	#breakroomAboveBudgetContainer
 	{
 		font-size: 10px;

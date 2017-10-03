@@ -26,7 +26,7 @@ function calcBreakroomTotals()
 	else
 	{
 		document.getElementById("breakroomTotalPriceContainer").style.color = 'black';
-		document.getElementById("cartGrandTotalContainer").style.color = 'black';
+		document.getElementById("cartGrandTotalContainer").style.color = 'white';
 		document.getElementById("breakroomAboveBudgetContainer").style.display = 'none';
 	}
 	if(document.getElementById("breakroomTotalQuantityContainer") != null)
