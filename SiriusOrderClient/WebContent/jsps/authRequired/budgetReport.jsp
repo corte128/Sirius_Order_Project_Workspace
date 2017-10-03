@@ -60,7 +60,7 @@
 					<div class="form-group">
 						<label class="budget-search-box-label"><fmt:message
 								key="BUDGET_REPORT_REPORT_TYPE_LABEL" />
-						</label> <select id="budgetSearchReportTypeInput">
+						</label> <select class="budget-search-box-input" id="budgetSearchReportTypeInput">
 							<option value="" selected>
 								<fmt:message key="BUDGET_REPORT_SELECT_LABEL" />
 								<fmt:message key="BUDGET_REPORT_REPORT_TYPE_LABEL" />
@@ -77,7 +77,7 @@
 					<div class="form-group">
 						<label class="budget-search-box-label"><fmt:message
 								key="BUDGET_REPORT_LOCATION_LABEL" />
-						</label> <select id="budgetSearchLocationInput">
+						</label> <select class="budget-search-box-input" id="budgetSearchLocationInput">
 							<option value="" selected>
 								<fmt:message key="BUDGET_REPORT_SELECT_LABEL" />
 								<fmt:message key="BUDGET_REPORT_LOCATION_LABEL" />
@@ -105,7 +105,7 @@
 					<div class="form-group">
 						<label class="budget-search-box-label"><fmt:message
 								key="BUDGET_REPORT_VIEW_LABEL" /> </label> <select
-							id="budgetSearchViewInput">
+							id="budgetSearchViewInput" class="budget-search-box-input">
 							<option value="" selected>
 								<fmt:message key="BUDGET_REPORT_SELECT_LABEL" />
 								<fmt:message key="BUDGET_REPORT_REPORT_TYPE_LABEL" />
@@ -126,13 +126,13 @@
 					<div class="form-group">
 						<label class="budget-search-box-label"><fmt:message
 								key="BUDGET_REPORT_FROM_DATE_LABEL" />
-						</label> <input id="budgetSearchFromDateTypeInput" type="date"></input>
+						</label> <input class="budget-search-box-input" id="budgetSearchFromDateTypeInput" type="date"></input>
 					</div>
 
 					<div class="form-group">
 						<label class="budget-search-box-label"><fmt:message
 								key="BUDGET_REPORT_TO_DATE_LABEL" />
-						</label> <input id="budgetSearchToDateTypeInput" type="date"></input>
+						</label> <input class="budget-search-box-input" id="budgetSearchToDateTypeInput" type="date"></input>
 					</div>
 
 					<button id="budgetReportGenerateReportButton"
@@ -143,23 +143,25 @@
 				</div>
 			</div>
 			
-			<div id="budgetChartContainer"></div>
+			<div id="budgetChartGraph">
+				<div id="budgetChartContainer"></div>
 			
-			<div id="budgetGridContainer">
-				<table id="budgetGrid" class="display nowrap dataTable dtr-inline"
-					cellspacing="0" width="100%">
-					<thead>
-						<tr>
-							<th></th>
-							<th>Actual</th>
-							<th>Budget</th>
-							<th>Variance</th>
-						</tr>
-					</thead>
-					<tbody id="budgetGridBody">
-
-					</tbody>
-				</table>
+				<div id="budgetGridContainer">
+					<table id="budgetGrid" class="display nowrap dataTable dtr-inline"
+						cellspacing="0" width="100%">
+						<thead>
+							<tr>
+								<th></th>
+								<th>Actual</th>
+								<th>Budget</th>
+								<th>Variance</th>
+							</tr>
+						</thead>
+						<tbody id="budgetGridBody">
+	
+						</tbody>
+					</table>
+				</div>
 			</div>
 
 			<div class="hideDownloadDiv" id="downloadDiv">
