@@ -20,6 +20,7 @@
   font-family: serif;
   margin: auto;
   margin-left: 6vw;
+  margin-top: 15px;
   margin-bottom: 30px;
   font-style: italic;
   flex:10;
@@ -31,6 +32,20 @@
 
 .wishlist-navbar-container{
   flex:1;
+}
+
+.wishlist-arrow-left{
+  flex: 1;
+  margin: auto;
+  font-size: 50px;
+  text-align: right;
+}
+
+.wishlist-arrow-right{
+  flex: 1;
+  margin: auto;
+  font-size: 50px;
+  text-align: left;
 }
 
 /* Desktop */
@@ -63,7 +78,7 @@
     position: relative;
   }
 
-  .wishlist-page-content-container{
+  .wishlist-page-content-container, .wishlist-scrollable{
     flex: 7;
   }
 
@@ -126,14 +141,15 @@ and (max-device-width : 1024px) {
     width: 700px;
     height: 350px;
     margin-top: 7px;
-    margin-bottom: 70px;
+    margin-right: 20px;
+    margin-bottom: 50px;
     font-style: italic;
     font-size: 2.3rem;
     padding-bottom: 5px;
   }
 
-  .wishlist-header-title{
-    font-size: 4rem;
+  .wishlist-header-title h1{
+    font-size: 5rem;
   }
 
   .wishlist-profile-image img{
@@ -149,7 +165,7 @@ and (max-device-width : 1024px) {
     flex: 2;
     position: absolute;
     left:375px;
-    top:185px;
+    top:205px;
     text-align: left;
     padding-left: 15px;
     margin: auto;
@@ -165,13 +181,13 @@ and (max-device-width : 1024px) {
   .wishlist-profile-title-wishlist{
     position:absolute;
     left: 375px;
-    top: 290px;
+    top: 320px;
   }
 
   .wishlist-profile-title-location{
     position:absolute;
     left: 375px;
-    top: 390px;
+    top: 420px;
   }
 
   .wishlist-profile-text{
@@ -181,13 +197,13 @@ and (max-device-width : 1024px) {
   .wishlist-profile-text-wishlist{
     position:absolute;
     left: 385px;
-    top: 315px;
+    top: 345px;
   }
 
   .wishlist-profile-text-location{
     position:absolute;
     left: 385px;
-    top: 415px;
+    top: 445px;
   }
 
   .wishlist-card-container{

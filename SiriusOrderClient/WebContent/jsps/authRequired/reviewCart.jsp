@@ -224,13 +224,15 @@
 				</span>
 			</div>
 			
-			<div id="cartTaxContainer">
-				<fmt:message key="CART_TAX_PERCENTAGE_LABEL" /> $<span id="cartTaxAmountContainer"></span>
-			</div>
-			
-			<div id="cartGrandTotalContainer">
-				<fmt:message key="CART_TOTAL_LABEL" /> $<span id="cartGrandTotalAmountContainer"></span>
-			</div>
+			<footer id="cartTaxAndGrandTotalContainer">
+				<div id="cartTaxContainer">
+					<fmt:message key="CART_TAX_PERCENTAGE_LABEL" /> $<span id="cartTaxAmountContainer"></span>
+				</div>
+				
+				<div id="cartGrandTotalContainer">
+					<fmt:message key="CART_TOTAL_LABEL" /> $<span id="cartGrandTotalAmountContainer"></span>
+				</div>
+			</footer>
 			
 			<!-- INCLUDE SAVED ORDER MODAL -->
 			<div id="includeSavedOrderModal" class="cart-modal">

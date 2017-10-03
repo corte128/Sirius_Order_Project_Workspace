@@ -241,18 +241,39 @@ function deleteModal(likesModalID){
 	document.getElementById(likesModalID).style.display = 'none';
 }
 
+// resizing for ipad
 function resizeDisplay(){
-	var mqls = [
-	            window.matchMedia("(min-width: 768px)"),
-	            window.matchMedia("(max-width: 1024px)")
-	            ];
+	var mqDesktop = window.matchMedia("(min-width: 1025px)");
+	var mqlsIPAD = [
+		            window.matchMedia("(min-width: 768px)"),
+		            window.matchMedia("(max-width: 1024px)")
+		            ];
 	
-    if(mqls[0].matches && mqls[1].matches){
+	var leftArrow = document.getElementById("arrow-left");
+	var rightArrow = document.getElementById("arrow-right");
+	var cardDisplay = document.getElementById("productContainer");
+	var hasHorizontalScroll = cardDisplay.scrollWidth>cardDisplay.clientWidth;
+	
+	//changed to ipad view
+    if(mqlsIPAD[0].matches && mqlsIPAD[1].matches){
     	document.getElementById("profile").style.display = "none";
     	document.getElementById("profileCard").style.display = "flex";
     }else{
     	document.getElementById("profile").style.display = "block";
     	document.getElementById("profileCard").style.display = "none";
     }
+    
+    //handles glyphcon arrows
+    if((mqDesktop.matches || (mqlsIPAD[0].matches && mqlsIPAD[1].matches))&& hasHorizontalScroll){
+    	leftArrow.style.display = "block";
+    	rightArrow.style.display = "block";
+    }else{
+    	leftArrow.style.display = "none";
+    	rightArrow.style.display = "none";
+    }
+    
+    
 }
+
+
 
