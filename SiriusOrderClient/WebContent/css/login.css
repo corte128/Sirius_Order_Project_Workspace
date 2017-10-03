@@ -18,9 +18,7 @@ html body{
 .input-label {
 	color: #5F6060;
 }
-#login-title{
-	color: #5F6060;
-}
+
 @media only screen and (min-width: 300px) {
 	::-webkit-input-placeholder {
 	   text-align: center;
