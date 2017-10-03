@@ -101,10 +101,9 @@ function getProducts()
 			</div>\
 		</div>';
 		
-		//document.getElementById('productAmount').innerHTML = response.length;
-		
 		var user = document.getElementById("userType").value;
-
+		document.getElementById('productAmount').innerHTML = response.length;
+		
 		for(key in response)
 		{
 			var image = document.createElement("img");

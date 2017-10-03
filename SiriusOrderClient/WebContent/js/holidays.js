@@ -51,7 +51,7 @@ $(function ()
             }
         ],
         customGridButtons: {
-        	append: $('<button></button>').text('Add').get(0)
+        	append: $('<button class="project-button"></button>').text('Add').get(0)
         },
         hideButtons: {
         	removeLast: true,

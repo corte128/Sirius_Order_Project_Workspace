@@ -7,10 +7,12 @@
 <fmt:setBundle basename="com.sirius.order.client.properties.common" />
 <html>
 <head>
-<title><fmt:message key="BUDGET_REPORT_TITLE_LABEL" />
+<title>
+	<fmt:message key="BUDGET_REPORT_TITLE_LABEL" />
 </title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
+<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/button.css" />
 <script type="text/javascript"
 	src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
 <script
@@ -48,16 +50,11 @@
 	<main ng-controller="BudgetChartCtrl">
 	<div class="budgetPageContainer">
 		<div class="pageTitle">
-			<h1>Budget VS Actual Spent</h1>
+			<h1><fmt:message key="BUDGET_REPORT_TITLE_LABEL" /></h1>
 		</div>
 		<div class="container-fluid" style="padding: 0;">
 			<div id="budgetSearchBoxAndNavContainer">
-
-
-
-
 				<div id="budgetSearchBoxContainer">
-
 					<div class="row">
 						<div class="budget-search-box-label-container">
 							<fmt:message key="BUDGET_REPORT_REPORT_TYPE_LABEL" />
@@ -113,7 +110,6 @@
 								</c:choose>
 							</select>
 						</div>
-
 						<div class="budget-search-box-label-container">
 							<fmt:message key="BUDGET_REPORT_TO_DATE_LABEL" />
 						</div>
@@ -140,12 +136,12 @@
 							</select>
 						</div>
 						<div class="budget-report-generate-report-button-container">
-							<div id="budgetReportGenerateReportButton"
+							<button id="budgetReportGenerateReportButton"
+								class="project-button"
 								ng-click="generateChart()">
 								<fmt:message key="BUDGET_REPORT_GENERATE_REPORT_LABEL" />
-							</div>
+							</button>
 						</div>
-
 					</div>
 				</div>
 				<aside id="budgetNavContainer">
