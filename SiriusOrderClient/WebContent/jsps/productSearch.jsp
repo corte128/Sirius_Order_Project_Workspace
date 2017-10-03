@@ -24,6 +24,9 @@
 		</header> 
 		<div id="productSearchAndNavContainer">
 			<main id="productSearchContainer">
+				<div class="pageTitle">
+						<h1>Product Search</h1>
+					</div>
 				<div class="searchContainer">
 					<!-- <form method="post" action="/SiriusOrderClient/ProductSearchServlet" class="search">
 						<select class="categorySelect" name="category">
