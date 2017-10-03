@@ -56,7 +56,9 @@ app.controller('BudgetChartCtrl', ['$scope', '$http',  function ($scope, $http)
 				for(key in response.data)
 				{
 					response.data[key].push(response.data[key][1]-response.data[key][2]);
-					console.log(response.data[key]);
+					for(var i = 1; i < response.data[key].length; ++i){
+						response.data[key][i] = '$' + Math.abs(response.data[key][i].toFixed(2));
+					}
 					table.row.add(response.data[key]).draw();
 				}
 			}
