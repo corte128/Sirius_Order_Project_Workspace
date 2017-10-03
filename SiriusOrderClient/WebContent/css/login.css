@@ -40,10 +40,11 @@ html body{
 	}
 	#login-content{
 		display: flex;
+		margin-left: 20%;
+		margin-right: 20%;
 	}
 	#login-form{
 		margin: auto;
-		margin-top: 30px;
 	}
 	#login-labels {
 		display: none;
@@ -55,9 +56,11 @@ html body{
 		text-align: center;
 	}
 	#login-title {
-		font-size: 1.5em;
-		padding-bottom: 20px;
+		font-size: 36px;
 		font-style: italic;
+		text-align: center;
+		margin-top: 15px;
+		margin-bottom: 30px;
 	}
 	#input-field {
 		margin-bottom: 20px;
@@ -71,11 +74,12 @@ html body{
 }
 @media only screen and (min-width: 768px) {
 	#login-form{
-		margin-top: 60px;
 	}
 	#login-title {
-		font-size: 2.5em;
-		padding-bottom: 30px;
+		font-size: 36px;
+		text-align: center;
+		margin-top: 15px;
+		margin-bottom: 30px;
 	}
 	#input-field {
 		margin-bottom: 30px;
@@ -96,15 +100,16 @@ html body{
 	   color: transparent;
 	}
 	#login-title {
-		font-size: 2em;
-		padding-bottom: 20px;
-		text-align: left;
+		margin:auto;
+		font-size: 36px;
+		margin-top: 15px;
+		margin-bottom: 30px;
+		text-align: center;
 	}
 	#login-form {
 		flex: 9;
 		display: flex;
-		margin-top: 50px;
-		margin-left: 50px;
+		
 	}
 	aside {
 		display: block;
@@ -113,8 +118,7 @@ html body{
 	#login-labels{
 		display: block;
 		flex: 2;
-		padding-left: 20%;
-		margin-top: 45px;
+		margin-left: 20%;
 	}
 	#login-inputs-container{
 		flex: 5;

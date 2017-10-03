@@ -7,29 +7,30 @@
 	margin-bottom: 20px;
 }
 
-.container-fluid{
+.container-fluid {
 	padding: 0 !important;
 }
 
-#search-bar-container{
+#search-bar-container {
 	display: flex;
 	border: 1px black solid;
 	margin-bottom: 20px;
 }
 
-.search-bar-column{
+.search-bar-column {
 	flex: 1;
 	padding: 5px;
+	padding-left: 100px;
+	padding-right: 100px;
 }
 
 .pageTitle {
 	text-align: center;
 	font-family: serif;
-	margin-bottom: 10px;
-	margin-top: 10px;
+	margin: auto;
+	margin-bottom: 30px;
+	margin-top: 15px;
 	font-style: italic;
-	padding-top: 10px;
-	padding-bottom: 10px;
 }
 
 .budget-search-box-label {
@@ -44,11 +45,11 @@
 	float: right;
 }
 
-#budgetReportGenerateReportButton{
+#budgetReportGenerateReportButton {
 	float: right;
 }
 
-#search-bar-container{
+#search-bar-container {
 	display: flex;
 	border: solid black 1px;
 	margin-bottom: 20px;
@@ -57,36 +58,44 @@
 	padding: 10px;
 }
 
-main{
+main {
 	display: flex !important;
 }
 
-.budgetPageContainer{
+.budgetPageContainer {
 	flex: 1;
 }
 
-aside{
+aside {
 	flex: 0;
 }
 
-#budgetChartGraph{
+#budgetChartGraph {
+	display: flex;
 	width: 80%;
 	margin: auto;
-	display: flex;
 }
 
-.budgetGridContainer{
+#budgetGridContainer {
 	flex: 1;
-	margin: auto;
-}
-.budgetChartContainer{
-	flex: 1;
-	margin: auto;
-	overflow-x: hidden;
+	padding-top: 10px;
 }
 
-@media only screen and (min-device-width : 768px) and (max-device-width: 1024px) { 
-	#budgetGridContainer { 
+#budgetChartContainer {
+	flex: 0;
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width:
+	1024px) {
+	main { //
+		display: block !important;
+	}
+	#budgetChartGraph {
+		display: block;
+		width: 100%;
+		margin: auto;
+	}
+	#budgetGridContainer {
 		overflow-x: auto;
 		overflow-y: hidden;
 		width: 80%;
@@ -94,13 +103,9 @@ aside{
 		padding: 5px;
 	}
 	.budgetPageContainer {
-		margin-top: 50px;
 		width: 100%;
 	}
-	body{
-		display: flex;
-	}
-	#search-bar-container{
+	#search-bar-container {
 		display: flex;
 		border: solid black 1px;
 		margin-bottom: 20px;
@@ -108,41 +113,49 @@ aside{
 		margin: auto;
 		padding: 10px;
 	}
-	#budgetGridContainer { 
+	#budgetGridContainer {
 		overflow-x: auto;
 		overflow-y: hidden;
 		width: 80%;
 		margin: auto;
 		padding: 5px;
 	}
-	.ng-scope{
+	.ng-scope {
 		flex: 1;
 	}
 	.hideDownloadDiv {
 		margin: auto;
 	}
-	#budgetChartContainer{
+	#budgetChartContainer {
 		padding-bottom: 20px;
 		padding-top: 20px;
 		margin-left: 20px;
 	}
+	.search-bar-column {
+		padding: 5px;
+	}
 }
 
 /* Iphone 5 */
-@media only screen and (min-device-width : 320px) and (max-device-width: 568px) {
+@media only screen and (min-device-width : 320px) and (max-device-width:
+	568px) {
+	#budgetChartGraph {
+		display: flex;
+		width: 100%;
+		margin: auto;
+	}
 	.budgetPageContainer {
-		margin-top: 50px;
 		width: 100%;
 	}
-	body{
-		display: flex;
-	}
-	#search-bar-container{
+	#search-bar-container {
 		display: flex;
 		border: solid black 1px;
 		margin-bottom: 20px;
+		width: 100%;
+		margin: auto;
+		padding: 10px;
 	}
-	#budgetGridContainer { 
+	#budgetGridContainer {
 		overflow-x: auto;
 		overflow-y: hidden;
 		margin: auto;
@@ -152,10 +165,6 @@ aside{
 	}
 	#budgetGridContainer {
 		width: 100%;
-		padding: 0;
-		margin: 0;
-	}
-	#budgetGridContainer { 
 		overflow-x: auto;
 		overflow-y: hidden;
 		margin: auto;
@@ -163,5 +172,16 @@ aside{
 	}
 	.hideDownloadDiv {
 		margin: auto;
+	}
+	#budgetChartGraph {
+		display: block;
+		width: 100%;
+		margin: auto;
+	}
+	.budget-search-box-input {
+		float: left;
+	}
+	.search-bar-column {
+		padding: 5px;
 	}
 }

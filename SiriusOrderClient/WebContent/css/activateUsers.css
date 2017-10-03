@@ -19,6 +19,9 @@ thead{
 	font-family: Calibri;
 	font-size: 1.2em;
 }
+td{
+	font-family: calibri;
+}
 .users-form-row{
 	border-bottom: solid #5F6060 2px;
 	text-align: center;
@@ -47,5 +50,7 @@ button{
 	text-align: center;
 	font-family: serif;
 	font-style: italic;
+	margin: auto;
+	margin-top: 15px;
 	margin-bottom: 30px;
 }

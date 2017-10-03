@@ -28,7 +28,7 @@
 }*/
 
 .super-admin-budget-table{
-	
+
 }
 
 .super-admin-button {
@@ -99,7 +99,7 @@
 
 .name-row{
   /*background-color: #F2F2F2 !important;*/
-  font-family: 'times new roman';
+  font-family: calibri;
   text-align: center;
   margin: auto;
   height: 30px;
@@ -142,7 +142,7 @@ div.ui-grid-cell input{
     margin-left: 0;
     /*height: 150px;*/
   }
-  
+
   .super-admin-budget-table{
 	width: 75%;
 	margin: auto;
@@ -179,7 +179,7 @@ and (max-device-width : 1024px) {
   }
 
   .super-admin-budget-table{
-    height: 900px;
+    height: 800px;
   }
 
   .super-admin-button {
@@ -209,6 +209,13 @@ and (max-device-width : 1024px) {
     width: 160px !important;
     height: 40px;
   }
+  .pageTitle{
+  	text-align: center;
+  	font-family: serif;
+  	font-style: italic;
+  	margin: auto;
+  	margin-bottom: 30px;
+  }
 }
 
 /* Iphone 5 */
@@ -223,7 +230,7 @@ and (max-device-width : 568px) {
   }
 
   .super-admin-budget-table{
-    height: 440px;
+    height: 350px;
   }
 
   .super-admin-button {
@@ -258,6 +265,13 @@ and (max-device-width : 568px) {
   .super-admin-modal-text-input{
     width: 150px !important;
     height: 40px;
+  }
+  .pageTitle{
+  	text-align: center;
+  	font-family: serif;
+  	font-style: italic;
+  	margin: auto;
+  	margin-bottom: 30px;
   }
 
 }
