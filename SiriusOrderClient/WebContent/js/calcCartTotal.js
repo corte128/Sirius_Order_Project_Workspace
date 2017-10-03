@@ -19,7 +19,7 @@ function calcBreakroomTotals()
 		document.getElementById("breakroomTotalPriceContainer").style.color = 'red';
 		document.getElementById("cartGrandTotalContainer").style.color = 'red';
 		var difference = totalPrice - budget;
-		document.getElementById("breakroomAboveBudgetAmountContainer").innerText = difference.toLocaleString(undefined, { style: 'currency', currency: 'USD' });
+		document.getElementById("breakroomAboveBudgetAmountContainer").innerText = Number(difference).toLocaleString(undefined, { style: 'currency', currency: 'USD' });
 		
 		document.getElementById("breakroomAboveBudgetContainer").style.display = 'block';
 	}
@@ -32,7 +32,7 @@ function calcBreakroomTotals()
 	if(document.getElementById("breakroomTotalQuantityContainer") != null)
 	{
 		document.getElementById("breakroomTotalQuantityContainer").innerHTML = 'Breakroom Total(' + itemTotal + ' items)';
-		document.getElementById("breakroomTotalPriceContainer").innerHTML = totalPrice.toLocaleString(undefined, { style: 'currency', currency: 'USD' });
+		document.getElementById("breakroomTotalPriceContainer").innerHTML = Number(totalPrice).toLocaleString(undefined, { style: 'currency', currency: 'USD' });
 	}
 }
 
@@ -53,7 +53,7 @@ function calcOfficeSuppliesTotals()
 	if(document.getElementById("officeSuppliesTotalQuantityContainer") != null)
 	{	
 		document.getElementById("officeSuppliesTotalQuantityContainer").innerHTML = 'Office Supplies Total(' + itemTotal + ' items)';
-		document.getElementById("officeSuppliesTotalPriceContainer").innerHTML = totalPrice.toLocaleString(undefined, { style: 'currency', currency: 'USD' });	
+		document.getElementById("officeSuppliesTotalPriceContainer").innerHTML = Number(totalPrice).toLocaleString(undefined, { style: 'currency', currency: 'USD' });	
 	}
 }
 
@@ -76,7 +76,7 @@ function calcInkAndTonerTotals()
 		
 		
 		document.getElementById("inkAndTonerTotalQuantityContainer").innerHTML = 'Ink & Toner Total(' + itemTotal + ' items)';
-		document.getElementById("inkAndTonerTotalPriceContainer").innerHTML = totalPrice.toLocaleString(undefined, { style: 'currency', currency: 'USD' });
+		document.getElementById("inkAndTonerTotalPriceContainer").innerHTML = Number(totalPrice).toLocaleString(undefined, { style: 'currency', currency: 'USD' });
 			
 	}
 }
@@ -116,8 +116,8 @@ function calcTaxAndGrandTotals()
 	tax = tax.toFixed(2);
 	totalPrice = totalPrice.toFixed(2);
 	
-	document.getElementById("cartTaxAmountContainer").innerText = tax.toLocaleString(undefined, { style: 'currency', currency: 'USD' });
-	document.getElementById("cartGrandTotalAmountContainer").innerText = totalPrice.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+	document.getElementById("cartTaxAmountContainer").innerText = Number(tax).toLocaleString(undefined, { style: 'currency', currency: 'USD' });
+	document.getElementById("cartGrandTotalAmountContainer").innerText = Number(totalPrice).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 }
 function removeFromCart(orderID)
 {
