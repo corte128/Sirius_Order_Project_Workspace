@@ -17,6 +17,9 @@
 	<fmt:setBundle basename="com.sirius.order.client.properties.common" />
 	<div class="flexBoxContainer">
 		<div class="productDetailsPageDiv">
+			<div class="pageTitle">
+						<h1>Product Details</h1>
+					</div>
 			<div id="successMessage" class="successMessage">
 				<fmt:message key="PRODUCT_DETAILS_SUCCESS" />
 			</div>
@@ -63,7 +66,7 @@
 					</div>
 				</div>
 				<div class="productDetailsText">
-					<div class="titleText"><fmt:message key="PRODUCT_DETAILS_HEADING" /></div>
+					
 					<div class="longDescrip">${productDetails}</div>
 				</div>
 			</div>

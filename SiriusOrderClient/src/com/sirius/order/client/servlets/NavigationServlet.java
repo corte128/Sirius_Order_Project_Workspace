@@ -255,7 +255,15 @@ public class NavigationServlet extends HttpServlet {
 		int locationId = (Integer) session.getAttribute("activeUserLocation");
 
 		BudgetBean currentBudget = CartServiceDAO.getMostRecentBudgetByLocation(locationId);
-		currentBudget.setBudgetAllotted(currentBudget.getBudgetAllotted().subtract(new BigDecimal(100)));
+		if(currentBudget != null)
+		{
+			currentBudget.setBudgetAllotted(currentBudget.getBudgetAllotted().subtract(new BigDecimal(100)));
+		}
+		else
+		{
+			currentBudget = new BudgetBean();
+			currentBudget.setBudgetAllotted(new BigDecimal(0));
+		}
 		request.setAttribute("currentBudget", currentBudget);
 		
 		List<OrderBean> breakroomOrders = CartServiceDAO

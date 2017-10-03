@@ -158,6 +158,13 @@ div.ui-grid-cell input{
   #grid1{
   	margin: auto;
   }
+  .pageTitle{
+  	text-align: center;
+  	font-family: serif;
+  	font-style: italic;
+  	margin: auto;
+  	margin-bottom: 30px;
+  }
 }
 
 /* Ipad */

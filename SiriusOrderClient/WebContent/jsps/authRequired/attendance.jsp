@@ -52,9 +52,9 @@
 
 				<div id ="instructionsBox" class="instructionsBox">
 					<span id="closeBtn" onclick="closeHelp()">X</span>
-					<div id="instructionsTitle"><h2>Instructions: </h2> </div>
-					<ul><li>You can use this form to retrieve attendance records of employees in a specific location.</li>
-						<li>Please note to pick either To/From OR Range fields, but not both.</li>
+					<div id="instructionsTitle"><h2><fmt:message key="ATTENDANCE_INSTRUCTION_TITLE" /> </h2> </div>
+					<ul><li><fmt:message key="ATTENDANCE_INSTRUCTION_ONE" /></li>
+						<li><fmt:message key="ATTENDANCE_INSTRUCTION_TWO" /></li>
 					</ul>
 					
 				</div>

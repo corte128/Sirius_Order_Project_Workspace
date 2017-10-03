@@ -19,7 +19,6 @@ aside{
 }
 #visitors-title{
 	position: absolute;
-	color: #5F6060;
 	font-family: serif;
 	font-style: italic;
 	text-align: center;
@@ -66,7 +65,7 @@ label{
 	}
 	#visitor-add-button{
 		position: absolute;
-		right: 25px;
+		right: 24px;
 	}
 	.error{
 		display: inline-block;
@@ -99,7 +98,8 @@ label{
 		width: 250px;
 	}
 	#visitor-add-button{
-		left: 625px;
+		//left: 717px;
+		left: 56vw;
 		//padding-left: 40px;
 		//padding-right: 40px;
 	}
@@ -157,6 +157,6 @@ label{
 {
 	#visitor-add-button
 	{
-		left: 466px;
+		left: 505px;
 	}
 }

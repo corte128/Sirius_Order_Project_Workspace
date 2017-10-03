@@ -42,3 +42,10 @@ button{
 	width: 75% !important;
 	margin: auto;
 }
+
+.pageTitle{
+	text-align: center;
+	font-family: serif;
+	font-style: italic;
+	margin-bottom: 30px;
+}

@@ -11,6 +11,7 @@
 <head>
 	<title>reviewCart</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<link rel="stylesheet" href="/SiriusOrderClient/css/button.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/SiriusOrderClient/css/reviewCart.css">
 	
@@ -25,7 +26,7 @@
 	</header>
 	<div id="cartAndNavContainer">
 		<main>
-			<div id="cartMainContentLabelContainer"><fmt:message key="CART_CART_LABEL" /></div>
+			<div id="cartMainContentLabelContainer"><h1><fmt:message key="CART_CART_LABEL" /></h1></div>
 			<div id="breakroomAboveBudgetContainer">
 				<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" />
 				 $<span id="breakroomAboveBudgetAmountContainer"></span>
@@ -282,7 +283,7 @@
 				</c:forEach>
 				<div id="includeSavedOrderModalButtonContainer" class="cart-modal-button-container">
 					<button id="includeSavedOrderModalButton" 
-						class="cart-modal-button"
+						class="project-button"
 						onclick="includeOrderInCart()">
 						<fmt:message key="CART_INCLUDE_LABEL" />
 					</button>
@@ -361,7 +362,7 @@
 					
 				<div id="includeSavedOrderModalButtonContainer" class="cart-modal-button-container">
 					<button id="includeSavedOrderModalButton" onclick="saveOrder()"
-						class="cart-modal-button">
+						class="project-button">
 						<fmt:message key="CART_SAVE_LABEL" />
 					</button>
 				</div>

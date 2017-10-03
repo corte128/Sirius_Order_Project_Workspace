@@ -35,6 +35,9 @@ app.controller('BudgetChartCtrl', ['$scope', '$http',  function ($scope, $http)
 				data.addColumn('number', 'Budget');
 				data.addColumn('number', 'Actual');
 		   		// Instantiate and draw the chart
+				
+
+				
 		   		data.addRows(response.data);
 		   		var numRows = response.data.length;
 				var expectedHeight = numRows * 100;
@@ -44,11 +47,15 @@ app.controller('BudgetChartCtrl', ['$scope', '$http',  function ($scope, $http)
 				}
 				
 		   		var chart = new google.visualization.BarChart(document.getElementById('budgetChartContainer'));
+				var formatter = new google.visualization.NumberFormat({decimalSymbol: '.',groupingSymbol: ',', prefix: '$'});
+								
+				formatter.format(data, 1);
+				formatter.format(data, 2);
+
 				chart.draw(data, {colors: ['#A7C1C3', '#B0B47A'], bar: {groupWidth: '90%'},hAxis: {minValue: 0}, chartArea: {
 		            height: "80%",
 		            width: "50%"
 		        }, height: expectedHeight, width: expectedWidth});
-				
 
 				var table = $('#budgetGrid').DataTable();
 				table.clear();

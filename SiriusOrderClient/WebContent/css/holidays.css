@@ -5,9 +5,9 @@
 #holiday-table-title{
 	font-family: serif;
 	font-style: italic;
-	font-size: 2em;
 	text-align: center;
 	padding-top: 15px;
+	margin-bottom: 30px;
 }
 #holidays-table{
 	flex: 9;
