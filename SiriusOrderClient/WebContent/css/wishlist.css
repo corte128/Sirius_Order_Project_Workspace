@@ -31,7 +31,7 @@
     overflow-x: auto;
     overflow-y: hidden;
   }
-
+	
   .wishlist-profile-container{
     margin-left: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
@@ -42,7 +42,19 @@
     font-style: italic;
     padding-bottom: 5px;
   }
-
+  .wishlist-page-content-container{
+    flex: 7;
+  }
+  .pageTitle {
+    text-align: center;
+    font-style: italic;
+    font-family: serif;
+}
+  
+  .cardsContainer {
+    display: flex;
+    justify-content: space-around;
+}
 .wishlist-profile-image img{
   flex: 2;
   width: 70px;
