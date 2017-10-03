@@ -50,12 +50,15 @@
 				<fmt:setBundle
 					basename="com.sirius.order.client.properties.attendance" />
 
-				<div class="instructionsBox">
-					<div id="instructionsTitle">Instructions </div>
-					<p> You can use this form to retrieve attendance records of employees in specific location.
-						<br />Please note to pick either To/From OR Range fields, but not both.</p>
+				<div id ="instructionsBox" class="instructionsBox">
+					<span id="closeBtn" onclick="closeHelp()">X</span>
+					<div id="instructionsTitle"><h2>Instructions: </h2> </div>
+					<ul><li>You can use this form to retrieve attendance records of employees in a specific location.</li>
+						<li>Please note to pick either To/From OR Range fields, but not both.</li>
+					</ul>
+					
 				</div>
-
+				<div class="glyphicon glyphicon-question-sign helpIcon" id="helpIcon" onclick="showHelp()"></div>
 				<div class="attendancePageContainer" ng-controller="AttendanceCtrl">
 					<div class="pageTitle">
 						<h1>Attendance</h1>
