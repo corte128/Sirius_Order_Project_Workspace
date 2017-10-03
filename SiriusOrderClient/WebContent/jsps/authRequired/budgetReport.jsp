@@ -7,8 +7,7 @@
 <fmt:setBundle basename="com.sirius.order.client.properties.common" />
 <html>
 <head>
-<title><fmt:message key="BUDGET_REPORT_TITLE_LABEL" />
-</title>
+<title><fmt:message key="BUDGET_REPORT_TITLE_LABEL" /></title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <link rel="stylesheet" type="text/css"
@@ -50,7 +49,9 @@
 	<main ng-controller="BudgetChartCtrl">
 	<div class="budgetPageContainer">
 		<div class="pageTitle">
-			<h1><fmt:message key="BUDGET_REPORT_TITLE_LABEL" /></h1>
+			<h1>
+				<fmt:message key="BUDGET_REPORT_TITLE_LABEL" />
+			</h1>
 		</div>
 		<div class="container-fluid">
 
@@ -59,8 +60,8 @@
 
 					<div class="form-group">
 						<label class="budget-search-box-label"><fmt:message
-								key="BUDGET_REPORT_REPORT_TYPE_LABEL" />
-						</label> <select class="budget-search-box-input" id="budgetSearchReportTypeInput">
+								key="BUDGET_REPORT_REPORT_TYPE_LABEL" /> </label> <select
+							class="budget-search-box-input" id="budgetSearchReportTypeInput">
 							<option value="" selected>
 								<fmt:message key="BUDGET_REPORT_SELECT_LABEL" />
 								<fmt:message key="BUDGET_REPORT_REPORT_TYPE_LABEL" />
@@ -76,8 +77,8 @@
 
 					<div class="form-group">
 						<label class="budget-search-box-label"><fmt:message
-								key="BUDGET_REPORT_LOCATION_LABEL" />
-						</label> <select class="budget-search-box-input" id="budgetSearchLocationInput">
+								key="BUDGET_REPORT_LOCATION_LABEL" /> </label> <select
+							class="budget-search-box-input" id="budgetSearchLocationInput">
 							<option value="" selected>
 								<fmt:message key="BUDGET_REPORT_SELECT_LABEL" />
 								<fmt:message key="BUDGET_REPORT_LOCATION_LABEL" />
@@ -125,14 +126,16 @@
 
 					<div class="form-group">
 						<label class="budget-search-box-label"><fmt:message
-								key="BUDGET_REPORT_FROM_DATE_LABEL" />
-						</label> <input class="budget-search-box-input" id="budgetSearchFromDateTypeInput" type="date"></input>
+								key="BUDGET_REPORT_FROM_DATE_LABEL" /> </label> <input
+							class="budget-search-box-input"
+							id="budgetSearchFromDateTypeInput" type="date"></input>
 					</div>
 
 					<div class="form-group">
 						<label class="budget-search-box-label"><fmt:message
-								key="BUDGET_REPORT_TO_DATE_LABEL" />
-						</label> <input class="budget-search-box-input" id="budgetSearchToDateTypeInput" type="date"></input>
+								key="BUDGET_REPORT_TO_DATE_LABEL" /> </label> <input
+							class="budget-search-box-input" id="budgetSearchToDateTypeInput"
+							type="date"></input>
 					</div>
 
 					<button id="budgetReportGenerateReportButton"
@@ -142,10 +145,10 @@
 
 				</div>
 			</div>
-			
+
 			<div id="budgetChartGraph">
 				<div id="budgetChartContainer"></div>
-			
+
 				<div id="budgetGridContainer">
 					<table id="budgetGrid" class="display nowrap dataTable dtr-inline"
 						cellspacing="0" width="100%">
@@ -158,7 +161,7 @@
 							</tr>
 						</thead>
 						<tbody id="budgetGridBody">
-	
+
 						</tbody>
 					</table>
 				</div>
