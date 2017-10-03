@@ -11,7 +11,7 @@ html body{
 	display: none;
 }
 #registration-title{
-	color: #5F6060;
+
 }
 .registration-label{
 	color: #5F6060;
@@ -54,11 +54,11 @@ html body{
 }
 @media only screen and (min-width: 300px) {
 	#registration-title{
-		font-size: 1.5em;
-		padding-bottom: 20px;
+		font-size: 36px;
+		margin-bottom: 30px;
 		font-style: italic;
 		text-align: center;
-		padding-top: 30px;
+		margin-top: 15px;
 	}
 	#registration-form{
 		display: flex;
@@ -110,11 +110,9 @@ html body{
 		font-size: 1.5em;
 	}
 	#registration-title{
-		font-size: 1.5em;
-		padding-bottom: 20px;
+		font-size: 36px;
 		font-style: italic;
 		text-align: center;
-		padding-top: 30px;
 	}
 	#registration-form{
 		display: flex;
@@ -172,8 +170,7 @@ html body{
 	}
 	#registration-title
 	{
-		padding-top: 40px;
-		font-size: 2em;
+		font-size: 36px;
 	}
 	#registration-form
 	{
