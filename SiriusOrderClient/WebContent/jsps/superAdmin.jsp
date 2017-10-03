@@ -48,7 +48,12 @@
 
 		<%-- SUPER ADMIN --%>
 		<div class="super-admin-container">
-		
+			
+			<%-- TITLE --%>
+			<div class="pageTitle">
+						<h1>Administration</h1>
+					</div>
+				
 			<%-- ERROR CHECKING --%>
 			<c:if test = "${sessionScope.locationAlreadyExists}">
 				<div class="super-admin-error">
