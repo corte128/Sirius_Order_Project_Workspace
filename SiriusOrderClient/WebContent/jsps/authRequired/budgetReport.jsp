@@ -102,23 +102,21 @@
 						</select>
 					</div>
 
-					<div id="budgetSearchViewInput">
-						<div class="form-group">
-							<label class="budget-search-box-label"><fmt:message
-									key="BUDGET_REPORT_VIEW_LABEL" />
-							</label> <select id="budgetSearchViewInput">
-								<option value="" selected>
-									<fmt:message key="BUDGET_REPORT_SELECT_LABEL" />
-									<fmt:message key="BUDGET_REPORT_REPORT_TYPE_LABEL" />
-								</option>
-								<option value="PDF">
-									<fmt:message key="BUDGET_REPORT_PDF_LABEL" />
-								</option>
-								<option value="Display">
-									<fmt:message key="BUDGET_REPORT_DISPLAY_LABEL" />
-								</option>
-							</select>
-						</div>
+					<div class="form-group">
+						<label class="budget-search-box-label"><fmt:message
+								key="BUDGET_REPORT_VIEW_LABEL" /> </label> <select
+							id="budgetSearchViewInput">
+							<option value="" selected>
+								<fmt:message key="BUDGET_REPORT_SELECT_LABEL" />
+								<fmt:message key="BUDGET_REPORT_REPORT_TYPE_LABEL" />
+							</option>
+							<option value="PDF">
+								<fmt:message key="BUDGET_REPORT_PDF_LABEL" />
+							</option>
+							<option value="Display">
+								<fmt:message key="BUDGET_REPORT_DISPLAY_LABEL" />
+							</option>
+						</select>
 					</div>
 
 				</div>
@@ -144,25 +142,24 @@
 
 				</div>
 			</div>
+			
+			<div id="budgetChartContainer"></div>
+			
+			<div id="budgetGridContainer">
+				<table id="budgetGrid" class="display nowrap dataTable dtr-inline"
+					cellspacing="0" width="100%">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Actual</th>
+							<th>Budget</th>
+							<th>Variance</th>
+						</tr>
+					</thead>
+					<tbody id="budgetGridBody">
 
-			<div>
-				<div id="budgetGridContainer">
-					<table id="budgetGrid" class="display nowrap dataTable dtr-inline"
-						cellspacing="0" width="100%">
-						<thead>
-							<tr>
-								<th></th>
-								<th>Actual</th>
-								<th>Budget</th>
-								<th>Variance</th>
-							</tr>
-						</thead>
-						<tbody id="budgetGridBody">
-
-						</tbody>
-					</table>
-				</div>
-				<div id="budgetChartContainer"></div>
+					</tbody>
+				</table>
 			</div>
 
 			<div class="hideDownloadDiv" id="downloadDiv">
