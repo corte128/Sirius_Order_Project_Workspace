@@ -1,10 +1,11 @@
 @CHARSET "ISO-8859-1";
 
 .hideDownloadDiv {
-	display: none;
+	visibility: hidden;
 	margin: auto;
 	text-align: center;
 	margin-bottom: 20px;
+	margin-top: -80px;
 }
 
 .container-fluid {
@@ -80,6 +81,7 @@ aside {
 #budgetGridContainer {
 	flex: 1;
 	padding-top: 10px;
+	visibility: hidden;
 }
 
 #budgetChartContainer {
@@ -126,6 +128,7 @@ aside {
 	}
 	.hideDownloadDiv {
 		margin: auto;
+		margin-top: -80px;
 	}
 	#budgetChartContainer {
 		padding-bottom: 20px;
