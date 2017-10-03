@@ -13,6 +13,15 @@
 	display: inline;
 }
 
+.pageTitle{
+	text-align: center;
+	font-style: italic;
+	font-family: serif;
+	margin:auto;
+	margin-bottom: 30px;
+	
+}
+
 .searchContainer{
 	margin-left: 30%;
 	margin-bottom: 10px;

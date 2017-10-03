@@ -29,7 +29,7 @@
 		<%@ include file="header.jsp" %>
 	</header>
 	<div id="visitors-content">
-		<div id="visitors-title"><h3><fmt:message key="VISITORS_FORM_TITLE" /></h3></div>
+		<div id="visitors-title"><h1><fmt:message key="VISITORS_FORM_TITLE" /></h1></div>
 		<div id="visitors-form">
 			<div id="visitors-labels">
 				<br />
