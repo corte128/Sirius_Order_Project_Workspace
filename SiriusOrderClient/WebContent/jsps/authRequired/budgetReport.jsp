@@ -49,7 +49,7 @@
 	<main ng-controller="BudgetChartCtrl">
 	<div class="budgetPageContainer">
 		<div class="pageTitle">
-			<h1>Budget VS Actual Spent</h1>
+			<h1><fmt:message key="BUDGET_REPORT_TITLE_LABEL" /></h1>
 		</div>
 		<div class="container-fluid" style="padding: 0;">
 			<div id="budgetSearchBoxAndNavContainer">

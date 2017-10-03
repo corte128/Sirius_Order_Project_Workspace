@@ -25,7 +25,7 @@
 	</header>
 	<div id="cartAndNavContainer">
 		<main>
-			<div id="cartMainContentLabelContainer"><fmt:message key="CART_CART_LABEL" /></div>
+			<div id="cartMainContentLabelContainer"><h1><fmt:message key="CART_CART_LABEL" /></h1></div>
 			<div id="breakroomAboveBudgetContainer">
 				<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" />
 				 $<span id="breakroomAboveBudgetAmountContainer"></span>
