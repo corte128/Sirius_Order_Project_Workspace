@@ -16,12 +16,13 @@ import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sirius.locationws.location.wsdl.LocationBean;
+import com.sirius.locationws.location.wsdl.LocationProxy;
 import com.sirius.service.superadmin.superadmin.wsdl.OfficeBean;
 import com.sirius.service.superadmin.superadmin.wsdl.SuperadminProxy;
 
@@ -45,6 +46,9 @@ public class SuperAdminServlet extends HttpServlet {
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 		SuperadminProxy superAdminProxyObj = new SuperadminProxy();
 		
+		request.getSession().setAttribute("locationAlreadyExists", 2);
+		request.getSession().setAttribute("officeAdminAlreadyExists", 2);
+		request.getSession().setAttribute("budgetInvalid", 2);
 		
 		if(action != null && action.equals("officeAdmin")){
 			// adding offices to Json Object
@@ -91,6 +95,8 @@ public class SuperAdminServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
 		SuperadminProxy superAdminProxyObj = new SuperadminProxy();
+		LocationProxy locationObj = new LocationProxy();
+		int check = 0;
 		
 		if(action!=null){
 			if(action.equals("addLocation")){
@@ -100,19 +106,26 @@ public class SuperAdminServlet extends HttpServlet {
 				Integer id = (Integer) request.getSession().getAttribute(sessionVariables.getString("ACTIVE_USER_ID"));
 				
 				if(city != null && state != null){
-					List<OfficeBean> offices = superAdminProxyObj.getOffices();
-					for(OfficeBean office : offices){
-						if(office.getLocation().equals(city+", "+state)){
+					List<LocationBean> locations = locationObj.getLocations();
+				
+					//List<OfficeBean> offices = superAdminProxyObj.getOffices();
+					for(LocationBean location : locations){
+						if(location.getCity().equals(city) && location.getState().equals(state)){
 							locationAlreadyExists = true;
 							break;
 						}
 					}
-					if(!locationAlreadyExists)
+					if(!locationAlreadyExists){
 						superAdminProxyObj.addLocation(city, state, id);
+						check=3;
+					}else{
+						check=1;
+					}
+					
 	
-					request.getSession().setAttribute("locationAlreadyExists", locationAlreadyExists);
-					request.getSession().setAttribute("officeAdminAlreadyExists", false);
-					request.getSession().setAttribute("budgetInvalid", false);
+					request.getSession().setAttribute("locationAlreadyExists", check);
+					request.getSession().setAttribute("officeAdminAlreadyExists", 2);
+					request.getSession().setAttribute("budgetInvalid", 2);
 				}
 			}
 			else if(action.equals("setBudget")){
@@ -159,10 +172,13 @@ public class SuperAdminServlet extends HttpServlet {
 					for(int index = 0; index < locationIds.size(); index++){
 						superAdminProxyObj.setBudgetByLocation(budgets.get(index), locationIds.get(index));
 					}
+					check = 3;
+				}else{
+					check = 1;
 				}
-				request.getSession().setAttribute("locationAlreadyExists", false);
-				request.getSession().setAttribute("officeAdminAlreadyExists", false);
-				request.getSession().setAttribute("budgetInvalid", invalidBudget);
+				request.getSession().setAttribute("locationAlreadyExists", 2);
+				request.getSession().setAttribute("officeAdminAlreadyExists", 2);
+				request.getSession().setAttribute("budgetInvalid", check);
 			}
 			else if(action.equals("assignAdmin")){
 				int locationId = Integer.parseInt(request.getParameter("locations"));
@@ -182,10 +198,14 @@ public class SuperAdminServlet extends HttpServlet {
 					}
 					if(locationId != 0 && !officeAdminAlreadyExists){
 						superAdminProxyObj.assignAdmin(locationId, adminId, id);
+						check = 3;
+					}else{
+						check = 1;
 					}
-					request.getSession().setAttribute("officeAdminAlreadyExists", officeAdminAlreadyExists);
-					request.getSession().setAttribute("locationAlreadyExists", false);
-					request.getSession().setAttribute("budgetInvalid", false);
+					
+					request.getSession().setAttribute("officeAdminAlreadyExists", check);
+					request.getSession().setAttribute("locationAlreadyExists", 2);
+					request.getSession().setAttribute("budgetInvalid", 2);
 				}
 			}
 		}
