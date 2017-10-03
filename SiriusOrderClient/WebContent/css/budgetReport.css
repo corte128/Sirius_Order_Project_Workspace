@@ -72,6 +72,7 @@ aside {
 }
 
 #budgetChartGraph {
+	padding-top: 10px;
 	display: flex;
 	width: 80%;
 	margin: auto;
@@ -172,6 +173,7 @@ aside {
 		overflow-y: hidden;
 		margin: auto;
 		padding: 5px;
+		padding-top: 25px;
 	}
 	.hideDownloadDiv {
 		margin: auto;
@@ -186,5 +188,8 @@ aside {
 	}
 	.search-bar-column {
 		padding: 5px;
+	}
+	#budgetReportGenerateReportButton {
+		margin-top: 10px;
 	}
 }
