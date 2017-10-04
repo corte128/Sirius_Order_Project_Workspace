@@ -120,40 +120,33 @@ button.ui-dialog-titlebar-close{
 
 .information-container{
 	text-align:center;
+	margin-bottom: 10px;
+	
 }
 
 #saveSuccess{
 	display: inline-block;
 	z-index: 3;
-	position: absolute;
-	top:105px;
-	left:31vw;
 	padding: 5px;
-	margin-left: 10%;
 	border: 1px solid green;
 	color: green;
 	background-color: white;
+	margin: auto;
 }
 
 #saveFailure{
 	display: inline-block;
 	z-index: 3;
-	position: absolute;
-	top:105px;
-	left:31vw;
+	margin:auto;
 	padding: 5px;
-	margin-left: 10%;
 	color: red;
 }
 
 #deleteSuccess{
 	display: inline-block;
 	z-index: 3;
-	position: absolute;
-	top:105px;
-	left:31vw;
+	margin:auto;
 	padding: 5px;
-	margin-left: 10%;
 	border: 1px solid green;
 	color: green;
 	background-color: white;
