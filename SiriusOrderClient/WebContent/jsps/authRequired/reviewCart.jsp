@@ -410,9 +410,7 @@
 					<div class="modal-content">
 						<div class="modal-body">
 							<div id="saveOrderModalTitleContainer">
-								<span id="closeButton" class="closeButton"
-									onclick="closeSavedOrdersWindow()">X</span> <span
-									id="saveOrderModalTitleTextContainer"> <fmt:message
+								<span id="saveOrderModalTitleTextContainer"> <fmt:message
 										key="CART_NAME_LABEL" /> </span> <input
 									id="saveOrderModalOrderInput" type="text" />
 							</div>
