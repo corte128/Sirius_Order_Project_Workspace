@@ -241,10 +241,13 @@
 	#navIconLinks
 	{
 		width: 50px;
+		position: -webkit-sticky;
+  		position: sticky;
+  		top: 0vh;
 	}
 	#navIconLinksList
 	{
-		position: fixed;
+		
 	}
 	aside
 	{

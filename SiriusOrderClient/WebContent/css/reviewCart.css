@@ -290,7 +290,10 @@ body
 #cartAndNavContainer
 {
 	display: flex;
-	height: calc(101vh - 100px);
+}	
+#cartAndHeaderAndNavContainer
+{
+	height: calc(101vh - 50px);
 	overflow-y: auto;
 	overflow-x: hidden;
 	width: 100%;
