@@ -290,7 +290,10 @@ body
 #cartAndNavContainer
 {
 	display: flex;
-	height: calc(100% - 100px);
+}	
+#cartAndHeaderAndNavContainer
+{
+	height: calc(101vh - 50px);
 	overflow-y: auto;
 	overflow-x: hidden;
 	width: 100%;
@@ -298,10 +301,10 @@ body
 }
 #cartTaxAndGrandTotalContainer
 {
-	padding-top: 5px;
+	padding-top: 2.5px;
 	height: 50px;
 	position: fixed;
-	top: calc(100vh - 50px);
+	top: calc(101vh - 50px);
 	width: 100%;
 	background-color: #5C5C5C;
 	color: white;
@@ -328,7 +331,8 @@ main
 	}
 	#cartTaxAndGrandTotalContainer
 	{
-		font-size: 12pt;
+		font-size: 11pt;
+		padding: 0;
 	}
 	.include-saved-order-container
 	{
@@ -373,8 +377,12 @@ main
 	}
 	#cartHeaderContainer
 	{
-		font-size: 100%;
+		font-size: 80%;
 	}
+	.cart-section-title-container
+	{
+		border-left: none;
+	}	
 	.cart-section-title-text-container
 	{
 		text-align: center;
@@ -387,13 +395,13 @@ main
 	.include-saved-order-container
 	{
 		font-size: 32%;
-    	left: 80%;
+    	left: 79%;
     	top: 33%;
 	}
 	.save-order-container
 	{
 	    font-size: 100%;
-   		left: 78%;
+   		left: 77%;
    		top: 37%;
 	}
 	.cart-product-image-container
@@ -408,7 +416,7 @@ main
 	}
 	.cart-header-product-price-container
 	{
-		padding-right: 8px;
+		padding-right: 3px;
 	}
 	.cart-product-quantity-container
 	{
@@ -421,24 +429,27 @@ main
 	.cart-product-action-container
 	{
 		width: auto;
-		padding: 25px 25px 10px 32px;
+		padding: 25px 15px 10px 30px;
 	}
 	.cart-header-product-action-container
 	{
 		padding-right: 5px;
-		padding-left: 10px;
+		padding-left: 0;
 	}
 	.cart-product-name-container
 	{
 		flex: 185;
+		
 	}
 	.cart-product-container
 	{
 		font-size: 9px;
+		border-left: none;
 	}
 	.cart-summary-container
 	{
 		font-size: 9px;
+		border-left: none;
 	}
 	.cart-modal
 	{

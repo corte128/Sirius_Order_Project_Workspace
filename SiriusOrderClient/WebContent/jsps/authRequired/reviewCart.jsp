@@ -20,144 +20,204 @@
 	
 </head> 
 <body>
-	<%-- HEADER --%>
-	<header>
-		<%@ include file="../header.jsp"%>
-	</header>
-	<div id="cartAndNavContainer">
-		<main>
-			<div id="cartMainContentLabelContainer"><h1><fmt:message key="CART_CART_LABEL" /></h1></div>
-			<div id="breakroomAboveBudgetContainer">
-				<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" />
-				 <span id="breakroomAboveBudgetAmountContainer"></span>
-				 <fmt:message key="CART_ABOVE_BUDGET_LABEL" />
-			</div>
-			<div id="cartOrderWillBePlacedContainer">
-				<fmt:message key="CART_ORDER_WILL_BE_PLACED_LABEL" /> <fmt:formatDate value="${thisFriday.time}" pattern="dd-MMM"/>
-			</div>
-			<div id="cartHeaderContainer">
-				<div id="cartHeaderProductImageContainerColumn" class="cart-product-image-container">
+	<div id="cartAndHeaderAndNavContainer">
+		<%-- HEADER --%>
+		<header>
+			<%@ include file="../header.jsp"%>
+		</header>
+		<div id="cartAndNavContainer">
+			<main>
+				<div id="cartMainContentLabelContainer"><h1><fmt:message key="CART_CART_LABEL" /></h1></div>
+				<div id="breakroomAboveBudgetContainer">
+					<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" />
+					 <span id="breakroomAboveBudgetAmountContainer"></span>
+					 <fmt:message key="CART_ABOVE_BUDGET_LABEL" />
 				</div>
-				<div class="cart-product-name-container">
+				<div id="cartOrderWillBePlacedContainer">
+					<fmt:message key="CART_ORDER_WILL_BE_PLACED_LABEL" /> <fmt:formatDate value="${thisFriday.time}" pattern="dd-MMM"/>
 				</div>
-				<div class="cart-product-price-container cart-header-product-price-container">
-					<fmt:message key="CART_HEADER_PRICE_LABEL" />
-				</div>
-				<div class="cart-product-quantity-container cart-header-product-quantity-container">
-					<fmt:message key="CART_HEADER_QUANTITY_LABEL" />
-				</div>
-				<div class="cart-product-action-container cart-header-product-action-container">
-					<fmt:message key="CART_HEADER_ACTIONS_LABEL" />
-				</div>
-			</div>
-			<div id="cartContentRows">
-			
-				<div class="cart-section-title-container cart-product-color-alternate-container">
-					<div class="cart-product-image-container">
+				<div id="cartHeaderContainer">
+					<div id="cartHeaderProductImageContainerColumn" class="cart-product-image-container">
 					</div>
-					<div class="cart-section-title-text-container">
-						<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" /><br id="breakroomTitleLineBreak" />
-						 (<fmt:message key="CART_BUDGET_LABEL" />: <span id="breakroomBudgetAmountContainer">${currentBudget.getBudgetAllotted()}</span>)
+					<div class="cart-product-name-container">
 					</div>
-					<input id="breakroomBudgetAmountValue" type="hidden" value="${currentBudget.getBudgetAllotted()}" />
-					<span class="include-saved-order-container" onclick="showIncludeOrderModal()">
-						<fmt:message key="CART_INCLUDE_FROM_SAVED_ORDER_LABEL" />
-					</span>
+					<div class="cart-product-price-container cart-header-product-price-container">
+						<fmt:message key="CART_HEADER_PRICE_LABEL" />
+					</div>
+					<div class="cart-product-quantity-container cart-header-product-quantity-container">
+						<fmt:message key="CART_HEADER_QUANTITY_LABEL" />
+					</div>
+					<div class="cart-product-action-container cart-header-product-action-container">
+						<fmt:message key="CART_HEADER_ACTIONS_LABEL" />
+					</div>
 				</div>
-				<c:set var="breakroomIndex" value="0" scope="page" />
-
-				<c:forEach var="product" items="${breakroomProducts}">
-					<div id="cartOrder${breakroomOrders.get(breakroomIndex).getId()}" 
-						class="cart-product-container cart-product-color-alternate-container">
+				<div id="cartContentRows">
+				
+					<div class="cart-section-title-container cart-product-color-alternate-container">
 						<div class="cart-product-image-container">
-							<img src="${product.getImage()}" />
 						</div>
-						<div class="cart-product-name-container">
-							${product.getName()}
+						<div class="cart-section-title-text-container">
+							<fmt:message key="REVIEW_CART_BREAKROOM_LABEL" /><br id="breakroomTitleLineBreak" />
+							 (<fmt:message key="CART_BUDGET_LABEL" />: <span id="breakroomBudgetAmountContainer">${currentBudget.getBudgetAllotted()}</span>)
 						</div>
-						<div class="cart-product-price-container 
-							breakroom-cart-product-price-container"
-							value="${product.getPrice()}">
-							${product.getPrice()}
+						<input id="breakroomBudgetAmountValue" type="hidden" value="${currentBudget.getBudgetAllotted()}" />
+						<span class="include-saved-order-container" onclick="showIncludeOrderModal()">
+							<fmt:message key="CART_INCLUDE_FROM_SAVED_ORDER_LABEL" />
+						</span>
+					</div>
+					<c:set var="breakroomIndex" value="0" scope="page" />
+	
+					<c:forEach var="product" items="${breakroomProducts}">
+						<div id="cartOrder${breakroomOrders.get(breakroomIndex).getId()}" 
+							class="cart-product-container cart-product-color-alternate-container">
+							<div class="cart-product-image-container">
+								<img src="${product.getImage()}" />
+							</div>
+							<div class="cart-product-name-container">
+								${product.getName()}
+							</div>
+							<div class="cart-product-price-container 
+								breakroom-cart-product-price-container"
+								value="${product.getPrice()}">
+								${product.getPrice()}
+							</div>
+							<div class="cart-product-quantity-container">
+								<input id="cartProductQuantityInput${breakroomOrders.get(breakroomIndex).getId()}"
+									class="breakroom-cart-product-quantity-input"
+									onchange="calcBreakroomTotalsAndUpdate(${product.getId()}, ${breakroomOrders.get(breakroomIndex).getId()})"
+								 	type="text" value="${breakroomOrders.get(breakroomIndex).getQuantity()}"/>
+							</div>
+							<div class="cart-product-action-container">
+								<div class="glyphicon glyphicon-trash" onclick="removeFromCart(${breakroomOrders.get(breakroomIndex).getId()})"></div>
+							</div>
+						</div>
+						<c:set var="breakroomIndex" value="${breakroomIndex + 1}" scope="page"/>
+					</c:forEach>
+					
+					<div id="breakroomSummaryContainer" class="cart-product-color-alternate-container cart-summary-container">
+						<div class="cart-product-image-container">
+						</div>
+						<div id="breakroomTotalQuantityContainer" 
+							class="cart-product-name-container"> 
+						</div>
+						<div id="breakroomTotalPriceContainer" 
+							class="cart-product-price-container">
 						</div>
 						<div class="cart-product-quantity-container">
-							<input id="cartProductQuantityInput${breakroomOrders.get(breakroomIndex).getId()}"
-								class="breakroom-cart-product-quantity-input"
-								onchange="calcBreakroomTotalsAndUpdate(${product.getId()}, ${breakroomOrders.get(breakroomIndex).getId()})"
-							 	type="text" value="${breakroomOrders.get(breakroomIndex).getQuantity()}"/>
 						</div>
 						<div class="cart-product-action-container">
-							<div class="glyphicon glyphicon-trash" onclick="removeFromCart(${breakroomOrders.get(breakroomIndex).getId()})"></div>
 						</div>
+						<span class="save-order-container" onclick="showSaveOrderModal()">
+							<fmt:message key="CART_SAVE_THE_ORDER_LABEL" />
+						</span>
 					</div>
-					<c:set var="breakroomIndex" value="${breakroomIndex + 1}" scope="page"/>
-				</c:forEach>
-				
-				<div id="breakroomSummaryContainer" class="cart-product-color-alternate-container cart-summary-container">
-					<div class="cart-product-image-container">
-					</div>
-					<div id="breakroomTotalQuantityContainer" 
-						class="cart-product-name-container"> 
-					</div>
-					<div id="breakroomTotalPriceContainer" 
-						class="cart-product-price-container">
-					</div>
-					<div class="cart-product-quantity-container">
-					</div>
-					<div class="cart-product-action-container">
-					</div>
-					<span class="save-order-container" onclick="showSaveOrderModal()">
-						<fmt:message key="CART_SAVE_THE_ORDER_LABEL" />
-					</span>
-				</div>
-				
-				
-				<div class="cart-section-title-container cart-product-color-alternate-container">
-					<div class="cart-product-image-container">
-					</div>
-					<div class="cart-section-title-text-container">
-						<fmt:message key="REVIEW_CART_OFFICE_SUPPLIES_LABEL" />
-					</div>
-					<span class="include-saved-order-container" onclick="showIncludeOrderModal()">
-						<fmt:message key="CART_INCLUDE_FROM_SAVED_ORDER_LABEL" />
-					</span>
-				</div>
-				<c:set var="officeSuppliesIndex" value="0" scope="page" />
-
-				<c:forEach var="product" items="${officeSuppliesProducts}">
-					<div id="cartOrder${officeSuppliesOrders.get(officeSuppliesIndex).getId()}" 
-						class="cart-product-container cart-product-color-alternate-container">
+					
+					
+					<div class="cart-section-title-container cart-product-color-alternate-container">
 						<div class="cart-product-image-container">
-							<img src="${product.getImage()}" />
 						</div>
-						<div class="cart-product-name-container">
-							${product.getName()}
+						<div class="cart-section-title-text-container">
+							<fmt:message key="REVIEW_CART_OFFICE_SUPPLIES_LABEL" />
 						</div>
-						<div class="cart-product-price-container
-							office-supplies-cart-product-price-container"
-							value="${product.getPrice()}">
-							${product.getPrice()}
+						<span class="include-saved-order-container" onclick="showIncludeOrderModal()">
+							<fmt:message key="CART_INCLUDE_FROM_SAVED_ORDER_LABEL" />
+						</span>
+					</div>
+					<c:set var="officeSuppliesIndex" value="0" scope="page" />
+	
+					<c:forEach var="product" items="${officeSuppliesProducts}">
+						<div id="cartOrder${officeSuppliesOrders.get(officeSuppliesIndex).getId()}" 
+							class="cart-product-container cart-product-color-alternate-container">
+							<div class="cart-product-image-container">
+								<img src="${product.getImage()}" />
+							</div>
+							<div class="cart-product-name-container">
+								${product.getName()}
+							</div>
+							<div class="cart-product-price-container
+								office-supplies-cart-product-price-container"
+								value="${product.getPrice()}">
+								${product.getPrice()}
+							</div>
+							<div class="cart-product-quantity-container">
+								<input id="cartProductQuantityInput${officeSuppliesOrders.get(officeSuppliesIndex).getId()}"
+									class="office-supplies-cart-product-quantity-input"
+									onchange="calcOfficeSuppliesTotalsAndUpdate(${product.getId()}, ${officeSuppliesOrders.get(officeSuppliesIndex).getId()})"
+									type="text" value="${officeSuppliesOrders.get(officeSuppliesIndex).getQuantity()}"/>
+							</div>
+							<div class="cart-product-action-container">
+								<div class="glyphicon glyphicon-trash" onclick="removeFromCart(${officeSuppliesOrders.get(officeSuppliesIndex).getId()})"></div>
+							</div>
+						</div>
+						<c:set var="officeSuppliesIndex" value="${officeSuppliesIndex + 1}" scope="page"/>
+					</c:forEach>
+					
+					<div id="officeSuppliesSummaryContainer" class="cart-product-color-alternate-container cart-summary-container">
+						<div class="cart-product-image-container">
+						</div>
+						<div id="officeSuppliesTotalQuantityContainer" 
+							class="cart-product-name-container">
+						</div>
+						<div id="officeSuppliesTotalPriceContainer" 
+							class="cart-product-price-container">
 						</div>
 						<div class="cart-product-quantity-container">
-							<input id="cartProductQuantityInput${officeSuppliesOrders.get(officeSuppliesIndex).getId()}"
-								class="office-supplies-cart-product-quantity-input"
-								onchange="calcOfficeSuppliesTotalsAndUpdate(${product.getId()}, ${officeSuppliesOrders.get(officeSuppliesIndex).getId()})"
-								type="text" value="${officeSuppliesOrders.get(officeSuppliesIndex).getQuantity()}"/>
 						</div>
 						<div class="cart-product-action-container">
-							<div class="glyphicon glyphicon-trash" onclick="removeFromCart(${officeSuppliesOrders.get(officeSuppliesIndex).getId()})"></div>
 						</div>
+						<span class="save-order-container" onclick="showSaveOrderModal()">
+							<fmt:message key="CART_SAVE_THE_ORDER_LABEL" />
+						</span>
 					</div>
-					<c:set var="officeSuppliesIndex" value="${officeSuppliesIndex + 1}" scope="page"/>
-				</c:forEach>
+					
+					
+					<div class="cart-section-title-container cart-product-color-alternate-container">
+						<div class="cart-product-image-container">
+						</div>
+						<div class="cart-section-title-text-container">
+							<fmt:message key="REVIEW_CART_INK_AND_TONER_LABEL" />
+						</div>
+						<span class="include-saved-order-container" onclick="showIncludeOrderModal()">
+							<fmt:message key="CART_INCLUDE_FROM_SAVED_ORDER_LABEL" />
+						</span>
+					</div>
+					<c:set var="inkIndex" value="0" scope="page" />
+						
+					<c:forEach var="product" items="${inkAndTonerProducts}">
+						<div id="cartOrder${inkAndTonerOrders.get(inkIndex).getId()}" 
+							class="cart-product-container cart-product-color-alternate-container">
+							<div class="cart-product-image-container">
+								<img src="${product.getImage()}" />
+							</div>
+							<div class="cart-product-name-container">
+								${product.getName()}
+							</div>
+							<div class="cart-product-price-container
+								ink-cart-product-price-container"
+								value="${product.getPrice()}">
+								${product.getPrice()}
+							</div>
+							<div class="cart-product-quantity-container">
+								<input id="cartProductQuantityInput${inkAndTonerOrders.get(inkIndex).getId()}"
+									class="ink-cart-product-quantity-input"
+									onchange="calcInkAndTonerTotalsAndUpdate(${product.getId()}, ${inkAndTonerOrders.get(inkIndex).getId()})"
+									type="text" value="${inkAndTonerOrders.get(inkIndex).getQuantity()}"/>
+							</div>
+							<div class="cart-product-action-container">
+								<div class="glyphicon glyphicon-trash" onclick="removeFromCart(${inkAndTonerOrders.get(inkIndex).getId()})"></div>
+							</div>
+						</div>
+						<c:set var="inkIndex" value="${inkIndex + 1}" scope="page"/>
+					</c:forEach>
+				</div>	
 				
-				<div id="officeSuppliesSummaryContainer" class="cart-product-color-alternate-container cart-summary-container">
+				<div id="inkAndTonerOrdersSummaryContainer" class="cart-product-color-alternate-container cart-summary-container">
 					<div class="cart-product-image-container">
 					</div>
-					<div id="officeSuppliesTotalQuantityContainer" 
+					<div id="inkAndTonerTotalQuantityContainer" 
 						class="cart-product-name-container">
 					</div>
-					<div id="officeSuppliesTotalPriceContainer" 
+					<div id="inkAndTonerTotalPriceContainer" 
 						class="cart-product-price-container">
 					</div>
 					<div class="cart-product-quantity-container">
@@ -169,215 +229,157 @@
 					</span>
 				</div>
 				
-				
-				<div class="cart-section-title-container cart-product-color-alternate-container">
-					<div class="cart-product-image-container">
+				<footer id="cartTaxAndGrandTotalContainer">
+					<div id="cartTaxContainer">
+						<fmt:message key="CART_TAX_PERCENTAGE_LABEL" /> <span id="cartTaxAmountContainer"></span>
 					</div>
-					<div class="cart-section-title-text-container">
-						<fmt:message key="REVIEW_CART_INK_AND_TONER_LABEL" />
-					</div>
-					<span class="include-saved-order-container" onclick="showIncludeOrderModal()">
-						<fmt:message key="CART_INCLUDE_FROM_SAVED_ORDER_LABEL" />
-					</span>
-				</div>
-				<c:set var="inkIndex" value="0" scope="page" />
 					
-				<c:forEach var="product" items="${inkAndTonerProducts}">
-					<div id="cartOrder${inkAndTonerOrders.get(inkIndex).getId()}" 
-						class="cart-product-container cart-product-color-alternate-container">
-						<div class="cart-product-image-container">
-							<img src="${product.getImage()}" />
-						</div>
-						<div class="cart-product-name-container">
-							${product.getName()}
-						</div>
-						<div class="cart-product-price-container
-							ink-cart-product-price-container"
-							value="${product.getPrice()}">
-							${product.getPrice()}
-						</div>
-						<div class="cart-product-quantity-container">
-							<input id="cartProductQuantityInput${inkAndTonerOrders.get(inkIndex).getId()}"
-								class="ink-cart-product-quantity-input"
-								onchange="calcInkAndTonerTotalsAndUpdate(${product.getId()}, ${inkAndTonerOrders.get(inkIndex).getId()})"
-								type="text" value="${inkAndTonerOrders.get(inkIndex).getQuantity()}"/>
-						</div>
-						<div class="cart-product-action-container">
-							<div class="glyphicon glyphicon-trash" onclick="removeFromCart(${inkAndTonerOrders.get(inkIndex).getId()})"></div>
-						</div>
+					<div id="cartGrandTotalContainer">
+						<fmt:message key="CART_TOTAL_LABEL" /> <span id="cartGrandTotalAmountContainer"></span>
 					</div>
-					<c:set var="inkIndex" value="${inkIndex + 1}" scope="page"/>
-				</c:forEach>
-			</div>	
-			
-			<div id="inkAndTonerOrdersSummaryContainer" class="cart-product-color-alternate-container cart-summary-container">
-				<div class="cart-product-image-container">
-				</div>
-				<div id="inkAndTonerTotalQuantityContainer" 
-					class="cart-product-name-container">
-				</div>
-				<div id="inkAndTonerTotalPriceContainer" 
-					class="cart-product-price-container">
-				</div>
-				<div class="cart-product-quantity-container">
-				</div>
-				<div class="cart-product-action-container">
-				</div>
-				<span class="save-order-container" onclick="showSaveOrderModal()">
-					<fmt:message key="CART_SAVE_THE_ORDER_LABEL" />
-				</span>
-			</div>
-			
-			<footer id="cartTaxAndGrandTotalContainer">
-				<div id="cartTaxContainer">
-					<fmt:message key="CART_TAX_PERCENTAGE_LABEL" /> <span id="cartTaxAmountContainer"></span>
+				</footer>
+				
+				<!-- INCLUDE SAVED ORDER MODAL -->
+				<div id="includeSavedOrderModal" class="cart-modal">
+					<div id="includeSavedOrderModalTitleContainer">
+						<span id="closeButton" class="closeButton"  onclick="closeIncludeInOrderWindow()">X</span>
+						<span id="includeSavedOrderModalTitleTextContainer">
+							<fmt:message key="CART_SAVED_ORDERS_LABEL" />
+						</span>
+						<select id="includeSavedOrderModalOrderSelect" onchange="populateItemsFromOrders()">
+							<option value="" selected><fmt:message key="CART_SELECT_LABEL" /></option>
+							<c:forEach var="orderName" items="${savedOrders.keySet()}">
+								<option value="${orderName}">${orderName}</option>
+							</c:forEach>
+						</select>
+					</div>
+					<c:forEach var="orderName" items="${savedOrders.keySet()}">
+						<div id="${orderName}OrderContainer" class="order-container">
+							<div class="order-item-container
+								cart-modal-color-alternate-container">
+								<div class="order-item-input-container">
+									<input id="${orderName}OrderTitleCheckbox" type="checkbox"
+										onchange="selectAllOrderCheckboxes('${orderName}')"
+									 />
+								</div>
+								<div class="order-title-text-container items-label">
+									<fmt:message key="CART_ITEMS_LABEL" />
+								</div>
+							</div>
+							<!-- GENERATE A DIV FOR EACH ITEM IN AN ORDER -->
+							<c:set var="orderIndex" value="0" scope="page" />
+							<!--<c:set var="curOrderName" value="${orderName}" scope="page"/>-->
+							<c:forEach var="orderItem" items="${savedOrders.get(orderName)}">
+								<div class="order-item-container
+									cart-modal-color-alternate-container">
+									<div class="order-item-input-container">
+										<input id="includeOrderCheckbox${savedOrders[orderName].get(orderIndex).getId()}" 
+											class="include-order-checkbox-${savedOrders[orderName].get(orderIndex).getOrderName()}"
+											type="checkbox" />
+									</div>
+									<div class="order-title-text-container">
+										${savedProducts.get(curOrderName)[orderIndex].getName()}
+									</div>
+									<input id="includeOrderProductId${savedOrders[orderName].get(orderIndex).getId()}"
+										type="hidden" value="${savedProducts.get(curOrderName)[orderIndex].getId()}"
+									/>
+								</div>
+								<c:set var="orderIndex" value="${orderIndex + 1}" scope="page"/>
+							</c:forEach>
+						</div>
+					</c:forEach>
+					<div id="includeSavedOrderModalButtonContainer" class="cart-modal-button-container">
+						<button id="includeSavedOrderModalButton" 
+							class="project-button"
+							onclick="includeOrderInCart()">
+							<fmt:message key="CART_INCLUDE_LABEL" />
+						</button>
+					</div>
 				</div>
 				
-				<div id="cartGrandTotalContainer">
-					<fmt:message key="CART_TOTAL_LABEL" /> <span id="cartGrandTotalAmountContainer"></span>
-				</div>
-			</footer>
-			
-			<!-- INCLUDE SAVED ORDER MODAL -->
-			<div id="includeSavedOrderModal" class="cart-modal">
-				<div id="includeSavedOrderModalTitleContainer">
-					<span id="closeButton" class="closeButton"  onclick="closeIncludeInOrderWindow()">X</span>
-					<span id="includeSavedOrderModalTitleTextContainer">
-						<fmt:message key="CART_SAVED_ORDERS_LABEL" />
-					</span>
-					<select id="includeSavedOrderModalOrderSelect" onchange="populateItemsFromOrders()">
-						<option value="" selected><fmt:message key="CART_SELECT_LABEL" /></option>
-						<c:forEach var="orderName" items="${savedOrders.keySet()}">
-							<option value="${orderName}">${orderName}</option>
-						</c:forEach>
-					</select>
-				</div>
-				<c:forEach var="orderName" items="${savedOrders.keySet()}">
-					<div id="${orderName}OrderContainer" class="order-container">
+				<!-- SAVE ORDER MODAL -->
+				<div id="saveOrderModal" class="cart-modal">
+					<div id="saveOrderModalTitleContainer">
+						<span id="closeButton" class="closeButton"  onclick="closeSavedOrdersWindow()">X</span>
+						<span id="saveOrderModalTitleTextContainer">
+							<fmt:message key="CART_NAME_LABEL" />
+						</span>
+						<input id="saveOrderModalOrderInput" type="text" />
+					</div>
+					
+					<div id="cartOrderContainer" class="cart-order-container">
 						<div class="order-item-container
 							cart-modal-color-alternate-container">
 							<div class="order-item-input-container">
-								<input id="${orderName}OrderTitleCheckbox" type="checkbox"
-									onchange="selectAllOrderCheckboxes('${orderName}')"
-								 />
+								<input id="saveOrderTitleCheckbox" type="checkbox" onchange="selectAllSaveCheckboxes()" />
 							</div>
-							<div class="order-title-text-container items-label">
+							<div  class="order-title-text-container items-label">
 								<fmt:message key="CART_ITEMS_LABEL" />
 							</div>
 						</div>
 						<!-- GENERATE A DIV FOR EACH ITEM IN AN ORDER -->
-						<c:set var="orderIndex" value="0" scope="page" />
-						<!--<c:set var="curOrderName" value="${orderName}" scope="page"/>-->
-						<c:forEach var="orderItem" items="${savedOrders.get(orderName)}">
+						<c:set var="breakroomModalIndex" value="0" scope="page" />
+						<c:forEach var="product" items="${breakroomProducts}">
 							<div class="order-item-container
 								cart-modal-color-alternate-container">
 								<div class="order-item-input-container">
-									<input id="includeOrderCheckbox${savedOrders[orderName].get(orderIndex).getId()}" 
-										class="include-order-checkbox-${savedOrders[orderName].get(orderIndex).getOrderName()}"
+									<input id="saveOrderCheckbox${breakroomProducts.get(breakroomModalIndex).getId()}" 
+											class="save-order-checkbox"
+											type="checkbox" />
+								</div>
+								<div class="order-title-text-container">
+									${breakroomProducts.get(breakroomModalIndex).getName()}
+								</div>
+							</div>
+							<c:set var="breakroomModalIndex" value="${breakroomModalIndex + 1}" scope="page"/>
+						</c:forEach>
+						
+						<c:set var="officeSuppliesModalIndex" value="0" scope="page" />
+						<c:forEach var="product" items="${officeSuppliesProducts}">
+							<div class="order-item-container
+								cart-modal-color-alternate-container">
+								<div class="order-item-input-container">
+									<input id="saveOrderCheckbox${officeSuppliesProducts.get(officeSuppliesModalIndex).getId()}" 
+										class="save-order-checkbox"
 										type="checkbox" />
 								</div>
 								<div class="order-title-text-container">
-									${savedProducts.get(curOrderName)[orderIndex].getName()}
+									${officeSuppliesProducts.get(officeSuppliesModalIndex).getName()}
 								</div>
-								<input id="includeOrderProductId${savedOrders[orderName].get(orderIndex).getId()}"
-									type="hidden" value="${savedProducts.get(curOrderName)[orderIndex].getId()}"
-								/>
 							</div>
-							<c:set var="orderIndex" value="${orderIndex + 1}" scope="page"/>
+							<c:set var="officeSuppliesModalIndex" value="${officeSuppliesModalIndex + 1}" scope="page"/>
 						</c:forEach>
-					</div>
-				</c:forEach>
-				<div id="includeSavedOrderModalButtonContainer" class="cart-modal-button-container">
-					<button id="includeSavedOrderModalButton" 
-						class="project-button"
-						onclick="includeOrderInCart()">
-						<fmt:message key="CART_INCLUDE_LABEL" />
-					</button>
-				</div>
-			</div>
-			
-			<!-- SAVE ORDER MODAL -->
-			<div id="saveOrderModal" class="cart-modal">
-				<div id="saveOrderModalTitleContainer">
-					<span id="closeButton" class="closeButton"  onclick="closeSavedOrdersWindow()">X</span>
-					<span id="saveOrderModalTitleTextContainer">
-						<fmt:message key="CART_NAME_LABEL" />
-					</span>
-					<input id="saveOrderModalOrderInput" type="text" />
-				</div>
-				
-				<div id="cartOrderContainer" class="cart-order-container">
-					<div class="order-item-container
-						cart-modal-color-alternate-container">
-						<div class="order-item-input-container">
-							<input id="saveOrderTitleCheckbox" type="checkbox" onchange="selectAllSaveCheckboxes()" />
-						</div>
-						<div  class="order-title-text-container items-label">
-							<fmt:message key="CART_ITEMS_LABEL" />
-						</div>
-					</div>
-					<!-- GENERATE A DIV FOR EACH ITEM IN AN ORDER -->
-					<c:set var="breakroomModalIndex" value="0" scope="page" />
-					<c:forEach var="product" items="${breakroomProducts}">
-						<div class="order-item-container
-							cart-modal-color-alternate-container">
-							<div class="order-item-input-container">
-								<input id="saveOrderCheckbox${breakroomProducts.get(breakroomModalIndex).getId()}" 
+						
+						<c:set var="inkModalIndex" value="0" scope="page" />
+						<c:forEach var="product" items="${inkAndTonerProducts}">
+							<div class="order-item-container
+								cart-modal-color-alternate-container">
+								<div class="order-item-input-container">
+									<input id="saveOrderCheckbox${inkAndTonerProducts.get(inkModalIndex).getId()}" 
 										class="save-order-checkbox"
 										type="checkbox" />
+								</div>
+								<div class="order-title-text-container">
+									${inkAndTonerProducts.get(inkModalIndex).getName()}
+								</div>
 							</div>
-							<div class="order-title-text-container">
-								${breakroomProducts.get(breakroomModalIndex).getName()}
-							</div>
-						</div>
-						<c:set var="breakroomModalIndex" value="${breakroomModalIndex + 1}" scope="page"/>
-					</c:forEach>
-					
-					<c:set var="officeSuppliesModalIndex" value="0" scope="page" />
-					<c:forEach var="product" items="${officeSuppliesProducts}">
-						<div class="order-item-container
-							cart-modal-color-alternate-container">
-							<div class="order-item-input-container">
-								<input id="saveOrderCheckbox${officeSuppliesProducts.get(officeSuppliesModalIndex).getId()}" 
-									class="save-order-checkbox"
-									type="checkbox" />
-							</div>
-							<div class="order-title-text-container">
-								${officeSuppliesProducts.get(officeSuppliesModalIndex).getName()}
-							</div>
-						</div>
-						<c:set var="officeSuppliesModalIndex" value="${officeSuppliesModalIndex + 1}" scope="page"/>
-					</c:forEach>
-					
-					<c:set var="inkModalIndex" value="0" scope="page" />
-					<c:forEach var="product" items="${inkAndTonerProducts}">
-						<div class="order-item-container
-							cart-modal-color-alternate-container">
-							<div class="order-item-input-container">
-								<input id="saveOrderCheckbox${inkAndTonerProducts.get(inkModalIndex).getId()}" 
-									class="save-order-checkbox"
-									type="checkbox" />
-							</div>
-							<div class="order-title-text-container">
-								${inkAndTonerProducts.get(inkModalIndex).getName()}
-							</div>
-						</div>
-						<c:set var="inkModalIndex" value="${inkModalIndex + 1}" scope="page"/>
-					</c:forEach>
+							<c:set var="inkModalIndex" value="${inkModalIndex + 1}" scope="page"/>
+						</c:forEach>
+					</div>
+						
+					<div id="includeSavedOrderModalButtonContainer" class="cart-modal-button-container">
+						<button id="includeSavedOrderModalButton" onclick="saveOrder()"
+							class="project-button">
+							<fmt:message key="CART_SAVE_LABEL" />
+						</button>
+					</div>
 				</div>
-					
-				<div id="includeSavedOrderModalButtonContainer" class="cart-modal-button-container">
-					<button id="includeSavedOrderModalButton" onclick="saveOrder()"
-						class="project-button">
-						<fmt:message key="CART_SAVE_LABEL" />
-					</button>
-				</div>
-			</div>
-		</main>
-		<aside>
-			<%@ include file="../nav.jsp"%>
-		</aside>
-	</div>
+			</main>
+			<aside>
+				<%@ include file="../nav.jsp"%>
+			</aside>
+		</div>
+	</div>	
 	<script type="text/javascript" src="/SiriusOrderClient/js/calcCartTotal.js"></script>
 </body>
 </html>

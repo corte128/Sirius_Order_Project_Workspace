@@ -88,6 +88,16 @@ aside {
 	flex: 0;
 }
 
+.invalid-view{
+	color: red;
+	font-weight: bold;
+	display: none;
+	margin-top: -18.5%;
+	margin-left: 45%;
+	position: relative;
+	z-index: 3;
+}
+
 @media only screen and (min-device-width : 768px) and (max-device-width:
 	1024px) {
 	main { //
@@ -137,6 +147,10 @@ aside {
 	}
 	.search-bar-column {
 		padding: 5px;
+	}
+	.invalid-view{
+		margin-top: -47.5%;
+		margin-left: 38%;
 	}
 }
 
@@ -191,5 +205,9 @@ aside {
 	}
 	#budgetReportGenerateReportButton {
 		margin-top: 10px;
+	}
+	.invalid-view{
+		margin-top: -90%;
+		margin-left: 20%;
 	}
 }
