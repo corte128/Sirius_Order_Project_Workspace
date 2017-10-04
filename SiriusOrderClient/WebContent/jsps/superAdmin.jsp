@@ -52,34 +52,35 @@
 			
 			<%-- TITLE --%>
 			<div class="pageTitle">
-						<h1>Administration</h1>
-					</div>
+				<h1>Administration</h1>
+			</div>
 				
 			<%-- ALERTS --%>
-			<div id="locationSuccess" style="display:none">
-				<bean:message key="SUPER_ADMIN_LOCATION_SUCCESS" />
-			</div>
-			
-			<div id="locationFailure" style="display:none">
-				<bean:message key="LOCATION_ALREADY_EXISTS_ERROR" />
-			</div>
-
-			<div id="assignSuccess" style="display:none">
-				<bean:message key="SUPER_ADMIN_ASSIGN_SUCCESS" />
-			</div>
-			
-			<div id="assignFailure" style="display:none">
-				<bean:message key="OFFICE_ADMIN_ALREADY_EXISTS_ERROR" />
-			</div>
-			
-			<div id="budgetSuccess" style="display:none">
-				<bean:message key="SUPER_ADMIN_BUDGET_SUCCESS" />
-			</div>
-			
-			<div id="budgetFailure" style="display:none">
-				<bean:message key="INVALID_BUDGET_ERROR" />
-			</div>
+			<div class="information-container">
+				<div id="locationSuccess" style="display:none">
+					<bean:message key="SUPER_ADMIN_LOCATION_SUCCESS" />
+				</div>
+				
+				<div id="locationFailure" style="display:none">
+					<bean:message key="LOCATION_ALREADY_EXISTS_ERROR" />
+				</div>
 	
+				<div id="assignSuccess" style="display:none">
+					<bean:message key="SUPER_ADMIN_ASSIGN_SUCCESS" />
+				</div>
+				
+				<div id="assignFailure" style="display:none">
+					<bean:message key="OFFICE_ADMIN_ALREADY_EXISTS_ERROR" />
+				</div>
+				
+				<div id="budgetSuccess" style="display:none">
+					<bean:message key="SUPER_ADMIN_BUDGET_SUCCESS" />
+				</div>
+				
+				<div id="budgetFailure" style="display:none">
+					<bean:message key="INVALID_BUDGET_ERROR" />
+				</div>
+			</div>
 			<%-- Budget Confirmations --%>
 			<c:choose>
 				<c:when test="${locationAlreadyExists == 2}">
@@ -158,7 +159,7 @@
 								<label for="recipient-name" class="super-admin-modal-label">
 									<bean:message key="SUPER_ADMIN_CITY_LABEL" />: 
 								</label> 
-								<input type="text" class="super-admin-modal-text-input" id="location" name="city"/>
+								<input type="text" class="super-admin-modal-text-input" id="location" name="city" required/>
 							</div>
 							<div class="super-admin-modal-group">
 								<label for="message-text" class="super-admin-modal-label"> 
@@ -264,7 +265,7 @@
 									<div class="typeahead__field">
 										<span class="typeahead__query"> 
 										<input class="super-admin-modal-text-input" name="admin" id="typeaheadAdminInput"
-											type="text" placeholder="Search" autocomplete="off">
+											type="text" placeholder="Search" autocomplete="off" required>
 										</span>
 									</div>
 								</div>

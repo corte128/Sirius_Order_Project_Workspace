@@ -6,28 +6,35 @@
 	flex: 9;
 }
 
+h1 {
+	padding-top: 20px !important;
+	padding-bottom: 5px !important;
+	margin-bottom: 0 !important;
+}
+
+.information-container{
+	text-align:center;
+	height: 50px;
+}
+
 #rejectSuccess{
+	display: inline-block;
 	z-index: 3;
-	position: absolute;
-	top:52px;
-	left:31vw;
 	padding: 5px;
-	margin-left: 10%;
 	border: 1px solid green;
 	color: green;
 	background-color: white;
+	margin: auto;
 }
 
 #confirmSuccess{
+	display: inline-block;
 	z-index: 3;
-	position: absolute;
-	top:52px;
-	left:31vw;
 	padding: 5px;
-	margin-left: 10%;
 	border: 1px solid green;
 	color: green;
 	background-color: white;
+	margin: auto;
 }
 
 @media only screen and (max-width: 768px) {
@@ -36,55 +43,10 @@
 		margin-top: 5px;
 	}
 
-	#rejectSuccess{
-		z-index: 3;
-		position: absolute;
-		top:52px;
-		left:28vw;
-		padding: 5px;
-		margin-left: 10%;
-		border: 1px solid green;
-		color: green;
-		background-color: white;
-	}
-
-	#confirmSuccess{
-		z-index: 3;
-		position: absolute;
-		top:52px;
-		left:145px;
-		padding: 5px;
-		margin-left: 10%;
-		border: 1px solid green;
-		color: green;
-		background-color: white;
-	}
 }
 
 @media only screen and (max-width: 568px) {
-	#rejectSuccess{
-		z-index: 3;
-		position: absolute;
-		top:52px;
-		left:10vw;
-		padding: 5px;
-		margin-left: 10%;
-		border: 1px solid green;
-		color: green;
-		background-color: white;
-	}
 
-	#confirmSuccess{
-		z-index: 3;
-		position: absolute;
-		top:52px;
-		left:-10vw;
-		padding: 5px;
-		margin-left: 10%;
-		border: 1px solid green;
-		color: green;
-		background-color: white;
-	}
 }
 
 aside{

@@ -31,70 +31,69 @@
 
 }
 
+.information-container{
+	text-align:center;
+	height: 50px;
+}
+
+h1 {
+	padding-top: 20px !important;
+	padding-bottom: 5px !important;
+	margin-bottom: 0 !important;
+}
+
 #locationSuccess{
-  z-index: 3;
-  position: absolute;
-  top:105px;
-  left:33vw;
-  padding: 5px;
-  margin-left: 10%;
-  border: 1px solid green;
-  color: green;
-  background-color: white;
+	display: inline-block;
+	z-index: 3;
+	padding: 5px;
+	border: 1px solid green;
+	color: green;
+	background-color: white;
+	margin: auto;
 }
 
 #locationFailure{
-  z-index: 3;
-  position: absolute;
-  top:105px;
-  left:33vw;
-  padding: 5px;
-  margin-left: 10%;
-  color: red;
+	display: inline-block;
+	z-index: 3;
+	margin:auto;
+	padding: 5px;
+	color: red;
 }
 
 #assignSuccess{
-  z-index: 3;
-  position: absolute;
-  top:105px;
-  left:33vw;
-  padding: 5px;
-  margin-left: 10%;
-  border: 1px solid green;
-  color: green;
-  background-color: white;
+	display: inline-block;
+	z-index: 3;
+	padding: 5px;
+	border: 1px solid green;
+	color: green;
+	background-color: white;
+	margin: auto;
 }
 
 #assignFailure{
-  z-index: 3;
-  position: absolute;
-  top:105px;
-  left:33vw;
-  padding: 5px;
-  margin-left: 10%;
-  color: red;
+	display: inline-block;
+	z-index: 3;
+	margin:auto;
+	padding: 5px;
+	color: red;
 }
 
 #budgetSuccess{
-  z-index: 3;
-  position: absolute;
-  top:105px;
-  left:33vw;
-  padding: 5px;
-  margin-left: 10%;
-  border: 1px solid green;
-  color: green;
-  background-color: white;
+	display: inline-block;
+	z-index: 3;
+	padding: 5px;
+	border: 1px solid green;
+	color: green;
+	background-color: white;
+	margin: auto;
 }
 
 #budgetFailure{
-  z-index: 3;
-  position: absolute;
-  top:105px;
-  left:33vw;
-  padding: 5px;
-  margin-left: 10%;
-  color: red;
+	display: inline-block;
+	z-index: 3;
+	margin:auto;
+	padding: 5px;
+	color: red;
 }
 
 .super-admin-button {
@@ -245,11 +244,11 @@ and (max-device-width : 1024px) {
     width:750px;
     margin-left:20px;
     margin-top:5px;
-    height: 775px;
+    height: 675px;
   }
 
   .super-admin-budget-table{
-    height: 800px;
+    height: 730px;
   }
 
   .super-admin-button {
@@ -287,30 +286,6 @@ and (max-device-width : 1024px) {
   	margin: auto;
   	margin-bottom: 30px;
   }
-
-  #locationSuccess{
-    left: 220px;
-  }
-
-  #locationFailure{
-    left: 235px;
-  }
-
-  #assignSuccess{
-    left: 215px;
-  }
-
-  #assignFailure{
-    left:150px;
-  }
-
-  #budgetSuccess{
-    left: 220px;
-  }
-
-  #budgetFailure{
-    left:205px;
-  }
 }
 
 /* Iphone 5 */
@@ -321,11 +296,11 @@ and (max-device-width : 568px) {
     width:100%;
     margin:0px;
     margin-top:5px;
-    height: 440px;
+    height: 280px;
   }
 
   .super-admin-budget-table{
-    height: 350px;
+    height: 280px;
   }
 
   .super-admin-button {
@@ -369,30 +344,4 @@ and (max-device-width : 568px) {
   	margin: auto;
   	margin-bottom: 30px;
   }
-
-  #locationSuccess{
-    left: 35px;
-  }
-
-  #locationFailure{
-    left: 50px;
-  }
-
-  #assignSuccess{
-    left: 35px;
-  }
-
-  #assignFailure{
-    left:10px;
-    top: 95px;
-  }
-
-  #budgetSuccess{
-    left: 40px;
-  }
-
-  #budgetFailure{
-    left:25px;
-  }
-
 }
