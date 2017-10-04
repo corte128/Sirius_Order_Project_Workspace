@@ -7,7 +7,11 @@
 	text-align: center;
 	margin: auto;
 	margin-top: 15px;
-	margin-bottom: 30px;
+}
+h1 {
+	padding-top: 20px !important;
+	padding-bottom: 5px !important;
+	margin-bottom: 0 !important;
 }
 #holidays-table{
 	flex: 9;
@@ -118,35 +122,34 @@ button.ui-dialog-titlebar-close{
 	opacity: 0.5;
 }
 
+.information-container{
+	text-align:center;
+	height: 50px;	
+}
+
 #saveSuccess{
+	display: inline-block;
 	z-index: 3;
-	position: absolute;
-	top:105px;
-	left:31vw;
 	padding: 5px;
-	margin-left: 10%;
 	border: 1px solid green;
 	color: green;
 	background-color: white;
+	margin: auto;
 }
 
 #saveFailure{
+	display: inline-block;
 	z-index: 3;
-	position: absolute;
-	top:105px;
-	left:31vw;
+	margin:auto;
 	padding: 5px;
-	margin-left: 10%;
 	color: red;
 }
 
 #deleteSuccess{
+	display: inline-block;
 	z-index: 3;
-	position: absolute;
-	top:105px;
-	left:31vw;
+	margin:auto;
 	padding: 5px;
-	margin-left: 10%;
 	border: 1px solid green;
 	color: green;
 	background-color: white;

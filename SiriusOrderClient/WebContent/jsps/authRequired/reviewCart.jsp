@@ -410,9 +410,7 @@
 					<div class="modal-content">
 						<div class="modal-body">
 							<div id="saveOrderModalTitleContainer">
-								<span id="closeButton" class="closeButton"
-									onclick="closeSavedOrdersWindow()">X</span> <span
-									id="saveOrderModalTitleTextContainer"> <fmt:message
+								<span id="saveOrderModalTitleTextContainer"> <fmt:message
 										key="CART_NAME_LABEL" /> </span> <input
 									id="saveOrderModalOrderInput" type="text" />
 							</div>
@@ -508,7 +506,6 @@
 							key="CART_NAME_LABEL" /> </span> <input id="saveOrderModalOrderInput"
 						type="text" />
 				</div>
-
 				<div id="cartOrderContainer" class="cart-order-container">
 					<div
 						class="order-item-container
@@ -538,7 +535,6 @@
 						<c:set var="breakroomModalIndex"
 							value="${breakroomModalIndex + 1}" scope="page" />
 					</c:forEach>
-
 					<c:set var="officeSuppliesModalIndex" value="0" scope="page" />
 					<c:forEach var="product" items="${officeSuppliesProducts}">
 						<div
@@ -556,7 +552,6 @@
 						<c:set var="officeSuppliesModalIndex"
 							value="${officeSuppliesModalIndex + 1}" scope="page" />
 					</c:forEach>
-
 					<c:set var="inkModalIndex" value="0" scope="page" />
 					<c:forEach var="product" items="${inkAndTonerProducts}">
 						<div
@@ -574,7 +569,6 @@
 							scope="page" />
 					</c:forEach>
 				</div>
-
 				<div id="includeSavedOrderModalButtonContainer"
 					class="cart-modal-button-container">
 					<button id="includeSavedOrderModalButton" onclick="saveOrder()"

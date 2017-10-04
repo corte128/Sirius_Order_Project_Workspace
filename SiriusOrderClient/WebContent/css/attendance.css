@@ -209,6 +209,7 @@ abbr[data-original-title],abbr[title] {
 		opacity: 1;
 		background: white;
 		margin: auto;
+		font-style: italic;
 		left: 55px;
 		top: 200px;
 		display: none;
@@ -236,6 +237,11 @@ abbr[data-original-title],abbr[title] {
 		float: right;
 		display: block;
 	}
+	.modal-body {
+    position: relative;
+    padding: 15px;
+    font-style: italic;
+}
 	
 }
 
@@ -248,11 +254,17 @@ abbr[data-original-title],abbr[title] {
 	.searchBox {
 		width: 300px;
 	}
+	.modal-body {
+    position: relative;
+    padding: 15px;
+    font-style: italic;
+	}
 	.instructionsBox {
 		position: absolute;
 		z-index: 50;
 		width: 85%;
 		opacity: 1;
+		font-style: italic;
 		background: white;
 		margin: auto;
 		left: 25px;
