@@ -84,9 +84,10 @@ app.controller('superAdminCtrl', [
 						.then(function(response) {
 							$scope.gridOptions.data = response.data;
 							console.log($scope.gridOptions.data);
+							resizeAppendGrid($scope);
 						});
 				
-
+				
 		} ]);
 
 $(document).ready(function(){
@@ -109,3 +110,42 @@ $(document).ready(function(){
 		});
 	});
 });
+
+function resizeAppendGrid($scope){
+	var mq = window.matchMedia("(max-width: 500px)");
+	console.log("removing columns");
+    if(mq.matches){
+    	console.log("on mobile");
+//    	$scope.gridOptions.columnDefs[0].width = "10%";
+    	$scope.gridOptions.columnDefs[1].visible = false;
+    	$scope.gridOptions.columnDefs[2].visible = false;
+    	$scope.gridOptions.columnDefs[3].visible = false;
+//    	$scope.gridOptions.columnDefs[4].width = "33%";
+//    	$scope.gridOptions.columnDefs[5].width = "33%";
+    }
+}
+
+function locationSuccessPopup(){
+	$('#locationSuccess').fadeIn('fast').delay(1000).fadeOut('slow');
+}
+
+function locationFailurePopup(){
+	$('#locationFailure').fadeIn('fast').delay(1000).fadeOut('slow');
+}
+
+function assignSuccessPopup(){
+	$('#assignSuccess').fadeIn('fast').delay(1000).fadeOut('slow');
+}
+
+function assignFailurePopup(){
+	$('#assignFailure').fadeIn('fast').delay(1000).fadeOut('slow');
+}
+
+function budgetSuccessPopup(){
+	$('#budgetSuccess').fadeIn('fast').delay(1000).fadeOut('slow');
+}
+
+function budgetFailurePopup(){
+	$('#budgetFailure').fadeIn('fast').delay(1000).fadeOut('slow');
+}
+

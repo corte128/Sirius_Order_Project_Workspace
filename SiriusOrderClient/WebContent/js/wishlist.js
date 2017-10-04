@@ -271,9 +271,17 @@ function resizeDisplay(){
     	leftArrow.style.display = "none";
     	rightArrow.style.display = "none";
     }
-    
-    
+
 }
 
+function Left()
+{
+	document.getElementById("productContainer").scrollLeft =
+		document.getElementById("productContainer").scrollLeft - 200;
+}
 
-
+function scrollRight()
+{
+	document.getElementById("productContainer").scrollLeft =
+		document.getElementById("productContainer").scrollLeft + 200;
+}
