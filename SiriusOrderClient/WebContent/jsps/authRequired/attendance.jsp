@@ -128,7 +128,7 @@
 										<option>
 											<fmt:message key="ATTENDANCE_SELECT" />
 										</option>
-										<option value="display">
+										<option value="display" selected>
 											<fmt:message key="ATTENDANCE_DISPLAY" />
 										</option>
 										<option value="PDF">
