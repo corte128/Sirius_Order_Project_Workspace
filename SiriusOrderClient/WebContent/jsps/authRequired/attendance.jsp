@@ -32,6 +32,8 @@
 <script src="/SiriusOrderClient/js/attendanceTable.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="/SiriusOrderClient/css/attendance.css">
+<link rel="stylesheet" type="text/css"
+	href="/SiriusOrderClient/css/superAdmin.css">
 
 </head>
 <c:choose>
@@ -46,19 +48,50 @@
 			</header>
 			<div class="flexContainer">
 
-
 				<fmt:setBundle
 					basename="com.sirius.order.client.properties.attendance" />
 
+				
 				<div id ="instructionsBox" class="instructionsBox">
 					<span id="closeBtn" onclick="closeHelp()">X</span>
 					<div id="instructionsTitle"><h2><fmt:message key="ATTENDANCE_INSTRUCTION_TITLE" /> </h2> </div>
 					<ul><li><fmt:message key="ATTENDANCE_INSTRUCTION_ONE" /></li>
 						<li><fmt:message key="ATTENDANCE_INSTRUCTION_TWO" /></li>
-					</ul>
-					
+					</ul> 	
 				</div>
-				<div class="glyphicon glyphicon-question-sign helpIcon" id="helpIcon" onclick="showHelp()"></div>
+				
+				<%--INFORMATIONAL MODAL--%>
+				<div class="modal fade" id="informationModal" tabindex="-1"
+					role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-body">
+									
+									<div id="instructionsTitle">
+										<h2>
+											<fmt:message key="ATTENDANCE_INSTRUCTION_TITLE" />
+										</h2>
+									</div>
+									<ul>
+										<li><fmt:message key="ATTENDANCE_INSTRUCTION_ONE" />
+										</li>
+										<li><fmt:message key="ATTENDANCE_INSTRUCTION_TWO" />
+										</li>
+									</ul>
+
+									<div class="modal-footer">
+										<button type="button" class="super-admin-button"
+											data-dismiss="modal">
+											Close
+										</button>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="glyphicon glyphicon-question-sign helpIcon" id="helpIcon" data-toggle="modal" data-target="#informationModal"></div>
+				
 				<div class="attendancePageContainer" ng-controller="AttendanceCtrl">
 					<div class="pageTitle">
 						<h1>Attendance</h1>
@@ -73,8 +106,6 @@
 							<fmt:message key="ATTENDANCE_DATE_ERROR" />
 						</p>
 					</div>
-
-
 
 					<div id="attendanceSearchBox" class="searchBox">
 						<form id="attendanceSearchForm" class="attendanceForm">

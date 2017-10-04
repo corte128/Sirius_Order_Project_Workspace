@@ -5,12 +5,88 @@
 	margin: 15px;
 	flex: 9;
 }
+
+#rejectSuccess{
+	z-index: 3;
+	position: absolute;
+	top:52px;
+	left:31vw;
+	padding: 5px;
+	margin-left: 10%;
+	border: 1px solid green;
+	color: green;
+	background-color: white;
+}
+
+#confirmSuccess{
+	z-index: 3;
+	position: absolute;
+	top:52px;
+	left:31vw;
+	padding: 5px;
+	margin-left: 10%;
+	border: 1px solid green;
+	color: green;
+	background-color: white;
+}
+
 @media only screen and (max-width: 768px) {
 	#users-form{
 		margin: 0;
 		margin-top: 5px;
-	}	
+	}
+
+	#rejectSuccess{
+		z-index: 3;
+		position: absolute;
+		top:52px;
+		left:28vw;
+		padding: 5px;
+		margin-left: 10%;
+		border: 1px solid green;
+		color: green;
+		background-color: white;
+	}
+
+	#confirmSuccess{
+		z-index: 3;
+		position: absolute;
+		top:52px;
+		left:145px;
+		padding: 5px;
+		margin-left: 10%;
+		border: 1px solid green;
+		color: green;
+		background-color: white;
+	}
 }
+
+@media only screen and (max-width: 568px) {
+	#rejectSuccess{
+		z-index: 3;
+		position: absolute;
+		top:52px;
+		left:10vw;
+		padding: 5px;
+		margin-left: 10%;
+		border: 1px solid green;
+		color: green;
+		background-color: white;
+	}
+
+	#confirmSuccess{
+		z-index: 3;
+		position: absolute;
+		top:52px;
+		left:-10vw;
+		padding: 5px;
+		margin-left: 10%;
+		border: 1px solid green;
+		color: green;
+		background-color: white;
+	}
+}
+
 aside{
 	flex: 0;
 }

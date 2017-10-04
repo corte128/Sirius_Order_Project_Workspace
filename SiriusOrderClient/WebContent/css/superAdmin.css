@@ -32,7 +32,6 @@
 }
 
 #locationSuccess{
-  display: none;
   z-index: 3;
   position: absolute;
   top:105px;
@@ -45,20 +44,16 @@
 }
 
 #locationFailure{
-  display: none;
   z-index: 3;
   position: absolute;
   top:105px;
   left:33vw;
   padding: 5px;
   margin-left: 10%;
-  border: 1px solid red;
   color: red;
-  background-color: white;
 }
 
 #assignSuccess{
-  display: none;
   z-index: 3;
   position: absolute;
   top:105px;
@@ -71,20 +66,16 @@
 }
 
 #assignFailure{
-  display: none;
   z-index: 3;
   position: absolute;
   top:105px;
   left:33vw;
   padding: 5px;
   margin-left: 10%;
-  border: 1px solid red;
   color: red;
-  background-color: white;
 }
 
 #budgetSuccess{
-  display: none;
   z-index: 3;
   position: absolute;
   top:105px;
@@ -97,16 +88,13 @@
 }
 
 #budgetFailure{
-  display: none;
   z-index: 3;
   position: absolute;
   top:105px;
   left:33vw;
   padding: 5px;
   margin-left: 10%;
-  border: 1px solid red;
   color: red;
-  background-color: white;
 }
 
 .super-admin-button {
@@ -295,6 +283,30 @@ and (max-device-width : 1024px) {
   	margin: auto;
   	margin-bottom: 30px;
   }
+
+  #locationSuccess{
+    left: 220px;
+  }
+
+  #locationFailure{
+    left: 235px;
+  }
+
+  #assignSuccess{
+    left: 215px;
+  }
+
+  #assignFailure{
+    left:150px;
+  }
+
+  #budgetSuccess{
+    left: 220px;
+  }
+
+  #budgetFailure{
+    left:205px;
+  }
 }
 
 /* Iphone 5 */
@@ -345,12 +357,38 @@ and (max-device-width : 568px) {
     width: 150px !important;
     height: 40px;
   }
+
   .pageTitle{
   	text-align: center;
   	font-family: serif;
   	font-style: italic;
   	margin: auto;
   	margin-bottom: 30px;
+  }
+
+  #locationSuccess{
+    left: 35px;
+  }
+
+  #locationFailure{
+    left: 50px;
+  }
+
+  #assignSuccess{
+    left: 35px;
+  }
+
+  #assignFailure{
+    left:10px;
+    top: 95px;
+  }
+
+  #budgetSuccess{
+    left: 40px;
+  }
+
+  #budgetFailure{
+    left:25px;
   }
 
 }

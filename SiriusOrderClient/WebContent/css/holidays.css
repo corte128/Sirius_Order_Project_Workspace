@@ -117,14 +117,72 @@ button.ui-dialog-titlebar-close{
 	background: grey;
 	opacity: 0.5;
 }
+
+#saveSuccess{
+	z-index: 3;
+	position: absolute;
+	top:105px;
+	left:31vw;
+	padding: 5px;
+	margin-left: 10%;
+	border: 1px solid green;
+	color: green;
+	background-color: white;
+}
+
+#saveFailure{
+	z-index: 3;
+	position: absolute;
+	top:105px;
+	left:31vw;
+	padding: 5px;
+	margin-left: 10%;
+	color: red;
+}
+
+#deleteSuccess{
+	z-index: 3;
+	position: absolute;
+	top:105px;
+	left:31vw;
+	padding: 5px;
+	margin-left: 10%;
+	border: 1px solid green;
+	color: green;
+	background-color: white;
+}
 @media only screen and (min-width: 1024px) {
 	.appendGrid{
 		width: 80%;
 		margin: auto;
 	}
+
+	#saveSuccess{
+		left:180px;
+	}
+
+	#saveFailure{
+		left:160px;
+	}
+
+	#deleteSuccess{
+		left:180px;
+	}
 }
 @media only screen and (max-width: 320px) {
 	button.save_button{
 		padding-right: 5px;
+	}
+
+	#saveSuccess{
+		left:10px;
+	}
+
+	#saveFailure{
+		left:-20px;
+	}
+
+	#deleteSuccess{
+		left:0px;
 	}
 }

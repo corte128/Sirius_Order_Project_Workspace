@@ -116,12 +116,12 @@ function resizeAppendGrid($scope){
 	console.log("removing columns");
     if(mq.matches){
     	console.log("on mobile");
-//    	$scope.gridOptions.columnDefs[0].width = "10%";
+    	$scope.gridOptions.columnDefs[0].width = "10%";
     	$scope.gridOptions.columnDefs[1].visible = false;
     	$scope.gridOptions.columnDefs[2].visible = false;
     	$scope.gridOptions.columnDefs[3].visible = false;
-//    	$scope.gridOptions.columnDefs[4].width = "33%";
-//    	$scope.gridOptions.columnDefs[5].width = "33%";
+    	$scope.gridOptions.columnDefs[4].width = "33%";
+    	$scope.gridOptions.columnDefs[5].width = "33%";
     }
 }
 
