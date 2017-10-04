@@ -271,8 +271,7 @@ function resizeDisplay(){
     	leftArrow.style.display = "none";
     	rightArrow.style.display = "none";
     }
-    
-    
+
 }
 
 

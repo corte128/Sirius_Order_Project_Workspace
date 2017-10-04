@@ -54,23 +54,65 @@
 						<h1>Administration</h1>
 					</div>
 				
-			<%-- ERROR CHECKING --%>
-			<c:if test = "${sessionScope.locationAlreadyExists}">
-				<div class="super-admin-error">
-					<bean:message key="LOCATION_ALREADY_EXISTS_ERROR" />
-				</div>
-			</c:if>
-			<c:if test = "${sessionScope.officeAdminAlreadyExists}">
-				<div class="super-admin-error">
-					<bean:message key="OFFICE_ADMIN_ALREADY_EXISTS_ERROR" />
-				</div>
-			</c:if>
-			<c:if test = "${sessionScope.invalidBudget}">
-				<div class="super-admin-error">
-					<bean:message key="INVALID_BUDGET_ERROR" />
-				</div>
-			</c:if>
+			<%-- ALERTS --%>
+			<div id="locationSuccess">
+				<bean:message key="SUPER_ADMIN_LOCATION_SUCCESS" />
+			</div>
 			
+			<div id="locationFailure">
+				<bean:message key="LOCATION_ALREADY_EXISTS_ERROR" />
+			</div>
+
+			<div id="assignSuccess">
+				<bean:message key="SUPER_ADMIN_ASSIGN_SUCCESS" />
+			</div>
+			
+			<div id="assignFailure">
+				<bean:message key="OFFICE_ADMIN_ALREADY_EXISTS_ERROR" />
+			</div>
+			
+			<div id="budgetSuccess">
+				<bean:message key="SUPER_ADMIN_BUDGET_SUCCESS" />
+			</div>
+			
+			<div id="budgetFailure">
+				<bean:message key="INVALID_BUDGET_ERROR" />
+			</div>
+	
+			<c:choose>
+				<c:when test="${locationAlreadyExists == 1}">
+					<script>locationFailurePopup()</script>
+				</c:when>
+				<c:when test="${locationAlreadyExists == 2}">
+				</c:when>
+				<c:otherwise>
+					<script>locationSuccessPopup()</script>
+				</c:otherwise>
+			</c:choose>
+			
+			<c:choose>
+				<c:when test="${officeAdminAlreadyExists == 1}">
+					<script>assignFailurePopup()</script>
+				</c:when>
+				<c:when test="${officeAdminAlreadyExists == 2}">
+				</c:when>
+				<c:otherwise>
+					<script>assignSuccessPopup()</script>
+				</c:otherwise>
+			</c:choose>
+			
+			<c:choose>
+				<c:when test="${budgetInvalid == 1}">
+					<script>budgetFailurePopup()</script>
+				</c:when>
+				<c:when test="${budgetInvalid == 2}">
+				</c:when>
+				<c:otherwise>
+					<script>budgetSuccessPopup()</script>
+				</c:otherwise>
+			</c:choose>
+			
+			<%-- FORMS --%>
 			<form class="form-container" id="setBudgetForm"
 							action="/SiriusOrderClient/SuperAdminServlet?action=setBudget"
 							name="setBudget" method="POST">
