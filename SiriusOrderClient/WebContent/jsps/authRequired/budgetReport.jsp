@@ -79,7 +79,7 @@
 								<fmt:message key="BUDGET_REPORT_SELECT_LABEL" />
 								<fmt:message key="BUDGET_REPORT_REPORT_TYPE_LABEL" />
 							</option>
-							<option value="weekly">
+							<option value="weekly" selected>
 								<fmt:message key="BUDGET_REPORT_WEEKLY_LABEL" />
 							</option>
 							<option value="monthly">
