@@ -48,6 +48,7 @@ public class RegistrationAction extends org.apache.struts.action.Action{
 				MailProxyDAO mailDao = new MailProxyDAO();
 				String subject = "New User Registered";
 				String message = name + " has registered with your office location. Please verify their status.";
+
 				if(officeAdmin.getEmail() != null)
 				{
 					mailDao.sendMessage(subject, message, officeAdmin.getEmail());
