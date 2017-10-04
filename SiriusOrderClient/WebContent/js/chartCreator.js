@@ -30,6 +30,10 @@ app.controller('BudgetChartCtrl', ['$scope', '$http',  function ($scope, $http)
 	   		//console.log(response.data);
 			var displayOption = document.getElementById("budgetSearchViewInput").value;
 			if(displayOption == 'Display'){
+				var downloadDiv = document.getElementById("downloadDiv");
+				downloadDiv.style.visibility = 'hidden';
+				document.getElementById('budgetChartGraph').style.visibility = 'visible';
+				document.getElementById('budgetGridContainer').style.visibility = 'visible';
 				
 				// Adjust CSS for desktop view
 				var mq = window.matchMedia("(min-width: 1024px)");
@@ -83,7 +87,9 @@ app.controller('BudgetChartCtrl', ['$scope', '$http',  function ($scope, $http)
 			if(displayOption == 'PDF')
 			{	
 				var downloadDiv = document.getElementById("downloadDiv");
-				downloadDiv.style.display = "block";
+				document.getElementById('budgetChartGraph').style.visibility = 'hidden';
+				document.getElementById('budgetGridContainer').style.visibility = 'hidden';
+				downloadDiv.style.visibility = 'visible';
 			}
 	   	});
     };
