@@ -6,37 +6,38 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html ng-app="superAdminTable">
 <head>
-<title>superAdmin</title>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-touch.js"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js"></script>
-<script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
-<script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
-<script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
-
-<script
-	src="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.css" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<%--<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--%>
-<%-- 
+	<title>Super Admin</title>
+	<meta name="viewport" content="width=device-width" />
 	<script
-	src="https://rawgit.com/bassjobsen/Bootstrap-3-Typeahead/master/bootstrap3-typeahead.min.js" /></script>
---%>
-<link rel="stylesheet" type="text/css"
-	href="/SiriusOrderClient/css/jquery.typeahead.css">
-<script src="/SiriusOrderClient/js/jquery.typeahead.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="/SiriusOrderClient/css/superAdmin.css">
-<script src="/SiriusOrderClient/js/superAdminTable.js"></script>
+		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-touch.js"></script>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js"></script>
+	<script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
+	<script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
+	<script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
+	
+	<script
+		src="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.js"></script>
+	<link rel="stylesheet" type="text/css"
+		href="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.css" />
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<%--<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--%>
+	<%-- 
+		<script
+		src="https://rawgit.com/bassjobsen/Bootstrap-3-Typeahead/master/bootstrap3-typeahead.min.js" /></script>
+	--%>
+	<link rel="stylesheet" type="text/css"
+		href="/SiriusOrderClient/css/jquery.typeahead.css">
+	<script src="/SiriusOrderClient/js/jquery.typeahead.js"></script>
+	<link rel="stylesheet" type="text/css"
+		href="/SiriusOrderClient/css/superAdmin.css">
+	<script src="/SiriusOrderClient/js/superAdminTable.js"></script>
 </head> 
 <body>
 	<%-- HEADER --%>
