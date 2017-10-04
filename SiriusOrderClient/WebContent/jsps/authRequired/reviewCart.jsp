@@ -36,6 +36,8 @@
 				<div id="cartOrderWillBePlacedContainer">
 					<fmt:message key="CART_ORDER_WILL_BE_PLACED_LABEL" /> <fmt:formatDate value="${thisFriday.time}" pattern="dd-MMM"/>
 				</div>
+				
+				<%-- CART HEADER --%>
 				<div id="cartHeaderContainer">
 					<div id="cartHeaderProductImageContainerColumn" class="cart-product-image-container">
 					</div>
@@ -53,6 +55,7 @@
 				</div>
 				<div id="cartContentRows">
 				
+					<%-- BREAKROOM --%>
 					<div class="cart-section-title-container cart-product-color-alternate-container">
 						<div class="cart-product-image-container">
 						</div>
@@ -112,7 +115,7 @@
 						</span>
 					</div>
 					
-					
+					<%-- OFFICE SUPPLIES --%>
 					<div class="cart-section-title-container cart-product-color-alternate-container">
 						<div class="cart-product-image-container">
 						</div>
@@ -170,7 +173,7 @@
 						</span>
 					</div>
 					
-					
+					<%-- INK AND TONER --%>
 					<div class="cart-section-title-container cart-product-color-alternate-container">
 						<div class="cart-product-image-container">
 						</div>
