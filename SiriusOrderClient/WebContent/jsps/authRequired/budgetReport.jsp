@@ -53,8 +53,10 @@
 				<fmt:message key="BUDGET_REPORT_TITLE_LABEL" />
 			</h1>
 		</div>
+		
+		
 		<div class="container-fluid">
-
+			
 			<div id="search-bar-container">
 				<div class="search-bar-column">
 
@@ -114,7 +116,7 @@
 							<option value="PDF">
 								<fmt:message key="BUDGET_REPORT_PDF_LABEL" />
 							</option>
-							<option value="Display">
+							<option value="Display" selected>
 								<fmt:message key="BUDGET_REPORT_DISPLAY_LABEL" />
 							</option>
 						</select>
@@ -172,6 +174,17 @@
 					href="/SiriusOrderClient/generatedPDF/budget-pdf.pdf"
 					target="_blank">Click here to download</a>
 			</div>
+			
+			<div id="invalidView" class="invalid-view">
+				Invalid View Selected
+			</div>
+			<div id="invalidReport" class="invalid-view">
+				Invalid Report Type Selected
+			</div>
+			<div id="invalidDate" class="invalid-view">
+				Invalid Date Selected
+			</div>
+			
 		</div>
 	</div>
 	<aside id="budgetNavContainer">
