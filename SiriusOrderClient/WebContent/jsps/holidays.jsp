@@ -44,12 +44,24 @@
 </c:if>
 </head>
 <body onresize="resizeAppendGrid()">
+	
 	<header>
 		<%@ include file="header.jsp"%>
 	</header>
 
-	<div id="holidays-content">
+	<div id="saveSuccess" style="display:none">
+		<bean:message key="HOLIDAY_SAVE_SUCCESS" />
+	</div>
+	
+	<div id="saveFailure" style="display:none">
+		<bean:message key="HOLIDAY_SAVE_FAILURE" />
+	</div>
+	
+	<div id="deleteSuccess" style="display:none">
+		<bean:message key="HOLIDAY_DELETE_SUCCESS" />
+	</div>
 
+	<div id="holidays-content">
 		<div id="holidays-table">
 			<div id="holiday-table-title">
 				<h1>

@@ -46,9 +46,9 @@ public class SuperAdminServlet extends HttpServlet {
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 		SuperadminProxy superAdminProxyObj = new SuperadminProxy();
 		
-		request.getSession().setAttribute("locationAlreadyExists", 2);
-		request.getSession().setAttribute("officeAdminAlreadyExists", 2);
-		request.getSession().setAttribute("budgetInvalid", 2);
+		request.getSession().setAttribute("locationAlreadyExists", 1);
+		request.getSession().setAttribute("officeAdminAlreadyExists", 1);
+		request.getSession().setAttribute("budgetInvalid", 1);
 		
 		if(action != null && action.equals("officeAdmin")){
 			// adding offices to Json Object
@@ -119,13 +119,13 @@ public class SuperAdminServlet extends HttpServlet {
 						superAdminProxyObj.addLocation(city, state, id);
 						check=3;
 					}else{
-						check=1;
+						check=2;
 					}
 					
 	
 					request.getSession().setAttribute("locationAlreadyExists", check);
-					request.getSession().setAttribute("officeAdminAlreadyExists", 2);
-					request.getSession().setAttribute("budgetInvalid", 2);
+					request.getSession().setAttribute("officeAdminAlreadyExists", 1);
+					request.getSession().setAttribute("budgetInvalid", 1);
 				}
 			}
 			else if(action.equals("setBudget")){
@@ -174,10 +174,10 @@ public class SuperAdminServlet extends HttpServlet {
 					}
 					check = 3;
 				}else{
-					check = 1;
+					check = 2;
 				}
-				request.getSession().setAttribute("locationAlreadyExists", 2);
-				request.getSession().setAttribute("officeAdminAlreadyExists", 2);
+				request.getSession().setAttribute("locationAlreadyExists", 1);
+				request.getSession().setAttribute("officeAdminAlreadyExists", 1);
 				request.getSession().setAttribute("budgetInvalid", check);
 			}
 			else if(action.equals("assignAdmin")){
@@ -200,12 +200,12 @@ public class SuperAdminServlet extends HttpServlet {
 						superAdminProxyObj.assignAdmin(locationId, adminId, id);
 						check = 3;
 					}else{
-						check = 1;
+						check = 2;
 					}
 					
 					request.getSession().setAttribute("officeAdminAlreadyExists", check);
-					request.getSession().setAttribute("locationAlreadyExists", 2);
-					request.getSession().setAttribute("budgetInvalid", 2);
+					request.getSession().setAttribute("locationAlreadyExists", 1);
+					request.getSession().setAttribute("budgetInvalid", 1);
 				}
 			}
 		}

@@ -30,20 +30,30 @@
 <c:if test="${activeUserID == null}">
 	<jsp:forward page = "/jsps/welcome.jsp" />
 </c:if> 
+
 <c:if test="${activeUserType < 2}">
 	<jsp:forward page = "/jsps/welcome.jsp" />
 </c:if>
+
 </head>
  
 <body>
 	<header>
 		<%@ include file="header.jsp" %>
 	</header>
+	
+	<div id="rejectSuccess" style="display:none">
+		<bean:message key="ACTIVATE_USER_REJECT" />
+	</div>
+	
+	<div id="confirmSuccess" style="display:none">
+		<bean:message key="ACTIVATE_USER_CONFIRM" />
+	</div>
+	
 	<div id="users-content">
-		
 		<div id="users-form">
 		<div class="pageTitle">
-						<h1>Activate Users</h1>
+			<h1>Activate Users</h1>
 		</div>
 			<table class="table">
 				<thead>
