@@ -56,6 +56,7 @@
 					<fmt:message key="HOLIDAYS_TABLE_TITLE" />
 				</h1>
 			</div>
+			
 			<form action="" method="post">
 				<table id="tblAppendGrid" class="table">
 				</table>
