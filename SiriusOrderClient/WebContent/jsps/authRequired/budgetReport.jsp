@@ -64,6 +64,9 @@
 			<div id="invalidDate" class="invalid-view">
 				Please select a valid date
 			</div>
+			<div id="invalidLocation" class="invalid-view">
+				Please enter a valid location
+			</div>
 		</div>
 		
 		<div class="container-fluid">
