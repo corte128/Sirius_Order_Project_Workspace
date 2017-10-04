@@ -48,7 +48,7 @@
 @media (min-device-width: 1025px)  {
 
   .wishlist-navbar-container{
-    flex:1;
+    //flex:1;
   }
 
   .wishlist-card-container{
