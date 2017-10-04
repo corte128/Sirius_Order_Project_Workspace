@@ -55,6 +55,7 @@
 					<fmt:message key="HOLIDAYS_TABLE_TITLE" />
 				</h1>
 			</div>
+
 			<div class="information-container">
 				<div id="saveSuccess" style="display:none">
 					<bean:message key="HOLIDAY_SAVE_SUCCESS" />
@@ -63,7 +64,6 @@
 				<div id="saveFailure" style="display:none">
 					<bean:message key="HOLIDAY_SAVE_FAILURE" />
 				</div>
-		
 				<div id="deleteSuccess" style="display:none">
 					<bean:message key="HOLIDAY_DELETE_SUCCESS" />
 				</div>
