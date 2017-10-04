@@ -57,7 +57,7 @@ thead{
 	font-family: Calibri;
 	font-size: 1.2em;
 }
-td{
+.table td{
 	font-family: calibri;
 }
 .users-form-row{
