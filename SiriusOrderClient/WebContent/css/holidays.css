@@ -118,7 +118,12 @@ button.ui-dialog-titlebar-close{
 	opacity: 0.5;
 }
 
+.information-container{
+	text-align:center;
+}
+
 #saveSuccess{
+	display: inline-block;
 	z-index: 3;
 	position: absolute;
 	top:105px;
@@ -131,6 +136,7 @@ button.ui-dialog-titlebar-close{
 }
 
 #saveFailure{
+	display: inline-block;
 	z-index: 3;
 	position: absolute;
 	top:105px;
@@ -141,6 +147,7 @@ button.ui-dialog-titlebar-close{
 }
 
 #deleteSuccess{
+	display: inline-block;
 	z-index: 3;
 	position: absolute;
 	top:105px;
