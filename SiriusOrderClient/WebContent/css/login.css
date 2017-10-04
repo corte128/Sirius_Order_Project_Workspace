@@ -4,17 +4,6 @@ html body{
 #errors{
 	color: red;
 }
-/*
-#login-button{
-	font-family: Arial;
-	font-weight: bold;
-	background-color: #5F6060;
-	color: lightgrey;
-	border: none;
-	padding: 5px;
-	width: 50px;
-}
-*/
 .input-label {
 	color: #5F6060;
 }
@@ -117,6 +106,7 @@ html body{
 		display: block;
 		flex: 2;
 		margin-left: 20%;
+		margin-top: -10px;
 	}
 	#login-inputs-container{
 		flex: 5;
