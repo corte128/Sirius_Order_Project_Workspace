@@ -231,6 +231,10 @@ div.ui-grid-cell input{
   	margin: auto;
   	margin-bottom: 30px;
   }
+
+  .modal-footer{
+    height:60px;
+  }
 }
 
 /* Ipad */
