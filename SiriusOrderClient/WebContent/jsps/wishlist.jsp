@@ -82,6 +82,7 @@
 				</div>
 				<div style="display: flex; margin: auto;">
 					<div class="glyphicon glyphicon-chevron-left wishlist-arrow-left"
+						onclick="Left()"
 						id="arrow-left"></div>
 
 					<%-- PRODUCT CARDS --%>
@@ -90,6 +91,7 @@
 					</div>
 
 					<div class="glyphicon glyphicon-chevron-right wishlist-arrow-right"
+						onclick="scrollRight()"
 						id="arrow-right"></div>
 				</div>
 				<input id="userType" type="hidden"

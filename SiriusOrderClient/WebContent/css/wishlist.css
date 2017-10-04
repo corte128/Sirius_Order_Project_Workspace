@@ -35,6 +35,7 @@
   margin: auto;
   font-size: 50px;
   text-align: right;
+  cursor: pointer;
 }
 
 .wishlist-arrow-right{
@@ -42,6 +43,7 @@
   margin: auto;
   font-size: 50px;
   text-align: left;
+  cursor: pointer;
 }
 
 /* Desktop */
