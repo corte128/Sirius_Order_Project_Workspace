@@ -6,37 +6,38 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html ng-app="superAdminTable">
 <head>
-<title>superAdmin</title>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-touch.js"></script>
-<script
-	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js"></script>
-<script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
-<script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
-<script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
-
-<script
-	src="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.css" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<%--<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--%>
-<%-- 
+	<title>Super Admin</title>
+	<meta name="viewport" content="width=device-width" />
 	<script
-	src="https://rawgit.com/bassjobsen/Bootstrap-3-Typeahead/master/bootstrap3-typeahead.min.js" /></script>
---%>
-<link rel="stylesheet" type="text/css"
-	href="/SiriusOrderClient/css/jquery.typeahead.css">
-<script src="/SiriusOrderClient/js/jquery.typeahead.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="/SiriusOrderClient/css/superAdmin.css">
-<script src="/SiriusOrderClient/js/superAdminTable.js"></script>
+		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-touch.js"></script>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-animate.js"></script>
+	<script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
+	<script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
+	<script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
+	
+	<script
+		src="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.js"></script>
+	<link rel="stylesheet" type="text/css"
+		href="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.css" />
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<%--<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--%>
+	<%-- 
+		<script
+		src="https://rawgit.com/bassjobsen/Bootstrap-3-Typeahead/master/bootstrap3-typeahead.min.js" /></script>
+	--%>
+	<link rel="stylesheet" type="text/css"
+		href="/SiriusOrderClient/css/jquery.typeahead.css">
+	<script src="/SiriusOrderClient/js/jquery.typeahead.js"></script>
+	<link rel="stylesheet" type="text/css"
+		href="/SiriusOrderClient/css/superAdmin.css">
+	<script src="/SiriusOrderClient/js/superAdminTable.js"></script>
 </head> 
 <body>
 	<%-- HEADER --%>
@@ -55,62 +56,65 @@
 					</div>
 				
 			<%-- ALERTS --%>
-			<div id="locationSuccess">
+			<div id="locationSuccess" style="display:none">
 				<bean:message key="SUPER_ADMIN_LOCATION_SUCCESS" />
 			</div>
 			
-			<div id="locationFailure">
+			<div id="locationFailure" style="display:none">
 				<bean:message key="LOCATION_ALREADY_EXISTS_ERROR" />
 			</div>
 
-			<div id="assignSuccess">
+			<div id="assignSuccess" style="display:none">
 				<bean:message key="SUPER_ADMIN_ASSIGN_SUCCESS" />
 			</div>
 			
-			<div id="assignFailure">
+			<div id="assignFailure" style="display:none">
 				<bean:message key="OFFICE_ADMIN_ALREADY_EXISTS_ERROR" />
 			</div>
 			
-			<div id="budgetSuccess">
+			<div id="budgetSuccess" style="display:none">
 				<bean:message key="SUPER_ADMIN_BUDGET_SUCCESS" />
 			</div>
 			
-			<div id="budgetFailure">
+			<div id="budgetFailure" style="display:none">
 				<bean:message key="INVALID_BUDGET_ERROR" />
 			</div>
 	
+			<%-- Budget Confirmations --%>
 			<c:choose>
-				<c:when test="${locationAlreadyExists == 1}">
-					<script>locationFailurePopup()</script>
-				</c:when>
 				<c:when test="${locationAlreadyExists == 2}">
+					<script>locationFailurePopup();</script>
+				</c:when>
+				<c:when test="${locationAlreadyExists == 1}">
 				</c:when>
 				<c:otherwise>
-					<script>locationSuccessPopup()</script>
+					<script>locationSuccessPopup();</script>
 				</c:otherwise>
 			</c:choose>
 			
+			<%-- Budget Confirmations --%>
 			<c:choose>
-				<c:when test="${officeAdminAlreadyExists == 1}">
-					<script>assignFailurePopup()</script>
-				</c:when>
 				<c:when test="${officeAdminAlreadyExists == 2}">
+					<script>assignFailurePopup();</script>
+				</c:when>
+				<c:when test="${officeAdminAlreadyExists == 1}">
 				</c:when>
 				<c:otherwise>
-					<script>assignSuccessPopup()</script>
+					<script>assignSuccessPopup();</script>
 				</c:otherwise>
 			</c:choose>
 			
+			<%-- Budget Confirmations --%>
 			<c:choose>
-				<c:when test="${budgetInvalid == 1}">
-					<script>budgetFailurePopup()</script>
-				</c:when>
 				<c:when test="${budgetInvalid == 2}">
+					<script>budgetFailurePopup();</script>
+				</c:when>
+				<c:when test="${budgetInvalid == 1}">
 				</c:when>
 				<c:otherwise>
-					<script>budgetSuccessPopup()</script>
+					<script>budgetSuccessPopup();</script>
 				</c:otherwise>
-			</c:choose>
+			</c:choose> 
 			
 			<%-- FORMS --%>
 			<form class="form-container" id="setBudgetForm"
@@ -141,7 +145,7 @@
 			</form>
 		</div>
 		
-			<%--ADD LOCATION MODAL --%>
+		<%--ADD LOCATION MODAL --%>
 		<div class="modal fade" id="addLocationModal" tabindex="-1"
 			role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">

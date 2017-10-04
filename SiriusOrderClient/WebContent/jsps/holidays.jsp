@@ -49,14 +49,27 @@
 	</header>
 
 	<div id="holidays-content">
-
 		<div id="holidays-table">
 			<div id="holiday-table-title">
 				<h1>
 					<fmt:message key="HOLIDAYS_TABLE_TITLE" />
 				</h1>
 			</div>
-			
+
+			<div class="information-container">
+		<div id="saveSuccess" style="display:none">
+			<bean:message key="HOLIDAY_SAVE_SUCCESS" />
+		</div>
+		
+		<div id="saveFailure" style="display:none">
+			<bean:message key="HOLIDAY_SAVE_FAILURE" />
+		</div>
+		
+		<div id="deleteSuccess" style="display:none">
+			<bean:message key="HOLIDAY_DELETE_SUCCESS" />
+		</div>
+	</div>
+
 			<form action="" method="post">
 				<table id="tblAppendGrid" class="table">
 				</table>

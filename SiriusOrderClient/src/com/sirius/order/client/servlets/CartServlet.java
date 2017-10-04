@@ -21,7 +21,6 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-import com.ibm.trl.util.xml.QName;
 import com.sirius.product.service.main.product.wsdl.ProductBean;
 import com.sirius.product.service.main.product.wsdl.ProductSearchDAO;
 import com.sirius.service.cart.cart.wsdl.BudgetBean;
@@ -95,7 +94,7 @@ public class CartServlet extends HttpServlet {
 			int output = 0;
 			if(!request.getParameter("orderName").trim().equalsIgnoreCase("cart")){
 				//reject
-				String orderName = request.getParameter("Name");
+//				String orderName = request.getParameter("Name");
 				BudgetBean budget = new BudgetBean();
 				budget.setLocationId(locationId);
 				budget.setBudgetAllotted(new BigDecimal(1000));

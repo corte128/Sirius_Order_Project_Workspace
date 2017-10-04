@@ -274,5 +274,14 @@ function resizeDisplay(){
 
 }
 
+function Left()
+{
+	document.getElementById("productContainer").scrollLeft =
+		document.getElementById("productContainer").scrollLeft - 200;
+}
 
-
+function scrollRight()
+{
+	document.getElementById("productContainer").scrollLeft =
+		document.getElementById("productContainer").scrollLeft + 200;
+}

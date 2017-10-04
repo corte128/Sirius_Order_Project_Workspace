@@ -199,7 +199,6 @@ function reachedLimitPopup()
 }
 
 function addToWishlist(productID){
-	//'/SiriusOrderClient/ProductSearchServlet?action=addToWishlist&id=' + response[key].ID
 	var url = '/SiriusOrderClient/ProductSearchServlet?action=addToWishlist&id=' + productID;
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET", url, false);

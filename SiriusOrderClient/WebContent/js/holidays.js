@@ -69,15 +69,16 @@ $(function ()
 function saveEntry(evtObj, uniqueIndex, rowData){
 	console.log(rowData.Date);
 	if(rowData.ID > 0){
-		$("<div id='save_dialog' title='Save Failed'>Cannot save. Holiday is already in database.</div>").dialog({
-			resizable: false,
-			modal: true,
-			buttons: {
-				Close: function(){
-					$(this).dialog("close");
-				}
-			}
-		});
+		$('#saveFailure').fadeIn('fast').delay(1000).fadeOut('slow');
+//		$("<div id='save_dialog' title='Save Failed'>Cannot save. Holiday is already in database.</div>").dialog({
+//			resizable: false,
+//			modal: true,
+//			buttons: {
+//				Close: function(){
+//					$(this).dialog("close");
+//				}
+//			}
+//		});
 	}
 	else {
 		//ajax call to delete holiday
@@ -91,15 +92,16 @@ function saveEntry(evtObj, uniqueIndex, rowData){
 			if(response != null){
 				if(response == "true"){
 					console.log("Save Success");
-					$("<div id='save_dialog' title='Save Successful'>The holiday was successfully saved!</div>").dialog({
-						resizable: false,
-						modal: true,
-						buttons: {
-							Close: function(){
-								$(this).dialog("close");
-							}
-						}
-					});
+					$('#saveSuccess').fadeIn('fast').delay(1000).fadeOut('slow');
+//					$("<div id='save_dialog' title='Save Successful'>The holiday was successfully saved!</div>").dialog({
+//						resizable: false,
+//						modal: true,
+//						buttons: {
+//							Close: function(){
+//								$(this).dialog("close");
+//							}
+//						}
+//					});
 				}
 				else{
 					console.log("Save Unsuccessful");
@@ -127,15 +129,16 @@ function deleteEntry(evtObj, uniqueIndex, rowData){
 			if(response != null){
 				console.log(response);
 				if(response == "true"){
-					$("<div id='delete_dialog' title='Delete Successful'>The holiday was successfully deleted!</div>").dialog({
-						resizable: false,
-						modal: true,
-						buttons: {
-							Close: function(){
-								$(this).dialog("close");
-							}
-						}
-					});
+					$('#deleteSuccess').fadeIn('fast').delay(1000).fadeOut('slow');
+//					$("<div id='delete_dialog' title='Delete Successful'>The holiday was successfully deleted!</div>").dialog({
+//						resizable: false,
+//						modal: true,
+//						buttons: {
+//							Close: function(){
+//								$(this).dialog("close");
+//							}
+//						}
+//					});
 				}
 			}
 			else{

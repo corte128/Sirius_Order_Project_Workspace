@@ -53,8 +53,21 @@
 				<fmt:message key="BUDGET_REPORT_TITLE_LABEL" />
 			</h1>
 		</div>
+		
+		<div class="error-container">
+			<div id="invalidView" class="invalid-view">
+				Invalid View Selected
+			</div>
+			<div id="invalidReport" class="invalid-view">
+				Invalid Report Type Selected
+			</div>
+			<div id="invalidDate" class="invalid-view">
+				Please select a valid date
+			</div>
+		</div>
+		
 		<div class="container-fluid">
-
+			
 			<div id="search-bar-container">
 				<div class="search-bar-column">
 
@@ -66,7 +79,7 @@
 								<fmt:message key="BUDGET_REPORT_SELECT_LABEL" />
 								<fmt:message key="BUDGET_REPORT_REPORT_TYPE_LABEL" />
 							</option>
-							<option value="weekly">
+							<option value="weekly" selected>
 								<fmt:message key="BUDGET_REPORT_WEEKLY_LABEL" />
 							</option>
 							<option value="monthly">
@@ -114,7 +127,7 @@
 							<option value="PDF">
 								<fmt:message key="BUDGET_REPORT_PDF_LABEL" />
 							</option>
-							<option value="Display">
+							<option value="Display" selected>
 								<fmt:message key="BUDGET_REPORT_DISPLAY_LABEL" />
 							</option>
 						</select>
@@ -172,6 +185,8 @@
 					href="/SiriusOrderClient/generatedPDF/budget-pdf.pdf"
 					target="_blank">Click here to download</a>
 			</div>
+
+			
 		</div>
 	</div>
 	<aside id="budgetNavContainer">
