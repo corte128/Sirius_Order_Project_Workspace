@@ -14,6 +14,8 @@ import java.util.List;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 import javax.json.JsonWriter;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -80,6 +82,7 @@ public class BudgetServlet extends HttpServlet {
 		
 		Date fromDate = null;
 		Date toDate = null;
+		boolean isValidDate = true;
 		try 
 		{
 			toDate = df.parse(request.getParameter("toDate"));
@@ -87,60 +90,72 @@ public class BudgetServlet extends HttpServlet {
 		} 
 		catch (ParseException e) 
 		{
-			e.printStackTrace();
+			isValidDate = false;
 		}
-		
-		List<ActualvBudgetBean> budgetReports = SearchClientDAO.budgetSearch(locationId, fromDate, toDate, reportType);
-		
-		if(view.equalsIgnoreCase("Display")){
-			JsonArrayBuilder builder = Json.createArrayBuilder();
-			for(ActualvBudgetBean budgetReport : budgetReports)
-			{
-				builder.add(Json.createArrayBuilder().add(budgetReport.getTime())
-					.add(budgetReport.getBudget())
-					.add(budgetReport.getActual()));
+		List<ActualvBudgetBean> budgetReports = null;
+		if(isValidDate){
+			budgetReports = SearchClientDAO.budgetSearch(locationId, fromDate, toDate, reportType);
+		}
+		if(budgetReports != null){
+			if(view.equalsIgnoreCase("Display")){
+				JsonArrayBuilder builder = Json.createArrayBuilder();
+				for(ActualvBudgetBean budgetReport : budgetReports)
+				{
+					builder.add(Json.createArrayBuilder().add(budgetReport.getTime())
+						.add(budgetReport.getBudget())
+						.add(budgetReport.getActual()));
+				}
+				JsonArray output = builder.build();
+				
+				PrintWriter out = response.getWriter();
+				JsonWriter writer = Json.createWriter(out);
+				writer.writeArray(output);
+				writer.close();
 			}
-			JsonArray output = builder.build();
-			
-			PrintWriter out = response.getWriter();
-			JsonWriter writer = Json.createWriter(out);
-			writer.writeArray(output);
-			writer.close();
+			else{
+				PDPage myPage = new PDPage();
+				PDDocument mainDocument = new PDDocument();
+				
+				String path = "C:/Users/IEUser/IBM/rationalsdp/Sirius_Order_Project_Workspace/SiriusOrderClient/WebContent/generatedPDF/budget-pdf.pdf";
+				PDPageContentStream contentStream = new PDPageContentStream(mainDocument, myPage);
+				List<List<ActualvBudgetBean>> subLists = separateList(budgetReports, 35); 
+				
+				for(List<ActualvBudgetBean> list: subLists){
+					myPage = new PDPage();
+					mainDocument.addPage(myPage);
+					contentStream = new PDPageContentStream(
+							mainDocument, myPage);
+					String[][] contentForTable = new String[list.size()+1][4];
+					for (int i = 0; i < list.size()+1; i++){
+						if(i==0){
+							contentForTable[0][0] = "Date Range";
+							contentForTable[0][1] = "Actual";
+							contentForTable[0][2] = "Budget";
+							contentForTable[0][3] = "Variance";
+						}else{
+							contentForTable[i][0] = list.get(i-1).getTime();
+							contentForTable[i][1] = addPaddingToString(NumberFormat.getCurrencyInstance().format(list.get(i-1).getActual()), 30);
+							contentForTable[i][2] = addPaddingToString(NumberFormat.getCurrencyInstance().format(list.get(i-1).getBudget()), 30);
+							contentForTable[i][3] = addPaddingToString(NumberFormat.getCurrencyInstance().format((list.get(i-1).getActual().subtract(list.get(i-1).getBudget()))), 30);
+						}
+					}
+					
+					drawTable(myPage, contentStream, 750, 30, contentForTable);
+					contentStream.close();
+				}
+				contentStream.close();
+				mainDocument.save(new File(path));
+				mainDocument.close();
+			}
 		}
 		else{
-			PDPage myPage = new PDPage();
-			PDDocument mainDocument = new PDDocument();
-			
-			String path = "C:/Users/IEUser/IBM/rationalsdp/Sirius_Order_Project_Workspace/SiriusOrderClient/WebContent/generatedPDF/budget-pdf.pdf";
-			PDPageContentStream contentStream = new PDPageContentStream(mainDocument, myPage);
-			List<List<ActualvBudgetBean>> subLists = separateList(budgetReports, 35); 
-			
-			for(List<ActualvBudgetBean> list: subLists){
-				myPage = new PDPage();
-				mainDocument.addPage(myPage);
-				contentStream = new PDPageContentStream(
-						mainDocument, myPage);
-				String[][] contentForTable = new String[list.size()+1][4];
-				for (int i = 0; i < list.size()+1; i++){
-					if(i==0){
-						contentForTable[0][0] = "Date Range";
-						contentForTable[0][1] = "Actual";
-						contentForTable[0][2] = "Budget";
-						contentForTable[0][3] = "Variance";
-					}else{
-						contentForTable[i][0] = list.get(i-1).getTime();
-						contentForTable[i][1] = addPaddingToString(NumberFormat.getCurrencyInstance().format(list.get(i-1).getActual()), 30);
-						contentForTable[i][2] = addPaddingToString(NumberFormat.getCurrencyInstance().format(list.get(i-1).getBudget()), 30);
-						contentForTable[i][3] = addPaddingToString(NumberFormat.getCurrencyInstance().format((list.get(i-1).getActual().subtract(list.get(i-1).getBudget()))), 30);
-					}
-				}
-				
-				drawTable(myPage, contentStream, 750, 30, contentForTable);
-				contentStream.close();
-			}
-			contentStream.close();
-			mainDocument.save(new File(path));
-			mainDocument.close();
+			JsonObjectBuilder objBuilder = Json.createObjectBuilder();
+			objBuilder.add("invalidDate", true);
+			JsonObject output = objBuilder.build();
+			PrintWriter out = response.getWriter();
+			JsonWriter writer = Json.createWriter(out);
+			writer.write(output);
+			writer.close();
 		}
 	}
 	
