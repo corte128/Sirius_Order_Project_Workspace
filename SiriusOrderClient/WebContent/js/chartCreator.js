@@ -118,19 +118,19 @@ function validateAttendance(response) {
 	var dateDiv = document.getElementById('invalidDate');
 	
 	if (view == '') {
-		viewDiv.style.display = 'block';
+		viewDiv.style.display = 'inline-block';
 		reportDiv.style.display = 'none';
 		dateDiv.style.display = 'none';
 		return;
 	}
 	if(reportType == ''){
-		reportDiv.style.display = 'block';
+		reportDiv.style.display = 'inline-block';
 		dateDiv.style.display = 'none';
 		viewDiv.style.display = 'none';
 		return;
 	}
 	if (response) {
-		dateDiv.style.display = 'block';
+		dateDiv.style.display = 'inline-block';
 		reportDiv.style.display = 'none';
 		viewDiv.style.display = 'none';
 		return;

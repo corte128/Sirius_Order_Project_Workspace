@@ -54,6 +54,17 @@
 			</h1>
 		</div>
 		
+		<div class="error-container">
+			<div id="invalidView" class="invalid-view">
+				Invalid View Selected
+			</div>
+			<div id="invalidReport" class="invalid-view">
+				Invalid Report Type Selected
+			</div>
+			<div id="invalidDate" class="invalid-view">
+				Please select a valid date
+			</div>
+		</div>
 		
 		<div class="container-fluid">
 			
@@ -174,16 +185,7 @@
 					href="/SiriusOrderClient/generatedPDF/budget-pdf.pdf"
 					target="_blank">Click here to download</a>
 			</div>
-			
-			<div id="invalidView" class="invalid-view">
-				Invalid View Selected
-			</div>
-			<div id="invalidReport" class="invalid-view">
-				Invalid Report Type Selected
-			</div>
-			<div id="invalidDate" class="invalid-view">
-				Invalid Date Selected
-			</div>
+
 			
 		</div>
 	</div>
