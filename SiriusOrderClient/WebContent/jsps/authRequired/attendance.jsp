@@ -30,11 +30,11 @@
 	href="/SiriusOrderClient/angular/bower_components/angular-ui-grid/ui-grid.css" />
 
 <script src="/SiriusOrderClient/js/attendanceTable.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="/SiriusOrderClient/css/attendance.css">
+
 <link rel="stylesheet" type="text/css"
 	href="/SiriusOrderClient/css/superAdmin.css">
-
+<link rel="stylesheet" type="text/css"
+	href="/SiriusOrderClient/css/attendance.css">
 </head>
 <c:choose>
 	<c:when
