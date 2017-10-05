@@ -115,7 +115,7 @@
 				<c:when test="${budgetInvalid == 2}">
 					<script>budgetFailurePopup();</script>
 				</c:when>
-				<c:when test="${budgetInvalid == 1}">
+				<c:when test="${budgetInvalid == 3}">
 					<script>budgetSuccessPopup();</script>
 				</c:when>
 				<c:otherwise>
