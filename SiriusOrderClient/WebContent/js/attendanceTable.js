@@ -27,20 +27,24 @@ function validateAttendance() {
 	var viewSelectError = document.getElementById("viewSelectError");
 	var dateSelectError = document.getElementById("dateSelectError");
 
-	if (view == 'PDF' || view == 'display') {
-		viewSelectError.style.display = 'none';
-	} else {
-		viewSelectError.style.display = 'block';
-		downloadDiv.style.display = "none";
-		displayDiv.style.display = "none";
+	if (view != 'PDF' || view != 'display') {
+		$('#invalidView').fadeIn('fast').delay(1000).fadeOut('slow');
 		return false;
 	}
+//	else {
+//		viewSelectError.style.display = 'block';
+//		downloadDiv.style.display = "none";
+//		displayDiv.style.display = "none";
+//		return false;
+//	}
 	if ((range != '%') && (startDate != '' || endDate != '')) {
-		dateSelectError.style.display = 'block';
+		//dateSelectError.style.display = 'block';
+		$('#invalidDate').fadeIn('fast').delay(1000).fadeOut('slow');
 		return false;
-	} else {
-		dateSelectError.style.display = 'none';
 	}
+//	 else {
+//		dateSelectError.style.display = 'none';
+//	}
 }
 
 // function checkForResults() {
