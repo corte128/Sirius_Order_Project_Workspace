@@ -2,7 +2,7 @@
 	display: flex;
 }
 #users-form{
-	margin: 15px;
+	/*margin: 15px;*/
 	flex: 9;
 }
 
@@ -89,6 +89,6 @@ button{
 	font-family: serif;
 	font-style: italic;
 	margin: auto;
-	margin-top: 15px;
-	margin-bottom: 30px;
+	/*margin-top: 15px;
+	margin-bottom: 30px;*/
 }

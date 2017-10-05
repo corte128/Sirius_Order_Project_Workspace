@@ -18,6 +18,12 @@
 	margin-bottom: 20px;
 }
 
+h1 {
+	padding-top: 20px !important;
+	padding-bottom: 5px !important;
+	margin-bottom: 50px !important;
+}
+
 .search-bar-column {
 	flex: 1;
 	padding: 5px;
@@ -149,7 +155,7 @@ aside {
 	.search-bar-column {
 		padding: 5px;
 	}
-	
+
 	.invalid-view{
 		display: none;
 		padding-bottom: 10px;

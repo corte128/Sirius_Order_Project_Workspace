@@ -17,6 +17,7 @@ aside{
 .error{
 	color: red;
 }
+
 #visitors-title{
 	position: absolute;
 	font-family: serif;
@@ -24,11 +25,19 @@ aside{
 	text-align: center;
 	width: 100%;
 }
+
+h1 {
+	padding-top: 20px !important;
+	padding-bottom: 5px !important;
+	margin-bottom: 50px !important;
+}
+
 .visitor-form-label{
 	font-family: serif;
 	font-style: italic;
 	color: #5F6060;
 }
+
 label{
 	font-weight: 100 !important;
 }
@@ -41,14 +50,14 @@ label{
 	padding-left: 30px;
 	padding-right: 30px;
 	*/
-	
+
 }
 @media only screen and (min-width: 300px) {
 	.visitors-form-input{
 		width: 175px;
 	}
 	#visitors-form{
-		margin-top: 50px;
+		margin-top: 100px;
 		margin-left: 20px;
 	}
 	#visitors-input-fields{
@@ -84,7 +93,7 @@ label{
 		font-size: 2em;
 	}
 	#visitors-form{
-		margin-top: 75px;
+		margin-top: 120px;
 	}
 	#visitors-labels{
 		flex: 3;
