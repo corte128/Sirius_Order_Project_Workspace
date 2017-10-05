@@ -54,7 +54,23 @@
 			</h1>
 		</div>
 		
-		<div class="error-container">
+		<%-- ALERTS --%>
+		<div class="information-container">
+			<div id="invalidView" style="display:none">
+				<bean:message key="INVALID_BUDGET_VIEW" />
+			</div>
+			<div id="invalidReportType" style="display:none">
+				<bean:message key="INVALID_BUDGET_REPORT_TYPE" />
+			</div>
+			<div id="invalidDate" style="display:none">
+				<bean:message key="INVALID_BUDGET_DATE" />
+			</div>
+			<div id="invalidLocation" style="display:none">
+				<bean:message key="INVALID_BUDGET_LOCATION" />
+			</div>
+		</div>
+		
+		<%-- <div class="error-container">
 			<div id="invalidView" class="invalid-view">
 				Invalid View Selected
 			</div>
@@ -67,7 +83,7 @@
 			<div id="invalidLocation" class="invalid-view">
 				Please enter a valid location
 			</div>
-		</div>
+		</div> --%>
 		
 		<div class="container-fluid">
 			

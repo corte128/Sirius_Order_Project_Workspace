@@ -103,7 +103,7 @@ app.controller('BudgetChartCtrl', ['$scope', '$http',  function ($scope, $http)
 		   	});
 		}
 		else{
-			document.getElementById("invalidLocation").style.display = 'inline-block';
+			$('#invalidLocation').fadeIn('fast').delay(1000).fadeOut('slow');
 		}
     };
 }]);
@@ -123,21 +123,15 @@ function validateAttendance(response) {
 	var dateDiv = document.getElementById('invalidDate');
 	
 	if (view == '') {
-		viewDiv.style.display = 'inline-block';
-		reportDiv.style.display = 'none';
-		dateDiv.style.display = 'none';
+		$('#invalidView').fadeIn('fast').delay(1000).fadeOut('slow');
 		return;
 	}
 	if(reportType == ''){
-		reportDiv.style.display = 'inline-block';
-		dateDiv.style.display = 'none';
-		viewDiv.style.display = 'none';
+		$('#invalidReportType').fadeIn('fast').delay(1000).fadeOut('slow');
 		return;
 	}
 	if (response) {
-		dateDiv.style.display = 'inline-block';
-		reportDiv.style.display = 'none';
-		viewDiv.style.display = 'none';
+		$('#invalidDate').fadeIn('fast').delay(1000).fadeOut('slow');
 		return;
 	}
 }
