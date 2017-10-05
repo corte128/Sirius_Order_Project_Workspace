@@ -17,10 +17,7 @@ $(function ()
             	display: 'Date', 
             	type: 'ui-datepicker', 
             	ctrlAttr: { maxlength: 50 }, 
-            	ctrlCss: { width: '100%'},
-            	onChange: function (evt, rowIndex) {
-            		$("#tblAppendGrid_Date_"+(rowIndex+1)+".hasDatepicker").datepicker( "option", "dateFormat", "MM d, yy" );
-                }
+            	ctrlCss: { width: '100%'}
             },
             { 
             	name: 'DayofWeek', 
@@ -62,7 +59,6 @@ $(function ()
         }
     });
     getTableData();
-    $( ".hasDatepicker" ).datepicker( "option", "dateFormat", "MM d, yy" );
     resizeAppendGrid();
 });
 
@@ -70,15 +66,6 @@ function saveEntry(evtObj, uniqueIndex, rowData){
 	console.log(rowData.Date);
 	if(rowData.ID > 0){
 		$('#saveFailure').fadeIn('fast').delay(1000).fadeOut('slow');
-//		$("<div id='save_dialog' title='Save Failed'>Cannot save. Holiday is already in database.</div>").dialog({
-//			resizable: false,
-//			modal: true,
-//			buttons: {
-//				Close: function(){
-//					$(this).dialog("close");
-//				}
-//			}
-//		});
 	}
 	else {
 		//ajax call to delete holiday
@@ -93,15 +80,6 @@ function saveEntry(evtObj, uniqueIndex, rowData){
 				if(response == "true"){
 					console.log("Save Success");
 					$('#saveSuccess').fadeIn('fast').delay(1000).fadeOut('slow');
-//					$("<div id='save_dialog' title='Save Successful'>The holiday was successfully saved!</div>").dialog({
-//						resizable: false,
-//						modal: true,
-//						buttons: {
-//							Close: function(){
-//								$(this).dialog("close");
-//							}
-//						}
-//					});
 				}
 				else{
 					console.log("Save Unsuccessful");
@@ -130,15 +108,6 @@ function deleteEntry(evtObj, uniqueIndex, rowData){
 				console.log(response);
 				if(response == "true"){
 					$('#deleteSuccess').fadeIn('fast').delay(1000).fadeOut('slow');
-//					$("<div id='delete_dialog' title='Delete Successful'>The holiday was successfully deleted!</div>").dialog({
-//						resizable: false,
-//						modal: true,
-//						buttons: {
-//							Close: function(){
-//								$(this).dialog("close");
-//							}
-//						}
-//					});
 				}
 			}
 			else{
