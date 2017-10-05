@@ -34,9 +34,9 @@ app.controller('BudgetChartCtrl', ['$scope', '$http',  function ($scope, $http)
 					validateAttendance(response.data.invalidDate);
 				}
 				else{
-					document.getElementById('invalidView').style.display = 'none';
-					document.getElementById('invalidReport').style.display = 'none';
-					document.getElementById('invalidDate').style.display = 'none';
+//					document.getElementById('invalidView').style.display = 'none';
+//					document.getElementById('invalidReport').style.display = 'none';
+//					document.getElementById('invalidDate').style.display = 'none';
 					if(displayOption == 'Display'){
 						var downloadDiv = document.getElementById("downloadDiv");
 						downloadDiv.style.visibility = 'hidden';
@@ -118,9 +118,9 @@ function validateAttendance(response) {
 	var reportType = document.getElementById("budgetSearchReportTypeInput").value;
 	var view = document.getElementById("budgetSearchViewInput").value;
 	
-	var viewDiv = document.getElementById('invalidView');
-	var reportDiv = document.getElementById('invalidReport');
-	var dateDiv = document.getElementById('invalidDate');
+//	var viewDiv = document.getElementById('invalidView');
+//	var reportDiv = document.getElementById('invalidReport');
+//	var dateDiv = document.getElementById('invalidDate');
 	
 	if (view == '') {
 		$('#invalidView').fadeIn('fast').delay(1000).fadeOut('slow');
