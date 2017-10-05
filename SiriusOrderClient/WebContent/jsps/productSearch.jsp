@@ -26,7 +26,7 @@
 		<div id="productSearchAndNavContainer">
 			<main id="productSearchContainer">
 				<div class="pageTitle">
-					<h1>Product Search</h1>
+					<h1><fmt:message key="PRODUCT_SEARCH_TITLE_LABEL" /></h1>
 				</div>
 				
 				<%-- ALERTS --%>
@@ -48,10 +48,10 @@
 						<input id="productSearchButton" type="submit" class="search" value="Search"/>
 					</form> -->
 					<select class="category-select" id="category" name="category">
-						<option value="0">All</option>
-						<option value="3">Ink & Toner</option>
-						<option value="1">Breakroom</option>
-						<option value="2">Office Supplies</option>
+						<option value="0"><fmt:message key="PRODUCT_SEARCH_ALL_LABEL" /></option>
+						<option value="3"><fmt:message key="PRODUCT_SEARCH_INK_AND_TONER_LABEL" /></option>
+						<option value="1"><fmt:message key="PRODUCT_SEARCH_BREAKROOM_LABEL" /></option>
+						<option value="2"><fmt:message key="PRODUCT_SEARCH_OFFICE_SUPPLIES_LABEL" /></option>
 					</select>
 					<input type="text" class="search searchBar" id="search" name="search"></input>
 					<div class="search-icon-container">
@@ -94,7 +94,7 @@
 										value="Add To Cart" />
 									</div>
 									<span id="addConfirmed${currentProduct.getId()}" class="confirm-popup">
-										Product Added!
+										<fmt:message key="PRODUCT_ADDED_CONFIRMATION" />
 									</span>
 								</c:if>
 							</div>
