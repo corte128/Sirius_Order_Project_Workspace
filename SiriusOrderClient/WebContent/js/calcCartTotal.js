@@ -43,7 +43,7 @@ function calcOfficeSuppliesTotals()
 	var totalPrice = 0;
 	var itemTotal = 0;
 	for(var i = 0; i < prices.length; ++i){
-		var price = prices[i].innerText.slice(1);
+		var price = prices[i].getAttribute("value");
 		var quantity = Number(quantities[i].value);
 		totalPrice += price * quantity;
 		itemTotal += quantity;
@@ -65,7 +65,7 @@ function calcInkAndTonerTotals()
 		var totalPrice = 0;
 		var itemTotal = 0;
 		for(var i = 0; i < prices.length; ++i){
-			var price = prices[i].innerText.slice(1);
+			var price = prices[i].getAttribute("value");
 			var quantity = Number(quantities[i].value);
 			totalPrice += price * quantity;
 			itemTotal += quantity;
