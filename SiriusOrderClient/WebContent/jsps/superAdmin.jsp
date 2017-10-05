@@ -81,6 +81,7 @@
 					<bean:message key="INVALID_BUDGET_ERROR" />
 				</div>
 			</div>
+			
 			<%-- Budget Confirmations --%>
 			<c:choose>
 				<c:when test="${locationAlreadyExists == 2}">

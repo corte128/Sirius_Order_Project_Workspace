@@ -2,34 +2,42 @@
 <html>
 <head>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
+<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <link rel="stylesheet" type="text/css"
 	href="/SiriusOrderClient/css/productDetails.css">
 	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script src="/SiriusOrderClient/js/productSearch.js"></script>
 <script type="text/javascript"
 	src="/SiriusOrderClient/js/jquery-1.12.4.min.js"></script>
-
+<script src="/SiriusOrderClient/js/productDetails.js"></script>
 </head>
 <body>
 	<header>
 		<%@ include file="/jsps/header.jsp"%>
 	</header>
 	<fmt:setBundle basename="com.sirius.order.client.properties.common" />
-	
-	<div id="likedLimit">
-						You have 5 products in Wishlist already.
-	</div>
+
 	<div class="flexBoxContainer">
 		<div class="productDetailsPageDiv">
 			<div class="pageTitle">
-						<h1>Product Details</h1>
-					</div>
+				<h1>Product Details</h1>
+			</div>
+		
+			<%-- ALERTS --%>
+			<div class="information-container">
+				<div id="likedLimit" style="display:none">
+					<bean:message key="FIVE_LIKES_ERROR" />
+				</div>
+			</div>
+		
 			<div id="successMessage" class="successMessage">
 				<fmt:message key="PRODUCT_DETAILS_SUCCESS" />
 			</div>
+			
 			<div id="errorMessage" class="errorMessage">
 				<fmt:message key="PRODUCT_DETAILS_ERROR" />
 			</div>
+			
 			<div class="productDetailsMainContianer">
 				<div class="breadCrumbs">
 					<a href="/SiriusOrderClient/jsps/welcome.jsp"><fmt:message key="PRODUCT_DETAILS_WELCOME" /></a> >
