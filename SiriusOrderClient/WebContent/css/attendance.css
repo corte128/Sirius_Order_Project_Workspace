@@ -24,6 +24,25 @@ h2 {
 	margin-top: 0px;
 }
 
+h1 {
+	padding-top: 20px !important;
+	padding-bottom: 5px !important;
+	/*margin-bottom: 50px !important;*/
+}
+
+.information-container{
+	text-align:center;
+	height: 50px;
+}
+
+#invalidView{
+	display: inline-block;
+	z-index: 3;
+	margin:auto;
+	padding: 5px;
+	color: red;
+}
+
 #closeBtn {
 	float: right;
 	display: none;
@@ -53,7 +72,7 @@ h2 {
 }
 
 .ui-grid-contents-wrapper {
-	
+
 }
 
 abbr[data-original-title],abbr[title] {
@@ -214,14 +233,14 @@ abbr[data-original-title],abbr[title] {
 		top: 200px;
 		display: none;
 	}
-	
+
 	.pageTitle{
 	margin: auto;
 	text-align: center;
 	font-family: serrif;
 	margin-bottom: 30px;
 	margin-top: 15px;
-	
+
 	font-style: italic;
 	}
 	#helpIcon {
@@ -242,7 +261,7 @@ abbr[data-original-title],abbr[title] {
     padding: 15px;
     font-style: italic;
 }
-	
+
 }
 
 @media ( max-width : 500px) {
