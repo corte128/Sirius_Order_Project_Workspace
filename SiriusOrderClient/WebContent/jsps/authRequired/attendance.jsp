@@ -95,7 +95,7 @@
 				
 				<div class="attendancePageContainer" ng-controller="AttendanceCtrl">
 					<div class="pageTitle">
-						<h1>Attendance</h1>
+						<h1><fmt:message key="ATTENDANCE_TITLE" /></h1>
 					</div>
 					
 					<%-- ALERTS --%>
