@@ -24,7 +24,6 @@ public class LoginServiceDAOImpl {
 		int result = 0;
 		try{
 			logger.log(Level.FINE, "Looking for employee in database...");
-			conn = DBConnection.getConnection();
 			String sqlQuery = "SELECT employee_id_fk FROM login_tbl WHERE username_pk = (?) AND login_password = (?) AND is_valid = (?)";
 			PreparedStatement statement = conn.prepareStatement(sqlQuery);
 			statement.setString(1, email);
@@ -36,9 +35,6 @@ public class LoginServiceDAOImpl {
 			}
 			DBConnection.closeStatement(statement);
 			DBConnection.closeResultSet(rs);
-		} catch (NamingException e1) {
-			logger.log(Level.FINE, "Error getEmployeeByCredentials() " +e1);
-			e1.printStackTrace();
 		} catch (SQLException e1) {
 			logger.log(Level.FINE, "Error getEmployeeByCredentials() " +e1);
 			e1.printStackTrace();

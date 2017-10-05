@@ -54,47 +54,10 @@ public class OfficeAdminServiceDAOImpl {
 		//insert into holiday table
 		String sql = "INSERT INTO holiday_tbl (holiday_date, holiday_name, created_by, created_date, location_id_fk, is_valid)"+
 		" VALUES (?, ?, ?, (SELECT CURDATE()), ?, true)";
-		String date = holidayDate.replaceAll(",", "");
-		String[] dateParts = date.split(" ");
+		String[] dateParts = holidayDate.split("/");
 		String day = dateParts[1];
 		String year = dateParts[2];
-		String month = "";
-		if(dateParts[0].equals("January")){
-			month = "01";
-		}
-		if(dateParts[0].equals("February")){
-			month = "02";
-		}
-		if(dateParts[0].equals("March")){
-			month = "03";
-		}
-		if(dateParts[0].equals("April")){
-			month = "04";
-		}
-		if(dateParts[0].equals("May")){
-			month = "05";
-		}
-		if(dateParts[0].equals("June")){
-			month = "06";
-		}
-		if(dateParts[0].equals("July")){
-			month = "07";
-		}
-		if(dateParts[0].equals("August")){
-			month = "08";
-		}
-		if(dateParts[0].equals("September")){
-			month = "09";
-		}
-		if(dateParts[0].equals("October")){
-			month = "10";
-		}
-		if(dateParts[0].equals("November")){
-			month = "11";
-		}
-		if(dateParts[0].equals("December")){
-			month = "12";
-		}
+		String month = dateParts[0];
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, year+"-"+month+"-"+day);
