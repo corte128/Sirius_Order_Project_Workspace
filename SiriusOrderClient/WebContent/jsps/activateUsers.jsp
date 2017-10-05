@@ -56,7 +56,7 @@
 	<div id="users-content">
 		<div id="users-form">
 			<div class="pageTitle">
-				<h1>Activate Users</h1>
+				<h1><bean:message key="ACTIVATE_TITLE" /></h1>
 			</div>
 			<div class="information-container">
 				<div id="rejectSuccess" style="display: none">

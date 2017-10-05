@@ -20,7 +20,7 @@
 	<div class="flexBoxContainer">
 		<div class="productDetailsPageDiv">
 			<div class="pageTitle">
-				<h1>Product Details</h1>
+				<h1><fmt:message key="PRODUCT_DETAILS_TITLE" /></h1>
 			</div>
 		
 			<%-- ALERTS --%>

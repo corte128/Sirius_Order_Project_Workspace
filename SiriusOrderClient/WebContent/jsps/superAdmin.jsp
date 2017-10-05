@@ -38,7 +38,7 @@
 	<link rel="stylesheet" type="text/css"
 		href="/SiriusOrderClient/css/superAdmin.css">
 	<script src="/SiriusOrderClient/js/superAdminTable.js"></script>
-</head> 
+</head>
 <body>
 	<%-- HEADER --%>
 	<header> 
