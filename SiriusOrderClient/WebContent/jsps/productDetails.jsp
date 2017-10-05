@@ -15,6 +15,10 @@
 		<%@ include file="/jsps/header.jsp"%>
 	</header>
 	<fmt:setBundle basename="com.sirius.order.client.properties.common" />
+	
+	<div id="likedLimit">
+						You have 5 products in Wishlist already.
+	</div>
 	<div class="flexBoxContainer">
 		<div class="productDetailsPageDiv">
 			<div class="pageTitle">
