@@ -28,7 +28,7 @@ function validateAttendance() {
 	var dateSelectError = document.getElementById("dateSelectError");
 
 	if (view != 'PDF' && view != 'display') {
-		$('#invalidView').fadeIn('fast').delay(1000).fadeOut('slow');
+		$('#invalidView').fadeIn('fast').delay(5000).fadeOut('slow');
 		return false;
 	}
 //	else {
@@ -39,7 +39,7 @@ function validateAttendance() {
 //	}
 	if ((range != '%') && (startDate != '' || endDate != '')) {
 		//dateSelectError.style.display = 'block';
-		$('#invalidDate').fadeIn('fast').delay(1000).fadeOut('slow');
+		$('#invalidDate').fadeIn('fast').delay(5000).fadeOut('slow');
 		return false;
 	}
 //	 else {

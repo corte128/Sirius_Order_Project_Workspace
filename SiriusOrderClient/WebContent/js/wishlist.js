@@ -4,7 +4,7 @@ $( document ).ready(function() {
 
 function addToCart(productID)
 {
-	$('#addConfirmed' + productID).fadeIn('fast').delay(1000).fadeOut('slow')
+	$('#addConfirmed' + productID).fadeIn('fast').delay(5000).fadeOut('slow')
 	var xhttp = new XMLHttpRequest();
 	var quantityElement = document.getElementById("quantityToAdd");
     var quantity = 1;
@@ -38,7 +38,7 @@ function addToCart(productID)
 	xhttp.send();
 	var successElement = document.getElementById("successMessage");
 	if (successElement != null && quantity > 0){
-		$('#successMessage').fadeIn('fast').delay(3000).fadeOut('slow')
+		$('#successMessage').fadeIn('fast').delay(5000).fadeOut('slow')
 	}
 }
 

@@ -65,7 +65,7 @@ $(function ()
 function saveEntry(evtObj, uniqueIndex, rowData){
 	console.log(rowData.Date);
 	if(rowData.ID > 0){
-		$('#saveFailure').fadeIn('fast').delay(1000).fadeOut('slow');
+		$('#saveFailure').fadeIn('fast').delay(5000).fadeOut('slow');
 	}
 	else {
 		//ajax call to delete holiday
@@ -79,7 +79,7 @@ function saveEntry(evtObj, uniqueIndex, rowData){
 			if(response != null){
 				if(response == "true"){
 					console.log("Save Success");
-					$('#saveSuccess').fadeIn('fast').delay(1000).fadeOut('slow');
+					$('#saveSuccess').fadeIn('fast').delay(5000).fadeOut('slow');
 				}
 				else{
 					console.log("Save Unsuccessful");
@@ -107,7 +107,7 @@ function deleteEntry(evtObj, uniqueIndex, rowData){
 			if(response != null){
 				console.log(response);
 				if(response == "true"){
-					$('#deleteSuccess').fadeIn('fast').delay(1000).fadeOut('slow');
+					$('#deleteSuccess').fadeIn('fast').delay(5000).fadeOut('slow');
 				}
 			}
 			else{
