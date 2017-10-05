@@ -27,7 +27,7 @@ function validateAttendance() {
 	var viewSelectError = document.getElementById("viewSelectError");
 	var dateSelectError = document.getElementById("dateSelectError");
 
-	if (view != 'PDF' || view != 'display') {
+	if (view != 'PDF' && view != 'display') {
 		$('#invalidView').fadeIn('fast').delay(1000).fadeOut('slow');
 		return false;
 	}

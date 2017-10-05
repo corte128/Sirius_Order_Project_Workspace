@@ -52,7 +52,9 @@
 			
 			<%-- TITLE --%>
 			<div class="pageTitle">
-				<h1>Administration</h1>
+				<h1>
+					<bean:message key="SUPER_ADMIN_TITLE" />
+				</h1>
 			</div>
 				
 			<%-- ALERTS --%>
