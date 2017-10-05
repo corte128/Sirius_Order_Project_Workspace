@@ -126,26 +126,26 @@ function resizeAppendGrid($scope){
 }
 
 function locationSuccessPopup(){
-	$('#locationSuccess').fadeIn('fast').delay(1000).fadeOut('slow');
+	$('#locationSuccess').fadeIn('fast').delay(5000).fadeOut('slow');
 }
 
 function locationFailurePopup(){
-	$('#locationFailure').fadeIn('fast').delay(1000).fadeOut('slow');
+	$('#locationFailure').fadeIn('fast').delay(5000).fadeOut('slow');
 }
 
 function assignSuccessPopup(){
-	$('#assignSuccess').fadeIn('fast').delay(1000).fadeOut('slow');
+	$('#assignSuccess').fadeIn('fast').delay(5000).fadeOut('slow');
 }
 
 function assignFailurePopup(){
-	$('#assignFailure').fadeIn('fast').delay(1000).fadeOut('slow');
+	$('#assignFailure').fadeIn('fast').delay(5000).fadeOut('slow');
 }
 
 function budgetSuccessPopup(){
-	$('#budgetSuccess').fadeIn('fast').delay(1000).fadeOut('slow');
+	$('#budgetSuccess').fadeIn('fast').delay(5000).fadeOut('slow');
 }
 
 function budgetFailurePopup(){
-	$('#budgetFailure').fadeIn('fast').delay(1000).fadeOut('slow');
+	$('#budgetFailure').fadeIn('fast').delay(5000).fadeOut('slow');
 }
 

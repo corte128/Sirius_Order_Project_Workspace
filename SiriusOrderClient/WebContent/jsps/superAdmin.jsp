@@ -52,7 +52,9 @@
 			
 			<%-- TITLE --%>
 			<div class="pageTitle">
-				<h1>Administration</h1>
+				<h1>
+					<bean:message key="SUPER_ADMIN_TITLE" />
+				</h1>
 			</div>
 				
 			<%-- ALERTS --%>
@@ -87,10 +89,11 @@
 				<c:when test="${locationAlreadyExists == 2}">
 					<script>locationFailurePopup();</script>
 				</c:when>
-				<c:when test="${locationAlreadyExists == 1}">
+				<c:when test="${locationAlreadyExists == 3}">
+					<script>locationSuccessPopup();</script>
 				</c:when>
 				<c:otherwise>
-					<script>locationSuccessPopup();</script>
+					
 				</c:otherwise>
 			</c:choose>
 			
@@ -99,10 +102,11 @@
 				<c:when test="${officeAdminAlreadyExists == 2}">
 					<script>assignFailurePopup();</script>
 				</c:when>
-				<c:when test="${officeAdminAlreadyExists == 1}">
+				<c:when test="${officeAdminAlreadyExists == 3}">
+					<script>assignSuccessPopup();</script>
 				</c:when>
 				<c:otherwise>
-					<script>assignSuccessPopup();</script>
+					
 				</c:otherwise>
 			</c:choose>
 			
@@ -111,10 +115,11 @@
 				<c:when test="${budgetInvalid == 2}">
 					<script>budgetFailurePopup();</script>
 				</c:when>
-				<c:when test="${budgetInvalid == 1}">
+				<c:when test="${budgetInvalid == 3}">
+					<script>budgetSuccessPopup();</script>
 				</c:when>
 				<c:otherwise>
-					<script>budgetSuccessPopup();</script>
+					
 				</c:otherwise>
 			</c:choose> 
 			
