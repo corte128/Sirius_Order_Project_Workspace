@@ -8,6 +8,8 @@
 	<%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 	<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+	<fmt:setBundle basename="com.sirius.order.client.properties.common" />
 	<!--  <link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/font.css">-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/SiriusOrderClient/css/nav.css">
@@ -72,12 +74,12 @@
 								<ul class="nav-sidebar-sub-list">
 							      	<div class="register-nav-sidebar-sub-text-container">
 										<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/NavigationServlet?action=attendance">
-											Attendance Report
+											<fmt:message key="NAV_ATTENDANCE_REPORT" />
 										</a>
 									</div>
 									<div class="register-nav-sidebar-sub-text-container">
 										<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/NavigationServlet?action=budget">
-											Budget Vs Actual
+											<fmt:message key="NAV_BUDGET_VS_ACTUAL" />
 										</a>
 									</div> 
 								</ul>
@@ -100,17 +102,17 @@
 								<ul class="nav-sidebar-sub-list">
 									<div class="admin-nav-sidebar-sub-text-container">
 										<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/NavigationServlet?action=visitors">
-											Add Visitors 
+											<fmt:message key="NAV_ADD_VISITORS" />
 										</a>
 									</div>
 									<div class="admin-nav-sidebar-sub-text-container">
 										<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/NavigationServlet?action=holidays">
-											Add Public Holidays
+											<fmt:message key="NAV_ADD_PUBLIC_HOLIDAYS" />
 										</a>
 									</div>
 									<div class="admin-nav-sidebar-sub-text-container">
 										<a class="nav-sidebar-sub-text-link" href="/SiriusOrderClient/NavigationServlet?action=activateUsers">
-											Activate Users
+											<fmt:message key="NAV_ACTIVATE_USERS" />
 										</a>
 									</div>
 								</ul>
@@ -152,12 +154,12 @@
 						<div id="reportsNavSubModalTextContainer">
 							<div class="reports-nav-sub-modal-text-container">
 								<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/NavigationServlet?action=attendance">
-									Attendance Report
+									<fmt:message key="NAV_ATTENDANCE_REPORT" />
 								</a>
 							</div>
 							<div class="reports-nav-sub-modal-text-container">
 								<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/NavigationServlet?action=budget">
-									Budget Vs Actual
+									<fmt:message key="NAV_BUDGET_VS_ACTUAL" />
 								</a>
 							</div>
 						</div>
@@ -182,17 +184,17 @@
 						<div id="adminNavSubModalTextContainer">
 							<div class="admin-nav-sub-modal-text-container">
 								<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/NavigationServlet?action=visitors">
-									Add Visitors
+									<fmt:message key="NAV_ADD_VISITORS" />
 								</a>
 							</div>
 							<div class="admin-nav-sub-modal-text-container">
 								<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/NavigationServlet?action=holidays">
-									Add Public Holidays
+									<fmt:message key="NAV_ADD_PUBLIC_HOLIDAYS" />
 								</a>
 							</div>
 							<div class="admin-nav-sub-modal-text-container">
 								<a class="nav-sub-modal-text-link" href="/SiriusOrderClient/NavigationServlet?action=activateUsers">
-									Activate Users
+									<fmt:message key="NAV_ACTIVATE_USERS" />
 								</a>
 							</div>
 						</div>

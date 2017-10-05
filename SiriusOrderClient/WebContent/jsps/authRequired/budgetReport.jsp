@@ -187,9 +187,9 @@
 						<thead>
 							<tr>
 								<th></th>
-								<th>Actual</th>
-								<th>Budget</th>
-								<th>Variance</th>
+								<th><fmt:message key="BUDGET_TABLE_HEADER_ACTUAL" /></th>
+								<th><fmt:message key="BUDGET_TABLE_HEADER_BUDGET" /></th>
+								<th><fmt:message key="BUDGET_TABLE_HEADER_VARIANCE" /></th>
 							</tr>
 						</thead>
 						<tbody id="budgetGridBody">
@@ -200,9 +200,9 @@
 			</div>
 
 			<div class="hideDownloadDiv" id="downloadDiv">
-				Your PDF has been generated <br /> <a
+			<fmt:message key="PDF_GENERATED_MESSAGE" /><br /> <a
 					href="/SiriusOrderClient/generatedPDF/budget-pdf.pdf"
-					target="_blank">Click here to download</a>
+					target="_blank"><fmt:message key="DOWNLOAD_LINK" /></a>
 			</div>
 
 			
