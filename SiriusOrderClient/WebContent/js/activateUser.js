@@ -44,10 +44,10 @@ function reject(btn) {
 };
 
 function addedSuccessPopup() {
-	$('#confirmSuccess').fadeIn('fast').delay(1000).fadeOut('slow');
+	$('#confirmSuccess').fadeIn('fast').delay(5000).fadeOut('slow');
 
 }
 
 function removeSuccessPopup() {
-	$('#rejectSuccess').fadeIn('fast').delay(1000).fadeOut('slow');
+	$('#rejectSuccess').fadeIn('fast').delay(5000).fadeOut('slow');
 }

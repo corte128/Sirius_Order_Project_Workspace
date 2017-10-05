@@ -24,7 +24,9 @@
 		<div class="wishlist-header">
 			<%-- TITLE --%>
 			<div class="wishlist-header-title">
-				<h1>My Wishlist</h1>
+				<h1>
+					<bean:message key='WISHLIST_TITLE'/>
+				</h1>
 			</div>
 
 			<%-- CONTENT --%>
