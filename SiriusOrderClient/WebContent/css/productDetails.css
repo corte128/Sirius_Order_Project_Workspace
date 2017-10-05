@@ -74,9 +74,7 @@ h1 {
 	display: inline-block;
 	z-index: 3;
 	padding: 5px;
-	border: 1px solid red;
 	color: red;
-	background-color: white;
 	margin: auto;
 }
 
@@ -188,7 +186,7 @@ aside {
 		position: absolute;
 	}
 
-	#likedLimit{
+	/*#likedLimit{
 	display: none;
 	z-index: 3;
 	position: fixed;
@@ -198,7 +196,7 @@ aside {
 	border: 1px solid red;
 	color: red;
 	background-color: white;
- }
+ }*/
 }
 
 @media ( max-width : 500px) {
@@ -207,7 +205,7 @@ aside {
 		height: 0px;
 		position: absolute;
 	}
-	#likedLimit{
+	/*#likedLimit{
 	display: none;
 	z-index: 3;
 	position: fixed;
@@ -217,7 +215,7 @@ aside {
 	border: 1px solid red;
 	color: red;
 	background-color: white;
- }
+ }*/
 	.productDetailsMainContianer {
 		width: 300px;
 	}

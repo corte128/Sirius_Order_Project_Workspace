@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css"
 	href="/SiriusOrderClient/css/attendance.css">
 	
+<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>	
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:setBundle basename="com.sirius.order.client.properties.attendance" />
@@ -94,9 +95,20 @@
 				
 				<div class="attendancePageContainer" ng-controller="AttendanceCtrl">
 					<div class="pageTitle">
-						<h1>Attendance</h1>
+						<h1><fmt:message key="ATTENDANCE_TITLE" /></h1>
 					</div>
-					<div class="errorMessage" id="viewSelectError">
+					
+					<%-- ALERTS --%>
+					<div class="information-container">
+						<div id="invalidView" style="display:none">
+							<bean:message key="INVALID_BUDGET_VIEW" />
+						</div>
+						<div id="invalidDate" style="display:none">
+							<bean:message key="INVALID_BUDGET_DATE" />
+						</div>
+					</div>
+					
+			<%-- 	<div class="errorMessage" id="viewSelectError">
 						<p>
 							<fmt:message key="ATTENDANCE_VIEW_ERROR" />
 						</p>
@@ -105,7 +117,7 @@
 						<p>
 							<fmt:message key="ATTENDANCE_DATE_ERROR" />
 						</p>
-					</div>
+					</div> --%>	
 
 					<div id="attendanceSearchBox" class="searchBox">
 						<form id="attendanceSearchForm" class="attendanceForm">

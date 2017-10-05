@@ -2,6 +2,7 @@
 	contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 
 <html>
 	<head> 
@@ -25,8 +26,16 @@
 		<div id="productSearchAndNavContainer">
 			<main id="productSearchContainer">
 				<div class="pageTitle">
-						<h1>Product Search</h1>
+					<h1>Product Search</h1>
+				</div>
+				
+				<%-- ALERTS --%>
+				<div class="information-container">
+					<div id="likedLimit" style="display:none">
+						<bean:message key="FIVE_LIKES_ERROR" />
 					</div>
+				</div>
+				
 				<div class="searchContainer">
 					<!-- <form method="post" action="/SiriusOrderClient/ProductSearchServlet" class="search">
 						<select class="categorySelect" name="category">
@@ -48,9 +57,9 @@
 					<div class="search-icon-container">
 						<span id="productSearchButton" onclick="searchProducts()"><i class="material-icons search-icon">search</i></span>
 					</div>
-					<div id="likedLimit">
+<%-- 					<div id="likedLimit">
 						You have 5 products in Wishlist already.
-					</div>
+					</div> --%>
 				</div>
 				<div id="productContainer" class="productContainer">
 					<c:forEach var="product" items="${Products}">

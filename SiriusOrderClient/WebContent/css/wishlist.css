@@ -25,6 +25,12 @@
   flex:10;
 }
 
+h1 {
+	padding-top: 20px !important;
+	padding-bottom: 5px !important;
+	margin-bottom: 50px !important;
+}
+
 .wishlist-header{
   /*display:flex;*/
   flex:10;
